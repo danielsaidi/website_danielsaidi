@@ -83,25 +83,9 @@ header .bubble p + p {
    text-align: center;
 }
 
-.main .container #projects h3.noimage {
-   display: block;
-   font-family: 'Molengo', Georgia, Times, serif;
-   font-size: 2em;
-   height:66px;
-}
-
-.main .container #projects h3.noimage a {
-   color: black;
-}
-
-.main .container #projects h3.noimage a:hover {
-   font-size: 1.1em;
-   color: #555;
-   text-decoration: none;
-}
-
 .main .container #projects p {
    line-height: 1.2em;
+   padding-left: 0;
 }
 
 .main .container #contact p {
