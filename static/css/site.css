@@ -75,9 +75,10 @@ header .bubble p + p {
 
 .main .container p {
    font-size: 1.5em;
-   padding-left: 20px;
+   padding: 0 20px;
    text-shadow: white -1px -2px 1px;
 }
+
 
 .main .container #projects .row-fluid {
    text-align: center;
@@ -88,6 +89,7 @@ header .bubble p + p {
    padding-left: 0;
 }
 
+
 .main .container #contact p {
    margin-bottom: 1.8em;
 }
@@ -97,12 +99,12 @@ header .bubble p + p {
 }
 
 .main .container #contact p i {
-   margin-right: 1em;
+   margin-right: 0.5em;
 }
 
 .main .container #contact p i + span {
    display: inline-block;
-   width: 70px;
+   width: 65px;
 }
 
 
