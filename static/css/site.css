@@ -1,5 +1,5 @@
 body { 
-   background: url(../img/paper-dry.jpg);
+   background: url(../img/paper-sml.jpg);
    padding: 0px !important;
 }
 
@@ -33,7 +33,7 @@ footer i { margin-right: 1em; }
 /* Jumbotron *******/
 
 header {
-   background: url(../img/paper-lrg.jpg) #eee;
+   background: url(../img/paper-dark.jpg) #eee;
    color: black;
    padding-top: 50px;
    text-align: center;
