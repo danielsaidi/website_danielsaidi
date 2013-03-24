@@ -33,7 +33,7 @@ footer i { margin-right: 1em; }
 /* Jumbotron *******/
 
 header {
-   background: url(../img/paper-dark.jpg) #eee;
+   background: url(../img/paper-lrg.jpg) #eee;
    color: black;
    padding-top: 50px;
    text-align: center;
@@ -70,9 +70,9 @@ header .bubble p + p {
    color: white;
    font-size: 1.5em;
    font-weight: lighter;
-   height: 91px;
+   height: 82px;
    margin-left: -10px;
-   padding: 49px 0 0 20px;
+   padding: 43px 0 0 10px;
    text-shadow: #600 -1px -2px 1px;
 }
 
