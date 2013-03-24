@@ -22,6 +22,7 @@ $(document).ready(function() {
 	}
 
 	function rotateRibbons() {
+		return;
 		var amplitude = 0.9;
 		$.each($("h2:not(.no-rotate)"), function(i, el){
 			el = $(el);
