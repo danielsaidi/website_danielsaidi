@@ -76,6 +76,19 @@ header .bubble p + p {
    text-shadow: #600 -1px -2px 1px;
 }
 
+@media (max-width: 767px) {
+   .main .container h2 {
+      margin-left: -24px;
+      padding-left: 20px;
+   }
+
+   .row-fluid + .row-fluid,
+   .span3 + .span3 {
+      margin-top: 30px;
+   }
+}
+
+
 .main .container p {
    font-size: 1.5em;
    text-shadow: white -1px -2px 1px;
