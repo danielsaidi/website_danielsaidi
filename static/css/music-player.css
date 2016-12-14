@@ -1,0 +1,142 @@
+/* ============================================================================================== 
+This copyright notice must be kept untouched in the stylesheet at all times.
+The original version of this stylesheet and the associated (x)html 
+is available at http://www.script-tutorials.com/html5-audio-player-with-playlist/
+Copyright (c) Script Tutorials. All rights reserved.
+This stylesheet and the associated (x)html may be modified in any way to fit your requirements.
+================================================================================================= */
+
+
+/* HTML5 Audio player with playlist styles */
+
+.music-player .controls-container {
+    float:left;
+    margin-left: 20px;
+}
+
+.music-player .controls-container .float-break {
+    clear: both;
+} 
+
+
+.music-player .title, .music-player .artist {
+    font-family: verdana;
+}
+
+.music-player .title {
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.music-player .artist {
+    color: #ddd;
+    font-size: 12px;
+}
+
+.music-player .cover {
+    background: transparent no-repeat scroll center top;
+    background-size: 94px 94px !important;
+    border-radius: 5px 5px 5px 5px;
+    float: left;
+    height: 94px;
+    width: 94px;
+}
+.music-player .controls {
+    cursor: pointer;
+    height: 23px;
+    width: 138px;
+    margin-top: 9px;
+    margin-left: -3px;
+}
+.music-player .controls .play, .music-player .controls .pause, .music-player .controls .rew, .music-player .controls .fwd {
+    background: transparent url("../img/music-player.png") no-repeat scroll 0 0;
+    float: left;
+    height: 100%;
+    width: 33%;
+}
+
+.music-player .controls .play {
+    background-position: -8px -171px;
+}
+.music-player .controls .pause {
+    background-position: -8px -198px;
+    display: none;
+}
+.music-player .controls .rew {
+    background-position: -54px -171px;
+}
+.music-player .controls .fwd {
+    background-position: -100px -171px;
+}
+.music-player .controls .play:hover {
+    background-position: -8px -170px;
+}
+.music-player .controls .pause:hover {
+    background-position: -8px -197px;
+}
+.music-player .controls .rew:hover {
+    background-position: -54px -170px;
+}
+.music-player .controls .fwd:hover {
+    background-position: -100px -170px;
+}
+.hidden {
+    display: none;
+}
+.music-player .controls .visible {
+    display: block;
+}
+.music-player .volume {
+    height: 11px;
+    left: 150px;
+    position: relative;
+    top: 4px;
+    width: 112px;
+
+    background-color: black;
+    border-radius: 5px 5px 5px 5px;
+}
+.music-player .tracker {
+    height: 10px;
+    width: 220px;
+    background-color: black;
+    margin-top: 10px; 
+}
+.music-player .ui-slider-range {
+    background: transparent url("../img/music-player.png") no-repeat scroll 1px -224px;
+    height: 100%;
+}
+/*.music-player .ui-slider-handle {
+    cursor: pointer;
+    height: 10px;
+    margin-left: -5px;
+    position: absolute;
+    top: 2px;
+    width: 10px;
+    z-index: 2;
+}
+.music-player .volume .ui-slider-handle {
+    background: url("../img/music-player.png") no-repeat scroll -201px -188px rgba(0, 0, 0, 0);
+    height: 13px;
+    width: 13px;
+}*/
+.music-player .playlist {
+    background-color: #333333;
+    border-radius: 5px 5px 5px 5px;
+    list-style-type: none;
+    margin: -10px 0 0 2px;
+    padding-bottom: 10px;
+    padding-top: 15px;
+    position: relative;
+    width: 326px;
+    z-index: 1;
+}
+.music-player .playlist li {
+    color: #EEEEEE;
+    cursor: pointer;
+    margin: 0 0 5px 15px;
+}
+.music-player .playlist li.active {
+    font-weight: bold;
+}

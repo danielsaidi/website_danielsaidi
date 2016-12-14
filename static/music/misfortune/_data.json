@@ -1,0 +1,84 @@
+{
+	"name" : "Misfortune",
+	"startYear" : 1995,
+	"endYear" : 1999,
+	"genre": "Death Metal, Melodic Death Metal",
+	"hasNews" : false,
+
+	"description": "Melodic Death Metal",
+	
+	"members" : [
+		"Peter Rudhberg - Guitar",
+		"Daniel Saidi - Vocals",
+		"Mattias Sundberg - Drums",
+		"Martin Unoson - Guitars",
+		"Henrik Wiklund - Bass"
+	],
+
+	"biography" : [
+		"I sang in Misfortune between 1995 and 1999. After the first Pantera-influenced demo, we tuned in on bands like At the Gates, Carcass and Dissection. As a result, the second demo differed a lot from the first.",
+		"'Midnightenlightened' received great reviews and was eventually released as an EP by Blackened / Plastic Head. Shortly after, we begun working on the fullength album.",
+		"'Forsaken' was released in 1999. The recording suffered from many technical problems. As a result, the songs became quite flat and (to be frank) boring. It's a shame, since they were initially wildly decorated."
+	],
+
+	"albums": [
+		{
+			"name" : "Forsaken",
+			"file" : "forsaken",
+			"recorded" : 1999,
+			"tracks" : [
+				{
+					"name" : "Forsaken",
+					"file" : "forsaken_01_forsaken"
+				},
+				{
+					"name" : "A Scenery of Despair",
+					"file" : "forsaken_02_a_scenery_of_despair"
+				},
+				{
+					"name" : "Rape of Bewildered Dreams",
+					"file" : "forsaken_03_rape_of_bewildered_dreams"
+				},
+				{
+					"name" : "In Mating",
+					"file" : "forsaken_04_in_mating"
+				},
+				{
+					"name" : "Burn!",
+					"file" : "forsaken_05_burn"
+				},
+				{
+					"name" : "Through Chaos Fulfilled",
+					"file" : "forsaken_06_through_chaos_fulfilled"
+				},
+				{
+					"name" : "A Realm of the Unblessed",
+					"file" : "forsaken_07_a_realm_of_the_unblessed"
+				},
+				{
+					"name" : "Apostates of Hate",
+					"file" : "forsaken_08_apostates_of_hate"
+				}
+			]
+		},
+		{
+			"name" : "Midnightenlightened",
+			"file" : "midnightenlightened",
+			"recorded" : 1999,
+			"tracks" : [
+				{
+					"name" : "The Prophecy",
+					"file" : "midnightenlightened_01_the_prophecy"
+				},
+				{
+					"name" : "Midnightenlightened",
+					"file" : "midnightenlightened_02_midnightenlightened"
+				},
+				{
+					"name" : "Pain Unbearable",
+					"file" : "midnightenlightened_03_pain_unbearable"
+				}
+			]
+		}
+	]
+}
