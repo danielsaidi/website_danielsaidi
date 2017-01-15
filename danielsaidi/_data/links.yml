@@ -1,0 +1,15 @@
+- name: Twitter
+  url: http://twitter.com/danielsaidi
+  title: Follow me on Twitter
+
+- name: Blog
+  url: http://danielsaidi.wordpress.com
+  title: Read my blog
+
+- name: GitHub
+  url: http://github.com/danielsaidi
+  title: Check out my GitHub profile
+
+- name: E-mail
+  url: mailto:daniel.saidi@gmail.com
+  title: Send me an e-mail

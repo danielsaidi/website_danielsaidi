@@ -1,0 +1,108 @@
+---
+# You don't need to edit this file, it's empty on purpose.
+# Edit theme's home layout instead if you wanna make some changes
+# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+layout: home
+---
+
+
+<div class="main">
+  		
+
+	<div class="section avatar">
+		<a id="top"></a>
+		<div class="wrapper">
+			<div class="row-fluid">
+				<div class="span8 offset2 center">
+					<div class="bubble above">
+						<div class="tail"></div>
+						<h1>My name is Daniel Saidi</h1>
+						<p>I create stuff...mostly code</p>
+					</div>
+					<img src="/assets/img/avatar.png" alt="Daniel Saidi as a smiling avatar" />
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<hr />
+
+	<div class="section tint">
+		<a id="about-me"></a>
+		<div class="wrapper">
+			<div class="title">
+				<p>
+					My name is Daniel Saidi. I am a system, web and app developer in
+					<a rel="external" href="https://maps.google.com/maps/ms?ptab=2&amp;ie=UTF8&amp;oe=UTF8&amp;msa=0&amp;msid=104394998929176276584.00048917b05a490a49b20">Stockholm, Sweden</a>,
+					currently working at
+					<a rel="external" href="http://www.bookbeat.com/">BookBeat</a>.
+				</p>
+				<p>
+					I love web and mobile, but anything with code in it rocks my world. On my spare time,
+					I create apps, maintain several <a rel="external" href="http://www.github.com/danielsaidi">open source projects</a>, 
+					tweet away on <a rel="external" href="http://www.twitter.com/danielsaidi">Twitter</a> and
+					try to find stuff to write about on my <a rel="external" href="#contact">blog</a>.
+				</p>
+				<p>
+					Some of my recent apps are BookBeat (<a rel="external" href="https://itunes.apple.com/app/bookbeat/id1056652614?mt=8">iOS</a>),
+					Tradera (<a rel="external" href="https://itunes.apple.com/us/app/tradera/id427984084?mt=8">iOS</a> 
+						+ <a rel="external" href="https://play.google.com/store/apps/details?id=com.tradera&hl=sv">Android</a>),
+					Harrys Restaurants (<a rel="external" href="https://itunes.apple.com/se/app/harrys/id1032684223?mt=8&ign-mpt=uo%3D4">iOS</a> 
+						+ <a rel="external" href="https://play.google.com/store/apps/details?id=se.revide.harrys">Android</a>),
+					Goth Emoji (<a rel="external" href="https://itunes.apple.com/us/app/goth-emoji/id1070226733?mt=8">iOS</a>
+						+ <a rel="external" href="https://play.google.com/store/apps/details?id=danielsaidi.com.gothemoji&hl=en">Android</a>),
+					Metal Emoji (<a rel="external" href="https://itunes.apple.com/us/app/metal-emoji/id1070228823?mt=8">iOS</a>)
+						+ <a rel="external" href="https://play.google.com/store/apps/details?id=danielsaidi.com.metalemoji&hl=en">Android</a>),
+					Pinny (<a rel="external" href="https://itunes.apple.com/us/app/pinny-personal-maps/id984638325?mt=8">iOS</a>) 
+					and
+					Wally (<a rel="external" href="https://itunes.apple.com/us/app/wally/id516398915?mt=8">iOS</a>) .
+				</p>
+				<p>
+					This web site is being remade. More content will be up whenever I get around to it.
+				</p>
+				<p>
+					All the best! /Daniel
+				</p>
+			</div>
+		</div>
+	</div>
+
+  <hr />
+
+  <div class="section tint dark">
+    <div class="wrapper">
+      <div class="row">
+        {% for link in site.data.links %}
+        <div class="col-md-3">
+          <div class="box">
+            <a rel="external" href="{{ link.url }}" title="{{ link.title }}" class="title-image">
+              <img alt=" icon" src="static/img/box-titles/{{ link.name }}.png" />
+            </a>
+          </div>
+        </div>  
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="section tint darker">
+    <div class="wrapper">
+      <div class="row">
+        {% for link in site.data.links %}
+        <div class="col-md-3">
+          <div class="box">
+            <a rel="external" href="{{ link.url }}" title="{{ link.title }}" class="title-image">
+              <img alt=" icon" src="static/img/box-titles/{{ link.name }}.png" />
+            </a>
+          </div>
+        </div>  
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+	<hr />
+
+</div>
