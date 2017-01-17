@@ -2,11 +2,20 @@
 	background: white;
 	border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; 
 	box-shadow: 2px 2px 6px rgba(0, 0, 0, .35); -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, .35); -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, .35);
-	font-family: 'Waiting for the Sunrise', cursive;
+	font-family: 'Indie Flower', cursive;
 	font-weight: normal;
 	padding: 10px;
 	position: relative;
 	text-align: center;
+
+	h1 {
+		font-size: 2.5em;
+		font-family: 'Indie Flower', cursive;
+	}
+
+	p {
+		font-size: 1.6em;
+	}
 }
 
 .bubble.above {
@@ -27,12 +36,12 @@
 
 .bubble.above .tail {
 	bottom: -24px;
-	background-image: url(img/tail-bubble-above.png);
+	background-image: url(img/bubble/tail-bubble-above.png);
 }
 
 .bubble.below .tail {
 	top: -24px;
-	background-image: url(img/tail-bubble-below.png);
+	background-image: url(img/bubble/tail-bubble-below.png);
 }
 
 .bubble.left .tail, .bubble.right .tail {
@@ -44,18 +53,10 @@
 
 .bubble.left .tail {
 	right: -24px;
-	background-image: url(img/tail-bubble-left.png);
+	background-image: url(img/bubble/tail-bubble-left.png);
 }
 
 .bubble.right .tail {
 	left: -24px;
-	background-image: url(img/tail-bubble-right.png);
-}
-
-.bubble h1 {
-	font-size: 2.5em;
-}
-
-.bubble p {
-	font-size: 1.6em;
+	background-image: url(img/bubble/tail-bubble-right.png);
 }

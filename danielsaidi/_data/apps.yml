@@ -1,36 +1,51 @@
-- name: Vinylsamlaren
-  site: http://vinylsamlaren.se
-  appstore: http://app.fewojoawej
-
-- name: Goth Emoji
-  site: http://gothemoji.com
-  appstore: http://app.fewojoawej
-
-- name: Metal Emoji
-  site: http://gothemoji.com/metal
-  appstore: http://app.fewojoawej
-
-- name: Tradera
-  site: http://tradera.com
-  appstore: http://app.fewojoawej
-
-- name: Harrys
-  site: http://www.harrys.se/harrys-vanner/
-  appstore: http://app.fewojoawej
-
-- name: BookBeat
-  site: http://www.bookbeat.com
-  appstore: http://app.fewojoawej
 
 - name: Pinny
-  site: http://www.pinnyapp.com
-  appstore: http://app.fewojoawej
+  siteUrl: http://pinnyapp.com
+  appStoreUrl: https://itunes.apple.com/app/pinny/id984638325
+  playStoreUrl:
+
+- name: BookBeat
+  siteUrl: http://bookbeat.com
+  appStoreUrl: https://itunes.apple.com/app/bookbeat/id1056652614
+  playStoreUrl:
+
+- name: Wally
+  siteUrl: http://wally.danielsaidi.com
+  appStoreUrl: https://itunes.apple.com/app/wally/id516398915
+  playStoreUrl:
+
+- name: Vinylsamlaren
+  siteUrl: http://vinylsamlaren.se
+  appStoreUrl: https://itunes.apple.com/us/app/vinylsamlaren/id640253601
+  playStoreUrl:
+
+- name: Goth Emoji
+  siteUrl: http://gothemoji.com
+  appStoreUrl: https://itunes.apple.com/app/goth-emoji/id1070226733
+  playStoreUrl: https://play.google.com/store/apps/details?id=danielsaidi.com.gothemoji
+
+- name: Metal Emoji
+  siteUrl: http://gothemoji.com/metal
+  appStoreUrl: https://itunes.apple.com/app/metal-emoji/id1070228823
+  playStoreUrl: https://play.google.com/store/apps/details?id=danielsaidi.com.metalemoji
+
+- name: Tradera
+  siteUrl: http://tradera.com
+  appStoreUrl: https://itunes.apple.com/us/app/tradera/id427984084
+  playStoreUrl: https://play.google.com/store/apps/details?id=com.tradera
+
+- name: Harrys
+  siteUrl: http://www.harrys.se/harrys-vanner/
+  appStoreUrl: https://itunes.apple.com/se/app/harrys/id1032684223
+  playStoreUrl: https://play.google.com/store/apps/details?id=se.revide.harrys
 
 - name: Appamini ABC
-  site: http://appamini.com
-  appstore: http://app.fewojoawej
+  siteUrl: http://appamini.com
+  appStoreUrl: https://itunes.apple.com/app/appamini-abc/id581402736
+  playStoreUrl:
 
 - name: Appamini 123
-  site: http://appamini.com
-  appstore: http://app.fewojoawej
+  siteUrl: http://appamini.com
+  appStoreUrl: https://itunes.apple.com/app/appamini-123/id944820281
+  playStoreUrl:
 

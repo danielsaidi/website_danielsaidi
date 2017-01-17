@@ -3,10 +3,6 @@ html, body {
 	background-image: url(img/bg-lightgrey.png) !important;
 }
 
-body {
-	font-family: 'Raleway', sans-serif;
-}
-
 @media (max-width: 767px) {
 	body {
 		padding: 0 !important;
@@ -14,12 +10,12 @@ body {
 }
 
 
-a {
-	color: #800000;	
+h1, h2, h3, h2 + p {
+	font-family: 'Carter One', cursive;
 }
 
-a:hover {
-	color: #b00000;	
+h2 + p + .row {
+	margin-top: 3em !important;
 }
 
 hr {
@@ -188,66 +184,6 @@ table.table-striped {
 }
 
 
-/* Boxes *** */
-
-.box {
-	border-radius: 4px; -moz-border-radius: 4px;
-	box-shadow: 2px 2px 6px rgba(0, 0, 0, .35); -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, .35); -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, .35);
-}
-
-h2.box, a.box {
-	background: #9e0505;
-	display: inline-block;
-	font-family: 'Bitter', serif;
-	font-size: 1em;
-	font-weight: normal;
-	margin-left: -25px;
-	margin-bottom: 20px;
-	padding: 5px 20px;
-	text-rendering: none;
-	text-shadow: 0px 0px 4px #1e0505 !important;
-}
-
-a.box  {
-	margin: 0px !important;
-	margin-top: -10px !important;
-	margin-right: 20px !important;
-}
-
-h2.box, h2.box a, a.box {
-	color: white !important;
-}
-
-div.box {
-	background-color: white;
-	margin-bottom: 20px;
-	padding: 10px;
-	position: relative;
-	text-align: center;
-}
-
-div.box h3 {
-	font-family: 'Bitter', serif;
-	font-size: 1.3em;
-}
-
-div.box a + p {
-	margin-top: 20px;
-}
-
-div.box .title-image + p {
-	margin-top: 20px;
-}
-
-div.box .new {
-	position: absolute;
-	right: -4px;
-	top: -4px;
-	width: 96px;
-	height: 96px;
-	background-image: url(../img/ribbon-new.png);
-}
-
 
 
 /* Music player */
@@ -286,5 +222,6 @@ div.box .new {
 
 
 
+@import "site/box";
 @import "site/bubble";
 @import "site/tint";
