@@ -2,8 +2,6 @@
 	background: white;
 	border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; 
 	box-shadow: 2px 2px 6px rgba(0, 0, 0, .35); -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, .35); -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, .35);
-	font-family: 'Indie Flower', cursive;
-	font-weight: normal;
 	padding: 10px;
 	position: relative;
 	text-align: center;
@@ -14,16 +12,17 @@
 	}
 
 	p {
-		font-size: 1.6em;
+		font-size: 1.4em;
+		font-family: 'Indie Flower', cursive;
+	}
+
+	.tail {
+		position: absolute;
 	}
 }
 
 .bubble.above {
 	margin-bottom: 25px;
-}
-
-.bubble .tail {
-	position: absolute;
 }
 
 .bubble.above .tail, .bubble.below .tail {

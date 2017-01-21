@@ -9,7 +9,7 @@
 }
 
 .box {
-	border-radius: 4px;
+	border-radius: 6px;
 	-moz-border-radius: 4px;
 	
 	box-shadow: 2px 2px 6px rgba(0, 0, 0, .35);
@@ -29,4 +29,14 @@
 
 .box + h3 {
 	font-size: 1.2em;
+}
+
+
+.box.text-box {
+	text-align: left;
+	padding: 30px 25px 15px 25px;
+
+	p {
+		margin-top: 10px;
+	}
 }

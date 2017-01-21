@@ -10,13 +10,11 @@ html, body {
 }
 
 
-h1, h2, h3, h2 + p {
-	font-family: 'Carter One', cursive;
-}
-
-h2 + p + .row {
+h2 + .row, h2 + p + .row {
 	margin-top: 3em !important;
 }
+
+
 
 hr {
 	background: url(img/bg-hr.png) no-repeat center top;
@@ -73,11 +71,6 @@ table.table-striped {
 
 
 @media (max-width: 979px) {
-
-	div.main {
-		margin-top: -2px;
-		padding-top: 0px;
-	}
 
 	.navbar-fixed-top {
 		position: static !important;
@@ -146,12 +139,6 @@ table.table-striped {
 
 .section.avatar .wrapper {
 	padding-bottom: 0 !important;
-}
-
-.section.title, .section .title {
-	font-size: 1.3em;
-	line-height: 1.5em;
-	text-shadow: -1px -1px 1px #aaa, 1px 1px 1px white;
 }
 
 
@@ -225,3 +212,4 @@ table.table-striped {
 @import "site/box";
 @import "site/bubble";
 @import "site/tint";
+@import "site/typography";
