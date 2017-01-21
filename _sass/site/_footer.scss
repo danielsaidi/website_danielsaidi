@@ -1,0 +1,29 @@
+footer {
+	background-color: #fff;	
+	border-top: 1px solid #bbb !important;
+	font-size: 12px;
+	min-height: 100px;
+	padding-top: 30px;
+
+	span.year {
+		font-size: 0.9em;
+		font-family: 'Merriweather Sans', sans-serif;
+		margin-right: 5px;
+	}
+
+	.wrapper {
+		padding-left: 5px;
+	}
+
+	@media screen and (max-width: 800px) {
+		.wrapper {
+			padding-left: 20px;
+		}
+	}
+
+	@media (max-width: 979px) {
+		.row-fluid + .row-fluid {
+			margin-top: 5px;
+		}
+	}
+}

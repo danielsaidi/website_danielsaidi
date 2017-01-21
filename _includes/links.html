@@ -1,0 +1,12 @@
+<div class="row">
+  {% for link in site.data.links %}
+  <div class="col-xs-6 col-md-3 box-container">
+    <a rel="external" href="{{ link.url }}" title="{{ link.link-title }}" class="title-image">
+      <div class="box">
+        <img alt="{{ link.name }} icon" src="/assets/img/link-icons/{{ link.name | replace:' ','-' }}.png" />
+      </div>
+      <h3>{{ link.title }}</h3>
+    </a>
+  </div>  
+  {% endfor %}
+</div>

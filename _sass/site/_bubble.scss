@@ -1,0 +1,61 @@
+.bubble {
+	background: white;
+	border-radius: 20px; -moz-border-radius: 20px; -webkit-border-radius: 20px; 
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, .35); -moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, .35); -webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, .35);
+	padding: 10px;
+	position: relative;
+	text-align: center;
+
+	h1 {
+		font-size: 1.8em;
+		font-family: 'Indie Flower', cursive;
+	}
+
+	p {
+		font-size: 1.4em;
+		font-family: 'Indie Flower', cursive;
+	}
+
+	.tail {
+		position: absolute;
+	}
+}
+
+.bubble.above {
+	margin-bottom: 25px;
+}
+
+.bubble.above .tail, .bubble.below .tail {
+	left: 50%;
+	margin-left: -30px;
+	width: 45px;
+	height: 25px;
+	background-repeat: no-repeat;
+}
+
+.bubble.above .tail {
+	bottom: -24px;
+	background-image: url(img/bubble/tail-bubble-above.png);
+}
+
+.bubble.below .tail {
+	top: -24px;
+	background-image: url(img/bubble/tail-bubble-below.png);
+}
+
+.bubble.left .tail, .bubble.right .tail {
+	top: 50%;
+	margin-top: -22px;
+	width: 25px;
+	height: 45px;
+}
+
+.bubble.left .tail {
+	right: -24px;
+	background-image: url(img/bubble/tail-bubble-left.png);
+}
+
+.bubble.right .tail {
+	left: -24px;
+	background-image: url(img/bubble/tail-bubble-right.png);
+}

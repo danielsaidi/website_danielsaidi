@@ -1,0 +1,42 @@
+.box-container {
+	text-align: center;
+	margin-bottom: 2em;
+}
+
+.box-container a {
+	color: black;
+
+}
+
+.box {
+	border-radius: 6px;
+	-moz-border-radius: 4px;
+	
+	box-shadow: 2px 2px 6px rgba(0, 0, 0, .35);
+	-moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, .35);
+	-webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, .35);
+
+	background-color: white;
+	padding: 7px;
+	position: relative;
+	text-align: center;
+}
+
+.box > img {
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+}
+
+.box + h3 {
+	font-size: 1.1em;
+}
+
+
+.box.text-box {
+	text-align: left;
+	padding: 30px 25px 15px 25px;
+
+	p {
+		margin-top: 10px;
+	}
+}
