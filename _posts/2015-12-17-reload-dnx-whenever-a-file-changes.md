@@ -1,8 +1,7 @@
 ---
-layout: post
 title:  "Reload DNX whenever a file changes"
 date:   2015-12-17 20:39:00 +0100
-categories: software dotnet
+categories: dotnet
 tags: 	dotnet-core visual-studio-code
 ---
 

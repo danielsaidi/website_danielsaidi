@@ -1,8 +1,7 @@
 ---
-layout: post
 title:  "Update the title of an MKAnnotation"
 date: 	2015-09-17 22:04:00 +0100
-categories: software apps
+categories: apps
 tags: 	ios swift mapkit mkannotation
 ---
 

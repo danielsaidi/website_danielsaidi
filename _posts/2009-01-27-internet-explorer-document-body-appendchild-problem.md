@@ -1,9 +1,8 @@
 ---
-layout: post
 title:  "Internet Explorer document.body.appendChild(...) problem"
 date:   2009-01-27 08:46:00 +0100
-categories: software web
-tags: html javascript internet-explorer php
+categories: web
+tags: 	html javascript internet-explorer php
 ---
 
 

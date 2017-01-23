@@ -1,9 +1,8 @@
 ---
-layout: post
 title:  "IIS 7 does not allow ports on Windows Vista"
 date:   2009-01-29 08:28:00 +0100
-categories: software dotnet
-tags: windows iis visual-studio
+categories: dotnet
+tags: 	windows iis visual-studio
 ---
 
 

@@ -1,9 +1,8 @@
 ---
-layout: post
 title:  "UIImageView is pixelated after applying an async image"
 date:   2016-11-10 09:39:02 +0100
-categories: software apps
-tags: ios swift uiimageview uiimage cgimage
+categories: apps
+tags:	ios swift uiimageview uiimage cgimage
 ---
 
 

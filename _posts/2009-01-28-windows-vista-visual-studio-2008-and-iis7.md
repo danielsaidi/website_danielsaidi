@@ -1,9 +1,8 @@
 ---
-layout: post
 title:  "Windows Vista, Visual Studio 2008 and IIS7"
 date:   2009-01-28 15:12:00 +0100
-categories: software dotnet
-tags: windows iis visual-studio
+categories: dotnet
+tags: 	windows iis visual-studio
 ---
 
 

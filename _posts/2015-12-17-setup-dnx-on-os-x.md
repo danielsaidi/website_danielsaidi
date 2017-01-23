@@ -1,9 +1,8 @@
 ---
-layout: post
 title:  "Setup DNX on OS X"
 date:   2015-12-17 08:48:00 +0100
-categories: software dotnet
-tags: dotnet-core visual-studio-code mono brew brew-cask
+categories: dotnet
+tags:	dotnet-core visual-studio-code mono brew brew-cask
 ---
 
 After so much waiting, so many "I'll do this first", so much app coding etc. etc.

@@ -1,9 +1,8 @@
 ---
-layout: post
 title:  "Reset Xcode \"load plugin bundles\" warning"
 date:   2016-09-05 17:42:00 +0100
-categories: software
-tags: xcode xcode-7 xcode-plugins
+categories: apps
+tags: 	ios xcode xcode-7 xcode-plugins
 ---
 
 

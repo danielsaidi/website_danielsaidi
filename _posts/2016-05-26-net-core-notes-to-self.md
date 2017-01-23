@@ -1,9 +1,8 @@
 ---
-layout: post
 title:  ".NET Core notes to self"
 date:   2016-05-26 07:52:00 +0100
-categories: software dotnet
-tags: dotnet-core unit-tests xunit visual-studio-code
+categories: dotnet
+tags: 	dotnet-core unit-tests xunit visual-studio-code
 ---
 
 
