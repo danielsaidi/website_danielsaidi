@@ -7,13 +7,13 @@ tags: 	ios swift mapkit mkannotation
 ---
 
 
-![iOS Simulator Screen](/assets/img/blog/2015-09-17_simulator.png)
-
 In an app that I am building, I have a map where users can save personal content
 and present it in a beauuutiful way. Ok, enough with the sales pitch.
 
 When the user taps a pin on the map, the app will reverse geocode its coordinate
 and use it to display the full address in the callout's subtitle.
+
+![iOS Simulator Screen](/assets/img/blog/2015-09-17_simulator.png)
 
 This may seem trivial, but turned out to be a hassle. If the geocoding operation
 takes too long and completes after the callout has been shown, the label text is
