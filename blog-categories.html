@@ -4,6 +4,8 @@ title: Daniel Saidi's Blog
 permalink: /blog/categories/
 ---
 
+{% assign categories = (site.categories | sort:0) %}
+
 <h3>
   <a href="/blog">Latest</a>
   <span class="separator">|</span>
@@ -12,11 +14,19 @@ permalink: /blog/categories/
   <a href="/blog/tags">Tags</a>
 </h3>
 
-{% include blog-categories.html %}
+<div class="tags">
+{% for category in categories %}
+  {% assign name = category | first %}
+    <a href="#{{ name | slugify }}" class="tag">
+      <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+      {{name}}
+    </a>
+{% endfor %}
+</div>
 
 <div class="box-container">
   <div class="box">
-    {% for category in site.categories %}
+    {% for category in categories %}
       {% assign name = category | first %}
       {% assign posts = category | last %}
       

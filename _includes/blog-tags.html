@@ -1,9 +1,0 @@
-<div class="tags">
-{% for tag in site.tags %}
-  {% assign name = tag | first %}
-    <a class="tag" href="#{{ name | slugify }}">
-      <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
-      {{name}}
-    </a>
-{% endfor %}
-</div>

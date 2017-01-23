@@ -4,6 +4,8 @@ title: Daniel Saidi's Blog
 permalink: /blog/tags/
 ---
 
+{% assign tags = (site.tags | sort:0) %}
+
 <h3>
   <a href="/blog">Latest</a>
   <span class="separator">|</span>
@@ -12,11 +14,19 @@ permalink: /blog/tags/
   <a class="selected" href="/blog/tags">Tags</a>
 </h3>
 
-{% include blog-tags.html %}
+<div class="tags">
+{% for tag in tags %}
+  {% assign name = tag | first %}
+    <a class="tag" href="#{{ name | slugify }}">
+      <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
+      {{name}}
+    </a>
+{% endfor %}
+</div>
 
 <div class="box-container">
   <div class="box">
-    {% for tag in site.tags %}
+    {% for tag in tags %}
       {% assign name = tag | first %}
       {% assign posts = tag | last %}
       
