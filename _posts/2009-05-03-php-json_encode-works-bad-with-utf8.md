@@ -1,6 +1,6 @@
 ---
 title:  "PHP json_encode works bad with UTF8"
-date:   2009-04-16 22:25:00 +0100
+date:   2009-05-03 08:00:00 +0100
 categories: web
 tags: 	php json
 ---

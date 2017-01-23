@@ -2,7 +2,7 @@
 title:  "Internet Explorer document.body.appendChild(...) problem"
 date:   2009-01-27 08:46:00 +0100
 categories: web
-tags: 	html javascript internet-explorer php
+tags: 	html javascript ie php
 ---
 
 
