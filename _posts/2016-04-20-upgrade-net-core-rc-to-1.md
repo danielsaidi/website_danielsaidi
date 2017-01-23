@@ -3,7 +3,7 @@ layout: post
 title:  "Upgrade .NET Core RC to 1.0"
 date:   2016-04-20 08:31:00 +0100
 categories: software dotnet
-tags: dotnet-core unit-tests xunit visual-studio-code
+tags: dotnet-core visual-studio-code omnisharp
 ---
 
 
