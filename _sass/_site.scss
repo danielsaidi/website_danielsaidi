@@ -14,7 +14,7 @@ h2 + .row, h2 + p + .row {
 	margin-top: 2.5em !important;
 }
 
-hr, footer {
+hr.styled, .main > hr, footer {
 	background: url(img/bg-hr.png) no-repeat center top;
 	border: none;
 	border-top: 1px solid #aaa;
@@ -22,14 +22,13 @@ hr, footer {
 	margin: 0px;
 }
 
-hr + div {
+.main > hr + div {
 	margin-top: -40px;
 }
 
 div.center {
 	text-align: center;
 }
-
 
 
 @media screen and (max-width: 800px) {
@@ -41,10 +40,12 @@ div.center {
 
 
 
+@import "site/blog";
 @import "site/box";
 @import "site/bubble";
 @import "site/footer";
 @import "site/rows";
 @import "site/sections";
+@import "site/tags";
 @import "site/tint";
 @import "site/typography";

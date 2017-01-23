@@ -1,0 +1,9 @@
+<div class="tags">
+{% for category in site.categories %}
+  {% assign name = category | first %}
+    <span class="tag">
+      <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
+      <a href="{{ name | slugify }}">{{name}}</a>
+    </span>
+{% endfor %}
+</div>

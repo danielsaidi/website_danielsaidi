@@ -2,7 +2,7 @@
 - name: Blog
   title: Read my blog
   link-title: Read my blog
-  url: http://danielsaidi.wordpress.com
+  url: /blog/
 
 - name: GitHub
   title: Me on GitHub
