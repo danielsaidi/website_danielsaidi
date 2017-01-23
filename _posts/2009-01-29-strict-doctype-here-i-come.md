@@ -3,7 +3,7 @@ layout: post
 title:  "Strict DocType - here I come!"
 date:   2009-01-29 08:17:00 +0100
 categories: software web
-tags: html
+tags: html css
 ---
 
 
