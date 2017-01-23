@@ -21,4 +21,5 @@ the proper media player.
 Check out the plugins for yourself - they are quite amazing:
 
 [http://jquery.lukelutman.com/plugins/flash/](http://jquery.lukelutman.com/plugins/flash/)
+
 [http://malsup.com/jquery/media](http://malsup.com/jquery/media)
