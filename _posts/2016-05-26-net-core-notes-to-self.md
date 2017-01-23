@@ -3,7 +3,7 @@ layout: post
 title:  ".NET Core notes to self"
 date:   2016-05-26 07:52:00 +0100
 categories: software dotnet
-tags: dotnet-core dnx dnvm visual-studio-code
+tags: dotnet-core dnx dnvm unit-tests xunit visual-studio-code
 ---
 
 
