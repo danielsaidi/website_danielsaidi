@@ -21,9 +21,9 @@ are never again prompted about these plugins.
 So, if you really want to load these bundles, you have to resort to the Terminal.
 Open up the terminal and enter the following command:
 
-```
+{% highlight shell %}
 defaults delete com.apple.dt.Xcode DVTPlugInManagerNonApplePlugIns-Xcode-7.3.1
-```
+{% endhighlight %}
 
 Then restart Xcode and you will once more be prompted about loading these bundles.
 This time, press "Load Bundles"! Unless you really enjoyed all this nice work.

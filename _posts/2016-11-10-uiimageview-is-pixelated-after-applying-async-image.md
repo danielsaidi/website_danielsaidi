@@ -23,11 +23,15 @@ the downloaded image looks perfect. Seems like the image view is keeping a state
 when receiving a new image with a different scale. 
 
 The solution turned out to be, to generate a new image from the loaded one. This
-is how you do it:
+is how you do it (broken down in small steps):
 
-```
-guard let image = loadedImage, let cgImage = image.loadedImage.cgImage else { return }
-self.imageView.image = UIImage(cgImage: cgImage, scale: UIScreen.main.scale, orientation: image.imageOrientation)
-```
+{% highlight swift %}
+guard let image = loadedImage else { return }
+guard let cgImage = image.cgImage else { return }
+let scale = UIScreen.main.scale
+let orientation = image.imageOrientation
+let image = UIImage(cgImage: cgImage, scale: scale, orientation: orientation)
+self.imageView.image = image
+{% endhighlight %}
 
 The image is now super-sharp and the world a bit happier than it was ten minutes ago.
