@@ -23,6 +23,7 @@ permalink: /blog/
       </div>
       <p class="excerpt">
         {{ post.excerpt | remove: '<p>' | remove: '</p>' | truncatewords:50 }}
+        <a href="{{ post.url }}">Read more »</a>
       </p>
 
       <hr />
