@@ -16,14 +16,14 @@ permalink: /blog/
   <div class="box">
     {% for post in site.posts limit:20 %}
       <h4>
-        <a href="{{ post.url | remove: '.html' }}">{{ post.title }}</a>
+        <a href="{{ post.url }}">{{ post.title }}</a>
       </h4>
       <div>
         <small>{{post.date | date_to_string }}</small>
       </div>
       <p class="excerpt">
         {{ post.excerpt | remove: '<p>' | remove: '</p>' | truncatewords:50 }}
-        <a href="{{ post.url | remove: '.html' }}">Read more »</a>
+        <a href="{{ post.url }}">Read more »</a>
       </p>
 
       <hr />
