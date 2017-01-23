@@ -1,13 +1,16 @@
 .tags {
 
-	margin-top: 35px;
-	margin-bottom: 20px;
+	margin-top: 15px;
+	margin-bottom: 10px;
 
 	.tag {
-	
+
 		background-color: white;
 		border-color: #6a9fb5;
 		color: #6a9fb5;
+		white-space: nowrap;
+
+		line-height: 40px;
 		
 		padding: 5px 10px;
 		margin-right: 10px;
