@@ -2,7 +2,7 @@
 title:  "Get the week number of a date in C#"
 date:   2009-05-25 19:46:00 +0100
 categories: dotnet
-tags: 	csharp date
+tags: 	csharp date utils
 ---
 
 
@@ -93,7 +93,7 @@ public static int GetWeekNumber(this DateTime date)
     if (result == 0) {
         result = GetWeekNumber(new DateTime(date.Year - 1, DEC, LASTDAYOFDEC));
     }
-    
+
     return result;
 }
 
