@@ -1,5 +1,5 @@
 ---
-title:  "Using Moq with NUnit"
+title:  "JSON serialization in C#"
 date:   2009-08-24 09:08:00 +0100
 categories: dotnet
 tags: 	c# json
@@ -32,4 +32,4 @@ a serialization interface etc. If you want testable code, create an interface th
 describes a serializer and implement a JSON serializer that uses the code above.
 
 **Addon** These days, Newtonsoft JSON is more or less a standard when it comes to
-working with JSON in .NET.
+working with JSON in .NET. Grab it from NuGet.
