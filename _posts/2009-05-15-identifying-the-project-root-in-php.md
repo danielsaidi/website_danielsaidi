@@ -21,7 +21,7 @@ that we have some real-life situations to consider.
 
 Since Wigbi includes many classes and may be used anywhere in the project folder
 hierarchy, identifying the project root is a major issue. Wigbi provides two ways
-of doing this - the *Wigbi::rootPath* and *Wigbi::clientRootPath* properties.
+of doing this - the `Wigbi::rootPath` and `Wigbi::clientRootPath` properties.
 
 I will soon explain why we need two properties for this, but before I do, I just
 want to discuss absolute and relative paths, which may seem like the way to go at
@@ -59,31 +59,31 @@ This means that you can always use ~ and be sure that it will begin at the proje
 root, which should be the only starting point you should have to consider. However,
 this only applies to client related paths, not for files on the file system.
 
-Wigbi features two properties for identifying the project root - *Wigbi::rootPath*
-and *Wigbi::clientRootPath*. The first property is to be used on the server, and
+Wigbi features two properties for identifying the project root - `Wigbi::rootPath`
+and `Wigbi::clientRootPath*` The first property is to be used on the server, and
 the second to be used in the browser.
 
 
 ## Wigbi::rootPath
 
-*Wigbi::rootPath* identifies the project root for the executing page. For instance,
+`Wigbi::rootPath` identifies the project root for the executing page. For instance,
 when Wigbi is started and loads the current language file, it uses this property to
 load a language file, starting from the path to the project root from where the code
 executes. As we will see, this does not have to be the executing page.
 
-If you write a class that is to work with files, *Wigbi::rootPath* will work, no
+If you write a class that is to work with files, `Wigbi::rootPath` will work, no
 matter where in the folder hierarchy you are.
 
 
 ## Wigbi::clientRootPath
 
-The fact that *Wigbi::rootpath* applies to the executing page will cause problems
+The fact that `Wigbi::rootpath` applies to the executing page will cause problems
 when working with the AJAX pipeline, since all pages call the *wigbi/postBack.php*
 page, which *is *the executing page. This means that any file paths that are sent
 to the client (such as image paths, links etc.) will be relative to the *postback*
-page, if you use *Wigbi::rootpath*.
+page, if you use `Wigbi::rootpath*`
 
-Due to this, I created the *Wigbi::clientRootPath* property, which is set whenever
+Due to this, I created the `Wigbi::clientRootPath` property, which is set whenever
 an AJAX operation is executed. It takes the root path used by the page and sends
 it so that any path that is returned to the client will be relative to the page. If
 there is no set client root path, the property is identical to the root path.
