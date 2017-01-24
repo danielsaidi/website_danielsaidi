@@ -14,7 +14,7 @@ shared files in virtual paths.
 This problem is discussed in [this excellent article](http://www.improve.dk/blog/2006/12/11/making-url-rewriting-on-iis7-work-like-iis6).
 
 The article may seem long, but presents some simple fixes that just takes a minute
-or so to perform:
+or so:
 
 * Check out web.config (non-exclusive) if you have it under version control, then open IIS.
 * Select the correct application pool (create one if required) and switch from Managed Pipeline Mode to Classic under Basic Settings.
