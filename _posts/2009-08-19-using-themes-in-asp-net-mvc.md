@@ -46,15 +46,19 @@ the master page.
 
 However, when I tried to run the page, it crashed with this info:
 
-`Using themed css files requires a header control on the page. (e.g. <head runat="server" />).`
+```
+Using themed css files requires a header control on the page. (e.g. <head runat="server" />).
+```
 
 Turns out that the Default.aspx file in the project root is completely blank and
 only used to redirect the user. To make the application use the theme, I simply
 added this dummy code to the page:
 
+{% highlight html %}
 <html>
  <head runat="server"></head>
 </html>
+{% endhighlight %}
 
 This will never be displayed and does not disturb the app in any way, but makes
 the default theme work...which at least I think is nice :)
