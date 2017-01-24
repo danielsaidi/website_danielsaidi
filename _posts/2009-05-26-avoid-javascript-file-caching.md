@@ -16,7 +16,7 @@ may find this quick tip useful.
 
 To avoid having to clear the browser cache and force the browser to load CSS and
 JavaScript files from disk at all times, simply add a timestamp to the file path,
-e.g. site.js?ts=115421
+for instance `site.js?ts=115421` instead of `site.js`.
 
 This will cause the browser interpret the URL as a new file, which makes it load
 the uncached file each time the page is loaded. Problem solved! :)
@@ -31,10 +31,8 @@ developing. However, browser caching is there for a reason - to reduce bandwidth
 and reduce load times. We don't want our visitors to download all script and css
 files every time they reload a certain page.
 
-To force all users to load script file updates, you could rename the file, but a
-more convenient alternative is to simply...yes, you guessed it...add a timestamp
-to the script file path. 
-
-However, when in production, you only want to update the timestamp when you have
-actually updated the file. As soon as you upload a new version of a script or css
-file, update its timestamp.
+To force all users to load script file updates, you could rename the file. Still,
+a more convenient alternative is to simply...add a timestamp to the file path. A
+word of warning though - when in production, only update the timestamp when a file
+has actually changed. As soon as you upload a new version of the js or css file,
+update its timestamp.
