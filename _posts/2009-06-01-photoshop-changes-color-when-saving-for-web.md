@@ -15,6 +15,6 @@ color in the raw image, although nothing is done to the color profile or balance
 I found this excellent post that helped me configure Photoshop to properly export
 images for the web:
 
-http://www.viget.com/inspire/the-mysterious-save-for-web-color-shift/
+[http://www.viget.com/inspire/the-mysterious-save-for-web-color-shift/](http://www.viget.com/inspire/the-mysterious-save-for-web-color-shift/)
 
 Hope it helps!
