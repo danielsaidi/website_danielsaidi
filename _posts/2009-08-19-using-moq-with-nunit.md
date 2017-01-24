@@ -21,7 +21,7 @@ private Mock<IDinnerRepository> repository;
 [TestFixtureSetUp]
 public void Init()
 {
-   repository = MockClasses.GetMockDinnerRepository();   //My way of creawting the mock repository
+   repository = MockClasses.GetMockDinnerRepository();
    controller = new DinnerController(repository.Object);
 }
 {% endhighlight %}
