@@ -2,7 +2,7 @@
 title:  "TestFlight requires developer build entitlements to have get-task-allow set to true"
 date: 	2014-05-21 10:54:00 +0100
 categories: apps
-tags: 	ios testflight xcode
+tags: 	ios testflight xcode code-signing
 ---
 
 
