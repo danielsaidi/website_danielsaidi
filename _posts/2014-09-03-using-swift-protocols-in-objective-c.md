@@ -46,9 +46,7 @@ used as method parameter together with CoreMeta.
 
 Searching for solutions to more advanced Swift problems often results in nothing,
 since Swift is so new. Still, lucky as I am, I finally found the solution to how
-to use Swift protocols in Objective-C.
-
-Just add @objc before the `protocol` keyword.
+to use Swift protocols in Objective-C: Add `@objc` before the `protocol` keyword.
 
 After adding @objc to my Swift protocols, I could use them with CoreMeta and
 bootstrap them as I do with the Objective-C protocols. Hopefully, Swift evolves
