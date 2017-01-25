@@ -32,7 +32,7 @@ bad things from happening can instead prevent good things from happening as well
 or anything from happening at all. An interesting take on a topic I think has been
 talked about and dissected to the brink of tiredness, especially in this context
 where I felt that it was chosen mostly for the sake of sensation, rather than to
-fit the theme. It maybe works better in America.
+fit the theme. It may work better in the US.
 
 My biggest takeaway from this session was a nice passage about how you should ban
 the word "no" and replace it with "yes, and...". For instance, you say "Let's go
