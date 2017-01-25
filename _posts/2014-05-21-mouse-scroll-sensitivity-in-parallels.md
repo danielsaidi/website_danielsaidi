@@ -2,7 +2,7 @@
 title:  "Mouse scroll sensitivity in Parallels Desktop"
 date: 	2014-05-21 07:19:00 +0100
 categories: general
-tags: 	parallels
+tags: 	parallels visual-studio
 ---
 
 
