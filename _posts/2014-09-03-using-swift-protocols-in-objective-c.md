@@ -7,15 +7,15 @@ tags: 	ios objective-c swift core-meta
 
 
 I am currently creating two new games for iOS. One is made in Swift and SpriteKit,
-while the other is made in Objective-C and UIKit, just like our first game (same
-look and feel, different content).
+while the other is made in Objective-C and UIKit.
 
 
 ## The good part
 
 The apps include a custom core lib that is written in Objective-C. Each app also
-uses CoreMeta - an IoC library written in Objective-C - to bootstrap the app and
-select which implementations to use for certain protocols.
+uses [CoreMeta](https://github.com/jgretz/CoreMeta) - an IoC library written in
+Objective-C - to bootstrap the app and select which implementation to use for a
+certain protocol.
 
 All Objective-C protocols in the library work great in Swift. To implement these
 protocols in Swift, I just add them to my bridging header. I'm then good to go.
@@ -30,8 +30,8 @@ This works absolutely great.
 ## The bad part
 
 All in all, Swift is a really nice experience. Less code, easier to read - gotta
-love it. However,  as I created the first protocol in Swift and tried to register
-it in CoreMeta, I faced some problems.
+love it. However,  as I created the Swift protocol and tried to register it with
+CoreMeta, I ran into problems.
 
 Basically, CoreMeta is written in Objective-C, which lets you pass in protocols
 as method parameters. You do this by writing @protocol(ProtocolName). In Swift,
