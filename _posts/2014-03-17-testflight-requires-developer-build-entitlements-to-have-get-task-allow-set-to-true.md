@@ -18,11 +18,13 @@ However, one thing did not work; uploading my Ad Hoc build to TestFlight. When I
 did (no matter how I signed and provisioned my app when archiving it), TestFlight
 just told me that:
 
-`Invalid Profile: developer build entitlements must have get-task-allow set to true.`
+```
+Invalid Profile: developer build entitlements must have get-task-allow set to true.
+```
 
 No matter what I did, I could not get it to work, until I found the answer at an
 iOS developer forum. A guy who had had the same problem said that he just deleted
 the distribution certificate and generated new provisioning profiles. After that,
-everything worked fine for him.
+everything worked for him.
 
 I just went through those very steps, and can confirm that this indeed works!
