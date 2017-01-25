@@ -12,7 +12,7 @@ is [Fabric](https://fabric.io).
 I am having a hard time finding time to write on the blog these days, with family,
 work and hobby projects rushing on. And when I find the time, the posts I manage
 to scribble together become rather short. And the even sadder thing is that this
-is by no means an exception.
+post is no exception.
 
 In this short post, I just want to strongly advice you to use Crittercism, if you
 have an iOS or Android app where users experience bugs that you have a hard time
@@ -21,11 +21,10 @@ to reproduce.
 
 ## What is Crittercism?
 
-Crittercism is a service that you can use to automatically receive send a crash
-report whenever a user experience an error that cause the app to crash. Instead
-of relying on vague user crash reports, Crittercism then provides you with a list
-of the most frequent bugs, together with detailed crash information that really
-helps you understand what led to the crash.
+Crittercism is a service that you can use to automatically send crash reports if
+a user experience errors that cause the app to crash. Instead of relying on vague
+user reports, Crittercism then provides you with a list of the most frequent bugs,
+together with detailed information that helps you understand what led to the crash.
 
 Setting up Crittercism is really easy, and is explained in detail after you have
 created your account and registered your app. I am not going to repeat all this
