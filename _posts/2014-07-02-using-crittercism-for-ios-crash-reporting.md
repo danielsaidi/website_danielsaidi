@@ -6,8 +6,8 @@ tags: 	ios crittercism
 ---
 
 
-**Note:** Crittercism has shut down. Great alternatives to Crittercism are e.g.
-[Apteligent](https://www.apteligent.com/) and [Fabric](https://fabric.io).
+**Note:** Crittercism has shut down. A great alternative to Crittercism, in 2017,
+is [Fabric](https://fabric.io).
 
 I am having a hard time finding time to write on the blog these days, with family,
 work and hobby projects rushing on. And when I find the time, the posts I manage
