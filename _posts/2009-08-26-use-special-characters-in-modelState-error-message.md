@@ -31,7 +31,8 @@ The workaround for this is quite simple. Since the string is HTML encoded, simpl
 decode the special characters, as such:
 
 {% highlight c# %}
-ModelState.AddModelError("errorKey", Server.HtmlDecode("&laquo;") + " Your custom message here");
+var laquo = Server.HtmlDecode("&laquo;");
+ModelState.AddModelError("errorKey", laquo + " Your custom message here");
 {% endhighlight %}
 
 This will make the view display the special characters correctly. If you add the
