@@ -9,6 +9,9 @@ tags:	git
 After procrastinating for too long, I finally decided to spend one minute of my
 life to setup git autocomplete on my work computer.
 
+The original discussion thread from where I got this information can be found at
+[this page](http://apple.stackexchange.com/questions/55875/git-auto-complete-for-branches-at-the-command-line).
+
 First, run the following command in the Terminal, to get the autocomplete script:
 
 {% highlight bash %}
