@@ -7,13 +7,13 @@ tags: 	ubuntu html javascript
 
 
 I am very excited about the new Ubuntu Mobile platform, despite not being a Linux
-or Ubuntu guy,
+or Ubuntu guy.
 
 As Ubuntu was launched for mobile devices a short while back, a new mobile force
 was born, according to David Planella. Unlike other mobile operative systems, no
-names said, Ubuntu, is designed to run on less powerful devices, still providing
-a fast and responsive user experience. It comes packed with core apps and can be
-extended with third party developer apps. 
+names said, Ubuntu Mobile is designed to run on less powerful devices, while still
+focusing on providing a fast and responsive user experience. It comes packed with
+core apps and can be extended with third party developer apps. 
 
 Sorry if this sounds like a sales pitch, I'm merely passing along what David said.
 
