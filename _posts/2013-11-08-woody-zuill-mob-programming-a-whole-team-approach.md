@@ -11,8 +11,8 @@ tags: 	mob-programming
 
 Woody claims that is not a public speaker, but rather a mere programmer that has
 been given the privilege to speak in public. If that is the case, I want more
-programmers to speak in public, since I found this session to be one of the most
-enjoyable of the whole conference.
+programmers to speak in public, since I found this to talk to be one of the best
+of the conference.
 
 Roy seems to have charmed everyone. Everyone loves him. Everyone talks about him.
 And yes, his talk was very humble and relaxed, with a perfectly leveled humorous
@@ -35,9 +35,9 @@ several (the rest of the team) navigators. The entire team is constantly working
 as a unit. As the day goes on, we see people move around, always present but also
 free to take time away to perform individual work.
 
-"So, how does mob programming scale?" Woody asks. "I have no answer to that. All
-I know is that we tried mob programming and it works". Wow, you can't accuse him
-of selling anything.
+"So, how does mob programming scale?" he asks. "I have no answer to that. All I
+know is that we tried mob programming and it works for us". Wow, you really can't
+accuse him of selling anything.
 
 Woody packed the hour full of fun questions and quotes, like "We changed the timer
 sound to be really loud, like a kitchen time. Oh, do you have kitchens in Sweden?"
