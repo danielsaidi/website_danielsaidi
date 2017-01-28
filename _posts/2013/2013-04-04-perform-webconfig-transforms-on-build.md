@@ -20,10 +20,22 @@ we have done to achieve this, is to add the configuration transformation step as
 a post build event. To get this to work, just follow these steps:
 
 * First, open the web project project file in a text editor.
-* Look for the following line: `<Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />`
-* Below that line, add this line: `<UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\Web\Microsoft.Web.Publishing.Tasks.dll" />`
-* Look for this commented out section: `<Target Name="AfterBuild"></Target>`
-* Uncomment that section and add the following inside it: `<MakeDir Directories="obj\$(Configuration)" Condition="!Exists('obj\$(Configuration)')" />`
+* Look for the following line:
+
+`<Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />`
+
+* Below that line, add this line: 
+
+`<UsingTask TaskName="TransformXml" AssemblyFile="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v10.0\Web\Microsoft.Web.Publishing.Tasks.dll" />`
+
+* Look for this commented out section:
+
+`<Target Name="AfterBuild"></Target>`
+
+* Uncomment that section and add the following inside it:
+
+`<MakeDir Directories="obj\$(Configuration)" Condition="!Exists('obj\$(Configuration)')" />`
+
 `<TransformXml Source="web.config" Transform="web.$(Configuration).config" Destination="obj\$(Configuration)\Web.config" />`
 
 These last two lines make sure that a proper target folder is created in the obj
