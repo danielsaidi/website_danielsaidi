@@ -1,6 +1,6 @@
 ---
-title:  "New legal label in MKMapView"
-date: 	2013-04-15 21:29:00 +0100
+title:  "Perform web.config transforms on build"
+date: 	2013-04-04 09:29:00 +0100
 categories: dotnet
 tags: 	configuration
 ---
