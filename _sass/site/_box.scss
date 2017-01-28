@@ -64,4 +64,16 @@
 	pre {
 		margin: 20px 0;
 	}
+
+	ul + a + h4 {
+		margin-top: 30px;
+	}
+
+	li {
+		font-size: 1.2em !important;
+	}
+
+	li + li {
+		margin-top: 10px;
+	}
 }
