@@ -2,7 +2,7 @@
 title:  "Oredev 2012: Friday Summary"
 date: 	2012-11-13 21:10:00 +0100
 categories: conferences oredev
-tags: 	
+tags: 	node-js android
 ---
 
 
