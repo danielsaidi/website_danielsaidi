@@ -2,7 +2,7 @@
 title:  "Entity Framework Code First with auto migrations on AppHarbor...and more"
 date: 	2013-02-25 10:55:00 +0100
 categories: dotnet
-tags: 	asp-net entity-framework appharbor api rest
+tags: 	asp-net entity-framework appharbor api rest structuremap azure nunit nsubstitute
 ---
 
 
