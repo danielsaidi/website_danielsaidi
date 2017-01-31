@@ -1,5 +1,5 @@
 ---
-title:  "New CocoaPod has problems running Quick and Nimble"
+title:  "Problems running Quick and Nimble tests on development pod code"
 date:   2017-01-31 21:50:00 +0100
 categories: apps
 tags:	ios xcode cocoapods unit-tests quick nimble
@@ -11,7 +11,7 @@ test runner and [Nimble](https://github.com/Quick/Nimble) for assertion. They ar
 great libraries that really speed up writing tests for my pods.
 
 However, when I created my two latest pods, using `CocoaPods 1.1.1`, `Quick 1.0.0`
-and `Nimble 5 and 6`, I ran into a problem with getting my Quick tests to work.
+and `Nimble 5.0.0 and 6.0.0`, I ran into problems with getting my tests to work.
 
 First of all, creating new CocoaPods with the CocoaPods CLI, still generates old
 projects that are not prepared for Swift 3. This means that you have to replace
