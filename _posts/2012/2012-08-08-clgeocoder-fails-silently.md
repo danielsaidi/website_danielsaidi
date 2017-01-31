@@ -2,7 +2,7 @@
 title:  "CLGeocoder fails silently"
 date: 	2012-08-08 20:48:00 +0100
 categories: apps
-tags: 	ios geocoding
+tags: 	ios geocoding clgeocoder clregion mapkit mkcoordinateregion
 ---
 
 
