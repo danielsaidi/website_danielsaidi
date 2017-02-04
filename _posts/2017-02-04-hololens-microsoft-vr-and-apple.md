@@ -72,7 +72,7 @@ Now, this all puts Apple in a strange position. Apple could never have done what
 Microsoft does now, at least not with the shackles of today. Today, they live on
 a reputation of releasing amazing technology "that just works". When they reveal
 a new product - it's ready to be sent to all corners of the world. Demonstrating
-an unfinished device is not Apple's style.
+unfinished stuff is not Apple's style.
 
 I love Apple and their products, but I think this perfection comes with a price.
 Without this reputation and the restrictions it brings, Microsoft can become the
