@@ -105,7 +105,7 @@ Many of us grown ups have been waiting out whole lives for VR to work. I am sooo
 happy to now, after buying the so-so Sony HMZ-T1 some years ago, finally have an
 amazing VR experience in my living room. The technology works. Now, we just need
 to iterate upon the technology, make the hardware better, the user interface more
-intuitive, the lag less noticable...and find new ways in this new, esciting world.
+intuitive, the lag less noticable...and find new ways in this new exciting world.
 
 
 
