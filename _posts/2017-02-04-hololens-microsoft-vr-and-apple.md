@@ -28,8 +28,8 @@ his head and keeping him restrained. Most of the VR headsets on the market today
 (PSVR, Oculus and Vive - not counting the ones where you insert your mobile device,
 like the Gear) are amazing, but limits a fluent interaction with the virtual world,
 since the cables become umbilical cord that constantly interferes with your native
-movement. This actually makes me not enjoying 360 environments as much in PS VR,
-as I do when I look at VR environments through the Samsung Gear or the Cardboard.
+movement. This actually makes me not enjoy 360 environments as much in PS VR, as I
+do when use products like the Samsung Gear or the Cardboard...which are cordless.
 
 Second, the solution where a video camera can wear a second HoloLens and see what
 the person wearing the headset sees, is so cool. I first saw this at a Microsoft
