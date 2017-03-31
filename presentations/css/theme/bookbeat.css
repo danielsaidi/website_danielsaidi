@@ -29,6 +29,21 @@ img {
   font-family: "Source Sans Pro", Helvetica, sans-serif;
 }
 
+.reveal ul {
+  text-align: center;
+  font-size: 1.4em;
+  padding: 0;
+  margin-left: 0 !important;
+  list-style-type: none !important;
+}
+
+.reveal li {
+  font-family: 'Playfair Display';
+  font-style: italic;
+  text-align: center;
+  margin-top: 0.5em;
+}
+
 .reveal .image-section p, .reveal .image-section h1, .reveal .image-section h2, .reveal .image-section h3 {
   color: white !important;
   text-shadow: 2px 2px #000 !important;
@@ -39,8 +54,9 @@ img {
 }
 
 .title-page p {
-  font-size: 0.5em;
-  margin: 55px 0 0 0 !important;
+  font-family: 'Playfair Display';
+  font-style: italic;
+  margin-top: 3em !important;
 }
 
 
