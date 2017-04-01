@@ -32,6 +32,8 @@
 		</script>
 
 		<style>
+			.title-page h1 { font-size: 4em !important; }
+			h2 { font-size: 2em !important; }
 			pre { background-color: white; }
 		</style>
 
@@ -46,9 +48,9 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section data-markdown class="title-page image-section" data-background="http://4.bp.blogspot.com/-NuwukhPeYok/VLXENyuOusI/AAAAAAAAHD0/1jeEX4yHEBQ/s1600/cloudrider%2B2.jpg">
+				<section data-markdown class="title-page image-section" data-background="https://derpicdn.net/img/2014/3/23/583513/full.jpg">
 					# Eat that Api!
-					### ...or how I came to master the cloud with three simple libs
+					## Master the cloud with three libs
 
 					@danielsaidi
 				</section>
@@ -61,22 +63,27 @@
 
 					<section data-markdown class="image-section" data-background="https://adammarxsmind.files.wordpress.com/2016/09/1-pmwofcv5vuismhawsqzwqw.gif">
 						# NSURLSession
+						## Objective-C
 					</section>
 
 					<section data-markdown class="image-section" data-background="http://i.imgur.com/cAJtk.gif">
 						# LRResty
+						## Objective-C
 					</section>
 
-					<section data-markdown class="image-section" data-background="https://media.giphy.com/media/1S6xghiGMc6Hu/giphy.gif">
+					<section data-markdown class="image-section" data-background="http://iruntheinternet.com/lulzdump/images/snake-on-computer-MGS-on-fire-burning-1438702695x.gif?id=">
 						# RestKit
+						## Objective-C + Swift
 					</section>
 
 					<section data-markdown class="image-section" data-background="http://68.media.tumblr.com/3062e1dd6f3ffaabb04af32a531acb9b/tumblr_inline_omlxotGnOR1r2xhmf_500.gif">
 						# URLSession
+						## Swift
 					</section>
 
-					<section data-markdown class="image-section" data-background="https://admin.mashable.com/wp-content/uploads/2013/07/Jeremy-Renner.gif">
+					<section data-markdown class="image-section" data-background="https://media.giphy.com/media/3mo3WBFrvVTYk/giphy.gif">
 						# Alamofire
+						## Swift
 					</section>
 				</section>
 
@@ -93,23 +100,23 @@
 						## Alamofire
 
 						* HTTP networking library
+						* Rest, File downloads etc.
 						* Built in Swift
-						* Almost complete
 					</section>
 
 					<section data-markdown class="image-section">
 						## AlamofireObjectMapper
 
-						* Extension to Alamofire
-						* Builds on ObjectMapper
-						* Simplifies parsing API response data
+						* Extends Alamofire
+						* Based on ObjectMapper
+						* Simplifies mapping API responses
 					</section>
 
 					<section data-markdown class="image-section">
 						## Realm
 
 						* Mobile Database
-						* Alternative to SQLite and Core Data
+						* SQLite and Core Data alternative
 						* We will use it as a simple cache
 					</section>
 				</section>
@@ -118,20 +125,15 @@
 					<section data-markdown class="image-section">
 						## Demo
 
+						* Authorization - Alamofire
 						* Fetch data - Alamofire
+						* Alamofire Request Adaption/Retry
 						* Map data - AlamofireObjectMapper
 						* Cache data - Realm
 					</section>
 
 					<section data-markdown class="image-section">
-						## If time allows
-
-						* Custom headers
-						* Auth-based Retries
-					</section>
-
-					<section data-markdown class="title-page">
-						# Demo
+						# Let's go
 					</section>
 				</section>
 			</div>
