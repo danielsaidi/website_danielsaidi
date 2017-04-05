@@ -1,7 +1,7 @@
 ---
 title:  "UIViewController Custom Back Button Problem"
 date: 	2013-04-23 20:14:00 +0100
-categories: apps
+categories: mobile
 tags: 	ios objective-c
 ---
 

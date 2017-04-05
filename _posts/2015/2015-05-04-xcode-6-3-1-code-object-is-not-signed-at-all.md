@@ -1,7 +1,7 @@
 ---
 title:  "Xcode 6.3.1 - Code object is not signed at all"
 date:   2015-05-04 20:54:00 +0100
-categories: apps
+categories: mobile
 tags: 	xcode ios
 ---
 

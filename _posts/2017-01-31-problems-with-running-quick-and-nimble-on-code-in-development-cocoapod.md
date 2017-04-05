@@ -1,7 +1,7 @@
 ---
 title:  "Problems with running Quick and Nimble on code in development CocoaPod"
 date:   2017-01-31 21:50:00 +0100
-categories: apps
+categories: mobile
 tags:	ios xcode cocoapods unit-tests quick nimble
 ---
 

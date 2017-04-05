@@ -1,7 +1,7 @@
 ---
 title:  "Android Activity Lifecycle Car Analogy"
 date: 	2013-08-05 10:25:00 +0100
-categories: apps
+categories: mobile
 tags: 	android activity-lifecycle
 ---
 

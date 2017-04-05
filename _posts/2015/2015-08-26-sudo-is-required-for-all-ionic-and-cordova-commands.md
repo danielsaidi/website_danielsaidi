@@ -1,7 +1,7 @@
 ---
 title:  "sudo is required for all Ionic and Cordova commands"
 date:   2015-08-26 08:00:00 +0100
-categories: apps
+categories: mobile
 tags: 	ios android ionic cordova
 ---
 

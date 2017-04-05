@@ -1,7 +1,7 @@
 ---
 title:  "Remove Android Activity Title and Icon"
 date: 	2013-08-05 09:39:00 +0100
-categories: apps
+categories: mobile
 tags: 	android
 ---
 

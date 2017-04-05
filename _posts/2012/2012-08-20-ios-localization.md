@@ -1,7 +1,7 @@
 ---
 title:  "iOS Localization"
 date: 	2012-08-20 22:17:00 +0100
-categories: apps
+categories: mobile
 tags: 	ios localization objective-c
 ---
 

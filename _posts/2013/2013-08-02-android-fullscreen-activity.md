@@ -1,7 +1,7 @@
 ---
 title:  "Android Fullscreen Activity"
 date: 	2013-08-02 09:14:00 +0100
-categories: apps
+categories: mobile
 tags: 	android
 ---
 

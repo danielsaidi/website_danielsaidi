@@ -1,7 +1,7 @@
 ---
 title:  "Update the title of an MKAnnotation"
 date: 	2015-09-17 22:04:00 +0100
-categories: apps
+categories: mobile
 tags: 	ios swift mapkit mkannotation
 ---
 

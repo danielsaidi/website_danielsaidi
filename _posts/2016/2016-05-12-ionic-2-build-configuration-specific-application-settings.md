@@ -1,7 +1,7 @@
 ---
 title:  "Ionic 2 - Build Configuration-Specific Application Settings"
 date:   2016-05-12 12:04:00 +0100
-categories: apps
+categories: mobile
 tags: 	ionic cordova ios android gulp angular typescript
 ---
 

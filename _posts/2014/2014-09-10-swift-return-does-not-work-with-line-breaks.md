@@ -1,7 +1,7 @@
 ---
 title:  "Swift return does not work with line breaks"
 date:   2014-09-10 20:00:00 +0100
-categories: apps
+categories: mobile
 tags: 	ios swift
 ---
 

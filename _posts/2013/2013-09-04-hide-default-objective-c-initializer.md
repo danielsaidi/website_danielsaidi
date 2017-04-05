@@ -1,7 +1,7 @@
 ---
 title:  "Hide the default objective-c initializer"
 date: 	2013-09-04 04:11:00 +0100
-categories: apps
+categories: mobile
 tags: 	ios objective-c
 ---
 

@@ -1,7 +1,7 @@
 ---
 title:  "Xcode: Auto-increment Build Number"
 date: 	2013-08-23 11:48:00 +0100
-categories: apps
+categories: mobile
 tags: 	ios xcode
 ---
 

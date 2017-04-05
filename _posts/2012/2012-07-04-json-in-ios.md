@@ -1,7 +1,7 @@
 ---
 title:  "JSON in iOS"
 date: 	2012-07-04 21:25:00 +0100
-categories: apps
+categories: mobile
 tags: 	ios objective-c json
 ---
 
