@@ -49,7 +49,7 @@ In the extended e-mail sending setup, I have:
 
 Before moving on, let’s take a look at the EmailSendingGroupInviteService class.
 
-![EmailSendingGroupInviteService](/assets/img/blog/2011-10-18-1.png "EmailSendingGroupInviteService")
+![EmailSendingGroupInviteService](/assets/img/blog/2011-10-08-1.png "EmailSendingGroupInviteService")
 
 As you can see, the e-mail sending part is not yet developed. 😉 As you can also
 see, the methods only call the base instance. Now, let’s look at some tests.
@@ -59,7 +59,7 @@ see, the methods only call the base instance. Now, let’s look at some tests.
 
 Let’s take a look at some of the tests in EmailSendingGroupInviteServiceBehavior.
 
-![EmailSendingGroupInviteServiceBehavior](/assets/img/blog/2011-10-18-2.png "EmailSendingGroupInviteServiceBehavior")
+![EmailSendingGroupInviteServiceBehavior](/assets/img/blog/2011-10-08-2.png "EmailSendingGroupInviteServiceBehavior")
 
 As you can see, all that I can test is that the base instance is called properly
 and that the base instance result is returned.
