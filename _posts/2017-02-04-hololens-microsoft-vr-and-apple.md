@@ -6,10 +6,10 @@ tags:	hololens vr apple microsoft htc-vive oculus-rift
 ---
 
 
-![HoloLens](https://dri1.img.digitalrivercontent.net/Storefront/Company/msintl/images/English/en-INTL-Microsoft-HoloLens-Development-Edition-M6P-00003/en-INTL-L-Microsoft-HoloLens-Development-Edition-M6P-00003-mnco.jpg)
-
 I am really looking forward to a HoloLens event at [tretton17](http://tretton37.com)
-next week, where Jimmy Engström will demonstrate this awesome piece of technology.
+next week, where Jimmy Engström will demonstrate this awesome piece of technology:
+
+![HoloLens](https://dri1.img.digitalrivercontent.net/Storefront/Company/msintl/images/English/en-INTL-Microsoft-HoloLens-Development-Edition-M6P-00003/en-INTL-L-Microsoft-HoloLens-Development-Edition-M6P-00003-mnco.jpg)
 
 I haven't had the opportunity to try the HoloLens yet (I have to make do with my
 PlayStation VR...poor me), but I think it looks really promosing. Even if many of
