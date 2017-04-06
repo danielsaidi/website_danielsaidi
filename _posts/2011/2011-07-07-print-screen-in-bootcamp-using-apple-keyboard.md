@@ -17,7 +17,7 @@ Today, for instance, I had to take a screen dump. Without OS X keyboard shortcut
 Without a PC print screen button. How do you do that? I was at a total loss. The
 `Shift+Fn+F11` combination did not work for me, since I had this option enabled:
 
-![Boot Camp Control Panel](/assets/img/blog/2013-09-26-bash.png)
+![Boot Camp Control Panel](/assets/img/blog/2011-07-07.png)
 
 With this option enabled, neither Shift+Fn+F11 or Shift+F11 work. Now before you
 rule me out as a no-brainer, I naturally tried to press Shift+F11 without the Fn
