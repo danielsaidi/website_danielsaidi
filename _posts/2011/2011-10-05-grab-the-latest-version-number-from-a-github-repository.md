@@ -50,23 +50,23 @@ package my custom script according to the rest of the JavaScript library. I thus
 created another async method for the gh.repo prototype, like this:
 
 	gh.repo.prototype.getLatestRelease = function(callback) {
-		this.tags(function(result) {
-			var latest = "";
-			for (var prop in result.tags) {
-				if (prop > latest) {
-					latest = prop;
-				}
-			}
-			callback(latest);
-		});
+	    this.tags(function(result) {
+            var latest = "";
+            for (var prop in result.tags) {
+                if (prop > latest) {
+                    latest = prop;
+                }
+            }
+            callback(latest);
+        });
 	}
 
 On each site, I have a span element with the id “version”. I then added the code
 snippet below to the end of github.js:
 
 	$(document).ready(function() {
-		var repo = new gh.repo("danielsaidi", "Facadebook");
-		var tags = repo.getLatestRelease(function(result){ $("#version").html(result); });
+        var repo = new gh.repo("danielsaidi", "Facadebook");
+        var tags = repo.getLatestRelease(function(result){ $("#version").html(result); });
 	});
 
 That is is! When the page loads, this script loads all available repository tags,
