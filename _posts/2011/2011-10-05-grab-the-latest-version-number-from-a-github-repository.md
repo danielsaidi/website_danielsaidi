@@ -1,8 +1,8 @@
 ---
 title:  "Grabbing the latest version number from a GitHub repository"
 date:    2011-10-05 12:00:00 +0100
-categories: general
-tags: 	github
+categories: web
+tags: 	github git
 ---
 
 
