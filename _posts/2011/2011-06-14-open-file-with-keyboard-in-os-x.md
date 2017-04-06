@@ -25,8 +25,6 @@ Today, though, I finally found that instead of hitting return, use this shortcut
 
 `cmd + down`
 
-Once again:
-
 ### cmd + down
 
-## cmd + down
+## cmd + down !!!!!!!
