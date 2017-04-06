@@ -10,7 +10,7 @@ A couple of days ago, I blogged about solving a frustrating problem that made my
 iMac dead slow. At the time of writing, I was not sure if I had actually solved
 the problem, but I can now say that I have.
 
-![The mighty iMac – great once you fix Spotlight](/assets/img/blog/2011-05-15.png)
+![The mighty iMac – great once you fix Spotlight](/assets/img/blog/2011-05-15.jpg)
 
 In short, my 27″ iMac has been really (really!) slow since I bought it. The hard
 drive has been working constantly, especially when starting and when waking up,
