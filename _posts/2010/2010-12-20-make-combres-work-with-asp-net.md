@@ -18,9 +18,9 @@ In short, you need to:
 
 - Create a custom Combres configuration file
 - Add the following to web.config:
-	- A Combres configSection tag
-	- A Combres section tag (which you point to the Combres config file)
-	- Two httpModule tags
+- 1. A Combres configSection tag
+- 2. A Combres section tag (which you point to the Combres config file)
+- 3. Two httpModule tags
 - Add `RouteTable.Routes.AddCombresRoute(“Combres Route”);` to `Application_Start` in `Global.asax`
 - Add `<%= WebExtensions.CombresLink(“…”) %>` wherever you want to add JS or CSS tags
 
@@ -56,6 +56,6 @@ is the one used by IIS7 (keep the ones above as well, though):
 		System.Web.Routing, Version=3.5.0.0, Culture=neutral,
 		PublicKeyToken=31BF3856AD364E35"/>
 	</modules>
-	
+
 If you follow these steps, Combres should work.
 
