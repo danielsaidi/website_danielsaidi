@@ -2,7 +2,7 @@
 title:	"Adding Spark to ASP.NET MVC 2"
 date:	2011-01-13 12:00:00 +0100
 categories: dotnet
-tags: 	
+tags: 	asp-net
 ---
 
 
