@@ -1,6 +1,6 @@
 ---
 title:  "Calculate distance and bearing between two positions in C#"
-date:    2011-03-09 12:00:00 +0100
+date:    2011-02-04 12:00:00 +0100
 categories: dotnet
 tags: 	geo-location rhumb-bearing rhumb-distance c-sharp
 ---
