@@ -2,7 +2,7 @@
 title:  "Custom ASP.NET validation attributes"
 date:    2011-03-23 12:00:00 +0100
 categories: dotnet
-tags: 	asp-net-mvc validation
+tags: 	asp-net validation
 ---
 
 
