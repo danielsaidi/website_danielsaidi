@@ -1,12 +1,17 @@
 
-- name: Pinny
-  siteUrl: http://pinnyapp.com
-  appStoreUrl: https://itunes.apple.com/app/pinny/id984638325
-  playStoreUrl:
+- name: Lunchrrrrr
+  siteUrl: http://suchnastyapps.com/lunchrrrrr
+  appStoreUrl: https://itunes.apple.com/se/app/lunchrrrrr/id1209779063?l=en&mt=8
+  playStoreUrl: https://play.google.com/store/apps/details?id=com.joppa.luncherrrrr.luncherrrrr
 
 - name: BookBeat
   siteUrl: http://bookbeat.com
   appStoreUrl: https://itunes.apple.com/app/bookbeat/id1056652614
+  playStoreUrl:
+
+- name: Pinny
+  siteUrl: http://pinnyapp.com
+  appStoreUrl: https://itunes.apple.com/app/pinny/id984638325
   playStoreUrl:
 
 - name: Wally
