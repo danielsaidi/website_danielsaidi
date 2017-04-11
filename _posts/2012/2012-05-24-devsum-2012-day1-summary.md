@@ -1,257 +1,164 @@
 ---
-title:  "DevSum 2012: Day 2 Summary"
-date:    2012-05-28 21:28:00 +0100
+title:  "DevSum 2012: Day 1 Summary"
+date:    2012-05-24 07:33:00 +0100
 categories: conferences
-tags: 	devsum node-js javascript ux
+tags: 	devsum raven-db nancy html phonegap rest cqrs backbone signalr
 ---
 
 
-The second and last day of DevSum featured some great sessions. Some were really
-challenging as well, especially for a parental leave douchebag like myself :)
+Today was first day of DevSum 2012, in central Stockholm. This is a short sum-up
+of the first day. 
 
 
-## Keynote - Aral Balkan - A Happy Grain of Sand
+## Martin Laforest: HARNESSING THE QUANTUM WORLD – When tiny things do big things
 
-Boy, what a great session!
+Martin started off with a some Canada-oriented information and described how his
+city Waterloo, has moved its focus from farming to tech in a very short time. He
+spoke about the Waterloo technical institutions and Canada's pride in the field
+of Quantum Physics research. He talked about **the cycle of innovation** and how
+it leads us from curiosity (in the case of fire, fear even) to control, then on
+to technology with great social impacts.
 
-According to his personal site, Aral is a "designer, developer, author, teacher,
-entrepreneur and performer; a Renaissance Geek with a passion for designing user
-experiences and a desire to make the world a better place through technology and
-oratory".
+One example was steam, which we investigated, understood, learned to control and
+led us to new innovations like the steam engine, which in turn led on to trains,
+boats and enabled us to travel much greater distances than before.
 
-Should be interesting, right? :)
+Martin then talked about quantum physic facts, and how everything is a particle,
+everything is a wave and how electrons can be at two places at the same time (an
+effect called **superposition**) and how you ruin the quantum effect, as soon as
+you inspect the system. etc. Pretty basic things that most of us with an interest
+in this field already knows, but very well presented.
 
-Aral started his talk with a coordinated introduction. As someone who lives for
-creating things that make people happy, he then presented some examples from his
-daily life that makes him...well, sad:
+The quantum effects can be used to make our computers more powerful, unlike the
+development of speed that has dominated the field for the last 50 years (where a
+computer has become much faster, but still performs calculations in the same way
+as it did way back when).
 
-* A hotel toilet, where a flush button outside of the natural grouping, makes it
-really hard to understand how to flush. **Proximity implies relation** and **out
-of sight = out of mind.**
+Another great benefit of this new technology, is that **quantum physics, quantum 
+mechanics and quantum information** will make it possible to achieve 100% secure
+decryption, since eavesdroppers will ruin the information exchange. In fact, this
+technology already exists, but only over a limited distance.
 
-* A hotel toilet (another one), where the flush button and toilet fulfill their
-purposes, but where the toilet lid hides the flush button once it opens, making
-it hard to see how to flush. **An experience is as strong as its weakest part.**
+Overall a very interesting session, especially if you are interested in the field
+of quantum physics. Quantum physics implies a new, powerful era of the computer,
+but also introduce new, more complex problems that arise when things go small and
+quantum effects start to show themselves.
 
-Various examples of elevator button panels, including the pun Schindler's lift.
-He also went into a long description of his washing machine, which together with
-the dishwasher most often have horrible user interfaces.
 
-According to Aral, *we do not need more things, we need things that work better*.
-He compared the Swedish Arlanda Express ticket machine (which is terrible) with
-Oslo's solution, which is beautiful and just consist of a card swipe and a small
-digital screen.
 
-**Sometimes the best UI is no UI.**
+## Ayende Rahien: RavenDB - Amazin feats.
 
-This session was full of great examples of good and bad design. I will not stack
-up on great quotes, but rather advice you to see a presentation with Aral if you
-get the chance.
+Ayende's talk was focusing on the awesome features of RavenDB. Ayende demoed the
+power that comes with taming the no-schema nature of document databases. This is
+why RavenDB can offer features like storing complex data types, a lightning fast
+Map/Reduce operation engine, ad hoc queries, sharding etc.
 
+This was an interesting session, although Ayende was as hard to hear as always.
 
 
-## Scott Allen - Modern Javascript
 
-This was a highly interesting session, where Scott talked about great JavaScript
-features and also discussed **scope, constructor functions, prototypes, closures, 
-getters/setters, modules** etc. 
+## Andreas Håkansson - Developing web applications using Nancy
 
-The talk was almost entirely code-oriented and thus hard to summarize...but make
-sure to watch it if you stumble upon the video.
+Andreas talked about his darling project, **Nancy** and demonstrated everything
+from small to large applications. Controllers, routes, implicit casting, helper
+methods, convention, pipelines, configuration, bootstrapping. Yep, it's all here.
 
+Nancy seems great and it looks like the team has something big going on. My only
+concern is how such a framework with so many external integration will manage to
+always be up to date with the latest versions of, say, StructureMap and NUnit.
 
 
-## Steve Sanderson - Building mobile web applications with Node.js
 
-This talk focused on Node.js and how to get started with it, and on to mastering
-it etc. Steve started from (basically) nil and used Node to create various types
-of applications and APIs, using extensions like Express to simplify it, handling
-static content, templating etc.
+## Fil Maj - Going Cross-Platform with HTML5 and PhoneGap
 
-Steve improved a mobile web application with responsive design, viewport settings
-etc. He then demonstrated how to use the seemingly great Opera Mobile Emulator to
-simulate various device types, including limiting the bandwidth of the device and
-using cache manifest files to improve caching.
+Fil started off with some historical breakthroughs, like the alphabet, maps, the
+printing press, the telegraph, the telephone etc. He then talked a bit about the
+microfilm-based knowledge bank MEMEX (invented in 1945), and how HyperCard later
+used the same ideas when it was invented in 1987, more than 40 years later.
 
-Although a bit overwhelming (I want this session on vid), it was very interesting.
-Steve took many of these things that I have been meaning to look at for some time
-now and presented them in a way that makes me want to use them now, now, NOW!
+Fil then moved on to discussing vendor lock-in and the switching cost that comes
+with it. If we focus on delivering stuff based on the product of a certain vendor,
+we will have to pay the price when it comes to making our things work with other
+products.
 
+Three examples were:
 
+* Adobe Flash (no comment needed)
+* The Windows API, where an internal MS memo in 1997 implied that switching cost
+was part of the company's strategy.
+* The iPhone SDK, where developers until 2008 were forbidden to discuss the SDK.
 
-## Johan Lindfors - Windows Phone Best Practices – part 1 / 2
+Fil wants embraces openness. This brings us to PhoneGap, which had many initial
+problems with Apple, but which is now a widely approved way of developing native,
+cross-platform apps with HTML5. It's not by any means a silver bullet (many core
+features, like debugging and 3D work really bad), but it is a cool technology if
+you want to build apps that can easily be ported to all major mobile platforms.
 
-This was the first part of two, in which Johan and Michael talked about Windows
-Phone development. Johan covered the following areas:
+Fil then demonstrated **build.phonegap.com**, which is hosting for PhoneGap apps.
+It looks awesome and I will try to play around with it in my next mobile project.
 
-* Design / development
-* MVVM
-* Testability
-* Localization
-* Security
-* Design
+Thanks Fil, I really enjoyed your session!
 
-### Design
 
-Regarding design, Metro apps can (mostly) be defined as minimalistic, text-based
-and living. So, how can you make your apps behave like the native apps that flow
-smoothly and look stunning?
 
-Johan first mentioned the **Windows Phone design grid**, which is 24, 25, 12, 25,
-12 ... 25, 24 grid on which the Metro UI is built. Use it and you will find that
-your apps will "feel right".
+## Rob Ashton - Modern technologies for web-based-gaming
 
-Johan then talked about **design data**, which replaces real data with mock data
-during the design phase. With design data, developers and designers can see data
-in the UI when developing and designing.
+This was a cool session about HTML5-based games. Rob went into detail describing
+the canvas and the possibilities (and challenges) it provides. He also demoed not
+using the canvas, but rather manipulating DOM elements instead. When doing so, he
+used css3 transitions instead of moving the elements around in code, since moving
+elements around will give you really slow animations.
 
-Before animations, Johan recommended the **Windows Phone Commands VS Extension**,
-which lets you download and run apps on the simulator. No roms are needed - apps
-can be downloaded directly from the marketplace.
+Rob also demoed WebGL, hardware acceleration etc. The talk was too hysterical at
+times, but I had fun and learned a bunch about HTML5 game development...but doubt
+that I will find myself playing around with WebGL any evening soon.
 
 
-### Animations
 
-Johan mentioned three toolkits that simplify working with animations on Windows:
+## Robert Folkesson - ReST-baserade tjänster med WCF ASP.NET Web API
 
-* Silverlight toolkit for WP (resource demanding)
-* WP7 contrib (based on adding base classes to your views)
-* Metro in motion, which is a series of blog posts.
+Always well-performing Robert Folkesson of Active Solution had a very interesting
+session about REST-based services with ASP.NET Web API.
 
-Johan used MiM in this talk, and it looked great.
+He begun talking about RESTs architectural constraints (client/server, stateless,
+cacheable, layered, uniform interface) and how to enable really high scalability.
+He also went through some of the REST interface guding principles (resource id:s,
+HATEOAS - Hypermedia as the engine of application state etc.)
 
+Some large sites (e.g. Twitter) do not comply to the REST specificationss, while
+others (Netflix) do. Many APIs fail to provide hypermedia to the client. To see
+how mature your REST service is, use the [Richardson Maturity Model](https://martinfowler.com/articles/richardsonMaturityModel.html). 
 
-### MVVM
+Robert had a good Web API demo with OData operations, media types and formatters.
+I really enjoyed the session.
 
-Johan compared several frameworks for working with Windows Phone and *MVVM*:
 
-* the built in framework in Visual Studio
-* MVVM Light
-* MVVM Excalibur
-* Prism
-* DYI (Do It Yourself - requires more code, but gets you exactly what you need).
 
-Johan then talked about keeping the framework simple, using the singleton pattern
-instead of dependency injection, how to handle communication between the view and
-the view model etc. He also told us that the **SmartObservableCollection** might
-help us out.
+## Torkel Ödegaard - Build Real-Time Apps with Backbone.js and SignalR
 
+I have tried to read up on Backbone several times, but always found it to be too
+badly described, especially compared with Knockout. This session put my laziness
+(and stupidity?) to shame though, as Torkel demonstrated the straightforward way
+to get it up and running and unleasing its power.
 
-### Testability
+Torkel talked about the 5 main abstractions in Backbone (Model, Collection, View,
+Events and Router), demoed several Backbone features and then used Backbone with
+SignalR to provide a UI with real-time updates as stuff happen on the server.
 
-Unit testing on mobile devices can sometimes be tricky. Johan talked a bit about
-how to solve this, including using portable class libraries, and also adviced us
-to embed the required tools to make CI work.
+Extremely impressive session!
 
 
-### Localization
 
-Johan added some Swedish and English texts in resource files, then showed us how
-to translate strings, making the application translate all translatable textual
-content as soon as a user selects another language. With localization, a general
-advice is to design text boxes 40% larger than they would be with English texts,
-in order to support longer texts.
+## Emil Cardell - Front-End CQRS
 
+The last session of the day touched on an interesting area: CQRS. Emil discussed
+the benefits (scalability, reliability) and problems (eventual consistency) with
+applying CQRS (Command Query Responsibility Segregation).
 
-### Security
+The demos were good, despite some unfortunate technical problems that for a long
+time caused no data to show up on the screen. For instance, Emil modified a CRUD
+app to use CQRS, demoed continuation with headers, JIT etc.
 
-Johan talked about security, including how you can download .XAP files from the
-marketplace, change the extension to .zip, unzip them and get access to whatever
-the file contains. Feels like a call for source code obfuscating.
-
-
-### Summary
-
-A very(!) thorough session, that I cannot help would have been even more awesome
-if I had actually gotten around to developing for Windows Phone. Then, a session
-like this would have been extremely helpful. Now, it just rocked ;)
-
-
-
-## Michael Björn - Windows Phone Best Practices – part 2 / 2
-
-Michael continued the Windows Phone talk and focused on prestanda, communication,
-background agents, push notifications and synchronization.
-
-
-### Prestanda
-
-Michael showed us how the fact that Windows Phone has **two** UI threads - a UI
-thread and a compository thread - can be used to achieve non-blocking animations.
-He demoed this with different progress bars - the built in one, an external one
-and another native one that animates in the very top of the screen.
-
-He also demonstrated moving stuff around and how textures can cause the phone to
-redraw small or large parts of the screen, depending on how you manage it. Some
-other general advices were that:
-
-* If you have a long-running operation, use a Thread.Sleep(1) in the operation
-to avoid blocking the compository thread.
-
-* In order to avoid memory leaks when working with textures, disable timers that
-run in views.
-
-* In order to reduce startup time (long startup times can get your app refused),
-consider how you load images, coordinates etc.
-
-
-### Communication
-
-When it comes to picking between the `WebClient` and the `HttpWebRequest` classes,
-Michael strongly advocated the latter. Since the WebClient class runs on the UI
-thread, using it may come back to haunt you later on. HWR takes a bit more setup,
-but is worth it.
-
-Also, instead of having many calls with little data, it is better to bundle the
-calls into one. Otherwise, the phone will open and close the connection for each
-call, which makes the antenna toggle a lot and drain battery life in no time.
-
-
-
-### Background agents
-
-Since WP lacks the possibility to create multi-threading apps, you must resort to
-background agents. However, the two types of available agents (periodic tasks and
-resource intensive tasks) have great limitations and are non-reliable. You should
-never resort to background processes and use other means to achieve critical tasks.
-
-
-### Push notifications
-
-There are not that many WP apps out there today that use push notifications, but
-it is quite easy to setup. Since push notifications can affect your live tiles,
-using them can make your app feel a lot more alive, even when it's not being used.
-
-
-
-### Synchronization
-
-Today, the WP framework only has support for one synchronization framework - the
-`Sync Framework`. Michael did not talk much about this, but mentioned, that when
-stuff is synced for your app, the content will be placed in the isolated storage.
-
-
-
-## Morten Nielsen - From Continuous Integration to Continuous delivery
-
-This talk focused heavily on the specific challenges for Morten's company, where
-the release processes caused updating customer installations to take a day or so.
-
-Per customer.
-
-With CI and CD, they managed to drastically reduce this time...which is the kind
-of effects you tend to get by automating tasks :) 
-
-To sum it up, using Hudson, Morten and his team now have builds that are:
-
-* Fast to create and apply
-* Deterministic
-* Logged / audited
-* Unsupervised
-
-My advice to Morten is to focus less on very company (especially team) specific
-examples. I expected a CI/CD session and got a case study. Nice, but not what I
-was after. 
 
 
 
