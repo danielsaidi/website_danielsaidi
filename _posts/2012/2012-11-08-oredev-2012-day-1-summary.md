@@ -1,8 +1,8 @@
 ---
 title:  "Oredev 2012: Day 1 Summary"
 date: 	2012-11-08 00:30:00 +0100
-categories: conferences oredev
-tags: 	azure node-js javascript hypermedia asp.net
+categories: conferences 
+tags: 	oredev azure node-js javascript hypermedia asp.net
 ---
 
 

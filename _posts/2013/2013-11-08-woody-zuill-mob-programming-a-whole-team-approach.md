@@ -1,8 +1,8 @@
 ---
 title:  "Woody Zuill: Mob Programming, A Whole Team Approach"
 date: 	2013-11-08 03:56:00 +0100
-categories: conferences oredev
-tags: 	mob-programming
+categories: conferences
+tags: 	oredev-2013 mob-programming
 ---
 
 

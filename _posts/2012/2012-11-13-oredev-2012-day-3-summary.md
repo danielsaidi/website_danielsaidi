@@ -1,8 +1,8 @@
 ---
 title:  "Oredev 2012: Day 3 Summary"
 date: 	2012-11-13 21:10:00 +0100
-categories: conferences oredev
-tags: 	node-js android
+categories: conferences
+tags: 	oredev node-js android
 ---
 
 

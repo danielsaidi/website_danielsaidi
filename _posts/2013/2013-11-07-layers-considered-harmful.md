@@ -1,8 +1,8 @@
 ---
 title:  "Christian Horsdal: Layers Considered Harmful"
 date: 	2013-11-07 17:40:00 +0100
-categories: conferences oredev
-tags: 	system-architecture
+categories: conferences
+tags: 	oredev system-architecture
 ---
 
 

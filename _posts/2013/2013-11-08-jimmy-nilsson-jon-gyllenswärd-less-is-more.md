@@ -1,8 +1,8 @@
 ---
 title:  "Jimmy Nilsson & Jon Gyllensward: Less is more! - When it comes to art and software"
 date: 	2013-11-08 09:54:00 +0100
-categories: conferences oredev
-tags: 	
+categories: conferences
+tags: 	oredev
 ---
 
 

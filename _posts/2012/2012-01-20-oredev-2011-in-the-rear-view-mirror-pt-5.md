@@ -1,8 +1,8 @@
 ---
 title:  "Øredev 2011 in the rear-view mirror – Part 5"
 date:    2012-01-20 12:00:00 +0100
-categories: conferences oredev
-tags: 	cyclomatic-complexity ndepend coupling kinect
+categories: conferences
+tags: 	oredev cyclomatic-complexity ndepend coupling kinect
 ---
 
 

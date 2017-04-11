@@ -2,7 +2,7 @@
 title:  "DevSum 2012: Day 1 Summary"
 date:    2012-05-24 07:33:00 +0100
 categories: conferences devsum
-tags: 	raven-db nancy html phonegap rest cqrs backbone signalr
+tags: 	devsum raven-db nancy html phonegap rest cqrs backbone signalr
 ---
 
 

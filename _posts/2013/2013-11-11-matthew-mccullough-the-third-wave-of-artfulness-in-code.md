@@ -1,8 +1,8 @@
 ---
 title:  "Matthew McCollough: The third wave of artfulness in code"
 date: 	2013-11-11 18:30:00 +0100
-categories: conferences oredev
-tags: 	
+categories: conferences
+tags: 	oredev
 ---
 
 
