@@ -36,7 +36,7 @@ following approach (applies to jQuery 1.4.2 – let me know if this is out-of da
 This will make QUnit only append the list element if a test is “bad”, that is if
 it failed. The result will look like this:
 
-![QUnit - Compact test result presentation](/assets/img/blog/2010-06-03-1.png)
+![QUnit - Compact test result presentation](/assets/img/blog/2010-06-03-2.png)
 
 Maybe there is a built-in way of making QUnit behave like this. If you know how,
 please leave a comment.
