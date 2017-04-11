@@ -1,8 +1,8 @@
 ---
 title:  "David Planella: Ubuntu - A Powerful, New Force in Mobile"
 date: 	2013-11-08 17:45:00 +0100
-categories: conferences oredev
-tags: 	ubuntu html javascript
+categories: conferences
+tags: 	oredev ubuntu html javascript
 ---
 
 
