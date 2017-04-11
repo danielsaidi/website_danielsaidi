@@ -254,7 +254,7 @@ When I run my game (well, game-to-be), I auto-generate a path between this green
 and red tile. Below are displayed three example of resulting path suggestions:
 
 
-![Three different paths](/assets/img/blog/2010-02-22-3.png)
+![Three different paths](/assets/img/blog/2010-02-22-4.png)
 
 The path finding operation is fast and can handle large board games. However, it
 would not be suitable for more complex games, where the world is not tile-based.
