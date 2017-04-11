@@ -1,7 +1,7 @@
 ---
 title:	"Find the shortest path between two tiles in a grid in XNA"
 date:	2010-02-22 12:00:00 +0100
-categories: dotnet
+categories: games
 tags: 	xna a*
 ---
 
