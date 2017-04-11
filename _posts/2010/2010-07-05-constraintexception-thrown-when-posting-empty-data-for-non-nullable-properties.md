@@ -2,7 +2,7 @@
 title:	"ConstraintException thrown when posting empty data for non-nullable properties"
 date:	2010-07-05 12:00:00 +0100
 categories: dotnet
-tags: 	entity-framework
+tags: 	entity-framework data-annotations asp-net
 ---
 
 
