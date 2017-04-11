@@ -21,14 +21,14 @@ classes.
 In jQuery, I handle this as such:
 
 	function InheritingClass() {
-   		$.extend(this, new BaseClass("optional parameters"));
+   	   $.extend(this, new BaseClass("optional parameters"));
 	};
 
 while the MooTools Object class required a syntax like this:
 
 	var InheritingClass = Class({
-		Extends: BaseClass,
-		initialize: function() { this.parent("optional parameters"); }
+	   Extends: BaseClass,
+	   initialize: function() { this.parent("optional parameters"); }
 	});
 
 The MooTools example requires knowledge about the object model, while the jQuery
