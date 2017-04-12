@@ -2,7 +2,7 @@
 title:	"XOT-Uzg TV Streaming on your XBOX"
 date:	2010-01-28 12:00:00 +0100
 categories: general
-tags: 	
+tags: 	xbox xbmc
 ---
 
 
