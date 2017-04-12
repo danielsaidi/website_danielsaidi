@@ -19,8 +19,11 @@ specified folder is relative to the `Content.RootDirectory` folder.
 	{
 	   //Load directory info, abort if none
 	   DirectoryInfo dir = new DirectoryInfo(contentManager.RootDirectory + "\\" + contentFolder);
-	   if (!dir.Exists)
+	   if (!dir.Exists) 
+	   {
 	      throw new DirectoryNotFoundException();
+	   }
+
 	   //Init the resulting list
 	   Dictionary<String, T> result = new Dictionary<String, T>();
 
@@ -29,9 +32,9 @@ specified folder is relative to the `Content.RootDirectory` folder.
 	   foreach (FileInfo file in files)
 	   {
 	      string key = Path.GetFileNameWithoutExtension(file.Name);
-
 	      result[key] = contentManager.Load<T>(contentManager.RootDirectory + "/" + contentFolder + "/" + key);
 	   }
+	   
 	   //Return the result
 	   return result;
 	}
