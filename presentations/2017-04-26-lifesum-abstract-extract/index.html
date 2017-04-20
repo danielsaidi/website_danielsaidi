@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Abstract, Extract</title>
+
+		<meta name="description" content="New Audio Player Demo">
+		<meta name="author" content="Daniel Saidi, daniel.saidi@gmail.com">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../css/reveal.css">
+		<link rel="stylesheet" href="../css/theme/bookbeat.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../lib/css/zenburn.css">
+
+		<link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../css/print/pdf.css' : '../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style>
+			.title-page h1 { font-size: 4em !important; }
+			.title-page p { font-weight: bold; }
+			h2 { font-size: 2em !important; }
+			pre { background-color: white; }
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="../lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown class="title-page">
+					# Abstract, Extract
+					### How libifying your source code ....TBD
+
+					@danielsaidi
+				</section>
+
+				<section class="image-section">
+					<section data-markdown class="image-section">
+						# Daniel
+						## iOS Lead @ BookBeat
+					</section>
+
+					<section class="image-section" data-background="http://i.imgur.com/yHBmJ.gif">
+						<h1>.NET</h1>
+						<h2>C#</h2>
+					</section>
+
+					<section data-markdown class="image-section" data-background="https://adammarxsmind.files.wordpress.com/2016/09/1-pmwofcv5vuismhawsqzwqw.gif">
+						# NSURLSession
+						## Objective-C
+					</section>
+
+					<section data-markdown class="image-section" data-background="http://i.imgur.com/cAJtk.gif">
+						# LRResty
+						## Objective-C
+					</section>
+
+					<section data-markdown class="image-section" data-background="http://iruntheinternet.com/lulzdump/images/snake-on-computer-MGS-on-fire-burning-1438702695x.gif?id=">
+						# RestKit
+						## Objective-C + Swift
+					</section>
+
+					<section data-markdown class="image-section" data-background="http://68.media.tumblr.com/3062e1dd6f3ffaabb04af32a531acb9b/tumblr_inline_omlxotGnOR1r2xhmf_500.gif">
+						# URLSession
+						## Swift
+					</section>
+
+					<section data-markdown class="image-section" data-background="https://media.giphy.com/media/3mo3WBFrvVTYk/giphy.gif">
+						# Alamofire
+						## Swift
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown class="image-section">
+						## This talk
+
+						* Alamofire
+						* AlamofireObjectMapper
+						* Realm
+					</section>
+
+					<section data-markdown class="image-section">
+						## Alamofire
+
+						* HTTP networking library
+						* Rest, File downloads etc.
+						* Built in Swift
+					</section>
+
+					<section data-markdown class="image-section">
+						## AlamofireObjectMapper
+
+						* Extends Alamofire
+						* Based on ObjectMapper
+						* Simplifies mapping API responses
+					</section>
+
+					<section data-markdown class="image-section">
+						## Realm
+
+						* Mobile Database
+						* SQLite and Core Data alternative
+						* We will use it as a simple cache
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown class="image-section">
+						## Demo
+
+						* Authorization (URLSession vs Alamofire)
+						* Request Retry + Adaption (Alamofire 4)
+						* Fetch data (Alamofire)
+						* Map data (AlamofireObjectMapper)
+						* Save data (Realm)
+					</section>
+
+					<section data-markdown class="image-section">
+						## Disclaimer
+
+						* We'll use Yelp's API:s
+						* Yelp only allows saving data 24h
+						* Remind me to delete the app :)
+					</section>
+				</section>
+
+				<section data-markdown class="image-section">
+					# Let's go!
+				</section>
+
+				<section data-markdown class="title-page image-section">
+					## Thank you!
+					### Questions?
+					@danielsaidi
+				</section>
+			</div>
+		</div>
+
+		<script src="../lib/js/head.min.js"></script>
+		<script src="../js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../plugin/zoom-js/zoom.js', async: true },
+					{ src: '../plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
