@@ -51,110 +51,333 @@
 			<div class="slides">
 				<section data-markdown class="title-page">
 					# Abstract, Extract
-					### How libifying your source code ....TBD
+					## How to untie that libifying your source code ....TBD
 
 					@danielsaidi
 				</section>
 
-				<section class="image-section">
-					<section data-markdown class="image-section">
+
+				<section>
+					<section data-markdown>
 						# Daniel
-						## iOS Lead @ BookBeat
+						### iOS Lead @ BookBeat
 					</section>
 
-					<section class="image-section" data-background="http://i.imgur.com/yHBmJ.gif">
-						<h1>.NET</h1>
-						<h2>C#</h2>
+					<section data-markdown>
+						## Previously
+						* .NET
+						* Web
+						* Android
+						* Java, C / C++
+						* Windows Mobile...
 					</section>
 
-					<section data-markdown class="image-section" data-background="https://adammarxsmind.files.wordpress.com/2016/09/1-pmwofcv5vuismhawsqzwqw.gif">
-						# NSURLSession
-						## Objective-C
+					<section data-markdown class="image-section" data-background="http://thesuburbansoapbox.com/wp-content/uploads/2013/04/image39.jpg">
+						# Mmmm...a full stack!
 					</section>
 
-					<section data-markdown class="image-section" data-background="http://i.imgur.com/cAJtk.gif">
-						# LRResty
-						## Objective-C
+					<section data-markdown>
+						## Previous roles
+						* .NET Developer
+						* System Architect
+						* Lead Developer
+						* Dev Team Coach
 					</section>
 
-					<section data-markdown class="image-section" data-background="http://iruntheinternet.com/lulzdump/images/snake-on-computer-MGS-on-fire-burning-1438702695x.gif?id=">
-						# RestKit
-						## Objective-C + Swift
+					<section data-markdown>
+						## Love
+						* Web
+						* Mobile
+						* Code
+						* Methodology
+					</section>
+				</section>
+
+
+				<section>
+					<section data-markdown>
+						# BookBeat
 					</section>
 
-					<section data-markdown class="image-section" data-background="http://68.media.tumblr.com/3062e1dd6f3ffaabb04af32a531acb9b/tumblr_inline_omlxotGnOR1r2xhmf_500.gif">
-						# URLSession
-						## Swift
+					<section data-markdown>
+						## Audio Books
+						* Stream & Download
+						* Monthly fee, unlimited use
+						* Soft launch late 2015
+						* Real launch spring 2016
 					</section>
 
-					<section data-markdown class="image-section" data-background="https://media.giphy.com/media/3mo3WBFrvVTYk/giphy.gif">
-						# Alamofire
-						## Swift
+					<section data-markdown>
+						## Competitors
+						* Audible
+						* Storytel
+						* Nextory
+						* ...and many many more
+					</section>
+
+					<section data-markdown>
+						## Challenge
+						* Proven business model
+						* But new to Bonnier
+						* Not only a technical challenge
+						* Starting a whole new company
+					</section>
+
+					<section data-markdown>
+						## Questions
+						* What should we do?
+						* How should we do it?
+						* How much do we charge?
+						* Partnerships, publishers, reporting?
+					</section>
+
+					<section data-markdown>
+						## Marketing
+						* What should we call it?
+						* Graphics, fonts, colors
+						* Tonality
+						* Marketing channels
+					</section>
+
+					<section data-markdown>
+						## Tech
+						* Client platforms 
+						* Backend
+						* Api(s)
+						* Integrations
+					</section>
+
+					<section data-markdown>
+						## Team
+						* Started small
+						* Consultants only
+						* Recruited gradually
+						* Today, few consultants
+					</section>
+
+					<section data-markdown>
+						## Process
+						* Pivot, pivot, pivot
+						* Constant discovery
+						* Constant change
+						* Tech must be adaptable
+					</section>
+
+					<section data-markdown class="image-section" data-background="https://img.devrant.io/devrant/rant/r_97625_fwDNP.gif">
+					</section>
+
+					<section data-markdown>
+						## Code Approach 
+						* Adaptability over architecture
+						* Build it right once we know
+						* Avoid premature optimization
+						* Cover the most important parts in tests
+					</section>
+
+					<section data-markdown>
+						## Result 
+						* Constant, quick changes
+						* Affected code base, but...
+						* Many great things in place
+						* They got an app out (business value)!
+					</section>
+				</section>
+
+
+				<section>
+					<section data-markdown>
+						# Keeping it together
+					</section>
+
+					<section data-markdown>
+						## Quick changes
+						* How do you handle quick changes?
+						* How do you keep your code base sane?
+						* SHOULD you focus on architecture, when everything constantly changes?
+					</section>
+
+					<section data-markdown>
+						## Spike & Stabilize
+						* Dan North, 2011
+						* Optimize for throwawayability
+						* An active decision
+						* Start as spike, stabilize if proven valuable
+					</section>
+
+					<section data-markdown>
+						## Spike & Stabilize (cont.)
+						* Good for changing scope, pivot etc.
+						* Does NOT mean write "ad hoc code"
+						* Optimize for THROWAWAYABILITY
+						* Means it should be easy to throw away
+					</section>
+
+					<section data-markdown>
+						# However...
+					</section>
+
+					<section data-markdown>
+						## Signs of rushed coding
+						* Copy/pasted code
+						* Spaghetti code
+						* Inconsistent system design
+						* No "red thread"
+					</section>
+
+					<section data-markdown>
+						## Signs of rushed coding
+						* No abstractions (how, not what)
+						* Hard coupling
+						* Existing tests are disabled
+						* No new tests can be added
+					</section>
+
+					<section data-markdown>
+						## Signs of rushed coding
+						* Shout out time!
+					</section>
+				</section>
+
+
+				<section>
+					<section data-markdown>
+						# So, BookBeat?
+					</section>
+
+					<section data-markdown>
+						## Remember...
+						* They got an app out
+						* However...
+					</section>
+
+					<section data-markdown>
+						## Problems (challenges :)
+						* CoreData everywhere
+						* RestKit everywhere
+						* Premature framework design
+						* Rigid code
+					</section>
+
+					<section data-markdown>
+						## Problems (cont.)
+						* Slow build times
+						* Existing unit tests disabled
+						* Can't add tests (segmentation fault 11)
+						* All logic in the app
+					</section>
+
+					<section data-markdown class="image-section" data-background="https://s-media-cache-ak0.pinimg.com/originals/03/ad/71/03ad71abf3741f3188428ff0d95d1616.gif">
+					</section>
+
+					<section data-markdown class="image-section" data-background="https://s-media-cache-ak0.pinimg.com/originals/db/91/c1/db91c177933567e8e1a10ba9da96cd02.jpg">
+					</section>
+
+					<section data-markdown>
+						## (Our) Solution
+						* Baby steps
+						* Extract code into logical libraries
+						* Hard for e.g. Book, begin with simpler
+						* CocoaPods
+					</section>
+
+					<section data-markdown>
+						## CocoaPods
+						* Package Manager for iOS
+						* Alternatives: Carthage, Swift PM
+						* ✖ CocoaPod repo
+						* ✔ Private git repo + Development pods
+					</section>
+
+					<section data-markdown>
+						## Pros
+						* Pods can be used in multiple apps
+						* Minimize app's responsibility
+						* Faster build → easier unit testing
+						* Reduces coupling, forces abstraction
+					</section>
+
+					<section data-markdown>
+						## Cons
+						* Slower build times (not always)
+						* Number of pods can add up
+						* Sometimes too much complexity
+						* Library versioning hell
+					</section>
+
+					<section data-markdown>
+						## Our libraries
+						* BBCore
+						* BBAudioPlayer
+						* BBDomain (wip)
+						* App gets thinner and thinner
 					</section>
 				</section>
 
 				<section>
-					<section data-markdown class="image-section">
-						## This talk
 
-						* Alamofire
-						* AlamofireObjectMapper
-						* Realm
+					<section data-markdown>
+						# Demo
 					</section>
 
-					<section data-markdown class="image-section">
-						## Alamofire
-
-						* HTTP networking library
-						* Rest, File downloads etc.
-						* Built in Swift
+					<section data-markdown>
+						## Initial setup
+						* One app with all logic
+						* API: RestaurantLite + ApiRestaurant
+						* Realm - Restaurant
+						* API-specific service
 					</section>
 
-					<section data-markdown class="image-section">
-						## AlamofireObjectMapper
-
-						* Extends Alamofire
-						* Based on ObjectMapper
-						* Simplifies mapping API responses
+					<section data-markdown>
+						## Initial setup (cont.)
+						* Realm-wrapper around API-service
+						* API-entity used in lists
+						* Realm entity used in detail page
+						* Hard coupling to Alamofire and Realm
 					</section>
 
-					<section data-markdown class="image-section">
-						## Realm
+					<section data-markdown>
+						## Pod
+						* RestaurantOverview
+						* Restaurant: RestaurantOverview
+						* Abstract service
+						* Do not move API in here yet
+					</section>
 
-						* Mobile Database
-						* SQLite and Core Data alternative
-						* We will use it as a simple cache
+					<section data-markdown>
+						## App
+						* Rename API entities
+						* Rename Realm entity
+						* Add development pod
+						* Make classes implement abstract
+					</section>
+
+					<section data-markdown>
+						## App (cont.)
+						* Make UI use abstract entities
+						* Make services implement abstract
+						* Inject abstract service into Realm
+						* API can now be moved anywhere!
+					</section>
+
+					<section data-markdown>
+						## App (cont.)
+						* Discuss IoC
+						* Add Dip
+						* Bootstrap application
+						* Run
 					</section>
 				</section>
 
-				<section>
-					<section data-markdown class="image-section">
-						## Demo
-
-						* Authorization (URLSession vs Alamofire)
-						* Request Retry + Adaption (Alamofire 4)
-						* Fetch data (Alamofire)
-						* Map data (AlamofireObjectMapper)
-						* Save data (Realm)
-					</section>
-
-					<section data-markdown class="image-section">
-						## Disclaimer
-
-						* We'll use Yelp's API:s
-						* Yelp only allows saving data 24h
-						* Remind me to delete the app :)
-					</section>
+				<section data-markdown>
+					## Wrapping up
+					* No silver bullet
+					* What to keep in app depends on the app
+					* This is just a way to solve possible problems in your code base
 				</section>
 
-				<section data-markdown class="image-section">
-					# Let's go!
-				</section>
-
-				<section data-markdown class="title-page image-section">
-					## Thank you!
-					### Questions?
-					@danielsaidi
+				<section data-markdown>
+					# Thank you!
+					* @danielsaidi
 				</section>
 			</div>
 		</div>
