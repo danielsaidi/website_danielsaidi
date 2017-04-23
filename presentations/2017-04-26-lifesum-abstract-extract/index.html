@@ -32,7 +32,7 @@
 		</script>
 
 		<style>
-			.title-page h1 { font-size: 4em !important; }
+			.title-page h1 { font-size: 3em !important; }
 			.title-page p { font-weight: bold; }
 			h2 { font-size: 2em !important; }
 			pre { background-color: white; }
@@ -51,7 +51,7 @@
 			<div class="slides">
 				<section data-markdown class="title-page">
 					# Abstract, Extract
-					## How to untie that libifying your source code ....TBD
+					### How abstractions and libraries can help you untie that big ball of twine
 
 					@danielsaidi
 				</section>
@@ -59,7 +59,7 @@
 
 				<section>
 					<section data-markdown>
-						# Daniel
+						# Daniel Saidi
 						### iOS Lead @ BookBeat
 					</section>
 
@@ -69,11 +69,7 @@
 						* Web
 						* Android
 						* Java, C / C++
-						* Windows Mobile...
-					</section>
-
-					<section data-markdown class="image-section" data-background="http://thesuburbansoapbox.com/wp-content/uploads/2013/04/image39.jpg">
-						# Mmmm...a full stack!
+						* Windows Mobile anno 2005 :)
 					</section>
 
 					<section data-markdown>
@@ -81,15 +77,23 @@
 						* .NET Developer
 						* System Architect
 						* Lead Developer
-						* Dev Team Coach
+						* Team Coach
 					</section>
 
 					<section data-markdown>
-						## Love
-						* Web
-						* Mobile
-						* Code
-						* Methodology
+						## Code quality
+						* Very important to me
+						* ...and yet, I often suck at it
+						* Constant work in progress
+						* Strange how hard the easy is
+					</section>
+
+					<section data-markdown>
+						## Today's talk
+						* BookBeat case study
+						* How did they get where they are
+						* iOS-specific challenges
+						* My approach to solve them
 					</section>
 				</section>
 
@@ -97,10 +101,11 @@
 				<section>
 					<section data-markdown>
 						# BookBeat
+						### A startup story
 					</section>
 
 					<section data-markdown>
-						## Audio Books
+						## Audio Books & e-books
 						* Stream & Download
 						* Monthly fee, unlimited use
 						* Soft launch late 2015
@@ -112,22 +117,14 @@
 						* Audible
 						* Storytel
 						* Nextory
-						* ...and many many more
+						* ...and many others
 					</section>
 
 					<section data-markdown>
-						## Challenge
-						* Proven business model
-						* But new to Bonnier
-						* Not only a technical challenge
-						* Starting a whole new company
-					</section>
-
-					<section data-markdown>
-						## Questions
+						## Starting off...
 						* What should we do?
 						* How should we do it?
-						* How much do we charge?
+						* How much do we charge for "it"?
 						* Partnerships, publishers, reporting?
 					</section>
 
@@ -141,45 +138,39 @@
 
 					<section data-markdown>
 						## Tech
-						* Client platforms 
 						* Backend
-						* Api(s)
 						* Integrations
-					</section>
-
-					<section data-markdown>
-						## Team
-						* Started small
-						* Consultants only
-						* Recruited gradually
-						* Today, few consultants
+						* Api(s)
+						* Applications
 					</section>
 
 					<section data-markdown>
 						## Process
-						* Pivot, pivot, pivot
-						* Constant discovery
-						* Constant change
-						* Tech must be adaptable
-					</section>
-
-					<section data-markdown class="image-section" data-background="https://img.devrant.io/devrant/rant/r_97625_fwDNP.gif">
+						* Discovery & learning driven
+						* Constant changes
+						* Fine-tune, change, pivot
+						* Adaptability is key
 					</section>
 
 					<section data-markdown>
-						## Code Approach 
+						## Code
 						* Adaptability over architecture
 						* Build it right once we know
 						* Avoid premature optimization
-						* Cover the most important parts in tests
+						* (Apps) Test most important parts only
 					</section>
 
 					<section data-markdown>
-						## Result 
-						* Constant, quick changes
-						* Affected code base, but...
-						* Many great things in place
-						* They got an app out (business value)!
+						## 1 Year Later 
+						* Constant changes!
+						* Rushed development, tech debt
+						* BUT - Many great things in place
+						* AND - They got a business launched
+					</section>
+
+					<section data-markdown>
+						## But...
+						* We'll focus on the tech debt :)
 					</section>
 				</section>
 
@@ -187,54 +178,70 @@
 				<section>
 					<section data-markdown>
 						# Keeping it together
+						### How do you keep your code base sane?
 					</section>
 
 					<section data-markdown>
-						## Quick changes
-						* How do you handle quick changes?
-						* How do you keep your code base sane?
-						* SHOULD you focus on architecture, when everything constantly changes?
+						## Good practices
+						* Minimize coupling
+						* Minimize inheritance
+						* Keep it simple!
+						* Don't let dependencies leak
 					</section>
 
 					<section data-markdown>
 						## Spike & Stabilize
 						* Dan North, 2011
+						* Good for changing scope, pivots etc.
 						* Optimize for throwawayability
-						* An active decision
-						* Start as spike, stabilize if proven valuable
+						* Code should be easy to throw away
 					</section>
 
 					<section data-markdown>
-						## Spike & Stabilize (cont.)
-						* Good for changing scope, pivot etc.
+						## Throwawayability
+						* Start with a prototype
+						* Stabilize if proven valuable
+						* Throw away if proven worthless 
 						* Does NOT mean write "ad hoc code"
-						* Optimize for THROWAWAYABILITY
-						* Means it should be easy to throw away
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown>
+						# But what if you fail?
+						### How can your code go insane?
+					</section>
+
+					<section data-markdown class="image-section" data-background="code-smell.gif">
+						# Code-smell!
 					</section>
 
 					<section data-markdown>
-						# However...
+						## Code smell
+						* A surface indication of deeper problems
+						* Violate fundamental design principles
+						* Usually not bugs
+						* Bad habits, inexperience, stress
+					</section>
+
+					<section data-markdown class="image-section" data-background="code-smell-hands.gif">
+						# Any code-smells?
 					</section>
 
 					<section data-markdown>
-						## Signs of rushed coding
-						* Copy/pasted code
+						## Code smells
+						* Duplicated code
+						* Over-complicated code
+						* Large classes
 						* Spaghetti code
-						* Inconsistent system design
-						* No "red thread"
 					</section>
 
 					<section data-markdown>
-						## Signs of rushed coding
-						* No abstractions (how, not what)
+						## Code smells
 						* Hard coupling
+						* Cyclomatic complexity
+						* No abstractions (how, not what)
 						* Existing tests are disabled
-						* No new tests can be added
-					</section>
-
-					<section data-markdown>
-						## Signs of rushed coding
-						* Shout out time!
 					</section>
 				</section>
 
@@ -242,28 +249,27 @@
 				<section>
 					<section data-markdown>
 						# So, BookBeat?
+						### How did the code-base look?
+					</section>
+
+					<section data-markdown class="image-section" data-background="secret.gif">
+						# Secret
 					</section>
 
 					<section data-markdown>
-						## Remember...
-						* They got an app out
-						* However...
-					</section>
-
-					<section data-markdown>
-						## Problems (challenges :)
+						## Code problems
 						* CoreData everywhere
 						* RestKit everywhere
-						* Premature framework design
+						* Premature frameworks
 						* Rigid code
 					</section>
 
 					<section data-markdown>
-						## Problems (cont.)
+						## Project problems
 						* Slow build times
+						* All logic in the app
 						* Existing unit tests disabled
 						* Can't add tests (segmentation fault 11)
-						* All logic in the app
 					</section>
 
 					<section data-markdown class="image-section" data-background="https://s-media-cache-ak0.pinimg.com/originals/03/ad/71/03ad71abf3741f3188428ff0d95d1616.gif">
@@ -273,11 +279,11 @@
 					</section>
 
 					<section data-markdown>
-						## (Our) Solution
-						* Baby steps
-						* Extract code into logical libraries
-						* Hard for e.g. Book, begin with simpler
-						* CocoaPods
+						## How are we handling it?
+						* Baby steps!
+						* Simplify, clarify
+						* Break up dependencies
+						* Extract code into libraries
 					</section>
 
 					<section data-markdown>
@@ -285,13 +291,13 @@
 						* Package Manager for iOS
 						* Alternatives: Carthage, Swift PM
 						* ✖ CocoaPod repo
-						* ✔ Private git repo + Development pods
+						* ✔ Private git repos + Development pods
 					</section>
 
 					<section data-markdown>
 						## Pros
 						* Pods can be used in multiple apps
-						* Minimize app's responsibility
+						* Minimizes the app's responsibility
 						* Faster build → easier unit testing
 						* Reduces coupling, forces abstraction
 					</section>
@@ -299,17 +305,26 @@
 					<section data-markdown>
 						## Cons
 						* Slower build times (not always)
-						* Number of pods can add up
-						* Sometimes too much complexity
+						* Number of pods can pile up
 						* Library versioning hell
+						* Sometimes too much complexity
 					</section>
 
 					<section data-markdown>
-						## Our libraries
-						* BBCore
-						* BBAudioPlayer
-						* BBDomain (wip)
-						* App gets thinner and thinner
+						## Current state
+						* BookBeat app - 40% less code
+						* BBCore (core logic + utils)
+						* BBAudioPlayer (audio player)
+						* BBDomain (domain model + api)
+						* CI & Unit Tests for each project 
+					</section>
+
+					<section data-markdown>
+						## Remaining challenges
+						* Make domain model abstract
+						* Replace RestKit with Alamofire
+						* Replace CoreData with Realm
+						* Re-enable tests for main app
 					</section>
 				</section>
 
@@ -322,33 +337,26 @@
 					<section data-markdown>
 						## Initial setup
 						* One app with all logic
-						* API: RestaurantLite + ApiRestaurant
-						* Realm - Restaurant
-						* API-specific service
+						* API: RestaurantLite
+						* Realm: Restaurant
+						* API & Realm services
+						* Hard Coupling
 					</section>
 
 					<section data-markdown>
-						## Initial setup (cont.)
-						* Realm-wrapper around API-service
-						* API-entity used in lists
-						* Realm entity used in detail page
-						* Hard coupling to Alamofire and Realm
-					</section>
-
-					<section data-markdown>
-						## Pod
+						## Create library pod
+						* Abstract domain model
 						* RestaurantOverview
 						* Restaurant: RestaurantOverview
 						* Abstract service
-						* Do not move API in here yet
 					</section>
 
 					<section data-markdown>
-						## App
+						## Adjust app
 						* Rename API entities
 						* Rename Realm entity
 						* Add development pod
-						* Make classes implement abstract
+						* Remove coupling by using abstractions
 					</section>
 
 					<section data-markdown>
@@ -368,17 +376,33 @@
 					</section>
 				</section>
 
-				<section data-markdown>
-					## Wrapping up
-					* No silver bullet
-					* What to keep in app depends on the app
-					* This is just a way to solve possible problems in your code base
+				<section>
+					<section data-markdown>
+						# Wrapping up
+					</section>
+
+					<section data-markdown>
+						## BookBeat-specific
+						* No silver bullet
+						* Works great for us
+						* Pods is not the only way
+						* Approach depends on the app
+					</section>
+
+					<section data-markdown>
+						## Some advice
+						* Abstract - What, not how
+						* Get good practices in place early on
+						* Reduce coupling (DI)
+						* Write tests, at least one test
+					</section>
 				</section>
 
 				<section data-markdown>
 					# Thank you!
 					* @danielsaidi
 				</section>
+
 			</div>
 		</div>
 
