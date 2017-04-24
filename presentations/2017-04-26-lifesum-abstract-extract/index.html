@@ -34,8 +34,10 @@
 		<style>
 			.title-page h1 { font-size: 3em !important; }
 			.title-page p { font-weight: bold; }
+			.title-page p + ul li { font-size: 0.4em !important; }
 			h2 { font-size: 2em !important; }
 			pre { background-color: white; }
+			.image-section.light h1, .image-section.light h3 { color: black !important; text-shadow: 2px 2px white !important; }
 		</style>
 
 		<!--[if lt IE 9]>
@@ -51,9 +53,11 @@
 			<div class="slides">
 				<section data-markdown class="title-page">
 					# Abstract, Extract
-					### How abstractions and libraries can help you untie that big ball of twine
+					### How abstractions and libraries can help you untie that big ball of twine that is your sorry excuse of a source code *
 
 					@danielsaidi
+
+					* \* Come up with a better title before Wednesday
 				</section>
 
 
@@ -64,12 +68,16 @@
 					</section>
 
 					<section data-markdown>
-						## Previously
+						## Before iOS
 						* .NET
 						* Web
 						* Android
 						* Java, C / C++
-						* Windows Mobile anno 2005 :)
+					</section>
+
+					<section data-markdown class="image-section" data-background="cool.gif">
+						# Windows Mobile 2005
+						### Before it was cool
 					</section>
 
 					<section data-markdown>
@@ -80,18 +88,25 @@
 						* Team Coach
 					</section>
 
+					<section data-markdown class="image-section" data-background="team-yellow.jpg">
+						# Team Yellow
+					</section>
+
 					<section data-markdown>
 						## Code quality
-						* Very important to me
+						* Very important to me (sad)
 						* ...and yet, I often suck at it
 						* Constant work in progress
 						* Strange how hard the easy is
 					</section>
 
+					<section data-markdown class="image-section" data-background="rube.png">
+					</section>
+
 					<section data-markdown>
 						## Today's talk
 						* BookBeat case study
-						* How did they get where they are
+						* How did they get to where they are
 						* iOS-specific challenges
 						* My approach to solve them
 					</section>
@@ -105,11 +120,13 @@
 					</section>
 
 					<section data-markdown>
+						<script type="text/template">
 						## Audio Books & e-books
-						* Stream & Download
-						* Monthly fee, unlimited use
-						* Soft launch late 2015
-						* Real launch spring 2016
+						* Stream & Download <!-- .element: class="fragment" -->
+						* Monthly fee, unlimited use <!-- .element: class="fragment" -->
+						* Soft launch late 2015 <!-- .element: class="fragment" -->
+						* Real launch spring 2016 <!-- .element: class="fragment" -->
+						</script>
 					</section>
 
 					<section data-markdown>
@@ -121,51 +138,53 @@
 					</section>
 
 					<section data-markdown>
-						## Starting off...
-						* What should we do?
-						* How should we do it?
-						* How much do we charge for "it"?
-						* Partnerships, publishers, reporting?
+						<script type="text/template">
+						## The Big Picture 
+						* What should we do? <!-- .element: class="fragment" -->
+						* How should we do it? <!-- .element: class="fragment" -->
+						* Name, price, design, tonality <!-- .element: class="fragment" -->
+						* Partnerships, publishers, reporting? <!-- .element: class="fragment" -->
+						</script>
 					</section>
 
 					<section data-markdown>
-						## Marketing
-						* What should we call it?
-						* Graphics, fonts, colors
-						* Tonality
-						* Marketing channels
-					</section>
-
-					<section data-markdown>
+						<script type="text/template">
 						## Tech
-						* Backend
-						* Integrations
-						* Api(s)
-						* Applications
+						* Backend <!-- .element: class="fragment" -->
+						* Integrations <!-- .element: class="fragment" -->
+						* Api(s) <!-- .element: class="fragment" -->
+						* Applications <!-- .element: class="fragment" -->
+						</script>
 					</section>
 
 					<section data-markdown>
+						<script type="text/template">
 						## Process
-						* Discovery & learning driven
-						* Constant changes
-						* Fine-tune, change, pivot
-						* Adaptability is key
+						* Discovery & learning driven <!-- .element: class="fragment" -->
+						* Constant changes <!-- .element: class="fragment" -->
+						* Fine-tune, change, pivot <!-- .element: class="fragment" -->
+						* Adaptability is key <!-- .element: class="fragment" -->
+						</script>
 					</section>
 
 					<section data-markdown>
+						<script type="text/template">
 						## Code
-						* Adaptability over architecture
-						* Build it right once we know
-						* Avoid premature optimization
-						* (Apps) Test most important parts only
+						* Adaptability over architecture <!-- .element: class="fragment" -->
+						* Build it right once we know <!-- .element: class="fragment" -->
+						* Avoid premature optimization <!-- .element: class="fragment" -->
+						* (Apps) Test most important parts only <!-- .element: class="fragment" -->
+						</script>
 					</section>
 
 					<section data-markdown>
+						<script type="text/template">
 						## 1 Year Later 
-						* Constant changes!
-						* Rushed development, tech debt
-						* BUT - Many great things in place
-						* AND - They got a business launched
+						* Constant changes everywhere! <!-- .element: class="fragment" -->
+						* Rushed development, tech debt <!-- .element: class="fragment" -->
+						* BUT - Many great things in place <!-- .element: class="fragment" -->
+						* AND - They got a business launched <!-- .element: class="fragment" -->
+						</script>
 					</section>
 
 					<section data-markdown>
@@ -182,66 +201,115 @@
 					</section>
 
 					<section data-markdown>
+						<script type="text/template">
 						## Good practices
-						* Minimize coupling
-						* Minimize inheritance
-						* Keep it simple!
-						* Don't let dependencies leak
+						* Minimize coupling <!-- .element: class="fragment" -->
+						* Minimize inheritance <!-- .element: class="fragment" -->
+						* Don't let external dependencies leak <!-- .element: class="fragment" -->
+						* Keep it simple! <!-- .element: class="fragment" -->
+						</script>
 					</section>
 
 					<section data-markdown>
+						<script type="text/template">
 						## Spike & Stabilize
-						* Dan North, 2011
-						* Good for changing scope, pivots etc.
-						* Optimize for throwawayability
-						* Code should be easy to throw away
+						* Dan North, 2011 <!-- .element: class="fragment" -->
+						* Good for changing scope, pivots etc. <!-- .element: class="fragment" -->
+						* Optimize for throwawayability <!-- .element: class="fragment" -->
+						* Code should be easy to throw away <!-- .element: class="fragment" -->
+						</script>
 					</section>
 
 					<section data-markdown>
-						## Throwawayability
-						* Start with a prototype
-						* Stabilize if proven valuable
-						* Throw away if proven worthless 
-						* Does NOT mean write "ad hoc code"
+						<script type="text/template">
+						## Prototype-driven
+						* Start with a prototype <!-- .element: class="fragment" -->
+						* Stabilize if proven valuable <!-- .element: class="fragment" -->
+						* Throw away if proven worthless  <!-- .element: class="fragment" -->
+						* Does NOT mean write "ad hoc code" <!-- .element: class="fragment" -->
+						</script>
 					</section>
 				</section>
 
 				<section>
 					<section data-markdown>
 						# But what if you fail?
-						### How can your code go insane?
+						### How do you know if your code went bad?
 					</section>
 
 					<section data-markdown class="image-section" data-background="code-smell.gif">
 						# Code-smell!
+						### (it actually does smell)
 					</section>
 
 					<section data-markdown>
+						<script type="text/template">
 						## Code smell
-						* A surface indication of deeper problems
-						* Violate fundamental design principles
-						* Usually not bugs
-						* Bad habits, inexperience, stress
+						* Surface indication of deeper problems <!-- .element: class="fragment" -->
+						* Violate fundamental design principles <!-- .element: class="fragment" -->
+						* Usually not bugs, but can hide nasty ones <!-- .element: class="fragment" -->
+						* Bad habits, inexperience, stress <!-- .element: class="fragment" -->
+						</script>
 					</section>
 
 					<section data-markdown class="image-section" data-background="code-smell-hands.gif">
-						# Any code-smells?
+						# Raise of hands
+						### Favorite code-smells?
+					</section>
+
+					<section data-markdown class="image-section light" data-background="copypaste.jpg">
+						# Duplicated code
+						### e.g. validation, formatting, business logic
+					</section>
+
+					<section data-markdown class="image-section light" data-background="complex-code.jpg">
+						# Complicated code
+						### If your code needs comments, you know
+					</section>
+
+					<section data-markdown class="image-section light" data-background="complex-code.jpg">
+						# Long functions
+						### Hard to test, cyclomatic complexity
+					</section>
+
+					<section data-markdown class="image-section light" data-background="large-class.jpg">
+						# Large classes
+						### Does a lot of stuff...that it shouldn't
+					</section>
+
+					<section data-markdown class="image-section" data-background="spaghetti.jpg">
+						# Spaghetti code
+						### No red thread, no obvious design
+					</section>
+
+					<section data-markdown class="image-section" data-background="coupling.jpg">
+						# Hard coupling
+						### A depends on B which depends on...
+					</section>
+
+					<section data-markdown class="image-section" data-background="bad-habits.jpg">
+						# Bad habits
+						### Unit tests disabled, no version control etc.
 					</section>
 
 					<section data-markdown>
-						## Code smells
-						* Duplicated code
-						* Over-complicated code
-						* Large classes
-						* Spaghetti code
+						<script type="text/template">
+						## Dangers of having no plan
+						* Quick at first <!-- .element: class="fragment" -->
+						* Often appreciated by management <!-- .element: class="fragment" -->
+						* New features constantly delivered  <!-- .element: class="fragment" -->
+						* But... <!-- .element: class="fragment" -->
+						</script>
 					</section>
 
 					<section data-markdown>
-						## Code smells
-						* Hard coupling
-						* Cyclomatic complexity
-						* No abstractions (how, not what)
-						* Existing tests are disabled
+						<script type="text/template">
+						## Long-term effects
+						* Rigid code, hard to change <!-- .element: class="fragment" -->
+						* Untestable code, lack of abstractions <!-- .element: class="fragment" -->
+						* Degrades over time <!-- .element: class="fragment" -->
+						* Just...not fun - work becomes chore <!-- .element: class="fragment" -->
+						</script>
 					</section>
 				</section>
 
@@ -249,130 +317,119 @@
 				<section>
 					<section data-markdown>
 						# So, BookBeat?
-						### How did the code-base look?
+						### How did the code-base look after a year?
 					</section>
 
 					<section data-markdown class="image-section" data-background="secret.gif">
-						# Secret
 					</section>
 
 					<section data-markdown>
+						<script type="text/template">
+						## Good things first 
+						* Build server <!-- .element: class="fragment" -->
+						* Fastlane <!-- .element: class="fragment" -->
+						* Beta testing <!-- .element: class="fragment" -->
+						* Localization <!-- .element: class="fragment" -->
+						</script>
+					</section>
+
+					<section data-markdown>
+						<script type="text/template">
 						## Code problems
-						* CoreData everywhere
-						* RestKit everywhere
-						* Premature frameworks
-						* Rigid code
+						* Generally overly-complex <!-- .element: class="fragment" -->
+						* Rigid code, hard coupling <!-- .element: class="fragment" -->
+						* Really hard to break up dependencies <!-- .element: class="fragment" -->
+						* **CoreData & RestKit everywhere** <!-- .element: class="fragment" -->
+						</script>
 					</section>
 
 					<section data-markdown>
+						<script type="text/template">
+						## AudioPlayer 
+						* 1000 lines monolith <!-- .element: class="fragment" -->
+						* Plays, streams, buffers, reports etc. <!-- .element: class="fragment" -->
+						* Spaghetti code <!-- .element: class="fragment" -->
+						* Untested, untestable <!-- .element: class="fragment" -->
+						</script>
+					</section>
+
+					<section data-markdown>
+						<script type="text/template">
 						## Project problems
-						* Slow build times
-						* All logic in the app
-						* Existing unit tests disabled
-						* Can't add tests (segmentation fault 11)
-					</section>
-
-					<section data-markdown class="image-section" data-background="https://s-media-cache-ak0.pinimg.com/originals/03/ad/71/03ad71abf3741f3188428ff0d95d1616.gif">
-					</section>
-
-					<section data-markdown class="image-section" data-background="https://s-media-cache-ak0.pinimg.com/originals/db/91/c1/db91c177933567e8e1a10ba9da96cd02.jpg">
+						* Slow build times <!-- .element: class="fragment" -->
+						* All logic in the app <!-- .element: class="fragment" -->
+						* Existing unit tests disabled <!-- .element: class="fragment" -->
+						* Can't add tests (segmentation fault 11) <!-- .element: class="fragment" -->
+						</script>
 					</section>
 
 					<section data-markdown>
+						<script type="text/template">
 						## How are we handling it?
-						* Baby steps!
-						* Simplify, clarify
-						* Break up dependencies
-						* Extract code into libraries
+						* Baby steps! <!-- .element: class="fragment" -->
+						* Break up dependencies <!-- .element: class="fragment" -->
+						* Make domain model abstract <!-- .element: class="fragment" -->
+						* Extract code into libraries <!-- .element: class="fragment" -->
+						</script>
 					</section>
 
 					<section data-markdown>
+						<script type="text/template">
 						## CocoaPods
-						* Package Manager for iOS
-						* Alternatives: Carthage, Swift PM
-						* ✖ CocoaPod repo
-						* ✔ Private git repos + Development pods
+						* Package Manager for iOS <!-- .element: class="fragment" -->
+						* Alternatives: Carthage, Swift PM <!-- .element: class="fragment" -->
+						* ✖ CocoaPod repo <!-- .element: class="fragment" -->
+						* ✔ Private git repos + Development pods <!-- .element: class="fragment" -->
+						</script>
+					</section>
+					
+					<section data-markdown>
+						<script type="text/template">
+						## Libraries: pros
+						* Can be used in multiple apps <!-- .element: class="fragment" -->
+						* Minimizes the app's responsibility <!-- .element: class="fragment" -->
+						* Faster build times → easier testing <!-- .element: class="fragment" -->
+						* Reduces coupling, forces abstraction <!-- .element: class="fragment" -->
+						</script>
 					</section>
 
 					<section data-markdown>
-						## Pros
-						* Pods can be used in multiple apps
-						* Minimizes the app's responsibility
-						* Faster build → easier unit testing
-						* Reduces coupling, forces abstraction
+						<script type="text/template">
+						## Libraries: cons
+						* Slower app build times (not always) <!-- .element: class="fragment" -->
+						* Number of pods can pile up <!-- .element: class="fragment" -->
+						* Library versioning hell <!-- .element: class="fragment" -->
+						* Sometimes too much complexity <!-- .element: class="fragment" -->
+						</script>
 					</section>
 
 					<section data-markdown>
-						## Cons
-						* Slower build times (not always)
-						* Number of pods can pile up
-						* Library versioning hell
-						* Sometimes too much complexity
-					</section>
-
-					<section data-markdown>
+						<script type="text/template">
 						## Current state
-						* BookBeat app - 40% less code
-						* BBCore (core logic + utils)
-						* BBAudioPlayer (audio player)
-						* BBDomain (domain model + api)
-						* CI & Unit Tests for each project 
+						* BookBeat app - 40% less code <!-- .element: class="fragment" -->
+						* BBCore (core logic + utils) <!-- .element: class="fragment" -->
+						* BBAudioPlayer (audio player) <!-- .element: class="fragment" -->
+						* BBDomain (domain model + api) <!-- .element: class="fragment" -->
+						* CI & Unit Tests for each project <!-- .element: class="fragment" -->
+						</script>
 					</section>
 
 					<section data-markdown>
+						<script type="text/template">
 						## Remaining challenges
-						* Make domain model abstract
-						* Replace RestKit with Alamofire
-						* Replace CoreData with Realm
-						* Re-enable tests for main app
+						* Make domain model 100% abstract <!-- .element: class="fragment" -->
+						* Replace RestKit with Alamofire <!-- .element: class="fragment" -->
+						* Replace CoreData with Realm <!-- .element: class="fragment" -->
+						* Re-enable tests for main app <!-- .element: class="fragment" -->
+						</script>
 					</section>
 				</section>
+					
 
 				<section>
 
 					<section data-markdown>
-						# Demo
-					</section>
-
-					<section data-markdown>
-						## Initial setup
-						* One app with all logic
-						* API: RestaurantLite
-						* Realm: Restaurant
-						* API & Realm services
-						* Hard Coupling
-					</section>
-
-					<section data-markdown>
-						## Create library pod
-						* Abstract domain model
-						* RestaurantOverview
-						* Restaurant: RestaurantOverview
-						* Abstract service
-					</section>
-
-					<section data-markdown>
-						## Adjust app
-						* Rename API entities
-						* Rename Realm entity
-						* Add development pod
-						* Remove coupling by using abstractions
-					</section>
-
-					<section data-markdown>
-						## App (cont.)
-						* Make UI use abstract entities
-						* Make services implement abstract
-						* Inject abstract service into Realm
-						* API can now be moved anywhere!
-					</section>
-
-					<section data-markdown>
-						## App (cont.)
-						* Discuss IoC
-						* Add Dip
-						* Bootstrap application
-						* Run
+						# Let's take a look
 					</section>
 				</section>
 
@@ -382,19 +439,23 @@
 					</section>
 
 					<section data-markdown>
+						<script type="text/template">
 						## BookBeat-specific
-						* No silver bullet
-						* Works great for us
-						* Pods is not the only way
-						* Approach depends on the app
+						* No silver bullet <!-- .element: class="fragment" -->
+						* Works great for us <!-- .element: class="fragment" -->
+						* Pods is not the only way <!-- .element: class="fragment" -->
+						* Approach depends on the app <!-- .element: class="fragment" -->
+						</script>
 					</section>
 
 					<section data-markdown>
+						<script type="text/template">
 						## Some advice
-						* Abstract - What, not how
-						* Get good practices in place early on
-						* Reduce coupling (DI)
-						* Write tests, at least one test
+						* Abstract - What, not how <!-- .element: class="fragment" -->
+						* Get good practices in place early on <!-- .element: class="fragment" -->
+						* Reduce coupling (DI) <!-- .element: class="fragment" -->
+						* Write tests, at least one test <!-- .element: class="fragment" -->
+						</script>
 					</section>
 				</section>
 
