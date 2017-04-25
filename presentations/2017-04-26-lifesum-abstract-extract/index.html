@@ -34,7 +34,7 @@
 		<style>
 			.title-page h1 { font-size: 3em !important; }
 			.title-page p { font-weight: bold; }
-			.title-page p + ul li { font-size: 0.4em !important; }
+			.title-page h3 + ul li { font-size: 0.4em !important; }
 			h2 { font-size: 2em !important; }
 			pre { background-color: white; }
 			.image-section.light h1, .image-section.light h3 { color: black !important; text-shadow: 2px 2px white !important; }
@@ -55,24 +55,24 @@
 					# Abstract, Extract
 					### How abstractions and libraries can help you untie that big ball of twine that is your sorry excuse of a source code *
 
-					@danielsaidi
-
 					* \* Come up with a better title before Wednesday
 				</section>
 
 
 				<section>
 					<section data-markdown>
-						# Daniel Saidi
+						# @danielsaidi
 						### iOS Lead @ BookBeat
 					</section>
 
 					<section data-markdown>
-						## Before iOS
-						* .NET
-						* Web
-						* Android
-						* Java, C / C++
+						<script type="text/template">
+						## Before that
+						* .NET <!-- .element: class="fragment" -->
+						* Web <!-- .element: class="fragment" -->
+						* Android <!-- .element: class="fragment" -->
+						* Java, Python, C / C++ <!-- .element: class="fragment" -->
+						</script>
 					</section>
 
 					<section data-markdown class="image-section" data-background="cool.gif">
@@ -81,34 +81,47 @@
 					</section>
 
 					<section data-markdown>
+						<script type="text/template">
 						## Previous roles
-						* .NET Developer
-						* System Architect
-						* Lead Developer
-						* Team Coach
+						* .NET Developer <!-- .element: class="fragment" -->
+						* System Architect <!-- .element: class="fragment" -->
+						* Lead Developer <!-- .element: class="fragment" -->
+						* Head of Mobile <!-- .element: class="fragment" -->
+						</script>
 					</section>
 
 					<section data-markdown class="image-section" data-background="team-yellow.jpg">
 						# Team Yellow
 					</section>
+				</section>
+
+				<section>
 
 					<section data-markdown>
+						# So why am I here?
+					</section>
+
+					<section data-markdown>
+						<script type="text/template">
 						## Code quality
-						* Very important to me (sad)
-						* ...and yet, I often suck at it
-						* Constant work in progress
-						* Strange how hard the easy is
+						* Very important to me (too important) <!-- .element: class="fragment" -->
+						* Constant work in progress <!-- .element: class="fragment" -->
+						* ...and yet, I often suck at it <!-- .element: class="fragment" -->
+						* Strange how hard the easy is <!-- .element: class="fragment" -->
+						</script>
 					</section>
 
 					<section data-markdown class="image-section" data-background="rube.png">
 					</section>
 
 					<section data-markdown>
+						<script type="text/template">
 						## Today's talk
-						* BookBeat case study
-						* How did they get to where they are
-						* iOS-specific challenges
-						* My approach to solve them
+						* BookBeat case study <!-- .element: class="fragment" -->
+						* How did they get to where they are <!-- .element: class="fragment" -->
+						* iOS-specific challenges <!-- .element: class="fragment" -->
+						* My approach to solve them <!-- .element: class="fragment" -->
+						</script>
 					</section>
 				</section>
 
@@ -124,7 +137,7 @@
 						## Audio Books & e-books
 						* Stream & Download <!-- .element: class="fragment" -->
 						* Monthly fee, unlimited use <!-- .element: class="fragment" -->
-						* Soft launch late 2015 <!-- .element: class="fragment" -->
+						* Soft launched late 2015 <!-- .element: class="fragment" -->
 						* Real launch spring 2016 <!-- .element: class="fragment" -->
 						</script>
 					</section>
@@ -176,21 +189,6 @@
 						* (Apps) Test most important parts only <!-- .element: class="fragment" -->
 						</script>
 					</section>
-
-					<section data-markdown>
-						<script type="text/template">
-						## 1 Year Later 
-						* Constant changes everywhere! <!-- .element: class="fragment" -->
-						* Rushed development, tech debt <!-- .element: class="fragment" -->
-						* BUT - Many great things in place <!-- .element: class="fragment" -->
-						* AND - They got a business launched <!-- .element: class="fragment" -->
-						</script>
-					</section>
-
-					<section data-markdown>
-						## But...
-						* We'll focus on the tech debt :)
-					</section>
 				</section>
 
 
@@ -226,7 +224,7 @@
 						* Start with a prototype <!-- .element: class="fragment" -->
 						* Stabilize if proven valuable <!-- .element: class="fragment" -->
 						* Throw away if proven worthless  <!-- .element: class="fragment" -->
-						* Does NOT mean write "ad hoc code" <!-- .element: class="fragment" -->
+						* Code MUST be easy to throw away <!-- .element: class="fragment" -->
 						</script>
 					</section>
 				</section>
@@ -244,7 +242,7 @@
 
 					<section data-markdown>
 						<script type="text/template">
-						## Code smell
+						## What is code smell?
 						* Surface indication of deeper problems <!-- .element: class="fragment" -->
 						* Violate fundamental design principles <!-- .element: class="fragment" -->
 						* Usually not bugs, but can hide nasty ones <!-- .element: class="fragment" -->
@@ -263,13 +261,13 @@
 					</section>
 
 					<section data-markdown class="image-section light" data-background="complex-code.jpg">
-						# Complicated code
-						### If your code needs comments, you know
+						# Long functions
+						### Hard to test, cyclomatic complexity
 					</section>
 
 					<section data-markdown class="image-section light" data-background="complex-code.jpg">
-						# Long functions
-						### Hard to test, cyclomatic complexity
+						# Complicated code
+						### If your code needs comments, you know
 					</section>
 
 					<section data-markdown class="image-section light" data-background="large-class.jpg">
@@ -294,8 +292,8 @@
 
 					<section data-markdown>
 						<script type="text/template">
-						## Dangers of having no plan
-						* Quick at first <!-- .element: class="fragment" -->
+						## Dangers
+						* Hacking is quick at first <!-- .element: class="fragment" -->
 						* Often appreciated by management <!-- .element: class="fragment" -->
 						* New features constantly delivered  <!-- .element: class="fragment" -->
 						* But... <!-- .element: class="fragment" -->
@@ -330,6 +328,7 @@
 						* Fastlane <!-- .element: class="fragment" -->
 						* Beta testing <!-- .element: class="fragment" -->
 						* Localization <!-- .element: class="fragment" -->
+						* AND - They got a business launched <!-- .element: class="fragment" -->
 						</script>
 					</section>
 
@@ -339,7 +338,7 @@
 						* Generally overly-complex <!-- .element: class="fragment" -->
 						* Rigid code, hard coupling <!-- .element: class="fragment" -->
 						* Really hard to break up dependencies <!-- .element: class="fragment" -->
-						* **CoreData & RestKit everywhere** <!-- .element: class="fragment" -->
+						* **RestKit & CoreData everywhere** <!-- .element: class="fragment" -->
 						</script>
 					</section>
 
@@ -350,6 +349,7 @@
 						* Plays, streams, buffers, reports etc. <!-- .element: class="fragment" -->
 						* Spaghetti code <!-- .element: class="fragment" -->
 						* Untested, untestable <!-- .element: class="fragment" -->
+						* Depends on database entities <!-- .element: class="fragment" -->
 						</script>
 					</section>
 
@@ -406,7 +406,7 @@
 					<section data-markdown>
 						<script type="text/template">
 						## Current state
-						* BookBeat app - 40% less code <!-- .element: class="fragment" -->
+						* BookBeat app: 10% less code <!-- .element: class="fragment" -->
 						* BBCore (core logic + utils) <!-- .element: class="fragment" -->
 						* BBAudioPlayer (audio player) <!-- .element: class="fragment" -->
 						* BBDomain (domain model + api) <!-- .element: class="fragment" -->
