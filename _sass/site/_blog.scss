@@ -1,7 +1,8 @@
 .blog {
 	
 	.blog-menu {
-		margin-bottom: 20px;
+		margin-top: 0 !important;
+		margin-bottom: 50px !important;
 		font-size: 1.4em;
 
 		a {
@@ -11,6 +12,11 @@
 		.selected {
 			text-decoration: underline;
 		}
+	}
+
+	.blog-menu + .tags {
+		margin-top: -30px !important;
+		margin-bottom: 50px !important;
 	}
 
 	h3, h4 {
