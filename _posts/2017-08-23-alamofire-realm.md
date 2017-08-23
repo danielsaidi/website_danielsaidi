@@ -84,7 +84,7 @@ Ready? Let's go!
 We'll start by creating a new iOS project in `Xcode`. Open Xcode, click `Create a
 new Xcode project`, select the `iOS` tab, then select a `Single View Application`.
 
-![Image](img/1-create.png)
+![Image](https://github.com/danielsaidi/AlamofireRealmDemo/raw/master/img/1-create.png)
 
 Press `Next` to select where to create your project. You will then have a new iOS
 project just waiting to be filled with amazing code.
@@ -1188,7 +1188,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
 The result looks like this, with a segmented control that is used to change data:
 
-![Image](img/15-app.png)
+![Image](https://github.com/danielsaidi/AlamofireRealmDemo/raw/master/img/15-app.png)
 
 And...
 
