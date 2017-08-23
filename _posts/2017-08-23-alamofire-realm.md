@@ -2,7 +2,7 @@
 title:  "Alamofire, AlamofireObjectMapper and Realm - A Love Story"
 date:   2017-08-23 10:00:00 +0100
 categories: mobile
-tags:	alamofire alamofireobjectmapper realm swift
+tags:	alamofire objectmapper realm swift
 ---
 
 
@@ -88,7 +88,7 @@ To avoid an app that is coupled to a specific domain model implementation, let u
 define this model as protocols. Create a `Domain` folder in the project root, add
 a `Model` folder to it then add these two files to `Model`:
 
-```
+```swift
 // Movie.swift
 
 import Foundation
@@ -105,7 +105,7 @@ protocol Movie {
 }
 ```
 
-```
+```swift
 // Actor.swift
 
 import Foundation
@@ -125,7 +125,7 @@ makes it super easy to switch out the implementations used by the app. Stay tune
 Now, let's describe how the app should fetch movies from our API. Add a `Services`
 sub folder to `Domain` then add this file:
 
-```
+```swift
 // MovieService.swift
 
 import Foundation
@@ -140,7 +140,6 @@ protocol MovieService: class {
     func getTopGrossingMovies(year: Int, completion: @escaping MoviesResult)
     func getTopRatedMovies(year: Int, completion: @escaping MoviesResult)
 }
-
 ```
 
 It took me a while to start using `typealias`, but I really like it now since it
@@ -161,7 +160,7 @@ then open the generated workspace.
 Now create an `API` folder in the project root, add a `Model` folder to it, then
 add these two files to `Model`:
 
-```
+```swift
 // ApiMovie.swift
 
 import ObjectMapper
@@ -194,7 +193,7 @@ class ApiMovie: Movie, Mappable {
 }
 ``` 
 
-```
+```swift
 // ApiActor.swift
 
 import ObjectMapper
@@ -236,7 +235,7 @@ Since we developers often have to switch between different API environments (e.g
 test and production) I use to have an enum where I manage available environments.
 I know we only have a single environment in this app, but let's create it anyway:
 
-```
+```swift
 // ApiEnvironment.swift
 
 import Foundation
@@ -257,7 +256,7 @@ enum ApiEnvironment: String { case
 
 With this environment in place, we can list all available routes in another enum:
 
-```
+```swift
 // ApiRoute.swift
 
 enum ApiRoute { case
@@ -292,7 +291,7 @@ service will automatically be affected when the context is modified.
 Let's create an `ApiContext` protocol and as a non-persisted implementation. Add
 these files to a `Context` sub folder:
 
-```
+```swift
 // ApiContext.swift
 
 import Foundation
@@ -303,7 +302,7 @@ protocol ApiContext: class {
 }
 ```   
 
-```
+```swift
 // NonPersistedApiContext.swift
 
 import Foundation
@@ -326,7 +325,7 @@ We can now inject this context into all out API-specific service implementations
 To simplify how to talk with the API using Alamofire, let us create a base class
 for our API-based services. Add this file to a `Services` sub folder:
 
-```
+```swift
 // AlamofireService.swift
 
 class AlamofireService {    
@@ -388,7 +387,7 @@ I think that we are now ready to fetch some movies from the API.
 Let's create an API-based movie service and fetch some movies from our API, shall
 we? Add this file to the `Services` sub folder, next to `AlamofireService`:
 
-```
+```swift
 import Alamofire
 import AlamofireObjectMapper
 
@@ -433,7 +432,7 @@ that can map that return type, then use `responseObject` with that type.
 We will now setup our app to fetch data from the API. Remove all the boilerplate
 code from `AppDelegate` and `ViewController`, then add this to `ViewController`:
 
-```
+```swift
 override func viewDidLoad() {
     super.viewDidLoad()
     let env = ApiEnvironment.production
@@ -453,7 +452,7 @@ override func viewDidLoad() {
 requests. Just add this to `Info.plist` (in a real world app, you should specify
 the exact domains):
 
-```
+```xml
 <key>NSAppTransportSecurity</key>
 <dict>
     <key>NSAllowsArbitraryLoads</key>
@@ -481,7 +480,7 @@ If you see this in Xcode's log, the app loads movie data from the API. Well done
 
 Now change the print format for each movie to look like this:
 
-```
+```swift
 movies.forEach { print("   \($0.name) (\($0.releaseDate))") }
 ```
 
@@ -510,7 +509,7 @@ fix this...so let's fix it.
 The problem is that the API uses a different date format than expected. We will
 solve this with a `DateTransform` extension. Place it in an `Extensions` folder:
 
-```
+```swift
 DateTransform_Custom.swift
 
 import ObjectMapper
@@ -528,7 +527,7 @@ public extension DateTransform {
 
 Now change the `releaseDate` mapping in the `ApiMovie` class to look like this:
 
-```
+```swift
 releaseDate <- (map["releaseDate"], DateTransform.custom)
 ```
 
@@ -579,7 +578,7 @@ Realm will take care of the latter case, but we have to find a way to easily map
 API objects to Realm objects. That is easily done. Add these files to the `Model`
 folder:
 
-```
+```swift
 // RealmMovie.swift
 
 import RealmSwift
@@ -615,7 +614,7 @@ class RealmMovie: Object, Movie {
 }
 ```
 
-```
+```swift
 // RealmActor.swift
 
 import RealmSwift
@@ -651,7 +650,7 @@ value for `cast`. `_cast` is a Realm `List<RealmActor>`, while `cast` is a Swift
 Now let's add a Realm-specific `MovieService` that lets us store movies from the
 API to Realm. Add this file to the `Services` folder:
 
-```
+```swift
 // RealmMovieService.swift
 
 import RealmSwift
@@ -758,7 +757,7 @@ probably have some logic to determine if calling the base service is needed.
 
 Let's give whatever we have now a try. Modify `viewDidLoad` to look like this:
 
-```
+```swift
 override func viewDidLoad() {
     super.viewDidLoad()
     let env = ApiEnvironment.production
@@ -851,7 +850,7 @@ the same "auth token" when this route is called.
 
 Second, add this file to `Domain/Services`:
 
-```
+```swift
 // AuthService.swift
 
 import Foundation
@@ -878,21 +877,21 @@ Ok, back to storing auth tokens. Remember what I told you about the `ApiContext`
 earlier? Well, it's a **PERFECT** place to store these tokens, so let's do just
 that. Add an `authToken` property to the `ApiContext` protocol:
 
-```
+```swift
 var authToken: String? { get set }
 ```
 
 Also, add the property to `NonPersistentApiContext` (if we had a persistent one,
 it would remember the auth token even if restarted the app):
 
-```
+```swift
 var authToken: String?
 ```
 
 Now, let's add an Alamofire-based `AuthService` implementation to `Api/Services`:
 
 
-```
+```swift
 // AlamofireAuthService.swift
 
 import Alamofire
@@ -917,7 +916,7 @@ make it available to all future API requests.
 
 Now, let's retry some requests! Add this file to the `Api` folder:
 
-```
+```swift
 import Alamofire
 
 class ApiRequestRetrier: RequestRetrier {
@@ -1035,7 +1034,7 @@ To adapt any Alamofire requests before they are sent, you just have to implement
 the `RequestAdapter` protocol and inject it into Alamofire. Add this file to the
 `Api` folder:
 
-```
+```swift
 // ApiRequestAdapter.swift
 
 import Alamofire
@@ -1062,7 +1061,7 @@ class ApiRequestAdapter: RequestAdapter {
 As you can see, this adapter just adds any existing token to the request headers.
 Inject it into `Alamofire` by adding the following to our `viewDidLoad`:
 
-```
+```swift
 manager.adapter = ApiRequestAdapter(context: context)
 ```
 
@@ -1076,7 +1075,7 @@ super-long tutorial. In the demo application, however, I have an `IoC` folder in
 which I use a library called [Dip](https://github.com/AliSoftware/Dip) to manage
 dependencies in the app. With IoC/DI in place, the view controller becomes clean:
 
-```
+```swift
 import UIKit
 import Alamofire
 
@@ -1160,3 +1159,5 @@ Daniel Saidi
 
 * [@danielsaidi](http://twitter.com/danielsaidi)
 * [daniel.saidi@gmail.com](mailto:danielsaidi@gmail.com)
+
+

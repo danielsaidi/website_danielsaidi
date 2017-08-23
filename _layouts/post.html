@@ -16,31 +16,32 @@ layout: plain
         <a href="/blog">Blog</a>
 
       </div>
-
-      <h1>{{ page.title | escape }}</h1>
-      <p>{{ page.date | date_to_string }}</p>
-
-      <div class="tags">
-      {% for category in categories %}
-        <a class="tag" href="/blog/categories#{{ category | slugify }}">
-          <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
-          {{category}}
-        </a>  
-      {% endfor %}
-      </div>
-
-      <div class="tags">
-      {% for tag in tags %}
-        <a class="tag" href="/blog/tags#{{ tag | slugify }}">
-          <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
-          {{tag}}
-        </a>  
-      {% endfor %}
-      </div>
     </header>
 
     <div class="box-container">
       <div class="box text-box">
+
+        <h1>{{ page.title | escape }}</h1>
+        <p class="date">Published {{ page.date | date_to_string }}</p>
+
+        <div class="tags">
+        {% for category in categories %}
+          <a class="tag" href="/blog/categories#{{ category | slugify }}">
+            <span class="glyphicon glyphicon-book" aria-hidden="true"></span>
+            {{category}}
+          </a>  
+        {% endfor %}
+        </div>
+
+        <div class="tags">
+        {% for tag in tags %}
+          <a class="tag" href="/blog/tags#{{ tag | slugify }}">
+            <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
+            {{tag}}
+          </a>  
+        {% endfor %}
+        </div>
+        
         {{ content }}
 
         {% if page.comments %} 

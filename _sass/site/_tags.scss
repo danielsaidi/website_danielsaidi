@@ -1,32 +1,28 @@
 .tags {
-
 	margin-top: 15px;
-	margin-bottom: 10px;
+	margin-bottom: 0px;
 
 	.tag {
-
-		background-color: white;
-		border-color: #6a9fb5;
-		color: #6a9fb5;
+		color: #fff;
+		background-color: #242424;
 		display: inline;
 		white-space: nowrap;
 
 		line-height: 40px;
 		
-		padding: 5px 10px;
+		padding: 5px 10px 7px 10px;
 		margin-right: 10px;
 
 		font-size: 1.1em;
 		font-weight: normal;
 
-		border-radius: 6px;
-		-moz-border-radius: 6px;
+		border-radius: 12px;
+		-moz-border-radius: 12px;
 
-		box-shadow: 2px 2px 6px rgba(0, 0, 0, .15);
-		-moz-box-shadow: 2px 2px 6px rgba(0, 0, 0, .15);
-		-webkit-box-shadow: 2px 2px 6px rgba(0, 0, 0, .15);
+		text-decoration: none !important;
 
 		.glyphicon {
+			top: 3px;
 			display: inline;
 			margin-right: 5px;
 		}
@@ -34,6 +30,9 @@
 }
 
 .tags + .tags {
-
 	margin-top: 0px;
+}
+
+.tags + p {
+	margin-top: 40px !important;
 }
