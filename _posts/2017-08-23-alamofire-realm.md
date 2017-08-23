@@ -21,20 +21,20 @@ In this post, I'll recreate this entire app from scratch, with some modification
 I will modify it to use a fake API instead of the Yelp API. More on this later.
 
 
-# Video
+## Video
 
 You can [watch the original talk here](https://www.youtube.com/watch?v=LuKehlKoN7o&lc=z22qu35a4xawiriehacdp435fnpjgmq2f54mjmyhi2tw03c010c.1502618893412377). It does
 focus more on the concepts than on the code, but maybe that talk and this post is
 a good complement to eachother?
 
 
-# Prerequisites
+## Prerequisites
 
 For this tutorial, I expect that you know how [CocoaPods](https://cocoapods.org/)
 work. I will use terms like `podfile`, expecting you to know what it means.
 
 
-# Source Code
+## Source Code
 
 I recommend you to create a blank project and work through this tutorial yourself.
 The source code is up on [GitHub](https://github.com/danielsaidi/AlamofireRealmDemo).
@@ -43,7 +43,7 @@ If you want to run the demo application in the repo, you have to run `pod instal
 from the demo folder, then open the `.xcworkspace` file instead of `.xcodeproj`.
 
 
-# Disclaimer 
+## Disclaimer 
 
 In large app projects, I prefer to extract as much code and logic as possible to
 separate libraries, which I then use as decoupled building blocks. For instance,
@@ -55,7 +55,7 @@ into extensions as well, but will skip that pattern in this demo, so that we get
 as little code and conventions as possible. 
 
 
-# Why use a static API?
+## Why use a static API?
 
 In this demo, we will use a static API to fetch movies in different ways. The API
 is a static Jekyll web with a small movie collection, that lets us grab top rated
@@ -75,7 +75,7 @@ to understand an external API, set up a developer account, handle auth logic etc
 If that sounds good to you, let's buckle up and let's go!
 
 
-# Step 1 - Define the domain model
+## Step 1 - Define the domain model
 
 Start by creating a clean Xcode project. I went with a single page iOS storyboard
 app, but you can set it up in any way you like. tvOS perhaps? :)
@@ -120,7 +120,7 @@ As you will see later, our app will only use protocols. Not implementations. Thi
 makes it super easy to switch out the implementations used by the app. Stay tuned.
 
 
-# Step 2 - Define the domain logic
+## Step 2 - Define the domain logic
 
 Now, let's describe how the app should fetch movies from our API. Add a `Services`
 sub folder to `Domain` then add this file:
@@ -152,7 +152,7 @@ array functions will be indentically formatted, while the third returns a single
 optional object.
 
 
-# Step 3 - Create an API-specific domain model
+## Step 3 - Create an API-specific domain model
 
 Before we can add an API-specific implementation to the project, we must add two
 `pods` to `podfile` - `Alamofire` and `AlamofireObjectMapper`. Run `pod install`,
@@ -225,12 +225,12 @@ If we have set things up properly, we should now be able to point Alamofire to a
 valid api url and recursively parse movie data without any effort.
 
 
-# Step 4 - Setup the core API logic
+## Step 4 - Setup the core API logic
 
 Before we create an API-specific `MovieService` implementation, let's setup some
 core API logic in the `API` folder.
 
-## Managing API environments
+#### Managing API environments
 
 Since we developers often have to switch between different API environments (e.g.
 test and production) I use to have an enum where I manage available environments.
@@ -253,7 +253,7 @@ enum ApiEnvironment: String { case
 ```
 
 
-## Managing API routes
+#### Managing API routes
 
 With this environment in place, we can list all available routes in another enum:
 
@@ -283,7 +283,7 @@ enum ApiRoute { case
 Since `year` and `id` are dynamic route segments, we use parametered enum cases.
 
 
-## Managing API context
+#### Managing API context
 
 I usually have an `ApiContext` class that holds API-specific information for the
 app, such as environment and tokens. If you use a singleton, every context-based
@@ -321,7 +321,7 @@ class NonPersistentApiContext: ApiContext {
 We can now inject this context into all out API-specific service implementations.
 
 
-## Specifying basic API behavior
+#### Specifying basic API behavior
 
 To simplify how to talk with the API using Alamofire, let us create a base class
 for our API-based services. Add this file to a `Services` sub folder:
@@ -383,7 +383,7 @@ Ok, that was a long preparation to setup up a good foundation for the future, bu
 I think that we are now ready to fetch some movies from the API.
 
 
-# Step 5 - Create an API-based movie service
+## Step 5 - Create an API-based movie service
 
 Let's create an API-based movie service and fetch some movies from our API, shall
 we? Add this file to the `Services` sub folder, next to `AlamofireService`:
@@ -428,7 +428,7 @@ embedded object (very common), you would have to specify a new API-specific type
 that can map that return type, then use `responseObject` with that type.
 
 
-# Step 6 - Perform your very first request
+## Step 6 - Perform your very first request
 
 We will now setup our app to fetch data from the API. Remove all the boilerplate
 code from `AppDelegate` and `ViewController`, then add this to `ViewController`:
@@ -505,7 +505,7 @@ Oooops! Seems like the date parsing does not work. I TOLD you that we would have
 fix this...so let's fix it.
 
 
-# Step 6 - Fix date parsing
+## Step 6 - Fix date parsing
 
 The problem is that the API uses a different date format than expected. We will
 solve this with a `DateTransform` extension. Place it in an `Extensions` folder:
@@ -552,7 +552,7 @@ If you inspect the other properties, you will see that they are correctly parsed
 as well. Time to celebrate! ...then return here for some database persistency.
 
 
-# Step 7 - Create a Realm-specific domain model
+## Step 7 - Create a Realm-specific domain model
 
 When you get data from an API, it does not hurt to cache some data in a database
 cache. A very convenient database engine is `Realm`, so let's try it out.
@@ -646,7 +646,7 @@ value for `cast`. `_cast` is a Realm `List<RealmActor>`, while `cast` is a Swift
 `[Actor]`, just like in the protocol.
 
 
-# Step 8 - Create a Realm-specific movie service
+## Step 8 - Create a Realm-specific movie service
 
 Now let's add a Realm-specific `MovieService` that lets us store movies from the
 API to Realm. Add this file to the `Services` folder:
@@ -754,7 +754,7 @@ loads data from the database **and** from the base service. In a real app, you'd
 probably have some logic to determine if calling the base service is needed.
 
 
-# Step 9 - Put Realm into action
+## Step 9 - Put Realm into action
 
 Let's give whatever we have now a try. Modify `viewDidLoad` to look like this:
 
@@ -818,7 +818,7 @@ call to the API provides the app with new data. All we had to do was to change a
 single line in the view controller, to use another service implementation.
 
 
-# Step 10 - Retry failing requests
+## Step 10 - Retry failing requests
 
 In the real world, a user most often has to authenticate her/himself in order to
 use some parts of an API. Authentication often returns a set of tokens, commonly
@@ -1026,7 +1026,7 @@ the authorization call succeed and have Alamofire successfully retry the request
 That's it! Alamofire should now retry any failing request that are not auth ones.
 
 
-# Step 11 - Adapt all Alamofire requests
+## Step 11 - Adapt all Alamofire requests
 
 Sometimes, you have to add custom headers to every request you make to an API. A
 common scenario is to add `Accept` information, auth tokens etc.
@@ -1069,7 +1069,7 @@ manager.adapter = ApiRequestAdapter(context: context)
 That's it! Alamofire should now add the auth token to all requests, if it exists.
 
 
-# Step 12 - Dependency Injection
+## Step 12 - Dependency Injection
 
 Well, I won't do this here, since it just add even more complexity to an already
 super-long tutorial. In the demo application, however, I have an `IoC` folder in
@@ -1146,7 +1146,7 @@ The result looks like this:
 And...
 
 
-# That's a wrap!
+## That's a wrap!
 
 Well done! You have created an app with abstract protocols, then added Alamofire,
 object mapping and Realm to the mix. You have also added request retry and adapt
