@@ -1,7 +1,6 @@
 ---
 title:  "JSON in iOS"
 date: 	2012-07-04 21:25:00 +0100
-categories: mobile
 tags: 	ios objective-c json
 ---
 
@@ -18,7 +17,7 @@ that uses the native iOS 5 JSON serializer under the hood.
 I first created the (really) simple protocol:
 
 
-{% highlight objc %}
+```objc
 #import <Foundation/Foundation.h>
 
 @protocol ObjectSerializer <NSObject>
@@ -27,23 +26,23 @@ I first created the (really) simple protocol:
 - (NSString *)serializeObjectToString:(id)object;
 
 @end
-{% endhighlight %}
+```
 
 
 I then created a small implementation of this protocol, which looks like this:
 
 
-{% highlight objc %}
+```objc
 #import <Foundation/Foundation.h>
 #import "ObjectSerializer.h"
 
 @interface NativeJsonSerializer : NSObject<ObjectSerializer>
 
 @end
-{% endhighlight %}
+```
 
 
-{% highlight objc %}
+```objc
 #import "NativeJsonSerializer.h"
 
 @implementation NativeJsonSerializer
@@ -72,24 +71,24 @@ I then created a small implementation of this protocol, which looks like this:
 }
 
 @end
-{% endhighlight %}
+```
 
 
 Finally, I naturally have unit tests in place, that tests a lot of possible JSON
 operations. It seems to work well.
 
 
-{% highlight objc %}
+```objc
 #import <SenTestingKit/SenTestingKit.h>
 
 @interface NativeJsonSerializerTests : SenTestCase
 
 @end
-{% endhighlight %}
+```
 
 
 
-{% highlight objc %}
+```objc
 #import "NativeJsonSerializerTests.h"
 #import "NativeJsonSerializer.h"
 
@@ -192,6 +191,6 @@ NativeJsonSerializer *_serializer;
 }
 
 @end
-{% endhighlight %}
+```
 
 

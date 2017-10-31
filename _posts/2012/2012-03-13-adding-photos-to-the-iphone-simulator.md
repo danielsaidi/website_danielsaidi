@@ -1,7 +1,6 @@
 ---
 title:  "Adding photos to the iPhone simulator"
 date:    2012-03-13 12:00:00 +0100
-categories: mobile
 tags: 	ios ios-simulator
 ---
 

@@ -1,7 +1,6 @@
 ---
 title:  "Natural Scrolling in Windows 8"
-date:    2012-11-29 23:03:00 +0100
-categories: general
+date:	2012-11-29 23:03:00 +0100
 tags: 	windows
 ---
 
@@ -41,7 +40,7 @@ to enable horizontal scrolling.
 and **^!n::** rows:
 
 
-{% highlight text %}
+```text
 #MaxHotkeysPerInterval 100000000000
 
 WheelUp::
@@ -59,7 +58,7 @@ Return
 WheelRight::
 Send {WheelLeft}
 Return
-{% endhighlight %}
+```
 
 
 The reason why I set `MaxHotkeysPerInterval` to a silly high number, is to avoid

@@ -1,8 +1,7 @@
 ---
 title:  "Git not found in Mountain Lion"
 date: 	2012-11-27 10:24:00 +0100
-categories: general
-tags: 	osx
+tags: 	osx git
 ---
 
 

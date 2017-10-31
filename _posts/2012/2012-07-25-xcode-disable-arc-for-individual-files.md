@@ -1,7 +1,6 @@
 ---
 title:  "Xcode - Disable ARC for individual files"
 date: 	2012-07-25 10:00:00 +0100
-categories: mobile
 tags: 	ios objective-c arc
 ---
 

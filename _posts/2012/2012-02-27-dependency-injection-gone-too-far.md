@@ -1,8 +1,7 @@
 ---
 title:  "Dependency Injection gone too far?"
 date:    2012-02-27 12:00:00 +0100
-categories: general
-tags: 	dependency-injection inversion-of-control di ioc
+tags: 	dependency-injection di ioc
 ---
 
 

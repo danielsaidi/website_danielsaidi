@@ -18,15 +18,16 @@ strange order:
 There is probably some case-sensitive sorting issue showing its ugly face, right.
 This is the code I used to sort the data:
 
-{% highlight objc %}
+```objc
 NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
-{% endhighlight %}
+```
+
 
 The solution was to add selector to the sort, like this:
 
-{% highlight objc %}
+```objc
 NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
-{% endhighlight %}
+```
 
 And voilá - the list will now look like this:
 

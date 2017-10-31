@@ -1,7 +1,6 @@
 ---
 title:  "iOS Bounce Animation"
 date: 	2012-09-03 17:44:00 +0100
-categories: mobile
 tags: 	ios animation objective-c
 ---
 
@@ -23,7 +22,7 @@ Here's the code for the category:
 
 **UIView+Bounce.h:**
 
-{% highlight objc %}
+```objc
 #import <UIKit/UIKit.h>
 
 @interface UIView (Bounce)
@@ -31,11 +30,11 @@ Here's the code for the category:
 - (void)bounce:(float)bounceFactor;
 
 @end
-{% endhighlight %}
+```
 
 **UIView+Bounce.m:**
 
-{% highlight objc %}
+```objc
 #import "UIView+Bounce.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -77,4 +76,4 @@ Here's the code for the category:
 }
 
 @end
-{% endhighlight %}
+```

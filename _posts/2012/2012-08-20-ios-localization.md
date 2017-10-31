@@ -1,7 +1,6 @@
 ---
 title:  "iOS Localization"
 date: 	2012-08-20 22:17:00 +0100
-categories: mobile
 tags: 	ios localization objective-c
 ---
 
@@ -25,10 +24,10 @@ do the following:
 * In this file, add key-value-based translations, like this (note that each line
 has to end with a semi-colon):
 
-{% highlight obj-c %}
+```objc
 "key_1" = "Translation 1";
 "another key" = "Another translation";
-{% endhighlight %}
+```
 
 * To create a localized version of *Localizable.Strings*, select the file in the
 Project Navigator and add localizations in the File Inspector to the right.
@@ -45,9 +44,9 @@ add must be added to all localized versions. The same goes for removing keys.
 Once you have a couple of translations in place, use `NSLocalizedString(key, ...)`
 to translate any keys in the file:
 
-{% highlight obj-c %}
+```objc
 NSLocalizedString("key_1", nil)
-{% endhighlight %}
+```
 
 This will return "Translation 1", if English is currently used. If you change to
 Swedish, the app would select the Swedish localization, if such a version exists.
@@ -70,14 +69,14 @@ Instead, use a separate file that contains a definition for each key, as well as
 a translation macro with only one parameter (for convenience). In my latest app,
 I call it *AppStrings.h*, and it looks something like this (drastically reduced):
 
-{% highlight obj-c %}
+```objc
 #define STR_CANCEL @"cancel"
 #define STR_DELETE @"delete"
 #define STR_OK @"ok"
 
 #define Translate(key) \
 [[NSBundle mainBundle] localizedStringForKey:(key) value:@"" table:nil]
-{% endhighlight %}
+```
 
 As you see, this requires a bit of extra work since you have to add a definition
 for each translation key. However, it provides you with a clean interface, where
@@ -88,9 +87,9 @@ You can then use the Translate macro (or the native NSLocalizedString, even if i
 requires two parameters; the Translate macro is just a convenience) together with
 any definition to translate your strings, for instance:
 
-{% highlight obj-c %}
+```objc
 Translate(STR_CANCEL)
-{% endhighlight %}
+```
 
 
 
@@ -146,9 +145,9 @@ Watch the video to find out how to make the script keep all storyboards in sync,
 each time the project is built. If you don't have five minutes to spare, you can
 download the script [here](http://code.google.com/p/edim-mobile/source/browse/trunk/ios/IncrementalLocalization/localize.py) and add the following as a build step:
 
-{% highlight python %}
+```python
 python [path to the python script] --mainIdiom=[the main idiom] --mainStoryboard=[path to the main storyboard] [list of idioms to translate]
-{% endhighlight %}
+```
 
 
 

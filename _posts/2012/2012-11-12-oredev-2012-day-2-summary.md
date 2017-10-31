@@ -2,7 +2,7 @@
 title:  "Oredev 2012: Day 2 Summary"
 date: 	2012-11-12 21:30:00 +0100
 categories: conferences
-tags: 	oredev windows-phone
+tags: 	conference oredev windows-phone
 ---
 
 

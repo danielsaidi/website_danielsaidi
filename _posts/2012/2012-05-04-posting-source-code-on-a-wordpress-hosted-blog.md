@@ -1,7 +1,6 @@
 ---
 title:  "Posting source code on a WordPress hosted blog"
 date:    2012-05-04 12:00:00 +0100
-categories: general
 tags: 	wordpress
 ---
 
@@ -18,9 +17,11 @@ A couple of weeks ago, however, I found this blog post by the WordPress team. It
 out that posting source code and getting it to format correctly is a walk in the park,
 using the sourcecode markup, as such:
 
+```
 [code language=”css”]
 your code here
 [/code]
+```
 
 Use this markup, and WordPress will format the source code correctly. It supports many
 different languages, e.g. C#, Java, JavaScript, CSS, XML etc. Have a look at [this blog

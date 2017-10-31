@@ -1,7 +1,6 @@
 ---
 title:  "CLGeocoder fails silently"
 date: 	2012-08-08 20:48:00 +0100
-categories: mobile
 tags: 	ios geocoding clgeocoder clregion mapkit mkcoordinateregion
 ---
 
@@ -21,7 +20,7 @@ get random hits in other Swedish cities, like Nykoping and Uppsala.
 
 For clarity, this is the exact method body I use to kick off a search operation:
 
-{% highlight obj-c %}
+```objc
 CLLocationCoordinate2D *coord = self.mapView.userLocation.location.coordinate;
 CLRegion *region = [[CLRegion alloc] initCircularRegionWithCenter:coord
 radius:10000
@@ -30,7 +29,7 @@ identifier:nil];
 id<ForwardGeocoder> geocoder = [ObjectFactory getForwardGeocoder];
 geocoder.delegate = self;
 [geocoder encodeAddressString:self.searchBar.text inRegion:region];
-{% endhighlight %}
+```
 
 I first accepted the bad search results as a limitation in CLGeocoder's geocoding
 abilities for Swedish addresses, but since the same problem occurred for American
