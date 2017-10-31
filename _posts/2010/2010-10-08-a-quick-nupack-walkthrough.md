@@ -1,8 +1,7 @@
 ---
 title:	"A quick NuPack walkthrough"
 date:	2010-10-08 12:00:00 +0100
-categories: dotnet
-tags: 	nuget nupack
+tags: 	.net nuget nupack
 ---
 
 

@@ -1,8 +1,7 @@
 ---
 title:	"Getting familiar with PHP 5.3.2"
 date:	2010-08-12 12:00:00 +0100
-categories: web
-tags: 	php
+tags: 	php web
 ---
 
 

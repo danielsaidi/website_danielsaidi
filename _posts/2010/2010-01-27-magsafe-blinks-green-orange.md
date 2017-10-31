@@ -1,7 +1,6 @@
 ---
 title:	"MagSafe toggles green/orange"
 date:	2010-01-27 12:00:00 +0100
-categories: general
 tags: 	mac magsafe
 ---
 

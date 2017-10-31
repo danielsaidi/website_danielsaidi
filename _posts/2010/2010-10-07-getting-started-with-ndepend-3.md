@@ -1,8 +1,7 @@
 ---
 title:	"Getting started with NDepend 3"
 date:	2010-10-07 12:00:00 +0100
-categories: dotnet
-tags: 	ndepend coupling cyclomatic-complexity code-coverage
+tags: 	.net ndepend coupling cyclomatic-complexity code-coverage
 ---
 
 

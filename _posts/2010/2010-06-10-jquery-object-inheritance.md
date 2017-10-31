@@ -1,8 +1,7 @@
 ---
 title:	"jQuery, MooTools, object inheritance and JSON"
 date:	2010-06-10 12:00:00 +0100
-categories: web
-tags: 	javascript jquery json mootools
+tags: 	javascript jquery json mootools web
 ---
 
 

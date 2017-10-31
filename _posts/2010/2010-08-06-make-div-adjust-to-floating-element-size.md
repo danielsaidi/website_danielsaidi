@@ -1,8 +1,7 @@
 ---
 title:	"Make div container adjust to floating children elements"
 date:	2010-08-06 12:00:00 +0100
-categories: web
-tags: 	css
+tags: 	css web
 ---
 
 

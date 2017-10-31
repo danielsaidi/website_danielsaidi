@@ -1,8 +1,7 @@
 ---
 title:	"Bundle JavaScript and CSS files with full file paths"
 date:	2010-08-19 12:00:00 +0100
-categories: web
-tags: 	javascript css
+tags: 	javascript css web
 ---
 
 

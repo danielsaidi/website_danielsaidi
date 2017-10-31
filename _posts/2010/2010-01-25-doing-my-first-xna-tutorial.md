@@ -1,8 +1,7 @@
 ---
 title:	"Doing my first XNA tutorial"
 date:	2010-01-25 12:00:00 +0100
-categories: games
-tags: 	xna
+tags: 	xna game-dev
 ---
 
 

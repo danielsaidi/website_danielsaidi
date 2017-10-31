@@ -1,7 +1,6 @@
 ---
 title:	"MacBook swollen battery"
 date:	2010-01-27 11:00:00 +0100
-categories: general
 tags: 	mac magsafe macbook
 ---
 

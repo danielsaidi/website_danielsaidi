@@ -1,8 +1,7 @@
 ---
 title:	"A* implementation for XNA"
 date:	2010-02-16 12:00:00 +0100
-categories: games
-tags: 	xna a*
+tags: 	xna a* game-dev
 ---
 
 

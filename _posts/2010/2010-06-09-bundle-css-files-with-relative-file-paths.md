@@ -1,8 +1,7 @@
 ---
 title:	"Bundle CSS files with relative file paths"
 date:	2010-06-09 11:00:00 +0100
-categories: web
-tags: 	css php
+tags: 	css php web
 ---
 
 

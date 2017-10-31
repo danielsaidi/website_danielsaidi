@@ -1,8 +1,7 @@
 ---
 title:	"HTML5 localstorage"
 date:	2010-12-09 12:00:00 +0100
-categories: web
-tags: 	html5 local-storage
+tags: 	html5 local-storage web
 ---
 
 

@@ -1,7 +1,6 @@
 ---
 title:	"Getting started with git and GitHub"
 date:	2010-10-08 12:00:00 +0100
-categories: general
 tags: 	git github
 ---
 

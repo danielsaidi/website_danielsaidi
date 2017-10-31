@@ -1,8 +1,7 @@
 ---
 title:	"ImageGen Cache Problem"
 date:	2010-12-21 12:00:00 +0100
-categories: dotnet
-tags: 	umbraco imagegen
+tags: 	.net umbraco imagegen
 ---
 
 

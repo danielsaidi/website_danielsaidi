@@ -1,8 +1,7 @@
 ---
 title:	"Fonts.com web fonts"
 date:	2010-09-21 12:00:00 +0100
-categories: web
-tags: 	typography css
+tags: 	typography css web
 ---
 
 

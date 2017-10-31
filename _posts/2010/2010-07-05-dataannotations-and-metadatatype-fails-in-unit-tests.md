@@ -1,8 +1,7 @@
 ---
 title:	"DataAnnotations and MetadataType fails in unit tests"
 date:	2010-07-05 12:00:00 +0100
-categories: dotnet
-tags: 	entity-framework data-annotations asp-net unit-tests nunit
+tags: 	.net entity-framework data-annotations asp-net unit-tests nunit
 ---
 
 

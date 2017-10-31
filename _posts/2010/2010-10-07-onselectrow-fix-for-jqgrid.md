@@ -1,8 +1,7 @@
 ---
 title:	"onSelectRow fix for jqGrid"
 date:	2010-10-07 12:00:00 +0100
-categories: web
-tags: 	jqGrid jQuery
+tags: 	jqGrid jQuery web
 ---
 
 

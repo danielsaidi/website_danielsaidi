@@ -1,8 +1,7 @@
 ---
 title:	"Moving ViewState to the bottom of the page"
 date:	2010-11-29 12:00:00 +0100
-categories: dotnet
-tags: 	asp-net viewstate
+tags: 	.net asp-net viewstate
 ---
 
 

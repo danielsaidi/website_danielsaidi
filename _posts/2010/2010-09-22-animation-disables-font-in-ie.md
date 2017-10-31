@@ -1,8 +1,7 @@
 ---
 title:	"Animation disables font in Internet Explorer"
 date:	2010-09-22 12:00:00 +0100
-categories: web
-tags: 	jQuery internet-explorer
+tags: 	jQuery internet-explorer web
 ---
 
 

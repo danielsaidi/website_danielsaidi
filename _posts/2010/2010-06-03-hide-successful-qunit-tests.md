@@ -1,8 +1,7 @@
 ---
 title:	"Hide successful QUnit tests"
 date:	2010-06-03 12:00:00 +0100
-categories: web
-tags: 	javascript jquery qunit
+tags: 	javascript jquery qunit web
 ---
 
 

@@ -1,8 +1,7 @@
 ---
 title:	"Generate a game board map from a bitmap"
 date:	2010-02-21 12:00:00 +0100
-categories: games
-tags: 	xna a*
+tags: 	xna a* game-dev game-dev
 ---
 
 
