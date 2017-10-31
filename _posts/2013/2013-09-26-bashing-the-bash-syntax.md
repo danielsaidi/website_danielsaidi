@@ -1,7 +1,6 @@
 ---
 title:  "Bashing the Bash Syntax"
 date: 	2013-09-26 08:13:00 +0100
-categories: mobile
 tags: 	ios bash xcode
 ---
 

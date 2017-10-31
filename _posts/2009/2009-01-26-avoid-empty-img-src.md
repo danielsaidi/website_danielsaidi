@@ -1,8 +1,7 @@
 ---
 title:  "Avoid empty img src values"
 date:   2009-01-26 08:00:00 +0100
-categories: web
-tags:	html performance
+tags:	html performance web
 ---
 
 

@@ -1,7 +1,6 @@
 ---
 title:  "Retrive Core Data objects with case insensitive comparison"
 date: 	2012-06-01 12:45:00 +0100
-categories: mobile
 tags: 	ios objective-c coredata
 ---
 
@@ -25,7 +24,7 @@ NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name"
 
 The solution was to add selector to the sort, like this:
 
-```objc
+``objc
 NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
 ```
 

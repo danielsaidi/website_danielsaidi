@@ -1,7 +1,6 @@
 ---
 title:  "Hide the default objective-c initializer"
 date: 	2013-09-04 04:11:00 +0100
-categories: mobile
 tags: 	ios objective-c
 ---
 
@@ -27,7 +26,7 @@ with a required component, as such:
    }
    return self;
 }
-```
+``
 
 
 The big problem with this, is that if the class requires moreStuff to be set, and
@@ -49,7 +48,7 @@ Achieving this is easy. In the .h file, kist annotate the default initializer wi
 
 ```objc
 - (id)init __attribute__((unavailable("...")));
-```
+``
 
 
 Now, you will get a compilation error if you try to use the default initializer.
