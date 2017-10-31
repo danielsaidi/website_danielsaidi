@@ -1,8 +1,8 @@
 ---
 title:  "HoloLens, Microsoft, VR and Apple"
 date:   2017-02-04 10:00:00 +0100
-categories: general
 tags:	hololens vr apple microsoft htc-vive oculus-rift
+redirect_from: /blog/general/2017/02/04/hololens-microsoft-vr-and-apple
 ---
 
 

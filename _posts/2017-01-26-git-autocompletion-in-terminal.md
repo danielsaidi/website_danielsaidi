@@ -1,31 +1,28 @@
 ---
 title:  "git autocompletion in OSX Terminal"
 date:   2017-01-26 10:56:02 +0100
-categories: general
-tags:	git
+tags:	git git-autocomplete
 ---
 
 
 After procrastinating for too long, I finally decided to spend one minute of my
-life to setup git autocomplete on my work computer.
-
-The original discussion thread from where I got this information can be found at
-[this page](http://apple.stackexchange.com/questions/55875/git-auto-complete-for-branches-at-the-command-line).
+life to setup git autocomplete. The original discussion where I found this info
+can be found [here](http://apple.stackexchange.com/questions/55875/git-auto-complete-for-branches-at-the-command-line).
 
 First, run the following command in the Terminal, to get the autocomplete script:
 
-{% highlight bash %}
+```
 curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/.git-completion.bash
-{% endhighlight %}
+```
 
 This will download the autocomplete script and place it as a hidden file in your
 home folder.
 
 Then, open (or create if you have none) `~/.bash_profile` and add the following:
 
-{% highlight bash %}
+```
 test -f ~/.git-completion.bash && . $_
-{% endhighlight %}
+```
 
 This will make the Terminal run the `.git-completion.bash` script if it exists.
 

@@ -1,7 +1,6 @@
 ---
 title:  "Alamofire, AlamofireObjectMapper and Realm - A Love Story"
 date:   2017-08-23 10:00:00 +0100
-categories: general
 tags:	ios alamofire objectmapper realm swift
 redirect_from: /blog/mobile/2017/08/23/alamofire-realm
 ---
