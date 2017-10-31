@@ -1,8 +1,7 @@
 ---
 title:  "Entity Framework Code First with auto migrations on AppHarbor...and more"
 date: 	2013-02-25 10:55:00 +0100
-categories: dotnet
-tags: 	asp-net entity-framework appharbor api rest structuremap azure nunit nsubstitute
+tags: 	.net asp-net entity-framework appharbor api rest structuremap azure nunit nsubstitute
 ---
 
 
@@ -82,7 +81,7 @@ I then defined a Context class, that connects the data entities to the database.
 It looks like this:
 
 
-{% highlight csharp %}
+```csharp
 public class DataContext : DbContext
 {
    //Can be set if it needs to be modified
@@ -103,7 +102,7 @@ public class DataContext : DbContext
       base.OnModelCreating(modelBuilder);
    }
 }
-{% endhighlight %}
+```
 
 
 The `ConnectionStringName` property is very important! I first used the default
@@ -120,7 +119,7 @@ With the Context in place, we have to connect it to a `Configuration` to enable
 auto migrations, like this:
 
 
-{% highlight csharp %}
+```csharp
 internal sealed class Configuration : DbMigrationsConfiguration&lt;DataContext&gt;
 {
    public Configuration()
@@ -128,7 +127,7 @@ internal sealed class Configuration : DbMigrationsConfiguration&lt;DataContext&g
       AutomaticMigrationsEnabled = true;
    }
 }
-{% endhighlight %}
+```
 
 
 This is all you have to do to get Entity Framework Code First auto migrations to
@@ -165,11 +164,11 @@ that the Web.config file will be correct once the system is deployed.
 
 For now, I only have the following rewrite in Web.Release.config:
 
-{% highlight html %}
+```html
 <connectionStrings>
    <add xdt:Locator="Condition([@name='DefaultConnection'])" providerName="System.Data.SqlClient" xdt:Transform="SetAttributes" />
 </connectionStrings>
-{% endhighlight %}
+```
 
 
 This may look strange, but will replace the DefaultConnection connection string

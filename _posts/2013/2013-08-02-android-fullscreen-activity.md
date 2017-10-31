@@ -1,7 +1,6 @@
 ---
 title:  "Android Fullscreen Activity"
 date: 	2013-08-02 09:14:00 +0100
-categories: mobile
 tags: 	android
 ---
 
@@ -23,7 +22,7 @@ Have a look at the code and let me know what you think. It may be crap, it may b
 a copy of things already out there...it may even be good.
 
 
-{% highlight java %}
+```java
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.os.Build;
@@ -132,4 +131,4 @@ public class FullscreenActivity extends Activity {
         });
     }
 }
-{% endhighlight %}
+```

@@ -28,9 +28,9 @@ To achieve this, I added an extension that allows me to switch between different
 build number formats. I first believed this to be correct:
 
 
-{% highlight shell %}
+```sh
 buildnum="date +%Y%m%d%H%M"
-{% endhighlight %}
+```
 
 
 Since you can write e.g. "$CONFIGURATION", wrapping the date syntax in quotation
@@ -38,9 +38,9 @@ marks should work, right. Turns out it didn't. Single quotes did not work either
 Eventually, I found out that the correct syntax is to use `, like this:
 
 
-{% highlight shell %}
+```sh
 buildnum=`date +%Y%m%d%H%M`
-{% endhighlight %}
+```
 
 
 WTF!?
@@ -66,11 +66,11 @@ able to check if the variable has this value, and abort the script if so is the
 case. It should look something like this:
 
 
-{% highlight shell %}
+```sh
 if ["$CONFIGURATION"="Debug"]; then
     exit 1
 fi
-{% endhighlight %}
+```
 
 
 Sadly, this did not work, so I read on and found the following warning:
@@ -80,22 +80,22 @@ Sadly, this did not work, so I read on and found the following warning:
 Ah, so you obviously have to add whitespaces around the equal sign! Let's try it:
 
 
-{% highlight shell %}
+```sh
 if ["$CONFIGURATION" = "Debug"]; then
     exit 1
 fi
-{% endhighlight %}
+```
 
 
 Hmmmm, still no luck. I wonder...no, that should be bad....that should be really
 bad! They cannot require that you...that you...what, like this?
 
 
-{% highlight shell %}
+```sh
 if [ "$CONFIGURATION" = "Debug" ]; then
    exit 1
 fi
-{% endhighlight %}
+```
 
 
 Sure thing, you also need spaces after [ and before ]

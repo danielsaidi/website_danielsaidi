@@ -1,7 +1,6 @@
 ---
 title:  "Android Assets for Various Screen densities"
 date: 	2013-08-02 12:08:00 +0100
-categories: mobile
 tags: 	android assets
 ---
 

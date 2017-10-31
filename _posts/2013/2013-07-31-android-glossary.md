@@ -1,7 +1,6 @@
 ---
 title:  "Android Glossary"
 date: 	2013-07-31 13:29:00 +0100
-categories: mobile
 tags: 	android
 ---
 

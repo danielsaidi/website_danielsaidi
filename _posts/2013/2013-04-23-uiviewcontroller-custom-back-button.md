@@ -1,7 +1,6 @@
 ---
 title:  "UIViewController Custom Back Button Problem"
 date: 	2013-04-23 20:14:00 +0100
-categories: mobile
 tags: 	ios objective-c
 ---
 
@@ -33,12 +32,12 @@ this problem). I then found [this post](http://smartercoder.com/2010/10/18/what-
 which suggests adding a fake back button, then remove it when replacing the real
 back button with a custom one, like this:
 
-{% highlight objc %}
+```objc
 self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:[[UIView alloc] init]];
 self.navigationItem.leftBarButtonItem = nil;
 self.navigationItem.hidesBackButton = YES;
 self.navigationItem.leftBarButtonItem = /* Set your bar button here */;
-{% endhighlight %}
+```
 
 This solution is just strange, and should not work either...which it didn't. The
 original back button shows briefly, before it disappears. Nothing is solved.

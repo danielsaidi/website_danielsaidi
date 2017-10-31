@@ -1,7 +1,6 @@
 ---
 title:  "Remove Android Activity Title and Icon"
 date: 	2013-08-05 09:39:00 +0100
-categories: mobile
 tags: 	android
 ---
 
@@ -17,11 +16,11 @@ At first, I removed the icon and title by running this piece of code in my start
 activity's `onCreate` method:
 
 
-{% highlight java %}
+```java
 ActionBar actionBar = getActionBar();
 actionBar.setDisplayShowHomeEnabled(false);
 actionBar.setDisplayShowTitleEnabled(false);
-{% endhighlight %}
+```
 
 
 This works, but causes the icon and title to be removed with a small delay. You
@@ -40,22 +39,22 @@ more consistent than just adding one for action bars without the icon and title.
 In `styles.xml`, I added the following line to my app theme:
 
 
-{% highlight xml %}
+```xml
 <style name="AppTheme" parent="AppBaseTheme">
     <item name="android:actionBarStyle">@style/ActionBar</item>
     ...any additional theme styles here
 </style>
-{% endhighlight %}
+```
 
 
 I then added the ActionBar style, which looks like this:
 
 
-{% highlight xml %}
+```xml
 <style name="ActionBar" parent="android:Widget.Holo.Light.ActionBar.Solid.Inverse">
     <item name="android:background">...any color or image here...</item>
 </style>
-{% endhighlight %}
+```
 
 
 Note that I use the theme convention created by Android Studio, which creates an
@@ -69,21 +68,21 @@ With the base theme in place, let's create an app theme without a title and icon
 Below the AppTheme style tag, add this inheriting style:
 
 
-{% highlight xml %}
+```xml
 <style name="AppThemeWithoutActionBarTitle" parent="AppTheme">
     <item name="android:actionBarStyle">@style/ActionBarWithoutTitle</item>
 </style>
-{% endhighlight %}
+```
 
 
 as well as a new action bar style:
 
 
-{% highlight xml %}
+```xml
 <style name="ActionBarWithoutTitle" parent="@style/ActionBar">
     <item name="android:displayOptions">useLogo</item>
 </style>
-{% endhighlight %}
+```
 
 
 ## Apply the new action bar style
@@ -92,9 +91,9 @@ To apply the new style, open your manifest file and add the following line to th
 activities that should use it:
 
 
-{% highlight xml %}
+```xml
 android:theme="@style/AppThemeWithoutActionBarTitle"
-{% endhighlight %}
+```
 
 
 After this, the affected activities should not display the title or icon at all.

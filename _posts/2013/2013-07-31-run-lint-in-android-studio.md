@@ -1,7 +1,6 @@
 ---
 title:  "Run Lint in Android Studio"
 date: 	2013-07-31 14:29:00 +0100
-categories: mobile
 tags: 	android lint
 ---
 

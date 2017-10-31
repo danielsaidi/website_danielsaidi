@@ -19,7 +19,7 @@ is all good, but have some implications. Consider a class that can be initialize
 with a required component, as such:
 
 
-{% highlight objc %}
+```objc
 - (id)initWithMoreStuff:(id)moreStuff {
    self = [self init];
    if (self) {
@@ -27,7 +27,7 @@ with a required component, as such:
    }
    return self;
 }
-{% endhighlight %}
+```
 
 
 The big problem with this, is that if the class requires moreStuff to be set, and
@@ -47,9 +47,9 @@ Achieving this is easy. In the .h file, kist annotate the default initializer wi
 `unavailable`, like this:
 
 
-{% highlight objc %}
+```objc
 - (id)init __attribute__((unavailable("...")));
-{% endhighlight %}
+```
 
 
 Now, you will get a compilation error if you try to use the default initializer.

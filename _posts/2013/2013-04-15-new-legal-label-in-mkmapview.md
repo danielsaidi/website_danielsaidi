@@ -1,7 +1,6 @@
 ---
 title:  "New legal label in MKMapView"
 date: 	2013-04-15 21:29:00 +0100
-categories: mobile
 tags: 	ios objective-c mkmapview
 ---
 
@@ -25,7 +24,7 @@ methods, but I did manage to find a way to programmatically move the label to th
 bottom-right corner instead, using a category that I wrote:
 
 
-{% highlight objc %}
+```objc
 #import <MapKit/MapKit.h>
 
 @interface MKMapView (LegalLabel)
@@ -41,10 +40,10 @@ typedef enum {
 - (void)moveLegalLabelToPosition:(MKMapViewLegalLabelPosition)position;
 
 @end
-{% endhighlight %}
+```
 
 
-{% highlight objc %}
+```objc
 #import "MKMapView+LegalLabel.h"
 
 @implementation MKMapView (LegalLabel)
@@ -88,7 +87,7 @@ typedef enum {
 }
 
 @end
-{% endhighlight %}
+```
 
 
 I have used this in an app that got approved, so I guess you can all just use it

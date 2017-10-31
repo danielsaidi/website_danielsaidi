@@ -39,7 +39,7 @@ I noticed that the memory leak only occured when holding the camera horizontally
 and not always. This lead me to considering what I just described above. Before
 proceeding, take a look at the camera delegate code:
 
-{% highlight objc %}
+```objc
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
    if (image.size.width < image.size.height) {
       image = [image imageByResizing:CGSizeMake(image.size.height, image.size.width)];
@@ -47,7 +47,7 @@ proceeding, take a look at the camera delegate code:
    [picker dismissModalViewControllerAnimated:NO];
    [self openImageEditorWithImage:image];
 }
-{% endhighlight %}
+```
 
 My first guess was that the resize operation was what caused the memory leak. As
 I investigated this further, however, it turned out that it was in fact the other

@@ -1,7 +1,6 @@
 ---
 title:  "Xcode: Auto-increment Build Number"
 date: 	2013-08-23 11:48:00 +0100
-categories: mobile
 tags: 	ios xcode
 ---
 
@@ -22,9 +21,9 @@ was performed. I therefore use a build number with a date format: “yyyymmddHHM
 
 To make this work, I replaced the default builnum value with this one:
 
-{% highlight shell %}
+```sh
 buildnum=`date +%Y%m%d%H%M`
-{% endhighlight %}
+```
 
 This will set the build number to a timestamp instead of incrementing it by one.
 
@@ -35,8 +34,8 @@ This will set the build number to a timestamp instead of incrementing it by one.
 Initially, XCode may have problems executing your script. For this to work, you
 will need to enable run access. Do so by running the following terminal script:
 
-{% highlight shell %}
+```sh
 sudo chmod 755 'filename'
-{% endhighlight %}
+```
 
 Execute it in the same folder as the shell script, and you should be good to go.
