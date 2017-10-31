@@ -1,8 +1,7 @@
 ---
 title:  "JSON serialization in C#"
 date:   2009-08-24 09:08:00 +0100
-categories: dotnet
-tags: 	c# json
+tags: 	.net json
 ---
 
 
@@ -15,7 +14,7 @@ short tutorial to how you get JSON working in C#:
 
 You can now serialize and deserialize objects to/from JSON as such:
 
-{% highlight c# %}
+```csharp
 public static T Deserialize<T>(String str)
 {
    return (new JavaScriptSerializer()).Deserialize<T>(str);
@@ -25,7 +24,7 @@ public static String Serialize(Object obj)
 {
    return (new JavaScriptSerializer()).Serialize(obj);
 }
-{% endhighlight %}
+```
 
 You can now place these functions in a static class, or in a class that implement
 a serialization interface etc. If you want testable code, create an interface that

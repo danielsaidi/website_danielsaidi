@@ -1,8 +1,7 @@
 ---
 title:  "Show all files in Finder"
 date:   2009-09-19 08:00:00 +0100
-categories: general
-tags:	finder
+tags:	osx finder
 ---
 
 

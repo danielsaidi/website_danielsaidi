@@ -1,8 +1,7 @@
 ---
 title:  "Get the week number of a date in C#"
 date:   2009-05-25 19:46:00 +0100
-categories: dotnet
-tags: 	csharp date utils reflection
+tags: 	.net csharp date utils reflection
 ---
 
 
@@ -24,7 +23,7 @@ web site has disappeared since then, and since I have modified the code a lot, I
 chose to publish it.
 
 
-{% highlight C# %}
+```csharp
 
 /// <summary>Get the week number of a certain date, provided that
 /// the first day of the week is Monday, the first week of a year
@@ -97,14 +96,14 @@ public static int GetWeekNumber(this DateTime date)
     return result;
 }
 
-{% endhighlight %}
+```
 
 
 With this function available, it is a piece of cake to get the first and last date
 for a certain date's week, as such:
 
 
-{% highlight C# %}
+```csharp
 
 /// <summary>
 /// Get the first date of the week for a certain date, provided
@@ -130,13 +129,13 @@ public static DateTime GetFirstDateOfWeek(this DateTime date)
     return date.AddDays(1);
 }
 
-{% endhighlight %}
+```
 
 
 and
 
 
-{% highlight C# %}
+```csharp
 
 /// <summary>
 /// Get the last date of the week for a certain date, provided
@@ -162,7 +161,7 @@ public static DateTime GetLastDateOfWeek(this DateTime date)
     return date.AddDays(-1);
 }
 
-{% endhighlight %}
+```
 
 
 I hope that this helps anyone having problem with retrieving the week number. If

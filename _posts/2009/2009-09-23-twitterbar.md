@@ -1,7 +1,6 @@
 ---
 title:  "TwitterBar"
 date:   2009-09-23 08:00:00 +0100
-categories: general
 tags:	twitterbar twitter
 ---
 

@@ -1,8 +1,7 @@
 ---
 title:  "Using Moq with NUnit"
 date:   2009-08-19 13:28:00 +0100
-categories: dotnet
-tags: 	c# tdd unit-tests nunit moq
+tags: 	.net tdd unit-tests nunit moq
 ---
 
 

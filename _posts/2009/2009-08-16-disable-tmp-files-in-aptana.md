@@ -1,8 +1,7 @@
 ---
 title:  "Disable .tmp files in Aptana"
 date:   2009-08-16 20:26:00 +0100
-categories: web
-tags: 	html
+tags: 	html web
 ---
 
 

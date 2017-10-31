@@ -1,8 +1,7 @@
 ---
 title:  "Doxygen - A brief tutorial"
 date:   2009-10-07 08:00:00 +0100
-categories: dotnet
-tags:	doxygen
+tags:	.net doxygen
 ---
 
 

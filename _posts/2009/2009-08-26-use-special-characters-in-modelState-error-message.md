@@ -1,8 +1,7 @@
 ---
 title:  "Use special characters in ModelState error message"
 date:   2009-08-26 07:53:00 +0100
-categories: dotnet
-tags: 	c# asp-net
+tags: 	.net asp-net
 ---
 
 
@@ -20,9 +19,9 @@ My temp approach is to add the special characters in the message itself and to n
 use a validation summary for the view. However, this caused display problems since
 the message is HTML encoded when
 
-{% highlight c# %}
+```csharp
 <%= Html.ValidationMessage("errorKey")%>
-{% endhighlight %}
+```
 
 is added to the page. &laquo;, for instance, will be displayed as plain text, and
 not as the two left arrows that it should be.
@@ -30,10 +29,10 @@ not as the two left arrows that it should be.
 The workaround for this is quite simple. Since the string is HTML encoded, simply
 decode the special characters, as such:
 
-{% highlight c# %}
+```csharp
 var laquo = Server.HtmlDecode("&laquo;");
 ModelState.AddModelError("errorKey", laquo + " Your custom message here");
-{% endhighlight %}
+```
 
 This will make the view display the special characters correctly. If you add the
 validation message to the right of the invalid control, the message will "point"

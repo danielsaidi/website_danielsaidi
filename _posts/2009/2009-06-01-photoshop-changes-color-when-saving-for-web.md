@@ -1,7 +1,6 @@
 ---
 title:  "Photoshop changes color when saving for web"
 date:   2009-06-01 15:00:00 +0100
-categories: design
 tags:	photoshop
 ---
 

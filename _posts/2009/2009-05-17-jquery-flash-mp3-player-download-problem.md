@@ -1,8 +1,7 @@
 ---
 title:  "jQuery Flash MP3 player download error"
 date:   2009-05-17 21:13:00 +0100
-categories: web
-tags: 	jquery javascript audio-player
+tags: 	jquery javascript audio-player web
 ---
 
 

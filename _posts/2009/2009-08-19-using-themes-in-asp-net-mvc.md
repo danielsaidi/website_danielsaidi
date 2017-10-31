@@ -1,8 +1,7 @@
 ---
 title:  "Using themes in ASP.NET MVC"
 date:   2009-08-19 05:38:00 +0100
-categories: dotnet
-tags: 	asp-net css
+tags: 	.net asp-net css
 ---
 
 

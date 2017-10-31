@@ -1,8 +1,7 @@
 ---
 title:  "Easily paginate collections in C#"
 date:   2009-08-27 08:00:00 +0100
-categories: dotnet
-tags:	c-sharp
+tags:	.net
 ---
 
 

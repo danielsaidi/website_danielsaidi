@@ -1,8 +1,7 @@
 ---
 title:  "Automatically convert media links with jQuery"
 date:   2009-04-16 22:25:00 +0100
-categories: web
-tags: 	javascript jquery
+tags: 	javascript jquery web
 ---
 
 

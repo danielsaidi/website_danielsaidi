@@ -1,7 +1,6 @@
 ---
 title:  "Make URL rewriting in IIS 7 work like in IIS 6"
 date:   2009-05-18 08:10:00 +0100
-categories: web
 tags: 	iis
 ---
 
