@@ -1,12 +1,11 @@
 ---
 title:  "TestFlight requires developer build entitlements to have get-task-allow set to true"
 date: 	2014-05-21 10:54:00 +0100
-categories: mobile
 tags: 	ios testflight xcode code-signing
 ---
 
 
-UPDATE 2014-05-02: As JN commented (see below), it may be enough to just restart
+**UPDATE 2014-05-02:** As JN commented below, it may be enough to just restart
 Xcode after refreshing the provisioning profiles. Try this before going through
 the tedious process of generating new certificates. I know I will 🙂
 
