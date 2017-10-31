@@ -1,8 +1,8 @@
 ---
 title:  "Øredev 2011 in the rear-view mirror – Part 2"
-date:    2011-12-01 12:00:00 +0100
+date:   2011-12-01 12:00:00 +0100
 categories: conferences
-tags: 	oredev
+tags: 	conference oredev
 ---
 
 

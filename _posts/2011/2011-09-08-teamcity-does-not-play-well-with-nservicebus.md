@@ -1,8 +1,7 @@
 ---
 title:  "TeamCity 6.5.1 does not play well with NServiceBus"
-date:    2011-09-08 12:00:00 +0100
-categories: dotnet
-tags: 	teamcity nservicebus
+date:   2011-09-08 12:00:00 +0100
+tags: 	.net teamcity nservicebus
 ---
 
 

@@ -1,7 +1,6 @@
 ---
 title:  "Print screen in BootCamp using an Apple keyboard"
-date:    2011-07-07 12:00:00 +0100
-categories: general
+date:   2011-07-07 12:00:00 +0100
 tags: 	bootcamp
 ---
 

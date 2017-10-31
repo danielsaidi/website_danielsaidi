@@ -1,8 +1,7 @@
 ---
 title:	"Trying out Plupload"
 date:	2011-02-02 12:00:00 +0100
-categories: web
-tags: 	
+tags: 	web
 ---
 
 

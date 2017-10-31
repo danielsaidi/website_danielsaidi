@@ -1,7 +1,6 @@
 ---
 title:  "Where do I put the logic?"
-date:    2011-11-16 12:00:00 +0100
-categories: general
+date:   2011-11-16 12:00:00 +0100
 tags: 	architecture
 ---
 

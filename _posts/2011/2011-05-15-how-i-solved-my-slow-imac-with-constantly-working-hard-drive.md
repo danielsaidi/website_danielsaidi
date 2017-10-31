@@ -1,8 +1,7 @@
 ---
 title:  "How I solved my slow iMac with a constantly working hard-drive"
 date:    2011-05-15 12:00:00 +0100
-categories: general
-tags: 	os-x spotlight
+tags: 	osx spotlight
 ---
 
 

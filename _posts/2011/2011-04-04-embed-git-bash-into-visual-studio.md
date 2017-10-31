@@ -1,8 +1,7 @@
 ---
 title:  "Embed Git Bash into Visual Studio"
-date:    2011-04-04 12:00:00 +0100
-categories: dotnet
-tags: 	git git-bash visual-studio
+date:	2011-04-04 12:00:00 +0100
+tags: 	.net git git-bash visual-studio
 ---
 
 

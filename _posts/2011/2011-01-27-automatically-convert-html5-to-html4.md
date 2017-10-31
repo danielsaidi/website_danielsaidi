@@ -1,8 +1,7 @@
 ---
 title:	"Automatically convert HTML5 to HTML4"
 date:	2011-01-27 12:00:00 +0100
-categories: web
-tags: 	html4 html5 httpmodule iis
+tags: 	html4 html5 httpmodule iis web
 ---
 
 
