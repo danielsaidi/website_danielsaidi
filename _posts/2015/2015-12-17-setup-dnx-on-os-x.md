@@ -1,8 +1,7 @@
 ---
 title:  "Setup DNX on OS X"
 date:   2015-12-17 08:48:00 +0100
-categories: dotnet
-tags:	dotnet-core visual-studio-code mono brew brew-cask
+tags:	.net .net-core visual-studio-code mono brew brew-cask
 ---
 
 After so much waiting, so many "I'll do this first", so much app coding etc. etc.
@@ -66,9 +65,9 @@ take place in the terminal...which to some is a most welcome change.
 Open the terminal, then type `dnx`. You will notice that the command will not be
 recognized yet. To register it, run the following command:
 
-{% highlight shell %}
+```sh
 source /Users/<your user name>/.dnx/dnvm/dnvm.sh
-{% endhighlight %}
+```
 
 This will make it possible to run `dnx` and `dnu` from any folder. If you now run
 the `dnx` command again, it will be recognized.
@@ -85,17 +84,17 @@ have to setup each new project from scratch.
 To install Yeoman and the ASP.NET project generator plugin, run these commands in
 the terminal:
 
-{% highlight shell %}
+```sh
 npm install -g yo
 npm install -g generator-aspnet
-{% endhighlight %}
+```
 
 After this, you can create ASP.NET projects with Yeoman, using this command from
 any folder:
 
-{% highlight shell %}
+```sh
 yo aspnet
-{% endhighlight %}
+```
 
 
 This will open a wizard that lets you choose a project template from a selection

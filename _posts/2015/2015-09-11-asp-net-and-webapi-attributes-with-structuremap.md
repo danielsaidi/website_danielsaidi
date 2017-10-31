@@ -1,8 +1,7 @@
 ---
-title:  "ASP.NET and WebApi attributes with StructureMap"
+title:   "ASP.NET and WebApi attributes with StructureMap"
 date: 	2015-09-11 09:45:00 +0100
-categories: dotnet
-tags: 	asp-net webapi dependency-injection structuremap
+tags: 	.net asp-net webapi dependency-injection structuremap
 ---
 
 
@@ -32,7 +31,7 @@ This token is handled by a custom AuthorizationFilterAttribute, which is added t
 a class that serves as the base class for all ApiControllers:
 
 
-{% highlight c# %}
+```csharp
 public class AuthorizeClientAttribute : AuthorizationFilterAttribute
 {
    public override void OnAuthorization(HttpActionContext actionContext)
@@ -42,7 +41,7 @@ public class AuthorizeClientAttribute : AuthorizationFilterAttribute
 
    ...
 }
-{% endhighlight%}
+```
 
 
 Second, the user must be properly authenticated, but only for some requests. The
@@ -76,7 +75,7 @@ to the IoC container to resolve any dependencies, then have a second constructor
 with parameters, that you can use for unit tests, like this:
 
 
-{% highlight c# %}
+```csharp
 public class AuthorizeClientAttribute : AuthorizationFilterAttribute
 {
    public AuthorizeClientAttribute()
@@ -91,7 +90,7 @@ public class AuthorizeClientAttribute : AuthorizationFilterAttribute
 
    IMyComponent component;
 }
-{% endhighlight%}
+```
 
 
 Do not walk down this path! It makes your attribute's dependencies point out and
@@ -106,7 +105,7 @@ that your unit tests can set the property, but that the attribute has to resolve
 the dependencies by calling the IoC container in other cases:
 
 
-{% highlight c# %}
+```csharp
 public class AuthorizeClientAttribute : AuthorizationFilterAttribute
 {
    public IMyComponent Component { get; set; }
@@ -117,7 +116,7 @@ public class AuthorizeClientAttribute : AuthorizationFilterAttribute
    }
    ...
 }
-{% endhighlight%}
+```
 
 
 This is equally bad! Remember, the attributes should know about how a project is
@@ -132,14 +131,14 @@ This allows us to wire up dependencies in a StructureMap registry, as well as in
 our unit tests, as such:
 
 
-{% highlight c# %}
+```csharp
 public class AuthorizeClientAttribute : AuthorizationFilterAttribute
 {
    public static IMyComponent Component { get; set; }
    
    ...
 }
-{% endhighlight%}
+```
 
 
 This approach works and will decouple attributes from the IoC container and from
@@ -163,7 +162,7 @@ I then realised that there is another way to inject logic, and finally landed on
 **function injecting**:
 
 
-{% highlight c# %}
+```csharp
 public class AuthorizeClientAttribute : AuthorizationFilterAttribute
 {
    public static Func<MyComponent> GetComponent { get; set; }
@@ -175,14 +174,14 @@ public class AuthorizeClientAttribute : AuthorizationFilterAttribute
 
    ...
 }
-{% endhighlight%}
+```
 
 
 This means that my unit tests can inject a function that returns a fake or a mock
 of the interface...or whatever I want:
 
 
-{% highlight c# %}
+```csharp
 [SetUp]
 public void Setup() 
 {
@@ -196,14 +195,14 @@ private IMyComponent GetComponent()
 }
 
 ...
-{% endhighlight%}
+```
 
 
 Meanwhile, the web api StructureMap registry can inject a function that resolves
 any dependencies with the IoC container:
 
 
-{% highlight c# %}
+```csharp
 public class SecurityRegistry : Registry
 {
    public SecurityRegistry() 
@@ -216,7 +215,7 @@ public class SecurityRegistry : Registry
       return IoC.Container.GetInstance<IMyComponent>();
    }
 }
-{% endhighlight%}
+```
 
 
 To protect yourself from an incorrect setup, make sure that your attributes crash

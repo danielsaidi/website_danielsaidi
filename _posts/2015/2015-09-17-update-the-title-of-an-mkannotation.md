@@ -1,7 +1,6 @@
 ---
 title:  "Update the title of an MKAnnotation"
 date: 	2015-09-17 22:04:00 +0100
-categories: mobile
 tags: 	ios swift mapkit mkannotation
 ---
 
@@ -24,11 +23,11 @@ it, then finally tell the app that you *have* changed it.
 
 The code for this becomes:
 
-{% highlight swift %}
+```swift
 myAnnotation.willChangeValueForKey("subtitle")
 myAnnotation.subtitle = "An address somewhere in the world"
 myAnnotation.didChangeValueForKey("subtitle")
-{% endhighlight %}
+```
 
 I really don't know why this has to be added, but as soon as I added this extra
 piece of code to the app, the reverse geocoder could update the subtitle without
@@ -37,12 +36,12 @@ problems, even when the operation took some time.
 Since all my annotations inherit a class called MapAnnotation, I then decided to
 specify the subtitle property as such:
 
-{% highlight swift %}
+```swift
 var subtitle: String? {
    willSet { willChangeValueForKey("subtitle") }
    didSet { didChangeValueForKey("subtitle") }
 }
-{% endhighlight %}
+```
 
 This triggers the required events in the correct order, every time the subtitle
 property value is changed.
