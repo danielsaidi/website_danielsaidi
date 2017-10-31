@@ -1,7 +1,6 @@
 ---
 title:  "UIImageView is pixelated after applying an async image"
 date:   2016-11-10 09:39:02 +0100
-categories: mobile
 tags:	ios swift uiimageview uiimage
 ---
 
@@ -24,13 +23,13 @@ when receiving a new image with a different scale.
 The solution turned out to be, to generate a new image from the loaded one. This
 is how you do it (broken down in small steps):
 
-{% highlight swift %}
+```swift
 guard let image = loadedImage else { return }
 guard let cgImage = image.cgImage else { return }
 let scale = UIScreen.main.scale
 let orientation = image.imageOrientation
 let image = UIImage(cgImage: cgImage, scale: scale, orientation: orientation)
 self.imageView.image = image
-{% endhighlight %}
+```
 
 The image is now super-sharp and the world a bit happier than it was ten minutes ago.

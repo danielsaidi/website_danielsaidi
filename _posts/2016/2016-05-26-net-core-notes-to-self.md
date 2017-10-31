@@ -1,8 +1,7 @@
 ---
 title:  ".NET Core notes to self"
 date:   2016-05-26 07:52:00 +0100
-categories: dotnet
-tags: 	dotnet-core unit-tests xunit visual-studio-code
+tags: 	.net .net-core unit-tests xunit visual-studio-code
 ---
 
 
@@ -74,14 +73,14 @@ commands each time you make a code change, you can add DotNet Watcher to your pr
 To add it, add a new `tools` node, or add the watcher tool to the tools node if
 you already have it:
 
-{% highlight c# %}
+```
 "tools": {
    "Microsoft.DotNet.Watcher.Tools": {
       "version": "1.0.0-*",
       "imports": "portable-net451+win8"
    }
 }
-{% endhighlight %}
+```
 
 You should now be able to run `dotnet watch run` and `dotnet watch test` to
 automatically restart your application or re-run your tests as soon as any code

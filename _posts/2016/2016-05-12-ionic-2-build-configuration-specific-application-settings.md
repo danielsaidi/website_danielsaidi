@@ -1,7 +1,6 @@
 ---
 title:  "Ionic 2 - Build Configuration-Specific Application Settings"
 date:   2016-05-12 12:04:00 +0100
-categories: mobile
 tags: 	ionic cordova ios android gulp angular typescript
 ---
 
@@ -27,7 +26,7 @@ As such, I have a base class that defines most settings:
 
 **app/config/app-settings-base:**
 
-{% highlight typescript %}
+```ts
 export class AppSettingsBase {
   public apiUrl: string;
   public rssFeedUrl: string;
@@ -37,7 +36,7 @@ export class AppSettingsBase {
      this.rssFeedUrl = 'http://rssdomain.com/rss.xml';
   }
 }
-{% endhighlight %}
+```
 
 This base class defines an rss feed url, but leaves the api url blank. This means
 that all available build configurations can define a custom rss feed value, but
@@ -52,7 +51,7 @@ Let's start off with the settings class that I will use for development:
 
 **app/config/app-settings-debug:**
 
-{% highlight typescript %}
+```ts
 import {Injectable} from "angular2/core";
 import {AppSettingsBase} from "../config/app-settings-base";
 
@@ -63,7 +62,7 @@ export class AppSettings extends AppSettingsBase {
     this.apiUrl = 'Debug API';
   }
 }
-{% endhighlight %}
+```
 
 This file contains an *AppSettings* class that inherits *AppSettingsBase* and sets
 a debug-specific value for the apiUrl property.
@@ -75,7 +74,7 @@ Let's add a second settings class, that will be used for release builds:
 
 **app/config/app-settings-release:**
 
-{% highlight typescript %}
+```ts
 import {Injectable} from "angular2/core";
 import {AppSettingsBase} from "../config/app-settings-base";
 
@@ -86,7 +85,7 @@ export class AppSettings extends AppSettingsBase {
     this.apiUrl = 'Release API';
   }
 }
-{% endhighlight %}
+```
 
 This file *also* contains an injectable AppSettings class that also inherits
 *AppSettingsBase* (you will only use one though), then sets a release-specific
@@ -102,13 +101,13 @@ and building the app.
 First, add **"gulp-rename" : "1.2.2"** (or later) to your **package.json** file.
 Then, require the file topmost in your **gulpfile.js**, like this:
 
-{% highlight typescript %}
+```ts
 rename = require('gulp-rename'),
-{% endhighlight %}
+```
 
 After that, add the following build task to **gulpfile.js**:
 
-{% highlight typescript %}
+```ts
 gulp.task('copy-settings', function () {
   var settingsFileSuffix = isRelease ? 'release' : 'debug';
   var pathPrefix = 'app/config/app-settings-';
@@ -117,17 +116,17 @@ gulp.task('copy-settings', function () {
     .pipe(rename('app-settings.ts'))
     .pipe(gulp.dest('app/config/'));
 });
-{% endhighlight %}
+```
 
 Finally, refer to this task in **serve:before** and **build**:
 
-{% highlight typescript %}
+```ts
 gulp.task('serve:before', ['watch', 'copy-settings']);
-{% endhighlight %}
+```
 
-{% highlight typescript %}
+```ts
 gulp.task('build', ['clean', 'copy-settings'], function(done) {
-{% endhighlight %}
+```
 
 If we now run `ionic serve` or `ionic build`, gulp will automatically generate a
 copy of *app/config/app-settings-debug.ts* in **app/config/app-settings.ts**. If
@@ -149,7 +148,7 @@ commit it every time it is changed.
 You can now use the resulting settings class as normal. For instance, to verify
 that the correct settings file is applied, add the following to your *app.ts* file:
 
-{% highlight typescript %}
+```ts
 import {AppSettings} from './config/app-settings';
 
 ...
@@ -166,7 +165,7 @@ import {AppSettings} from './config/app-settings';
   }
 }
 
-{% endhighlight %}
+```
 
 If everything works as expected, you will see different output when you build for
 development and for release.
