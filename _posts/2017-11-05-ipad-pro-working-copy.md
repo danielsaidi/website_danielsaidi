@@ -2,9 +2,14 @@
 title:  Using iPad Pro with Working Copy
 date:   2017-11-05 20:20:00 +0100
 tags:	git github ipad-pro working-copy
-twitter-image:	assets/img/blog/2017-11-05.jpg
+image:	assets/img/blog/2017-11-05.jpg
 ---
 
+
+In this post, I will write about my experience using Working Copy on my iPad Pro,
+adding a blog post to a Jekyll-powered blog, then pushing the result to GitHub.
+
+![iPad Pro with Working Copy]({{ "assets/img/blog/2017-11-05.jpg" | absolute_url }})
 
 When I bought my iPad Pro, I had some naive idea about using it as a lightweight
 coding environment, at least for blogging, coding JavaScript etc. However, Apple

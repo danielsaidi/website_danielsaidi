@@ -24,7 +24,7 @@ permalink: /blog/
       <small>{{post.date | date_to_string }}</small>
     </div>
     <p class="excerpt">
-      {{ post.excerpt | remove: '<p>' | remove: '</p>' | truncatewords:50 }}
+      {{ post.excerpt | strip_html | remove: '<p>' | remove: '</p>' | truncatewords:50 }}
       <a href="{{ post.url }}">Read more »</a>
     </p>
 
