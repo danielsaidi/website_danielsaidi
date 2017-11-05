@@ -1,8 +1,8 @@
-—
+--—
 title:  “Using iPad Pro with Working Copy”
 date:   2017-11-05 20:20:00 +0100
 tags:	git github ipad-pro working-copy
-—
+—--
 
 
 When I bought my iPad Pro, I had some naive idea about using it as a lightweight
@@ -38,5 +38,29 @@ I will download a better text editor for the iPad and connect it to Working Copy
 Perhaps this will make typing more pleasant. I will write a blog post about this
 once I get around to it.
 
-When I finished typing, I could just switch over to status and commit my changes.
-If you see this blog post on my web site, it means everything worked out well.
+When I finished typing, I could just switch over to status and commit my changes,
+then push it to GitHub. This revealed the first Working Copy pay wall - you have
+to pay to be able to push from the app. A *liittle* sneaky, but I won't complain,
+since I too would love to create an app that people would love to pay for. Still,
+I would have liked it if this info was presented sooner.
+
+I would love for Apple to enable git push in iOS in some way, but I have NO idea
+how they would do it, considering how the operating system is setup. The iPad is,
+sadly, still a non-work tool, due to all the restrictions iOS has, compared to a
+"real" computer.
+
+However, I enabled Working Copy's trial mode and pushed this post to GitHub (why
+yes, I am writing this in retrospect) to see if I could complete this task using
+these tools. Pushing was super-simple, even with HTTPS, and after a little while,
+the post popped up on my web site (yes, this very post indeed). It was now I did
+notice the final problem, the one that killed off all my dear efforts.
+
+It seems that Working Copy suffers from the iOS three-dash bug, which causes all
+three-dashes to be reduced to one single dash. Actually, the bug can be as nasty
+as to delete all text that comes after three dashes, but in this case it removes
+two of three dashes. Since my site is created with [Jekyll](https://jekyllrb.com),
+this means that pushing with Working Copy completely ruins the topmost necessary
+[Jekyll Front Matter](https://jekyllrb.com/docs/frontmatter/).
+
+I hope that this bug will be resolved in future versions of iOS, but until then,
+I guess that I will be blogging from my computer.
