@@ -1,8 +1,8 @@
---—
+---
 title:  “Using iPad Pro with Working Copy”
 date:   2017-11-05 20:20:00 +0100
 tags:	git github ipad-pro working-copy
-—--
+---
 
 
 When I bought my iPad Pro, I had some naive idea about using it as a lightweight
