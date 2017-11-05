@@ -2,7 +2,7 @@
 title:  Using iPad Pro with Working Copy
 date:   2017-11-05 20:20:00 +0100
 tags:	git github ipad-pro working-copy
-twitter-image:	{% "/assets/img/blog/2017-11-05.jpg" | absolute_url %}
+twitter-image:	http://danielsaidi.com/assets/img/blog/2017-11-05.jpg
 ---
 
 
