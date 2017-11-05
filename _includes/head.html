@@ -23,17 +23,17 @@
   <script src="/js/site.js"></script>
 
   {% if page.twitter-image %}
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@danielsaidi">
-    <meta name="twitter:creator" content="@danielsaidi">
-    <meta name="twitter:title" content="{{ page.title }}">
-    {% if page.excerpt %}
-      <meta name="twitter:description" content="{{ page.excerpt | strip_html | truncate:140 }}">
-    {% endif %}
-    <meta name="twitter:image" content="{{ page.twitter-image }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@danielsaidi">
+  <meta name="twitter:creator" content="@danielsaidi">
+  <meta name="twitter:title" content="{{ page.title }}">
+  {% if page.excerpt %}
+  <meta name="twitter:description" content="{{ page.excerpt | strip_html | truncate:140 }}">
+  {% endif %}
+  <meta name="twitter:image" content="{{ page.twitter-image }}">
   {% endif %}
   
   {% if jekyll.environment == 'production' and site.google_analytics %}
-    {% include google-analytics.html %}
+  {% include google-analytics.html %}
   {% endif %}
 </head>
