@@ -30,7 +30,7 @@
   {% if page.excerpt %}
   <meta name="twitter:description" content="{{ page.excerpt | strip_html | truncate:140 }}">
   {% endif %}
-  <meta name="twitter:image" content="{{ page.twitter-image }}">
+  <meta name="twitter:image" content="{{ page.twitter-image | absolute_url }}">
   {% endif %}
   
   {% if jekyll.environment == 'production' and site.google_analytics %}
