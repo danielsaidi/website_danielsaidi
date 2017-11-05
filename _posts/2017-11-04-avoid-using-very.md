@@ -1,5 +1,5 @@
 ---
-title:  "Avoid using very"
+title:  Avoid using very
 date:   2017-11-04 15:00:00 +0100
 tags:	
 ---
