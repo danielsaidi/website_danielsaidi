@@ -44,7 +44,7 @@ img {
   margin-top: 0.5em;
 }
 
-.reveal .image-section p, .reveal .image-section h1, .reveal .image-section h2, .reveal .image-section h3 {
+.reveal .image-section p, .reveal .image-section h1, .reveal .image-section h2, .reveal .image-section h3, .image-section li {
   color: white !important;
   text-shadow: 2px 2px #000 !important;
 }

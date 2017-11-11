@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Azure - Search & Notifications</title>
+		<meta name="author" content="Daniel Saidi, daniel.saidi@gmail.com">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/bookbeat.css" id="theme">
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+		<link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style>
+			pre { background-color: white; }
+			.image-section.dark h1 { color: black !important; text-shadow: none !important; }
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="../../lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown class="title-page">
+					# Microsoft Azure
+					## Search & Notification Hubs
+				</section>
+
+				<section>
+
+					<section data-markdown class="title-page">
+						# Azure Search
+					</section>
+
+					<section data-markdown>
+						## Intro-video
+						* Sök över flera datakällor
+						* Lingvistisk förståelse (mus/möss)
+						* Kategorisering
+						* Filtrering
+						* Förslag
+					</section>
+
+					<section data-markdown>
+						## Intro-video (forts.)
+						* Relevans
+						* Scoring
+						* Geospatial sök
+						* 56 språk
+						* App-integrationer
+					</section>
+
+					<section data-markdown class="image-section" data-background="http://gifimage.net/wp-content/uploads/2017/07/catbug-gif-2.gif">
+						## Intro-video (forts.)
+						* Ukelele
+						* Handklapp
+					</section>
+
+					<section data-markdown class="title-page">
+						# Features
+					</section>
+
+					<section data-markdown>
+						## Sök-syntax
+						* Stöd för:
+						* **Simple Query Syntax** (`håkan+nesser`)
+						* **Lucene** (betydligt mer komplext)
+						* **Filter Expression** syntax (OData v4)
+					</section>
+
+					<section data-markdown>
+						## Integrationer
+						* Kan indexera JSON-data från "vilken källa som helst"
+						* Kan också crawla **Azure SQL**, **Azure Cosmos** och **Azure Blob storage**
+					</section>
+
+					<section data-markdown>
+						## Lingvistik / språkförståelse
+						* Regexp
+						* Fonetisk matchning
+						* Tempus (springa, sprang)
+						* Singular/plural (mus, möss)
+					</section>
+
+					<section data-markdown>
+						## Geobaserade sökningar
+
+						* Utgå från användarens position för att klassificera relevanta sökresultat
+					</section>
+
+					<section data-markdown>
+						## Sökförslag
+						* "Menade du...?"
+						* Kan vara proaktiva och visas medan användaren skriver
+					</section>
+
+					<section data-markdown>
+						## Relevans/Scoring
+						* Nyckelfunktion i Azure Search
+						* Lyft upp innehåll vi vill exponera
+						* Personlig relevans
+						* Geobaserad relevans
+					</section>
+
+					<section data-markdown class="title-page">
+						# Relevant för oss?
+					</section>
+
+					<section data-markdown>
+						## Användningsområden
+						* Relevans (på riktigt)
+						* Sökförslag - "menade du?"
+						* Hantera felstavningar
+						* Söka på fler egenskaper, t.ex. handling?
+					</section>
+
+					<section data-markdown>
+						## Läs mer
+						* https://azure.microsoft.com/en-us/services/search/
+						* https://docs.microsoft.com/en-us/azure/search/search-what-is-azure-search
+					</section>
+				</section>
+
+
+				<section>
+					<section data-markdown class="title-page">
+						# Notification Hubs
+					</section>
+
+					<section data-markdown>
+						## Varför Notification Hubs?
+						* Flera PNS (Platform Notification Systems)
+						* **APNS** - Apple Push Notification Service
+						* **FCM**  - Firebase Cloude Messaging
+						* **WNS**  - Windows Notification Service
+					</section>
+
+					<section data-markdown>
+						![PNS](notifications_pns.png)
+					</section>
+
+					<section data-markdown>
+						## Varför? (forts.)
+						* PNS:er har inga gemensamma gränssnitt
+						* Azure Notification Hubs löser detta
+						* Plattformsoberoende PNS-proxy
+						* Pusha enkelt med ett standardiserat API
+					</section>
+
+					<section data-markdown>
+						![PNS](notifications_hub.png)
+					</section>
+
+					<section data-markdown>
+						## Features
+						* Skräddarsy och rikta utskick
+						* Segmentera på aktivitet, intressen etc.
+						* Cross platforms, cross backend
+						* Telemetri/tracking - Vad har skickats, hur har det använts?
+					</section>
+
+					<section data-markdown>
+						## Pris
+						* 1 miljon notifikationer gratis(?)
+						* Tre nivåer - Free, Basic, Standard
+						* Nivåbaserade antal utskick/enheter
+						* Schemalagda notiser, SLA etc. endast tillgängliga i Standard.
+					</section>
+
+					<section data-markdown>
+						## Frågor
+						* Varför detta istället för Firebase?
+						* Varför endast Objective-C exempel!?
+					</section>
+
+					<section data-markdown class="title-page">
+						# Relevant för oss?
+					</section>
+
+					<section data-markdown>
+						## Användningsområden
+						* Fjärrnotiser!
+						* Taggar för författare, serier etc.
+						* Pusha ut nyheter, bevakningar etc.
+						* Pusha ut driftstörningar (tagg)
+					</section>
+
+					<section data-markdown>
+						## Läs mer
+						* https://azure.microsoft.com/en-us/services/notification-hubs/
+						* https://docs.microsoft.com/en-us/azure/notification-hubs/
+					</section>
+				</section>
+
+			</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../../plugin/zoom-js/zoom.js', async: true },
+					{ src: '../../plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
