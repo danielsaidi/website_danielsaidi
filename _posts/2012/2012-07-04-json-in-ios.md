@@ -1,7 +1,8 @@
 ---
-title:  "JSON in iOS"
+title:  JSON in iOS
 date: 	2012-07-04 21:25:00 +0100
 tags: 	ios objective-c json
+redirect_from:  /blog/mobile/2012/07/04/json-in-ios
 ---
 
 
