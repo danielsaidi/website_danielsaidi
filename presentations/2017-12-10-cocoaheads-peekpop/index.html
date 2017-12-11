@@ -63,10 +63,19 @@
 				</section>
 
 				<section data-markdown>
+					## Peek & Pop
+					* 3D Touch Devices
+					* Peek - preview content
+					* Pop - "commit" preview
+					* Preview Actions
+				</section>
+
+				<section data-markdown>
 					## Real-life examples
 					* Podcasts
+					* Twitter
 					* Netflix
-					* Very few apps use this
+					* Very few use this
 				</section>
 
 				<section data-markdown>
@@ -76,11 +85,11 @@
 					```
 					UIViewControllerPreviewingDelegate
 
-					previewingContext(_ context:viewControllerForLocation:)
+					func previewingContext(viewControllerForLocation:)
 
-					previewingContext(_ context:viewControllerToCommit:)
+					func previewingContext(viewControllerToCommit:)
 
-					previewActionItems
+					var previewActionItems
 					```
 				</section>
 
@@ -88,8 +97,8 @@
           <section data-markdown>
             ## Live coding
             * Peek & Pop
-            * Peek size
-            * Different peek vc
+            * Customize peek
+            * Different peek/pop
             * Preview actions
             * Misc. learnings
           </section>
