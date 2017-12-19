@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>BookBeat Hack Day</title>
+
+		<meta name="description" content="BookBeat Hack Day #2 Presentation">
+		<meta name="author" content="Daniel Saidi daniel.saidi@gmail.com">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="../../css/reveal.css">
+		<link rel="stylesheet" href="../../css/theme/bookbeat.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="../../lib/css/zenburn.css">
+		<link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? '../../css/print/pdf.css' : '../../css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<style>
+			pre { background-color: white; }
+
+		</style>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section data-markdown class="title-page">
+					# BookBeat
+					### HackDay
+				</section>
+
+				<section data-markdown class="image-section" data-background="https://cdn-images-1.medium.com/max/1600/1*mvD_4BDe6H3Duz4RsmZsbg.gif">
+        </section>
+
+
+				<section data-markdown class="image-section" data-background="https://i.pinimg.com/originals/7f/d5/79/7fd5794bba1cc7a5a0cce04c20094c40.gif">
+        </section>
+
+        <section data-markdown class="image-section" data-background="https://cdn.list25.com/wp-content/uploads/2011/11/penguifall.gif">
+        </section>
+
+				<section>
+					<section data-markdown>
+						# Bildsök
+					</section>
+					<section data-markdown>
+						## Min Vision
+						* Användare står i butik
+						* Användare scannar omslag i Bookbeat
+						* Användare kommer direkt till boken
+						* Användaren lyssnar utan att köpa
+						* Butiksdöd
+					</section>
+					<section data-markdown>
+						## Vision
+						* Bibliotek för bildigenkänning
+						* Superenkelt att känna av text
+						* Superenkelt att visa rutor
+						* "Omöjligt" att känna igen text
+					</section>
+					<section data-markdown>
+						## Tesseract
+						* C++ och OS X
+						* Experimentbibliotek för iOS 
+						* Kräver en massa hemsk setup
+						* Begränsad till fåtal tecken
+						* Känner inte igen handstil
+					</section>
+					<section data-markdown>
+						## SwiftOCR
+						* Supersmidigt att integrera
+						* Supertydlig exempel-app
+						* Supervärdelös igenkänning
+						* Demo
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown>
+						# Ny epub-läsare
+					</section>
+					<section data-markdown>
+						## FolioReader
+						* Såg väldigt lovande ut
+						* Lovade runt, höll tunt
+						* Gammal kod
+						* Väldigt många tunga beroenden
+						* NO GO!
+					</section>
+					<section data-markdown>
+						## Sky
+						* Horribel
+						* Gammal
+						* Inte gratis
+						* NO GO!
+					</section>
+				</section>
+
+				<section>
+					<section data-markdown>
+						# Röstsyntes
+					</section>
+					<section data-markdown>
+						## Min Vision
+						* Användare hittar bok med bara e-bok
+						* Vi extraherar texten
+						* Datorn läser upp texten
+						* Användaren lyssnar som på en ljudbok
+						* Butiksdöd
+					</section>
+					<section data-markdown>
+						## Parsa ePub - ePubExtractor
+						* Superenkelt att parsa info
+						* Supersvårt att parsa text
+						* Fake-demo
+					</section>
+				</section>
+
+				<section data-markdown class="image-section" data-background="http://mrwgifs.com/wp-content/uploads/2013/06/Jimmy-Fallon-Clapping-At-An-Award-Show.gif">
+					# That's all folks!
+        </section>
+			</div>
+		</div>
+
+		<script src="../../lib/js/head.min.js"></script>
+		<script src="../../js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: '../../lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: '../../plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: '../../plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: '../../plugin/zoom-js/zoom.js', async: true },
+					{ src: '../../plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
