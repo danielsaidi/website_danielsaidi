@@ -10,8 +10,7 @@ not like iOS delegates and target/selectors and how I prefer to use closures.
 
 In my various apps, I have worked around using delegates and target/selectors by
 adding action properties to my various views. However, this approach requires me
-to add these properties to every view or create sub classes. Both approaches are
-horrible and not very scalable.
+to add these properties to every view or create sub classes, which is not nice.
 
 I have also experimented with using extensions, but since extensions can't store
 any properties, I have defined protocols that ensure that I have closure storage
@@ -23,22 +22,20 @@ and selectors, though) and I'd prefer it if Apple did add closure-based gestures
 I have used these approaches in a mix and match fashion, while still dreaming of
 a perfect setup.
 
-Then...
+Then, today...
 
-Today, I found [this blog post](https://medium.com/@sdrzn/adding-gesture-recognizers-with-closures-instead-of-selectors-9fb3e09a8f0b)
+I found [this blog post](https://medium.com/@sdrzn/adding-gesture-recognizers-with-closures-instead-of-selectors-9fb3e09a8f0b),
 where Saoud describes how you can use associated objects to let extensions store
-custom backing properties. Using this approach, we can now implement two `UIView`
-extensions that lets us add closure-based gesture recognizers to our views:
+properties. With this, we can implement UIView extensions that add closure-based
+gesture recognizers to our views:
 
 ```swift
-import UIKit
-
 public extension UIView {
     
     public func addLongPressGestureRecognizer(action: (() -> Void)?) {
+        longPressAction = action
         isUserInteractionEnabled = true
-        longPressGestureRecognizerAction = action
-        let selector = #selector(handleLongPressGesture)
+        let selector = #selector(handleLongPress)
         let recognizer = UILongPressGestureRecognizer(target: self, action: selector)
         addGestureRecognizer(recognizer)
     }
@@ -48,36 +45,33 @@ fileprivate extension UIView {
     
     typealias Action = (() -> Void)
     
-    struct Key {
-        static var gesture = "UIView_longPressGesture_action"
-    }
+    struct Key { static var id = "longPressAction" }
     
-    var longPressGestureRecognizerAction: Action? {
+    var longPressAction: Action? {
         get {
-            return objc_getAssociatedObject(self, &Key.gesture) as? Action
+            return objc_getAssociatedObject(self, &Key.id) as? Action
         }
         set {
             guard let value = newValue else { return }
             let policy = objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN
-            objc_setAssociatedObject(self, &Key.gesture, value, policy)
+            objc_setAssociatedObject(self, &Key.id, value, policy)
         }
     }
     
-    @objc func handleLongPressGesture(sender: UITapGestureRecognizer) {
-        longPressGestureRecognizerAction?()
+    @objc func handleLongPress(sender: UILongPressGestureRecognizer) {
+        guard sender.state == .began else { return }
+        longPressAction?()
     }
 }
 ```
 
 ```swift
-import UIKit
-
 public extension UIView {
     
     public func addTapGestureRecognizer(action: (() -> Void)?) {
+        tapAction = action
         isUserInteractionEnabled = true
-        tapGestureRecognizerAction = action
-        let selector = #selector(handleTapGesture)
+        let selector = #selector(handleTap)
         let recognizer = UITapGestureRecognizer(target: self, action: selector)
         addGestureRecognizer(recognizer)
     }
@@ -87,23 +81,21 @@ fileprivate extension UIView {
     
     typealias Action = (() -> Void)
     
-    struct Key {
-        static var gesture = "UIView_tapGesture_action"
-    }
+    struct Key { static var id = "tapAction" }
     
-    var tapGestureRecognizerAction: Action? {
+    var tapAction: Action? {
         get {
-            return objc_getAssociatedObject(self, &Key.gesture) as? Action
+            return objc_getAssociatedObject(self, &Key.id) as? Action
         }
         set {
             guard let value = newValue else { return }
             let policy = objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN
-            objc_setAssociatedObject(self, &Key.gesture, value, policy)
+            objc_setAssociatedObject(self, &Key.id, value, policy)
         }
     }
 
-    @objc func handleTapGesture(sender: UITapGestureRecognizer) {
-        tapGestureRecognizerAction?()
+    @objc func handleTap(sender: UITapGestureRecognizer) {
+        tapAction?()
     }
 }
 ```
