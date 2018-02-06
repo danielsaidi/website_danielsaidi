@@ -1,11 +1,11 @@
 
 - name: Blog
-  title: Read my blog
+  title: My blog
   link-title: Read my blog
   url: /blog/
 
 - name: GitHub
-  title: Me on GitHub
+  title: My GitHub account
   link-title: Checkout my code on GitHub
   url: http://github.com/danielsaidi
 
@@ -15,6 +15,6 @@
   url: http://twitter.com/danielsaidi
 
 - name: E-mail
-  title: Send an e-mail
+  title: Send me an e-mail
   link-title: Send me an e-mail
   url: mailto:daniel.saidi@gmail.com

@@ -1,0 +1,12 @@
+<div class="row">
+  {% for project in site.data.oss %}
+  <div class="col-xs-6 col-sm-3 col-md-3 box-container">
+    <a rel="external" href="{{ project.url }}" title="Checkout {{ project.name }} on GitHub" class="title-image">
+      <div class="box">
+        <img alt="{{ project.name }} icon" src="/assets/img/oss-icons/{{ project.name | downcase |  replace:' ','-' }}.png" />
+      </div>
+      <h3>{{ project.name }}</h3>
+    </a>
+  </div>  
+  {% endfor %}
+</div>
