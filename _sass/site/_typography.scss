@@ -1,4 +1,9 @@
-h1, h2, h3, h4, p.styled, div.styled-text p, .breadcrumbs {
+html, body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+
+h1, h2, h3, h4, p.styled, div.styled-text p, .breadcrumbs, a {
 	font-family: 'Carter One', cursive;
 }
 
@@ -46,7 +51,7 @@ a:hover {
 
 
 .text-box {
-	a { text-decoration: underline; }
+	a { text-decoration: none; }
 }
 
 .link-box {
@@ -56,4 +61,14 @@ a:hover {
 .breadcrumbs {
 	font-weight: normal;
 	margin-bottom: 20px;
+}
+
+.date {
+	color: #e91e63;
+}
+
+
+
+.post-info {
+	font-size: 0.95em;
 }

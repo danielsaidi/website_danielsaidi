@@ -2,9 +2,6 @@
 layout: plain
 ---
 
-{% assign categories = (page.categories | sort:0) %}
-{% assign tags = (page.tags | sort:0) %}
-
 <article class="page section blog">
 
   <div class="wrapper">
@@ -14,7 +11,6 @@ layout: plain
         <a href="/"><span class="glyphicon glyphicon-chevron-left"></span> Home</a> 
         <span class="separator">•</span>
         <a href="/blog">Blog</a>
-
       </div>
     </header>
 
@@ -22,16 +18,8 @@ layout: plain
       <div class="box text-box">
 
         <h1>{{ page.title | escape }}</h1>
-        <p class="date">Published {{ page.date | date_to_string }}</p>
-
-        <div class="tags">
-        {% for tag in tags %}
-          <a class="tag" href="/blog/tags#{{ tag | slugify }}">
-            <span class="glyphicon glyphicon-tag" aria-hidden="true"></span>
-            {{tag}}
-          </a>  
-        {% endfor %}
-        </div>
+        
+        {% include post-info.html post=page %}
         
         {{ content }}
 

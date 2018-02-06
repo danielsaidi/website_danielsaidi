@@ -1,5 +1,5 @@
 ---
-title:  "Use Phantom/Boo to automatically build, test, analyze and publish to NuGet and GitHub"
+title:  "Use Phantom/Boo to build, test and publish to NuGet and GitHub"
 date:    2012-02-22 12:00:00 +0100
 tags: 	.net phantom boo github nuget
 ---
