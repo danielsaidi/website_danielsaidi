@@ -5,7 +5,7 @@ tags: 	ios objective-c
 ---
 
 
-![Init where are you](/assets/img/blog/2013-09-04-init.png)
+![Init where are you](/assets/blog/2013-09-04-init.png)
 
 
 Languages like Java and C# let you override and hide the default constructors of

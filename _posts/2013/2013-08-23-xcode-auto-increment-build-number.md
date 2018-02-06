@@ -5,7 +5,7 @@ tags: 	ios xcode
 ---
 
 
-![Counter](/assets/img/blog/2013-08-23-counter.jpg)
+![Counter](/assets/blog/2013-08-23-counter.jpg)
 
 
 When building and releasing iOS apps, I used to manually update the build number

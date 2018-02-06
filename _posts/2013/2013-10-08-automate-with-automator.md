@@ -5,7 +5,7 @@ tags: 	automator
 ---
 
 
-![Automator icon](/assets/img/blog/2013-10-08-automator.png)
+![Automator icon](/assets/blog/2013-10-08-automator.png)
 
 A really useful tool, that never pops into my Windows-shaped mind (even though I
 have used Macs for almost ten years now) when it comes to automating a workflow,

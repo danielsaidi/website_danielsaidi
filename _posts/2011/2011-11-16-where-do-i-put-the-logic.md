@@ -34,7 +34,7 @@ Repositories can not talk to anyone else.
 
 This architecture can be illustrated (quite simplified) as such:
 
-![A simplified view of the architecture](/assets/img/blog/2011-11-16.png "A simplified view of the architecture.")
+![A simplified view of the architecture](/assets/blog/2011-11-16.png "A simplified view of the architecture.")
 
 Now, here is my dilemma...**where do I put additional logic**? Say, for instance,
 that I want to find all members that are in the same groups as a certain member.

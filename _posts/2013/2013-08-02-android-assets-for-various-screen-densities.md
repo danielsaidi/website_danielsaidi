@@ -5,7 +5,7 @@ tags: 	android assets
 ---
 
 
-![Counter](/assets/img/blog/2013-08-05-android.png)
+![Counter](/assets/blog/2013-08-05-android.png)
 
 
 Android devices come in a great deal of different flavors. You have slow devices,

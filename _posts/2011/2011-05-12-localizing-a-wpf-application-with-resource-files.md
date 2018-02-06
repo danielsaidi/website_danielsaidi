@@ -22,7 +22,7 @@ I use are only boring suggestions. You can go as wild as you want.
 
 First, let's create a new WPF application. I call mine... ... ...HelloWorld!
 
-![HelloWorld app](/assets/img/blog/2011-05-12-1.png)
+![HelloWorld app](/assets/blog/2011-05-12-1.png)
 
 As you can see, I have also added a button that we are going to localize.
 
@@ -33,13 +33,13 @@ Now, let’s add a resource file to which we will add textual content. To separa
 resource files from the rest of the application, I place the file in a Resources
 folder and name it AppLanguage.resx.
 
-![Resource file](/assets/img/blog/2011-05-12-2.png)
+![Resource file](/assets/blog/2011-05-12-2.png)
 
 In the image above, you can see a resource file with (so far) a single parameter.
 
 In order to access the resource file from XAML, we have to make the file public:
 
-![Making the resource file public](/assets/img/blog/2011-05-12-3.png)
+![Making the resource file public](/assets/blog/2011-05-12-3.png)
 
 Once this is done, let’s proceed by accessing the resource file from XAML.
 
@@ -57,7 +57,7 @@ After that, you can access the resource parameter as such:
 
 Voilá! The text is finally displayed within the button:
 
-![The resource text is displayed within the button](/assets/img/blog/2011-05-12-4.png)
+![The resource text is displayed within the button](/assets/blog/2011-05-12-4.png)
 
 Since we now use a resource file instead of App.xaml, we can use the same file to
 translate textual content code-behind as well.
@@ -73,4 +73,4 @@ such:
 
 When we now start our application, the message box is displayed just like we want:
 
-![Message box](/assets/img/blog/2011-05-12-5.png)
+![Message box](/assets/blog/2011-05-12-5.png)

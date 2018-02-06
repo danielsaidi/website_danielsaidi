@@ -10,7 +10,7 @@ button, when I started up Xcode after adding two new plugins.
 
 With that highlighted, blue button, can you blame me?
 
-![Xcode Load Plugin Bundles Warning Dialog](/assets/img/blog/2016-09-05_bundles.png)
+![Xcode Load Plugin Bundles Warning Dialog](/assets/blog/2016-09-05_bundles.png)
 
 If you too have managed to make this mistake, you may have noticed that killing
 and restarting Xcode will not solve the problem - the plugins won't load and you

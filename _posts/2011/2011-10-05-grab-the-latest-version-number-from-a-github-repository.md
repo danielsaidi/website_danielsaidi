@@ -73,6 +73,6 @@ iterate over them and grab the “highest” tag name (version number).
 
 The result is rather nice:
 
-![Cloney screenshot](/assets/img/blog/2011-10-05.png "A version number is now displayed within the download button")
+![Cloney screenshot](/assets/blog/2011-10-05.png "A version number is now displayed within the download button")
 
 Hope this helps!

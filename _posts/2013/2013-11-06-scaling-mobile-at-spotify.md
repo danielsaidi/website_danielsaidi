@@ -6,7 +6,7 @@ tags: 	conference oredev ios android
 ---
 
 
-![Spotify logo](/assets/img/blog/2013-11-06-spotify.jpg)
+![Spotify logo](/assets/blog/2013-11-06-spotify.jpg)
 
 
 After the morning's non-tech keynote, I went to watch Mattias Björnheden and Per

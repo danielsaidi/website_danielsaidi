@@ -5,7 +5,7 @@ tags: 	android
 ---
 
 
-![Counter](/assets/img/blog/2013-08-05-android.png)
+![Counter](/assets/blog/2013-08-05-android.png)
 
 
 My getting-to-know-and-to-love Android study session continues, and has now come 

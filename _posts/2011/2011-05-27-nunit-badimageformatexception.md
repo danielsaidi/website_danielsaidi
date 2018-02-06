@@ -8,7 +8,7 @@ tags: 	.net nunit unit-tests tdd
 While developing a unit tested hobby project in .NET, everything has worked great
 until now. Suddenly, NUnit thinks that there is something wrong with an assembly:
 
-![BadImageFormatException](/assets/img/blog/2011-05-27.png)
+![BadImageFormatException](/assets/blog/2011-05-27.png)
 
 So far, this assembly only contains two classes, so the easiest would be to just
 delete it and create a new project and hope for the best...but I have this thing

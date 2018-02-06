@@ -2,7 +2,7 @@
 title:  Closure-based gesture recognizers
 date:   2018-01-30 09:00:00 +0100
 tags:	swift
-image:  http://danielsaidi.com/assets/img/blog/2018-01-30.png
+image:  http://danielsaidi.com/assets/blog/2018-01-30.png
 ---
 
 

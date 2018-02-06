@@ -114,7 +114,7 @@ it will be adapted.
 How do we know this? Well, this graph illustrates when a technology is “crossing
 the chasm” in relation to how people adapt it:
 
-![The Chasm Graph](/assets/img/blog/2012-01-20.png "The Chasm Graph")
+![The Chasm Graph](/assets/blog/2012-01-20.png "The Chasm Graph")
 
 When a technology is “crossing the chasm”, get to work – cause it will be used 🙂
 I wonder how the graph would have looked for HD-DVD?

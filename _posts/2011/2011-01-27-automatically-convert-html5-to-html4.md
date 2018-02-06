@@ -46,12 +46,12 @@ When we finally did try the classes, we applied them in the Render event of a we
 form master page. It worked like a charm. When browsing the web site with Firefox,
 Chrome etc. we received the HTML5 code:
 
-![Firefox and Chrome gets HTML5](/assets/img/blog/2011-01-27-1.png)
+![Firefox and Chrome gets HTML5](/assets/blog/2011-01-27-1.png)
 
 As you can see in the screenshot above, we get the original HTML5 code. However,
 in Internet Explorer 8, we get the converted HTML4 code:
 
-![Internet Explorer 8 gets HTML4](/assets/img/blog/2011-01-27-2.png)
+![Internet Explorer 8 gets HTML4](/assets/blog/2011-01-27-2.png)
 
 When viewing the site in IE8, we get converted HTML4 code. Isn’t this marvelous?
 

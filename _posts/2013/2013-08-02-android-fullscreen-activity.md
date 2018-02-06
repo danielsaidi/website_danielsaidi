@@ -5,7 +5,7 @@ tags: 	android
 ---
 
 
-![Counter](/assets/img/blog/2013-08-05-android.png)
+![Counter](/assets/blog/2013-08-05-android.png)
 
 
 The best way for me to get my act together when learning new things, is to write

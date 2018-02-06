@@ -6,7 +6,7 @@ tags:	psvr
 ---
 
 
-![Robinson: The Journey](/assets/img/blog/2017-01-26-robinson.jpg)
+![Robinson: The Journey](/assets/blog/2017-01-26-robinson.jpg)
 
 As it launched in October, I decided to get myself a PlayStation VR instead of a
 HTC Vive. It was a judgement call that I still stand by, even though I was blown

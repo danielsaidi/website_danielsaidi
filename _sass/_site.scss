@@ -1,6 +1,6 @@
 html, body {
 	width: 100%;
-	background-image: url(img/bg-lightgrey.png) !important;
+	background-image: url(bg/lightgrey.png) !important;
 }
 
 @media (max-width: 767px) {
@@ -15,7 +15,7 @@ h2 + .row, h2 + p + .row {
 }
 
 hr.styled, .main > hr, footer {
-	background: url(img/bg-hr.png) no-repeat center top;
+	background: url(bg/hr.png) no-repeat center top;
 	border: none;
 	border-top: 1px solid #aaa;
 	height: 40px;

@@ -5,7 +5,7 @@ tags: 	ios bash xcode
 ---
 
 
-![Bash icon](/assets/img/blog/2013-09-26-bash.png)
+![Bash icon](/assets/blog/2013-09-26-bash.png)
 
 This post is dedicated to complaining about the Bash syntax from a n00b's perspective.
 

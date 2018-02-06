@@ -5,7 +5,7 @@ tags: 	android
 ---
 
 
-![Image of an Android teacher](/assets/img/blog/2013-08-05-android.png)
+![Image of an Android teacher](/assets/blog/2013-08-05-android.png)
 
 
 I am currently getting started with Android development, which means that I have

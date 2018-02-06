@@ -35,12 +35,12 @@
 
 .bubble.above .tail {
 	bottom: -24px;
-	background-image: url(img/bubble/tail-bubble-above.png);
+	background-image: url(bubble/tail-bubble-above.png);
 }
 
 .bubble.below .tail {
 	top: -24px;
-	background-image: url(img/bubble/tail-bubble-below.png);
+	background-image: url(bubble/tail-bubble-below.png);
 }
 
 .bubble.left .tail, .bubble.right .tail {
@@ -52,10 +52,10 @@
 
 .bubble.left .tail {
 	right: -24px;
-	background-image: url(img/bubble/tail-bubble-left.png);
+	background-image: url(bubble/tail-bubble-left.png);
 }
 
 .bubble.right .tail {
 	left: -24px;
-	background-image: url(img/bubble/tail-bubble-right.png);
+	background-image: url(bubble/tail-bubble-right.png);
 }

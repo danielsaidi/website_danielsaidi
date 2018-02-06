@@ -5,7 +5,7 @@ tags: 	android activity-lifecycle
 ---
 
 
-![Counter](/assets/img/blog/2013-08-05-android.png)
+![Counter](/assets/blog/2013-08-05-android.png)
 
 
 Today, I found [this great analogy](http://stackoverflow.com/questions/4553605/difference-between-onstart-and-onresume)

@@ -2,14 +2,14 @@
 title:  A Swift Playgrounds Evening
 date:   2017-11-10 20:20:00 +0100
 tags:	swift swift-playgrounds
-image:	http://danielsaidi.com/assets/img/blog/2017-11-10.jpg
+image:	http://danielsaidi.com/assets/blog/2017-11-10.jpg
 ---
 
 
 Tonight, I finally sat down with my oldest daughter Cornelia, to play with Swift
 Playgrounds and try to teach her a bit about programming.
 
-![iPad Pro with Swift Playgrounds]({{ "assets/img/blog/2017-11-10.jpg" | absolute_url }})
+![iPad Pro with Swift Playgrounds]({{ "assets/blog/2017-11-10.jpg" | absolute_url }})
 
 I have been meaning to do this for quite some time, but have never really gotten
 around to it. I did involve both daughters in iOS development some years ago, to
@@ -40,7 +40,7 @@ However, the most fun we had all evening, was when Swift Playgrounds did stumble
 into a bug of its own, and started to execute our correct instructions in a very
 strange way.
 
-[![Play Video]({{ "assets/img/blog/2017-11-10_play.jpg" | absolute_url }})](
+[![Play Video]({{ "assets/blog/2017-11-10_play.jpg" | absolute_url }})](
 https://twitter.com/twitter/statuses/929037234661199872
 )
 

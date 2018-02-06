@@ -5,7 +5,7 @@ tags: 	android debugging
 ---
 
 
-![Image of an Android teacher](/assets/img/blog/2013-08-05-android.png)
+![Image of an Android teacher](/assets/blog/2013-08-05-android.png)
 
 
 I am currently looking at Android Development. Despite programming for iOS for a

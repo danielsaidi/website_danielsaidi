@@ -6,7 +6,7 @@ tags: 	conference oredev mob-programming
 ---
 
 
-![Woody on stage](/assets/img/blog/2013-11-08-woody-1.jpg)
+![Woody on stage](/assets/blog/2013-11-08-woody-1.jpg)
 
 
 Woody claims that is not a public speaker, but rather a mere programmer that has
@@ -46,7 +46,7 @@ don't know. I just know that we are." Or how about "I don't know about the keybo
 Basically, it's just used to get the code into the computer."
 
 
-![What are the things that destroy productivity](/assets/img/blog/2013-11-08-woody-2.jpg)
+![What are the things that destroy productivity](/assets/blog/2013-11-08-woody-2.jpg)
 
 Woody wrapped up hos talk by going though things that kill productivity. See the
 image above, then [check out the video](http://oredev.org/oredev2013/2013/videos.html).

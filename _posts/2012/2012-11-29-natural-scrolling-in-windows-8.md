@@ -5,7 +5,7 @@ tags: 	windows
 ---
 
 
-![Apple Mouse](/assets/img/blog/2012-11-29-mouse.jpg)
+![Apple Mouse](/assets/blog/2012-11-29-mouse.jpg)
 
 
 In OS X Lion, Apple introduced natural scrolling. It means that when you scroll,
