@@ -6,15 +6,9 @@ permalink: /blog/
 
 <div class="box-container">
   <div class="box text-box link-box">
-
     <h1>{{ page.title | escape }}</h1>
-
-    <h2 class="blog-menu">
-      <a class="selected" href="/blog">Latest</a>
-      <span class="separator">|</span>
-      <a href="/blog/tags">Tags</a>
-    </h2>
-
-    {% include post-list.html posts=site.posts limit=20 %}
+    {% include blog-top-links.html year=2018 %}
+    {% include post-list.html posts=site.posts year=2018 %}
+    {% include post-list.html posts=site.posts year=2017 %}
   </div>
 </div>

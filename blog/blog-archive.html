@@ -1,0 +1,17 @@
+---
+layout: blog
+title: Daniel Saidi's Blog
+permalink: /blog/archive
+---
+
+<div class="box-container">
+  <div class="box text-box link-box">
+    <h1>{{ page.title | escape }}</h1>
+    {% include blog-top-links.html archive=true %}
+    {% include post-list.html posts=site.posts year=2013 %}
+    {% include post-list.html posts=site.posts year=2012 %}
+    {% include post-list.html posts=site.posts year=2011 %}
+    {% include post-list.html posts=site.posts year=2010 %}
+    {% include post-list.html posts=site.posts year=2009 %}
+  </div>
+</div>

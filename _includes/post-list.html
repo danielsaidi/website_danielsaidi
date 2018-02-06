@@ -1,13 +1,17 @@
-{% for post in include.posts limit:20 %}
-  <h3>
-    <a href="{{ post.url }}">{{ post.title }}</a>
-  </h3>
-  <div>
-    {% include post-info.html post=post %}
-  </div>
-  <p>
-    {{ post.excerpt | strip_html | remove: '<p>' | remove: '</p>' }}
-  </p>
+{% for post in include.posts %}
+  {% capture year %}{{post.date | date: "%Y"}}{% endcapture %}
+  {% assign year = year | plus: 0 %}
+  {% if year == include.year %}
+    <h3>
+      <a href="{{ post.url }}">{{ post.title }}</a>
+    </h3>
+    <div>
+      {% include post-info.html post=post %}
+    </div>
+    <p>
+      {{ post.excerpt | strip_html | remove: '<p>' | remove: '</p>' }}
+    </p>
 
-  <hr />
+    <hr />
+  {% endif %}
 {% endfor %}

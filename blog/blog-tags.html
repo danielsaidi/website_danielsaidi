@@ -8,14 +8,8 @@ permalink: /blog/tags/
 
 <div class="box-container">
   <div class="box text-box link-box">
-
     <h1>{{ page.title | escape }}</h1>
-
-    <h2 class="blog-menu">
-      <a href="/blog">Latest</a>
-      <span class="separator">|</span>
-      <a class="selected" href="/blog/tags">Tags</a>
-    </h2>
+    {% include blog-top-links.html tags=true %}
 
     <div class="tags">
     {% for tag in tags %}
@@ -35,7 +29,7 @@ permalink: /blog/tags/
       <ul>
         {% for post in posts %}
           <li>
-            <a href="{{ post.url }}">{{ post.title }}</a> - <small>{{post.date | date_to_string }}</small>
+            <a href="{{ post.url }}">{{ post.title }}</a> - <small>{{ post.date | date_to_string }}</small>
           </li> 
         {% endfor %}
       </ul>
