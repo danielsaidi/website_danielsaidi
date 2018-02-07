@@ -1,7 +1,7 @@
 ---
 title:  "Posting source code on a WordPress hosted blog"
-date:    2012-05-04 12:00:00 +0100
-tags: 	wordpress
+date:   2012-05-04 12:00:00 +0100
+tags: 	
 ---
 
 

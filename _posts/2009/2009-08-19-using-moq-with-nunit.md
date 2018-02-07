@@ -1,7 +1,7 @@
 ---
 title:  "Using Moq with NUnit"
 date:   2009-08-19 13:28:00 +0100
-tags: 	.net tdd unit-tests nunit moq
+tags: 	.net unit-testing mocking
 ---
 
 
@@ -39,6 +39,7 @@ public void Details_ShouldDisplayDetailsForValidDinner()
 
    repository.Verify(x => x.Get(1), Times.Once());
 }
+
 [Test]
 public void Edit_ShouldDisplayEditForValidDinner()
 {

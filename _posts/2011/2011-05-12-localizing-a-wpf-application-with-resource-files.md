@@ -1,7 +1,7 @@
 ---
 title:  "Localizing a WPF application with resource files"
 date:	2011-05-12 12:00:00 +0100
-tags: 	.net wpf l18n
+tags: 	.net localization
 ---
 
 

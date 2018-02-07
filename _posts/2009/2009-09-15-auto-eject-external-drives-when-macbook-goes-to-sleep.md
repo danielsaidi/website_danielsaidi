@@ -1,7 +1,7 @@
 ---
 title:  "Auto-eject external drives when Macbook goes to sleep"
 date:   2009-09-15 08:00:00 +0100
-tags:	mac macbook
+tags:	osx
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title:  "Getting PEAR and PHPUnit to work with MAMP"
 date:   2011-09-15 12:00:00 +0100
-tags: 	php php-unit php-cover web
+tags: 	php unit-testing web
 ---
 
 

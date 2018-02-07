@@ -1,7 +1,7 @@
 ---
 title:  "JSON serialization in C#"
 date:   2009-08-24 09:08:00 +0100
-tags: 	.net json
+tags: 	.net c#
 ---
 
 

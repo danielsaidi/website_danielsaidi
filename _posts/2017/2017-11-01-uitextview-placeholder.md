@@ -1,7 +1,7 @@
 ---
 title:  UITextView Placeholder Support
 date:   2017-11-01 00:01:00 +0100
-tags:	ios uitextview swift
+tags:	ios swift
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title:  "Legacy code horror"
 date:    2011-03-09 12:00:00 +0100
-tags: 	.net
+tags: 	.net c#
 ---
 
 

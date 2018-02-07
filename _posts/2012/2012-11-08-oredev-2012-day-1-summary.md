@@ -2,7 +2,7 @@
 title:  "Oredev 2012: Day 1 Summary"
 date: 	2012-11-08 00:30:00 +0100
 categories: conferences 
-tags: 	conference oredev
+tags: 	conference
 ---
 
 

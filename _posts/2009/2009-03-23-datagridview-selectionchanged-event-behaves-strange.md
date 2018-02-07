@@ -1,7 +1,7 @@
 ---
 title:  "DataGridView SelectionChanged event behaves strange"
 date:   2009-03-23 08:56:00 +0100
-tags:	.net win-forms
+tags:	.net c#
 ---
 
 

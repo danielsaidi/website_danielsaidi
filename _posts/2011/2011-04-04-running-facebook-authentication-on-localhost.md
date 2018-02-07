@@ -1,7 +1,7 @@
 ---
 title:  "Running Facebook authentication on localhost"
 date:   2011-04-04 12:00:00 +0100
-tags: 	.net facebook
+tags: 	.net authentication
 ---
 
 

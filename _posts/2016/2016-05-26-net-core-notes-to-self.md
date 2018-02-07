@@ -1,7 +1,7 @@
 ---
 title:  ".NET Core notes to self"
 date:   2016-05-26 07:52:00 +0100
-tags: 	.net .net-core unit-tests xunit visual-studio-code
+tags: 	.net unit-testing
 ---
 
 

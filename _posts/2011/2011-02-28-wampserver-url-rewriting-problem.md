@@ -1,7 +1,7 @@
 ---
-title:  "Legacy code horror"
+title:  "WampServer URL rewriting problem"
 date:   2011-03-09 12:00:00 +0100
-tags: 	php wamp web
+tags: 	php web
 ---
 
 

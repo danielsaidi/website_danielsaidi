@@ -1,7 +1,7 @@
 ---
 title:  "Setup DNX on OS X"
 date:   2015-12-17 08:48:00 +0100
-tags:	.net .net-core automation
+tags:	.net automation
 ---
 
 After so much waiting, so many "I'll do this first", so much app coding etc. etc.

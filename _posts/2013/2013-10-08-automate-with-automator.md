@@ -1,7 +1,7 @@
 ---
 title:  "Automate with Automator"
 date: 	2013-10-08 19:42:00 +0100
-tags: 	osx
+tags: 	osx automation
 ---
 
 

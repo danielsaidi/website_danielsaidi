@@ -2,7 +2,7 @@
 title:  "Björn Granvik: Distributed Teams – a pragmatic way"
 date: 	2013-11-07 17:56:00 +0100
 categories: conferences
-tags: 	conference oredev
+tags: 	conference
 ---
 
 

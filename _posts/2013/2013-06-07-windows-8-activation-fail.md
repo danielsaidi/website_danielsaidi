@@ -1,7 +1,7 @@
 ---
 title:  "Windows 8 Activation Fail"
 date: 	2013-06-07 09:32:00 +0100
-tags: 	.net windows ux
+tags: 	windows
 ---
 
 

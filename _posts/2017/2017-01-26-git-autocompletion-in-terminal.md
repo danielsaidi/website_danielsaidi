@@ -1,7 +1,7 @@
 ---
-title:  "git autocompletion in OSX Terminal"
+title:  "git autocompletion in OS X Terminal"
 date:   2017-01-26 10:56:02 +0100
-tags:	git git-autocomplete
+tags:	git
 ---
 
 

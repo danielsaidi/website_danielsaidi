@@ -1,8 +1,8 @@
 ---
 title:  "DevSum 2012: Day 2 Summary"
-date:    2012-05-28 21:28:00 +0100
+date:	2012-05-28 21:28:00 +0100
 categories: conferences
-tags: 	conference devsum
+tags: 	conference
 ---
 
 

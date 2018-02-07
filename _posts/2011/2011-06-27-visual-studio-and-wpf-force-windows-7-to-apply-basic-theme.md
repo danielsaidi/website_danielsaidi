@@ -1,7 +1,7 @@
 ---
 title:  "Visual Studio and WPF force Windows 7 to apply basic theme"
 date:   2011-06-27 12:00:00 +0100
-tags: 	.net visual-studio wpf
+tags: 	.net
 ---
 
 
