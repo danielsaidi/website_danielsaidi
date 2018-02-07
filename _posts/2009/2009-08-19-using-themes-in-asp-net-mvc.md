@@ -1,7 +1,7 @@
 ---
 title:  "Using themes in ASP.NET MVC"
 date:   2009-08-19 05:38:00 +0100
-tags: 	.net asp-net css
+tags: 	.net web css
 ---
 
 
@@ -45,9 +45,7 @@ the master page.
 
 However, when I tried to run the page, it crashed with this info:
 
-```
-Using themed css files requires a header control on the page. (e.g. <head runat="server" />).
-```
+`Using themed css files requires a header control on the page. (e.g. <head runat="server" />).`
 
 Turns out that the Default.aspx file in the project root is completely blank and
 only used to redirect the user. To make the application use the theme, I simply

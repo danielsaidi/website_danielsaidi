@@ -1,7 +1,7 @@
 ---
 title:  "Identifying the project root in PHP"
 date:   2009-05-15 10:20:00 +0100
-tags: 	php asp-net web
+tags: 	php web
 ---
 
 

@@ -1,7 +1,7 @@
 ---
 title:  "Trying out NDepend"
 date:   2011-12-08 12:00:00 +0100
-tags: 	.net ndepend coupling
+tags: 	.net ndepend
 ---
 
 

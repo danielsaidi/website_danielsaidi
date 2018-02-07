@@ -1,7 +1,7 @@
 ---
 title:  "Clone a .NET solution in no time"
 date:   2011-07-24 12:00:00 +0100
-tags: 	.net cloney
+tags: 	.net hobby-projects
 ---
 
 

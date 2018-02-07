@@ -1,7 +1,7 @@
 ---
 title:  "Avoid JavaScript file caching"
 date:   2009-05-26 13:30:00 +0100
-tags: 	javascript css cache web
+tags: 	javascript web
 ---
 
 

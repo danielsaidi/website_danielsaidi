@@ -1,7 +1,7 @@
 ---
 title:  "CLGeocoder fails silently"
 date: 	2012-08-08 20:48:00 +0100
-tags: 	ios geocoding clgeocoder clregion mapkit mkcoordinateregion
+tags: 	ios objective-c geo mapkit
 ---
 
 

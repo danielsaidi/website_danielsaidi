@@ -2,7 +2,7 @@
 title:  "Øredev 2011 in the rear-view mirror – Part 6"
 date:    2012-01-21 12:00:00 +0100
 categories: conferences
-tags: 	conference oredev gamification kanban
+tags: 	conference oredev
 ---
 
 

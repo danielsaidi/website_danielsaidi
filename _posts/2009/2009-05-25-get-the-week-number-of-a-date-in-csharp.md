@@ -1,7 +1,7 @@
 ---
 title:  "Get the week number of a date in C#"
 date:   2009-05-25 19:46:00 +0100
-tags: 	.net csharp date utils reflection
+tags: 	.net c#
 ---
 
 
