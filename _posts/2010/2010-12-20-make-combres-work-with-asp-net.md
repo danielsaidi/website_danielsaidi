@@ -1,13 +1,13 @@
 ---
 title:	"Make Combres work with ASP.NET"
 date:	2010-12-20 12:00:00 +0100
-tags: 	.net asp-net combres
+tags: 	.net
 ---
 
 
-After having problems with [SquishIt](http://www.codethinked.com/post/2010/05/26/SquishIt-The-Friendly-ASPNET-JavaScript-and-CSS-Squisher.aspx) and JavaScript, I
-decided to give [Combres](http://www.codeproject.com/KB/aspnet/combres2.aspx/) a
-try instead.
+After having problems with [SquishIt](http://www.codethinked.com/post/2010/05/26/SquishIt-The-Friendly-ASPNET-JavaScript-and-CSS-Squisher.aspx) 
+when bundling JavaScript, I decided to give [Combres](http://www.codeproject.com/KB/aspnet/combres2.aspx/)
+a try instead.
 
 However, while SquishIt works right out of the box, Combres must be configured a
 little. [This page](http://www.codeproject.com/KB/aspnet/combres2.aspx) describes

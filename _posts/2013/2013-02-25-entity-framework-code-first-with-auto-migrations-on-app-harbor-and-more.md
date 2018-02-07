@@ -1,7 +1,7 @@
 ---
 title:  "Entity Framework Code First with auto migrations on AppHarbor...and more"
 date: 	2013-02-25 10:55:00 +0100
-tags: 	.net asp-net entity-framework appharbor api rest structuremap azure nunit nsubstitute
+tags: 	.net c# entity-framework cloud-hosting api-design dependency-injection unit-testing mocking
 ---
 
 

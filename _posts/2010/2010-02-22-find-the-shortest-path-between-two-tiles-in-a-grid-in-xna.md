@@ -1,12 +1,17 @@
 ---
 title:	"Find the shortest path between two tiles in a grid in XNA"
 date:	2010-02-22 12:00:00 +0100
-tags: 	xna a* game-dev
+tags: 	xna game-development c# .net
 ---
 
 
 I am currently playing around with developing an adventure board game in XNA, in
-which players can play various missions that take place on a tile-based board.
+which players can play various missions that take place on a tile-based board. I
+am a full-blown XNA newbie who takes this approach to learn the platform, but it
+is a lot of fun.
+
+
+## About the game
 
 In the game, players have a number of steps to move in each round, and should be
 able to select which tile they want to move to. The game should then suggest the

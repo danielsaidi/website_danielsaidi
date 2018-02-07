@@ -1,12 +1,19 @@
 ---
 title:	"Generate a game board map from a bitmap"
 date:	2010-02-21 12:00:00 +0100
-tags: 	xna a* game-dev game-dev
+tags: 	xna game-development c# .net
 ---
 
 
 I am currently developing an adventure board game in XNA, where players can play
-missions that take place on a board that is made up of horizontal tiles.
+missions that take place on a board that is made up of horizontal tiles. It is a
+lot like the amazing, old board game *Hero Quest*.
+
+Setting up this board game engine requires me to define a set of types that will
+be placed on this board, like characters, doors, furnitures etc., and how a type
+can interact with the board. For instance, a character can move around the board,
+while a static object can not. A door lets a character pass (and see!) through a
+wall. A book shelf can hold hidden treasured. And so on, and so on.
 
 The post will describe how a bitmap file can be used to quickly create a mission
 map, but first some relevant side information.

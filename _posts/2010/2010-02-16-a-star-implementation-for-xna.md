@@ -1,22 +1,19 @@
 ---
 title:	"A* implementation for XNA"
 date:	2010-02-16 12:00:00 +0100
-tags: 	xna a* game-dev
+tags: 	xna game-development c# .net
 ---
 
 
 I have recently been playing around with the XNA framework to get a grasp at how
 to develop games for the XBOX 360. It is great fun, but quite different from the
-kind of development that I usually do.
-
-I now have a working game engine stub, with an object model that grows and grows
-and feels quite nice. I can generate missions from image/text file tuples, where
-the image determines the mission's board and the text file describes the mission,
-items on the board, goals etc.
+development I usually do. So far, I have a game engine foundation, which lets me
+create generate missions from image/text file tuples, where the image determines
+the mission's board and the text file describes the mission, emenies, goals etc.
 
 This setup makes it easy to quickly develop a large amount of missions, that can
 be divided into multiple campaigns. By making the base model solid, new missions
-will be content management than programming.
+will be more like content management than programming.
 
 When my game engine imports a mission map image, it generates a grid of walkable
 and unwalkable tiles, of which the board consists. I will write more about these
