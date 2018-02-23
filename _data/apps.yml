@@ -1,6 +1,6 @@
 
 - name: Lunchrrrrr
-  siteUrl: http://suchnastyapps.com/lunchrrrrr
+  siteUrl: https://itunes.apple.com/se/app/lunchrrrrr/id1209779063?l=en&mt=8
   appStoreUrl: https://itunes.apple.com/se/app/lunchrrrrr/id1209779063?l=en&mt=8
   playStoreUrl: https://play.google.com/store/apps/details?id=com.joppa.luncherrrrr.luncherrrrr
 
@@ -10,7 +10,7 @@
   playStoreUrl:
 
 - name: Pinny
-  siteUrl: http://pinnyapp.com
+  siteUrl: https://itunes.apple.com/app/pinny/id984638325
   appStoreUrl: https://itunes.apple.com/app/pinny/id984638325
   playStoreUrl:
 
@@ -25,12 +25,12 @@
   playStoreUrl:
 
 - name: Goth Emoji
-  siteUrl: http://gothemoji.com
+  siteUrl: https://itunes.apple.com/app/goth-emoji/id1070226733
   appStoreUrl: https://itunes.apple.com/app/goth-emoji/id1070226733
   playStoreUrl: https://play.google.com/store/apps/details?id=danielsaidi.com.gothemoji
 
 - name: Metal Emoji
-  siteUrl: http://gothemoji.com/metal
+  siteUrl: https://itunes.apple.com/app/metal-emoji/id1070228823
   appStoreUrl: https://itunes.apple.com/app/metal-emoji/id1070228823
   playStoreUrl: https://play.google.com/store/apps/details?id=danielsaidi.com.metalemoji
 
@@ -40,9 +40,9 @@
   playStoreUrl: https://play.google.com/store/apps/details?id=com.tradera
 
 - name: Harrys
-  siteUrl: http://www.harrys.se/harrys-vanner/
-  appStoreUrl: https://itunes.apple.com/se/app/harrys/id1032684223
-  playStoreUrl: https://play.google.com/store/apps/details?id=se.revide.harrys
+  siteUrl: http://www.harrys.se
+  appStoreUrl: 
+  playStoreUrl: 
 
 - name: Appamini ABC
   siteUrl: http://appamini.com
