@@ -1,0 +1,543 @@
+# Misfortune ************************
+
+- name: Vietnam
+  band: Misfortune
+  year: 1996
+  recording: Concrete
+
+- name: Psycho As They Say
+  band: Misfortune
+  year: 1996
+  recording: Concrete
+
+- name: Ignorance
+  band: Misfortune
+  year: 1996
+  recording: Concrete
+
+
+- name: Forsaken
+  band: Misfortune
+  year: 1999
+  recording: Forsaken
+
+- name: A Scenery of Despair
+  band: Misfortune
+  year: 1999
+  recording: Forsaken
+
+- name: Rape of Bewildered Dreams
+  band: Misfortune
+  year: 1999
+  recording: Forsaken
+
+- name: In Mating
+  band: Misfortune
+  year: 1999
+  recording: Forsaken
+
+- name: Burn
+  band: Misfortune
+  year: 1999
+  recording: Forsaken
+
+- name: Through Chaos Fulfilled
+  band: Misfortune
+  year: 1999
+  recording: Forsaken
+
+- name: A Realm of the Unblessed
+  band: Misfortune
+  year: 1999
+  recording: Forsaken
+
+- name: Apostates of Hate
+  band: Misfortune
+  year: 1999
+  recording: Forsaken
+
+
+
+# Panzified *************************
+
+- name: Straight to Hell
+  band: Panzified
+  year: 1996
+  recording: Dawn of Time
+  hidden: true
+
+- name: Insinerate
+  band: Panzified
+  year: 1996
+  recording: Hunted Man
+  hidden: true
+
+
+
+# Mandelkrantz **********************
+
+- name: Paraden för de rika
+  band: Mandelkrantz
+  year: 1996
+  recording: Paraden för de rika
+  hidden: true
+
+
+
+# Eblis *****************************
+
+- name: After Seven Days
+  band: Eblis
+  year: 1999
+  recording: After Seven Days
+
+- name: Piles
+  band: Eblis
+  year: 1999
+  recording: After Seven Days
+
+
+- name: Idol Enslaved
+  band: Eblis
+  year: 2000
+  recording: Idol Enslaved
+
+- name: Serenade of Entrapment
+  band: Eblis
+  year: 2000
+  recording: Idol Enslaved
+
+- name: Wicked Child
+  band: Eblis
+  year: 2000
+  recording: Idol Enslaved
+
+
+
+# Dog the Bone **********************
+
+- name: Leaving
+  band: Dog The Bone
+  year: 2000
+  recording: Rehersals
+
+- name: Dive
+  band: Dog The Bone
+  year: 2000
+  recording: Rehersals
+
+- name: Greed
+  band: Dog The Bone
+  year: 2000
+  recording: Rehersals
+
+- name: Hold on
+  band: Dog The Bone
+  year: 2000
+  recording: Rehersals
+
+- name: Blueprint of a Tragedy
+  band: Dog The Bone
+  year: 2000
+  recording: Rehersals
+
+- name: Better Ground
+  band: Dog The Bone
+  year: 2000
+  recording: Rehersals
+
+
+
+# New Wave Stoner *******************
+
+- name: Easy
+  band: New Wave Stoner
+  year: 2001
+
+- name: Steps Behind
+  band: New Wave Stoner
+  year: 2001
+
+- name: Lighten Up
+  band: New Wave Stoner
+  year: 2001
+
+
+
+# Saidi och Kollektivet *************
+
+- name: Jag vill behöva dig
+  band: Saidi och Kollektivet
+  year: 2003
+  recording: Fem berättelser från kammaren
+
+- name: När man är två
+  band: Saidi och Kollektivet
+  year: 2003
+  recording: Fem berättelser från kammaren
+
+- name: Salta sår
+  band: Saidi och Kollektivet
+  year: 2003
+  recording: Fem berättelser från kammaren
+
+- name: Mot asfalten
+  band: Saidi och Kollektivet
+  year: 2003
+  recording: Fem berättelser från kammaren
+
+- name: I skuggorna dold
+  band: Saidi och Kollektivet
+  year: 2003
+  recording: Fem berättelser från kammaren
+
+
+- name: Kalla läppar
+  band: Saidi och Kollektivet
+  year: 2003
+  recording: Fyra akustiska mirakel
+
+- name: En plats du skulle kunna kalla hem
+  band: Saidi och Kollektivet
+  year: 2003
+  recording: Fyra akustiska mirakel
+
+- name: Tomma ord
+  band: Saidi och Kollektivet
+  year: 2003
+  recording: Fyra akustiska mirakel
+
+- name: Låt oss dansa hem
+  band: Saidi och Kollektivet
+  year: 2003
+  recording: Fyra akustiska mirakel
+
+
+- name: Hårt mot hårt
+  band: Saidi och Kollektivet
+  year: 2004
+  recording: Hårt mot hårt
+
+- name: Allt tar slut
+  band: Saidi och Kollektivet
+  year: 2004
+  recording: Hårt mot hårt
+
+- name: En plats du skulle kunna kalla hem
+  band: Saidi och Kollektivet
+  year: 2004
+  recording: Hårt mot hårt
+
+- name: Kalla läppar
+  band: Saidi och Kollektivet
+  year: 2004
+  recording: Hårt mot hårt
+
+
+- name: Starka broar
+  band: Saidi och Kollektivet
+  year: 2004
+  recording: Kom hem
+
+- name: Kom hem
+  band: Saidi och Kollektivet
+  year: 2004
+  recording: Kom hem
+
+- name: Dödens dag
+  band: Saidi och Kollektivet
+  year: 2004
+  recording: Kom hem
+
+- name: Ditt liv
+  band: Saidi och Kollektivet
+  year: 2004
+  recording: Kom hem
+
+
+- name: Varma dagar
+  band: Saidi och Kollektivet
+  year: 2006
+  recording: Genom nätet
+
+- name: Genom nätet
+  band: Saidi och Kollektivet
+  year: 2006
+  recording: Genom nätet
+
+- name: Tunga tungor
+  band: Saidi och Kollektivet
+  year: 2006
+  recording: Genom nätet
+
+- name: Stanna hos mig
+  band: Saidi och Kollektivet
+  year: 2006
+  recording: Genom nätet
+
+- name: När man är två
+  band: Saidi och Kollektivet
+  year: 2006
+  recording: Genom nätet
+
+- name: Visa om den komplicerade kärleken
+  band: Saidi och Kollektivet
+  year: 2006
+  recording: Genom nätet
+
+
+- name: Du älskar mig inte än
+  band: Saidi och Kollektivet
+  year: 2003
+  recording: Du älskar mig inte än
+
+
+
+# x:o *******************************
+
+- name: Shake it off
+  band: x:o
+  year: 2002
+  recording: Break
+  
+- name: B
+  band: x:o
+  year: 2002
+  recording: Break
+  
+- name: Itch
+  band: x:o
+  year: 2002
+  recording: Break
+  
+- name: Life Eternal
+  band: x:o
+  year: 2002
+  recording: Break
+  
+- name: Cold Hearts
+  band: x:o
+  year: 2002
+  recording: Break
+  
+- name: Break
+  band: x:o
+  year: 2002
+  recording: Break
+  
+- name: Lighten Up
+  band: x:o
+  year: 2002
+  recording: Break
+
+
+
+# sgt. Black ************************
+
+- name: Shiver
+  band: sgt. Black
+  year: 2003
+  recording: October Session
+
+- name: Slow Drown
+  band: sgt. Black
+  year: 2003
+  recording: October Session
+
+- name: Go Find It
+  band: sgt. Black
+  year: 2003
+  recording: October Session
+
+
+- name: One Blow To Shine
+  band: sgt. Black
+  year: 2003
+  recording: November Session
+
+- name: Down
+  band: sgt. Black
+  year: 2003
+  recording: November Session
+
+- name: Decision, Over
+  band: sgt. Black
+  year: 2003
+  recording: November Session
+
+
+- name: Unforgettable
+  band: sgt. Black
+  year: 2003
+  recording: December Session
+
+- name: Only One
+  band: sgt. Black
+  year: 2003
+  recording: December Session
+
+- name: Remain 
+  band: sgt. Black
+  year: 2003
+  recording: December Session
+
+
+
+# Rakveres **************************
+
+- name: Raising Fists
+  band: Rakveres
+  year: 2004
+  recording: Raising Fists
+
+- name: Once
+  band: Rakveres
+  year: 2004
+  recording: Raising Fists
+
+- name: Sweet Girls
+  band: Rakveres
+  year: 2004
+  recording: Raising Fists
+
+- name: Blind Eyes Bleed
+  band: Rakveres
+  year: 2004
+  recording: Raising Fists
+
+
+
+# dEEd ******************************
+
+
+- name: My Favorite Scar
+  band: dEEd
+  year: 2008
+  recording: Emergenza
+
+- name: Power to Rico
+  band: dEEd
+  year: 2008
+  recording: Emergenza
+
+- name: Let Go
+  band: dEEd
+  year: 2008
+  recording: Emergenza
+
+- name: Come On
+  band: dEEd
+  year: 2008
+  recording: Emergenza
+
+- name: Deliverance
+  band: dEEd
+  year: 2008
+  recording: Emergenza
+
+
+- name: Like An Eagle
+  band: dEEd
+  year: 2008
+  recording: dEEd did it!
+
+- name: Let's End it All
+  band: dEEd
+  year: 2008
+  recording: dEEd did it!
+
+
+
+# Solo ******************************
+
+- name: I skuggorna dold
+  year: 1998
+  recording: Glömd
+
+- name: Glömd
+  year: 1998
+  recording: Glömd
+
+
+- name: Avskedstal
+  year: 2000
+  recording: Jkpg
+
+- name: Tills skalet fallit av
+  year: 2000
+  recording: Jkpg
+
+- name: Mot asfalten
+  year: 2000
+  recording: Jkpg
+
+- name: Plast
+  year: 2000
+  recording: Jkpg
+
+
+- name: Min Ensamhet
+  year: 2001
+  recording: En röd debut
+
+- name: En röd debut
+  year: 2001
+  recording: En röd debut
+
+- name: Allt för oss
+  year: 2001
+  recording: En röd debut
+
+- name: En liten sång om ideal
+  year: 2001
+  recording: En röd debut
+
+- name: Mot asfalten
+  year: 2001
+  recording: En röd debut
+
+- name: Salta sår
+  year: 2001
+  recording: En röd debut
+
+
+- name: Paranoid Park
+  year: 2010
+  recording: Lake City Stories
+
+- name: Waited Too Long
+  year: 2010
+  recording: Lake City Stories
+
+- name: Side By Side
+  year: 2010
+  recording: Lake City Stories
+
+- name: Hard To Write Song
+  year: 2010
+  recording: Lake City Stories
+
+
+
+# Slask *****************************
+
+- name: 50 mil (video)
+- name: Aldrig mera hit
+- name: Baby Can't You See What You Mean To Me
+- name: Be My Tenth
+- name: Den fria människans kval
+- name: Follow You Anywhere
+- name: Förlorare
+- name: I Don't Want To Be Like You
+- name: I skuggan av ditt namn
+- name: Kom aldrig mera hit
+- name: Minnen
+- name: My Favorite Scar
+- name: Månsken över storstaden
+- name: Paraden för de rika
+- name: Päzon
+- name: Rattlesnake
+- name: Så många minnen
+- name: When You Leave This Place
+- name: Vår självklara frihet
+- name: Världen har gjort sitt val

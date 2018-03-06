@@ -1,0 +1,12 @@
+<div class="row">
+  {% for song in site.data.songs %}
+  <div class="col-xs-6 col-sm-3 col-md-3 box-container">
+    <a rel="external" href="{{ song.siteUrl }}" title="Get the {{ song.name }} song" class="title-image">
+      <div class="box">
+        <img alt="{{ song.name }} icon" src="/assets/icons/{{ song.name | downcase |  replace:' ','-' }}.png" />
+      </div>
+      <h3>{{ song.band }}</h3>
+    </a>
+  </div>  
+  {% endfor %}
+</div>
