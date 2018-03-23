@@ -23,7 +23,7 @@ web site has disappeared since then, and since I have modified the code a lot, I
 chose to publish it.
 
 
-```c#
+```csharp
 /// <summary>Get the week number of a certain date, provided that
 /// the first day of the week is Monday, the first week of a year
 /// is the one that includes the first Thursday of that year and
