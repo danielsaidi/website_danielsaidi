@@ -6,10 +6,8 @@ tags: 	.net c#
 
 
 
-In some situations, it may be handy to retrieve all classes that inherit
-a certain base class.
-
-This is by no means hard, but perhaps a bit obscure:
+Sometimes, it may be handy to retrieve all classes that inherit a certain
+class. This is not hard, but perhaps a bit obscure:
 
 ```csharp
 public static IEnumerable<Type> GetClasses(Type baseType)
@@ -19,4 +17,4 @@ public static IEnumerable<Type> GetClasses(Type baseType)
 }
 ```
 
-Hope this helps.
+I hope this helps.
