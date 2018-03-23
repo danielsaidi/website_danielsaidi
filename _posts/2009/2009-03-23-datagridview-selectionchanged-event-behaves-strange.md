@@ -18,11 +18,11 @@ This makes my enable/disable functionality fail.
 
 The bug(?) can be recreated as such:
 
-* Add a DataGridView to a form
-* Bind its `SelectionChanged` event and set a local int variable to its RowCount
-* Add a breakpoint to the SelectionChanged event, so it can be inspected
-* In the form constructor, create a `List<String>` instance with several strings, then bind it to the grid view.
-* Run the application
+	* Add a DataGridView to a form
+	* Bind its `SelectionChanged` event and set a local int variable to its RowCount
+	* Add a breakpoint to the SelectionChanged event, so it can be inspected
+	* In the form constructor, create a `List<String>` instance with several strings, then bind it to the grid view.
+	* Run the application
 
 As you probably will see, the `SelectionChanged` event fires several times. The
 last time it fires, the grid is said to contain 1 row, although it has several.
@@ -41,12 +41,12 @@ property will be null.
 Therefore, when you need to update the GUI according to a selection event in the
 DataGridView control, just follow this pattern:
 
-1. Create a function that enables and disabled your GUI controls correctly
-2. Create an event handler that executes this function
-3. Bind the event handler to the following events of the data grid view:
+	1. Create a function that enables and disabled your GUI controls correctly
+	2. Create an event handler that executes this function
+	3. Bind the event handler to the following events of the data grid view:
 
-* `CurrentCellChanged`
-* `DataSourceChanged`
-* `VisibleChanged`
+	* `CurrentCellChanged`
+	* `DataSourceChanged`
+	* `VisibleChanged`
 
 This will hopefully make your GUI behave the way you want it to.
