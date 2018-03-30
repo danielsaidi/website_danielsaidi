@@ -28,6 +28,10 @@ google_analytics: UA-2575180-1
 
 # Build settings
 markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  
 theme: minima
 gems:
   - jekyll-feed

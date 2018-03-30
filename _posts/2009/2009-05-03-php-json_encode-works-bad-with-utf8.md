@@ -1,5 +1,5 @@
 ---
-title:  "PHP json_encode works bad with UTF8"
+title:  "`json_encode` works bad with UTF8"
 date:   2009-05-03 08:00:00 +0100
 tags: 	php web
 ---
@@ -16,7 +16,7 @@ no code at all.
 
 When executing operations through the pipeline, I previously did the following:
 
-* Build a JSON object with class name, possible object (for non-static functions), function name and parameters
+* Build a JSON object with class name, object, function name and parameters
 * Send the JSON object together with some additional Wigbi data
 * Decode the JSON object
 * JSON-encode the parameters (returns an array string) and remove the start [ and end ]

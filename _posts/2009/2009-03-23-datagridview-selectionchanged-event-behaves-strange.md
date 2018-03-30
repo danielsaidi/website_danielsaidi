@@ -21,7 +21,7 @@ The bug(?) can be recreated as such:
 * Add a DataGridView to a form
 * Bind its `SelectionChanged` event and set a local int variable to its RowCount
 * Add a breakpoint to the SelectionChanged event, so it can be inspected
-* In the form constructor, create a `List<String>` instance with several strings, then bind it to the grid view.
+* In the form constructor, create a `List<String>` with several strings and bind it to the grid view.
 * Run the application
 
 As you probably will see, the `SelectionChanged` event fires several times. The

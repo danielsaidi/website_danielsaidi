@@ -24,7 +24,6 @@ chose to publish it.
 
 
 ```csharp
-
 /// <summary>Get the week number of a certain date, provided that
 /// the first day of the week is Monday, the first week of a year
 /// is the one that includes the first Thursday of that year and
@@ -95,7 +94,6 @@ public static int GetWeekNumber(this DateTime date)
 
     return result;
 }
-
 ```
 
 
@@ -104,7 +102,6 @@ for a certain date's week, as such:
 
 
 ```csharp
-
 /// <summary>
 /// Get the first date of the week for a certain date, provided
 /// that the first day of the week is Monday, the first week of
@@ -128,7 +125,6 @@ public static DateTime GetFirstDateOfWeek(this DateTime date)
 
     return date.AddDays(1);
 }
-
 ```
 
 
@@ -136,7 +132,6 @@ and
 
 
 ```csharp
-
 /// <summary>
 /// Get the last date of the week for a certain date, provided
 /// that the first day of the week is Monday, the first week of
@@ -160,7 +155,6 @@ public static DateTime GetLastDateOfWeek(this DateTime date)
 
     return date.AddDays(-1);
 }
-
 ```
 
 

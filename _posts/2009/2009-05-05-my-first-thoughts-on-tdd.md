@@ -27,10 +27,10 @@ as such:
 
 * ShouldNotContainAnyItems
 
-During the talk, the speaker Joakim Holm discussed how behavior classes should be
-named. Instead of (for instance) ListTest, the class should be named after the
-condition and the name of the class that is tested, e.g. EmptyListTest for tests
-that apply to empty lists.
+During the talk, the speaker discussed how behavior classes should be named.
+Instead of (for instance) ListTest, the class should be named after the condition
+and the name of the class that is tested, e.g. EmptyListTest for tests that apply 
+to empty lists.
 
 This gives a nice segmentation of the tests and prevents large test classes that
 tests "everything". I've seen test classes with many many test functions...which
@@ -58,7 +58,7 @@ expose them to any descendant, but not to other classes.
 Any thoughts regarding this? It preserves a certain level of encapsulation, while
 still making everything accessible to the test (sorry, behavior...hrmmm) classes.
 
-** Update 2017 ** I cringe while reading this, since I clearly hadn't got it just
+**Update 2017** I cringe while reading this, since I clearly hadn't got it just
 yet. Still, that learning process is a thing of naïve beauty, don't you think?
 
 

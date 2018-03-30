@@ -14,7 +14,7 @@ on the development server, e.g. *localhost:12345*. This worked before my compute
 was clean installed. After installing, however, I found myself being redirected
 to *www.localhost.com:12345*.
 
-After struggling with this for a little bit, I eventually found the solution on
-[this page](http://bvencel.blogspot.com/2008/05/aspnet-development-server-problems.html).
+After struggling with this for a while, I eventually found a solution
+[here](http://bvencel.blogspot.com/2008/05/aspnet-development-server-problems.html).
 
 If you are facing the same problems as I did, I hope that this helps you out.
