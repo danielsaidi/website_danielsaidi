@@ -4,36 +4,34 @@ date:   2018-08-26 17:28:01 +0200
 tags:	osx macbook homebrew rubygems npm automation
 ---
 
-In this post, I'll describe how I have automated setting up a new MacBook from
-scratch, using a convenient, modular, extensible Terminal script.
+In this post, I'll describe how you can automate setting up a new MacBook using
+a modular and extensible terminal script. The original post can be found [here](https://medium.com/@danielsaidi/automate-your-macbook-setup-297e9cf3d148).
 
 
 ## Why automate?
 
 I (and many system developers with me) prefer to automate as many parts of the
-development process as possible. Some reasons for automating are to reduce the
-amount of repetetive, manual work (which quickly becomes tedious), reduce the
-risk of human error and increase the reliability of the entire system process,
-including testing, continous integration, release management etc.
+development process as possible. Some reasons for this are to reduce the amount
+of repetitive, manual work (which quickly becomes tedious), reduce the
+risk of human error and increase the reliability of the entire process, including
+testing, continous integration, release management etc.
 
-One thing that I did not automate until quite recently, however, was to setup a
-MacBook for development from scratch. Sure, it doesn't take too long to do it
-manually, but it's pretty tedious to remember all tools and applications that
-you need. Without automation, you'll be filling out gaps for weeks.
+One thing that I however did NOT automate until recently, was to setup a new
+MacBook for development. Doing this manually is time consuming, tiresome, error
+prone and just not fun. It's also tedious to remember all the tolls and apps
+that you need. Without automation, you'll be filling out gaps for weeks.
 
-With automation, however, I can take a clean MacBook and setup everything within
-a matter of minutes, making the setup time basically linear to the speed of my
-Internet connection. I still have to install some apps manually, like Xcode and
-apps from the Mac App Store, but that's nothing compared to having to do so for
-every single thing you need to install.
+With automation, however, you can setup a new MacBook within minutes, basically
+making the setup time linear to the speed of your Internet connection. I still
+have to install some apps manually, like Xcode and apps from the Mac App Store,
+but that's nothing compared to before.
 
 
-## System Tools on which I base my script
+## Tools on which I base my script
 
 Before I show you the script that I have put together to solve this problem, let
 me first go through some of the tools that I base the script on. These tools are
-great even if you don't automate anything, and will simplify your life. I really
-recommend you to check them out, if you haven't already.
+great and will simplify your life. I really recommend you to check them out.
 
 * [Homebrew](https://brew.sh) is a package manager (one of several) for OSX. It
 makes it super easy to install new system tools on your Mac.
@@ -48,17 +46,17 @@ manager for Ruby. It's used to install Ruby-based software, e.g. Fastlane.
 mainly used for web-related software, but I also use it for various hybrid app
 libraries.
 
-Even if I base my script on these package managers, I must not have to install
-them manually. So, I will make my script install these tools as the very first
-thing it does. I will then be able to install everything else, using these tools.
+My script will install these tools as the very first thing it does. I will then
+be able to install everything else, using these tools.
 
 
-## Setting up the installation script
+## Creating the script
 
-I will now create the shell script, that will be the main program that I will
-use to install everything I need.
+I will now create the script that will install and setup everything I need. The
+script will be modular and extensive, to make it easy to add or remove things as
+my needs change over time.
 
-First, create a file called `setup.sh` and add the following code snippet to it:
+First, create a file called `setup.sh` and add the following code to it:
 
 ```bash
 #!/bin/bash
@@ -89,11 +87,10 @@ while true; do
 done
 ```
 
-This is a small script that prints a "main menu" with various options. As you
-can see, I have divided the setup into parts like system setup, configuration,
-app installation etc.
+This script prints a "main menu" with various options. As you can see, I have
+divided the setup into system setup, configuration, app installation etc.
 
-The script lacks a `process_options` function in order to work. Add this code
+The script lacks a `process_options` function, which it refers to. Add this code
 above `while true`:
 
 
@@ -138,8 +135,8 @@ process_option() {
 As you can see, processing a menu option basically just calls another script in
 a `scripts` folder. The only exception is `all`, which calls all scripts.
 
-Each file is then suuuper simple; it's basically just a copy/paste of commands
-you type manually in the terminal. Have a look at a few examples from each file:
+Each file is then super simple; it's basically just a copy/paste of commands you
+type manually in the terminal. Have a look at a few examples from each file:
 
 
 ### scripts/system.sh
@@ -220,7 +217,7 @@ printf "\n"
 
 ## Result
 
-Once my script has finished processing (with a few `sudo` password requests), it
+Once my version of the script has finished processing (with some `sudo`s), it
 will have taken care of the following:
 
 * Configuring OS X
@@ -231,8 +228,8 @@ will have taken care of the following:
 * Installing NPM packages (Ionic, Gulp, TypeScript etc.)
 * Setting up SSH (create a key, add to ssh-agent, copy to pasteboard)
 
-Doing this manually would take me a couple of hours each time. Now, the script
-finishes in a matter of minutes.
+Doing this manually would take me a couple of hours each and every time I had to
+setup a MacBook from scratch. Now, the script finishes in a matter of minutes.
 
 
 ## Download
@@ -240,8 +237,8 @@ finishes in a matter of minutes.
 If you don't want to start from scratch, I have a GitHub repo that you can fork
 and tweak to fit your needs. You can find it [here](https://github.com/danielsaidi/osx)
 
-This script gives you an extensive container into which you can add everything
-you need. Hopefully, it will save you a lot of time as well.
+This script is easy to configure. You can add and remove things as you see fit.
+Hopefully, it will save you a lot of time.
 
 All the best
 
