@@ -1,13 +1,16 @@
 ---
-title:  Personal iOS and Swift setup
+title:  My personal iOS & Swift setup
 date:   2018-08-21 00:00:01 +0200
 tags:	ios swift
 ---
 
+After years of development, I have come to a point where I am pretty happy with
+my iOS & Swift setup, including project structure, code conventions, tools etc.
+In this post, I'll discuss a series of posts that I plan to write, that descibe
+this setup in detail.
 
-After years of development, I have come to a point where I'm very happy with my
-iOS/Swift/Xcode setup, including project structure, code conventions, utils and
-toolbox etc.
+
+## Why do I want to write these posts?
 
 Since I have made so many decisions about every big and small aspect of iOS app
 development for such a long time, I think it may be time to write some of these
@@ -34,13 +37,13 @@ I hope that this is a nice opportunity to slowly return to writing.
 ## Topics
 
 I have gone through most of my iOS projects and come up with some topics that I
-would love to write about. Let me know if you have any additional topics that I
-should include in the list.
+would like to write about. Let me know if you have any additional topics that I
+should add to the list.
 
 Getting started:
 
- * Automating your MacBook setup
- * Automating Xcode snippet management
+ * [Automating your MacBook setup]({{ site.baseurl }}{% post_url 2018/2018-08-26-automate-your-macbook-setup %})
+ * Automating Xcode snippet sharing
 
 Project setup:
 
@@ -52,10 +55,10 @@ Project setup:
 
 Asset management:
 
- * Handle Localization
- * Handle Color assets
- * Handle Image assets
- * Handle Font assets
+ * Localization
+ * Colors
+ * Images
+ * Fonts
 
 Code conventions and implementations:
 
