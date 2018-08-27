@@ -2,6 +2,8 @@
 title:  Automate setting up your Mac
 date:   2018-08-26 17:28:01 +0200
 tags:	osx macOS macbook homebrew rubygems npm automation
+redirect_from: 
+  - /blog/2018/08/26/2018-08-26-automate-your-macbook-setup
 ---
 
 In this post, I'll describe how you can automate setting up your new Mac using a
