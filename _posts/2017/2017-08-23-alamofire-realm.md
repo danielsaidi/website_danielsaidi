@@ -12,7 +12,7 @@ where I covered:
 
 * Discussions about app setup and protocol-driven development
 * Using `Alamofire` to fetch data from a restaurant API (Yelp)
-* Using `AlamofireObjectMapper` and `ObjectMapper` to map API data to Swift objects
+* Using `AlamofireObjectMapper` & `ObjectMapper` to map API data to Swift objects
 * Using `Realm` as a database cache, to store fetched API data
 * Using Alamofire´s `RequestRetrier` to retry requests
 * Using Alamofire´s `RequestAdapter` to adapt and decorate requests 

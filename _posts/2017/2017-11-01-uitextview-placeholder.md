@@ -33,9 +33,7 @@ public extension UITextView {
         self.textColor = textColor
     }
 }
-
 ```
-
 
 As you can see, the placeholder text and color is fully customizable. However, I
 use light grey placeholder text and black text by default.
