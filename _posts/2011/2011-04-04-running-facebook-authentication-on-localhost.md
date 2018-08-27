@@ -2,6 +2,8 @@
 title:  "Running Facebook authentication on localhost"
 date:   2011-04-04 12:00:00 +0100
 tags: 	.net authentication
+redirect_from: 
+  - /blog/dotnet/2011/04/04/running-facebook-authentication-on-localhost
 ---
 
 

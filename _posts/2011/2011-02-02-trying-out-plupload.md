@@ -2,6 +2,8 @@
 title:	"Trying out Plupload"
 date:	2011-02-02 12:00:00 +0100
 tags: 	web
+redirect_from: 
+  - /blog/web/2011/02/02/trying-out-plupload
 ---
 
 
