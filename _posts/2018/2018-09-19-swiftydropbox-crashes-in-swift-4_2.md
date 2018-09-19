@@ -1,0 +1,49 @@
+---
+title:  SwiftyDropbox crashes in Swift 4.2
+date:   2018-09-19 08:00:01 +0200
+tags:	  swift xcode
+---
+
+
+After installing Xcode 10 yesterday evening, I started migrating my open source
+libraries to Swift 4.2. While most migrations were painless, one caused me some
+headache, since the library depends on `SwiftyDropbox` which does not yet support
+Swift 4.2. Adding the `SwiftyDropbox` dependency makes the library compile, but
+the demo app crashes at runtime.
+
+The library in question is an import/export library called [Vandelay](https://github.com/danielsaidi/Vandelay).
+One of its sub libraries adds Dropbox support, which requires `SwiftyDropbox`.
+While the library and test app builds without problems, the app crashes with the
+following runtime error:
+
+```
+dyld: Symbol not found: _$S8Dispatch0A3QoSV0B6SClassO7utilityyA2EmFWC
+  Referenced from: /Users/admin/Library/Developer/CoreSimulator/Devices/69F0BD96-7BB8-4B29-BE96-A423BA2FBD3C/data/Containers/Bundle/Application/CAAB9A58-4F89-4C85-BCDA-8ECF22D11731/VandelayExample.app/Frameworks/Alamofire.framework/Alamofire
+  Expected in: /Users/admin/Library/Developer/CoreSimulator/Devices/69F0BD96-7BB8-4B29-BE96-A423BA2FBD3C/data/Containers/Bundle/Application/CAAB9A58-4F89-4C85-BCDA-8ECF22D11731/VandelayExample.app/Frameworks/libswiftDispatch.dylib
+ in /Users/admin/Library/Developer/CoreSimulator/Devices/69F0BD96-7BB8-4B29-BE96-A423BA2FBD3C/data/Containers/Bundle/Application/CAAB9A58-4F89-4C85-BCDA-8ECF22D11731/VandelayExample.app/Frameworks/Alamofire.framework/Alamofire
+(lldb) 
+```
+
+So the problem isn't caused by `SwiftyDropbox` itself, but rather that is uses
+an old version of Alamofire. `4.5.0` to be exact.
+
+You can solve this problem by adding an explicit dependency to the latest version
+of Alamofire to your `Cartfile` or `Podfile`. This will override the lower version
+in `SwiftyDropbox`, which will still build without problems.
+
+So, instead of having this in my `Cartfile`:
+
+```
+github "dropbox/SwiftyDropbox" ~> 4.6.0
+```
+
+I have this:
+
+```
+github "dropbox/SwiftyDropbox" ~> 4.6.0
+github "Alamofire/Alamofire" ~> 4.7.0
+```
+
+This is just a temporary fix, until `SwiftyDropbox` updates its dependencies to use
+the latest Alamofire version. I have sent a [PR](https://github.com/dropbox/SwiftyDropbox/issues/231)
+to the team and hope for a quick resolve.
