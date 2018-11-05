@@ -149,5 +149,3 @@ But maybe I'm just missing a piece of code somewhere? If you know how to solve i
 or if you know that this absolutely can not be done, please leave a comment below.
 
 Until then, I'll be rocking in a corner somewhere.
-
-Thanks for reading.

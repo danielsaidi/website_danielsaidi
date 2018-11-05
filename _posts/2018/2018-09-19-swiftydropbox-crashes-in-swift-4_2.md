@@ -16,7 +16,7 @@ One of its sub libraries adds Dropbox support, which requires `SwiftyDropbox`.
 While the library and test app builds without problems, the app crashes with the
 following runtime error:
 
-```
+```swift
 dyld: Symbol not found: _$S8Dispatch0A3QoSV0B6SClassO7utilityyA2EmFWC
   Referenced from: /Users/admin/Library/Developer/CoreSimulator/Devices/69F0BD96-7BB8-4B29-BE96-A423BA2FBD3C/data/Containers/Bundle/Application/CAAB9A58-4F89-4C85-BCDA-8ECF22D11731/VandelayExample.app/Frameworks/Alamofire.framework/Alamofire
   Expected in: /Users/admin/Library/Developer/CoreSimulator/Devices/69F0BD96-7BB8-4B29-BE96-A423BA2FBD3C/data/Containers/Bundle/Application/CAAB9A58-4F89-4C85-BCDA-8ECF22D11731/VandelayExample.app/Frameworks/libswiftDispatch.dylib
@@ -33,13 +33,13 @@ in `SwiftyDropbox`, which will still build without problems.
 
 So, instead of having this in my `Cartfile`:
 
-```
+```swift
 github "dropbox/SwiftyDropbox" ~> 4.6.0
 ```
 
 I have this:
 
-```
+```swift
 github "dropbox/SwiftyDropbox" ~> 4.6.0
 github "Alamofire/Alamofire" ~> 4.7.0
 ```

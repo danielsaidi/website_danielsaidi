@@ -84,7 +84,3 @@ fall into place as I proceed with the project :)
 
 I look forward to getting started with this project and hope that you will keep
 me company. Feel free to reach out at any time.
-
-All the best
-
-Daniel

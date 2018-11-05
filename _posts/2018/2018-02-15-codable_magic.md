@@ -268,6 +268,3 @@ and some of my grey hairs started reverting to black.
 As long as your entire model is `Codable`, things seem to sort themselves out.
 This is a drastic change to the old `NSCoding` protocol. I can't wait to apply
 this to the entire domain model.
-
-Thanks for reading.
-

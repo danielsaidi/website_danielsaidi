@@ -391,7 +391,3 @@ So, delegates are horrible, but in my opinion, `RxSwift` is even worse.
 
 These are just my five cents. Maybe I've misunderstood everything about `RxSwift`.
 I would love comments and discussions in the comment field below.
-
-Thanks for reading!
-
-Daniel

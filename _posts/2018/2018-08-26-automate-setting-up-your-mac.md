@@ -253,7 +253,3 @@ and tweak to fit your needs. You can find it [here](https://github.com/danielsai
 
 This script is easy to configure. You can add and remove things as you see fit.
 Hopefully, it will save you a lot of time.
-
-All the best
-
-Daniel

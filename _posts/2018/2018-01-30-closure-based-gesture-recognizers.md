@@ -106,5 +106,3 @@ believe that I've now found a perfect approach to not having to use delegates or
 selectors ever again.
 
 Thanks Saoud!
-
-Daniel
