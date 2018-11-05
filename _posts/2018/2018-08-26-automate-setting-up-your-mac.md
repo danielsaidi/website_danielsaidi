@@ -6,17 +6,17 @@ redirect_from:
   - /blog/2018/08/26/automate-your-macbook-setup/
 ---
 
-In this post, I'll describe how you can automate setting up your new Mac using a
-modular and extensible terminal script. The original post can be found [here](https://medium.com/@danielsaidi/automate-your-macbook-setup-297e9cf3d148).
+In this post, I'll describe how you can automate setting up your new Mac, with a
+modular and extensible terminal script. This script will install system software,
+applications, configure your computer etc. in just minutes.
 
 
 ## Why automate?
 
-I (and many developers with me) prefer to automate as many parts of a development
-process as possible. Some reasons are to reduce the amount of repetitive, manual
-work (which quickly becomes tedious), reduce the risk of human error and increase
-the reliability of the entire process, including testing, continous integration,
-release management etc.
+I (and many developers with me) prefer to automate as much as possible, to reduce
+the amount of repetitive manual work, reduce the risk of human error and increase
+overall reliability. For a developer, this often includes unit testing, continous
+integration, release management etc.
 
 However, one thing that I did NOT automate until recently, was to setup a brand
 new Mac for development. Doing this manually is time consuming, tiresome, error

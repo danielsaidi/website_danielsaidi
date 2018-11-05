@@ -42,7 +42,7 @@ should add to the list.
 
 Getting started:
 
- * [Automating your MacBook setup]({{ site.baseurl }}{% post_url 2018/2018-08-26-automate-setting-up-your-mac %})
+ * [Automate setting up your Mac]({{ site.baseurl }}{% post_url 2018/2018-08-26-automate-setting-up-your-mac %})
  * Automating Xcode snippet sharing
 
 Project setup:
