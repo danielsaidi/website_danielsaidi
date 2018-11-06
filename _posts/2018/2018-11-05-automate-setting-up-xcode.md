@@ -1,7 +1,7 @@
 ---
 title:  Automate setting up Xcode
 date:   2018-11-05 15:00:00 +0200
-tags:	  macOS automation xcode fastlane homebrew swiftlint
+tags:	  mac-os automation xcode fastlane homebrew swiftlint
 image:  http://danielsaidi.com/assets/blog/xcode.png
 ---
 

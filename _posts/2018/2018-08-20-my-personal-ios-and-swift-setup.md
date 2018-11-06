@@ -1,20 +1,14 @@
 ---
 title:  My personal iOS & Swift setup
 date:   2018-08-21 00:00:01 +0200
-tags:	ios swift
+tags:	ios swift mac-os
 ---
 
-After years of development, I have come to a point where I am pretty happy with
-my iOS & Swift setup, including project structure, code conventions, tools etc.
-In this post, I'll discuss a series of posts that I plan to write, that descibe
-this setup in detail.
-
-
-## Why do I want to write these posts?
-
-Since I have made so many decisions about every big and small aspect of iOS app
-development for a long time, I want to write some of these things down, in hope
-that it may be of help to others. If not, at least it will serve as self-reference.
+After years of iOS and Swift development, I have come to a point where I am very
+happy with my way of handling project structures, code conventions, tooling etc.
+Here, I'll discuss a series of posts that I will write to descibe this in detail,
+in hope that it may be of help to others. If not, it will at least serve as some
+sort of self-reference.
 
 I will take on this project as an open process, where I'd love for you to reach
 out with comments, corrections, suggestions, links to related posts etc. If you
@@ -25,42 +19,37 @@ The topics below is currently a top of mind brain dump. The list will evolve as
 I proceed. As soon as a topic is written, I will link to that post in the list.
 
 
-## Topics
+## Get started
 
-I have gone through most of my iOS projects and come up with some topics that I
-would like to write about:
-
-### Getting started:
-
- * [Automate setting up your Mac]({{ site.baseurl }}{% post_url 2018/2018-08-26-automate-setting-up-your-mac %})
+ * [Automate setting up macOS]({{ site.baseurl }}{% post_url 2018/2018-08-26-automate-setting-up-mac-os %})
  * [Automate setting up Xcode]({{ site.baseurl }}{% post_url 2018/2018-11-05-automate-setting-up-xcode %})
 
-### Project setup:
+## Project setup
 
- * Setting up a new iOS project
- * Setting up dependency management with CocoaPods
- * Setting up dependency management with Carthage
- * Split up your code into frameworks and libraries
- * Automate everything from start using Fastlane
+ * Setup a brand new app project
+ * Separate code into libraries
+ * Automate tasks with `Fastlane`
+ * Manage dependencies with `CocoaPods`
+ * Manage dependencies with `Carthage`
+ * Setup localization with `SwiftGen`
+ * Use `swiftlint` to enforce conventions
 
-### Asset management:
+## Resource management:
 
- * Localization
- * Colors
- * Images
- * Fonts
+ * Manage color assets
+ * Manage image assets
+ * Manage font resources
+ * Setup application themes
+ * Setup strong resource references with `SwiftGen`
 
-### Code conventions and implementations:
+## Implementations:
 
- * IoC and Dependency Injection
- * Unit testing
- * Mocking
- * Alamofire + Codable
+ * Take control of your application theme
  * Protocol Driven Development
-
-### Misc. topics:
-
- * In-App Navigation
+ * IoC & Dependency Injection
+ * Unit testing with Quick & Nimble
+ * Use Alamofire to talk with your A
+ * Streamline in-app navigation
  * Message Handling
  * Notificatons
  * Extending protocol-based collections
