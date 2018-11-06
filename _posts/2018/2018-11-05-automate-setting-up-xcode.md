@@ -10,6 +10,8 @@ team. I will descibe how you can setup critical development tools, enforce team
 conventions and share code and text snippets, using `Homebrew` and `Fastlane` in
 a way that is easy to extend later, whenever you need to automate more tasks.
 
+<img src="/assets/blog/xcode.png" alt="Xcode icon" width="200"/>
+
 
 ## Why automate?
 

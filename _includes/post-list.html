@@ -9,7 +9,7 @@
       {% include post-info.html post=post %}
     </div>
     <p>
-      {{ post.excerpt | strip_html | remove: '<p>' | remove: '</p>' }}
+      {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
     </p>
 
     <hr />
