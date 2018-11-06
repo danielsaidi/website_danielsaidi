@@ -33,7 +33,7 @@ would like to write about:
 ### Getting started:
 
  * [Automate setting up your Mac]({{ site.baseurl }}{% post_url 2018/2018-08-26-automate-setting-up-your-mac %})
- * [Automating setting up Xcode]({{ site.baseurl }}{% post_url 2018/2018-11-05-automate-setting-up-xcode %})
+ * [Automate setting up Xcode]({{ site.baseurl }}{% post_url 2018/2018-11-05-automate-setting-up-xcode %})
 
 ### Project setup:
 
