@@ -5,10 +5,10 @@ tags:	  macOS automation xcode fastlane homebrew swiftlint
 image:  http://danielsaidi.com/assets/blog/xcode.png
 ---
 
-In this post, I will show how you can automate setting up Xcode for you and your
-team. I will descibe how you can setup critical development tools, enforce team
-conventions and share code and text snippets, using `Homebrew` and `Fastlane` in
-a way that is easy to extend later, whenever you need to automate more tasks.
+In this blog post, I will show how to automate setting up Xcode for you and your
+team, including setting up required tools, simplify enforcing common conventions
+etc. using `Homebrew` and `Fastlane` in a way that is easy to extend if you need
+to automate more tasks later on.
 
 <img src="/assets/blog/xcode.png" alt="Xcode icon" width="200"/>
 
