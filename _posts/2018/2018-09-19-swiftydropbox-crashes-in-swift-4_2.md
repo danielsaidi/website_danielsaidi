@@ -1,7 +1,7 @@
 ---
 title:  SwiftyDropbox crashes in Swift 4.2
 date:   2018-09-19 08:00:01 +0200
-tags:	  swift xcode
+tags:	swift xcode
 ---
 
 
