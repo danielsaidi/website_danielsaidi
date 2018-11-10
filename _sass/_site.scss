@@ -33,7 +33,6 @@ div.center {
 
 @media screen and (max-width: 800px) {
 	.wrapper {
-	    max-width: -webkit-calc(800px - (30px * 2)) !important;
 	    max-width: calc(800px - (30px * 2)) !important;
 	}
 }
