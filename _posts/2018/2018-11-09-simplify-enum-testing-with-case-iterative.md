@@ -5,7 +5,7 @@ tags:	swift enum
 ---
 
 In this blog post, I will show how to reduce the amount of code you have to type
-when testing enums, by using `CaseIterable`.
+when testing enums, by using the new `CaseIterable` protocol.
 
 
 ## Testing non-iterable enums
@@ -22,7 +22,7 @@ public enum UserNotification: String {
     loginStateDidChange
     
     public var id: String {
-        return "com.mydomain.notifications.user.\(rawValue)"
+        return "notifications.user.\(rawValue)"
     }
 }
 
@@ -51,17 +51,17 @@ class UserNotificationsTests: QuickSpec {
             
             it("is valid for didLogin") {
                 let id = UserNotification.didLogin.id
-                assert(id).to(equal("com.mydomain.notifications.user.didLogin"))
+                assert(id).to(equal("notifications.user.didLogin"))
             }
             
             it("is valid for didLogout") {
                 let id = UserNotification.didLogout.id
-                assert(id).to(equal("com.mydomain.notifications.user.didLogout"))
+                assert(id).to(equal("notifications.user.didLogout"))
             }
             
             it("is valid for loginStateDidChange") {
                 let id = UserNotification.loginStateDidChange.id
-                assert(id).to(equal("com.mydomain.notifications.user.loginStateDidChange"))
+                assert(id).to(equal("notifications.user.loginStateDidChange"))
             }
         }
         
@@ -111,7 +111,7 @@ class UserNotificationsTests: QuickSpec {
 
             it("is valid for all notifications") {
                 notifications.forEach {
-                    expect($0.id).to(equal("com.mydomain.notifications.user.\($0.rawValue)"))
+                    expect($0.id).to(equal("notifications.user.\($0.rawValue)"))
                 }
             }
         }
@@ -164,7 +164,7 @@ class UserNotificationsTests: QuickSpec {
 
             it("is valid for all notifications") {
                 UserNotification.allCases.forEach {
-                    expect($0.id).to(equal("com.mydomain.notifications.user.\($0.rawValue)"))
+                    expect($0.id).to(equal("notifications.user.\($0.rawValue)"))
                 }
             }
         }
