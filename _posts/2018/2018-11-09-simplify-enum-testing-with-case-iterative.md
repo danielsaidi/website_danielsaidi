@@ -144,3 +144,36 @@ class UserNotificationsTests: QuickSpec {
 
 Another benefit is that you don't have to remember to write new tests every time
 you add new cases to `UserNotification`.
+
+
+## Internally iterable enums
+
+If you only want to use `CaseIterable` within your library and for test purposes,
+you can make the implementation internal:
+
+
+```swift
+public enum UserNotification: String {   
+
+    ...
+}
+
+extension UserNotification: CaseIterable {}
+```
+
+To make `CaseIterable` available to your tests, your test target now must import
+the library using `@testable import`:
+
+```swift
+import Quick
+import Nimble
+@testable import MyLibrary
+
+class UserNotificationsTests: QuickSpec {
+    
+    ...
+}
+```
+
+This means that you can now benefit from `CaseIterable` in your library and unit
+tests, but that it does not get exposed outside these boundaries.
