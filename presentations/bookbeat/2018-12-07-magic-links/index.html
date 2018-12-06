@@ -4,7 +4,7 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>BookBeat - Hack Day 2018</title>
+		<title>BookBeat - Magic Links</title>
 
 		<meta name="description" content="BookBeat Hack Day Presentation">
 		<meta name="author" content="Daniel Saidi daniel.saidi@gmail.com">
@@ -28,6 +28,7 @@
 		</script>
     <style>
       ul li { font-size: 0.8em !important; }
+      .plain ul li { font-style: normal; }
     </style>
 
 		<!--[if lt IE 9]>
@@ -43,72 +44,60 @@
 			<div class="slides">
 				<section data-markdown class="title-page">
 					# BookBeat
-					## Hack Day
+					## Magic Links
 				</section>
 
         <section data-markdown>
-          ## Machine Learning
-          #### by Apple
-          * Core ML
-          * Create ML
-          * Turi Create
-        </section>
-
-        <section>
-          <section data-markdown class="image-section" data-background="https://thumbs.gfycat.com/OrangeSpicyEasternnewt-size_restricted.gif" data-transition="slide-in fade-out">
-            # Image Classification
-            ## Känna igen bilder
-          </section>
-          <section data-markdown>
-            ## Bildklassificering
-            * Träna/testa data i Create ML
-            * Dra in modellen i din app
-            * Skriv lite kod
-            * Ganska snabbt och superenkelt!
-          </section>
-        </section>
-
-        <section>
-          <section data-markdown class="image-section light-bg" data-background="https://cdn.dribbble.com/users/149817/screenshots/3461827/text-animation3.gif" data-transition="slide-in fade-out">
-            # Text Classification
-            ## Känna igen text
-          </section>
-          <section data-markdown>
-            ## Textklassificering
-            * Träna/testa data i Create ML
-            * Dra in modellen i din app
-            * Skriv lite kod
-            * Supersnabbt och enkelt...men sådär!
-          </section>
-        </section>
-
-        <section>
-          <section data-markdown class="image-section" data-background="https://cdn-images-1.medium.com/max/1600/1*XI3beonBnOwp-y5BwNOqCw.gif" data-transition="slide-in fade-out">
-            # Style Transfer
-            ## Överför en visuell stil
-          </section>
-          <section data-markdown>
-            ## Style Transfer
-            * Träna/testa data i Turi Create
-            * **Extra:** Kvantisera modellen
-            * Dra in modellen i din app
-            * Skriv en del kod
-          </section>
-          <section data-markdown>
-            ## Resultat
-            * Lite bökigt att komma igång
-            * Därefter enkelt
-            * Superlångsamt!
-            * Skulle ha tagit 48h
-          </section>
+          ## Varför?
+          * Bevara inloggning
+          * App till webb
+          * Webb till app
+          * Länk till app (t.ex. i e-post)
         </section>
 
         <section data-markdown>
-          * https://github.com/danielsaidi/Test_Create_ML
+          ## Exempel
+          * App: Kontoinställningar
+          * Webb: Öppna i appen
+          * E-post: Signup / Kom igång
         </section>
 
-        <section data-markdown class="image-section" data-background="https://cdn-images-1.medium.com/max/1600/1*hyqJzpqML8_OsEir6KCahw.gif" data-transition="slide-in fade-out">
-          # Tack för Hack Day!
+        <section class="plain" data-markdown>
+          ## Flöde - app till webb
+          * 📱 → url → ☁️
+          * 📱 ← magic link ← ☁️
+          * 📱 → öppna magic link → 🌎
+          * 🌎 → logga in med magic link → ☁️
+          * 🌎 ← inloggningsresultat ← ☁️
+        </section>
+
+        <section class="plain" data-markdown>
+          ## Flöde - webb till app
+          * 🌎 → deep link → ☁️
+          * 🌎 ← magic link ← ☁️
+          * 🌎 → öppna deep link → 📱
+          * 📱 → logga in med magic link → ☁️
+          * 📱 ← inloggningsresultat ← ☁️
+        </section>
+
+        <section class="plain" data-markdown>
+          ## Flöde - mejl till app
+          * ☁️ → deep link → ✉️
+          * ✉️ → öppna deep link → 📱
+          * 📱 → logga in med magic link → ☁️
+          * 📱 ← inloggningsresultat ← ☁️
+        </section>
+
+        <section data-markdown>
+          ## Nuläge
+          * En länk i appen klar
+          * Alla BookBeat-länkar ska få stöd
+          * Webb/mejl kommer senare
+          * Appen bygger stöd i förväg
+        </section>
+
+        <section class="image-section" data-markdown data-background="https://media.giphy.com/media/xT9DPvWQj7K5CtUDwk/giphy.gif">
+          # Demo
         </section>
 			</div>
 		</div>
