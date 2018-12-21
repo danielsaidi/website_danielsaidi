@@ -9,12 +9,12 @@ Yesterday, I got a demonstration of [NuPack](http://nuget.codeplex.com/): a free
 open source, developer-focused package manager for .NET. It looked awesome, so I
 visited the web site, downloaded NuPack and gave it a try. This is how you do it:
 
-- Visit the [NuPack](http://nuget.codeplex.com/) web site
-- Click the download button to download the latest release
-- Double click on the downloaded file to install NuPacl
-- Open any .NET solution or create a new one
-- Right-click "references"
-– Voilá! A new “Add Package Reference” context menu item exists!
+* Visit the [NuPack](http://nuget.codeplex.com/) web site
+* Click the download button to download the latest release
+* Double click on the downloaded file to install NuPacl
+* Open any .NET solution or create a new one
+* Right-click "references"
+* Voilá! A new “Add Package Reference” context menu item exists!
 
 
 I hope that you see the subtle irony. Getting NuPack up and running is a walk in

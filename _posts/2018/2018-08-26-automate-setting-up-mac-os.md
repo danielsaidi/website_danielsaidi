@@ -7,27 +7,26 @@ redirect_from:
   - /blog/2018/08/26/automate-your-macbook-setup/
 ---
 
-In this post, I'll describe how you can automate setting up your new Mac, with a
-modular and extensible terminal script. This script will install system software,
-applications, configure your computer etc. in just minutes.
+In this post, I'll describe how you can automate setting up a brand new Mac with
+a terminal script that will install system software, applications, configure the
+computer etc. This will help you setup a new Mac in minutes.
 
 
 ## Why automate?
 
-I (and many developers with me) prefer to automate as much as possible, to reduce
-the amount of repetitive manual work, reduce the risk of human error and increase
-overall reliability. For a developer, this often includes unit testing, continous
-integration, release management etc.
+I (and many with me) prefer to automate as many tasks as possible, to reduce the
+amount of repetitive manual work, reduce the risk of human error and to increase
+the overall reliability of a certain process. For good developers, this involves
+unit testing, continous integration, release management etc. For testers it can
+involve automated UI testing etc. In short, if you can automate, then automate.
 
-However, one thing that I did NOT automate until recently, was to setup a brand
-new Mac for development. Doing this manually is time consuming, tiresome, error
-prone and just not fun. It's also tedious to remember all the tools and apps you
-need. Without automation, you'll be filling out gaps for weeks.
+However, one thing that I have NOT automated until recently, is to setup a brand
+new Mac for development, which is time consuming and just not fun. It is tedious
+to remember all the tools and applications that you need. Without automation, it
+can easily take a day, with you filling out gaps for weeks.
 
-With automation, however, you can setup a brand new Mac within minutes, basically
-making the setup time linear to the speed of your Internet connection. I still
-have to install apps from the Mac AppStore manually, but that's nothing compared
-to all the work I had to do before automating.
+With automation, however, you can setup a new Mac in minutes, making the time it
+takes time linear to the speed of your Internet connection.
 
 
 ## Tools on which I base my script
@@ -38,16 +37,12 @@ great and will simplify your life. I really recommend you to check them out.
 
 * [Homebrew](https://brew.sh) is a package manager (one of several) for macOS.
 It makes it super easy to install new system tools on your Mac.
-
 * [Homebrew Cask](https://github.com/Homebrew/homebrew-cask) is a brew extension
 that lets you install Mac applications directly from the Terminal.
-
 * [Brew Bundle](https://github.com/Homebrew/homebrew-bundle) is a brew extension
 that lets you manage brew and cask packages with a `Brewfile`.
-
 * [Gem](https://rubygems.org/pages/download) is a package manager for Ruby-based
 software, e.g. Fastlane.
-
 * [NPM](https://www.npmjs.com) is a package manager for web-development software.
 I also use it for hybrid apps.
 
@@ -57,8 +52,8 @@ tools as well as other scripts.
 
 ## Creating the script
 
-I will now create the main system script. The script will be modular, to make it
-easy to adjust as my needs change over time.
+Let's create the main system script. The script will be modular, to make it easy
+to adjust as my needs change over time.
 
 First, create a file called `setup.sh` and add the following code to it:
 
@@ -136,13 +131,12 @@ process_option() {
 }
 ```
 
-As you can see, each option basically just calls another script in the `scripts`
-folder or runs a terminal command.
+As you can see, each option just calls another script in the `scripts` folder or
+runs a terminal command, where each external file is very simple. The `Brewfile`
+contains brew and cask dependencies, the `Gemfile` contains gem dependencies and
+the script files contain commands you could type manually in the terminal.
 
-Each file is then super simple. `Brewfile` just contains a list of brew and cash
-dependencies, `Gemfile` contains a list of gem dependencies and all files in the
-`scripts` folder basically just contains commands you could type manually in the
-terminal. Have a look at some examples from each file:
+Have a look at some examples from each file:
 
 
 ### scripts/system.sh
@@ -232,8 +226,7 @@ gem 'cocoapods'
 
 ## Result
 
-Once my version of the script has finished processing (with some `sudo`s), it
-will have taken care of the following:
+If I run the `all` option, it will take care of the following:
 
 * Configuring OS X
 * Installing package managers (Homebrew, Cask, RubyGems, NPM)
@@ -243,14 +236,13 @@ will have taken care of the following:
 * Installing npm packages (Ionic, Gulp, TypeScript etc.)
 * Setting up SSH (create a key, add to ssh-agent, copy to pasteboard)
 
-Doing this manually would take me a couple of hours each and every time I had to
-setup a new Mac from scratch. Now, the script finishes in a matter of minutes.
+Doing this manually would take me a couple of hours every time. Now, it finishes
+in a matter of minutes.
 
 
 ## Download
 
-If you don't want to start from scratch, I have a GitHub repo that you can fork
-and tweak to fit your needs. You can find it [here](https://github.com/danielsaidi/osx)
+I have a GitHub repo that you can fork and tweak to fit your needs. You can find
+it [here](https://github.com/danielsaidi/osx). Hopefully, it will save you a lot
+of time, as it have for me.
 
-This script is easy to configure. You can add and remove things as you see fit.
-Hopefully, it will save you a lot of time.

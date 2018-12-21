@@ -21,17 +21,17 @@ find that the problem remains.
 
 The problem can be either:
 
-- The replacement battery (two in a row = unlikely)
-- The battery together with my computer model
-- My MagSafe adapter
-- My computer's battery connection (due to the swollen battery)
+* The replacement battery (two in a row = unlikely)
+* The battery together with my computer model
+* My MagSafe adapter
+* My computer's battery connection (due to the swollen battery)
 
 To investigate further, I took my computer to a friend of mine and installed the
 battery in her MacBook, where it worked like a charm...see below:
 
-- Her computer, MagSafe and battery = OK
-- Her computer and battery, but MY MagSafe = OK
-- Her computer, but my battery and MagSafe = OK
+* Her computer, MagSafe and battery = OK
+* Her computer and battery, but MY MagSafe = OK
+* Her computer, but my battery and MagSafe = OK
 
 So, this did not seem so promising...but when I re-installed the battery into MY
 computer, using MY MagSafe...it suddenly worked! Baffled (yet happy), I returned

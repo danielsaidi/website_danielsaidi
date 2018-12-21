@@ -19,7 +19,7 @@ on the XBOX. It is so smooth. If you have a chipped XBOX, try it out!
 
 The only problems I have detected so far are:
 
-- You can not pause for too long, or XOT-Uzg loses its connection
-- You can not skip forward/back or fast-forward/backward
+* You can not pause for too long, or XOT-Uzg loses its connection
+* You can not skip forward/back or fast-forward/backward
 
 Also, make sure you are a paying customer of the TV services you decide to watch.

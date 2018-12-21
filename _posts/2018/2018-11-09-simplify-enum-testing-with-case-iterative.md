@@ -4,39 +4,37 @@ date:   2018-11-09 15:00:00 +0200
 tags:	swift enum
 ---
 
-In this blog post, I will show how to reduce the amount of code you have to type
-when testing enums, by using the new `CaseIterable` protocol.
+In this post, I will show how to reduce the amount of code you have to type when
+testing enums, by using the new `CaseIterable` protocol.
 
 
 ## Testing non-iterable enums
 
-Consider a simple enum setup that contains user-related notifications as well as
-`Notification.Name` extensions for it:
+Consider this `UserNotification` enum and `Notification.Name` extension:
 
 ```swift
-public enum UserNotification: String {
+enum UserNotification: String {
     
     case
     didLogin,
     didLogout,
     loginStateDidChange
     
-    public var id: String {
+    var id: String {
         return "notifications.user.\(rawValue)"
     }
 }
 
-public extension Notification.Name {
+extension Notification.Name {
     
-    public static func user(_ notification: UserNotification) -> Notification.Name {
+    static func user(_ notification: UserNotification) -> Notification.Name {
         return Notification.Name(rawValue: notification.id)
     }
 }
 ```
 
-Simple enough, right? Still, if we want to test this enum's behavior, we have to
-write some extra code to test all cases. The most exhausting would be to write a
-lot of code e.g.:
+Simple enough, right? Still, if we want to test this enum, we have to write much
+code to test all cases, for instance:
 
 ```swift
 import Quick
@@ -89,12 +87,11 @@ class UserNotificationsTests: QuickSpec {
 }
 ```
 
-This would be a pain to maintain, though, especially for an enum with many cases.
-Each new case would require you to add 9 more lines of code, with the additional
-risk of copy/paste bugs etc.
+This code could be compressed, sure, but would still be a pain to maintain. Each
+new case would require you to add 9 more lines of text, with the additional risk
+of copy/paste bugs etc. 
 
-This could be easily fixed, though, by creating a test array with all cases. The
-test class would then become:
+You could also simplify this test suite by creating an array with all enum cases:
 
 ```swift
 import Quick
@@ -130,17 +127,17 @@ class UserNotificationsTests: QuickSpec {
 ```
 
 However, this approach would still require you to remember to add every new case
-to the array. This is tedious and error-prone, and completely unnecessary, since
-we now have the brand new `CaseIterable` to help us out.
+to this array. It is tedious...and completely unnecessary, since we now have the
+brand new `CaseIterable` to help us out.
 
 
 ## Testing iterable enums
 
-`CaseIterable` is a new Swift 4.2 protocol that adds an `allCases` property to
-enums that implement it. With it, we can reduce the amount of code we have to
-write in our tests.
+`CaseIterable` is a Swift 4.2 protocol that adds an `allCases` property to enums
+that implement it. With it, we can reduce the amount of code we have to write in
+our tests.
 
-First of all, make `UserNotification` implement `CaseIterable` like this:
+First, make `UserNotification` implement `CaseIterable` like this:
 
 ```swift
 public enum UserNotification: String, CaseIterable {
@@ -188,8 +185,8 @@ you add new cases to `UserNotification`.
 
 ## Internally iterable enums
 
-If you only want to use the `CaseIterable` capabilities within your library and
-tests, you can make the implementation internal:
+If your enum is public, but you only want to use the `CaseIterable` capabilities
+within your library and tests, you can make the implementation internal:
 
 
 ```swift

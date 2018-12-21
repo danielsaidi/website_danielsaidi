@@ -28,9 +28,9 @@ successful tests? Show me the ones that fail.
 If anyone knows a built-in way to achieve this, please let me know. I chose this
 following approach (applies to jQuery 1.4.2 – let me know if this is out-of date):
 
-- Open the `qunit.js` file
-- Find the block that begins with `var li = document.createElement("li");`
-- Wrap the entire block in `if (bad) { ... }`
+* Open the `qunit.js` file
+* Find the block that begins with `var li = document.createElement("li");`
+* Wrap the entire block in `if (bad) { ... }`
 
 This will make QUnit only append the list element if a test is “bad”, that is if
 it failed. The result will look like this:

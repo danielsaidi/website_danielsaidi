@@ -51,7 +51,7 @@ wrong).
 
 To setup your project to use XUnit as a test runner, add these dependencies:
 
- * "xunit": "2.1.0"`
+ * "xunit": "2.1.0"
  * "dotnet-test-xunit": "1.0.0-rc2-build10015"
 
 Add XUnit as a test runner by adding this below the dependencies node:
@@ -67,7 +67,7 @@ Now, you should be able to run unit tests, using the `dotnet test` command.
 
 ## Watch
 
-If you don't want to have to manually run the `dotnet run` and the `dotnet test
+If you don't want to have to manually run the `dotnet run` and the `dotnet test`
 commands each time you make a code change, you can add DotNet Watcher to your project.
 
 To add it, add a new `tools` node, or add the watcher tool to the tools node if

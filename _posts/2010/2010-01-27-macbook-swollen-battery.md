@@ -8,13 +8,13 @@ tags: 	osx
 I have previously written about my numerous problems with my new, white MacBook,
 which I purchased in August 2007. For instance:
 
-- the fan roared like a truck
-- the audio port shone with a red light and thought that I had plugged in an optical device (which I had not)
-- the audio port enabling optical mode turned of all sounds from the internal speaker
-- the chassi cracked(!)
-- the color wheel of death appeared every now and then, freezing the computer
-- the computer stopped waking up from sleep
-- the computer stopped recognizing my hard drive and displayed a ? when booting up
+* the fan roared like a truck
+* the audio port shone with a red light and thought that I had plugged in an optical device (which I had not)
+* the audio port enabling optical mode turned of all sounds from the internal speaker
+* the chassi cracked(!)
+* the color wheel of death appeared every now and then, freezing the computer
+* the computer stopped waking up from sleep
+* the computer stopped recognizing my hard drive and displayed a ? when booting up
 
 Fortunately, I documented all these problems with pictures and videos while they
 were happening and wrote a long issue report. When the last problem occured, the

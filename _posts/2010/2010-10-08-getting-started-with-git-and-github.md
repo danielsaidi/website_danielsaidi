@@ -8,7 +8,7 @@ tags: 	git hobby-projects
 As some of my hobby projects are coming together, I have meant to move them from
 Google Code to GitHub for quite some time. Tonight, I decided to give it a try.
 
-I first visited the [Git download page](http://code.google.com/p/git-osx-installer/)
+I first visited [Git download page](http://code.google.com/p/git-osx-installer/)
 and downloaded the latest git release for OS X. Since configuring git involves a
 couple of steps, I found [this page](http://help.github.com/mac-git-installation/)
 really helpful. 

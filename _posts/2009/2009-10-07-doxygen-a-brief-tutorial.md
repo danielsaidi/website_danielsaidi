@@ -13,16 +13,16 @@ in various formats (HTML, LaTex, .man, XML etc.). I'll go with HTML for now.
 
 To extract a simple HTML site from your documentation, just follow these steps:
 
-- [Download](http://www.stack.nl/~dimitri/doxygen/) and install Doxygen
-- Run the Doxygen wizard, which opens a small window with the Wizard tab selected
-- Open the "Project" section
-- Define Project name (e.g. ".NET Extensions")
-- Define Project version or id (e.g. "1.0.0.0")
-- Define Source code directory (your source code root)
-- Check the "Scan recursively" check box
-- Define Destination dictionary (where you want the documentation to be extracted)
-- Under the "Mode" section, select All entities and Optimize for Java or C#
-- Under the "Output" section, select the various output formats you want Doxygen to create.
+* [Download](http://www.stack.nl/~dimitri/doxygen/) and install Doxygen
+* Run the Doxygen wizard, which opens a small window with the Wizard tab selected
+* Open the "Project" section
+* Define Project name (e.g. ".NET Extensions")
+* Define Project version or id (e.g. "1.0.0.0")
+* Define Source code directory (your source code root)
+* Check the "Scan recursively" check box
+* Define Destination dictionary (where you want the documentation to be extracted)
+* Under the "Mode" section, select All entities and Optimize for Java or C#
+* Under the "Output" section, select the various output formats you want Doxygen to create.
 
 Since you selected "All entities", you may think all entities will be extracted.
 Well, sadly, no. For instance, Doxygen will not extract documentation for static

@@ -24,8 +24,7 @@ To create a custom theme, simply do the following:
 The theme can then be applied in two ways:
 
 * As the default theme (used by all project pages) - add Theme="Default" to the
-"pages" tag in web.config
-
+"pages" tag in web.config.
 * As a page-specific theme (applied to a page) - add Theme="Default" to the Page
 tag in each .aspx file that should use the theme.
 

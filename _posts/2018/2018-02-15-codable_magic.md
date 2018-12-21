@@ -5,32 +5,31 @@ tags:	ios swift codable
 ---
 
 
-It's been a long time coming, but I eventually got around to start replacing all
-`NSCoding` objects in a Swift library with the (not so) new `Codable` protocol.
-This blog post will cover some learnings I've collected along the way.
-
-The protocol and implementations in this blog post are fictional representations
-of the real world domain model that I work with.
+It's been a long time coming, but I have eventually gotten around to replace all
+`NSCoding` objects in my Swift libraries with `Codable`. This post covers things
+that I've learned along the way.
 
 
-## The protocol
+## Disclaimer
 
-In our code base, say that we have a protocol that looks something like this:
+The protocol and implementations in this post are fictional representations of a
+real world domain model that I work with.
+
+
+## Model
+
+Lets say that our app has `Movie` and `MovieGenre` structs that look like this:
 
 ```swift
-public protocol Movie {
+struct Movie {
     
-    var id: Int { get }
-    var name: String { get }
-    var releaseDate: Date { get }
-    var genre: MovieGenre { get }
+    let id: Int
+    let name: String
+    let releaseDate: Date
+    let genre: MovieGenre
 }
-```
 
-where `MovieGenre` is an enum, as such:
-
-```swift
-public enum MovieGenre: String { case
+enum MovieGenre: String { case
     
     action,
     drama,
@@ -38,26 +37,27 @@ public enum MovieGenre: String { case
 }
 ```
 
-`Movie` is a very central model in the domain, and any implementations we have
-should be cachable, serializable etc. and should be covered by unit tests.
+If these structs are central to our app, we probably want to use them in various
+ways, e.g. serializing and deserializing them. Let's have a look at how we built
+this functionality before, using `NSCoding`:
 
 
-## Old `NSCoding` implementation
+## NSCoding
 
-Before `Codable`, the `StandardMovie` implementation we had could be serialized,
-cached etc. since it implemented `NSCoding`:
+Before `Codable`, you could have added this support by letting `Movie` implement
+`NSCoding`. However, that would also require it to be a `class` and not a struct:
 
 ```swift
 import Foundation
 
-public class StandardMovie: NSObject, Movie, NSCoding {
+class Movie: NSObject, NSCoding {
 
     
     // MARK: - Initialization
 
     // ...more initializers
     
-    public required init?(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         guard
             let id = coder.decodeObject(forKey: idKey) as? Int,
             let name = coder.decodeObject(forKey: nameKey) as? String,
@@ -69,29 +69,28 @@ public class StandardMovie: NSObject, Movie, NSCoding {
         self.name = name
         self.releaseDate = date
         self.genre = genre
-        super.init()
     }
     
     
     // MARK: - Mapping Keys
     
-    fileprivate let idKey = "id"
-    fileprivate let nameKey = "name"
-    fileprivate let releaseDateKey = "releaseDate"
-    fileprivate let genreKey = "genre"
+    private let idKey = "id"
+    private let nameKey = "name"
+    private let releaseDateKey = "releaseDate"
+    private let genreKey = "genre"
     
     
     // MARK: - Properties
     
-    public var id: Int
-    public var name: String
-    public var releaseDate: Date
-    public var genre: MovieGenre
+    let id: Int
+    let name: String
+    let releaseDate: Date
+    let genre: MovieGenre
     
     
     // MARK: - Public Functions
     
-    public func encode(with coder: NSCoder) {
+    func encode(with coder: NSCoder) {
         coder.encode(NSNumber(value: id), forKey: idKey)
         coder.encode(name, forKey: nameKey)
         coder.encode(releaseDate, forKey: releaseDateKey)
@@ -100,51 +99,60 @@ public class StandardMovie: NSObject, Movie, NSCoding {
 }
 ```
 
-As you can see, we inherit `NSObject` and have to implement a bunch of encoding
-and decoding. What would this look like if we used the `Codable` protocol instead?
+As you can see, we inherit `NSObject` and implement a bunch of encoding/decoding
+logic. This is really tedious, especially if you have nested types. Let's take a
+look at how `Codable` can make this a lot easier and cleaner.
 
 
-## New `Codable` implementation
+## Codable
 
-As I switched out the implementation to `Codable`, I first tried to just smack
-on a `Codable` protocol to a new `Movie` type, like this:
+First of all, `Codable` does not require you to use classes. Your `Movie` can be
+a struct and still implement `Codable`, like this:
 
 ```swift
 import Foundation
 
-public class CodableMovie: Movie, Codable {
+struct Movie: Codable {
 
-    
-    // MARK: - Properties
-    
-    public var id: Int
-    public var name: String
-    public var releaseDate: Date
-    public var genre: MovieGenre
+    let id: Int
+    let name: String
+    let releaseDate: Date
+    let genre: MovieGenre
 }
 ```
 
-But the compiler now complained that `Decodable` was not implemented. I thus
-added a bunch of encoding/decoding code to this new class, which ended up
-looking a bit like this:
+With the code above, however, the compiler will complain that the `Movie` struct
+does not implement `Decodable`. If you're new to using `Codable`, you can easily
+end up adding a bunch of code to make it conform to `Codable`, for instance:
 
 
 ```swift
 import Foundation
 
-public class CodableMovie: Movie, Codable {
+struct Movie: Codable {
 
 
     // MARK: - Initialization
 
     // ...more initializers
 
-    public required init(from decoder: Decoder) throws {
+    required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
         id = try values.decode(Int.self, forKey: .id)
         name = try values.decodeIfPresent(String.self, forKey: .name)
         releaseDate = try values.decode(Date.self, forKey: .releaseDate)
         genre = try values.decode(BookFormat.self, forKey: .genre)
+    }
+
+
+    // MARK: - Encoding
+
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(id, forKey: .id)
+        try container.encode(name, forKey: .name)
+        try container.encode(releaseDate, forKey: .releaseDate)
+        try container.encode(genre, forKey: .genre)
     }
 
 
@@ -160,111 +168,40 @@ public class CodableMovie: Movie, Codable {
     
     // MARK: - Properties
     
-    public var id: Int
-    public var name: String
-    public var releaseDate: Date
-    public var genre: MovieGenre
-}
-
-
-// MARK: - Encodable
-
-extension StandardMovie {
-    
-    public func encode(to encoder: Encoder) throws {
-        var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(id, forKey: .id)
-        try container.encode(name, forKey: .name)
-        try container.encode(releaseDate, forKey: .releaseDate)
-        try container.encode(genre, forKey: .genre)
-    }
+    var id: Int
+    var name: String
+    var releaseDate: Date
+    var genre: MovieGenre
 }
 ```
 
-Keep in mind that this is just a example model. My real world model contains a lot
-more properties, nested types etc. The `Codable` approach ended up looking a lot
-like the old `NSCoding` implementation, with the biggest difference being using a
-key enum instead of strings (which I could have used in my old class as well).
+Keep in mind that this is a simple example model, and that your real world model
+would probably contain a lot more properties, nested types etc. With an approach
+like the one above, the `Codable` approach would ended up looking a lot like the
+old `NSCoding` implementation, with the biggest difference being using enum keys
+instead of strings (which we could have used in the old model as well).
 
+So clearly, this approach should be used very seldom, if ever, and only when you
+know exactly what you're doing and as a conscious choice.
 
-However, as I did this, I also made `MovieGenre` codable, by just adding `Codable`
-after the `String`, like this:
+Instead, the correct way of solving the problem above is to make the `MovieGenre`
+model `Codable` as well, like this:
 
 ```swift
-public enum MovieGenre: String, Codable { case
+enum MovieGenre: String, Codable {
     
     ...
 }
 ``` 
 
-This would later turn out to solve a lot of problems, but I did not know that
-as I now begun writing tests to cover all my manually written encode/decode logic.
-
-
-## A big discovery
-
-As I mentioned, my real world model is a lot more complex, and contains nested
-objects and a lot more logic. Since I want to be able to easily serialize the
-entire object tree, I quickly realized that all nested models must implement
-`Codable` as well.
-
-However, since my domain model is protocol-driven, the `Movie` protocol will
-contain nested objects and arrays of other protocols. This means that `Codable`
-should not be added to `StandardMovie`, but rather to the `Movie` protocol
-and all other domain model protocols.
-
-As I now moved `Codable` to `Movie` and removed it from `StandardMovie`,
-I had a strange feeling that something was wrong. `StandardMovie` is just one
-of many `Movie` implementations, and I only implemented `Codable` for this
-class. Surely, this would mean that the old error I received for not implementing
-`Codable` would now arise for all other implementations as well, right?
-
-Strangely, this was not the case. I tried encoding and decoding `ApiMovie` and
-it worked great, without any additional code to handle encoding and decoding.
-
-What the fudge is going on?
-
-
-## A big realization
-
-Then it hit me. By adding `Codable` to `MovieGenre`, all `Movie` properties
-were now `Codable`, which was why I no longer got an error telling me to manually
-implement `Codable`.
-
-So, did this also mean that I could remove all my manually added code from the
-`StandardMovie` class. 
-
-Yes, yes it did. I removed all manual encode/decode code and ended up with a
-tiny end result, that looked like this:
-
-
-```swift
-import Foundation
-
-public class StandardMovie: Movie {
-    
-    
-    // MARK: - Initialization
-    
-    // ...a couple of initializers
-    
-    
-    // MARK: - Properties
-    
-    public var id: Int
-    public var name: String
-    public var releaseDate: Date
-    public var genre: MovieGenre
-}
-
-```
-
-That's it! My unit tests that covered the encoding/decoding logic still worked
-and some of my grey hairs started reverting to black.
+If you do this, you don't have to add any additional code to `Movie`. Everything
+will work right away! I removed all additional code and my unit tests that cover
+encoding/decoding still worked.
 
 
 ## Conclusion
 
-As long as your entire model is `Codable`, things seem to sort themselves out.
-This is a drastic change to the old `NSCoding` protocol. I can't wait to apply
-this to the entire domain model.
+As long as your entire model is `Codable`, things seem to sort themselves out. I
+love this new approach and can't wait for the Swift community to embrace it.
+
+

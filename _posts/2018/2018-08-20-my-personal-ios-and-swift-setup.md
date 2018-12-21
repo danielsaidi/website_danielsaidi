@@ -4,25 +4,30 @@ date:   2018-08-21 00:00:01 +0200
 tags:	ios swift mac-os
 ---
 
-After years of iOS and Swift development, I have come to a point where I am very
-happy with my way of handling project structures, code conventions, tooling etc.
-Here, I'll discuss a series of posts that I will write to descibe this in detail,
-in hope that it may be of help to others. If not, it will at least serve as some
-sort of self-reference.
+After putting years into iOS and Swift development, I have come to a point where
+I am pretty happy with my project structure, code conventions, coding habits etc.
 
-I will take on this project as an open process, where I'd love for you to reach
-out with comments, corrections, suggestions, links to related posts etc. If you
-have any suggestions regarding this process idea, please let me know. I have no
-writing schedule in mind, and will instead write whenever I feel like it.
+However, since even the worst ideas can be considered brilliant if you only show
+them to yourself, I would like to put them to the test of displaying them in the
+public space.
 
-The topics below is currently a top of mind brain dump. The list will evolve as
-I proceed. As soon as a topic is written, I will link to that post in the list.
+So, below is a list of top of mind topics that I have put together as a starting
+point for a series of posts where I'll describe the various parts of my process.
+I hope they will be of help to others and trigger interesting discussions, but I
+am happy just to have them serve as some sort of self-reference as well.
+
+I will take on this task as an open process, where I'd love for you to reach out
+with comments, corrections, suggestions, links to related posts etc. If you have
+any suggestions regarding this process idea, please let me know.
+
+The topics below is a top of mind brain dump. The list will evolve as I proceed.
+As soon as a topic is written, I will link to that post in the list.
 
 
 ## Get started
 
- * [Automate setting up macOS]({{ site.baseurl }}{% post_url 2018/2018-08-26-automate-setting-up-mac-os %})
- * [Automate setting up Xcode]({{ site.baseurl }}{% post_url 2018/2018-11-05-automate-setting-up-xcode %})
+ * [Automate setting up macOS]({{site.baseurl}}{% post_url 2018/2018-08-26-automate-setting-up-mac-os %})
+ * [Automate setting up Xcode]({{site.baseurl}}{% post_url 2018/2018-11-05-automate-setting-up-xcode %})
 
 ## Project setup
 
@@ -54,11 +59,6 @@ I proceed. As soon as a topic is written, I will link to that post in the list.
  * Notificatons
  * Extending protocol-based collections
 
-As you can see, the list is currently pretty unstructured. The pieces hopefully
-fall into place as I proceed with the project :)
+As you can see, the list is pretty unstructured. Hopefully, the pieces will fall
+into place as I proceed with the project :)
 
-
-## Conclusion
-
-I look forward to getting started with this project and hope that you will keep
-me company. Feel free to reach out at any time.

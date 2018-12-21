@@ -15,28 +15,32 @@ the first one again.
 
 To fix this, I replaced the original onSelectRow method:
 
-	onSelectRow: function(id) {
-	   if (id && id!==lastsel) {
-	      jQuery('#rowed3').jqGrid('restoreRow',lastsel)
-	      jQuery('#rowed3').jqGrid('editRow',id,true);
-	      lastsel=id;
-	   }
-	}
+```
+onSelectRow: function(id) {
+   if (id && id!==lastsel) {
+      jQuery('#rowed3').jqGrid('restoreRow',lastsel)
+      jQuery('#rowed3').jqGrid('editRow',id,true);
+      lastsel=id;
+   }
+}
+```
 
 ...with this one:
 
-	onSelectRow: function(id) {
-	   if (id) {
-	      if (id !== lastsel) {
-	         articleGrid.jqGrid('restoreRow', lastsel);
-	         articleGrid.jqGrid('editRow', id, true);
-	         lastsel = id;
-	      } else {
-	         articleGrid.jqGrid('restoreRow', lastsel);
-	         lastsel = "";
-	      }
-	   }
-	}
+```
+onSelectRow: function(id) {
+   if (id) {
+      if (id !== lastsel) {
+         articleGrid.jqGrid('restoreRow', lastsel);
+         articleGrid.jqGrid('editRow', id, true);
+         lastsel = id;
+      } else {
+         articleGrid.jqGrid('restoreRow', lastsel);
+         lastsel = "";
+      }
+   }
+}
+```
 
 Now, the grid behaves a lot more like I want it to. 
 

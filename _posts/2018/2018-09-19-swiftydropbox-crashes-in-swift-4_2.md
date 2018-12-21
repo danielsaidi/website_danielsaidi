@@ -5,16 +5,12 @@ tags:	swift xcode
 ---
 
 
-After installing Xcode 10 yesterday evening, I started migrating my open source
-libraries to Swift 4.2. While most migrations were painless, one caused me some
-headache, since the library depends on `SwiftyDropbox` which does not yet support
-Swift 4.2. Adding the `SwiftyDropbox` dependency makes the library compile, but
-the demo app crashes at runtime.
+After installing Xcode 10 yesterday, I started migrating some libraries to Swift
+4.2. While most migrations were painless, one caused me some headache, since the
+library depends on `SwiftyDropbox` which does not yet support Swift 4.2.
 
-The library in question is an import/export library called [Vandelay](https://github.com/danielsaidi/Vandelay).
-One of its sub libraries adds Dropbox support, which requires `SwiftyDropbox`.
-While the library and test app builds without problems, the app crashes with the
-following runtime error:
+Adding `SwiftyDropbox` to the library makes it compile, but the demo app crashes
+at runtime, with the following error:
 
 ```swift
 dyld: Symbol not found: _$S8Dispatch0A3QoSV0B6SClassO7utilityyA2EmFWC
@@ -24,12 +20,9 @@ dyld: Symbol not found: _$S8Dispatch0A3QoSV0B6SClassO7utilityyA2EmFWC
 (lldb) 
 ```
 
-So the problem isn't caused by `SwiftyDropbox` itself, but rather that is uses
-an old version of Alamofire. `4.5.0` to be exact.
-
-You can solve this problem by adding an explicit dependency to the latest version
-of Alamofire to your `Cartfile` or `Podfile`. This will override the lower version
-in `SwiftyDropbox`, which will still build without problems.
+So, the problem is not caused by `SwiftyDropbox` itself, but rather that is uses
+an old version of Alamofire. `4.5.0` to be exact. You can solve this by adding a
+later version of Alamofire to your `Cartfile` or `Podfile`.
 
 So, instead of having this in my `Cartfile`:
 
@@ -44,6 +37,6 @@ github "dropbox/SwiftyDropbox" ~> 4.6.0
 github "Alamofire/Alamofire" ~> 4.7.0
 ```
 
-This is just a temporary fix, until `SwiftyDropbox` updates its dependencies to use
-the latest Alamofire version. I have sent a [PR](https://github.com/dropbox/SwiftyDropbox/issues/231)
-to the team and hope for a quick resolve.
+This is just a temporary fix until `SwiftyDropbox` updates the Alamofire version,
+which hopefully will not take too long. I have sent a PR to the team and hope it
+will be approved and merged shortly.

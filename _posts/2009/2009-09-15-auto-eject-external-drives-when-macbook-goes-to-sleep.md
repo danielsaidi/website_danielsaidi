@@ -25,8 +25,10 @@ However, the original script will also eject USB drives, mounted .dmg drives etc
 while I only want to eject a particular external drive. I thus edited the .sleep
 script to the following:
 
-	#!/bin/sh
-	osascript -e 'tell application "Finder" to eject (disks where name = "type in the name of your disk here")'
+```
+#!/bin/sh
+osascript -e 'tell application "Finder" to eject (disks where name = "type in the name of your disk here")'
+```
 
 Voilá – your external disk will now go to sleep when your computer does...and no
 more annoying warning messages will appear.

@@ -7,22 +7,28 @@ tags:	.net c#
 
 When paginating collections in C#, I find the following extension methods useful:
 
-	public static IEnumerable<TSource> Paginate<TSource>(this IEnumerable<TSource> source, int? page, int pageSize)
-	{
-		return source.Skip((page ?? 0) * pageSize).Take(pageSize);
-	}
+```csharp
+public static IEnumerable<TSource> Paginate<TSource>(this IEnumerable<TSource> source, int? page, int pageSize)
+{
+	return source.Skip((page ?? 0) * pageSize).Take(pageSize);
+}
+```
 
-	public static IQueryable<TSource> Paginate<TSource>(this IQueryable<TSource> source, int? page, int pageSize)
-	{
-		return source.Skip((page ?? 0) * pageSize).Take(pageSize);
-	}
+```csharp
+public static IQueryable<TSource> Paginate<TSource>(this IQueryable<TSource> source, int? page, int pageSize)
+{
+	return source.Skip((page ?? 0) * pageSize).Take(pageSize);
+}
+```
 
 By adding them to an extension class within a certain namespace, all `IQueryable`
 and `IEnumerable` objects automatically receives this functionality.
 
 You will then be able to write (for instance):
 
-	List<string> strings = new List<string> { "a","b","c","d","e","f" };
-	strings.Paginate(2, 2);
+```csharp
+List<string> strings = new List<string> { "a","b","c","d","e","f" };
+strings.Paginate(2, 2);
+```
 
 And get a list that contains “c” and “d”.

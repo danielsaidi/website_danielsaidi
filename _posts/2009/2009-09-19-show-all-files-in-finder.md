@@ -13,13 +13,17 @@ showing me all files in a folder. So, how to bend them to our will?
 Well, in Windows, you can easily check a box to show all hidden files. In OS
 X, however, you have to type the following in a terminal window:
 
-	defaults write com.apple.finder AppleShowAllFiles TRUE
-	killall Finder
+```
+defaults write com.apple.finder AppleShowAllFiles TRUE
+killall Finder
+```
 
 This will restart Finder, which upon restarting will now show you all files,
 hidden or not. To revert and hide these files again, run this command:
 
-	defaults write com.apple.finder AppleShowAllFiles FALSE
-	killall Finder
+```
+defaults write com.apple.finder AppleShowAllFiles FALSE
+killall Finder
+```
 
 Hope it helps!
