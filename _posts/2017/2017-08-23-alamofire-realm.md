@@ -1,47 +1,58 @@
 ---
-title:  "Alamofire, AlamofireObjectMapper and Realm - A Love Story"
+title:  "Alamofire + AlamofireObjectMapper + Realm"
 date:   2017-08-23 10:00:00 +0100
 tags:	ios alamofire realm swift
-redirect_from: 
-  - /blog/mobile/2017/08/23/alamofire-realm
+video:  https://www.youtube.com/watch?v=LuKehlKoN7o&lc=z22qu35a4xawiriehacdp435fnpjgmq2f54mjmyhi2tw03c010c.1502618893412377
+github: https://github.com/danielsaidi/presentation_2017-04-03_AlamofireRealm
+source: https://github.com/danielsaidi/presentation_2017-04-03_AlamofireRealm/tree/gh-pages
+api:    https://danielsaidi.com/presentation_2017-04-03_AlamofireRealm/api
+dip:    https://github.com/AliSoftware/Dip
+cocoapods: https://cocoapods.org/
 ---
 
 
-This is a walkthrough of my talk at [CocoaHeads Sthlm, April 3 2017](https://www.youtube.com/watch?v=LuKehlKoN7o&lc=z22qu35a4xawiriehacdp435fnpjgmq2f54mjmyhi2tw03c010c.1502618893412377),
+This is a summary of my talk at [CocoaHeads Sthlm, April 3 2017]({{page.video}}),
 where I covered:
 
-* Discussions about app setup and protocol-driven development
-* Using `Alamofire` to fetch data from a restaurant API (Yelp)
-* Using `AlamofireObjectMapper` & `ObjectMapper` to map API data to Swift objects
-* Using `Realm` as a database cache, to store fetched API data
+* A brief discussion on app setup and protocol-driven development
+* Using `Alamofire` to fetch data from an external api (Yelp)
+* Using `AlamofireObjectMapper` & `ObjectMapper` to map api data to Swift objects
+* Using `Realm` as a database cache, to store fetched api data
 * Using Alamofire´s `RequestRetrier` to retry requests
 * Using Alamofire´s `RequestAdapter` to adapt and decorate requests 
-* Managing dependencies with Dependency Injection and [Dip](https://github.com/AliSoftware/Dip)
+* Managing dependencies with Dependency Injection and [Dip]({{page.dip}})
 
 In this post, I'll recreate this entire app from scratch, with some modifications.
-I will modify it to use a fake API instead of the Yelp API. More on this later.
+I will modify it to use a fake api instead. More on this later.
+
+
+## Update information
+
+This old blog post was updated December 21, 2018, together with the external git
+repository, which contains a demo app, as well as the static api.
 
 
 ## Video
 
-You can [watch the original talk here](https://www.youtube.com/watch?v=LuKehlKoN7o&lc=z22qu35a4xawiriehacdp435fnpjgmq2f54mjmyhi2tw03c010c.1502618893412377). It does
-focus more on the concepts than on the code, but maybe that talk and this post is
-a good complement to eachother?
+You can [watch the original talk here]({{page.video}}).
+It focuses more on concepts than code, though, but maybe that talk and this post
+are good complements to eachother?
 
 
 ## Prerequisites
 
-For this tutorial, I expect that you know how [CocoaPods](https://cocoapods.org/)
+For this tutorial, I expect that you know how [CocoaPods]({{page.cocoapods}}) do
 work. I will use terms like `podfile`, expecting you to know what it means.
 
 
 ## Source Code
 
-I recommend you to create a blank project and work through this tutorial yourself.
-The source code is up on [GitHub](https://github.com/danielsaidi/AlamofireRealmDemo).
+I recommend that you create an empty app project then work through this tutorial
+by coding. The source code is up on [GitHub]({{page.github}}), where the `master`
+branch contains the demo app and `gh-pages` contains the code for the static api.
 
-If you want to run the demo application in the repo, you have to run `pod install`
-from the demo folder, then open the `.xcworkspace` file instead of `.xcodeproj`.
+If you want to run the demo app in the repo, you must run `pod install` from the
+demo folder, then open the `.xcworkspace` file instead of `.xcodeproj`.
 
 
 ## Disclaimer 
@@ -49,45 +60,43 @@ from the demo folder, then open the `.xcworkspace` file instead of `.xcodeproj`.
 In large app projects, I prefer to extract as much code and logic as possible to
 separate libraries, which I then use as decoupled building blocks. For instance,
 I would keep domain logic in a domain library, which doesn't know anything about
-the app. In this small project, however, I will keep the domain model in the app.
+the app. In this small project, however, I will keep it all together.
 
 I use to separate public and private functions and any interface implementations
 into extensions as well, but will skip that pattern in this demo, so that we get
 as little code and conventions as possible. 
 
 
-## Why use a static API?
+## Why use a static api?
 
-In this demo, we will use a static API to fetch movies in different ways. The API
-is a static Jekyll web with a small movie collection, that lets us grab top rated
-and top grossing movies, as well as single movies by id. The api's code is in the
-`gh-pages` branch of the demo repository.
+In the demo, we will use a static api to fetch movies in different ways. The api
+is a static Jekyll web site with a small movie collection, that lets us grab top
+rated and top grossing movies, as well as single movies by id.
 
-If you want to have a look at the data that is returned from the API, you can use
-these links:
+If you want to have a look at the static api data model, you can use these links:
 
-* [Get a fake auth token](http://danielsaidi.com/AlamofireRealmDemo/api/auth)
-* [Get a single movie by id](http://danielsaidi.com/AlamofireRealmDemo/api/movies/1)
-* [Get top grossing movies 2016](http://danielsaidi.com/AlamofireRealmDemo/api/movies/topGrossing/2016)
-* [Get top grossing movies 2016 - sorted on rating](http://danielsaidi.com/AlamofireRealmDemo/api/movies/topRated/2016)
+* [Source Code]({{page.source}})
+* [Get a fake auth token]({{page.api}}/auth)
+* [Get a single movie by id]({{page.api}}/movies/1)
+* [Get top grossing movies 2016]({{page.api}}/movies/topGrossing/2016)
+* [Get top grossing movies 2016 - sorted on rating]({{page.api}}/movies/topRated/2016)
 
-This limited api hopefully lets us focus on Alamofire and Realm instead of having
-to understand an external API, set up a developer account, handle auth logic etc.
-If that sounds good to you, let's buckle up and let's go!
+The limited api hopefully lets us focus on Alamofire and Realm instead of having
+to understand an external api, set up a developer account, handle auth logic etc.
 
 
 ## Step 1 - Define the domain model
 
-Start by creating a clean Xcode project. I went with a single page iOS storyboard
-app, but you can set it up in any way you like. tvOS perhaps? :)
+Start by creating a clean Xcode project. I went with a simple iOS storyboard app,
+but you can set it up in any way you like.
 
-The app will fetch movie data from our API. A `Movie` has basic info and a `cast`
+The app will fetch movie data from our api. A `Movie` has basic info and a `cast`
 array of `Actor` objects. For simplicity, `Actor` only has a name and is used to
 show how amazingly easy recursive mapping is with Alamofire.
  
-To avoid an app that is coupled to a specific domain model implementation, let us
-define this model as protocols. Create a `Domain` folder in the project root, add
-a `Model` folder to it then add these two files to `Model`:
+To avoid an app that is coupled to a specific model, let us define this model as
+protocols. Create a `Domain` folder in the project root, add a `Model` folder to
+it then add these two files to `Model`:
 
 ```swift
 // Movie.swift
@@ -117,14 +126,14 @@ protocol Actor {
 }
 ```
 
-As you will see later, our app will only use protocols. Not implementations. This
-makes it super easy to switch out the implementations used by the app. Stay tuned.
+As you'll see later, our app will only use protocols. This makes it very easy to
+switch out the implementations used by the app, whenever needed.
 
 
 ## Step 2 - Define the domain logic
 
-Now, let's describe how the app should fetch movies from our API. Add a `Services`
-sub folder to `Domain` then add this file:
+Now let's describe how the app should fetch movies from our api. Add a `Services`
+sub folder to `Domain`, then add this file:
 
 ```swift
 // MovieService.swift
@@ -134,7 +143,6 @@ import Foundation
 typealias MovieResult = (_ movie: Movie?, _ error: Error?) -> ()
 typealias MoviesResult = (_ movies: [Movie], _ error: Error?) -> ()
 
-
 protocol MovieService: class {
     
     func getMovie(id: Int, completion: @escaping MovieResult)
@@ -143,22 +151,19 @@ protocol MovieService: class {
 }
 ```
 
-It took me a while to start using `typealias`, but I really like it now since it
-simplifies describing async results and makes the code more readable.
-
-This service tells us that we will be able to get movies asynchronously (well, a
-completion block implies it, but doesn't enforce async). The result data for the
-array functions will be indentically formatted, while the third returns a single
-optional object.
+It took me a while to start using `typealias`, but I love it now, since it makes
+the code more readable. Basically, this service tells us that we will be able to
+get movies asynchronously (well, rather, a completion block implies it, but does
+not enforce async) - both a single, optional movie as well as movie collections.
 
 
-## Step 3 - Create an API-specific domain model
+## Step 3 - Create an api specific domain model
 
-Before we can add an API-specific implementation to the project, we must add two
-`pods` to `podfile` - `Alamofire` and `AlamofireObjectMapper`. Run `pod install`,
+Before we can add an api specific implementation to the project, we must add two
+`pods` to `podfile` - `Alamofire` and `AlamofireObjectMapper`. Run `pod install`
 then open the generated workspace.
 
-Now create an `API` folder in the project root, add a `Model` folder to it, then
+Now create an `Api` folder in the project root, add a `Model` folder to it, then
 add these two files to `Model`:
 
 ```swift
@@ -170,7 +175,6 @@ class ApiMovie: Movie, Mappable {
     
     required public init?(map: Map) {}
     
-
     var id = 0
     var name = ""
     var year = 0
@@ -202,7 +206,6 @@ import ObjectMapper
 class ApiActor: Actor, Mappable {
     
     required public init?(map: Map) {}
-    
 
     var name = ""
     
@@ -216,23 +219,24 @@ class ApiActor: Actor, Mappable {
 These classes implement the domain model, with additional mapping. `ApiActor` is
 pretty straightforward, while `ApiMovie` can be further described:
 
-* `releaseDate` is parsed with a DateTransform. We may have to adjust this later.
+* `releaseDate` is parsed with `DateTransform`. We may have to adjust this later.
 
 * `Movie` has an `[Actor]` array, but the mapping requires `[ApiActor]`. We thus
 use a private `_cast` property for mapping and have a calculated `cast` property.
 
 If we have set things up properly, we should now be able to point Alamofire to a
-valid api url and recursively parse movie data without any effort.
+valid url and recursively parse movie data with little effort.
 
 
-## Step 4 - Setup the core API logic
+## Step 4 - Setup the core api logic
 
-Before we create an API-specific `MovieService` implementation, let's setup some
-core API logic in the `API` folder.
+Before we create an api specific `MovieService` implementation, let's setup some
+core api logic in the `api` folder.
 
-### Managing API environments
 
-Since we developers often have to switch between different API environments (e.g.
+### Managing api environments
+
+Since we developers often have to switch between different api environments (e.g.
 test and production) I use to have an enum where I manage available environments.
 I know we only have a single environment in this app, but let's create it anyway:
 
@@ -243,19 +247,18 @@ import Foundation
 
 enum ApiEnvironment: String { case
     
-    production = "http://danielsaidi.com/AlamofireRealmDemo/api/"
+    production = "http://danielsaidi.com/presentation_2017-04-03_AlamofireRealm/api/"
     
     var url: String {
         return rawValue
     }
 }
-
 ```
 
 
-### Managing API routes
+### Managing api routes
 
-With this environment in place, we can list all available routes in another enum:
+With this environment in place, we can list available api routes in another enum:
 
 ```swift
 // ApiRoute.swift
@@ -283,9 +286,9 @@ enum ApiRoute { case
 Since `year` and `id` are dynamic route segments, we use parametered enum cases.
 
 
-### Managing API context
+### Managing api context
 
-I usually have an `ApiContext` class that holds API-specific information for the
+I usually have an `ApiContext` class that holds api specific information for the
 app, such as environment and tokens. If you use a singleton, every context-based
 service will automatically be affected when the context is modified.
 
@@ -318,13 +321,16 @@ class NonPersistentApiContext: ApiContext {
 }
 ```
 
-We can now inject this context into all out API-specific service implementations.
+We can now inject this context into all out api specific service implementations.
+If we later would like to create a persistent context, e.g. one that saves token
+data in `UserDefault`, we would just have to create another implementation, then
+replace the implementation we use in our app.
 
 
-### Specifying basic API behavior
+### Specifying basic api behavior
 
-To simplify how to talk with the API using Alamofire, let us create a base class
-for our API-based services. Add this file to a `Services` sub folder:
+To simplify how to talk with the api using Alamofire, let us create a base class
+for our api-based services. Add this file to a `Services` sub folder:
 
 ```swift
 // AlamofireService.swift
@@ -375,18 +381,18 @@ class AlamofireService {
 }
 ``` 
 
-Restricting our services to only request `ApiRoute` ensures that the app does not
-make any unspecified requests. If you need to call custom URLs, I suggest you add
+Restricting our services to only request `ApiRoute` ensures that the app doesn't
+make any unspecified requests. If you need to call custom URLs, I suggest adding
 a `.custom(...)` case in the `ApiRoute` enum.
 
-Ok, that was a long preparation to setup up a good foundation for the future, but
-I think that we are now ready to fetch some movies from the API.
+Ok, that was a pretty long setup, but I think that we are now ready to load some
+movies from the api.
 
 
-## Step 5 - Create an API-based movie service
+## Step 5 - Create an api-based movie service
 
-Let's create an API-based movie service and fetch some movies from our API, shall
-we? Add this file to the `Services` sub folder, next to `AlamofireService`:
+Let's create an api-based movie service and fetch some movies from our api! Just
+add this file to the `Services` sub folder, next to `AlamofireService`:
 
 ```swift
 import Alamofire
@@ -419,19 +425,21 @@ class AlamofireMovieService: AlamofireService, MovieService {
 
 As you see, the implementation is super-simple. It just performs get requests on
 the routes and specify the return type. Alamofire and AlamofireObjectMapper then
-take care of fetching and mapping the returned data.
+automatically take care of fetching and mapping the api response.
 
-`getMovie` uses `responseObject`, while the other functions use `responseArray`.
-This is because a single movie is returned as a single object while top grossing
-and top rated movies are returned as arrays. If these arrays were returned in an
-embedded object (very common), you would have to specify a new API-specific type
-that can map that return type, then use `responseObject` with that type.
+As you can also see, `getMovie` uses `responseObject`, while the other functions
+use `responseArray`. This is because a single movie is returned as single object
+while top grossing and top rated movies are instead returned as arrays. If these
+arrays were instead part of a response object (much recommended), you would have
+to specify a new api model that can map that response, then use `responseObject`.
+This would give you a lot more future flexibility, so I'd suggest that you avoid
+using arrays in your api.
 
 
 ## Step 6 - Perform your very first request
 
-We will now setup our app to fetch data from the API. Remove all the boilerplate
-code from `AppDelegate` and `ViewController`, then add this to `ViewController`:
+We will now setup our app to fetch data from the api. Remove all the boilerplate
+code and add this to `ViewController`:
 
 ```swift
 override func viewDidLoad() {
@@ -451,7 +459,7 @@ override func viewDidLoad() {
 
 **IMPORTANT** Before you can do this, you must allow the app to perform external
 requests. Just add this to `Info.plist` (in a real world app, you should specify
-the exact domains):
+the exact domains your app allows):
 
 ```xml
 <key>NSAppTransportSecurity</key>
@@ -477,7 +485,7 @@ Found 10 movies:
    Doctor Strange
 ```
 
-If you see this in Xcode's log, the app loads movie data from the API. Well done!
+If you see this in Xcode's log, the app loads movie data from the api. Well done!
 
 Now change the print format for each movie to look like this:
 
@@ -502,13 +510,14 @@ Found 10 movies:
 ```
 
 Oooops! Seems like the date parsing does not work. I TOLD you that we would have
-fix this...so let's fix it.
+fix this. Let's do it.
 
 
 ## Step 7 - Fix date parsing
 
-The problem is that the API uses a different date format than expected. We will
-solve this with a `DateTransform` extension. Place it in an `Extensions` folder:
+The problem is that the api uses a different date format than expected. This can
+be solved by replacing which `DateTransform` we use. Create a new `DateTransform`
+extension and place it in an `Extensions` folder:
 
 ```swift
 DateTransform_Custom.swift
@@ -554,12 +563,13 @@ as well. Time to celebrate! ...then return here for some database persistency.
 
 ## Step 8 - Create a Realm-specific domain model
 
-When you get data from an API, it does not hurt to cache some data in a database
-cache. A very convenient database engine is `Realm`, so let's try it out.
+When you get data from an api, it does not hurt to store some data in a database,
+e.g. for offline support. A very convenient database engine is `Realm`, so let's
+try it out.
 
 Add a `Realm` folder to the application root, then add a `Model` and a `Services`
 folder to it. Now, let's create...wait! Before we can use Realm, we have to grab
-it from CocoaPods. Add `RealmSwift` to the `podfile`, then add this bottommost:
+it from CocoaPods. Add `RealmSwift` to `podfile`, then add this bottommost:
 
 ```
 post_install do |installer|
@@ -572,12 +582,11 @@ end
 ```
 
 After running `pod install`, we can now create some Realm-specific model classes.
-They will either be created manually as we map and persist data from the API, or
+They will either be created manually as we map and persist data from the api, or
 automatically as we fetch data from the database.
 
 Realm will take care of the latter case, but we have to find a way to easily map
-API objects to Realm objects. That is easily done. Add these files to the `Model`
-folder:
+api objects to Realm objects. Easily done: add these files to the `Model` folder:
 
 ```swift
 // RealmMovie.swift
@@ -640,7 +649,7 @@ class RealmActor: Object, Actor {
 Both classes inherit `Realm`'s `Object` class and have a convenience initializer
 that copies properties from another instance of the protocol they implement.
 
-Like in the API model, `RealmActor` is pretty straightforward, while `RealmMovie`
+Like in the api model, `RealmActor` is pretty straightforward, while `RealmMovie`
 is more complex. It has a private `_cast` property, which is used as the backing
 value for `cast`. `_cast` is a Realm `List<RealmActor>`, while `cast` is a Swift
 `[Actor]`, just like in the protocol.
@@ -649,7 +658,7 @@ value for `cast`. `_cast` is a Realm `List<RealmActor>`, while `cast` is a Swift
 ## Step 9 - Create a Realm-specific movie service
 
 Now let's add a Realm-specific `MovieService` that lets us store movies from the
-API to Realm. Add this file to the `Services` folder:
+api in Realm. Add this file to the `Services` folder:
 
 ```swift
 // RealmMovieService.swift
@@ -663,9 +672,9 @@ class RealmMovieService: MovieService {
     }
     
     
-    fileprivate let baseService: MovieService
+    private let baseService: MovieService
     
-    fileprivate var realm: Realm { return try! Realm() }
+    private var realm: Realm { return try! Realm() }
     
     
     func getMovie(id: Int, completion: @escaping MovieResult) {
@@ -684,50 +693,50 @@ class RealmMovieService: MovieService {
     }
     
     
-    fileprivate func getMovieFromDb(id: Int, completion: @escaping MovieResult) {
+    private func getMovieFromDb(id: Int, completion: @escaping MovieResult) {
         let obj = realm.object(ofType: RealmMovie.self, forPrimaryKey: id)
         completion(obj, nil)
     }
     
-    fileprivate func getMovieFromService(id: Int, completion: @escaping MovieResult) {
+    private func getMovieFromService(id: Int, completion: @escaping MovieResult) {
         baseService.getMovie(id: id) { (movie, error) in
             self.persist(movie)
             completion(movie, error)
         }
     }
     
-    fileprivate func getTopGrossingMoviesFromDb(year: Int, completion: @escaping MoviesResult) {
+    private func getTopGrossingMoviesFromDb(year: Int, completion: @escaping MoviesResult) {
         let objs = realm.objects(RealmMovie.self).filter("year == \(year)")
         let sorted = objs.sorted { $0.grossing > $1.grossing }
         completion(Array(sorted), nil)
     }
     
-    fileprivate func getTopGrossingMoviesFromService(year: Int, completion: @escaping MoviesResult) {
+    private func getTopGrossingMoviesFromService(year: Int, completion: @escaping MoviesResult) {
         baseService.getTopGrossingMovies(year: year) {  (movies, error) in
             self.persist(movies)
             completion(movies, error)
         }
     }
     
-    fileprivate func getTopRatedMoviesFromDb(year: Int, completion: @escaping MoviesResult) {
+    private func getTopRatedMoviesFromDb(year: Int, completion: @escaping MoviesResult) {
         let objs = realm.objects(RealmMovie.self).filter("year == \(year)")
         let sorted = objs.sorted { $0.rating > $1.rating }
         completion(Array(sorted), nil)
     }
     
-    fileprivate func getTopRatedMoviesFromService(year: Int, completion: @escaping MoviesResult) {
+    private func getTopRatedMoviesFromService(year: Int, completion: @escaping MoviesResult) {
         baseService.getTopRatedMovies(year: year) {  (movies, error) in
             self.persist(movies)
             completion(movies, error)
         }
     }
     
-    fileprivate func persist(_ movie: Movie?) {
+    private func persist(_ movie: Movie?) {
         guard let movie = movie else { return }
         persist([movie])
     }
     
-    fileprivate func persist(_ movies: [Movie]) {
+    private func persist(_ movies: [Movie]) {
         let objs = movies.map { RealmMovie(copy: $0) }
         try! realm.write {
             realm.add(objs, update: true)
@@ -742,7 +751,7 @@ instance. Why is that?
 `RealmMovieService` is a so called `decorator`, which uses a base implementation
 of a protocol it implements, to extend the base implementation with its on logic.
 In this case, our `baseService` is an `AlamofireMovieService`, but the decorator
-shouldn't care about how the base service works, just what the protocol promises.
+shouldn't know about how the base service works, just what the protocol promises.
 
 In this case, `RealmMovieService` will try to get data from the database, but at
 the same time, it will also try to get data from the base service. When the base
@@ -779,9 +788,10 @@ override func viewDidLoad() {
 
 In the code above, we rename the Alamofire service to `baseService`, then create
 a Realm service into which we inject `baseService`. The app is still loading top
-grossing movies using a `service` instance, but this time the service will first
-check the database, then call the API. However, the app does not care about this.
-It only cares about the protocol, not how it is implemented.
+grossing movies using a `service`, but now it will first check the database then
+call the api. However, the app does not care about this. It only cares about the
+protocol, not how it is implemented (in the code above, it actually DOES know of
+the concrete implementations, but we'll fix that later).
 
 The output will be the following, the first time we run the app with this setup:
 
@@ -790,7 +800,7 @@ Found 0 movies  (callback #1)
 Found 10 movies (callback #2)
 ```
 
-This happens because the database has no data, while the API will load 10 movies.
+This happens because the database has no data, while the api will load 10 movies.
 If you run the app again, the output should be:
 
 ```
@@ -810,43 +820,42 @@ Found 10 movies (callback #1)
 ERROR: The Internet connection appears to be offline.
 ```
 
-This happens because the database data can still be loaded, while the API cannot
+This happens because the database data can still be loaded, while the api cannot
 be called since the Internet connection is dead.
 
 We now have an app with offline support, that only refreshes its data whenever a
-call to the API provides the app with new data. All we had to do was to change a
-single line in the view controller, to use another service implementation.
+call to the api provides new data. All we had to do was to change two lines that
+determines which service implementation we use.
 
 
 ## Step 11 - Retry failing requests
 
 In the real world, a user most often has to authenticate her/himself in order to
-use some parts of an API. Authentication often returns a set of tokens, commonly
-an `auth token` and a `refresh token` (but how this works is up to the API).
+use some parts of an api. Authentication often returns a set of tokens, commonly
+an `auth token` and a `refresh token` (but how this works is up to the api).
 
 If the `auth token` and `refresh token` pattern is used, the authentication flow
 could look something like this:
 
-* If no auth token is available and the request fails with a 401, the app should
-show a login screen, since the user has to login.
-
-* If an auth token is available, the app can try to call the API with that token.
-
-* If an auth token is available, but the requests fail with a 401, the token may
-have expired. The app should use the refresh token to request new tokens.
-
-* If the refresh succeeds, the app will have new tokens and should automatically
-retry all previously failed requests.
-
-* If the refresh fails, the app should logout the user and show a login screen.
+ * If no tokens are available and a request fails with an HTTP 401, the user may
+ have to login (if the request is mandatory). If so, show a login screen/prompt.
+ * If tokens are available, the app should request the api with the `auth` token.
+ * If an `auth` token-based request fails with an HTTP 401, the `auth` token has
+ most probably expired. The app should then save any requests that fail with 401
+ and automatically use the `refresh` token to request new tokens from the api.
+ * If the refresh request succeeds, the app should parse the new tokens from the
+ response and retry any failed requests with these new tokens. It should use the
+ new tokens from now on.
+ * If the refresh request fails, the app should delete all tokens and logout the
+ user. If the app requires a logged in user, the app should show a login screen.
 
 Alamofire 4 makes this kind of logic **super simple** to implement, since it has
 a `RequestRetrier` protocol that we can implement and inject into Alamofire. The
 retrier will be notified about all failing requests, and lets you determine if a
-request should be retried or not, and if so how it should be retried.
+request should be retried or not.
 
 We will demonstrate this by faking a failing auth. First, add an `auth` route to
-`ApiRoute`, and have it return `auth` as path. Our static API will always return
+`ApiRoute`, and have it return `auth` as path. Our static api will always return
 the same "auth token" when this route is called.
 
 Second, add this file to `Domain/Services`:
@@ -857,7 +866,6 @@ Second, add this file to `Domain/Services`:
 import Foundation
 
 typealias AuthResult = (_ token: String?, _ error: Error?) -> ()
-
 
 protocol AuthService: class {
 
@@ -870,9 +878,8 @@ Before we implement it, we have to add a way to store any auth tokens we receive
 
 `Disclaimer:` As an app grows, I find it easier to separate the app into context
 related parts instead of class types. In other words, instead of the `Model` and
-`Services` grouping, the app should probably benefit from grouping the code into
-`Movies` and `Authentication` groups instead, where each group could contain all
-related functionality for that group, like views, extensions etc.
+`Services` grouping, the app should be grouped into `Movies` and `Authentication`
+groups instead.
 
 Ok, back to storing auth tokens. Remember what I told you about the `ApiContext`
 earlier? Well, it's a **PERFECT** place to store these tokens, so let's do just
@@ -882,8 +889,9 @@ that. Add an `authToken` property to the `ApiContext` protocol:
 var authToken: String? { get set }
 ```
 
-Also, add the property to `NonPersistentApiContext` (if we had a persistent one,
-it would remember the auth token even if restarted the app):
+Also, add this property to `NonPersistentApiContext` (if we had a persistent one,
+it would remember the auth token even if restarted the app, but that's something
+you could try to build yourself):
 
 ```swift
 var authToken: String?
@@ -901,10 +909,9 @@ import AlamofireObjectMapper
 class AlamofireAuthService: AlamofireService, AuthService {
     
     func authorizeApplication(completion: @escaping AuthResult) {
-        get(at: .auth).responseString {
-            (res: DataResponse<String>) in
+        get(at: .auth).responseString { [weak self] (res: DataResponse<String>) in
             if let token = res.result.value {
-                self.context.authToken = token
+                self?.context.authToken = token
             }
             completion(res.result.value, res.result.error)
         }
@@ -912,8 +919,8 @@ class AlamofireAuthService: AlamofireService, AuthService {
 }
 ``` 
 
-If the API request above succeeds, the token is saved in our context. This will
-make it available to all future API requests.
+If the request above succeeds, the token will be saved in our api context, which
+makes it available to all future api requests.
 
 Now, let's retry some requests! Add this file to the `Api` folder:
 
@@ -928,10 +935,10 @@ class ApiRequestRetrier: RequestRetrier {
     }
     
     
-    fileprivate let authService: AuthService
-    fileprivate let context: ApiContext
-    fileprivate var isAuthorizing = false
-    fileprivate var retryQueue = [RequestRetryCompletion]()
+    private let authService: AuthService
+    private let context: ApiContext
+    private var isAuthorizing = false
+    private var retryQueue = [RequestRetryCompletion]()
     
     
     func should(
@@ -949,7 +956,7 @@ class ApiRequestRetrier: RequestRetrier {
     }
     
     
-    fileprivate func authorize(with completion: @escaping RequestRetryCompletion) {
+    private func authorize(with completion: @escaping RequestRetryCompletion) {
         print("Authorizing application...")
         retryQueue.append(completion)
         guard !isAuthorizing else { return }
@@ -964,7 +971,7 @@ class ApiRequestRetrier: RequestRetrier {
         }
     }
 
-    fileprivate func printAuthResult(_ token: String?, _ error: Error?) {
+    private func printAuthResult(_ token: String?, _ error: Error?) {
         if let error = error {
             return print("Authorizing failed: \(error.localizedDescription)")
         } 
@@ -974,13 +981,13 @@ class ApiRequestRetrier: RequestRetrier {
         print("No token received - failing!")
     }
 
-    fileprivate func shouldRetryRequest(with url: URL?) -> Bool {
+    private func shouldRetryRequest(with url: URL?) -> Bool {
         guard let url = url?.absoluteString else { return false }
         let authPath = ApiRoute.auth.path
         return !url.contains(authPath)
     }
     
-    fileprivate func shouldRetryResponse(with statusCode: Int?) -> Bool {
+    private func shouldRetryResponse(with statusCode: Int?) -> Bool {
         return true // statusCode == 401
     }
 }
@@ -989,7 +996,7 @@ class ApiRequestRetrier: RequestRetrier {
 
 Whenever a request fails, Alamofire will ask the retrier if it should be retried.
 The retrier will trigger a retry if the request is not a failing auth (read more
-about the commented out 401 later down). If not, it just lets the request fail.
+about the commented out 401 later). If not, it just lets the request fail.
 
 If a request should be retried, it's added it to a retry queue. The retrier then
 triggers an authorization. Once it completes, the retrier checks if it succeeded.
@@ -1013,22 +1020,18 @@ should be refreshed. If this refresh fails, a 401 indicates that the user has to
 log in, since the tokens are invalid. Here, however, we will never receive a 401.
 We therefore have to trigger these mechanisms by doing the following:
 
-* Kill the Internet connection and perform a clean install, so that the app does
-not have any cached data.
-
-* Add a breakpoint to the `authService.authorizeApplication` call in the retrier.
-
-* Run the app. The app should now fail the request and activate this breakpoint.
-
-* Bring the Internet connection back online and resume the app. This should make
-the authorization call succeed and have Alamofire successfully retry the request.
+ * Kill your connection and perform a clean install, to remove all stored data.
+ * Add a breakpoint to the retrier's `authService.authorizeApplication` call.
+ * Run the app. The app should now fail the request and activate this breakpoint.
+ * Bring the connection back online and resume the app.
+ * This should make the auth request succeed and have Alamofire retry the request.
 
 That's it! Alamofire should now retry any failing request that are not auth ones.
 
 
 ## Step 12 - Adapt all Alamofire requests
 
-Sometimes, you have to add custom headers to every request you make to an API. A
+Sometimes, you have to add custom headers to every request you make to an api. A
 common scenario is to add `Accept` information, auth tokens etc.
 
 To adapt any Alamofire requests before they are sent, you just have to implement
@@ -1046,9 +1049,7 @@ class ApiRequestAdapter: RequestAdapter {
         self.context = context
     }
     
-    
-    fileprivate let context: ApiContext
-    
+    private let context: ApiContext
     
     func adapt(_ request: URLRequest) throws -> URLRequest {
         guard let token = context.authToken else { return request }
@@ -1074,7 +1075,11 @@ That's it! Alamofire should now add the auth token to all requests, if it exists
 Well, I won't do this here, since it just add even more complexity to an already
 super-long tutorial. In the demo application, however, I have an `IoC` folder in
 which I use a library called [Dip](https://github.com/AliSoftware/Dip) to manage
-dependencies in the app. With IoC/DI in place, the view controller becomes clean:
+dependencies in the app. 
+
+With `Dip` in place, the view controller becomes a lot cleaner, with the benefit
+that the view controller no longer knows anything about the implementations used
+in the app:
 
 ```swift
 import UIKit
@@ -1091,7 +1096,7 @@ class ViewController: UIViewController {
     lazy var movieService: MovieService = IoC.resolve()
     
     
-    fileprivate var movies = [Movie]()
+    private var movies = [Movie]()
     
     
     @IBOutlet weak var tableView: UITableView? {
@@ -1111,7 +1116,7 @@ class ViewController: UIViewController {
             : movieService.getTopRatedMovies(year: 2016, completion: moviesCompletion)
     }
     
-    fileprivate func moviesCompletion(_ movies: [Movie], _ error: Error?) {
+    private func moviesCompletion(_ movies: [Movie], _ error: Error?) {
         if let error = error { fatalError(error.localizedDescription) }
         self.movies = movies
         self.tableView?.reloadData()
