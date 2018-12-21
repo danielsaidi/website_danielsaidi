@@ -2,12 +2,12 @@
 title:  "Alamofire + AlamofireObjectMapper + Realm"
 date:   2017-08-23 10:00:00 +0100
 tags:	ios alamofire realm swift
-video:  https://www.youtube.com/watch?v=LuKehlKoN7o&lc=z22qu35a4xawiriehacdp435fnpjgmq2f54mjmyhi2tw03c010c.1502618893412377
-github: https://github.com/danielsaidi/presentation_2017-04-03_AlamofireRealm
-source: https://github.com/danielsaidi/presentation_2017-04-03_AlamofireRealm/tree/gh-pages
-api:    https://danielsaidi.com/presentation_2017-04-03_AlamofireRealm/api
-dip:    https://github.com/AliSoftware/Dip
-cocoapods: https://cocoapods.org/
+video:  http://www.youtube.com/watch?v=LuKehlKoN7o&lc=z22qu35a4xawiriehacdp435fnpjgmq2f54mjmyhi2tw03c010c.1502618893412377
+github: http://github.com/danielsaidi/presentation_AlamofireMappableRealm
+source: http://github.com/danielsaidi/presentation_AlamofireMappableRealm/tree/gh-pages
+api:    http://danielsaidi.com/presentation_AlamofireMappableRealm/api
+dip:    http://github.com/AliSoftware/Dip
+cocoapods: http://cocoapods.org/
 ---
 
 
