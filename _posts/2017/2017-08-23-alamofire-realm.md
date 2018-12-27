@@ -1,29 +1,22 @@
 ---
-title:  "Alamofire + AlamofireObjectMapper + Realm"
+title:  "Alamofire + AlamofireObjectMapper + Realm (Swift 3)"
 date:   2017-08-23 10:00:00 +0100
 tags:	ios alamofire realm swift
-video:  http://www.youtube.com/watch?v=LuKehlKoN7o&lc=z22qu35a4xawiriehacdp435fnpjgmq2f54mjmyhi2tw03c010c.1502618893412377
-github: http://github.com/danielsaidi/presentation_AlamofireMappableRealm
-source: http://github.com/danielsaidi/presentation_AlamofireMappableRealm/tree/gh-pages
-api:    http://danielsaidi.com/demo_AlamofireMappableRealm/api
-dip:    http://github.com/AliSoftware/Dip
+
+api:    http://danielsaidi.com/demo_Alamofire_AlamofireObjectMapper_Realm/api
 cocoapods: http://cocoapods.org/
+dip:    http://github.com/AliSoftware/Dip
+github: http://github.com/danielsaidi/demo_Alamofire_AlamofireObjectMapper_Realm
+video:  http://www.youtube.com/watch?v=LuKehlKoN7o&lc=z22qu35a4xawiriehacdp435fnpjgmq2f54mjmyhi2tw03c010c.1502618893412377
 ---
 
 
 This is a summary of my talk at [CocoaHeads Sthlm, April 3 2017]({{page.video}}),
-where I covered:
+where I talked about using Alamofire, AlamofireObjectMapper and Realm to talk to
+an api, map its responses, automatically retry and adapt requests and how to use
+Realm to create implicit offline support.
 
-* A brief discussion on app setup and protocol-driven development
-* Using `Alamofire` to fetch data from an external api (Yelp)
-* Using `AlamofireObjectMapper` & `ObjectMapper` to map api data to Swift objects
-* Using `Realm` as a database cache, to store fetched api data
-* Using Alamofire´s `RequestRetrier` to retry requests
-* Using Alamofire´s `RequestAdapter` to adapt and decorate requests 
-* Managing dependencies with Dependency Injection and [Dip]({{page.dip}})
-
-In this post, I'll recreate this entire app from scratch, with some modifications.
-I will modify it to use a fake api instead. More on this later.
+In this post, I'll recreate the entire app from scratch, with some modifications.
 
 
 ## Update information
@@ -34,9 +27,8 @@ repository, which contains a demo app, as well as the static api.
 
 ## Video
 
-You can [watch the original talk here]({{page.video}}).
-It focuses more on concepts than code, though, but maybe that talk and this post
-are good complements to eachother?
+You can watch the original talk [here]({{page.video}}). The talk focuses more on
+concepts than code, so that talk and this post complete eachother pretty well.
 
 
 ## Prerequisites
@@ -49,10 +41,8 @@ work. I will use terms like `podfile`, expecting you to know what it means.
 
 I recommend that you create an empty app project then work through this tutorial
 by coding. The source code is up on [GitHub]({{page.github}}), where the `master`
-branch contains the demo app and `gh-pages` contains the code for the static api.
-
-If you want to run the demo app in the repo, you must run `pod install` from the
-demo folder, then open the `.xcworkspace` file instead of `.xcodeproj`.
+branch contains source code for the demo app and `gh-pages` contains source code
+for the static api.
 
 
 ## Disclaimer 
@@ -75,7 +65,6 @@ rated and top grossing movies, as well as single movies by id.
 
 If you want to have a look at the static api data model, you can use these links:
 
-* [Source Code]({{page.source}})
 * [Get a fake auth token]({{page.api}}/auth)
 * [Get a single movie by id]({{page.api}}/movies/1)
 * [Get top grossing movies 2016]({{page.api}}/movies/topGrossing/2016)
