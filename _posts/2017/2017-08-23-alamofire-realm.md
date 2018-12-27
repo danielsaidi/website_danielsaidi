@@ -5,7 +5,7 @@ tags:	ios alamofire realm swift
 video:  http://www.youtube.com/watch?v=LuKehlKoN7o&lc=z22qu35a4xawiriehacdp435fnpjgmq2f54mjmyhi2tw03c010c.1502618893412377
 github: http://github.com/danielsaidi/presentation_AlamofireMappableRealm
 source: http://github.com/danielsaidi/presentation_AlamofireMappableRealm/tree/gh-pages
-api:    http://danielsaidi.com/presentation_AlamofireMappableRealm/api
+api:    http://danielsaidi.com/demo_AlamofireMappableRealm/api
 dip:    http://github.com/AliSoftware/Dip
 cocoapods: http://cocoapods.org/
 ---
