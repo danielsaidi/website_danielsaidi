@@ -8,6 +8,8 @@ cocoapods: http://cocoapods.org/
 dip:    http://github.com/AliSoftware/Dip
 github: http://github.com/danielsaidi/demo_Alamofire_AlamofireObjectMapper_Realm
 video:  http://www.youtube.com/watch?v=LuKehlKoN7o&lc=z22qu35a4xawiriehacdp435fnpjgmq2f54mjmyhi2tw03c010c.1502618893412377
+
+new:    http://danielsaidi.com/blog/2018/12/27/alamofire-objectmapper
 ---
 
 
@@ -21,8 +23,9 @@ In this post, I'll recreate the entire app from scratch, with some modifications
 
 ## Update information
 
-This old blog post was updated December 21, 2018, together with the external git
-repository, which contains a demo app, as well as the static api.
+I have written a new post that is based on this, but that uses Swift 4.2 instead.
+It also changes some fundamental things and is more in line with modern Swift so
+you should [check it out instead]({{page.new}}).
 
 
 ## Video
