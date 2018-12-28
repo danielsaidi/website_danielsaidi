@@ -17,7 +17,7 @@ This is an updated version of talk I gave at CocoaHeads Sthlm in April 2017. The
 talk was on how to use Alamofire to talk to an api, AlamofireObjectMapper to map
 its responses, use the Alamofire `RequestRetrier` to automatically retry failing
 requests and use `RequestAdapter` to adapt all requests. I also demonstrated how
-to use Realm to create implicit offline support, using the decorator pattern.
+to use Realm to seamlessly add offline support, using the decorator pattern.
 
 In this post, I'll recreate the entire app from scratch, with some modifications.
 I have updated the [original post]({{page.original}}) to Swift 4.2. It uses some
@@ -35,9 +35,9 @@ Regarding the demo app structure, I normally prefer to extract as much logic and
 code as possible to separate libraries, which I then can use as decoupled blocks.
 For instance, I would keep my domain logic in a domain library that doesn't know
 anything about the app. I'd also keep all api logic in an api library that knows
-about the domain. In this small project, however, I will keep it simple. However,
-think of the `Api` folder as a framework, and the `auth` and `movies` folders as
-part of a `domain` framework.
+about the domain, but not about the app. In this project, though, I will keep it
+simple. Think of the `Api` folder as a separate library, and `Auth` and `Movies`
+as part of a `Domain` library.
 
 
 ## Update information
@@ -50,15 +50,10 @@ that this post changes the following:
 you can use and extend your model, model collections etc. so using structs where
 applicable is something that I really recommend.
 * I no longer use model protocols. I instead use api-specific model structs that
-can be used to create domain-specific models, using a `convert()` function. This
-removes a lot of fiddling to make the api mapping work while still conforming to
-a model protocol (e.g. having a private property for mapping and a public one to
-conform to the protocol).
-* The Swift 4.2 demo app does not include Realm and the offline support layer. I
-think it's better to focus on Alamofire and keep Realm out of the discussions. I
-may add offline support later on, using some `Codable` logic instead of Realm.
-* The Swift 4.2 demo app has much more comments in the code, to guide developers
-and explain what the various parts do.
+can be converted to domain-specific models. This removes much fiddling needed to
+make the api mapping work while still conforming to a model protocol.
+* The Swift 4.2 demo app has much more comments, to guide developers and explain
+what the various parts do. The code is also a lot better ;)
 
 
 ## Video
@@ -815,6 +810,12 @@ manager.adapter = ApiRequestAdapter(context: context)
 ```
 
 That's it! Alamofire should now add the auth token to all requests, if it exists.
+
+
+## Step 11 - Add Realm support
+
+**TBD** This section is yet to be written, but I have added an implementation to
+the demo app, so check out the source code for more information.
 
 
 ## Going further - Dependency Injection
