@@ -3,11 +3,12 @@ title:  "Alamofire + AlamofireObjectMapper (Swift 4.2)"
 date:   2018-12-27 10:00:00 +0100
 tags:	ios alamofire realm swift
 
-api:    http://danielsaidi.com/demo_Alamofire_AlamofireObjectMapper_Realm/api
+api: http://danielsaidi.com/demo_Alamofire_AlamofireObjectMapper_Realm/api
 cocoapods: http://cocoapods.org/
-dip:    http://github.com/AliSoftware/Dip
+dip: http://github.com/AliSoftware/Dip
 github: http://github.com/danielsaidi/demo_Alamofire_AlamofireObjectMapper_Realm
-video:  http://www.youtube.com/watch?v=LuKehlKoN7o&lc=z22qu35a4xawiriehacdp435fnpjgmq2f54mjmyhi2tw03c010c.1502618893412377
+video: http://www.youtube.com/watch?v=LuKehlKoN7o&lc=z22qu35a4xawiriehacdp435fnpjgmq2f54mjmyhi2tw03c010c.1502618893412377
+twitter: http://twitter.com/danielsaidi
 
 original: http://danielsaidi.com/blog/2017/08/23/alamofire-realm
 ---
@@ -773,7 +774,7 @@ following:
 That's it! Alamofire should now retry any failing request that are not auth ones.
 
 
-## Step 10 - Adapt all Alamofire requests
+## Step 10 - Adapt all api requests
 
 Sometimes, you have to add custom headers to every request you make to an api. A
 common scenario is to add `Accept` information, auth tokens etc.
@@ -812,29 +813,343 @@ manager.adapter = ApiRequestAdapter(context: context)
 That's it! Alamofire should now add the auth token to all requests, if it exists.
 
 
+## Adding offline support with Realm
+
+We will now add offline support to our app, so that we can still fetch data when
+we are offline. There are a million ways to do this, but we will do it by adding
+Realm to our app and build a new services that stores movies to a local database.
+
+When we create this new service, we will use the *decorator pattern*, where this
+new service will use a *base service* to fetch data, then add the database logic
+on top of this. The decorator pattern is great when you want to compose services
+together and let each service only be responsible for its own scope. It makes it
+very easy to test each service and provides you with a flexible, composable code
+base, where you can use as many implememtations as you need.
+
+
 ## Step 11 - Add Realm support
 
-**TBD** This section is yet to be written, but I have added an implementation to
-the demo app, so check out the source code for more information.
+Before we can start to create a Realm-specific implementation of our service and
+domain model, we have to add Realm support to our app.
+
+To do this, just add `RealmSwift` to `podfile` and run `pod install`. When Realm
+has been installed, we can create proceed with creating a Realm-specific model.
 
 
-## Going further - Dependency Injection
+## Step 12 - Create a Realm-specific model
 
-I will not cover dependency injection here, since it would add even more complex
-discussions to an already long and exhaustive tutorial. In the demo app, however,
-I have setup IoC/DI with [Dip](https://github.com/AliSoftware/Dip) and registers
-all dependencies from the `AppDelegate`, as the app launches. 
+Unlike the old Swift 3 implementation of this app, I no longer use protocols for
+the domain model. Instead, I use structs that I map between.
 
-With dependency injection in place, the view controller becomes very clean, with
-the benefit that the app no longer knows anything about which implementations we
-use. The only part of the app that knows about the existence of an api, database
-mechanisms, caches etc. are the classes in the `IoC` folder. This makes it super
-easy to change implementations later on, since we just have to register new ones
-at one single place.
+As such, the Realm-specific model will not inherit any other class nor implement
+any model protols. Instead, it will just define the properties it needs, as well
+as add some mapping functions.
 
-I will not talk more about dependency injection, but have a look at the demo app
-and let me know if you'd like a post about dependency injection, in which I have
-the space needed to really discuss this topic in full.
+Create a new `Realm` folder in the app root and these two Realm classes to it:
+
+```swift 
+import RealmSwift
+
+class RealmMovieActor: Object {
+    
+    convenience init(from actor: MovieActor) {
+        self.init()
+        self.name = actor.name
+    }
+    
+    @objc dynamic var name = ""
+    
+    func convert() -> MovieActor {
+        return MovieActor(name: name)
+    }
+}
+```
+
+```swift
+import RealmSwift
+
+class RealmMovie: Object {
+    
+    // MARK: - Initialization
+    
+    convenience init(from: Movie) {
+        self.init()
+        self.id = from.id
+        self.name = from.name
+        self.year = from.year
+        self.releaseDate = from.releaseDate
+        self.grossing = from.grossing
+        self.rating = from.rating
+        from.cast
+            .map { RealmMovieActor(from: $0) }
+            .forEach { self.cast.append($0) }
+    }
+    
+    
+    // MARK: - Properties
+    
+    @objc dynamic var id = 0
+    @objc dynamic var name = ""
+    @objc dynamic var year = 0
+    @objc dynamic var releaseDate = Date(timeIntervalSince1970: 0)
+    @objc dynamic var grossing = 0
+    @objc dynamic var rating = 0.0
+    let cast = List<RealmMovieActor>()
+    
+    
+    // MARK: - Primary Key
+    
+    override class func primaryKey() -> String? {
+        return "id"
+    }
+    
+    
+    // MARK: - Functions
+    
+    func convert() -> Movie {
+        return Movie(
+            id: id,
+            name: name,
+            year: year,
+            releaseDate: releaseDate,
+            grossing: grossing,
+            rating: rating,
+            cast: cast.map { $0.convert() }
+        )
+    }
+}
+```
+
+As you can see, just as the api-specific models, these are regular Realm objects
+that can be mapped to our domain model structs. Both inherit the `Realm` `Object`
+class and have a convenience initializer that copies a domain model instance, as
+will be needed as we now create our Realm-based movie service.
+
+
+## Step 12 - Create a Realm-specific movie service
+
+Now let's add a Realm-specific movie service that lets us store movies and movie
+actors from the api into Realm. Add this file to the `Realm` folder:
+
+```swift
+import RealmSwift
+
+class RealmMovieService: MovieService {
+
+    
+    // MARK: - Initialization
+    
+    init(baseService: MovieService) {
+        self.baseService = baseService
+    }
+    
+    
+    // MARK: - Dependencies
+    
+    private let baseService: MovieService
+    private var realm: Realm { return try! Realm() }
+    
+    
+    // MARK: - Functions
+    
+    func getMovie(id: Int, completion: @escaping MovieResult) {
+        getMovieFromDb(id: id, completion: completion)
+        getMovieFromBaseService(id: id, completion: completion)
+    }
+    
+    func getTopGrossingMovies(year: Int, completion: @escaping MoviesResult) {
+        getTopGrossingMoviesFromDb(year: year, completion: completion)
+        getTopGrossingMoviesFromBaseService(year: year, completion: completion)
+    }
+    
+    func getTopRatedMovies(year: Int, completion: @escaping MoviesResult) {
+        getTopRatedMoviesFromDb(year: year, completion: completion)
+        getTopRatedMoviesFromBaseService(year: year, completion: completion)
+    }
+}
+
+
+// MARK: - Database Functions
+
+private extension RealmMovieService {
+    
+    func getMovieFromDb(id: Int, completion: @escaping MovieResult) {
+        let obj = realm.object(ofType: RealmMovie.self, forPrimaryKey: id)
+        guard let movie = obj?.convert() else { return }
+        completion(movie, nil)
+    }
+    
+    func getTopGrossingMoviesFromDb(year: Int, completion: @escaping MoviesResult) {
+        let objs = realm.objects(RealmMovie.self).filter("year == \(year)")
+        let sorted = objs.sorted { $0.grossing > $1.grossing }.map { $0.convert() }
+        completion(sorted, nil)
+    }
+    
+    func getTopRatedMoviesFromDb(year: Int, completion: @escaping MoviesResult) {
+        let objs = realm.objects(RealmMovie.self).filter("year == \(year)")
+        let sorted = objs.sorted { $0.rating > $1.rating }.map { $0.convert() }
+        completion(sorted, nil)
+    }
+    
+    func persist(_ movie: Movie?) {
+        persist([movie].compactMap { $0 })
+    }
+    
+    func persist(_ movies: [Movie]) {
+        let objs = movies.map { RealmMovie(from: $0) }
+        try! realm.write {
+            realm.add(objs, update: true)
+        }
+    }
+}
+
+
+// MARK: - Base Service Functions
+
+private extension RealmMovieService {
+    
+    func getMovieFromBaseService(id: Int, completion: @escaping MovieResult) {
+        baseService.getMovie(id: id) { [weak self] (movie, error) in
+            self?.persist(movie)
+            completion(movie, error)
+        }
+    }
+    
+    func getTopGrossingMoviesFromBaseService(year: Int, completion: @escaping MoviesResult) {
+        baseService.getTopGrossingMovies(year: year) { [weak self] (movies, error) in
+            self?.persist(movies)
+            completion(movies, error)
+        }
+    }
+    
+    func getTopRatedMoviesFromBaseService(year: Int, completion: @escaping MoviesResult) {
+        baseService.getTopRatedMovies(year: year) { [weak self] (movies, error) in
+            self?.persist(movies)
+            completion(movies, error)
+        }
+    }
+}
+```
+
+As you can see, `RealmMovieService`'s initializer requires another `MovieService`
+instance, as I described earlier. This is the decorator pattern in action, where
+`RealmMovieService` is a so called `decorator`, that uses another implementation
+of the same a protocol it implements, to extend the base implementation with its
+on logic. In this case, our `baseService` is an `AlamofireMovieService`, but the
+decorator mustn't know anything about the base service's internal workings, only
+what the protocol promises.
+
+In this case, `RealmMovieService` will try to get data from the database, but at
+the same time, it will also try to get data from the base service. When the base
+service completes, `RealmMovieService` saves any data it receives. It then calls
+the incoming completion block to notify its caller about the new data.
+
+`Disclaimer:` This is an intentionally simple design. `RealmMovieService` always
+loads data from the database **and** from the base service. In a real app, you'd
+probably have some logic to determine if calling the base service is needed.
+
+
+## Step 13 - Put Realm into action
+
+Let's give the new movie service a try. Modify `viewDidLoad` to look like this:
+
+```swift
+override func viewDidLoad() {
+    super.viewDidLoad()
+    let env = ApiEnvironment.production
+    let context = NonPersistentApiContext(environment: env)
+    let baseService = AlamofireMovieService(context: context)
+    let service = RealmMovieService(baseService: baseService)
+    var invokeCount = 0
+    service.getTopGrossingMovies(year: 2016) { (movies, error) in
+        invokeCount += 1
+        if let error = error { return print(error.localizedDescription) }
+        print("Found \(movies.count) movies (callback #\(invokeCount))")
+    }
+}
+```
+
+As you can see, we have renamed the `AlamofireMovieService` to `baseService` and
+created a new `RealmMovieService` instance into which we inject the `baseService`.
+The app is still loading top grossing movies using a `service`, but the instance
+will now first check the database then call the api. However, the most important
+thing here is that the app doesn't care about any of this. Just as the decorator
+doesn't care about the internal workings of its base service, the app only cares
+about the protocol, not the implementation (in the code above, it actually knows
+about the implementation, but we'll fix that later).
+
+The output will be the following, the first time we run the app with this setup:
+
+```
+Found 0 movies  (callback #1)
+Found 10 movies (callback #2)
+```
+
+This happens because the database has no data, while the api will load 10 movies.
+If you run the app again, the output should be:
+
+```
+Found 10 movies (callback #1)
+Found 10 movies (callback #2)
+```
+
+This happens because the database now has data, which means that both completion
+calls will return 10 movies.
+
+Now bring the app offline and call `getTopRatedMovies` instead (Alamofire caches
+the previous result, so we have to fetch previously unfetched data). If you then
+run the app again, the output should be:
+
+```
+Found 10 movies (callback #1)
+ERROR: The Internet connection appears to be offline.
+```
+
+This happens because the database data can still be loaded, while the api cannot
+be called since the Internet connection is dead.
+
+We now have an app with offline support, that only refreshes its data whenever a
+call to the api provides new data. All we had to do was to change two lines that
+determines which service implementation we use.
+
+
+## Step 14 - Add Dependency Injection to the app
+
+Well, I won't show the specifics here, since it just add even more complexity to
+an already long post. In the demo app, however, I have an `IoC` folder, in which
+I use a library called [Dip]({{page.dip}}) to register and resolve dependencies. 
+
+By adding `Dip` to `podfile` and running `pod install`, we can make the app much
+cleaner and much more robust, since we'll register all dependencies when the app
+launches, then resolves any dependencies either with *constructor injection*, or
+by calling `IoC.resolve(...)`, which is required if you use storyboards.
+
+Take a look at the demo app if you are interested in the specifics. In short, it
+will let us remove a lot of code from our view controller, which setup then will
+just look like this:
+
+```swift
+import UIKit
+import Alamofire
+
+class ViewController: UIViewController {
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        reloadData(self)
+    }
+    
+    lazy var movieService: MovieService = IoC.resolve()
+    
+    ...
+}
+```
+
+With dependency injection in place, the app no longer knows anything about which
+implementations we use. The only part of the app that now knows about the api, a
+database etc. is the `IoC` folder, where everything is registered. This makes it
+very easy to change implementations later on, since we just have to register the
+new implementations at one single place.
 
 
 ## Conclusion
@@ -844,9 +1159,4 @@ It also injects a `RequestRetrier` and a `RequestAdapter` to Alamofire to change
 how it adapts all outgoing requests and handles any failing ones. Very nice!
 
 I hope this was helpful. Do not hesistate to throw your thoughts and ideas at me.
-
-All the best
-
-Daniel Saidi
-
-* Feedback me on Twitter: [@danielsaidi](http://twitter.com/danielsaidi)
+You can comment here or @ me on [Twitter]({{page.twitter}}).
