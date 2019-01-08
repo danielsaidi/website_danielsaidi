@@ -7,8 +7,11 @@ permalink: /blog/
 <div class="box-container">
   <div class="box text-box link-box">
     <h1>{{ page.title | escape }}</h1>
-    {% include blog-top-links.html year=2018 %}
+    {% include blog-top-links.html latest=true %}
+    {% include post-list.html posts=site.posts year=2019 %}
     {% include post-list.html posts=site.posts year=2018 %}
     {% include post-list.html posts=site.posts year=2017 %}
+    {% include post-list.html posts=site.posts year=2016 %}
+    {% include post-list.html posts=site.posts year=2015 %}
   </div>
 </div>
