@@ -55,7 +55,7 @@ Keep in mind that if you decide to go with AwaitKit, you will implicitly get a d
 
 ### RxSwift / ReactiveCocoa
 
-If the promise model doesn't appeal to you, you could take a look at using observables. [RxSwift]({{page.rxswift}}) and [ReactiveCocoa]({{page.reactivecocoa}}) are two popular observable-based libraries, that you might want tp check out. I myself had a hard time liking RxSwift (I haven't tried ReactiveCocoa), but won't go into details here. If you want to read more about it, I wrote a post about it a while ago. You can read it [here]({{page.rxswift-post).
+If the promise model doesn't appeal to you, you could take a look at using observables. [RxSwift]({{page.rxswift}}) and [ReactiveCocoa]({{page.reactivecocoa}}) are two popular observable-based libraries, that you might want tp check out. I myself had a hard time liking RxSwift (I haven't tried ReactiveCocoa), but won't go into details here. If you want to read more about it, I wrote a post about it a while ago. You can read it [here]({{page.rxswift-post}}).
 
 
 ## A custom approach
