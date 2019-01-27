@@ -11,14 +11,12 @@ rxswift-post: http://danielsaidi.com/blog/2018/01/19/ditching-rxswift
 reactivecocoa: https://github.com/ReactiveCocoa/ReactiveCocoa
 ---
 
-Swift is an amazing language, but I still find that it lacks good native support for coordinating multiple async operations in a sophisticated way. In this post, I will look at existing libraries for handling this, then discuss a lightweight custom approach.
-
-If you want to download the source code for the custom approach to have as a reference as you make your way through the post, you can find it [here]({{page.source}}).
+Swift is an amazing language, but I still find that it lacks good native support for coordinating multiple async operations in a sophisticated way. In this post, I will look at existing libraries for handling this, then discuss a lightweight alternative.
 
 
 ## Existing alternatives
 
-While languages like .NET and JavaScript has native support for async/await, Swift developers must rely on 3rd party libraries or build their own custom solution. Let's look at some open source libraries that aims to simplify working with async operations.
+While languages like .NET and JavaScript has native support for async/await, Swift developers must rely on 3rd party libraries or build their own solution. Let's look at some open source libraries that aims at simplifying working with async operations.
 
 ### PromiseKit
 
@@ -36,11 +34,11 @@ firstly {
 }
 ``` 
 
-I think that the promise-based chaining of async operations is nice, but find PromiseKit to be too talky. Furthermore, it still uses a block-based syntax, so you're still jumping in and out of blocks.
+I think that the promise-based chaining of async operations is nice, but find PromiseKit to be too talky. Furthermore, it also uses blocks, so you'll still be jumping in and out of blocks like crazy, just with a little more control.
 
 ### AwaitKit
 
-As an alternative to PromiseKit, [AwaitKit]({{page.awaitkit}}) extends PromiseKit with `async/await`. It will make the code above look something like this instead:
+As an alternative to PromiseKit, [AwaitKit]({{page.awaitkit}}) extends PromiseKit with `async/await` that makes the code above look something like this:
 
 
 ```swift
@@ -49,29 +47,29 @@ let result2 = try! await(makeRequest2(result1))
 doSomethingElse()
 ```
 
-In my opinion, this is much nicer, since it removes the usage of blocks and makes the code appear to be synchronous. The only thing that strange with AwaitKit's sample code, is that they use `try!` as above. If you want to handle any error, just wrap the code above in a `do/catch` instead.
+In my opinion, this is much nicer, since it removes blocks altogether and makes the code appear to be synchronous, which makes it easier to write and to understand. The only thing that strange with AwaitKit's sample code, is that they use `try!` as above. If you want to handle any error, just wrap the code above in a `do/catch` instead.
 
 Keep in mind that if you decide to go with AwaitKit, you will implicitly get a depencendy to PromiseKit as well, since AwaitKit uses PromiseKit under the hood.
 
 ### RxSwift / ReactiveCocoa
 
-If the promise model doesn't appeal to you, you could take a look at using observables. [RxSwift]({{page.rxswift}}) and [ReactiveCocoa]({{page.reactivecocoa}}) are two popular observable-based libraries, that you might want tp check out. I myself had a hard time liking RxSwift (I haven't tried ReactiveCocoa), but won't go into details here. If you want to read more about it, I wrote a post about it a while ago. You can read it [here]({{page.rxswift-post}}).
+If the promise model doesn't appeal to you, you could take a look at using observables. [RxSwift]({{page.rxswift}}) and [ReactiveCocoa]({{page.reactivecocoa}}) are two popular observable-based libraries, that you could check out. I had a hard time liking RxSwift (I haven't tried ReactiveCocoa). If you want to read more about why, please see the original post [here]({{page.rxswift-post}}).
 
 
 ## A custom approach
 
-What I do not like with the approaches above, is that they fundamentally change your architecture. Using async/await and rx will leak through your entire code base, which means that your code will heavily depend and rely on 3rd party dependencies.
+What I dislike with the approaches above, is that they fundamentally change your architecture. Using async/await or rx will affect your entire code base and make your code heavily depend on 3rd party dependencies.
 
-If you are willing to make that investment and external dependencies it not a problem, I'd say go for it! However, if you want to keep your external dependencies down to a minimum and not deviate too much from "standard Swift", you can come a long way with encapsulation and some custom code.
+If you are willing to make that choice, give it a try! However, if you want to keep your external dependencies down to a minimum and not fundamentally change your architecture, you can come a long way with encapsulation and some custom code.
 
 In the examples below, I will combine custom operator protocols to get a lightweight, modular way of coordinating the execution of multiple async operations.
 
-`Disclaimer` I am not yet happy nor done with the naming of these protocols, so if you read this and have other suggestions or know of already existing patterns that use this approach and use already names, please let me know.
+`Disclaimer` I am not yet happy nor done with the naming of these protocols, so if you read this and have other suggestions or know of already existing patterns that use this approach and use already established names, please let me know.
 
 
 ### Collection operator
 
-Let's start building a set of protocols that will help us operate on a collection of items. We'll start by defining a base protocol that describes how to operate on collections:
+Let's start creating a set of protocols that will help us operate on a collection of items. We'll start by defining a base protocol that describes how to operate on a collection:
 
 ```swift
 public protocol CollectionOperator: AnyObject {
@@ -84,15 +82,15 @@ public protocol CollectionOperator: AnyObject {
 }
 ```
 
-There's nothing special about this protocol. When you implement it, just implement `performOperation(on:completion:)` and specify the `CollectionType` with a typealias.
+There's nothing special about this protocol. When you implement it, just implement `performOperation(on:completion:)` and specify `CollectionType` with a typealias.
 
-However, it's also not that helpful yet. It's basically just a specification of one way to perform an operation on a collection. We need to do some more coding to get some real benefits out of this.
+However, it's not that helpful yet. It's basically just a specification of how to perform an operation on a collection. We must do some more coding to get some real benefits out of this.
 
 If we consider the concept of "performing an operation on a collection of items", there are several ways to do this, for instance:
 
-1. Perform the operation on the entire collection
-2. Perform the operation on individual items in the collection
-3. Perform the operation on batches of items from the collection
+* Perform the operation on the entire collection
+* Perform the operation on individual items in the collection
+* Perform the operation on batches of items from the collection
 
 The first case is already covered by the `CollectionOperator` protocol. Just implement it and you're good to go. For the other two cases, let's create more specialized versions of the protocol.
 
@@ -110,7 +108,7 @@ public protocol ItemOperator: CollectionOperator {
 }
 ```
 
-When implementing this protocol, you must implement `CollectionOperator` as well as `performOperation(onItem:completion:)`, which should be called for every item in the collection. It's also very important to call the item completion block, since implementations of this protocol will most probably rely on it.
+When implementing this protocol, you must implement `CollectionOperator` as well as `performOperation(onItem:completion:)`, which is called for every item in the collection. It's also very important to call the item completion block, since implementations of this protocol will most probably rely on it.
 
 
 ### Batch operator
@@ -128,19 +126,19 @@ public protocol BatchOperator: CollectionOperator {
 }
 ```
 
-When implementing this protocol, you must implement `CollectionOperator` as well as `performOperation(onBatch:completion:)`, which will be called for every item batch. You must also specify a batch size, which will be used to split up the collection in batches. As with the `ItemOperator`, it's also very important to call the item completion block for this protocol as well.
+When implementing this protocol, you must implement `CollectionOperator` as well as `performOperation(onBatch:completion:)`, which is be called for every batch of items. You must also specify a batch size. As with the `ItemOperator`, it's very important to call the batch completion block here as well.
 
 
 ### Specialized protocols
 
-We now have three protocols, but still no real benefits other than describing the operations. If we were to stop here, we'd still have to implement everything ourselves. So let's go a little further.
+We now have three protocols, but still no real benefits. If we were to stop here, we'd still have to implement everything ourselves each time we implement one of these protocols.
 
 We will therefore create even more specialized protocols that will implement the most critical part of the operator in various ways, namely the way the operator operates on the collection.
 
 
 ### Parallell item operator
 
-The simplest specialization we can make of the protocols above, is to create a protocol that performs the operation on all items in parallel, like this:
+The simplest specialization we can make of the protocols above, is to create a protocol that performs an operation on all items in parallel, like this:
 
 ```swift
 public protocol ParallellItemOperator: ItemOperator {}
@@ -162,12 +160,12 @@ public extension ParallellItemOperator {
 }
 ``` 
 
-The protocol implements `performOperation(on:completion:)` as a protocol extension, which means that you just have to implement `performOperation(onItem:completion:)`. In other words, you just have to care about how each item is handled, not how the operations are executed.
+The protocol implements `performOperation(on:completion:)` in an extension, which means that you just have to implement `performOperation(onItem:completion:)`. In other words, you just have to care about each item, not how the operation is executed.
 
 
 ### Parallell batch operator
 
-Using the same approach as above, it's very simple to create another similar protocol that operates on batches of items instead of single items:
+Using the same approach as above, it's very simple to create a similar protocol that operates on batches instead of single items:
 
 ```swift
 public protocol ParallellBatchOperator: BatchOperator {}
@@ -197,9 +195,9 @@ This protocol could be used to sync batches of data, where the order is irreleva
 
 ### Sequential item operator
 
-If your operation is asynchronous and the order of the performed operations is important, you can not use parallell executions, since a network delay could cause a later operation to complete first.
+If your operation is asynchronous and the order of the performed operations is important, you can't use parallell operations, since a network delay could cause a later operation to complete first.
 
-The absolute best way to handle these problems is to design your solution so that the order execution is irrelevant, but if you can't do this, you should execute your operations sequentially.
+The absolute best way to handle these problems is to design your solution so that the order of execution is irrelevant. If you can't do this, however, you should execute your operations sequentially.
 
 Let's create another implementation of the `ItemOperator`, that performs an operation sequentially on every item in the collection, instead of in parallell:
 
@@ -257,7 +255,7 @@ This protocol is very similar to `SequentialItemOperator`, but instead of workin
 
 This protocol could be used to sync batches of data, where the order of execution matters. For instance, you could use it to sync offline events, where the server must receive events in the correct order.
 
-Just as with the item operators, `ParallellBatchOperator` and `SequentialBatchOperator` has the same external interface. You can thus switch your execution model by switching out the protocol your operator class implements.
+Just as with the item operators, `ParallellBatchOperator` and `SequentialBatchOperator` has the same external interface. You can thus change your execution model by switching out which protocol an operator implements.
 
 
 ### Examples
@@ -338,10 +336,8 @@ private class ImageSyncer: SequentialBatchOperator {
 
 In this post, we have looked at some popular libraries for working with async operations in more sophisticated ways than just using completion blocks. 
 
-However, we have also implemented a lightweight operator model from scratch, that can be used without affecting your code base in any way. There are no new keywords that doesn't already exist in Swift, no async/await, no promises, no observables. Just seven tiny protocols.
+We have also implemented a lightweight operator model from scratch, that can be used without affecting your code style. There are no new keywords that doesn't already exist in Swift, no async/await, no promises, no observables. Just seven tiny protocols.
 
-If you want to take a look at the source code, I have posted it as part of my private-ish iExtra library (open source, but I mainly maintain it for myself).
-
-You can find the source code [here]({{page.source}}).
+If you want to take a look at the source code, I have posted it as part of my private-ish iExtra library (open source, but I mainly maintain it for myself). You can find the source code [here]({{page.source}}).
 
 
