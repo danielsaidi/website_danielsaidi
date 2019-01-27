@@ -1,7 +1,7 @@
 ---
 title:  Ditching RxSwift
 date:   2018-01-19 20:20:00 +0100
-tags:	swift rx
+tags:	swift rxswift
 ---
 
 

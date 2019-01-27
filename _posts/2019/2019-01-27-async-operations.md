@@ -1,7 +1,7 @@
 ---
 title:  "Coordinating async operations"
 date:   2019-01-27 21:00:00 +0100
-tags:	swift
+tags:	swift rxswift async-await awaitkit promisekit
 
 source: https://github.com/danielsaidi/iExtra/tree/master/iExtra/Operations
 promisekit: https://github.com/mxcl/PromiseKit
