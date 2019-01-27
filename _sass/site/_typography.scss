@@ -3,7 +3,7 @@ html, body {
 }
 
 
-h1, h2, h3, h4, p.styled, div.styled-text p, .breadcrumbs, a {
+h1, h2, h3, h4, p.styled, div.styled-text p, .breadcrumbs {
 	font-family: 'Carter One', cursive;
 }
 
@@ -47,16 +47,13 @@ li {
 a, a:visited {
 	font-weight: bold;
 	color: #333;
+	text-decoration: underline;
 }
 
 a:hover {
 	color: #666;
 }
 
-
-.text-box {
-	a { text-decoration: none; }
-}
 
 .link-box {
 	a { text-decoration: none; }
