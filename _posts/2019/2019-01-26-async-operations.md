@@ -139,14 +139,14 @@ We now have three protocols, but still no implementations nor any real benefits.
 Let's do something about that! Let's create even more specialized protocols that implement the most critical part - how to coordinate the operation.
 
 
-### Parallell item operation
+### Parallel item operation
 
 The simplest specialization we can make of the protocols above, is to create a protocol that performs an operation on all items in parallel, like this:
 
 ```swift
-public protocol ParallellItemOperation: ItemOperation {}
+public protocol ParallelItemOperation: ItemOperation {}
 
-public extension ParallellItemOperation {
+public extension ParallelItemOperation {
     
     public func performOperation(on collection: [T], completion: @escaping Completion) {
         guard collection.count > 0 else { return completion([]) }
@@ -163,21 +163,21 @@ public extension ParallellItemOperation {
 }
 ``` 
 
-This protocol implements `performOperation(on:completion:)` in a protocol extension, which means that you just have to implement `performOperation(onItem:completion:)` when you implement `ParallellItemOperation`.
+This protocol implements `performOperation(on:completion:)` in a protocol extension, which means that you just have to implement `performOperation(onItem:completion:)` when you implement `ParallelItemOperation`.
 
 Now we're getting somewhere! This protocol actually gives us some real power. You now just have to care about how each item is handled, not how the operation is coordinated. When you use an implementation of this protocol, you just have to call `performOperation(on collection:completion:)` and don't have to care about how each item is handled. So the benefits go both ways.
 
 Let's see if we can take this further.
 
 
-### Parallell batch operation
+### Parallel batch operation
 
 Using the same approach as above, it's very simple to create a similar protocol that operates on batches instead of single items:
 
 ```swift
-public protocol ParallellBatchOperation: BatchOperation {}
+public protocol ParallelBatchOperation: BatchOperation {}
 
-public extension ParallellBatchOperation {
+public extension ParallelBatchOperation {
     
     public func performOperation(on collection: [T], completion: @escaping Completion) {
         guard collection.count > 0 else { return completion([]) }
@@ -197,16 +197,16 @@ public extension ParallellBatchOperation {
 
 This protocol could be used to sync batches of data, where the order is irrelevant. For instance, you could use it to sync offline data, where the server does not care in which order the data is synced.
 
-This protocol also implements `performOperation(on:completion:)` in a protocol extension, which means that you just have to implement `performOperation(onItem:completion:)` when you implement `ParallellBatchOperation`.
+This protocol also implements `performOperation(on:completion:)` in a protocol extension, which means that you just have to implement `performOperation(onItem:completion:)` when you implement `ParallelBatchOperation`.
 
-Just like `ParallellBatchOperation`, you just have to care about how to handle each item, not how the operation is coordinated. Since both protocols implement `CollectionOperation`, they're also externally interchangable, which means that you trigger a parallell item operation and a parallell batch operation in the same way.
+Just like `ParallelBatchOperation`, you just have to care about how to handle each item, not how the operation is coordinated. Since both protocols implement `CollectionOperation`, they're also externally interchangable, which means that you trigger a parallel item operation and a parallel batch operation in the same way.
 
 Let's see if we can take this even further.
 
 
 ### Sequential item operation
 
-If your operation is asynchronous and the order of the performed operations is important, you can't use parallell operations, since a simple network delay could mess up the order of performed operations. The absolute best way to handle these problems is to design your solution so that the order of execution is irrelevant. However, if you can't do this, you must execute your operations sequentially instead of in parallell.
+If your operation is asynchronous and the order of the performed operations is important, you can't use parallel operations, since a simple network delay could mess up the order of performed operations. The absolute best way to handle these problems is to design your solution so that the order of execution is irrelevant. However, if you can't do this, you must execute your operations sequentially instead of in parallel.
 
 Let's create another `ItemOperation`, that performs an operation sequentially on every item in the collection:
 
@@ -232,7 +232,7 @@ public extension SequentialItemOperation {
 
 This protocol also implements `performOperation(on:completion:)` in a protocol extension, which means that you just have to implement `performOperation(onItem:completion:)` when you implement `SequentialItemOperation`. It will wait for each item operation to complete before it proceeds with the next.
 
-Now things are getting really interesting! Since `ParallellItemOperation` and `SequentialItemOperation` has the same external interface, you can switch your execution strategy by simply switching out the protocol your operation class implements. If you `MySyncer` class implements `ParallellItemOperation` and you realize that you must switch over to sequential execution, just replace `MySyncer: ParallellItemOperation` with `MySyncer: SequentialItemOperation`.
+Now things are getting really interesting! Since `ParallelItemOperation` and `SequentialItemOperation` has the same external interface, you can switch your execution strategy by simply switching out the protocol your operation class implements. If you `MySyncer` class implements `ParallelItemOperation` and you realize that you must switch over to sequential execution, just replace `MySyncer: ParallelItemOperation` with `MySyncer: SequentialItemOperation`.
 
 
 ### Sequential batch operation
@@ -262,7 +262,7 @@ public extension SequentialBatchOperation {
 
 This protocol also implements `performOperation(on:completion:)` in a protocol extension, which means that you just have to implement `performOperation(onItem:completion:)` when you implement `SequentialBatchOperation`. It will wait for each batch operation to complete before it proceeds with the next.
 
-We now have four different operations, that are externally called in the same way. Internally, two of them are item operations and two are batch operations. This is beneficial for each implementation, since you can switch from sequential to parallell execution by just changing which protocol the class implements.
+We now have four different operations, that are externally called in the same way. Internally, two of them are item operations and two are batch operations. This is beneficial for each implementation, since you can switch from sequential to parallel execution by just changing which protocol the class implements.
 
 Let's put this together in a short example.
 
@@ -273,7 +273,7 @@ Let's look at how we could implement these protocols. Let's build an imaginary i
 
 
 ```swift
-class ImageSyncer: ParallellItemOperation {
+class ImageSyncer: ParallelItemOperation {
     
     typealias CollectionType = UIImage
     
@@ -295,7 +295,7 @@ syncer.performOperation(on: images) { errors in
 }
 ```
 
-This will sync all images in parallell, then print "All done!" when it finishes. 
+This will sync all images in parallel, then print "All done!" when it finishes. 
 
 If you for some reason want to perform this operation sequentially instead, you just have to change which protocol the image syncer implements, like this:
 
@@ -316,10 +316,10 @@ syncer.performOperation(on: images) { errors in
 }
 ```
 
-If your solution would support syncing images in parallell batches instead of individually, the syncer could implement `ParallellBatchOperation` instead:
+If your solution would support syncing images in parallel batches instead of individually, the syncer could implement `ParallelBatchOperation` instead:
 
 ```swift
-private class ImageSyncer: ParallellBatchOperation {
+private class ImageSyncer: ParallelBatchOperation {
     
     typealias CollectionType = UIImage
     
