@@ -17,13 +17,19 @@ This is a shorter version of my previous post on async operations. It focuses mo
 
 ## Full version
 
-The full version of this blog post contains more discussions, more extensive examples and also covers existing alternatives ([PromiseKit]({{page.promisekit}}), [AwaitKit]({{page.awaitkit}}), [RxSwift]({{page.rxswift}}) and [ReactiveCocoa]({{page.reactivecocoa}})) in more detail, including a discussion on why I don't use them. You can read it [here]({{page.full-version}}).
+The full version of this blog post contains more discussions, more extensive examples and also covers existing alternatives like ([PromiseKit]({{page.promisekit}}), [AwaitKit]({{page.awaitkit}}), [RxSwift]({{page.rxswift}}) and [ReactiveCocoa]({{page.reactivecocoa}})) etc. in more detail, including a discussion on why I don't use them and some things I think you should consider before you do. You can read it [here]({{page.full-version}}).
+
+
+
+## Disclaimer
+
+Before we start, I just want to emphasize that I don't claim that this is the ultimate way to work with async operations. The libraries above are pretty great in their own ways. However, if you must keep your dependencies to a minimum and want to have a lightweight way to coordinate async operations, the approach I present may be worth considering. Also, it's a pretty good modeling challenge. So with this mindset, let's dive in!
 
 
 
 ## Coordinating simple operations
 
-If we just want to coordinate a set of abstract operations, we can put together a simple approach that we can use to build even cooler things with later on.
+If we just want to coordinate a set of abstract operations, we can use a simple approach that involves `operations` and `coordinators`.
 
 Let's start by defining and abstract operation:
 
@@ -47,15 +53,15 @@ protocol OperationCoordinator {
 }
 ```
 
-Now let's specialize these protocols to get some power out of them. Let's start with a concurrent implementation.
+We can now implement coordinators that implement the coordinator protocol in various ways. Let's start with a concurrent one.
 
 
 ### Concurrent operations
 
-First, let's implement a simple concurrent coordinator that performs all operations at the same time:
+Creating a concurrent operation coordinator is really easy:
 
 ```swift
-class ConcurrentOperationCoordinator {
+class ConcurrentOperationCoordinator: OperationCoordinator {
     
     func perform(operations: [Operation], completion: @escaping Completion) {
         guard operations.count > 0 else { return completion([]) }
@@ -72,9 +78,7 @@ class ConcurrentOperationCoordinator {
 }
 ```
 
-This coordinator triggers all operations and waits for all to complete, then call the completion with an unordered list of optional errors.
-
-Using this coordinator is as simple as this:
+Using this coordinator is very easy:
 
 ```swift
 class MyOperation: Operation {
@@ -91,12 +95,12 @@ coordinator.perform(operations: operations) { errors in
 }
 ```
 
-We could also use this coordinator as an internal tool in other tools, where the operation setup is hidden from the external interface.
+We could also use this coordinator as an internal tool in other classes, where the operations are hidden from the external interface.
 
 
 ### Serial operations
 
-Sometimes, concurrency is not an option, e.g. when the order of execution matters. For these cases, let's implement a simple serial coordinator:
+If concurrency is not an option, we could use a serial coordinator instead:
 
 ```swift
 class SerialOperationCoordinator: OperationCoordinator {
@@ -116,28 +120,22 @@ class SerialOperationCoordinator: OperationCoordinator {
 }
 ```
 
-Since it implements the same protocol as `ConcurrentOperationCoordinator`, you can just switch out the implementation in the example above:
+Since this class implements the same protocol as the previous coordinator, you can just switch out the implementation in the example above:
 
 ```swift
-class MyOperation: Operation {
-    var error: Error?
-    func perform(completion: Completion) { completion(error) }
-}
-
-let operations = [MyOperation(), MyOperation()]
 let coordinator = SerialOperationCoordinator()
 coordinator.perform(operations: operations) { errors in
     print("All done")
 }
 ```
 
-We now have two baisc ways of coordinating a set of parameterless operations. Let's taking this approach further, to build a bit more powerful tools.
+We now have two basic ways of coordinating parameterless operations. Let's take this approach further and build a bit more powerful tools.
 
 
 
 ## Operating on a collection
 
-As a complement to anonymous operations, let's specify a protocol that describes how to perform an operation on a typed collection:
+As a complement to anonymous operations, let's create a protocol that describes how to perform an operation on a typed collection:
 
 ```swift
 protocol CollectionOperation: AnyObject {
@@ -174,14 +172,9 @@ protocol BatchOperation: CollectionOperation {
 }
 ```
 
-When you implement these protocols, just implement all functions and and specify the `CollectionType` with a typealias. For the item and batch operations, it's important that you call the item and batch completions when the operation completes for every item/batch, since various implementations will depend on it.
+When you implement these protocols, it's important that you call the item and batch completions when the operation completes for every item/batch. As you will see, various implementations will depend on these completions to be called.
 
-
-### Let's implement!
-
-We now have three collection operation protocols, but still no implementations nor any real benefits. If we were to stop here, we would just have descriptions of how to operate on collections, items and batches, but would still have to implement everything ourselves.
-
-Let's do something about that! Let's create even more specialized protocols that implement the coordination in various ways.
+We now have three protocols that desribe how to operate on collections, but no implementations nor any real benefits. Let's do something about this by creating even more specialized versions of these protocols. 
 
 
 ### Concurrent item operation
@@ -209,8 +202,6 @@ extension ConcurrentItemOperation {
 ``` 
 
 As you can see, this protocol implements `perform(on:completion:)` as a protocol extension. This means that if you implement this protocol instead of `ItemOperation`, you just have to implement `perform(onItem:completion:)`. This protocol will take care of concurrently performing the operation on all items.
-
-Let's see if we can take this further.
 
 
 ### Concurrent batch operation
@@ -240,12 +231,10 @@ extension ConcurrentBatchOperation {
 
 This protocol also implements `perform(on:completion:)` as a protocol extension. This means that if you implement this protocol instead of `BatchOperation`, you just have to implement `perform(onBatch:completion:)`. This protocol will take care of concurrently performing the operation on all batches.
 
-Let's see if we can take this even further.
-
 
 ### Serial item operation
 
-If your operation is asynchronous and the order of execution is important, you can't use concurrent operations, since a simple network delay could mess up the completion order. If you can't solve this with system design, you could execute your operations serially instead of concurrently.
+If your operation is asynchronous and the order of execution is important, you can't use concurrent operations, since a simple network delay could mess up the completion order. If you can't solve on a system level, you could execute your operations serially instead of concurrently.
 
 Let's create a serial `ItemOperation` for these cases:
 
@@ -269,14 +258,12 @@ extension SerialItemOperation {
 }
 ``` 
 
-This protocol also implements `perform(on:completion:)` as a protocol extension. This means that if you implement this protocol instead of `ItemOperation`, you just have to implement `perform(onItem:completion:)`. This protocol will take care of serially performing the operation on all items. It will wait for each item operation to complete before it proceeds with the next.
-
-Lets wrap this up with a final protocol!
+This protocol also implements `perform(on:completion:)` as a protocol extension. This means that if you implement this protocol instead of `ItemOperation`, you just have to implement `perform(onItem:completion:)`. This protocol will take care of serially performing the operation on all items, and will wait for each item operation to complete before it proceeds with the next.
 
 
 ### Serial batch operation
 
-Finally, using the same approach as above, it's very simple to create another protocol that operates on batches of items instead of single items:
+Finally, using the same approach as above, we can easily create another protocol that operates on batches of items instead of single items:
 
 ```swift
 protocol SerialBatchOperation: BatchOperation {}
@@ -299,14 +286,16 @@ extension SerialBatchOperation {
 }
 ```
 
-This protocol also implements `perform(on:completion:)` as a protocol extension. This means that if you implement this protocol instead of `BatchOperation`, you just have to implement `perform(onBatch:completion:)`. This protocol will take care of serially performing the operation on all batches. It will wait for each batch operation to complete before it proceeds with the next.
+This protocol also implements `perform(on:completion:)` as a protocol extension. This means that if you implement this protocol instead of `BatchOperation`, you just have to implement `perform(onBatch:completion:)`. This protocol will take care of serially performing the operation on all batches, and will wait for each batch operation to complete before it proceeds with the next.
 
 Let's put everything together in a short example.
 
 
 ### Examples
 
-Let's build an imaginary image syncer that syncs images that have been taken while the user was offline:
+We now have four completely different collection operations that are externally and internally interchangeable. Let's put everything together in a short example.
+
+Let's build an imaginary image syncer that syncs images that were taken while the user was offline:
 
 
 ```swift
@@ -321,7 +310,7 @@ class ImageSyncer: ConcurrentItemOperation {
     }
 
     func syncImage(_ image: UIImage, completion: @escaping ItemCompletion) {
-        // Implement this in some way :)
+        // Implement this in some way and all completion when done :)
     }
 }
 ```
@@ -336,7 +325,7 @@ syncer.perform(on: images) { errors in
 }
 ```
 
-This will sync all images concurrently and print "All done!" when it's done. If you want it to be serial, you just have to change which protocol it implements:
+This will sync all images concurrently and print "All done!" when it's done. If you'd like it to be serial instead, just change which protocol it implements:
 
 ```swift
 class ImageSyncer: SerialItemOperation {
@@ -345,7 +334,7 @@ class ImageSyncer: SerialItemOperation {
 }
 ```
 
-Since the syncer is still a collection operation, you can still call it like this:
+Since it's still a collection operation, you can still call it like this:
 
 ```swift
 let syncer = ImageSyncer()
@@ -355,7 +344,7 @@ syncer.perform(on: images) { errors in
 }
 ```
 
-If your solution supports syncing batches of images instead of individual images, the syncer could implement `ConcurrentBatchOperation` instead:
+If your system supports syncing images in batches, the syncer could implement `ConcurrentBatchOperation` instead:
 
 ```swift
 class ImageSyncer: ConcurrentBatchOperation {
@@ -392,7 +381,7 @@ That's it! We have implemented an image syncer using the new operation protocols
 
 ## Final improvements
 
-With these new collection operations in place, we can simplify the coordinators that we implemented earlier. They simply become:
+With these new collection operations in place, we can simplify the coordinators that we implemented earlier:
 
 ```swift
 class ConcurrentOperationCoordinator: OperationCoordinator, ConcurrentItemOperation {
@@ -407,6 +396,7 @@ class ConcurrentOperationCoordinator: OperationCoordinator, ConcurrentItemOperat
         item.perform(completion: completion)
     }
 }
+
 
 class SerialOperationCoordinator: OperationCoordinator, SerialItemOperation {
     
@@ -430,8 +420,6 @@ We have now gone full circle and used the things we've created in various ways. 
 
 I hope you liked this post. If you decide to use the pattern, I would love to see some implementations.
 
-Please note that this post does not claim that its implementations is in any way better than [PromiseKit]({{page.promisekit}}), [AwaitKit]({{page.awaitkit}}), [RxSwift]({{page.rxswift}}) and [ReactiveCocoa]({{page.reactivecocoa}}). They are very popular, but sometimes using them is not an option. My advice is to take a look at them and make your own decision.
-
-The implementation in this post is just vanilla Swift with some abstractions and auto-implementations. There are no new keywords that doesn't already exist in Swift, no async/await, no promises, no observables. Just a bunch of tiny protocols. It could probably be improved to use GCD and extended in a bunch of ways, but I hope that you enjoyed the discussions we could have by not walking down that path.
+The implementation in this post is just vanilla Swift with some abstractions and auto-implementations. It could probably be improved to use GCD and extended in a bunch of ways, but I hope that you enjoyed the discussions we could have by not walking down that path.
 
 I have pushed the source code to my personal iExtra library (open source, but I mainly maintain it for myself). If you want to try it out, you can find it [here]({{page.source}}).
