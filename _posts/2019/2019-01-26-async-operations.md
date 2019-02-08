@@ -34,11 +34,11 @@ While languages like .NET and JavaScript has native support for async/await and 
 
 ```swift
 firstly {
-    makeRequest1()  // Returns a promise
+    makeRequest1()          // Returns a promise
 }.then { result1 in
-    makeRequest2(result1)
+    makeRequest2(result1)   // Returns a promise
 }.then { result2 in
-    doSomethingElse()
+    doSomethingElse()       // Returns a promise
 }.catch { error in
     // Handle any error
 }
@@ -54,7 +54,7 @@ I like promise-based chaining of async operations, but find PromiseKit to be too
 ```swift
 let result1 = try! await(makeRequest1())
 let result2 = try! await(makeRequest2(result1))
-doSomethingElse()
+try! doSomethingElse()
 ```
 
 AwaitKit removes the usage of blocks and makes the code look synchronous, which is easier to both write and read. The only thing I find strange with AwaitKit's sample code, is the use of `try!`. If you want to handle errors, just wrap the code above in a `do/catch` instead. Also note that if you decide to go with AwaitKit, you implicitly get a depencendy to PromiseKit as well.

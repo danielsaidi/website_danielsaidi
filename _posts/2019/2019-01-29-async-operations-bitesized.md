@@ -49,7 +49,7 @@ protocol OperationCoordinator {
     
     typealias Completion = ([Error?]) -> ()
     
-    func perform(operations: [Operation], completion: @escaping Completion)
+    func perform(_ operations: [Operation], completion: @escaping Completion)
 }
 ```
 
@@ -63,7 +63,7 @@ Creating a concurrent operation coordinator is really easy:
 ```swift
 class ConcurrentOperationCoordinator: OperationCoordinator {
     
-    func perform(operations: [Operation], completion: @escaping Completion) {
+    func perform(_ operations: [Operation], completion: @escaping Completion) {
         guard operations.count > 0 else { return completion([]) }
         var errors = [Error?]()
         operations.forEach {
@@ -90,7 +90,7 @@ class MyOperation: Operation {
 
 let operations = [MyOperation(), MyOperation()]
 let coordinator = ConcurrentOperationCoordinator()
-coordinator.perform(operations: operations) { errors in
+coordinator.perform(operations) { errors in
     print("All done")
 }
 ```
@@ -105,7 +105,7 @@ If concurrency is not an option, we could use a serial coordinator instead:
 ```swift
 class SerialOperationCoordinator: OperationCoordinator {
     
-    func perform(operations: [Operation], completion: @escaping Completion) {
+    func perform(_ operations: [Operation], completion: @escaping Completion) {
         performOperation(at: 0, in: operations, errors: [], completion: completion)
     }
     
@@ -124,7 +124,7 @@ Since this class implements the same protocol as the previous coordinator, you c
 
 ```swift
 let coordinator = SerialOperationCoordinator()
-coordinator.perform(operations: operations) { errors in
+coordinator.perform(operations) { errors in
     print("All done")
 }
 ```
@@ -388,7 +388,7 @@ class ConcurrentOperationCoordinator: OperationCoordinator, ConcurrentItemOperat
     
     typealias CollectionType = Operation
     
-    func perform(operations: [Operation], completion: @escaping Completion) {
+    func perform(_ operations: [Operation], completion: @escaping Completion) {
         perform(on: operations, completion: completion)
     }
     
@@ -402,7 +402,7 @@ class SerialOperationCoordinator: OperationCoordinator, SerialItemOperation {
     
     typealias CollectionType = Operation
     
-    func perform(operations: [Operation], completion: @escaping Completion) {
+    func perform(_ operations: [Operation], completion: @escaping Completion) {
         perform(on: operations, completion: completion)
     }
     
