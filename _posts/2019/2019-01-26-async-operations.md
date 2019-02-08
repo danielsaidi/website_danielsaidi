@@ -77,7 +77,7 @@ What I dislike with blindly going for the promise/observable-based libraries abo
 
 If you are willing to make that choice, go ahead and give them a try! However, if you want to keep your external dependencies down to a minimum and not fundamentally change your architecture, you can come a long way with encapsulation, abstractions and some custom code.
 
-In the examples below, I will combine a couple of minimal protocols to get two lightweight, modular ways of coordinating the execution of multiple async operations. I will not use Grand Central Dispatch (GCD), but may improve the approach to use GCD under the hood later on. 
+In the examples below, I will some tiny protocols to get a simple, modular ways of coordinating the execution of multiple async operations. I will not use Grand Central Dispatch (GCD), but may improve the approach to use GCD under the hood later on. 
 
 For now, however, the most important thing for me with this blog post is to talk *design* and *composition*. How the actual coordination is implemented under the hood is an implementation detail, that can change while the external interface remains intact. So for now, let's focus on discussing, designing and implementing.
 
@@ -105,7 +105,7 @@ protocol OperationCoordinator {
     
     typealias Completion = ([Error?]) -> ()
     
-    func perform(operations: [Operation], completion: @escaping Completion)
+    func perform(_ operations: [Operation], completion: @escaping Completion)
 }
 ```
 
@@ -121,7 +121,7 @@ Creating a concurrent operation coordinator is really easy:
 ```swift
 class ConcurrentOperationCoordinator: OperationCoordinator {
     
-    func perform(operations: [Operation], completion: @escaping Completion) {
+    func perform(_ operations: [Operation], completion: @escaping Completion) {
         guard operations.count > 0 else { return completion([]) }
         var errors = [Error?]()
         operations.forEach {
@@ -148,7 +148,7 @@ class MyOperation: Operation {
 
 let operations = [MyOperation(), MyOperation()]
 let coordinator = ConcurrentOperationCoordinator()
-coordinator.perform(operations: operations) { errors in
+coordinator.perform(operations) { errors in
     print("All done")
 }
 ```
@@ -163,7 +163,7 @@ If concurrency is not an option, e.g. when the order of execution matters, we co
 ```swift
 class SerialOperationCoordinator: OperationCoordinator {
     
-    func perform(operations: [Operation], completion: @escaping Completion) {
+    func perform(_ operations: [Operation], completion: @escaping Completion) {
         performOperation(at: 0, in: operations, errors: [], completion: completion)
     }
     
@@ -182,7 +182,7 @@ Since this class implements the same protocol as the previous coordinator, you c
 
 ```swift
 let coordinator = SerialOperationCoordinator()
-coordinator.perform(operations: operations) { errors in
+coordinator.perform(operations) { errors in
     print("All done")
 }
 ```
@@ -461,7 +461,7 @@ class ConcurrentOperationCoordinator: OperationCoordinator, ConcurrentItemOperat
     
     typealias CollectionType = Operation
     
-    func perform(operations: [Operation], completion: @escaping Completion) {
+    func perform(_ operations: [Operation], completion: @escaping Completion) {
         perform(on: operations, completion: completion)
     }
     
@@ -475,7 +475,7 @@ class SerialOperationCoordinator: OperationCoordinator, SerialItemOperation {
     
     typealias CollectionType = Operation
     
-    func perform(operations: [Operation], completion: @escaping Completion) {
+    func perform(_ operations: [Operation], completion: @escaping Completion) {
         perform(on: operations, completion: completion)
     }
     
