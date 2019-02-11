@@ -76,9 +76,9 @@
                         ## PromiseKit
                         ### Handle async operations with promises
 <pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background-color: rgb(40, 42, 54); color: rgb(248, 248, 242);">firstly {
-    makeRequest1()          <span class="hljs-comment" style="color: rgb(98, 114, 164);">// Returns a promise</span>
+    asyncRequest1()          <span class="hljs-comment" style="color: rgb(98, 114, 164);">// Returns a promise</span>
 }.then { result1 <span class="hljs-keyword" style="color: rgb(139, 233, 253); font-weight: 700;">in</span>
-    makeRequest2(result1)   <span class="hljs-comment" style="color: rgb(98, 114, 164);">// Returns a promise</span>
+    asyncRequest2(result1)   <span class="hljs-comment" style="color: rgb(98, 114, 164);">// Returns a promise</span>
 }.then { result2 <span class="hljs-keyword" style="color: rgb(139, 233, 253); font-weight: 700;">in</span>
     doSomethingElse()       <span class="hljs-comment" style="color: rgb(98, 114, 164);">// Returns a promise</span>
 }.<span class="hljs-keyword" style="color: rgb(139, 233, 253); font-weight: 700;">catch</span> { error <span class="hljs-keyword" style="color: rgb(139, 233, 253); font-weight: 700;">in</span>
@@ -93,8 +93,8 @@
                         <script type="text/template">
                         ## AwaitKit
                         ### Handle async operations with async/await
-<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background-color: rgb(40, 42, 54); color: rgb(248, 248, 242);"><span class="hljs-keyword" style="color: rgb(139, 233, 253); font-weight: 700;">let</span> result1 = <span class="hljs-keyword" style="color: rgb(139, 233, 253); font-weight: 700;">try</span>! await(makeRequest1())
-<span class="hljs-keyword" style="color: rgb(139, 233, 253); font-weight: 700;">let</span> result2 = <span class="hljs-keyword" style="color: rgb(139, 233, 253); font-weight: 700;">try</span>! await(makeRequest2(result1))
+<pre class="hljs" style="display: block; overflow-x: auto; padding: 0.5em; background-color: rgb(40, 42, 54); color: rgb(248, 248, 242);"><span class="hljs-keyword" style="color: rgb(139, 233, 253); font-weight: 700;">let</span> result1 = <span class="hljs-keyword" style="color: rgb(139, 233, 253); font-weight: 700;">try</span>! await(asyncRequest1())
+<span class="hljs-keyword" style="color: rgb(139, 233, 253); font-weight: 700;">let</span> result2 = <span class="hljs-keyword" style="color: rgb(139, 233, 253); font-weight: 700;">try</span>! await(asyncRequest2(result1))
 <span class="hljs-keyword" style="color: rgb(139, 233, 253); font-weight: 700;">try</span>! doSomethingElse()</pre>
                         * Looks like synchronous code (avoid try!)
                         * Based on PromiseKit, so you get 2 dependencies
@@ -126,7 +126,7 @@
                         * There are many 3rd party libraries for this
                         * Many are very powerful
                         * Many will affect your architecture
-                        * Sometimes dependencies are not an option
+                        * Sometimes 3rd party libraries are not an option
                         </ul>
                     </section>
                 </section>
@@ -139,17 +139,17 @@
 
                     <section data-markdown>
                         ## BookBeat
-                        * Extensive offline support, for intance:
+                        * Extensive offline support, for instance:
                         * Book actions (add/remove, listen/read, ratings etc.)
-                        * Progress reporting
+                        * Bookmarks
                         * Analytics
                         * Sync/update when the app comes online
                     </section>
 
                     <section data-markdown>
                         ## Sync/update
-                        * Sync offline actions (one by one, serial)
-                        * Sync progresses (batches, concurrent)
+                        * Sync book actions (one by one, serial)
+                        * Sync bookmarks (batches, concurrent)
                         * Sync analytics (batches, concurrent)
                         * Fetch latest data (many sources, concurrent)
                     </section>
@@ -192,6 +192,7 @@
                 <section>
                     <section data-markdown>
                         # Thank you!
+                        #### @danielsaidi
                     </section>
                 </section>
 
