@@ -31,7 +31,7 @@ header_pages:
   - index.md
   - pages/apps.md
   - pages/open-source.md
-  - pages/talks.md
+  - pages/talks/talks.md
   - pages/blog/blog.md
 
 collections:
