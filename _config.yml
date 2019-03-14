@@ -1,0 +1,97 @@
+# Site settings
+# These are used to personalize your site. You access them via {{ site.title }}, 
+# {{ site.email }} and so on. You can create any custom variable you like. They
+# will be accessible in the templates via {{ site.myvariable }}.
+
+title: Daniel Saidi
+email: daniel.saidi@gmail.com
+description: >-
+  My name is Daniel Saidi. I am a System Developer in Stockholm, Sweden. I build
+  mobile apps, apis and backend systems. I currently work as iOS Lead at BookBeat.
+baseurl: ""
+url: "http://danielsaidi.com"
+theme: minima
+
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+twitter_username: danielsaidi
+github_username:  danielsaidi
+google_analytics: UA-2575180-1
+disqus:
+    shortname: danielsaidi
+
+plugins:
+  - jekyll-feed
+  - jekyll-redirect-from
+
+header_pages:
+  - index.md
+  - pages/apps.md
+  - pages/open-source.md
+  - pages/talks.md
+  - pages/blog/blog.md
+
+collections:
+  posts:
+    output: true
+    permalink: /blog/:categories/:year/:month/:day/:title
+  apps:
+    output: true
+    permalink: /apps/:name
+  bands:
+    output: true
+    permalink: /bands/:name
+  privacy-policies:
+    output: true
+    permalink: /privacy/:title
+  talks:
+    output: true
+    permalink: /talks/:categories/:year/:month/:day/:title
+
+defaults:
+  -
+    scope:
+      type: "posts"
+    values:
+      author: "danielsaidi"
+      layout: "post"
+  -
+    scope:
+      type: "apps"
+    values:
+      layout: "app"
+  -
+    scope:
+      type: "bands"
+    values:
+      layout: "band"
+  -
+    scope:
+      type: "talks"
+    values:
+      author: "danielsaidi"
+      layout: "presentation"
+  -
+    scope:
+      path: "_talks/bookbeat"
+    values:
+      assets: "/assets/talks/bookbeat"
+      location: "BookBeat"
+      hidden: true
+  -
+    scope:
+      type: "privacy-policies"
+    values:
+      layout: "page"
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/

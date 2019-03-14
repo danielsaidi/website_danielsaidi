@@ -1,0 +1,11 @@
+<section class="card-grid blog-menu">
+  {%- include blog/menu-item.html title="Latest" url="blog" active=include.latest -%}
+  {%- if include.year -%}
+    {%- assign year = include.year -%}
+    {%- capture url -%}blog/{{ year }}{%- endcapture -%}
+    {%- include blog/menu-item.html title=year url=url active=true -%}
+  {%- else -%}
+    {%- include blog/menu-item.html title="Archive" url="blog/archive" active=include.archive -%}
+  {%- endif -%}
+  {%- include blog/menu-item.html title="Tags" url="blog/tags" active=include.tags -%}
+</section>

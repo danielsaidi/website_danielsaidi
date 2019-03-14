@@ -1,0 +1,26 @@
+- name: Glömd
+  year: 1998
+  tracks:
+    - name: I skuggorna dold
+    - name: Glömd
+
+- name: En röd debut
+  year: 2001
+  tracks:
+    - name: Min ensamhet
+    - name: En röd debut
+    - name: Allt för oss
+    - name: Ideal
+    - name: Mot asfalten
+    - name: Salta sår
+
+- name: Lake City Stories
+  year: 2010
+  tracks:
+    - name: Hard To Write Song
+    - name: The Way You Love Me
+    - name: The Paranoid Park Review
+    - name: Waited Too Long
+    - name: Side By Side
+    - name: Side By Side (Rob F Remix)
+    - name: Side By Side (Super D Remix)

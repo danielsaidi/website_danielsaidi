@@ -1,0 +1,18 @@
+{%- assign items = include.items -%}
+
+<section class="card-grid">
+  {% for item in items %}
+    {{ if item.url}}
+    <a href="{{ item.url }}">
+    {{ endif }}
+      <div class="card">
+        <img alt="{{ item.name }} icon" src="/assets/icons/{{ item.name | downcase |  replace:' ','-' }}.png" />
+      </div>  
+      <h4>
+        {{ item.name }}
+      </h4>
+    {{ if item.url}}
+    </a>
+    {{ endif }}
+  {% endfor %}
+</section>

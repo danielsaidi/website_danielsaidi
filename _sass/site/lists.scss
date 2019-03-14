@@ -1,0 +1,30 @@
+ul.horizontal {
+  margin: 0;
+  padding: 0;
+  display: inline;
+
+  li, li h2, li { 
+    font-size: 13px; 
+    color: #555;
+  }
+
+  li {
+    display: inline-block;
+    margin-right: 5px;
+  }
+
+  li:before {
+    content: '\00a0\2022\00a0\00a0';
+    color: #999;
+    color: rgba(0,0,0,0.5);
+    font-size: 11px;
+  }
+
+  li:first-child:before {
+    content: '';
+  }
+
+  .svg-icon {
+    padding-right: 0px;
+  }
+}

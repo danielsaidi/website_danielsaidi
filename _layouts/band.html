@@ -1,0 +1,29 @@
+---
+layout: default
+---
+
+<article class="card">
+  {{ content }}
+</article>
+
+{%- assign id = page.id | split: "/" | last -%}
+{%- assign band = site.data.bands[id] -%}
+{%- assign albums = band.discography -%}
+{%- assign members = band.members -%}
+
+{%- for album in albums -%}
+    {{ album.name }}
+    <ul>
+    {%- for track in album.tracks -%}
+        <li>{{track.name}}</li>
+    {%- endfor -%}
+    </ul>
+{%- endfor -%}
+
+
+Members:
+<ul>
+{%- for member in members -%}
+    <li>{{member.name}}</li>
+{%- endfor -%}
+</ul>

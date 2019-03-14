@@ -1,0 +1,50 @@
+.card {
+  border-radius: 6px;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, .35);
+  background-color: white;
+  position: relative;
+
+  > img, > div {
+    border-radius: 4px;
+  }
+}
+
+div.card {
+  padding: 4px;
+  text-align: center;
+
+  p {
+    margin: 10px;
+    text-align: center;    
+  }
+}
+
+div.card.tag-list {
+  padding: $standard-margin;
+
+  a {
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    margin: 5px;
+  }
+}
+
+div.card.tag-posts {
+  text-align: left;
+  padding: $standard-margin;
+}
+
+
+article.card {
+
+  h1 {
+    font-size: 2em;
+  }
+  
+  padding: 50px 40px 40px 40px;
+}
+
+.card + .card {
+  margin-top: $standard-margin;
+}

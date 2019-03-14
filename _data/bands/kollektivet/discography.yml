@@ -1,0 +1,43 @@
+- name: Fem berättelser
+  year: 2003
+  tracks:
+    - name: Jag vill behöva dig
+    - name: När man är två
+    - name: Salta sår
+    - name: Mot asfalten
+    - name: I skuggorna dold
+    - name: Du älskar mig inte än
+
+- name: Fyra akustiska mirakel
+  year: 2003
+  tracks:
+    - name: Kalla läppar
+    - name: En plats...
+    - name: Tomma ord
+    - name: Låt oss dansa hem
+
+- name: Hårt mot hårt
+  year: 2004
+  tracks:
+    - name: Hårt mot hårt
+    - name: Allt tar slut
+    - name: En plats...
+    - name: Kalla läppar
+
+- name: Kom hem
+  year: 2005
+  tracks:
+    - name: Starka broar
+    - name: Kom hem
+    - name: Dödens dag
+    - name: Ditt liv
+
+- name: Genom nätet
+  year: 2006
+  tracks:
+    - name: Varma dagar
+    - name: Genom nätet
+    - name: Tunga tungor
+    - name: Stanna hos mig
+    - name: När man är två
+    - name: Visa om kärleken (cover)

@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>reveal.js - The HTML Presentation Framework</title>
+
+		<meta name="description" content="Tradera iOS crash course">
+		<meta name="author" content="Daniel Saidi">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>iOS crash course</h1>
+					<h3>2013-06-20</h3>
+					<p>
+						<small>Created using <a href="http://hakim.se">reveal.js</a> by <a href="http://twitter.com/hakimel">@hakimel</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Syfte</h2>
+					<p>
+						Att på ett övergripande plan förstå hur man utvecklar appar för iOS,
+						hur man testar i simulator och på fysisk enhet samt hur man gör för
+						att distribuera till testare och till AppStore.
+					</p>
+
+					<aside class="notes">
+						Hit 's' on keyboard to view comments, elapsed time, next slide etc.
+						<br/><br/>
+						Press b or period on your keyboard to enter the 'paused' mode. The
+						pause mode is helpful when you want to take distracting slides off
+						the screen during a presentation.
+						<br/><br/>
+						Jag är inget proffs, utan har endast arbetat med iOS på min fritid.
+						Det är dock en väldigt spännande värld där mycket händer.
+						<br/><br/>
+						I och med att vi under hösten kommer att ta mer kontroll över våra
+						appar, är det bra om vi får bättre koll på plattformen och vet vad
+						man kan göra.
+					</aside>
+				</section>
+
+				<section>
+					<h2>Vi kommer att beröra</h2>
+					<ul>
+						<li>iOS</li>
+						<li>Objective-C</li>
+						<li>XCode</li>
+						<li>Apples utvecklarportal</li>
+						<li>iTunes Connect</li>
+						<li>Testflight</li>
+						<li>...och göra en app</li>
+					</ul>
+
+					<aside class="notes">
+						Bra att i alla fall ha hört vissa centrala begrepp, så att man vet
+						vad de betyder.
+						<br/><br/>
+						Vi kommer inte att gå in på djupet av någon del. Vi kommer bara ta
+						varje del översiktligt, så fråga på om det blir för kort.
+					</aside>
+				</section>
+
+				<section>
+					<h2>iOS</h2>
+					<p>Mobilt operativsystem</p>
+					<p>Introducerades av Apple 2007 för iPhone</p>
+					<p>Används idag av iPhone, iPad, iPod, Apple TV etc.</p>
+					<p>Relativt täta uppdateringar...ca 1 major per år</p>
+					<p>Tradera-appen kör iOS 4.3...nu kommer iOS 7</p>
+				</section>
+
+				<section>
+					<h2>Objective-C</h2>
+					<p>Programmeringsspråk</p>
+					<p>Utvecklat på tidigt 80-tal</p>
+					<p>Har färdats via NeXT till iOS och OS X</p>
+					<p>Meddelandebaserat lager ovanpå C</p>
+					<p>Ni kommer att få se lite kod när vi bygger appen</p>
+				</section>
+
+				<section>
+					<h2>XCode</h2>
+					<p>Apples utvecklarverktyg (IDE)</p>
+					<p>Gratis(!)</p>
+					<p>Kan användas för att utveckla till OSX, iOS etc.</p>
+					<p>Har många andra verktyg utöver programmering</p>
+
+					<aside class="notes">
+						Man kan använda andra IDE:n för att utveckla till iOS/OS X, t.ex.
+						AppCode. XCode är dock gratis och har en massa andra bra verktyg
+						för UI-tester, prestandamätningar, minnesläckor etc.
+						<br/><br/>
+						Att XCode är gratis är uppseendeväckande, med tanke på att andra
+						IDE:n (AppCode, Visual Studio etc) kostar pengar...mycket pengar.
+						<br/><br/>
+						Vi kommer att kolla mer på XCode, när vi bygger vår app.
+					</aside>
+				</section>
+
+				<section>
+					<h2>Utvecklarportalen</h2>
+					<p><a href="http://developer.apple.com">developer.apple.com</a></p>
+					<p>Används bl.a. för att hantera:</p>
+					<p>Certifikat</p>
+					<p>Appar</p>
+					<p>Enheter</p>
+					<p>Provisioning</p>
+				</section>
+
+				<section>
+					<h2>iTunes Connect</h2>
+					<p><a href="http://itunesconnect.apple.com">itunesconnect.apple.com</a></p>
+					<p>Används bla. för att hantera:</p>
+					<p>Appar</p>
+					<p>Sales and Trends</p>
+					<p>Contracts, Tax and Banking</p>
+					<p>Payment and Financial Reports</p>
+				</section>
+
+				<section>
+					<h2>TestFlight</h2>
+					<p><a href="http://testflightapp.com">testflightapp.com</a></p>
+					<p>Distribution av appar till utvecklare</p>
+					<p>Statistik över hur appen används</p>
+					<p>Kraschrapporter</p>
+					<p>Stöd för iOS och (nyligen) Android</p>
+				</section>
+
+				<section>
+					<h2>Nu ska vi bygga en app!</h2>
+				</section>
+
+
+				<section>
+					<section>
+						<h2>Agenda</h2>
+						<ol>
+							<li>Skapa ett enkelt projekt</li>
+							<li>Bygga en fantastisk app</li>
+							<li>Deploya till simulator</li>
+							<li>Deploya till fysisk enhet</li>
+						</ol>
+
+						<aside class="notes">
+							Deploy till fysisk enhet kommer bara att göras från min dator
+							Man behöver ett utvecklarcertifikat för att göra det. Tradera
+							har ett konto för utvecklare, som man kan använda.
+						</aside>
+					</section>
+
+
+					<section>
+						<h2>Avgränsningar</h2>
+						<p>Vår app kommer inte att...</>
+						<p>Ha några splash screens</p>
+						<p>Hantera landscape orientation</p>
+						<p>Anpassas för retina/icke-retina</p>
+						<p>Dra in en massa pengar</p>
+						<p>...eller?</p>
+					</section>
+
+
+					<section>
+						<h2>Nu bygger vi!</h2>
+						<p>Öppna XCode...</p>
+
+						<aside class="notes">
+							OBS! Det finns en massa konventioner som vi inte kommer att beröra,
+							som delegat, protocol, initWith etc. etc. Vår kod kommer inte vara
+							snygg, men det får vi ta nästa gång.
+							
+							<ol>
+								<li>Skapa en Single View Application</li>
+								<li>Product name: Clippy</li>
+								<li>Organization: eBay Sweden AB</li>
+								<li>Company identifier: com.tradera (domäninvers)</li>
+								<li>Bundle identifier: kolla...går att ändra sen</li>
+								<li>Devices: Universal...vad betyder det?</li>
+								<li>Use Storyboards: YES...vad betyder det?</li>
+								<li>Use ARC: YES...vad betyder det?</li>
+								<li>Include Unit Tests: NO...vi kommer inte att använda det</li>
+							</ol>
+
+							<p>Projektet:</p>
+							<ol>
+								<li>Kolla igenom projektets inställningar</li>
+								<li>Kolla igenom projektets olika filer</li>
+								<li>Nämn att vi inte kommer att fokusera på en snygg struktur</li>
+							</ol>
+							
+							<p>Ikoner:</p>
+							<ol>
+								<li>Kör appen as is</li>
+								<li>Kolla den vita ikonen</li>
+								<li>Gå tillbaka till XCode</li>
+								<li>Lägg till alla bilder från zipen (COPY!!!)</li>
+								<li>Diskutera @2x, ~ipad etc. Varför heter de så?</li>
+								<li>Dra in ikonerna i projektinställningarna</li>
+								<li>Diskutera splash screens, storlekar etc.</li>
+								<li>Diskutera även eventuella byggvarningar</li>
+								<li>Kör appen igen...tadaaa!!!</li>
+								<li>Kör appen för iPad...tadaa!!!</li>
+							</ol>
+
+							<p>iPhone - steg 1: Första vyn</p>
+							<ol>
+								<li>Öppna storyboard för iPhone</li>
+								<li>Stäng av auto layout</li>
+								<li>Kolla på de olika elementen som finns</li>
+								<li>Dra in en bakgrundsbild, sätt bild och springs/struts</li>
+								<li>Dra in en knapp och ändra texten</li>
+								<li>Kör appen i iPhone-simulatorn</li>
+							</ol>
+
+							<p>iPhone - steg 2: Segue</p>
+							<ol>
+								<li>Dra in en ny vy</li>
+								<li>Ctrl+dra från knappen</li>
+								<li>Vad är en segue?</li>
+								<li>Välj modal och kör simulatorn</li>
+								<li>Byt modal-transition till curl och kör igen</li>
+								<li>Embed in navigation bar</li>
+								<li>Byt modal till push och kör igen</li>
+							</ol>
+
+							<p>iPhone - steg 3: Andra vyn</p>
+							<ol>
+								<li>Kopiera in bakgrundsbilden</li>
+								<li>Dra in en ny bild och sätt Clippy</li>
+								<li>Dra in en label och sätt texten</li>
+								<li>Kör igen</li>
+							</ol>
+
+							<p>iPhone - steg 4: Hoppa</p>
+							<ol>
+								<li>Dra in och länka till Bounce-koden</li>
+								<li>Kolla på koden (NÄSTA SLIDE!)</li>
+							</ol>
+						</aside>
+					</section>
+					<section>
+						<h2>Bounce-kod</h2>
+						<p>Lägg in denna kod i ClippyViewController.m</p>
+						<pre><code data-trim contenteditable>
+							- (void)bounce
+{
+	UIView *clippy = self.clippyContainerView;
+	[clippy bounce:0.5];
+	[self performSelector:@selector(bounce) withObject:nil afterDelay:1];
+}
+						</code></pre><br/>
+						<p>...och denna slutet av viewDidLoad:</p>
+						<pre><code data-trim contenteditable>
+[self bounce];
+						</code></pre>
+
+						<aside class="notes">
+							<p>iPhone - steg 4: Hoppa (forts.)</p>
+							<ol>
+								<li>Skapa en clippy property</li>
+								<li>Få clippy att hoppa - texten står kvar</li>
+								<li>Skapa en container-vy och få den att hoppa istället</li>
+							</ol>
+
+							<p>iPhone - steg 5: Kommunikation mellan vyer</p>
+							<ol>
+								<li>Bara jag</li>
+								<li>Skapa en text-property</li>
+								<li>Sätt den i prepareForSegue</li>
+							</ol>
+
+							<p>iPad</p>
+							<ol>
+								<li>På grund av att vi har kod går det snabbt</li>
+								<li>Skapa vyerna och sätt rätt klasser</li>
+								<li>Ctrl+dra till rätt properties</li>
+								<li>Kör och visa hur allt fungerar automatiskt</li>
+							</ol>
+
+							<p>Deploy till enhet</p>
+							<ol>
+								<li>Måste ha utvecklarcertifikat</li>
+								<li>Måste aktivera enheten för utveckling</li>
+								<li>Skaffa cert via utvecklarportalen</li>
+							</ol>
+						</aside>
+					</section>
+					<section>
+						<h2>Summa summarum</h2>
+						<p>Rätt enkelt att komma igång</p>
+						<p>Rätt gräslig syntax (men man vänjer sig)</p>
+						<p>ARC gör livet mycket enklare</p>
+						<p>Storyboards gör livet mycket enklare</p>
+					</section>
+				</section>
+
+				<section>
+					<h1>Frågor?</h1>
+				</section>
+
+				<section>
+					<h1>Tack!</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

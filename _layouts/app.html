@@ -1,0 +1,11 @@
+---
+layout: page
+---
+
+{{ content }}
+
+{%- assign id = page.id | split: "/" | last -%}
+{%- assign info = site.data.apps | where:"name",page.name | first -%}
+
+<p>{{ id }}</p>
+<p>{{ info }}</p>

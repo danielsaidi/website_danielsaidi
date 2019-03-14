@@ -1,0 +1,119 @@
+{
+	"name" : "sgt. Black",
+	"startYear" : 2001,
+	"endYear" : 2003,
+	"genre": "Grunge, hard rock",
+	"hasNews" : false,
+
+	"description": "Heavy post-grunge rock",
+	
+	"members" : [
+		"Magnus Andersson - Bass",
+		"Max de Wilde - Drums (guitars in NWS)",
+		"Olof Gustafsson - Guitars (joined x:o)",
+		"Mathias Karlsson - Drums (NWS)",
+		"Daniel Saidi - Vocals",
+		"Carl Åbjörnsson - Guitars"
+	],
+
+	"biography" : [
+		"I sang in sgt. Black between 2001 and 2004. During this time, we changed name and lineup twice.",
+		"The first lineup (New Wave Stoner) was founded in 2001. Many songs were written, but none were recorded. The second (x:o) was formed as Max switched to drums and Olof joined on guitars.",
+		"The final lineup (sgt. Black) was identical to x:o, with a slight change of musical direction. We wrote a bunch of songs, recorded nine of them, and performed at many clubs."
+	],
+
+	"albums": [
+		{
+			"name" : "December Session",
+			"file" : "december",
+			"recorded" : 2003,
+			"tracks" : [
+				{
+					"name" : "Unforgettable",
+					"file" : "december_01_unforgettable"
+				},
+				{
+					"name" : "Only One",
+					"file" : "december_02_only_one"
+				},
+				{
+					"name" : "Remain",
+					"file" : "december_03_remain"
+				}
+			]
+		},
+		{
+			"name" : "November Session",
+			"file" : "november",
+			"recorded" : 2003,
+			"tracks" : [
+				{
+					"name" : "One Blow to Shine",
+					"file" : "november_01_one_blow_to_shine"
+				},
+				{
+					"name" : "Down",
+					"file" : "november_02_down"
+				},
+				{
+					"name" : "Decision: Over",
+					"file" : "november_03_decision_over"
+				}
+			]
+		},
+		{
+			"name" : "October Session",
+			"file" : "october",
+			"recorded" : 2003,
+			"tracks" : [
+				{
+					"name" : "Shiver",
+					"file" : "october_01_shiver"
+				},
+				{
+					"name" : "Slow Drown",
+					"file" : "october_02_slow_drown"
+				},
+				{
+					"name" : "Go Find it",
+					"file" : "october_03_go_find_it"
+				}
+			]
+		},
+		{
+			"name" : "Break",
+			"file" : "break",
+			"recorded" : 2001,
+			"tracks" : [
+				{
+					"name" : "Shake It Off",
+					"file" : "break_01_shake_it_off"
+				},
+				{
+					"name" : "B",
+					"file" : "break_02_b"
+				},
+				{
+					"name" : "Itch",
+					"file" : "break_03_itch"
+				},
+				{
+					"name" : "Life Eternal",
+					"file" : "break_04_life_eternal"
+				},
+				{
+					"name" : "Cold Hearts",
+					"file" : "break_05_cold_hearts"
+				},
+				{
+					"name" : "Break",
+					"file" : "break_06_break"
+				},
+				{
+					"name" : "Lighten Up",
+					"file" : "break_07_lighten_up"
+				}
+			]
+		}
+	]
+}

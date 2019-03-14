@@ -1,0 +1,7 @@
+{% for post in site.posts %}
+  {% capture year %}{{post.date | date: "%Y"}}{% endcapture %}
+  {% assign year = year | plus: 0 %}
+  {% if year == include.year %}
+    {%- include blog/post-list-item.html post=post -%}
+  {% endif %}
+{% endfor %}

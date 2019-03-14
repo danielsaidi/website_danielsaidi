@@ -1,0 +1,34 @@
+{%- assign talk=include.talk -%}
+
+<ul class="horizontal">
+  
+  {%- if talk.video -%}
+  <li>
+    <a href="{{ talk.video }}">
+      Video
+    </a>
+  </li>
+  {%- endif -%}
+
+  <li>
+    <a href="{{ talk.url }}">
+      Presentation
+    </a>
+  </li>
+  
+  {%- if talk.post -%}
+  <li>
+    <a href="{{ talk.post }}">
+      Blog Post
+    </a>
+  </li>
+  {%- endif -%}
+  
+  {%- if talk.code -%}
+  <li>
+    <a href="{{ talk.code }}">
+      Code
+    </a>
+  </li>
+  {%- endif -%}
+</ul>

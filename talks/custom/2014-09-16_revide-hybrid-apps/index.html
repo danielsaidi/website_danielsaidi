@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Hybrid App Development</title>
+
+		<meta name="description" content="Hybrid App Development">
+		<meta name="author" content="Daniel Saidi">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+	</head>
+
+	<body style="background:url('bg.jpg'); background-size:cover">
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+
+					<h1>Hybrid Apps</h1>
+					<h2>How to, why to and should you?</h2>
+					<h3>Revide 2014-09-16</h3>
+					<p>&nbsp;</p>
+					<p>
+						<small>
+							Daniel Saidi -
+							<a target="_blank" href="http://twitter.com/danielsaidi">@danielsaidi</a> -
+							<a target="_blank" href="http://danielsaidi.wordpress.com">danielsaidi.wordpress.com</a>
+						</small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Hybrid-appar i iOS</h2>
+					<p>Använder sig av UIWebView</p>
+					<p>Långsammare än Mobile Safari (men snabbare nu än tidigare)</p>
+					<p>Appen kan exekvera JavaScript i webbläsaren</p>
+					<p>Appen kan komma åt hela DOM:en via JavaScript</p>
+					<p>Appen kan injecta kod så att UIWebView kan påverka appen</p>
+				</section>
+
+
+
+				<section>
+					<h1>Frågor<br />innan case study?</h1>
+				</section>
+
+
+
+				<section>
+					<section>
+						<h1>Tradera Beta</h1>
+						<h2>En case study</h2>
+					</section>
+					<section>
+						<img src="beta-1.png" />
+					</section>
+					<section>
+						<img src="beta-2.png" />
+					</section>
+				</section>
+
+
+				<section>
+					<h1>Demo</h1>
+				</section>
+
+				<section>
+					<h1>Slutsatser</h1>
+				</section>
+
+				<section>
+					<h2>How to?</h2>
+					<p>En bra, responsiv webb är ett måste för uppkopplad hybrid</p>
+					<p>Kontrollerad releaseprocess för webben (CD, rollbacks etc.)</p>
+					<p>Gör det möjligt att separera webb från hybrid, om så blir tvunget</p>
+					<p>Bra disciplin i teamen för att säkerställa fuktionalitet överallt</p>
+					<p>Era webb- och backend devs blir (i princip) app-utvecklare</p>
+					<p>Respektera, bemöt och underlätta</p>
+					<p>Börja enkelt och bygg utifrån det</p>
+					<p>Du kommer fortfarande att behöva kompetens om appar *</p>
+					<p>&nbsp;</p>
+					<p><small>* Navigation, notifikationer, releaser etc.</small></p>
+				</section>
+
+				<section>
+					<h2>Why to?</h2>
+					<p>Bättre utnyttjande av utvecklarnas kompetens</p>
+					<p>Återanvändning av redan utvecklade funktioner</p>
+					<p>Skriv (den mesta av) koden bara en enda gång</p>
+					<p>Du behöver endast skriva native-funktioner native</p>
+					<p>Webb och appar ligger alltid i sync</p>
+					<p>Konsistens i utseende, beteende, mätningar, A/B-test</p>
+				</section>
+
+				<section>
+					<h2>Should you?</h2>
+					<p>Det beror på &nbsp;&nbsp; :)</p>
+					<p>Har ni funktioner som kräver native?</p>
+					<p>...eller räcker en bra, responsiv webb?</p>
+					<p>Har era utvecklingsteam kompetensen, kapaciteten?</p>
+					<p>Har de förutsättningarna?</p>
+					<p>Skulle en hybrid fungera för dina användare?</p>
+					<p>(Vi på Tradera vet fortfarande inte)</p>
+				</section>
+
+				<section>
+					<h1>Frågor?</h1>
+				</section>
+
+				<section>
+					<h1>Tack!</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,20 @@
+
+- name: Blog
+  title: My blog
+  link-title: Read my blog
+  url: /blog/
+
+- name: GitHub
+  title: Me on GitHub
+  link-title: Checkout my code on GitHub
+  url: http://github.com/danielsaidi
+
+- name: Twitter
+  title: Me on Twitter
+  link-title: Checkout my Twitter profile
+  url: http://twitter.com/danielsaidi
+
+- name: E-mail
+  title: Send me an e-mail
+  link-title: Send me an e-mail
+  url: mailto:daniel.saidi@gmail.com

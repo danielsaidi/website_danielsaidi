@@ -1,0 +1,60 @@
+NExtra
+	Open source
+	Versionshanterat med git
+	Ligger uppe på github.com
+	Ligger uppe på NuGet
+
+git
+	Vet alla vad det är?
+	Vet alla hur det fungerar?
+	Ont om tid...men demonstration?
+	
+github
+	Vet alla vad det är?
+	Vet alla hur det fungerar?
+	Visa NExtras github-sida
+		Publik webbplats
+		Projektsajt
+		Nedladdningar
+		Taggar
+		Issues
+	
+NuGet
+	Vet alla vad det är?
+	Vet alla hur det fungerar?
+	Visa NExtra med NuGet-sökning på sajten
+	Visa NExtra med NuGet-sökning från Visual Studio
+	
+Problem
+	Manuella byggen
+	Kör enhetstester manuellt (kan lätt missas)
+	Samla ihop alla DLL:er och assets (vilket jag skötte med ett byggprojekt)
+	Skapa en github-tagg (snabbt dock)
+	Zippa och ladda upp releasen till GitHub (rätt snabbt)
+	Handknacka ihop NuGet-paketen (långsamt och STORA risker för fel)
+	
+Lösning
+	Vi använder ju Team City i många projekt
+	Vi använder Phantom/Boo som byggsystem
+	Jag tänkte: Varför kan man inte använda Phantom även utan TC
+	Jag gör det i ByggMax ibland, och det fungerar jättebra
+	
+Hur är det gjort?
+	1. Git-repository kopplat mot github fanns redan
+	2. Jag skapade nya NuSpec-filer (visa NExtra + NExtra.WebForms med beroenden)
+	3. Jag lade till Phantom som en extra resurs
+	4. Jag lade till en build.bat som tar konfiguration (release) och typ av bygge (default)
+		Kommentera att i Byggmax matar vi in fler saker
+	5. Jag lade till en build.boo med följande targets:
+		default		Bygger och testar
+		zip			Bygger till NExtra.{version}.zip
+		deploy		Bygger till NExtra.{version}-katalog
+		publish		Bygger en zip, skapar ny github-tagg och publicerar till NuGet
+		
+Hämta ut version för DLL:
+	Versionsmärkning är inte automatisk för .NET - det är ett manuellt val
+	Phantom är baserad på gammal .NET, så den kan inte läsa min DLL med Reflection
+	Jag kan inte skapa en Phantom plugin för detta, eftersom den måste vara i .NET 4
+	Så...jag läser min assembly-fil och hämtar ut versionen därifrån
+
+Demo

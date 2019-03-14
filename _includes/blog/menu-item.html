@@ -1,0 +1,9 @@
+<div>
+  <a href="{{ include.url | relative_url }}" class="discreet">
+    <div class="card">
+      <div class="content {% if include.active == true %}active{% endif %}">
+        <h2>{{include.title}}</h2>
+      </div>
+    </div>
+  </a>
+</div>

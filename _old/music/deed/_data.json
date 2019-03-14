@@ -1,0 +1,40 @@
+{
+	"name" : "dEEd",
+	"startYear" : 2007,
+	"endYear" : 2008,
+	"genre": "Rock, Metal",
+	"hasNews" : false,
+
+	"description": "Three guitars and a lot of rock",
+	
+	"members" : [
+		"Mikael Carling - Bass",
+		"Olof Gustafsson - Guitars",
+		"Mathias Roitto - Drums",
+		"Daniel Saidi - Vocals & Guitars",
+		"Carl Åbjörnsson - Guitars"
+	],
+
+	"biography" : [
+		"I sang and played guitar in dEEd between 2007 and 2008.",
+		"dEEd was founded in 2007, when Saidi och Kollektivet added Carl Åbjörnsson to the mixture and decided to move back to classic rock. We wrote several great songs, but only recorded two before I left in autumn 2008."
+	],
+
+	"albums": [
+		{
+			"name" : "dEEd did it!",
+			"file" : "deed_did_it",
+			"recorded" : 2008,
+			"tracks" : [
+				{
+					"name" : "Like An Eagle",
+					"file" : "deed_did_it_01_like_an_eagle"
+				},
+				{
+					"name" : "Let's End It All",
+					"file" : "deed_did_it_02_lets_end_it_all"
+				}
+			]
+		}
+	]
+}

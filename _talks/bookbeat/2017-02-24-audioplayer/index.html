@@ -1,0 +1,125 @@
+---
+title: "New Audio Player"
+date: 2017-02-24
+
+abstract: |
+  
+  This is a Swedish presentation of the new BookBeat audio player, which we built as the company's first CocoaPod library, with unit tests, build server setup, commit hooks etc.
+---
+
+{% capture assets %}{{ page.assets | relative_url }}/audio-player-{% endcapture %}
+
+<section data-markdown class="title-page">
+	# Ny ljudspelare
+</section>
+
+<section data-markdown>
+	## Vad har vi gjort hittills?
+
+	Tagit Alex utkast till ny spelare
+
+	Skapat separat projekt för ljudspelaren
+
+	Skrivit om och flyttat in Alex kod bit för bit
+
+	Täckt all kod med automatiska tester
+
+	Börjat lyfta in ny kod i appen
+
+	Skapat en test-app
+</section>
+
+
+<section data-markdown>
+	## Varför testa?
+
+	Viss kod fungerade, men var svår att förstå, t.ex.
+
+	![Code Before]({{assets}}code-before.png)
+
+	Vi täckte den med tester för att förstå hur den fungerade
+</section>
+
+
+<section data-markdown>
+	## Varför testa?
+
+	Med testerna på plats, vågade vi skriva om koden:
+
+	![Code Before]({{assets}}code-after.png)
+
+	Tack vare testerna, vet vi att koden fortfarande fungerar
+
+	**Bonusfråga:** Ser ni någon rad som kan tas bort?
+</section>
+
+
+<section data-markdown>
+	## Varför testa?
+
+	Nu testar vår byggserver all ny kod som skickas in:
+
+	![Build Server]({{assets}}build-server.png)
+
+	320 automatiska tester
+
+	Vi får direkt veta om spelaren inte fungerar som avsett
+</section>
+
+
+<section data-markdown>
+	## Vad är kvar?
+
+	Ersätta den gamla spelaren i vår app (svårt)
+
+	Vi gör detta bit för bit (t.ex. inställningar först)
+
+	Vi minimerar appens beroende till gamla spelaren
+
+	Detta gör det enklare att byta ut den gamla spelaren
+</section>
+
+
+<section data-markdown>
+	## Faror
+
+	Den gamla spelaren gör så otroligt mycket
+
+	Den har samtidigt inga automatiska tester
+
+	Det gör det lätt att missa nuvarande funktionalitet
+
+	Kräver noggrann manuell testning!
+
+	Speciellt för hur progresser hanteras
+</section>
+
+
+<section data-markdown>
+	## Ny Test-spelare
+
+	![Simple app]({{assets}}test-player.png)
+
+	Kan användas redan nu för att testa och hitta fel
+</section>
+
+
+<section data-markdown>
+	## Ny Test-spelare
+
+	Kan hämtas hem via Fabric
+
+	Enkelt gränssnitt
+
+	Spela lokal fil eller strömmande fil
+
+	Tryck på 🔎 för att spela valfri ström
+
+	Tryck på ✎ för att visa händelse-logg
+
+	✎ blir röd om ett fel uppstår
+</section>
+
+<section data-markdown class="title-page">
+	# Tack
+</section>

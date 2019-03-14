@@ -1,0 +1,25 @@
+- name: Concrete
+  year: 1996
+  tracks:
+    - name: Vietnam
+    - name: Psycho As They Say
+    - name: Ignorance
+
+- name: Midnightenlightened
+  year: 1997
+  tracks:
+    - name: The Prophecy
+    - name: Midnightenlightened
+    - name: Pain Unbearable
+
+- name: Forsaken
+  year: 1999
+  tracks: 
+    - name: Forsaken
+    - name: A Scenery of Despair
+    - name: Rape of Bewildered Dreams
+    - name: In Mating
+    - name: Burn!
+    - name: Through Chaos Fulfilled
+    - name: A Realm of the Unblessed
+    - name: Apostates of Hate

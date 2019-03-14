@@ -1,0 +1,41 @@
+html, body {
+  width: 100%;
+  background-image: url(bg/lightgrey.png) !important;
+}
+
+nav.site-nav {
+  z-index: 1000;
+}
+
+.header-container hr {
+  margin-top: 0px !important;
+}
+
+.site-header {
+  border: 0px !important;
+}
+
+hr.styled {
+  margin: 0px;
+  margin-top: $standard-margin;
+  background: url(bg/hr.png) no-repeat center top;
+  border: none;
+  border-top: 1px solid #aaa;
+  height: 20px;
+}
+
+p + h2 {
+  margin-top: 40px;
+}
+
+p + h3 {
+  margin-top: 30px;
+}
+
+code, .highlighter-rouge .highlight {
+  background: #F5F5F5 !important;
+}
+
+a.discreet {
+  color: #555;
+}

@@ -1,0 +1,33 @@
+.post-content {
+  margin-bottom: 0px !important;
+
+  img {
+    border-radius: 10px;
+    margin: 20px 0px;
+  }
+}
+
+.post-header {
+  text-align: center !important;
+
+  .post-meta {
+    padding-bottom: 10px;
+
+    a {
+      color: #555;
+    }
+  }
+}
+
+.post-list-item .read-link {
+
+  text-align: center;
+  margin-top: 50px;
+
+  a {
+    padding: 10px 15px;
+    color: white;
+    background-color: #555;
+    border-radius: 30px;
+  }
+}

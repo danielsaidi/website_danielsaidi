@@ -1,0 +1,31 @@
+- name: Break
+  year: 2001
+  tracks:
+    - name: Shake It Off
+    - name: B
+    - name: Itch
+    - name: Life Eternal
+    - name: Cold Hearts
+    - name: Break
+    - name: Lighten Up
+
+- name: October Session
+  year: 2003
+  tracks:
+    - name: Shiver
+    - name: Slow Drown
+    - name: Go Find it
+
+- name: November Session
+  year: 2003
+  tracks:
+    - name: One Blow to Shine
+    - name: Down
+    - name: "Decision: Over"
+
+- name: December Session
+  year: 2003
+  tracks:
+    - name: Unforgettable
+    - name: Only One
+    - name: Remain

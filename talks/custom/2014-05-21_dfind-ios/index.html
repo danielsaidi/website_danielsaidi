@@ -1,0 +1,417 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>iOS - Från ax till limpa</title>
+
+		<meta name="description" content="iOS - Från ax till limpa">
+		<meta name="author" content="Daniel Saidi">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/default.css" id="theme">
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+	</head>
+
+	<body style="background:url('bg.jpg'); background-size:cover">
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1 style="text-transform:none">iOS</h1>
+					<h2>Från ax till limpa</h2>
+					<h3>Dfind 2014-05-21</h3>
+					<p>
+						<small>Daniel Saidi <a target="_blank" href="http://twitter.com/danielsaidi">@danielsaidi</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Syfte</h2>
+					<p>Visa hur man utvecklar appar för iOS</p>
+					<p>Visa vilka program och tjänster man använder</p>
+					<p>Visa hur man distribuerar appar till testare och AppStore.</p>
+
+					<aside class="notes">
+						Hit 's' on keyboard to view comments, elapsed time, next slide etc.
+						<br/><br/>
+						Press b or period on your keyboard to enter the 'paused' mode. The
+						pause mode is helpful when you want to take distracting slides off
+						the screen during a presentation.
+						<br/><br/>
+						Jag är inget proffs, utan har endast arbetat med iOS på min fritid.
+						Det är dock en väldigt spännande värld där mycket händer.
+						<br/><br/>
+						I och med att vi under hösten kommer att ta mer kontroll över våra
+						appar, är det bra om vi får bättre koll på plattformen och vet vad
+						man kan göra.
+					</aside>
+				</section>
+
+				<section>
+					<h2>Vi kommer att prata om</h2>
+					<p>iOS</p>
+					<p>Objective-C</p>
+					<p>XCode</p>
+					<p>Apple Developer Portal</p>
+					<p>iTunes Connect</p>
+					<p>TestFlight</p>
+					<p>...och sedan kommer vi att göra en app</p>
+
+					<aside class="notes">
+						<p>Vi kommer att gå igenom samtliga översiktligt</p>
+						<p>Vi återvänder därefter till dem under demot</p>
+						<p>Fråga på när som helst</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Vem är jag?</h2>
+					<p>35 år gammal, gift, tvåbarnsfar</p>
+					<p>Civilingenjör i Medieteknik, Linköpings Universitet</p>
+					<p>Webb sedan 1996</p>
+					<p>Mobila system sedan 2005</p>
+					<p>Systemutvecklare, tidigare konsult, nu anställd på eBay</p>
+				</section>
+
+				<section>
+					<h2>Min iOS-resa</h2>
+					<h3>2010</h3>
+					<p>Byggde en webbapp för iOS under ett Creative Hack</p>
+					<p>Geo-baserad bookmarking</p>
+					<p>Endast webbapplikation - ingen app</p>
+				</section>
+
+				<section>
+					<h2>Min iOS-resa</h2>
+					<h3>2011</h3>
+					<p>Lärde mig iOS (3.1) och portade appen till iOS</p>
+					<p>Fortfarande fokus på OSS och webbaserade-system</p>
+					<p>...men iOS var ju roligt</p>
+				</section>
+
+				<section>
+					<h2>Min iOS-resa</h2>
+					<h3>2012</h3>
+					<p>Föräldraledighet i mars = hårdplugg</p>
+					<p>iTunesU, böcker, bloggar etc.</p>
+					<p>Flera projekt med vänner och bekanta</p>
+				</section>
+
+				<section>
+					<h2>Min iOS-resa</h2>
+					<h3>2013</h3>
+					<p>eBay / Tradera</p>
+					<p>Appamini HB</p>
+					<p>...och inga nya sidoprojekt</p>
+				</section>
+
+				<section>
+					<h2>...och hur har det gått?</h2>
+					<p>Inga miljoner</p>
+					<p>Inga genombrott *</p>
+					<p>iOS är fortfarande roligt</p>
+					<p>(...och jag får åka på WWDC om två veckor!!!)</p>
+					<p>&nbsp;</p>
+					<p>
+						<small>* Min största succé gjorde jag dock nyligen på tio minuter</small>
+					</p>
+				</section>
+
+				<section>
+					<h2>Frågor?</h2>
+				</section>
+
+				<section>
+					<h2>Nu kör vi!</h2>
+				</section>
+
+				<section>
+					<h2>Upplägg</h2>
+					<p>Genomgång av flera centrala begrepp</p>
+					<p>Vi går först igenom dem översiktligt</p>
+					<p>Därefter praktisk användning under demot</p>
+				</section>
+
+				<section>
+					<h2>iOS</h2>
+					<p>Apples operativsystem för mobila enheter</p>
+					<p>Introducerades av 2007 för iPhone</p>
+					<p>Körs idag på iPhone, iPad, iPod, Apple TV etc.</p>
+					<p>Relativt täta uppdateringar, drygt 1 major per år</p>
+					<p>iOS 7 var den största uppdateringen</p>
+					<p>iOS 8 kommer snart</p>
+				</section>
+
+				<section>
+					<h2>Objective-C</h2>
+					<p>Programmeringsspråk</p>
+					<p>Objektorienterat, meddelandebaserat lager över C</p>
+					<p>Utvecklat på tidigt 80-tal</p>
+					<p>Har färdats via NeXT (NeXTSTEP) till iOS och OS X</p>
+					<p>Syntaxen får utvecklare världen över att gråta</p>
+					<p>Ni kommer att få se lite kod när vi bygger appen</p>
+				</section>
+
+				<section>
+					<h2>XCode</h2>
+					<p>Apples IDE för utveckling till OS X och iOS</p>
+					<p>Gratis(!)</p>
+					<p>I princip ett krav utveckling till OS X och iOS *</p>
+					<p>Ger tillgång ett stort utbud av verktyg:</p>
+					<p>git, UI-verktyg, simulator, kodanalys, tester etc.</p>
+					<p>Används även för distribution till AppStore</p>
+					<p>&nbsp;</p>
+					<p>
+						<small>* Alternativ finns, t.ex. AppCode</small>
+					</p>
+
+					<aside class="notes">
+						Att XCode är gratis är uppseendeväckande, med tanke på att andra
+						IDE:n (AppCode, Visual Studio etc) kostar pengar...mycket pengar.
+						<br/><br/>
+						Vi kommer att kolla mer på XCode, när vi bygger vår app.
+					</aside>
+				</section>
+
+				<section>
+					<h2>Apple Developer Portal</h2>
+					<p>Används bl.a. för att hantera:</p>
+					<p><b>Certifikat</b> - både för utveckling och distribution</p>
+					<p><b>Appar</b> - och vilka tjänster de ska ha tillgång till</p>
+					<p><b>Enheter</b> - vilka du får utveckla på och testa med</p>
+					<p><b>Provisioning</b> - kopplar ihop certifikat, app och enhet</p>
+					<p><a target="_blank" href="http://developer.apple.com">developer.apple.com</a></p>
+				</section>
+
+				<section>
+					<h2>iTunes Connect</h2>
+					<p>Används bl.a. för att hantera:</p>
+					<p>Appar - de du lagt upp på AppStore</p>
+					<p>Sales and Trends - hur försäljningen går</p>
+					<p>Contracts, Tax and Banking - dina avtal med Apple</p>
+					<p>Payment and Financial Reports - utbetalningsrapporter</p>
+					<p><a target="_blank" href="http://itunesconnect.apple.com">itunesconnect.apple.com</a></p>
+				</section>
+
+				<section>
+					<h2>TestFlight</h2>
+					<p>Distribution av appar till testare</p>
+					<p>Statistik över hur appen används</p>
+					<p>Tillhandahåller även kraschrapporter</p>
+					<p>Stöd för iOS och (nyligen) Android...</p>
+					<p>...sedan köpte Apple upp TestFlight och tog bort stödet</p>
+					<p><a target="_blank" href="http://testflightapp.com">testflightapp.com</a></p>
+				</section>
+
+				<section>
+					<h2>Nu ska vi bygga en app!</h2>
+				</section>
+
+				<section>
+					<h2>Agenda</h2>
+					<p>Skapa ett enkelt projekt</p>
+					<p>Bygga en fantastisk app</p>
+					<p>Köra appen på simulator</p>
+					<p>Köra appen på fysisk enhet</p>
+					<p>Distribuera appen till testare</p>
+					<p>Distribuera appen till AppStore...nästan</p>
+				</section>
+
+				<section>
+					<h2>XCode</h2>
+
+					<aside class="notes">
+						<p>Vi kommer endast att bygga för iPhone</p>
+						<p>Vi berör inte delegat, protocol etc.</p>
+
+						<ol>
+							<li>Single View Application</li>
+							<li>Product name: Clippy</li>
+							<li>Company identifier: Vad är det? com.danielsaidi.com (domäninvers)</li>
+							<li>Bundle identifier: Vad är det? Går att ändra sen</li>
+							<li>Devices: Universal, vad betyder det?</li>
+							<li>Use Storyboards: Vad är en storyboard?</li>
+						</ol>
+
+						<p>Projektet:</p>
+						<ol>
+							<li>Kolla igenom projektets inställningar</li>
+							<li>Kolla igenom projektets olika filer</li>
+							<li>Nämn att vi inte kommer att fokusera på en snygg struktur</li>
+						</ol>
+
+						<p>Lägg till ikon</p>
+						<p>Bygg hela projektet</p>
+						<p>Kör på simulator</p>
+
+						<p>&nbsp;</p>
+
+						<p>Storyboard</p>
+						<p>Vykontroller</p>
+						<p>Vyer</p>
+						<p>Koden för att få den att hoppa</p>
+					</aside>
+				</section>
+
+				<section>
+					<h2>Test på fysisk enhet</h2>
+				</section>
+
+				<section>
+					<h2>Apple Developer Portal</h2>
+					<p>Utveckling mot simulator är gratis</p>
+					<p>Utveckling mot fysisk enhet kostar</p>
+					<p>808 kr/år - mycket jämfört med Google och MS</p>
+					<p>Man måste registrera utvecklarenheter, max 100 per år</p>
+					<p>Man måste skapa ett utvecklingscertifikat</p>
+					<p><a target="_blank" href="http://developer.apple.com">developer.apple.com</a></p>
+				</section>
+
+				<section>
+					<h2>Demo av test på fysisk enhet</h2>
+				</section>
+
+				<section>
+					<h2>Distribution till testare</h2>
+				</section>
+
+				<section>
+					<h2>TestFlight</h2>
+					<p>Testaren måste registrera sig och sina enheter</p>
+					<p>Man måste därefter bjuda in testaren till sitt team</p>
+					<p>När testaren går med, kan man se dess enheter</p>
+					<p><a target="_blank" href="http://testflightapp.com">testflightapp.com</a></p>
+				</section>
+
+				<section>
+					<h2>Apple Developer Portal</h2>
+					<p>Man måste registrera alla externa testenheter</p>
+					<p>Man måste skapa ett distributionscertifikat</p>
+					<p>Man måste skapa en AdHoc-provisionsprofil</p>
+					<p>Profilen identifierar en app, ett certifikat och enheter</p>
+					<p><a target="_blank" href="http://developer.apple.com">developer.apple.com</a></p>
+				</section>
+
+				<section>
+					<h2>XCode</h2>
+					<p>För att distribuera sin app, arkiverar man projektet</p>
+					<p>För att kunna arkivera, måste man ha en fysisk enhet</p>
+					<p>Arkivet måste signeras med en AdHoc-provisionsprofil</p>
+					<p>Arkivet sparas därefter som en IPA-fil på disk</p>
+					<p>IPA-filen måste slutligen laddas upp till TestFlight</p>
+					<p><a target="_blank" href="http://testflightapp.com">testflightapp.com</a></p>
+				</section>
+
+				<section>
+					<h2>Demo av distribution till testare</h2>
+				</section>
+
+				<section>
+					<h2>Distribution till AppStore</h2>
+				</section>
+
+				<section>
+					<h2>Apple Developer Portal</h2>
+					<p>Wildcard (*) kan användas av flera enklare appar</p>
+					<p>Vissa funktioner (t.ex. push) kräver unikt app ID</p>
+					<p>Man kan använda samma distributionscertifikat</p>
+					<p>Man måste skapa en AppStore-provisionsprofil</p>
+					<p>Profilen identifierar endast en app och ett certifikat</p>
+					<p><a target="_blank" href="http://developer.apple.com">developer.apple.com</a></p>
+				</section>
+
+				<section>
+					<h2>iTunes Connect</h2>
+					<p>För att distribuera sin app, måste man skapa en app i iTC</p>
+					<p>Man måste ange Bundle ID och SKU (Stock Keeping Unit)</p>
+					<p>Man måste ladda upp en ikon och information om appen</p>
+					<p>Man måste klassificera appen, för att fastställa åldersgräns</p>
+					<p>Man måste markera appen som "redo för binär"</p>
+					<p><a target="_blank" href="http://itunesconnect.apple.com">itunesconnect.apple.com</a></p>
+				</section>
+
+				<section>
+					<h2>XCode</h2>
+					<p>För att distribuera sin app, arkiverar man projektet</p>
+					<p>För att kunna arkivera, måste man ha en fysisk enhet</p>
+					<p>Arkivet måste signeras med en AppStore-provisionsprofil</p>
+					<p>Arkivet sparas inte på disk, utan skickas direkt till AppStore</p>
+					<p>När filen har laddats upp och godkänts, är allting klart...</p>
+				</section>
+
+				<section>
+					<h2>...eller...?</h2>
+				</section>
+
+				<section>
+					<h2>Apples Godkännandeprocess</h2>
+					<p>Tar mer än en vecka för nya appar</p>
+					<p>Tar ca en vecka för uppdateringar</p>
+					<p>Min senaste uppdatering tog fem timmar</p>
+					<p>Godkännande är ett högst personligt beslut</p>
+					<p>Men oftast...</p>
+				</section>
+
+				<section>
+					<h2>Slutet gott, allting gott</h2>
+				</section>
+
+				<section>
+					<h1>Lessons learned</h1>
+				</section>
+
+				<section>
+					<h1>Frågor?</h1>
+				</section>
+
+				<section>
+					<h1>Tack!</h1>
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+					// { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>

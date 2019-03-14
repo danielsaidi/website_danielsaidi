@@ -1,0 +1,38 @@
+.card-grid { 
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: $standard-margin;
+  grid-row-gap: $standard-margin;
+
+  .card + h4 {
+    text-align: center;
+    margin: 10px 0;
+    color: $text-color !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .card-grid { 
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+.card-grid.blog-menu {
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: $standard-margin*2;
+
+  .card {
+    div {
+      padding: 20px;
+      background-color: #ddd;
+
+      h2 {
+        margin: 0px;
+      }
+    }
+    div.active {
+      background-color: white;
+    }
+  }
+}

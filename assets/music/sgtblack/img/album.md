@@ -1,0 +1,10 @@
+1=Daniel Saidi
+2=Carl Åbjörnsson
+3=Olof Gustafsson
+4=Magnus Andersson
+5=Max DeWilde
+6=sgt. Black, 2003
+7=sgt. Black, 2003
+10=sgt. Black, live @ Tre Backar 2003
+11=sgt. Black, live @ Tre Backar 2003
+15=sgt. Black, live @ Tre Backar 2003

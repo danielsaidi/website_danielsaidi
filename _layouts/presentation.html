@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+
+  {% capture src %}{{"/assets/reveal" | relative_url}}{% endcapture %}
+
+  <head>
+    <meta charset="utf-8">
+    <title>{{page.title}}</title>
+
+    <meta name="description" content="{{page.abstract}}">
+    <meta name="author" content="Daniel Saidi daniel.saidi@gmail.com">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+    
+    <link rel="stylesheet" href="{{src}}/css/reveal.css" type='text/css'>
+    <link rel="stylesheet" href="{{src}}/css/theme/bookbeat.css" id="theme" type='text/css'>
+    <link rel="stylesheet" href="{{src}}/lib/css/zenburn.css" type='text/css'>
+
+    <link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? '{{src}}/css/print/pdf.css' : '{{src}}/css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+    <style>
+      ul li { font-size: 0.8em !important; }
+      .plain ul li { font-style: normal; }
+    </style>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+    <!-- .li: class="fragment" -->
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        {{content}}
+      </div>
+    </div>
+
+    <script src="{{src}}/lib/js/head.min.js"></script>
+    <script src="{{src}}/js/reveal.js"></script>
+
+    <script>
+
+      // Make all li elements fragments
+      Reveal.addEventListener('ready', function( event ) {
+          Array.prototype.forEach.call(document.querySelectorAll('li'), function(ele){ ele.className = 'fragment'; });
+      } );
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: '{{src}}/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: '{{src}}/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '{{src}}/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: '{{src}}/plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: '{{src}}/plugin/zoom-js/zoom.js', async: true },
+          { src: '{{src}}/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>

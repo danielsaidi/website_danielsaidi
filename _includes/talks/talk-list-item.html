@@ -1,0 +1,25 @@
+{%- assign talk=include.talk -%}
+
+<article class="card post-list-item">
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">{{ talk.title | escape }}</h1>
+  
+    <ul class="horizontal">
+      <li>
+        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+        {{ talk.date | date: date_format }}
+      </li><li>{{ talk.location }}</li>
+    </ul>
+
+    <br />
+  
+    {%- include talks/talk-links.html talk=include.talk -%}
+
+    <hr class="styled" style="opacity: 0.3" />
+  
+  </header>
+
+  <p>
+    {{ talk.abstract | remove: '<p>' | remove: '</p>' }}
+  </p>
+</article>

@@ -1,0 +1,181 @@
+---
+title: "Azure"
+date: 2017-11-10
+
+abstract: |
+  
+  This Swedish presentation is from a BookBeat developer meeting, and covers Azure features for mobile applications.
+---
+
+{% capture assets %}{{ page.assets | relative_url }}/{% endcapture %}
+
+<section data-markdown class="title-page">
+	# Microsoft Azure
+	## Search & Notification Hubs
+</section>
+
+<section>
+
+	<section data-markdown class="title-page">
+		# Azure Search
+	</section>
+
+	<section data-markdown>
+		## Intro-video
+		* Sök över flera datakällor
+		* Lingvistisk förståelse (mus/möss)
+		* Kategorisering
+		* Filtrering
+		* Förslag
+	</section>
+
+	<section data-markdown>
+		## Intro-video (forts.)
+		* Relevans
+		* Scoring
+		* Geospatial sök
+		* 56 språk
+		* App-integrationer
+	</section>
+
+	<section data-markdown class="image-section" data-background="http://gifimage.net/wp-content/uploads/2017/07/catbug-gif-2.gif">
+		## Intro-video (forts.)
+		* Ukelele
+		* Handklapp
+	</section>
+
+	<section data-markdown class="title-page">
+		# Features
+	</section>
+
+	<section data-markdown>
+		## Sök-syntax
+		* Stöd för:
+		* **Simple Query Syntax** (`håkan+nesser`)
+		* **Lucene** (betydligt mer komplext)
+		* **Filter Expression** syntax (OData v4)
+	</section>
+
+	<section data-markdown>
+		## Integrationer
+		* Kan indexera JSON-data från "vilken källa som helst"
+		* Kan också crawla **Azure SQL**, **Azure Cosmos** och **Azure Blob storage**
+	</section>
+
+	<section data-markdown>
+		## Lingvistik / språkförståelse
+		* Regexp
+		* Fonetisk matchning
+		* Tempus (springa, sprang)
+		* Singular/plural (mus, möss)
+	</section>
+
+	<section data-markdown>
+		## Geobaserade sökningar
+
+		* Utgå från användarens position för att klassificera relevanta sökresultat
+	</section>
+
+	<section data-markdown>
+		## Sökförslag
+		* "Menade du...?"
+		* Kan vara proaktiva och visas medan användaren skriver
+	</section>
+
+	<section data-markdown>
+		## Relevans/Scoring
+		* Nyckelfunktion i Azure Search
+		* Lyft upp innehåll vi vill exponera
+		* Personlig relevans
+		* Geobaserad relevans
+	</section>
+
+	<section data-markdown class="title-page">
+		# Relevant för oss?
+	</section>
+
+	<section data-markdown>
+		## Användningsområden
+		* Relevans (på riktigt)
+		* Sökförslag - "menade du?"
+		* Hantera felstavningar
+		* Söka på fler egenskaper, t.ex. handling?
+	</section>
+
+	<section data-markdown>
+		## Läs mer
+		* https://azure.microsoft.com/en-us/services/search/
+		* https://docs.microsoft.com/en-us/azure/search/search-what-is-azure-search
+	</section>
+</section>
+
+
+<section>
+	<section data-markdown class="title-page">
+		# Notification Hubs
+	</section>
+
+	<section data-markdown>
+		## Varför Notification Hubs?
+		* Flera PNS (Platform Notification Systems)
+		* **APNS** - Apple Push Notification Service
+		* **FCM**  - Firebase Cloude Messaging
+		* **WNS**  - Windows Notification Service
+	</section>
+
+	<section data-markdown>
+		![PNS]({{assets}}notifications-pns.png)
+	</section>
+
+	<section data-markdown>
+		## Varför? (forts.)
+		* PNS:er har inga gemensamma gränssnitt
+		* Azure Notification Hubs löser detta
+		* Plattformsoberoende PNS-proxy
+		* Pusha enkelt med ett standardiserat API
+	</section>
+
+	<section data-markdown>
+		![PNS]({{assets}}notifications-hub.png)
+	</section>
+
+	<section data-markdown>
+		## Features
+		* Skräddarsy och rikta utskick
+		* Segmentera på aktivitet, intressen etc.
+		* Cross platforms, cross backend
+		* Telemetri/tracking - Vad har skickats, hur har det använts?
+	</section>
+
+	<section data-markdown>
+		## Pris
+		* 1 miljon notifikationer gratis(?)
+		* Tre nivåer - Free, Basic, Standard
+		* Nivåbaserade antal utskick/enheter
+		* Schemalagda notiser, SLA etc. endast tillgängliga i Standard.
+	</section>
+
+	<section data-markdown>
+		## Frågor
+		* Varför detta istället för Firebase?
+		* Varför endast Objective-C exempel!?
+	</section>
+
+	<section data-markdown class="title-page">
+		# Relevant för oss?
+	</section>
+
+	<section data-markdown>
+		## Användningsområden
+		* Fjärrnotiser!
+		* Taggar för författare, serier etc.
+		* Pusha ut nyheter, bevakningar etc.
+		* Pusha ut driftstörningar (tagg)
+	</section>
+
+	<section data-markdown>
+		## Läs mer
+		* https://azure.microsoft.com/en-us/services/notification-hubs/
+		* https://docs.microsoft.com/en-us/azure/notification-hubs/
+	</section>
+</section>
