@@ -1,9 +1,0 @@
-{% assign years = "2017|2016|2015" | split: "|" %}
-
-<h2 class="blog-menu">
-  <a class="{% if include.latest == true %}selected{% endif %}" href="/blog">Latest</a>
-  <span class="separator">•</span>
-  <a class="{% if include.archive == true %}selected{% endif %}" href="/blog/archive">Archive</a>
-  <span class="separator">•</span>
-  <a class="{% if include.tags == true %}selected{% endif %}" href="/blog/tags">Tags</a>
-</h2>
