@@ -7,7 +7,7 @@ permalink: /apps/
 <main class="page-content" aria-label="Content">
   <div class="wrapper">
     <article class="card">
-      <h1>Apps</h1>
+      {% include card-header.html title="Apps" %}
       <p>
         Here is a list of all the apps that I've built for iOS and Android. I will put together a page for each project, but until then the links just go to the App Store or the company page.
       </p>

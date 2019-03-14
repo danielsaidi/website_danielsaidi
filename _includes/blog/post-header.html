@@ -1,7 +1,7 @@
 {%- assign post=include.post -%}
 {%- assign link=include.link | default: false -%}
 
-<header class="post-header">
+<header>
   {%- if link -%}
   <a href="{{ include.post.url | relative_url }}" class="discreet">
   {%- endif -%}
@@ -30,5 +30,4 @@
   {%- include blog/post-tags.html post=include.post -%}
 
   <hr class="styled" style="opacity: 0.3" />
-
 </header>

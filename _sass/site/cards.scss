@@ -42,7 +42,12 @@ article.card, section.card {
     font-size: 2em;
   }
   
-  padding: 50px 40px 40px 40px;
+  padding: 30px 30px 30px 30px;
+
+  header {
+    margin-bottom: $spacing-unit;
+    text-align: center !important;
+  }
 }
 
 .card + .card {
