@@ -11,11 +11,5 @@
 - name: Vandelay
   url: https://github.com/danielsaidi/Vandelay
 
-- name: VandelayQR
-  url: https://github.com/danielsaidi/VandelayQR
-
-- name: VandelayDropbox
-  url: https://github.com/danielsaidi/VandelayDropbox
-
 - name: Cloney
   url: https://github.com/danielsaidi/Cloney
