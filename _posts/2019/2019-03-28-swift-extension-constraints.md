@@ -1,10 +1,11 @@
 ---
-title:  "Swift extension constraints"
+title:  "Constrain Swift extensions with protocols"
 date:   2019-03-28 21:00:00 +0100
 tags:   swift
+icon:   swift
 ---
 
-I really love the Swift extension model. You have to use it with care, sure, but combined with careful system design, they give you a lot of power. In this short post, I discuss how to keep your extensions from being exposed everywhere.
+I really love the Swift type system and its extension model. You have to use it with care, but combined with careful system design, they give you a lot of power. In this short post, I discuss how to keep your extensions from being exposed everywhere.
 
 A common use case for Swift extensions is to decorate foundation classes with additional functionality. For instance, adding this extension to your app would add a new `center` property to all instances of `CGRect`:
 
@@ -17,11 +18,9 @@ extension CGRect {
 }
 ```
 
-This is a valid extension, since it fits the rect model. All rects could have this property without it feeling strange or wrong.
+This is a valid extension, since it fits the rect model. All rects could have this property without it feeling strange or being wrong. Sometimes, extensions are even so "correct" and commonly needed, that they make their way into the standard library. One example is `random(...)`, which was added to the standard library in Swift 4.2.
 
-Sometimes, extensions are so useful that they make their way into the standard library. One example is `random(...)` for numerics, which was implemented over and over by developers until it made its way into the standard library.
-
-Sometimes, however, extensions are valid for the class they extend, but not suitable to all instances of that class. For instance, consider this `UIView` extension:
+Sometimes, however, extensions are applicable, but not suitable, for all instances of the class they extend. For instance, consider this `UIView` extension:
 
 ```swift
 extension UIView {
@@ -48,11 +47,9 @@ extension UIView {
 }
 ```
 
-Adding this extension to your app would let you to add a shake effect to all views in the app. Now...this is not such a good idea. Not only does it make it possible to shake views that perhaps should not be shakeable, but `startShaking()`, `stopShaking()` and `shake(_ numberOfTimes: Int)` would also show up in the auto complete window, as soon as you want to do anything with any view.
+Adding this extension to your app would make it possible to add a shake effect to all views in your app. While this is perfectly valid, it's probably not a good idea. Not only does it make it possible to shake views that should not be shaken, but `startShaking()`, `stopShaking()` and `shake(_ numberOfTimes: Int)` would also show up as auto complete suggestions for all views. This means that adding many extensions to general classes, will bloat your code base with functionality that may be invalid in many contexts.
 
-Adding extensions in this way will bloat your code base with functionality that may be invalid in many contexts. Just because a view *can* be shaked doesn't mean that it *should* be shaked.
-
-Instead, you should add these kinds of exstensions in a constrained way that makes sense. Consider this alternative:
+To avoid this problem, you should restrict the scope of your extensions to ensure that they can only be used intentionally. One way to do this is to create protocols to which you constrain the extensions. For instance, by adding a `Shakeable` protocol, we can stop all views from becoming shakeable when you add the extension above to your app:
 
 ```swift
 protocol Shakeable {}
@@ -62,7 +59,7 @@ extension Shakeable where Self: UIView {
     private var key: String { return "shake" }
     
     func startShaking() {
-        wobble(Int.max)
+        shake(Int.max)
     }
     
     func stopShaking() {
@@ -81,4 +78,4 @@ extension Shakeable where Self: UIView {
 }
 ```
 
-By adding a `Shakeable` protocol as above, we can constrain the shake extensions to only apply to `UIView`s that implement `Shakeable`. This gives you total control over where the extension is applicable and avoids bloating all views in your application with this functionality.
+By adding a `Shakeable` protocol as above, we can constrain the shake extensions to only apply to `UIView`s that implement `Shakeable`. This gives you total control over where the extension can be used.
