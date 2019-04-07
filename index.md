@@ -34,7 +34,4 @@ twitter: http://www.twitter.com/danielsaidi
 
   <a name="open-source"></a>
   {%- include cards/grid-section.html title="Open Source" items=site.data.open-source -%}
-
-  <a name="bands"></a>
-  {%- include cards/grid-section.html title="Bands" items=site.bands type="bands" -%}
 </div>

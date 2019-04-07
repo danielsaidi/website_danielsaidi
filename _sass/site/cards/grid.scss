@@ -4,9 +4,15 @@
   grid-column-gap: $standard-margin;
   grid-row-gap: $standard-margin;
 
-  .card + h4 {
+  .card + .card-title {
     text-align: center;
-    margin: 10px 0 0 0;
+    margin: 10px 0;
+    color: $text-color !important;
+  }
+
+  .card + .card-title + p {
+    text-align: center;
+    margin: -10px 0 0 0;
     color: $text-color !important;
   }
 }

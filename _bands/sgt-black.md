@@ -1,8 +1,10 @@
 ---
 name: Sgt. Black
-years: 2001 - 2004
 genres: Rock
 description: Post-grunge rock
+
+year-from: 2001
+year-to: 2004
 ---
 
 I sang in sgt. Black between 2001 and 2004. During this time, we changed name and lineup twice.

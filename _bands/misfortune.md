@@ -1,8 +1,10 @@
 ---
 name: Misfortune
-years: 1995-1999
 genres: Melodic Death Metal
 description: Melodic Death Metal
+
+year-from: 1995
+year-to: 1999
 ---
 
 I sang in Misfortune between 1995 and 1999. After the first Pantera-influenced demo, we tuned in on bands like At the Gates, Carcass and Dissection. As a result, the second demo differed a lot from the first.

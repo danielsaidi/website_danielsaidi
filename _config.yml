@@ -68,6 +68,7 @@ defaults:
       type: "bands"
     values:
       layout: "band"
+      hidden: false
   -
     scope:
       type: "talks"

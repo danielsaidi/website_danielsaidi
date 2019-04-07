@@ -1,9 +1,11 @@
 ---
 name: Panzified
-years: 1996
 genres: Rock
 description: Swedish rock music
 hidden: true
+
+year-from: 1996
+year-to: 1996
 ---
 
 Panzified was a fun project that recorded two demos.
