@@ -74,6 +74,7 @@ defaults:
     values:
       author: "danielsaidi"
       layout: "presentation"
+      hidden: false
   -
     scope:
       path: "_talks/bookbeat"

@@ -18,4 +18,4 @@ permalink: /apps/
   </div>
 </main>
 
-{% include cards/grid-section.html items=site.data.apps title="" %}
+{% include cards/grid-section.html separator=false items=site.data.apps title="" %}

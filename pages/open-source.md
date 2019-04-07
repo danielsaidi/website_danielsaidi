@@ -12,7 +12,7 @@ permalink: /open-source/
         Here is a list of some open source projects that I've built and is maintaining. For a list of all my projects that are publically available, check out my <a href="https://github.com/{{ site.github_username| cgi_escape | escape }}">GitHub</a> profile.
       </p>
     </article>
+
+    {% include cards/grid.html items=site.data.open-source %}
   </div>
 </main>
-
-{% include cards/grid-section.html items=site.data.open-source %}

@@ -1,8 +1,11 @@
+{%- assign separator = include.separator | default: true -%}
 {%- assign title = include.title -%}
 {%- assign items = include.items -%}
 {%- assign type = include.type -%}
 
-<hr class="styled" />
+{% if separator %}
+  <hr class="styled" />
+{% endif %}
 
 <main class="page-content" aria-label="Content">
   <div class="wrapper">
