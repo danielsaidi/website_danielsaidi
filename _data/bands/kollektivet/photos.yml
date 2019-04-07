@@ -1,0 +1,31 @@
+- file: 1
+  text: Martin, Marika, Olof, Daniel, Maria, Magnus and Erik
+- file: 2
+  text: Mathias, Daniel, Magnus and Marika
+- file: 3
+  text: Magnus, Daniel, Olof, Mathias, Erik and Maria
+  hidden: true
+- file: 4
+  text: Olof, Erik, Maria, Magnus and Daniel
+- file: 7
+  text: Daniel, Mathias, Rasmus, Olof, Magnus and Maria
+- file: 5
+  text: Magnus, Maria, Mathias, Rasmus, Olof and Daniel
+- file: 6
+  text: Magnus, Maria, Mathias, Rasmus, Olof and Daniel
+- file: 10
+  text: Mikael, Mathias, Olof, Daniel, Rasmus and Kristina
+- file: 8
+  text: Kristina, Rasmus, Mathias, Daniel and Olof
+- file: 9
+  text: Rasmus, Daniel, Kristina, Olof and Mathias
+- file: live_1
+  text: Olof, Kristina, Daniel, Mathias, Rasmus and Mikael
+- file: live_2
+  text: Olof, Kristina, Daniel, Mathias, Rasmus and Mikael
+- file: live_3
+  text: Rasmus, Olof, Mathias, Daniel and Mikael
+- file: live_4
+  text: Mikael, Daniel, Mathias and Olof
+- file: live_5
+  text: Mikael, Daniel, Mathias and Olof

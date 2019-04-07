@@ -1,0 +1,10 @@
+.photo-grid {
+  display: grid; 
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: $standard-margin;
+  grid-row-gap: $standard-margin; 
+  
+  img {
+    border-radius: 3px;
+  }
+}

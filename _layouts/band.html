@@ -4,19 +4,18 @@ layout: default
 
 {%- assign id = page.id | split: "/" | last -%}
 {%- assign band = site.data.bands[id] -%}
-{%- assign albums = band.discography -%}
-{%- assign members = band.members -%}
 
 <article class="card">
   {% include bands/band-header.html band=band %}
   {{ content }}
-</article>
-<!--
-{%- for album in albums -%}
-    {{ album.name }}
-    <ul>
-    {%- for track in album.tracks -%}
-        <li>{{track.name}}</li>
+  
+  <a name="photos"></a>
+  <h2>Photos</h2>
+  <section class="photo-grid">
+    {%- for photo in band.photos -%}
+      {%- if photo.hidden -%}{%-  else -%}
+      <img src="/assets/music/{{ page.name | slugify }}/img/{{ photo.file }}_sml.jpg" alt="{{photo.text}}"></img>
+      {%- endif -%}
     {%- endfor -%}
-    </ul>
-{%- endfor -%}-->
+  </section>
+</article>
