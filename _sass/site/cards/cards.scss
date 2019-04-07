@@ -37,14 +37,15 @@ div.card.tag-posts {
 
 
 article.card, section.card {
-
-  h1 {
-    font-size: 2em;
-  }
   
   padding: 30px 30px 30px 30px;
 
   header {
+
+    h1 {
+      font-size: 2em;
+    }
+    
     margin-bottom: $spacing-unit;
     text-align: center !important;
   }

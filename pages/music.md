@@ -2,6 +2,8 @@
 layout: default
 title: Music
 permalink: /music/
+
+redirect_from: /bands/
 ---
 
 <article class="card">

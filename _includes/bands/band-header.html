@@ -1,0 +1,28 @@
+{%- assign band=include.band -%}
+{%- assign info=include.info -%}
+{%- assign link=include.link | default: false -%}
+
+<header>
+  {%- if link -%}
+  <a href="{{ include.band.url | relative_url }}" class="discreet">
+  {%- endif -%}
+  <h1>{{ band.name | escape }}</h1>
+  {%- if link -%}
+  </a>
+  {%- endif -%}
+
+  <ul class="horizontal">
+    <li>{{band.year-from}} - {{band.year-to}}</li>
+    <li>{{band.genres}}</li>
+  </ul>
+
+  <br />
+
+  <ul class="horizontal">
+    {%- for member in members -%}
+      <li>{{member.name}} ({{member.instrument}})</li>
+    {%- endfor -%}
+  </ul>
+
+  <hr class="styled" style="opacity: 0.3" />
+</header>

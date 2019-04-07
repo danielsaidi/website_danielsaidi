@@ -2,14 +2,15 @@
 layout: default
 ---
 
-<article class="card">
-  {{ content }}
-</article>
-
 {%- assign id = page.id | split: "/" | last -%}
 {%- assign band = site.data.bands[id] -%}
 {%- assign albums = band.discography -%}
 {%- assign members = band.members -%}
+
+<article class="card">
+  {% include bands/band-header.html band=page band-info=band %}
+  {{ content }}
+</article>
 
 {%- for album in albums -%}
     {{ album.name }}
@@ -19,11 +20,3 @@ layout: default
     {%- endfor -%}
     </ul>
 {%- endfor -%}
-
-
-Members:
-<ul>
-{%- for member in members -%}
-    <li>{{member.name}}</li>
-{%- endfor -%}
-</ul>
