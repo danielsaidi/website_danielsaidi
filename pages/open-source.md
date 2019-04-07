@@ -1,18 +1,14 @@
 ---
-layout: plain
+layout: default
 title: Open Source
 permalink: /open-source/
 ---
 
-<main class="page-content" aria-label="Content">
-  <div class="wrapper">
-    <article class="card">
-      {% include cards/header.html title="Open Source" %}
-      <p>
-        Here is a list of some open source projects that I've built and is maintaining. For a list of all my projects that are publically available, check out my <a href="https://github.com/{{ site.github_username| cgi_escape | escape }}">GitHub</a> profile.
-      </p>
-    </article>
+<article class="card">
+  {% include cards/header.html title="Open Source" %}
+  <p>
+    Here is a list of some open source projects that I have built and actively maintain. For a list of all publically available projects, check out my <a href="https://github.com/{{ site.github_username| cgi_escape | escape }}">GitHub</a> profile.
+  </p>
+</article>
 
-    {% include cards/grid.html items=site.data.open-source %}
-  </div>
-</main>
+{% include cards/grid.html items=site.data.open-source %}
