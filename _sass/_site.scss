@@ -5,8 +5,9 @@ $standard-margin: 20px;
 @import "site/footer";
 
 @import "site/home";
-@import "site/post";
-
-@import "site/card-grid";
-@import "site/cards";
+@import "site/bands/grid";
+@import "site/blog/menu";
+@import "site/blog/post";
+@import "site/cards/cards";
+@import "site/cards/grid";
 @import "site/lists";

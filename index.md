@@ -27,11 +27,14 @@ twitter: http://www.twitter.com/danielsaidi
   </main>
 
   <a name="links"></a>
-  {%- include home-grid.html title="Links" items=site.data.links -%}
+  {%- include cards/grid-section.html title="Links" items=site.data.links -%}
 
   <a name="apps"></a>
-  {%- include home-grid.html title="Apps" items=site.data.apps -%}
+  {%- include cards/grid-section.html title="Apps" items=site.data.apps -%}
 
   <a name="open-source"></a>
-  {%- include home-grid.html title="Open Source" items=site.data.open-source -%}
+  {%- include cards/grid-section.html title="Open Source" items=site.data.open-source -%}
+
+  <a name="bands"></a>
+  {%- include cards/grid-section.html title="Bands" items=site.bands type="bands" -%}
 </div>

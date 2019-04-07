@@ -16,24 +16,3 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
-
-
-.card-grid.blog-menu {
-  grid-template-columns: repeat(3, 1fr);
-  margin-bottom: $standard-margin*2;
-
-  .card {
-    div {
-      padding: 20px;
-      background-color: #ddd;
-
-      h2 {
-        margin: 0px;
-      }
-    }
-    
-    div.active {
-      background-color: white;
-    }
-  }
-}

@@ -1,0 +1,14 @@
+{%- assign title = include.title -%}
+{%- assign items = include.items -%}
+{%- assign type = include.type -%}
+
+<hr class="styled" />
+
+<main class="page-content" aria-label="Content">
+  <div class="wrapper">
+    {% if title %}
+      <h2>{{title}}</h2>
+    {% endif %}
+    {%- include cards/grid.html items=items type=type -%}
+  </div>
+</main>
