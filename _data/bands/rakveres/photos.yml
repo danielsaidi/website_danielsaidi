@@ -1,0 +1,8 @@
+- file: 1
+  text: Stefan, Daniel, Erik, Anders, Johan
+- file: 2
+  text: Stefan, Erik, Anders, Johan, Daniel
+- file: 3
+  text: Stefan, Erik, Anders, Johan, Daniel
+- file: 4
+  text: Erik

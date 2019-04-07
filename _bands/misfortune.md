@@ -1,5 +1,6 @@
 ---
 name: Misfortune
+year-from: 1995
 ---
 
 I sang in Misfortune between 1995 and 1999. After the first Pantera-influenced demo, we tuned in on bands like At the Gates, Carcass and Dissection. As a result, the second demo differed a lot from the first.

@@ -1,0 +1,38 @@
+- file: 9
+  text: sgt. Black
+- file: 15
+  text: Carl
+- file: 1
+  text: Daniel
+- file: 2
+  text: Carl
+- file: 3
+  text: Olof
+- file: 4
+  text: Magnus
+- file: 5
+  text: Max
+- file: 6
+  text: sgt. Black
+
+- file: 7
+  text: sgt. Black
+  hidden: true
+- file: 8
+  text: Carl
+  hidden: true
+- file: 10
+  text: sgt. Black
+  hidden: true
+- file: 11
+  text: Daniel
+  hidden: true
+- file: 12
+  text: Olof & Magnus
+  hidden: true
+- file: 13
+  text: sgt. Black
+  hidden: true
+- file: 14
+  text: Olof
+  hidden: true

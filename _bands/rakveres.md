@@ -1,5 +1,6 @@
 ---
 name: The Rakveres
+year-from: 2001
 ---
 
 I joined Rakveres 2001. We started off playing covers of Weezer, Danzig, Nirvana etc., but soon begun writing our own stuff, of which four were recorded.
