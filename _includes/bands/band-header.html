@@ -1,19 +1,20 @@
 {%- assign band=include.band -%}
-{%- assign info=include.info -%}
+{%- assign info=band.info -%}
+{%- assign members=band.members -%}
 {%- assign link=include.link | default: false -%}
 
 <header>
   {%- if link -%}
   <a href="{{ include.band.url | relative_url }}" class="discreet">
   {%- endif -%}
-  <h1>{{ band.name | escape }}</h1>
+  <h1>{{ info.name | escape }}</h1>
   {%- if link -%}
   </a>
   {%- endif -%}
 
   <ul class="horizontal">
-    <li>{{band.year-from}} - {{band.year-to}}</li>
-    <li>{{band.genres}}</li>
+    <li>{{info.year-from}} - {{info.year-to}}</li>
+    <li>{{info.genres}}</li>
   </ul>
 
   <br />

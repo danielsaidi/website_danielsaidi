@@ -1,9 +1,5 @@
 ---
 name: Solo stuff
-genres: Pop, rock, folk
-description: Swedish pop/rock/folk music
-
-year-from: 2009
 ---
 
 I have always loved music and have written songs since way, way back. I started my first band at age 15 and played for many years.

@@ -8,10 +8,10 @@ layout: default
 {%- assign members = band.members -%}
 
 <article class="card">
-  {% include bands/band-header.html band=page band-info=band %}
+  {% include bands/band-header.html band=band %}
   {{ content }}
 </article>
-
+<!--
 {%- for album in albums -%}
     {{ album.name }}
     <ul>
@@ -19,4 +19,4 @@ layout: default
         <li>{{track.name}}</li>
     {%- endfor -%}
     </ul>
-{%- endfor -%}
+{%- endfor -%}-->

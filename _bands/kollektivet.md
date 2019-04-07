@@ -1,10 +1,5 @@
 ---
 name: Kollektivet
-genres: Pop, rock, folk
-description: Swedish pop/rock/folk music
-
-year-from: 2001
-year-to: 2007
 ---
 
 I started Saidi och Kollektivet in 2001, after writing Swedish pop/rock songs on my own for some years.
