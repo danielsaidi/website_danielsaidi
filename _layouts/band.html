@@ -6,7 +6,7 @@ layout: default
 {%- assign band = site.data.bands[id] -%}
 {%- capture assets -%}/assets/music/{{ page.name | slugify }}{%- endcapture -%}
 {%- capture assets_img -%}{{ assets }}/img/{%- endcapture -%}
-{%- capture lyrics_url -%}{{ page.url }}/lyrics/{%- endcapture -%}
+{%- capture lyrics_url -%}/lyrics/{{ page.name | slugify }}/{%- endcapture -%}
 
 <article class="card">
   {% include bands/band-header.html band=band %}
@@ -25,25 +25,27 @@ layout: default
 
 <h2>Recordings</h2>
 <a name="music"></a>
-{%- for recording in band.discography -%}
-{%- if recording.hidden -%}{%- else -%}
+{%- for album in band.discography -%}
+{%- if album.hidden -%}{%- else -%}
 <section class="grid album">
   <div class="details">
     <div class="card cover">
-      {%- assign cover = recording.name | slugify -%}
+      {%- assign cover = album.name | slugify -%}
       <img src="{{ assets_img }}{{ cover }}.jpg" alt="{{photo.text}}"></img>
     </div>
   </div>
   <section class="card tracks">
-    <h4>{{recording.name}} ({{recording.year}})</h4>
+    <h4>{{album.name}} ({{album.year}})</h4>
     <ol>
-        {%- for track in recording.tracks -%}
+        {%- for track in album.tracks -%}
         <li>
           <span>
             <span class="index">{{ forloop.index }}.</span>
             {{track.name}}
           </span>
-          <a href="{{ lyrics_url }}{{ track.name | slugify }}">Lyrics</a>
+          {%- if track.lyrics == false -%}{%- else -%}
+          <a href="{{ lyrics_url }}{{ album.name | slugify }}/{{ track.name | slugify }}">Lyrics</a>
+          {%- endif -%}
         </li>
         {%- endfor -%}
     </ol>

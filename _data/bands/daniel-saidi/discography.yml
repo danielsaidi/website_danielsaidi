@@ -3,8 +3,10 @@
   tracks:
     - name: Hard To Write Song
     - name: The Way You Love Me
-    - name: The Paranoid Park Review
+    - name: Paranoid Park
     - name: Waited Too Long
     - name: Side By Side
     - name: Side By Side (Rob F Remix)
+      lyrics: false
     - name: Side By Side (Super D Remix)
+      lyrics: false

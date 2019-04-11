@@ -44,6 +44,8 @@ collections:
   bands:
     output: true
     permalink: /bands/:name/
+  lyrics:
+    output: true
   privacy-policies:
     output: true
     permalink: /privacy/:title/
@@ -69,6 +71,11 @@ defaults:
     values:
       layout: "band"
       hidden: false
+  -
+    scope:
+      type: "lyrics"
+    values:
+      layout: "lyrics"
   -
     scope:
       type: "talks"
