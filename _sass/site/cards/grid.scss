@@ -1,9 +1,5 @@
-.card-grid { 
-  display: grid; 
-  grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: $standard-margin;
-  grid-row-gap: $standard-margin;
-
+.grid.cards { 
+  
   .card + .card-title {
     text-align: center;
     margin: 10px 0;
@@ -17,12 +13,12 @@
   }
 }
 
-article + .card-grid {
+article + .grid.cards {
   margin-top: 2*$standard-margin;
 }
 
 @media (max-width: 600px) {
-  .card-grid { 
+  .grid.cards { 
     grid-template-columns: repeat(2, 1fr);
   }
 }

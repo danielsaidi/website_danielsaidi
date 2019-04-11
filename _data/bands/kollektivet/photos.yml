@@ -4,10 +4,6 @@
 - file: 2
   text: Mathias, Daniel, Magnus and Marika
 
-- file: 3
-  text: Magnus, Daniel, Olof, Mathias, Erik and Maria
-  hidden: true
-
 - file: 4
   text: Olof, Erik, Maria, Magnus and Daniel
 
@@ -37,11 +33,3 @@
 
 - file: live_3
   text: Rasmus, Olof, Mathias, Daniel and Mikael
-
-- file: live_4
-  text: Mikael, Daniel, Mathias and Olof
-  hidden: true
-
-- file: live_5
-  text: Mikael, Daniel, Mathias and Olof
-  hidden: true

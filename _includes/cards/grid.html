@@ -1,6 +1,6 @@
 {%- assign items = include.items -%}
 
-<section class="card-grid {{type}}">
+<section class="grid cards {{type}}">
   {% for item in items %}
     {{ if item.url}}
     <a href="{{ item.url }}">

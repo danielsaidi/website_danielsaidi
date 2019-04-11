@@ -14,25 +14,3 @@
   text: Max
 - file: 6
   text: sgt. Black
-
-- file: 7
-  text: sgt. Black
-  hidden: true
-- file: 8
-  text: Carl
-  hidden: true
-- file: 10
-  text: sgt. Black
-  hidden: true
-- file: 11
-  text: Daniel
-  hidden: true
-- file: 12
-  text: Olof & Magnus
-  hidden: true
-- file: 13
-  text: sgt. Black
-  hidden: true
-- file: 14
-  text: Olof
-  hidden: true

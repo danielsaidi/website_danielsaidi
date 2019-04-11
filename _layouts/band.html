@@ -11,11 +11,15 @@ layout: default
   
   <a name="photos"></a>
   <h2>Photos</h2>
-  <section class="photo-grid">
+  <section class="grid photos">
     {%- for photo in band.photos -%}
-      {%- if photo.hidden -%}{%-  else -%}
       <img src="/assets/music/{{ page.name | slugify }}/img/{{ photo.file }}_sml.jpg" alt="{{photo.text}}"></img>
-      {%- endif -%}
     {%- endfor -%}
   </section>
+  
+  <a name="albums"></a>
+  <h2>Recordings</h2>
+  {%- for recording in band.discography -%}
+    {{recording.name}}
+  {%- endfor -%}
 </article>
