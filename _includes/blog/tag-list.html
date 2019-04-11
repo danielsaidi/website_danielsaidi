@@ -15,7 +15,7 @@
   }
 </script>
 
-<div class="card tag-list">
+<section class="card tag-list">
   {% for tag in tags %}
     {% assign name = tag | first %}
     {% assign posts = tag | last %}
@@ -25,4 +25,4 @@
       {{name}}
     </a>
   {% endfor %}
-</div>
+</section>

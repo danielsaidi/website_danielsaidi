@@ -4,22 +4,41 @@ layout: default
 
 {%- assign id = page.id | split: "/" | last -%}
 {%- assign band = site.data.bands[id] -%}
+{%- capture img_assets -%}/assets/music/{{ page.name | slugify }}/img{%- endcapture-%}
 
 <article class="card">
   {% include bands/band-header.html band=band %}
   {{ content }}
+</article>
   
-  <a name="photos"></a>
-  <h2>Photos</h2>
+<h2>Photos</h2>
+<a name="photos"></a>
+<article class="card">
+  
   <section class="grid photos">
     {%- for photo in band.photos -%}
-      <img src="/assets/music/{{ page.name | slugify }}/img/{{ photo.file }}_sml.jpg" alt="{{photo.text}}"></img>
+      <img src="{{ img_assets }}/{{ photo.file }}_sml.jpg" alt="{{photo.text}}"></img>
     {%- endfor -%}
   </section>
   
-  <a name="albums"></a>
-  <h2>Recordings</h2>
-  {%- for recording in band.discography -%}
-    {{recording.name}}
-  {%- endfor -%}
+  {%- if band.discography -%}
+    <a name="albums"></a>
+    <h2>Recordings</h2>
+    {%- for recording in band.discography -%}
+    <section class="grid album">
+      <div class="details">
+        <div class="card cover">
+          <img src="{{ img_assets }}/{{ photo.file }}_sml.jpg" alt="{{photo.text}}"></img>
+        </div>
+      </div>
+      <div class="tracks">
+        <ul>
+            {%- for track in recording.tracks -%}
+            <li>{{track.name}}</li>
+            {%- endfor -%}
+        </ul>
+      </div>
+    </section>
+    {%- endfor -%}
+  {%- endif -%}
 </article>

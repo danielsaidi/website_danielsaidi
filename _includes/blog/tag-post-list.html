@@ -5,7 +5,7 @@
   {% assign posts = tag | last %}
   {% assign count = posts | size %}
   <a name="{{ name | slugify }}" />
-  <div class="card tag-posts tag-{{ name | slugify }}" style="display: none">
+  <section class="card tag-posts tag-{{ name | slugify }}" style="display: none">
     <h2>{{name}}</h2>
     <ul>
       {% for post in posts %}
@@ -17,7 +17,7 @@
       </li>
       {% endfor %}
     </ul>
-  </div>
+  </section>
 {% endfor %}
 
 <script rel="javascript">

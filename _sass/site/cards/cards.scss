@@ -7,45 +7,31 @@
   > img, > div {
     border-radius: 4px;
   }
+
+  p:first-of-type {
+    margin-top: 0;
+  }
+  p:last-of-type, ul:last-of-type {
+    margin-bottom: 0;
+  }
 }
 
 div.card {
-  padding: 4px;
+  padding: 2px;
   text-align: center;
-
-  p {
-    margin: 10px;
-    text-align: center;    
-  }
 }
-
-div.card.tag-list {
-  padding: $standard-margin;
-
-  a {
-    height: 30px;
-    line-height: 30px;
-    display: inline-block;
-    margin: 5px;
-  }
-}
-
-div.card.tag-posts {
-  text-align: left;
-  padding: $standard-margin;
-}
-
 
 article.card, section.card {
   
   padding: 30px 30px 30px 30px;
 
   header {
-
     h1 {
       font-size: 2em;
     }
-    
+    hr.styled {
+      opacity: 0.4;
+    }
     margin-bottom: $spacing-unit;
     text-align: center !important;
   }
