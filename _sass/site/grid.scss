@@ -4,3 +4,9 @@
   grid-column-gap: $standard-margin;
   grid-row-gap: $standard-margin;
 }
+
+@media (max-width: 600px) {
+  .grid { 
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

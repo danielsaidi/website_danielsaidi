@@ -13,32 +13,33 @@ layout: default
   
 <h2>Photos</h2>
 <a name="photos"></a>
-<article class="card">
-  
-  <section class="grid photos">
-    {%- for photo in band.photos -%}
-      <img src="{{ img_assets }}/{{ photo.file }}_sml.jpg" alt="{{photo.text}}"></img>
-    {%- endfor -%}
+<section class="grid photos">
+  {%- for photo in band.photos -%}
+  <div class="card">
+    <img src="{{ img_assets }}/{{ photo.file }}_sml.jpg" alt="{{photo.text}}"></img>
+  </div>
+  {%- endfor -%}
+</section>
+
+<h2>Recordings</h2>
+<a name="music"></a>
+{%- for recording in band.discography -%}
+{%- if recording.hidden -%}{%- else -%}
+<section class="grid album">
+  <div class="details">
+    <div class="card cover">
+      {%- assign cover_url = recording.name | slugify -%}
+      <img src="{{ img_assets }}/{{ cover_url }}.jpg" alt="{{photo.text}}"></img>
+    </div>
+  </div>
+  <section class="card tracks">
+    <h4>{{recording.name}} ({{recording.year}})</h4>
+    <ol>
+        {%- for track in recording.tracks -%}
+        <li><span class="index">{{ forloop.index }}.</span> {{track.name}}</li>
+        {%- endfor -%}
+    </ol>
   </section>
-  
-  {%- if band.discography -%}
-    <a name="albums"></a>
-    <h2>Recordings</h2>
-    {%- for recording in band.discography -%}
-    <section class="grid album">
-      <div class="details">
-        <div class="card cover">
-          <img src="{{ img_assets }}/{{ photo.file }}_sml.jpg" alt="{{photo.text}}"></img>
-        </div>
-      </div>
-      <div class="tracks">
-        <ul>
-            {%- for track in recording.tracks -%}
-            <li>{{track.name}}</li>
-            {%- endfor -%}
-        </ul>
-      </div>
-    </section>
-    {%- endfor -%}
-  {%- endif -%}
-</article>
+</section>
+{%- endif -%}
+{%- endfor -%}

@@ -16,9 +16,3 @@
 article + .grid.cards {
   margin-top: 2*$standard-margin;
 }
-
-@media (max-width: 600px) {
-  .grid.cards { 
-    grid-template-columns: repeat(2, 1fr);
-  }
-}

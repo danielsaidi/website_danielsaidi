@@ -1,5 +1,6 @@
 - name: Concrete
   year: 1996
+  hidden: true
   tracks:
     - name: Vietnam
     - name: Psycho As They Say

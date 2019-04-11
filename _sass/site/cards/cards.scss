@@ -37,6 +37,10 @@ article.card, section.card {
   }
 }
 
-.card + .card {
+.card + h2, .grid + h2 {
+  margin-top: 2*$standard-margin;
+}
+
+.grid + .card, article.card + .card, .section.card + .card {
   margin-top: $standard-margin;
 }

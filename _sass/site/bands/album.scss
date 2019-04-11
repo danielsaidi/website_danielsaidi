@@ -1,0 +1,27 @@
+.grid.album {
+    grid-template-columns: 200px auto !important;
+  
+    .tracks { 
+  
+      ol {
+        padding: 0;
+        margin: 0;
+      }
+      li {
+        padding: 5px 0;
+        border-top: 1px solid #ddd;
+        list-style: none;
+        .index { 
+            color: #888; 
+            margin-right: 5px;
+        }
+      }
+      li:last-of-type { 
+        border-bottom: 1px solid #ddd;  
+      }
+    }
+  }
+
+  .grid.album + .grid.album {
+    margin-top: $standard-margin;
+  }
