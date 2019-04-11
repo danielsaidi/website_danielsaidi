@@ -4,7 +4,9 @@ layout: default
 
 {%- assign id = page.id | split: "/" | last -%}
 {%- assign band = site.data.bands[id] -%}
-{%- capture img_assets -%}/assets/music/{{ page.name | slugify }}/img{%- endcapture-%}
+{%- capture assets -%}/assets/music/{{ page.name | slugify }}{%- endcapture -%}
+{%- capture assets_img -%}{{ assets }}/img/{%- endcapture -%}
+{%- capture lyrics_url -%}{{ page.url }}/lyrics/{%- endcapture -%}
 
 <article class="card">
   {% include bands/band-header.html band=band %}
@@ -16,7 +18,7 @@ layout: default
 <section class="grid photos">
   {%- for photo in band.photos -%}
   <div class="card">
-    <img src="{{ img_assets }}/{{ photo.file }}_sml.jpg" alt="{{photo.text}}"></img>
+    <img src="{{ assets_img }}{{ photo.file }}_sml.jpg" alt="{{photo.text}}"></img>
   </div>
   {%- endfor -%}
 </section>
@@ -28,15 +30,21 @@ layout: default
 <section class="grid album">
   <div class="details">
     <div class="card cover">
-      {%- assign cover_url = recording.name | slugify -%}
-      <img src="{{ img_assets }}/{{ cover_url }}.jpg" alt="{{photo.text}}"></img>
+      {%- assign cover = recording.name | slugify -%}
+      <img src="{{ assets_img }}{{ cover }}.jpg" alt="{{photo.text}}"></img>
     </div>
   </div>
   <section class="card tracks">
     <h4>{{recording.name}} ({{recording.year}})</h4>
     <ol>
         {%- for track in recording.tracks -%}
-        <li><span class="index">{{ forloop.index }}.</span> {{track.name}}</li>
+        <li>
+          <span>
+            <span class="index">{{ forloop.index }}.</span>
+            {{track.name}}
+          </span>
+          <a href="{{ lyrics_url }}{{ track.name | slugify }}">Lyrics</a>
+        </li>
         {%- endfor -%}
     </ol>
   </section>

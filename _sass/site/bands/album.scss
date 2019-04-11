@@ -1,27 +1,46 @@
 .grid.album {
-    grid-template-columns: 200px auto !important;
-  
-    .tracks { 
-  
-      ol {
-        padding: 0;
-        margin: 0;
+  grid-template-columns: 200px auto;
+
+  .tracks { 
+
+    ol {
+      padding: 0;
+      margin: 0;
+    }
+    li {
+      padding: 5px 0;
+      border-top: 1px solid #ddd;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .index, a { 
+          color: #888; 
+          font-size: 0.8em;
       }
-      li {
-        padding: 5px 0;
-        border-top: 1px solid #ddd;
-        list-style: none;
-        .index { 
-            color: #888; 
-            margin-right: 5px;
-        }
+
+      .index { 
+          margin-right: 5px;
       }
-      li:last-of-type { 
-        border-bottom: 1px solid #ddd;  
+
+      a { 
+          margin-left: 10px;
       }
     }
+    li:last-of-type { 
+      border-bottom: 1px solid #ddd;  
+    }
   }
+}
 
-  .grid.album + .grid.album {
-    margin-top: $standard-margin;
+.grid.album + .grid.album {
+  margin-top: $standard-margin;
+}
+
+@media (max-width: 600px) {
+  .grid.album {
+    .cover { width: 200px; }
+    grid-template-columns: repeat(1, 1fr);
   }
+}
