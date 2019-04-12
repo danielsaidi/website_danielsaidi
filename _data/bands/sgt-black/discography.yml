@@ -3,6 +3,7 @@
   tracks:
     - name: Shake It Off
     - name: B
+      lyrics: false
     - name: Itch
     - name: Life Eternal
     - name: Cold Hearts

@@ -1,5 +1,6 @@
-Burn!
-=====
+---
+name: Burn!
+---
 
 Set ablaze in the night
 The full moon is rising,

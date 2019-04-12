@@ -3,6 +3,7 @@
   tracks:
     - name: After Seven Days
     - name: Piles!
+      lyrics: false
 
 - name: Idol Enslaved
   year: 2000
@@ -10,3 +11,4 @@
     - name: Idol Enslaved
     - name: Serenade of Entrapment
     - name: Wicked Child
+      lyrics: false

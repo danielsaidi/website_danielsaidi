@@ -1,5 +1,6 @@
-Through Chaos Fulfilled
-=======================
+---
+name: Through Chaos Fulfilled
+---
 
 Kneeling in front of the idolized goddess
 who’s perverted influence

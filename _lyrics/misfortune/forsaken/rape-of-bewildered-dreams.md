@@ -1,5 +1,6 @@
-Rape of Bewildered Dreams
-=========================
+---
+name: Rape of Bewildered Dreams
+---
 
 Face the end of all your dreams!
 

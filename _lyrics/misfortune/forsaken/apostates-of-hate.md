@@ -1,5 +1,6 @@
-Apostates of Hate
-=================
+---
+name: Apostates of Hate
+---
 
 When angels bleed,
 when feathers fall in moaning,
