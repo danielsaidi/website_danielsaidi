@@ -8,6 +8,9 @@
 - name: KeyboardKit
   url: https://github.com/danielsaidi/KeyboardKit
 
+- name: Mock n Roll
+  url: https://github.com/danielsaidi/MockNRoll
+
 - name: Vandelay
   url: https://github.com/danielsaidi/Vandelay
 
