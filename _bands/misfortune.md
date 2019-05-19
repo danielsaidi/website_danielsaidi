@@ -6,6 +6,6 @@ forsaken: https://open.spotify.com/album/7BAWQAsqeHmhiZGVOludpZ?si=oQVJt2AuQ5GZC
 
 ---
 
-I sang in Misfortune between 1995 and 1999. We started off as a Pantera-influenced band, butsoon tuned in on bands like At the Gates, Carcass and Dissection. As a result, the second demo differed a lot from the first.
+I sang in Misfortune between 1995 and 1999. We started off as a Pantera-influenced band, but soon tuned in to bands like At the Gates, Carcass and Dissection and alterered our sound accordingly. As a result, the second demo sounded a lot different than the first.
 
-"Midnightenlightened" received great reviews and was released as an EP by Blackened / Plastic Head. Shortly after, we begun working on [Forsaken]({{page.forsaken}}), which was released in 1999. The recording suffered from technical problems, which made the songs flat compared to the well composed guitar pieces that Martin and Peter had originally written.
+The second demo - "Midnightenlightened" - received very good reviews and was released as an EP by Blackened / Plastic Head as part of our record deal with them. Our first and only full-length album - [Forsaken]({{page.forsaken}}) - was released in 1999, but the suffered from technical problems that made the songs flat compared to the original arrangements we had in mind.
