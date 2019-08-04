@@ -5,7 +5,7 @@ tags:   swift generics
 icon:   swift
 ---
 
-Ever since starting to work with generics in Swift, I have been struggling with combining generics and protocols. In this post, I'll describe how I finally made sense of it all.
+For years, I've been struggling with combining generics and protocols in Swift. In this post, I'll describe how I finally made sense of it all.
 
 
 ## The problem with generic protocols
