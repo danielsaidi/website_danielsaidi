@@ -17,12 +17,12 @@ After contacting my company's IT departement and Apple Support without any posit
 Based on the file names, I tried deleting the following files:
 
 ```
-* com.apple.networkextension.necp.plist
-* com.apple.networkextension.plist
-* com.apple.networkextension.uuidcache.plist
-* SystemConfiguration/com.apple.wifi.message-tracer.plist
-* SystemConfiguration/NetworkInterfaces.plist
-* SystemConfiguration/preferences.plist
+com.apple.networkextension.necp.plist
+com.apple.networkextension.plist
+com.apple.networkextension.uuidcache.plist
+SystemConfiguration/com.apple.wifi.message-tracer.plist
+SystemConfiguration/NetworkInterfaces.plist
+SystemConfiguration/preferences.plist
 ```
 
 After rebooting the computer, the network now worked once more.
