@@ -11,6 +11,9 @@
 - name: Mockery
   url: https://github.com/danielsaidi/Mockery
 
+- name: SwiftUIBlurView
+  url: https://github.com/danielsaidi/SwiftUIBlurView
+
 - name: Vandelay
   url: https://github.com/danielsaidi/Vandelay
 
