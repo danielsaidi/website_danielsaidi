@@ -4,7 +4,7 @@ date:   2019-10-29 12:00:00 +0100
 tags:   catalina beta swift-ui
 ---
 
-If you have a Swift Package Manager open source library and use `swift package generate-xcodeproj` to generate an Xcode project, App Store will reject any apps that pull in your library with Carthage. This blog post will show you how to fix this.
+If you have a Swift Package Manager library and use `swift package generate-xcodeproj` to generate an Xcode project, App Store will reject any apps that pull in your library with Carthage. This blog post will show you how to fix this.
 
 
 ## Background
@@ -30,7 +30,6 @@ If you look at the `Info.plist` that is linked in the library's build settings, 
 ## The solution
 
 Instead of adjusting the `Info.plist`, which is correctly setup, select the project in the project navigator, select the library target, go to `Build Settings` and search for `current project version`. Instead of an empty value, enter `1`. This will make App Store submission work, even when using Carthage.
-
 
 [Carthage]: https://github.com/Carthage
 [CocoaPods]: http://cocoapods.org
