@@ -1,0 +1,84 @@
+---
+title: "BBLibs"
+date: 2019-11-15
+
+abstract: |
+  This is a presentation of our architectural work with BBLibs.
+---
+
+{% capture assets %}{{ page.assets | relative_url }}{% endcapture %}
+
+<section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_title.jpg">
+  # Team iOS
+  ## BBLibs
+</section>
+
+<section class="title-page">
+  <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_title.jpg">
+    # Bibliotek
+  </section>
+  <section class="title-page image-section" data-markdown data-background="data:image/jpeg;base64,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">
+    # BBTest
+  </section>
+  <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_jonas.jpg">
+    # Jonas
+    ## Karlstad
+  </section>
+  <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_sebastian.jpg">
+    # Sebastian
+    ## Stockholm
+  </section>
+  <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_sebastian_2.jpg">
+    # Sebastian
+    ## Stockholm
+  </section>
+  <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_dennis.jpg">
+    # Dennis
+    ## Stockholm
+  </section>
+  <section class="title-page image-section" data-markdown data-background="https://9to5mac.com/wp-content/uploads/sites/6/2016/06/ios-devices-hero-wwdc-2016-02.png?w=1600">
+    # iOS?
+    ## iPhone, iPad
+  </section>
+</section>
+
+<section class="title-page">
+    <section class="title-page image-section" data-markdown data-background="https://66.media.tumblr.com/e335bae07941bb2c119a44315b8f33d9/tumblr_oviqpsiz8G1r5x837o1_400.gif"># Spring '19</section>
+    <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_reader.jpg"># New reader</section>
+  <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_reader.jpg"></section>
+  <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_accessibility.jpg"># Accessibility</section>
+  <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_accessibility.jpg"></section>
+  <section class="title-page image-section" data-markdown data-background="https://www.froglogic.com/wp-content/uploads/2016/04/website-animation-2.gif"># UI Tests</section>
+  <section class="title-page image-section" data-markdown data-background="https://www.froglogic.com/wp-content/uploads/2016/04/website-animation-2.gif"></section>
+  <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_carplay.jpg"># CarPlay</section>
+  <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_carplay.jpg"></section>
+  <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_dynamic.jpg"># Dynamic Content</section>
+  <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_dynamic.jpg"></section>
+</section>
+
+<section class="title-page">  
+  <section class="title-page image-section" data-markdown data-background="https://media.giphy.com/media/lsdCAEMPB274c/giphy.gif"># Autumn '19</section>
+  <section class="title-page image-section" data-markdown data-background=""># iOS 13</section>
+  <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_darkmode.jpg"># Dark Mode</section>
+  <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_darkmode.jpg"></section>
+  <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_watch.jpg"># Watch</section>
+  <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_watch.jpg"></section>
+  <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_tv.jpg"># TV</section>
+  <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_tv.jpg"></section>
+  <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_mac.jpg"># Mac</section>
+  <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_mac.jpg"></section>
+</section>
+
+<section>
+  <section class="title-page image-section" data-markdown data-background="https://cdn.vox-cdn.com/uploads/chorus_image/image/59058615/iphonegif.0.gif"># Beta Testers</section>
+  <section class="title-page image-section" data-markdown data-background="https://cdn.vox-cdn.com/uploads/chorus_image/image/59058615/iphonegif.0.gif"></section>
+</section>
+
+<section data-markdown>
+  # Questions?
+</section>
+
+<section>
+    <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_team.jpg"># Thank you!</section>
+    <section class="title-page image-section" data-markdown data-background="{{assets}}/bts19_team.jpg"></section>
+</section>
