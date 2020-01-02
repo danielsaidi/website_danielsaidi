@@ -16,28 +16,16 @@ SPM currently doesn't support static resources, so if you have to embed `xib`s, 
 
 ## Invalid .gitignore
 
-If you create a new Swift Package with the `swift package init` command, the generated `.gitignore` file will look like this:
-
-```
-.DS_Store
-/.build
-/Packages
-/*.xcodeproj
-xcuserdata/
-```
-
-This is very strange, since you may need to add an Xcode project later. If you do so later without adjusting `.gitignore`, the project will be excluded from git.
-
-This actually happened to me when I published [SwiftUIBlurView][SwiftUIBlurView] and it took me a while to realize why people couldn't run the demo app.
+If you create a Swift Package with `swift package init`, the generated `.gitignore` will exclude any Xcode projects you later add, which may come as a nasty surprise. [Read more here][gitignore].
 
 
-## Invalid Xcode project setup
+## Invalid Xcode project
 
-SPM doesn't require an Xcode project. You can just place source files in `Sources` and test files in `Tests` and SPM will happily consider it to be a package.
+SPM doesn't require an Xcode project. You can just place source files in `Sources` and test files in `Tests` and SPM will happily consider it to be a package. However, if you want to add a demo app, add Carthage support etc. you need an Xcode project.
 
-However, if you want to provide a demo app, add Carthage support etc. you need a project as well. You can create one by running `swift package generate-xcodeproj` from the console in your package root. This will generate a project for you.
+You can add an Xcode project to your package by running `swift package generate-xcodeproj` in your package root. This will generate a project for you. However, the generated project is invalid in a number of ways. Perhaps I am just doing it wrong, but you will have to fix many things.
 
-However, the generated project is strange in a number of ways. Perhaps I am just doing it wrong, but you will have to fix many things, like 
+For instance, the project will cause App Submission to fail, if the library is added to an app using Carthage. [Read more here][carthage].
 
 xxxxxx
 
@@ -60,4 +48,6 @@ Xcode will automatically sync SPM dependencies every now and then, e.g. when you
 This means that if you switch branch while a sync is ongoing, your `Package.lock` file can become invalid if a sync completes on another branch than it started on.
 
 
+[carthage]: https://danielsaidi.com/blog/2019/10/29/app-store-submission-fails-with-carthage-for-spm-generated-projects
+[gitignore]: https://danielsaidi.com/blog/2020/01/02/spm-gitignore
 [SwiftUIBlurView]: https://github.com/danielsaidi/SwiftUIBlurView
