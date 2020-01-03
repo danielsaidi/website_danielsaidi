@@ -4,6 +4,11 @@ date:   2021-01-06 12:00:00 +0100
 tags:   spm
 ---
 
+
+However, since many people are still using [CocoaPods][CocoaPods] and [Carthage][Carthage] (we use all three at work) it's a good practice to support all three when you create an open source library. Therefore, this post will also cover how to add support for [CocoaPods][CocoaPods] and [Carthage][Carthage] as well.
+
+
+
 I have several open source projects and was very excited when Apple announced that Swift Package Manager is coming to iOS. After adding SPM support to my projects, I can now say that it's great, but not yet perfect. In this post, I'll list some SPM problems that I have faced, and how I've solved or learned to live with them.
 
 This post is based on personal experiences, that may very well be caused by that I am using SPM incorrectly. Feel free to leave comments with your own experiences and correct me whenever I've got something wrong or if a SPM bug has been fixed.
@@ -51,3 +56,5 @@ This means that if you switch branch while a sync is ongoing, your `Package.lock
 [carthage]: https://danielsaidi.com/blog/2019/10/29/app-store-submission-fails-with-carthage-for-spm-generated-projects
 [gitignore]: https://danielsaidi.com/blog/2020/01/02/spm-gitignore
 [SwiftUIBlurView]: https://github.com/danielsaidi/SwiftUIBlurView
+
+We will also add support for two other dependency managers - CocoaPods and Carthage - and add support for Fastlane and Bitrise as well.
