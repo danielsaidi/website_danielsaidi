@@ -9,6 +9,25 @@ However, since many people are still using [CocoaPods][CocoaPods] and [Carthage]
 
 
 
+
+
+
+## Run unit tests from the Terminal
+
+Running SPM package tests from the terminal is super-easy! Just type `swift test`...just to see the following error:
+
+```
+.../SwipeGesture.swift:10:8: error: no such module 'UIKit'
+import UIKit
+       ^
+```
+
+Sadly, you can't run `UIKit`-based tests from the Terminal when you only have a package. Doing to will cause the test runner to crash, like above. I will describe how to fix this in a separate post.
+
+
+
+
+
 I have several open source projects and was very excited when Apple announced that Swift Package Manager is coming to iOS. After adding SPM support to my projects, I can now say that it's great, but not yet perfect. In this post, I'll list some SPM problems that I have faced, and how I've solved or learned to live with them.
 
 This post is based on personal experiences, that may very well be caused by that I am using SPM incorrectly. Feel free to leave comments with your own experiences and correct me whenever I've got something wrong or if a SPM bug has been fixed.
