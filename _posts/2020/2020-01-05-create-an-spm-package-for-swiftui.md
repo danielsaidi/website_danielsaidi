@@ -30,7 +30,7 @@ swift package init
 
 This will create a couple of files and folders:
 
-* `.gitignote` - a standard, but badly configured ignore file. Read more [here][gitignore].
+* `.gitignore` - a standard, but badly configured ignore file. Read more [here][gitignore].
 * `Package.swift` - a manifest file that describes your package.
 * `Readme.md` - a basic readme for the package.
 * `Sources` - Source files go here
