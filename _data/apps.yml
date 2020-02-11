@@ -3,10 +3,25 @@
   appStoreUrl: https://itunes.apple.com/app/bookbeat/id1056652614
   playStoreUrl:
 
-- name: Lunchrrrrr
-  url: https://itunes.apple.com/se/app/lunchrrrrr/id1209779063?l=en&mt=8
-  appStoreUrl: https://itunes.apple.com/se/app/lunchrrrrr/id1209779063?l=en&mt=8
-  playStoreUrl: 
+- name: Tradera
+  url: http://tradera.com
+  appStoreUrl: https://itunes.apple.com/us/app/tradera/id427984084
+  playStoreUrl: https://play.google.com/store/apps/details?id=com.tradera
+
+- name: Appamini ABC
+  url: http://appamini.com
+  appStoreUrl: https://itunes.apple.com/app/appamini-abc/id581402736
+  playStoreUrl:
+
+- name: Appamini 123
+  url: http://appamini.com
+  appStoreUrl: https://itunes.apple.com/app/appamini-123/id944820281
+  playStoreUrl:
+
+- name: Wally
+  url: http://wally.danielsaidi.com
+  appStoreUrl: https://itunes.apple.com/app/wally/id516398915
+  playStoreUrl:
 
 - name: Goth Emoji
   url: https://itunes.apple.com/app/goth-emoji/id1070226733
@@ -18,35 +33,20 @@
   appStoreUrl: https://itunes.apple.com/app/metal-emoji/id1070228823
   playStoreUrl: https://play.google.com/store/apps/details?id=danielsaidi.com.metalemoji
 
-- name: Appamini ABC
-  url: http://appamini.com
-  appStoreUrl: https://itunes.apple.com/app/appamini-abc/id581402736
-  playStoreUrl:
+- name: Lunchrrrrr
+  url: https://itunes.apple.com/se/app/lunchrrrrr/id1209779063?l=en&mt=8
+  appStoreUrl: https://itunes.apple.com/se/app/lunchrrrrr/id1209779063?l=en&mt=8
+  playStoreUrl: 
 
-- name: Appamini 123
-  url: http://appamini.com
-  appStoreUrl: https://itunes.apple.com/app/appamini-123/id944820281
+- name: Vinylsamlaren
+  url: http://vinylsamlaren.se
+  appStoreUrl: https://itunes.apple.com/us/app/vinylsamlaren/id640253601
   playStoreUrl:
   
 - name: Pinny
   url: https://itunes.apple.com/app/pinny/id984638325
   appStoreUrl: https://itunes.apple.com/app/pinny/id984638325
   playStoreUrl:
-
-- name: Wally
-  url: http://wally.danielsaidi.com
-  appStoreUrl: https://itunes.apple.com/app/wally/id516398915
-  playStoreUrl:
-
-- name: Vinylsamlaren
-  url: http://vinylsamlaren.se
-  appStoreUrl: https://itunes.apple.com/us/app/vinylsamlaren/id640253601
-  playStoreUrl:
-
-- name: Tradera
-  url: http://tradera.com
-  appStoreUrl: https://itunes.apple.com/us/app/tradera/id427984084
-  playStoreUrl: https://play.google.com/store/apps/details?id=com.tradera
 
 - name: Harrys
   url: http://www.harrys.se

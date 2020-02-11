@@ -4,14 +4,14 @@ date:   2020-01-31 12:00:00 +0100
 tags:   swiftui uikit vision
 ---
 
-In SwiftUI, presenting `UIKit` view controllers is trivial, using `UIViewControllerRepresentable`. However, things become more complicated if a view controller communicates through delegation, since `SwiftUI` views are structs and therefore can't be delegates. In this post, we'll look at one way to solve this.
-
-Since SwiftUI is still very young, there are many situations where you may have to use native UIKit view controllers, e.g. to compose e-mails, share data etc. You may also have many view controllers of your own, that you want to reuse in SwiftUI.
+Presenting `UIKit` view controllers in SwiftUI is trivial, but things become more complicated when a controller communicates back through delegation. Since `SwiftUI` views are structs, they therefore can't be delegates. In this post, we'll look at one way to solve this.
 
 
-## View controllers without delegation 
+## UIViewControllerRepresentable
 
-Things are pretty straightforward when a view controller doesn't have to communicate back to the SwiftUI view. For instance, presenting a share sheet just requires you to create a `UIViewControllerRepresentable` that wraps the share sheet:
+Since SwiftUI is still very young, there are many situations where you may have to use native UIKit view controllers, e.g. to compose e-mails, share data etc. You may also have your own view controllers that you want to reuse in SwiftUI.
+
+Presenting a `UIKit` view controller in SwiftUI is trivial. For instance, presenting a share sheet just requires you to create a `UIViewControllerRepresentable` that wraps the sheet:
 
 ```swift
 struct ShareSheet: UIViewControllerRepresentable {
@@ -42,7 +42,7 @@ struct ShareSheet: UIViewControllerRepresentable {
 }
 ```
 
-You can then present this as a `sheet`, just as you would with any other SwiftUI view:
+You can then present the share sheet as a SwiftUI `sheet`:
 
 ```swift
 ...
@@ -50,12 +50,12 @@ You can then present this as a `sheet`, just as you would with any other SwiftUI
 ...
 ```
 
-This will present the share sheet in a modal sheet and let you share any data you like.
+This will present the share sheet in a modal and let you share any data you like.
 
 
 ## View controllers with delegation
 
-Things become a little more complicated if a view controller has to communicate back to the SwiftUI view, using a delegate. Since SwiftUI views are structs, they can't be used as delegates, so we need something more.
+Things become a little more complicated if a view controller communicates back using a delegate. Since SwiftUI views are structs, they can't be used as delegates, so we need something more.
 
 One solution is to use a `coordinator`, which you can create and return as a nested class within your view:
 
@@ -70,13 +70,11 @@ struct MyView: View {
 }
 ```
 
-This coordinator can implement any delegates you need. If the view controller is used in multiple places in your app, you can reuse and compose coordinators together to avoid duplicating code.
+This coordinator can implement any delegates you need. If the delegating view controller is used in many places, you can reuse and compose coordinators to avoid duplicating code.
 
-Another approach is to have a specific `delegate` class for each representable view that must support delegation.
+Another approach is to have a specific `delegate` class for each view controller wrapper that supports delegation. For instance, say that we want to present a Vision-based document camera. `VNDocumentCameraViewController` communicates events using a `VNDocumentCameraViewControllerDelegate`, so you must provide it with such a delegate to know what's going on.
 
-For instance, say that we want to present a Vision-based document camera and listen for scan events. `VNDocumentCameraViewController` communicates its events using a `VNDocumentCameraViewControllerDelegate`, so you must provide it with such a delegate to know what's going on.
-
-First, let's wrap the `VNDocumentCameraViewController` in a `UIViewControllerRepresentable`:
+First, let's wrap the view controller in a `UIViewControllerRepresentable`:
 
 ```swift
 struct DocumentCamera: UIViewControllerRepresentable {
@@ -97,11 +95,9 @@ struct DocumentCamera: UIViewControllerRepresentable {
 }
 ```
 
-Pretty easy, right? The document camera can now be presented as long as it is provided with a delegate.
+The document camera can now be presented as long as it is provided with a delegate. If your SwiftUI view has a coordinator that implements `VNDocumentCameraViewControllerDelegate`, you can just provide the coordinator when you create a `DocumentCamera`.
 
-If your SwiftUI view has a coordinator that implements `VNDocumentCameraViewControllerDelegate`, you could just provide it when you create a document camera instance.
-
-However, we can also implement a general companion delegate class, that just use action blocks to provide delegate events back to any custom actions:
+We can also implement a companion `DocumentCamera` delegate that use action blocks to communicate delegate events back to the view:
 
 ```swift
 extension DocumentCamera {
@@ -136,7 +132,7 @@ extension DocumentCamera {
 }
 ```
 
-Your SwiftUI views then don't have to fiddle around with delegates and coordinators. They can just present the document camera, using this delegate and provide it with their own actions, for instance:
+This approach lets you bind the delegate events to actions directly within the view. A view can now just present the document camera with this delegate and provide its own actions, like this:
 
 ```swift
 ...
@@ -150,6 +146,6 @@ Your SwiftUI views then don't have to fiddle around with delegates and coordinat
 ...
 ```
 
-I personally prefer this approach, since it makes the `DocumentCamera` class provide you with everything you need. All you have to do is to point it to the functions you want it to trigger.
+I personally prefer this approach, since it makes the `DocumentCamera` class provide you with everything you need. All you have to do is to inject the functions you want it to trigger.
 
 Thanks for reading! Feel free to leave comments and feedback in the discussion section below.
