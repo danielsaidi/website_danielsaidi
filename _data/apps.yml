@@ -8,6 +8,16 @@
   appStoreUrl: https://itunes.apple.com/us/app/tradera/id427984084
   playStoreUrl: https://play.google.com/store/apps/details?id=com.tradera
 
+- name: Harrys
+  url: http://www.harrys.se
+  appStoreUrl: 
+  playStoreUrl: 
+
+- name: Wally
+  url: http://wally.danielsaidi.com
+  appStoreUrl: https://itunes.apple.com/app/wally/id516398915
+  playStoreUrl:
+
 - name: Appamini ABC
   url: http://appamini.com
   appStoreUrl: https://itunes.apple.com/app/appamini-abc/id581402736
@@ -16,11 +26,6 @@
 - name: Appamini 123
   url: http://appamini.com
   appStoreUrl: https://itunes.apple.com/app/appamini-123/id944820281
-  playStoreUrl:
-
-- name: Wally
-  url: http://wally.danielsaidi.com
-  appStoreUrl: https://itunes.apple.com/app/wally/id516398915
   playStoreUrl:
 
 - name: Goth Emoji
@@ -47,9 +52,4 @@
   url: https://itunes.apple.com/app/pinny/id984638325
   appStoreUrl: https://itunes.apple.com/app/pinny/id984638325
   playStoreUrl:
-
-- name: Harrys
-  url: http://www.harrys.se
-  appStoreUrl: 
-  playStoreUrl: 
 
