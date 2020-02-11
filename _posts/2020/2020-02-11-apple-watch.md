@@ -9,7 +9,7 @@ SwiftUI and Combine makes it amazingly easy to build apps for watchOS. However, 
 
 ## Architecture
 
-From the day I started at BookBeat, I've had a long-term plan of taking the iOS architecture to a state where it could power all parts of the Apple ecosystem, from iOS and watchOS to tvOS and macOS. This has involved much planning, juggling refactorings with new features and keep the product evolving, while constantly refactor and refining its underlying architecture.
+From the day I started at BookBeat, I've had a long-term plan of taking the iOS architecture to a state where it could power all parts of the Apple ecosystem, from iOS and watchOS to tvOS and macOS. This has involved much planning, juggling refactorings with new features and keeping the product evolving, while constantly refactoring and refining its underlying architecture.
 
 Some key parts in this process has been to break up the architecture into smaller frameworks, decoupling components with protocol-driven development, unit testing as much as possible etc. Let's go through these separately.
 
@@ -18,11 +18,11 @@ Some key parts in this process has been to break up the architecture into smalle
 
 When I started at BookBeat, all code was kept in the main app project. This causes all parts of the system to have full access to all other parts, which increased coupling, made the code hard to maintain and made unit testing painful.
 
-Since then, continously moving out code from the app to external, decoupled and well-tested frameworks has been a key focus. We started with the audio player and now have 10+ frameworks that handle our domain model, domain logic, api integrations, persistency, UI components etc.
+Since then, continuously moving out code from the app to external, decoupled and well-tested frameworks has been a key focus. We started with the audio player and now have 10+ frameworks that handle our domain model, domain logic, api integrations, persistency, UI etc.
 
 Having most logic in external frameworks has been a huge productivity boost, since it lets us write new features and refactor old ones with short feedback loops, which is critical to make unit testing effortless. It also makes it hard to accidentally implement bad coupling.
 
-Having these frameworks also meant that the new watchOS app already had 90% of its required logic implemented, by just adding dependencies to the frameworks. Creating a new watchOS project and have it display the user's book in a list, playing any book the user tapped, took less than half a day.
+Having the frameworks also meant that the new watchOS app already had 90% of its logic implemented, by just adding dependencies to the frameworks. Creating a new watchOS project and have it display the user's book in a list, playing any book the user tapped, took less than half a day.
 
 However, it's a long way to go from 90% to 100%, when the existing architecture isn't designed with new tools and technologies in mind. Please read on.
 
@@ -33,16 +33,16 @@ This term is somewhat of a cliché in the Swift community, but it has been criti
 
 Protocols let you focus on *what* you want to solve, instead of *how* you solve it and lets you implement the *how* in many different ways. It reduces coupling between concrete types and makes unit testing a lot easier. We use this approach together with dependency injection to get a lot of flexibility.
 
-For instance, say that we want to fetch a book from the api. For this, we have a `BookService` protocol that defines how to do this. We then have an `ApiBookService` that implements this protocol by fetching the book from the api. However, we can create more implementations of this protocol and use the [decorator pattern](https://en.wikipedia.org/wiki/Decorator_pattern) to wrap implementations within eachother to achieve different results. For instance, we can have a `CachedBookService` that uses a cache to avoid roundtrips to the server. By wrapping one service within another makes us compose logic in very flexible ways.
+For instance, say that we want to fetch a book from the api. For this, we have a `BookService` protocol that defines how to do this. We then have an `ApiBookService` that implements this protocol by fetching the book from the api. However, we can create more implementations of this protocol and use the [decorator pattern](https://en.wikipedia.org/wiki/Decorator_pattern) to wrap implementations within eachother to achieve different results. For instance, we can have a `CachedBookService` that uses a cache to avoid roundtrips to the server. Being able to wrap one service within another lets us compose our logic in very flexible ways.
 
-So, while the main app has offline support etc. which require a certain setup, the watch can have a much cleaner setup since it (currently) doesn't have offline support and doesn't need the same configuration as the main app. However, both apps still speak the same language, since they use the same protocols. The code is therefore identical, but the underlying logic can be very different.
+For instance, while the main app has offline support etc. which require a certain setup, the watch can have a much cleaner setup since it currently doesn't have offline or download support and doesn't need the same configuration as the main app. However, both apps still speak the same language, since they use the same protocols. The code is therefore identical, but the underlying logic can be very different.
 
 Without protocol-driven development, it would have been a lot more difficult to implement a watch app with the same architecture as the main app.
 
 
 ## Unit testing
 
-All code that goes into our frameworks must be extensively tested. We test logic, parsing etc. which means that we can (often) put the unit tests in a certain state and replicate problems that we find, then use our tests to fix the problem while being confident that our tests and decoupled code makes it hard to accidentally create any new side-effects when we fix a bug.
+All code that goes into our frameworks must be extensively tested. We test logic, parsing etc. which means that we can (often) put the unit tests in a certain state and replicate problems that we find, then use our tests to fix the problem while being confident that our tests and decoupled code makes it hard to accidentally create side-effects when we fix a bug.
 
 By reusing logic in these frameworks, the watch app gets access to well-tested code out of the box. We therefore want to reuse as much logic as possible, and extend it with new capabilities instead of rewriting things from scratch.
 
