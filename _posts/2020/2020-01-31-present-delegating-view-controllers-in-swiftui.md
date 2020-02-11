@@ -148,4 +148,4 @@ This approach lets you bind the delegate events to actions directly within the v
 
 I personally prefer this approach, since it makes the `DocumentCamera` class provide you with everything you need. All you have to do is to inject the functions you want it to trigger.
 
-Thanks for reading! Feel free to leave comments and feedback in the discussion section below.
+Thanks for reading!
