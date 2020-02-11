@@ -95,7 +95,7 @@ struct DocumentCamera: UIViewControllerRepresentable {
 }
 ```
 
-The document camera can now be presented as long as it is provided with a delegate. If your SwiftUI view has a coordinator that implements `VNDocumentCameraViewControllerDelegate`, you can just provide the coordinator when you create a `DocumentCamera`.
+The camera can now be presented as long as it is provided with a delegate. If your SwiftUI view has a coordinator that implements `VNDocumentCameraViewControllerDelegate`, you can just provide the coordinator when you create a `DocumentCamera`.
 
 We can also implement a companion `DocumentCamera` delegate that use action blocks to communicate delegate events back to the view:
 
