@@ -62,3 +62,31 @@ With this new context concept, the team could start building the app using globa
 I eventually found a way to create contextual store decorators that wraps any stores of the same kind and syncs its content with an injected object context. This means that we could enhance regular stores with SwiftUI/Combine features, building upon already well-tested logic. When this was done, we could extend the stores in the watch by just adjusting the dependency configuration. No code in the app had to change.
 
 Preparing the architecture to support SwiftUI and Combine was a challenge, but having the protocols and unit tests in place was a huge help.
+
+
+## Wrapping up the app
+
+We decided early on to keep the first version of the app as plain and simple as possible, releasing the most basic features until we learned enough to put more time into the app.
+
+Things we wanted to learn before moving on included:
+
+* How do you release a standalone watchOS app that has a corresponding iOS app?
+* Will Apple approve the app in its most basic form?
+* How do users login on the watch?
+* Can the watch app share login session with the main app?
+* How to develop in SwiftUI and Combine for the watch
+* Does our architecture actually work on the watch?
+* Are the any watch-specific limitations we need to discover?
+
+We therefore decided to limit ourselves to two root views - a list of the user's current reads (replaced with a login screen if the user is not logged in) and a settings screen with some nested screens.
+
+The book list is a basic list with square book covers (cropping out any vertical or horizontal overflow) with a progress indicator. We first had a details page that featured book-specific information and actions (e.g. play), but honored the mvp approach and replaced this screen with immediately playing a book when its tapped in the list.
+
+We then use the global Combine-based contexts I mentioned before to drive the UI, which means that we e.g. have a `LoginContext` that tells the app whether or not the user is logged in. We can then inject this context into our authentication service and have the service keep the context in sync. The same goes for a bunch of object contexts that we inject into our stores.
+
+
+## End result
+
+The final app is a true MVP, from which we've learned so much. Its hard to stick to the plan and not add features you know users will request from day one, but it's better than putting a lot of work into an app that can't be released. It's also going to be so much fun to be able to enhance the app as we learn more about, instead of ramming in a bunch of half-baked features at once.
+
+I can really recommend looking into watchOS development in SwiftUI and Combine. It's great fun and so much easier than it used to be before.
