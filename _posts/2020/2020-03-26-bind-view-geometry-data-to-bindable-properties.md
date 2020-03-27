@@ -140,7 +140,7 @@ public extension View {
      the previously ignored safe areas. Just use the binding
      to set the edge padding of the view you want to inset.
      */
-    func readSafeAreaInset(
+    func bindSafeAreaInset(
         of edge: Edge,
         to binding: Binding<CGFloat>) -> some View {
         self.bindGeometry(to: binding) {
