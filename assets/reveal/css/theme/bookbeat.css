@@ -44,9 +44,9 @@ img {
   margin-top: 0.5em;
 }
 
-.reveal .image-section p, .reveal .image-section h1, .reveal .image-section h2, .reveal .image-section h3, .image-section li {
+.reveal .image-section p, .reveal .image-section h1, .reveal .image-section h2, .reveal .image-section h3, .reveal .image-section h4, .image-section li {
   color: white !important;
-  text-shadow: 2px 2px #000 !important;
+  text-shadow: 2px 2px 4px #000000aa !important;
 }
 
 .reveal section.light-bg h1, .reveal section.light-bg h2 {
@@ -106,7 +106,7 @@ img {
   font-size: 1.3em; }
 
 .reveal h4 {
-  font-size: 1em; }
+  font-size: 0.9em; }
 
 .reveal h1 {
   text-shadow: none; }
