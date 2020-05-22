@@ -22,13 +22,11 @@ let myBool = true
 let myString = "A plain string"
 let myString2 = "A \(myBool) string"
 
-let intArray: [Int] = [1, 2, 3]
-//let array = [1, 2, 3]
-let intDictionary: [String: Int] = ["Age": 41, "Length": 181]
+let array: [Int] = [1, 2, 3]
+let dict: [String: Int] = ["Age": 41, "Length": 181]
+let set = Set(array)
 
-let set = Set(intArray)
-
-// OPTIONAL
+// + OPTIONALITY
 
 
 /// Functions **********************************************
@@ -76,31 +74,6 @@ useShape(.circle)
 // Add "hasCorners"
 // Show functions
 // Error
-
-
-
-/// Optionality ********************************************
-
-// Optionality is a choice
-
-func print(age: Int) {
-    print(age)
-}
-
-func printOptional(age: Int?) {
-    guard let age = age else { return }
-    print(age)
-}
-
-let myAge: Int? = 5
-
-if let age = myAge {
-    print(age: age)
-} else {
-    print("No age")
-}
-
-printOptional(age: 123)
 
 
 
@@ -166,12 +139,12 @@ user2.name
 
 /// Generics ***********************************************
 
-var array: [Int] = []
+var array1: [Int] = []
 var array2 = [Int]()
 var array3 = Array<Int>()
 
 // array.append(2.3)
-array.append(4)
+array1.append(4)
 
 class Store<ItemType> {
     
