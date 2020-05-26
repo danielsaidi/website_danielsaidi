@@ -11,22 +11,22 @@ dip:        https://github.com/AliSoftware/Dip
 swinject:   https://github.com/Swinject/Swinject
 ---
 
-In this post, we'll look at the basics of Inversion of Control (IoC) and Dependency Injection and how to reduce coupling within your code base.
+In this post, we'll look at the basics of Inversion of Control (IoC) and Dependency Injection and how to reduce coupling within your codebase.
 
 
 ## The basics
 
 Consider that you have an app that lets a user to log in and out. For the sake of simplicity, let's say that calling a global `login` function calls an external api to get the job done.
 
-If your app calls `login` directly, you have a strong dependency to the function and api call. If you want to change the login behavior to e.g. add additional functionality, you have to change the function implementation. Also, testing the parts of your code base that depend on this function will be hard in a clean way.
+If your app calls `login` directly, you have a strong dependency to the function and api call. If you want to change the login behavior to e.g. add additional functionality, you have to change the function implementation. Also, testing the parts of your codebase that depend on this function will be hard in a clean way.
 
 What you can do then, is to create a class that performs the login operation, for instance a `LoginService` class. You can then replace all `login` calls with using this service. However, you *still* have a strong dependency to the same functionality. You just moved it somewhere else.
 
 You can then remove the strong dependency to the login service class by creating a `protocol` that instead describes what a "LoginService" should be able to do (when you're in this mindset, you often start designing the protocols before creating the implementations) then let your app depend on the protocol instead of the concrete class.
 
-Dependending on protocols instead of concrete types gives you *lot* of flexibility, where you can replace implementations without having to change any logic. You can also compose various implementations (e.g. using the **decorator pattern**) to enrichen the feature set of a component type without changing the functionality of each implementation.
+Dependending on protocols instead of concrete types gives you *lot* of flexibility, where you can replace implementations without having to change any logic. You can also compose various implementations (e.g. using the **decorator pattern**) to enrich the feature set of a component type without changing the functionality of each implementation.
 
-To manage dependencies, you have various alternatives, where **dependency injection** is one. Injecting dependencies mean that you provide components with their dependencies instead of having your types defining what kind of implementations they want.
+To manage dependencies, you have various alternatives, where **dependency injection** is one. Injecting dependencies means that you provide components with their dependencies instead of having your types defining what kind of implementations they want.
 
 There are numerous tools that let you implement dependency injection, where [Dip]({{page.dip}}) and [Swinject]({{page.swinject}}) are two great ones. Give them a look and start breaking up your strong dependencies 👍
 
@@ -49,7 +49,7 @@ class ApiLoginService: LoginService {
 }
 ```
 
-Let's say that you want to use this functionality in a `LoginScreen` and login the user when she/he taps a login button. You don't want to do it like this:
+Let's say that you want to use this functionality in a `LoginScreen` and login users when they tap a login button. You don't want to do it like this:
 
 ```swift
 struct LoginScreen: View {
