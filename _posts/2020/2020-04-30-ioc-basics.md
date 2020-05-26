@@ -31,7 +31,85 @@ To manage dependencies, you have various alternatives, where **dependency inject
 There are numerous tools that let you implement dependency injection, where [Dip]({{page.dip}}) and [Swinject]({{page.swinject}}) are two great ones. Give them a look and start breaking up your strong dependencies 👍
 
 
-## Do not rely on your dependency manager
+## Example
+
+Consider that you have a class, view, view controller or anything that should be able to login the user. Also, say that you have a `LoginService` protocol and an `ApiLoginService` implementation, e.g.:
+
+```swift
+protocol LoginService {
+
+    func login(userName: String, password: String, completion: (Bool) -> Void)
+}
+
+class ApiLoginService: LoginService {
+
+    func login(userName: String, password: String, completion: (Bool) -> Void) {
+        ...
+    }
+}
+```
+
+Let's say that you want to use this functionality in a `LoginScreen` and login the user when she/he taps a login button. You don't want to do it like this:
+
+```swift
+struct LoginScreen: View {
+
+    ...
+
+    func loginButtonTapped() {
+       ApiLoginService().login(...)
+    }
+}
+```
+
+This would be one of the worst ways to depend on `ApiLoginService`, since it's resolved within a function, perhaps deep in the code, making the dependency very obscure. 
+
+Moving out the dependency and convert it to a property wouldn't improve things much:
+
+```swift
+struct LoginScreen: View {
+
+    private let loginService = ApiLoginService()
+
+    ...
+
+    func loginButtonTapped() {
+       loginService.login(...)
+    }
+}
+```
+
+Here, you still let your login screen define what kind of service to use...although the hard dependency is easier to see. 
+
+Instead, you want to inject *some* login service into the class, preferably when creating the instance of the screen:
+
+
+
+```swift
+struct LoginScreen: View {
+
+    init(loginService: LoginService) {
+        self.loginService = loginService
+    }
+
+    private let loginService: LoginService
+
+    ...
+
+    func loginButtonTapped() {
+       loginService.login(...)
+    }
+}
+```
+
+This is much better! The screen doesn't know what service it's going to use. It just tells the system that it requires *a* login service to function.
+
+You don't need a dependency manager to handle this kind of dependencies, although it helps. You could, however, also use static properties and factory functions or many other ways to handle dependencies. The last code block above is key, though, since it keeps the screen independent, gives you flexibility, simplifies testing etc.
+
+And that wraps up the basics of dependency injection, more or less. But there is one more thing I want you to consider before you run off and abstract all the things.
+
+
+## Don't rely on your dependency manager
 
 So, you have decided to use a dependency manager after reading the text above? Wow, that's great! I hope that it feels nice to reduce the hard dependencies in your code and manage them in a central manner. God knows I can't code in any other way. 
 
