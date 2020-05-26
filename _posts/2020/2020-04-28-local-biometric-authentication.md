@@ -46,7 +46,7 @@ let result = LAContext().evaluatePolicy(policy, localizedReason: reason) { resul
 
 ## Taking things further
 
-I have added various authentication services to my [SwiftKit]({{page.lib}}) library, which contains additional functionality for Swift.
+I have added various authentication services to my [SwiftKit]({{page.lib}}) library, which contains a lot of additional functionality for Swift, like extensions, types, utilities etc.
 
 The authentication service model is abstract and allows for testing, mocking, composition, dependency injection and all those good things, so it's a good fit for systems where you need more than just calling the code above directly.
 
