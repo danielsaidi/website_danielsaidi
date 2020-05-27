@@ -2,6 +2,7 @@
 title:  "SPM .gitignore excludes Xcode projects"
 date:   2020-01-02 22:00:00 +0100
 tags:   spm
+icon:   swift
 ---
 
 When you create a Swift Package with the `swift package init` command, the generated `.gitignore` will exclude all Xcode projects by default. This will cause problems if you later add an Xcode project to your package.

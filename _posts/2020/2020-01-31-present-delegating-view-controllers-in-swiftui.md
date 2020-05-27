@@ -2,6 +2,7 @@
 title:  "Present delegating view controllers in SwiftUI"
 date:   2020-01-31 12:00:00 +0100
 tags:   swiftui uikit vision
+icon:   swift
 ---
 
 Presenting `UIKit` view controllers in SwiftUI is trivial, but things become more complicated when a controller communicates back through delegation. Since `SwiftUI` views are structs, they therefore can't be delegates. In this post, we'll look at one way to solve this.

@@ -2,6 +2,7 @@
 title:  "Create an SPM Package for SwiftUI"
 date:   2020-01-05 12:00:00 +0100
 tags:   spm swiftui uikit
+icon:   swift
 ---
 
 In this post, we'll create a package for the Swift Package Manager. The result will be a package that adds more gestures to `SwiftUI`. You can find the finished package [here][Project].

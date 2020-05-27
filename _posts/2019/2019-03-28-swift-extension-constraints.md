@@ -3,6 +3,7 @@ title:  "Constrain Swift extensions with protocols"
 date:   2019-03-28 21:00:00 +0100
 tags:   swift
 icon:   swift
+image:  http://danielsaidi.com/assets/blog/swift.png
 ---
 
 I really love the Swift type system and its extension model. You have to use it with care, but combined with careful system design, they give you a lot of power. In this short post, I discuss how to keep your extensions from being exposed everywhere.
