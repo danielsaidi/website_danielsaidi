@@ -5,8 +5,8 @@ tags:   swift ioc dependency-injection
 icon:   swift
 
 lib:    https://github.com/danielsaidi/SwiftKit
-source: https://github.com/danielsaidi/SwiftKit/Sources/SwiftKit/IoC
-tests:  https://github.com/danielsaidi/SwiftKit/Tests/SwiftKit/IoC
+source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/IoC
+tests:  https://github.com/danielsaidi/SwiftKit/tree/master/Tests/SwiftKitTests/IoC
 
 dip:        https://github.com/AliSoftware/Dip
 swinject:   https://github.com/Swinject/Swinject

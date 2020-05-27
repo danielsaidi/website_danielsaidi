@@ -5,8 +5,8 @@ tags:   swift
 icon:   swift
 
 lib:    https://github.com/danielsaidi/SwiftKit
-source: https://github.com/danielsaidi/SwiftKit/Sources/SwiftKit/Date
-tests:  https://github.com/danielsaidi/SwiftKit/Tests/SwiftKit/Date
+source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Date
+tests:  https://github.com/danielsaidi/SwiftKit/tree/master/Tests/SwiftKitTests/Date
 ---
 
 In this post, we'll extend Swift's `Date` type with functins that let us add (and remove) seconds, minutes, hours and days to dates with clean, readable code.

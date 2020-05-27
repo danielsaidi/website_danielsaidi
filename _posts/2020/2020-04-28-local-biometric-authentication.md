@@ -5,8 +5,8 @@ tags:   swiftui swift local-authentication ios ipados macos authentication
 icon:   swift
 
 lib:    https://github.com/danielsaidi/SwiftKit
-source: https://github.com/danielsaidi/SwiftKit/Sources/SwiftKit/Authentication
-tests:  https://github.com/danielsaidi/SwiftKit/Tests/SwiftKit/Authentication
+source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Authentication
+tests:  https://github.com/danielsaidi/SwiftKit/tree/master/Tests/SwiftKitTests/Authentication
 ---
 
 In this post, we'll look at how to perform local biometric authentication with `FaceID` or `TouchID` on Apple's various platforms, using the `LocalAuthentication` framework.
