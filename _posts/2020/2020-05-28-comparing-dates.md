@@ -16,36 +16,40 @@ In this post, we'll extend Swift's `Date` type with functions that let us compar
 
 Date comparisons are common tasks in many apps. For instance, we may want to know if a certain date is before or after another.
 
-`Date` has a very easy way to do this. `compare` lets you compare a date with another and returns the resulting `ComparisonResultdate`.
-
-For instance, this checks whether or not a certain date is after another date:
+`Date` has a very easy way to do this. I used to use `compare` a while back, but later versions of Swift let's you use `>`, `<` and `==` (thank you for reminding me, Jonas), for instance:
 
 ```swift
 let date1 = Date(timeIntervalSince1970: 0)
 let date2 = Date(timeIntervalSince1970: 1)
-let result = date1.compare(date2) == .orderedDescending // This is false
+date1 > date2    // false
+date1 < date2    // true
+date1 == date2   // false
 ```
 
-I find this approach cumbersome and that the resulting code isn't that readable. I think we can extend `Date` with functions that make these kind of operations more readable.
+Even though this is cleaer than checking the comparison result, I still don't like this. I think Swift shines when it's readable, and this is more syntax than semantics.
+
+That's something that I in fact think for many types, except maybe bools and numbers. By expressing something in written form, it's much harder to accidentally mistype `<` as `>`.
+
+I think we can extend `Date` with functions that make these kind of operations more readable.
 
 
 ## More readable extensions
 
-We can use `compare` in a set of extension functions, to create more readable functions for comparing dates:
+We can use the operations above in a set of extensions to create more readable functions for comparing dates:
 
 ```swift
 public extension Date {
     
     func isAfter(_ date: Date) -> Bool {
-        compare(date) == .orderedDescending
+        self > date
     }
     
     func isBefore(_ date: Date) -> Bool {
-        compare(date) == .orderedAscending
+        self < date
     }
     
-    func isSameAs(_ date: Date) -> Bool {
-        compare(date) == .orderedSame
+    func isSame(as date: Date) -> Bool {
+        self == date
     }
 }
 ```
@@ -57,10 +61,12 @@ let date1 = Date(timeIntervalSince1970: 0)
 let date2 = Date(timeIntervalSince1970: 1)
 date1.isAfter(date2)    // false
 date1.isBefore(date2)   // true
-date1.isSameAs(date2)   // false
+date1.isSame(as: date2) // false
 ```
 
-I think this is much more readable than checking whether or not the comparison result is ascending or descending.
+I think this is more readable and less error prone. This semantic approach is something I often use, and something I think Swift should add more of to the language.
+
+For instance, `myBool.toggle()` is easier to read than `myBool = !myBool`, which I think feels more like c/c++ that what most of Swift looks like.
 
 
 ## Grab the code
