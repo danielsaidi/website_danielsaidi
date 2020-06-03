@@ -9,7 +9,7 @@ source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Ext
 tests:  https://github.com/danielsaidi/SwiftKit/tree/master/Tests/SwiftKitTests/Extensions
 ---
 
-In this post, we'll look at how `DispatchQueue` can be used to delay and chain operations.
+In this post, we'll look at how `DispatchQueue` can be used to delay and chain operations. We'll also extend it with more convenient functions that simplify these tasks.
 
 
 ## Delaying operations
