@@ -51,4 +51,7 @@ I have added various authentication services to my [SwiftKit]({{page.lib}}) libr
 
 The authentication service model is abstract and allows for testing, mocking, composition, dependency injection and all those good things, so it's a good fit for systems where you need more than just calling the code above directly.
 
-You can find the source code [here]({{page.source}}) and the unit tests [here]({{page.tests}}). There is also a demo app that demonstrates some of the authentication services. Feel free to give it a try and let me know what you think.
+
+## Source code
+
+I have added these tools to my [SwiftKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}) and the unit tests [here]({{page.tests}}).

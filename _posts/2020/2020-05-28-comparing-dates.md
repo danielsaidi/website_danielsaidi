@@ -69,6 +69,6 @@ I think this is more readable and less error prone. This semantic approach is so
 For instance, `myBool.toggle()` is easier to read than `myBool = !myBool`, which I think feels more like c/c++ that what most of Swift looks like.
 
 
-## Grab the code
+## Source code
 
-I have added these extensions to my [SwiftKit]({{page.lib}}) library, which contains a lot of additional functionality for Swift. You can find the source code [here]({{page.source}}) and the unit tests [here]({{page.tests}}).
+I have added these extensions to my [SwiftKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}) and the unit tests [here]({{page.tests}}).
