@@ -35,7 +35,7 @@ string.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
 This is better, but I think you see where I am going with this. We can't do this every time we want to url encode a string. We can do better.
 
 
-## Extending `String`
+## Extending String
 
 Let's create a `String` extension to help us perform url encoding better:
 

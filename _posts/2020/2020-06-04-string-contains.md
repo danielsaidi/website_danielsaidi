@@ -33,9 +33,7 @@ To allow for case-insensitive contains checks, you could lower-case both strings
 string.lowercased().contains("Contains".lowercased()) // => true
 ```
 
-Howevr, his is not that performant, since you create two new strings to perform this check. 
-
-For case-insensitive checks, you could instead use `range` and provide it with a `.caseInsensitive` option:
+However, this is not that performant, since you create two new strings to perform this check. You could use `range` instead, and provide it with a `.caseInsensitive` option:
 
 ```swift
 string.range(of: "Contains", options: .caseInsensitive) != nil // => true
@@ -44,9 +42,9 @@ string.range(of: "Contains", options: .caseInsensitive) != nil // => true
 However, I don't think that this is that readable. We can do better.
 
 
-## Extending `String`
+## Extending String
 
-I think a much more readable approach is to create a `contains` extension that takes a `caseSensitive` argument and adjusts its logic depending on if the check should be case-sensitive or not:
+I think a more readable approach is to create a `contains` extension with a `caseSensitive` argument and adjust its logic depending on if the check should be case-sensitive or not:
 
 ```swift
 public extension String {

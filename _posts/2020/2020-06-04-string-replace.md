@@ -36,12 +36,12 @@ string.replacingOccurrences(of: "Text", with: "characters", options: .caseInsens
 // => "This string contains characters"
 ```
 
-However, I think that the function name is too long and the `options` argument is tedious to use.
+However, I think that the function name is too long and that `options` is tedious to use.
 
 
-## Extending `String`
+## Extending String
 
-We can create shorter and slightly more convenient extensions to perform case-sensitive and case-insensitive replacements:
+We can create shorter and slightly more convenient extensions to let us perform case-sensitive and case-insensitive replacements:
 
 ```swift
 public extension String {
