@@ -18,7 +18,7 @@ In this post, we'll look at how to read from and write to the keychain on iOS de
 
 The device keychain lets us store small amounts of data outside of our application. This lets the data stick around even if a user reinstalls the application. The data can also be backed up and restored by encrypted backups.
 
-Although we can use the keychain with vanilla Swift, it's not convenient. Therefore, the [SwiftKeychainWrapper]({{page.repo}}) project is nice, since it lets you use the keychain much like you use `UserDefaults`. 
+Although we can use the keychain with vanilla Swift, it's not very convenient. Therefore, the [SwiftKeychainWrapper]({{page.repo}}) project is nice, since it lets you use the keychain much like you use `UserDefaults`. 
 
 This project is well written, but unfortunately not maintained. To not depend on an outdated repository and avoid external dependencies, I have added the source code to my [SwiftKit]({{page.lib}}) library and bumped it up to the latest Swift version. You can find the source code [here]({{page.source}}).
 
