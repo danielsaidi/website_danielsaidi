@@ -1,5 +1,5 @@
 ---
-title:  "Using keychain to read and store data on iOS"
+title:  "Using the iOS keychain to persist data"
 date:   2020-06-05 10:00:00 +0100
 tags:   swift keychain
 icon:   swift
@@ -16,18 +16,20 @@ In this post, we'll look at how to read from and write to the keychain on iOS de
 
 ## The basics
 
-The device keychain lets us store small amounts of data outside of our application. This lets the data stick around even if a user reinstalls the application. The data can also be backed up and restored by encrypted backups.
+The device keychain can be used to small amounts of data outside of our applications. This lets data stick around even if a user reinstalls an application. The data can also be backed up and restored by encrypted backups.
 
-Although we can use the keychain with vanilla Swift, it's not very convenient. Therefore, the [SwiftKeychainWrapper]({{page.repo}}) project is nice, since it lets you use the keychain much like you use `UserDefaults`. 
+However, working with the keychain is not very convenient. Therefore, the [SwiftKeychainWrapper]({{page.repo}}) project is nice, since it lets us use the keychain like `UserDefaults`.
 
-This project is well written, but unfortunately not maintained. To not depend on an outdated repository and avoid external dependencies, I have added the source code to my [SwiftKit]({{page.lib}}) library and bumped it up to the latest Swift version. You can find the source code [here]({{page.source}}).
+This project is well written, but not maintained. To not depend on an outdated repository and avoid external dependencies, I have added the source code to my [SwiftKit]({{page.lib}}) library and migrated it to the latest Swift version. You can find the source code [here]({{page.source}}).
+
+Although you shouldn't overuse the keychain, it can be a lifesaver in certain situations, where data must be around even if the application is deleted. Just be careful with how you use it.
 
 
 ## Making it abstract
 
-To avoid having to depend on the `KeychainWrapper` class, I have created a couple of protocols that lets me better control how the keychain is used.
+To avoid having to depend on the library's `KeychainWrapper`, I have created a couple of protocols that lets us better control how the keychain is used.
 
-To read from the keychain, I have a `KeychainReader` protocol:
+To read from the keychain, I use a `KeychainReader` protocol:
 
 ```swift
 public protocol KeychainReader: AnyObject {
@@ -45,7 +47,7 @@ public protocol KeychainReader: AnyObject {
 }
 ```
 
-To write to the keychain, I have a `KeychainWriter` protocol:
+and to write to the keychain, I use a `KeychainWriter` protocol:
 
 ```swift
 public protocol KeychainWriter: AnyObject {
@@ -79,13 +81,13 @@ public protocol KeychainWriter: AnyObject {
 }
 ```
 
-I then have a `KeychainService` that implements both of these protocols:
+I then have a `KeychainService` that implements both or these protocols (much like `Codable` implements `Encodable` and `Decodable`):
 
 ```swift
 public protocol KeychainService: KeychainReader, KeychainWriter {}
 ```
 
-and a standard service implementation that wraps the `KeychainWrapper`:
+I then have a standard `KeychainService` implementation that just wraps the `KeychainWrapper`:
 
 ```swift
 public class StandardKeychainService: KeychainService {
@@ -188,7 +190,7 @@ extension StandardKeychainService: KeychainWriter {
 }
 ```
 
-Wrapping a wrapper may seem a bit too much, but it's to separate the protocols from the actual wrapping of the keychain and allow it to change its implementation without having to change the protocols.
+Wrapping a wrapper may seem a bit too much, but it's to separate the protocols from the keychain and allow the wrapper to change without having to change the public protocols.
 
 
 ## Source code
