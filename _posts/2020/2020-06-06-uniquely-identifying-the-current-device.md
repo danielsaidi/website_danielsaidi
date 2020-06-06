@@ -22,11 +22,11 @@ You can use `UUID().uuidString` to generate a unique identifier, but we then nee
 
 The most obvious way to handle unique device identifier is to generate it the first time the app asks for it, then persist it in `UserDefaults` and return the persisted value.
 
-This works well enugh, but the identifier will be regenerated as soon as the user deletes the app and reinstalls it. This may cause the same device to use multiple unique identifiers.
+This works well enough, but the identifier will be regenerated as soon as the user deletes and reinstalls the app. This may cause the same device to use multiple unique identifiers.
 
-Instead of `UserDefaults`, we can then use the keychain to persist data, to make sure that it's still around even if the user reinstalls the app. I wrote about keychain persistency in [this blog post]({{page.post}}).
+Instead of `UserDefaults`, we could store the data in the device keychain, to make sure that it's still around even if the user reinstalls the app. I wrote about the keychain in [this blog post]({{page.post}}).
 
-Depending on your access strategy, keychain persistency is not 100% reliable, though. Also, you should only persist data in the keychain if you absolutely need to. You should therefore use both approaches, to maximize the chance of the id being as reliable as possible.
+Depending on your access strategy, keychain persistency is not 100% reliable, though, since you make choose a strategy that requires the device to be unlocked, have a passcode etc. You should therefore use both approaches.
 
 
 ## Device identifiers
