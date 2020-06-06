@@ -32,12 +32,12 @@ struct MyView: View {
 
 Easy enough, right? Well, this basic example is, but I think it becomes really tricky to manage as soon as you want to present multiple sheets from the same screen or reuse sheets across your application.
 
-One problem is that you keep duplicating the `isSheetActive` logic everywhere. You also have to duplicate the view producing logic whenever you present the same sheet from multiple views.
+One problem is that you keep duplicating `isSheetActive` logic everywhere. You also have to duplicate the view producing logic whenever you present the same sheet from multiple views.
 
 I have therefore tried to find a way to work with sheets in a more reusable way that requires less code while still being flexible to support both global and screen-specific sheets.
 
 
-## Sheet Context
+## SheetContext to the rescue!
 
 After experimenting some with this, I came up with a way to let us reuse a bunch of this sheet-specific logic by gathering it in a `SheetContext` class:
 
@@ -82,7 +82,7 @@ To bind the context's sheet to your view, you can just use the `sheet` modifier 
  .sheet(isPresented: $sheetContext.isActive, content: sheetContext.view)
  ```
 
-You can now define various `SheetPresentable` types in your app. For instance, if you have a set of sheets that should be presented from multiple views, you could create an `AppSheet` enum:
+You can define various `SheetPresentable` types in your app. For instance, if you have a set of sheets that should be presented from multiple views, you could create an `AppSheet` enum:
 
 ```swift
 enum AppSheet: SheetPresentable {
@@ -111,6 +111,8 @@ sheetContext.present(AppSheet.settings)
 ```
 
 If the settings screen has a bunch of sheets that should only be presented from settings, you could create a separate `SettingsSheet` enum and use it in the exact same way.
+
+This means that `SheetContext` can be used to manage all different kind of sheets. It will hold your present state and make sure to update it accordingly, while you just have to provide it with the sheets you want to present.
 
 
 ## Source code
