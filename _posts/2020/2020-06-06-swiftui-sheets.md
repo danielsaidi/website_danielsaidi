@@ -118,4 +118,4 @@ This means that `SheetContext` can be used to manage all different kind of sheet
 
 ## Source code
 
-I have added these services to my [SwiftUIKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}) and the unit tests [here]({{page.tests}}).
+I have added these components to my [SwiftUIKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}).
