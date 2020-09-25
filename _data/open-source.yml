@@ -11,6 +11,9 @@
 - name: Mockery
   url: https://github.com/danielsaidi/Mockery
 
+- name: DeckKit
+  url: https://github.com/danielsaidi/DeckKit
+
 - name: SwiftKit
   url: https://github.com/danielsaidi/SwiftKit
 
