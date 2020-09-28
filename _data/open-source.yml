@@ -8,20 +8,20 @@
 - name: Tutti
   url: https://github.com/danielsaidi/Tutti
 
-- name: Mockery
-  url: https://github.com/danielsaidi/Mockery
+- name: SwiftUIKit
+  url: https://github.com/danielsaidi/SwiftUIKit
 
 - name: DeckKit
   url: https://github.com/danielsaidi/DeckKit
 
-- name: SwiftKit
-  url: https://github.com/danielsaidi/SwiftKit
-
-- name: SwiftUIKit
-  url: https://github.com/danielsaidi/SwiftUIKit
-
-- name: Vandelay
-  url: https://github.com/danielsaidi/Vandelay
+- name: Mockery
+  url: https://github.com/danielsaidi/Mockery
 
 - name: Cloney
   url: https://github.com/danielsaidi/Cloney
+  
+- name: SwiftKit
+  url: https://github.com/danielsaidi/SwiftKit
+
+- name: Vandelay
+  url: https://github.com/danielsaidi/Vandelay
