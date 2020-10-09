@@ -7,7 +7,7 @@ permalink: /open-source/
 <article class="card">
   {% include cards/header.html title="Open Source" %}
   <p>
-    Here is a list of some open source projects that I have built and actively maintain. For a list of all publically available projects, check out my <a href="https://github.com/{{ site.github_username| cgi_escape | escape }}">GitHub</a> profile.
+    Here is a list of some of my open source projects that I currently maintain. For a list of all public projects, please have a look at my <a href="https://github.com/{{ site.github_username| cgi_escape | escape }}">GitHub</a> profile.
   </p>
 </article>
 
