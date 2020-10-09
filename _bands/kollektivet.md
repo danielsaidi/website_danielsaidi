@@ -1,8 +1,8 @@
 ---
 name: Kollektivet
-year-from: 2001
+last-updated: 2007
 ---
 
-I started Saidi och Kollektivet in 2001, after writing Swedish songs on my own for many years. The first autum 2001 lineup was small, with me and Lars Forsell trying out songs with a couple of drummers and basists, without reaching a final result.
+I started Kollektivet in 2001, after writing Swedish songs for many years. The first 2001 lineup was small, with me and Lars Forsell trying out songs without reaching a recorded result.
 
-The second lineup was formed in autumn 2002 and recorded one demo before many of us went travelling or studying abroad. Ater that, members varied with a solid code. We released four demos and performed a lot, but decided to stop in 2007. It was a great time and I am fortunate to have shared it with all wonderful people involved.
+The second 2002 lineup recorded a demo before many of us went travelling or studying abroad. After that, members varied with a solid code. We released four demos and performed a lot until we decided to call it quits in 2007. It was a great time and I am fortunate to have shared it with all the wonderful people involved.

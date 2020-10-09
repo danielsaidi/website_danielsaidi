@@ -13,5 +13,5 @@ redirect_from: /bands/
   </p>
 </article>
 
-{%- assign bands = site.bands | sort: 'year-from' | reverse | where:'hidden',false -%}
+{%- assign bands = site.bands | sort: 'last-updated' | reverse | where:'hidden',false -%}
 {% include bands/grid.html items=bands %}
