@@ -4,27 +4,33 @@ date:   2018-xx-xx xx::00 +0100
 tags:	ios swift
 ---
 
+Uppdatera alerts, sheets, toasts!!!
+
+SwiftUIKit:
+Shadow styles (SwiftUIKit links)
+Blur styles
+Document camera
+Map
+Color+Random
+View .any()
+View .snapshot()
+View .visible() (why only hidden!?)
+`UrlOpener`
+FilePicker
+ImagePicker
+ShareSheet
+DismissableView
+MultilineTextField
+MultiPageView
+UIViewWrapper
+
 Colors:
-Write about UIColor extensions to build palette
-Compare with asset catalog and show usage
-
-Shadows:
-Styles and extensions
-
-Blurs:
-Styles and extensions
-
+Write about UIColor extensions to build palette (.app)
 
 Decorator Pattern:
 API service + Offline support + Caching
 
-Mocking
-
-SwiftGen
-
-SwiftLint
-
-
+Mocking with Mockery
 Testing:
 Quick + Nimble
 Install with Carthage?
