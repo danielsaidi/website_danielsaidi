@@ -6,15 +6,15 @@ icon:  swiftuikit
 
 lib:    https://github.com/danielsaidi/SwiftUIKit
 source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Sheets
-tests:  https://github.com/danielsaidi/SwiftUIKit/tree/master/Tests/SwiftUIKitTests/Sheets
+presentation-context: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Contexts/PresentationContext.swift
 ---
 
-In this post, we'll look at how to manage SwiftUI sheets in a more maintainable and flexible way. This will allow us to present different sheets in the same way and reduce state management.
+In this post, we'll look at an easier way to manage sheets in `SwiftUI`, that lets us reuse functionality, reduce state management and present many different sheets in the same way.
 
 
 ## The basics
 
-To present sheets in `SwiftUI`, you use the `sheet` modifier. It takes an `isPresented` binding and a view-producing `content` function:
+To present sheets in a `SwiftUI` app, you would normally use a `sheet` modifier that takes an `isPresented` binding and a view-producing `content` function:
 
 ```swift
 struct MyView: View {
@@ -30,46 +30,81 @@ struct MyView: View {
 }
 ```
 
-Easy enough, right? Well, this basic example is, but I think it becomes tricky to manage as soon as you want to present multiple sheets from the same screen or reuse sheets across your app.
+This example is simple, but I think it becomes tricky to manage sheets as soon as you want to present multiple sheets from the same screen or reuse sheets across an app. You may end up duplicating `isSheetActive` logic as well as the view builder logic.
 
-One problem is that you keep duplicating `isSheetActive` logic everywhere. You also have to duplicate the view producing logic whenever you present the same sheet from multiple views.
-
-I have therefore tried to find a way to work with sheets in a more reusable way that requires less code while still being flexible to support both global and screen-specific sheets.
+I therefore tried to find a way to work with sheets in a more reusable way, that requires less code and less state while still being flexible to support both global and screen-specific sheets.
 
 
-## SheetContext to the rescue!
+## SheetContext
 
-After experimenting some with this, I came up with a way to let us reuse a bunch of this sheet-specific logic by gathering it in a `SheetContext` class:
+After pondering this problem for a while, I think I have come up with a solution that simplies working with `SwiftUI` sheets. It all starts with an observable class called `SheetContext`:
 
 ```swift
-public class SheetContext: ObservableObject {
+public class SheetContext: PresentationContext<AnyView> {
+    
+    public override func content() -> AnyView {
+        contentView ?? EmptyView().any()
+    }
+    
+    public func present<Sheet: View>(_ sheet: Sheet) {
+        present(sheet.any())
+    }
+    
+    public func present(_ provider: SheetProvider) {
+        contentView = provider.sheet
+    }
+}
+```
+
+As you can see, `SheetContext` basically only contains code for presenting a `Sheet` or a `SheetProvider`. We'll come back to these concepts shortly.
+
+You may also notice that it inherits something called `PresentationContext`. Let's take a closer look at this base class.
+
+
+## PresentationContext
+
+Since I find that the sheet problem also is true for alerts, context menus etc., I have created a `PresentationContext` on which I base other similar solutions to the same kind of problem.
+
+`PresentationContext` is an `ObservableObject` base class that handles state and views for presentable things, like sheets, alerts, toasts etc. It's a pretty simple little thing:
+
+```swift
+public class PresentationContext<Content>: ObservableObject {
     
     public init() {}
     
     @Published public var isActive = false
     
-    public private(set) var sheetView: AnyView? {
-        didSet { isActive = sheetView != nil }
+    public var isActiveBinding: Binding<Bool> {
+        .init(get: { self.isActive },
+              set: { self.isActive = $0 }
+        )
     }
     
-    public func present(_ sheet: SheetPresentable) {
-        sheetView = sheet.sheet
+    open func content() -> Content { contentView! }
+    
+    public internal(set) var contentView: Content? {
+        didSet { isActive = contentView != nil }
     }
     
-    public func present<Sheet: View>(_ sheet: Sheet) {
-        sheetView = sheet.any()
+    public func dismiss() {
+        isActive = false
     }
     
-    public func sheet() -> AnyView {
-        sheetView?.any() ?? EmptyView().any()
+    public func present(_ content: Content) {
+        contentView = content
     }
 }
 ```
 
-The context can be used to present any `View` and anything that implements `SheetPresentable`, which can be implemented by anything that can provide a `sheet`:
+By calling the more specific functions in `SheetContext`, the `PresentationContext` state is properly updated.
+
+
+## SheetProvider
+
+As we saw earlier, `SheetContext` can present a `Sheet` and a `SheetProvider`. `Sheet` is just a view, while `SheetProvider` is a protocol for anything that can provide a sheet view:
 
 ```swift
-public protocol SheetPresentable {
+public protocol SheetProvider {
     
     var sheet: AnyView { get }
 }
@@ -77,16 +112,10 @@ public protocol SheetPresentable {
 
 With this in place, you can now implement custom sheets in many different ways and present all of them the same way, using this new context.
 
-To use this context within your views, just create a context instance and call any of its `present` functions. To bind it to a view, just use the `sheet` modifier as you normally do:
- 
- ```swift
- .sheet(isPresented: $sheetContext.isActive, content: sheetContext.sheet)
- ```
-
-You can define various `SheetPresentable` types in your app. For instance, if you have a set of sheets that should be presented from multiple views, you could create an `AppSheet` enum:
+For instance, you can have an enum that represents the various sheets your app supports:
 
 ```swift
-enum AppSheet: SheetPresentable {
+enum AppSheet: SheetProvider {
     
     case settings, tutorial
     
@@ -99,21 +128,55 @@ enum AppSheet: SheetPresentable {
 }
 ```
 
-Then present it as such:
+
+## New sheet modifier
+
+Since `SheetContext` handles all state for us, we can now implement a new `sheet` modifier for presenting sheets:
+
+```swift
+public extension View {
+    
+    func sheet(context: SheetContext) -> some View {
+        sheet(isPresented: context.isActiveBinding, content: context.content)
+    }
+}
+```
+
+The new modifier just provides the standard `sheet` modifier with the context's state, which makes things easier for you.
+
+
+## Presenting a sheet
+
+With these new tools at our disposal, we can present sheets in a much easier way.
+
+First, create a `@State` property in any view that should be able to present sheets:
+
+```swift
+@State private var sheetContext = SheetContext()
+```
+
+then add a `SheetContext` specific view modifier to the view:
+
+```swift
+.sheet(context: sheetContext)
+```
+
+You can now present any view and `SheetProvider` as a sheet, for instance the `AppSheet`:
 
 ```swift
 sheetContext.present(AppSheet.settings)
 ```
 
-You can also present any custom view with the same context:
+You can also present any custom view in the same way, using the same context:
 
 ```swift
 sheetContext.present(Text("Hello! I'm a custom modal."))
 ```
 
-If the settings screen has a bunch of sheets that should only be presented from settings, you could create a separate `SettingsSheet` enum and use it in the exact same way.
 
-This means that `SheetContext` can be used to manage all different kind of sheets. It manages your state, while you just have to provide it with sheets you want to present.
+## Conclusion
+
+As you can see, `SheetContext` can be used to manage all different kind of sheets and views. It manages all state for you and lets you use a more convenient sheet modifier. All you have to do is provide it with the sheets you want to present.
 
 
 ## Source code
