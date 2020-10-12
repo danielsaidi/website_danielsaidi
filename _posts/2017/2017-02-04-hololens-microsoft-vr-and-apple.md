@@ -1,10 +1,9 @@
 ---
-title:  HoloLens, Microsoft, VR and Apple
-date:   2017-02-04 10:00:00 +0100
-tags:	virtual-reality augmented-reality
+title: HoloLens, Microsoft, VR and Apple
+date:  2017-02-04 10:00:00 +0100
+tags:  virtual-reality augmented-reality
 redirect_from: /blog/general/2017/02/04/hololens-microsoft-vr-and-apple
 ---
-
 
 I am really looking forward to a HoloLens event at [tretton17](http://tretton37.com)
 next week, where Jimmy Engström will demonstrate this awesome piece of technology:
@@ -87,7 +86,6 @@ company...which is something that has been reserved for Apple for many years now
 Exciting times! :)
 
 
-
 ## Where to next?
 
 When discussing VR with friends and colleagues, some think that VR is now proven
@@ -106,12 +104,3 @@ happy to now, after buying the so-so Sony HMZ-T1 some years ago, finally have an
 amazing VR experience in my living room. The technology works. Now, we just need
 to iterate upon the technology, make the hardware better, the user interface more
 intuitive, the lag less noticable...and find new ways in this new exciting world.
-
-
-
-
-
-
-
-
-

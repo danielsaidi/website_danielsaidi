@@ -1,10 +1,9 @@
 ---
-title:  "Problems with running Quick and Nimble on code in development CocoaPod"
-date:   2017-01-31 21:50:00 +0100
-tags:	ios xcode cocoapods testing
+title: Problems with running Quick and Nimble on code in development CocoaPod
+date:  2017-01-31 21:50:00 +0100
+tags:  ios xcode cocoapods testing
 redirect_from: /blog/mobile/2017/01/31/problems-with-running-quick-and-nimble-on-code-in-development-cocoapod
 ---
-
 
 When creating CocoaPods, I use [Quick](https://github.com/Quick/Quick) for tests
 and [Nimble](https://github.com/Quick/Nimble) for assertions. They are great and

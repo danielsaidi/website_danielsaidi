@@ -5,7 +5,6 @@ tags:	git ios
 image:	http://danielsaidi.com/assets/blog/2017-11-05.jpg
 ---
 
-
 In this post, I will write about my experience using Working Copy on my iPad Pro,
 adding a blog post to a Jekyll-powered blog, then pushing the result to GitHub.
 

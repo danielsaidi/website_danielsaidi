@@ -12,7 +12,6 @@ video:  http://www.youtube.com/watch?v=LuKehlKoN7o&lc=z22qu35a4xawiriehacdp435fn
 new:    http://danielsaidi.com/blog/2018/12/27/alamofire-objectmapper
 ---
 
-
 This is a summary of my talk at [CocoaHeads Sthlm, April 3 2017]({{page.video}}),
 where I talked about using Alamofire, AlamofireObjectMapper and Realm to talk to
 an api, map its responses, automatically retry and adapt requests and how to use
@@ -1156,5 +1155,3 @@ All the best
 Daniel Saidi
 
 * Feedback me on Twitter: [@danielsaidi](http://twitter.com/danielsaidi)
-
-

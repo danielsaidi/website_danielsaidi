@@ -1,9 +1,8 @@
 ---
-title:  "git autocompletion in OS X Terminal"
-date:   2017-01-26 10:56:02 +0100
-tags:	git
+title: git autocompletion in OS X Terminal
+date:  2017-01-26 10:56:02 +0100
+tags:  git
 ---
-
 
 After procrastinating for too long, I finally spent a minute of my life to setup
 git autocomplete in the macOS terminal. The original discussion on this topic is

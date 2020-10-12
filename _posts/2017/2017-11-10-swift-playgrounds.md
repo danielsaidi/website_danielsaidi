@@ -5,7 +5,6 @@ tags:	swift ios
 image:	http://danielsaidi.com/assets/blog/2017-11-10.jpg
 ---
 
-
 Tonight, I finally sat down with my oldest daughter Cornelia, to play with Swift
 Playgrounds and try to teach her a bit about programming.
 
