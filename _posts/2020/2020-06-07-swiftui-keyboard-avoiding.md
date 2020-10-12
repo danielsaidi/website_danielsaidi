@@ -5,12 +5,11 @@ tags:  swift swiftui
 icon:  swiftuikit
 
 lib:    https://github.com/danielsaidi/SwiftUIKit
-source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Keyboard
-tests:  https://github.com/danielsaidi/SwiftUIKit/tree/master/Tests/SwiftUIKitTests/Keyboard
 
 so: https://stackoverflow.com/questions/56716311/how-to-show-complete-list-when-keyboard-is-showing-up-in-swiftui
-
 ---
+
+**UPDATE! This is now a built-in feature in SwiftUI, so I have removed it from [SwiftUIKit]({{page.lib}}) and will not maintain it anymore. This post is only kept for reference.** 
 
 In this short post, we'll look at how to make SwiftUI avoid the keyboard and slide the current view up to remain in focus when the keyboard is presented.
 
@@ -59,8 +58,3 @@ public extension View {
 ```
 
 Easy enough, right? With this modifier, you can just apply `.keyboardAvoiding()` to any view that you want to be able to automatically avoid the keyboard.
-
-
-## Source code
-
-I have added the modifier and extension to [this library]({{page.lib}}). You can find the source code [here]({{page.source}}).
