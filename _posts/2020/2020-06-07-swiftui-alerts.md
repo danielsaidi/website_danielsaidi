@@ -54,7 +54,7 @@ public class AlertContext: PresentationContext<Alert> {
 }
 ```
 
-As you can see, `AlertContext` basically only contains code for presenting an `AlertProvider`. We'll come back to this concepts shortly.
+As you can see in the code above, `AlertContext` basically only contains code for presenting an `AlertProvider`. We'll come back to this concept shortly.
 
 You may also notice that it inherits something called `PresentationContext`. Let's take a closer look at this base class.
 
@@ -96,7 +96,7 @@ public class PresentationContext<Content>: ObservableObject {
 
 By calling the more specific functions in `AlertContext`, the `PresentationContext` state is properly updated.
 
-In fact, this means that besides the `present(_ provider: AlertProvider)` function, `AlertContext` also gets a `present(_ alert: Alert)` function from the generic `present(_ content: Content)` function.
+In fact, this means that besides the `present(_ provider: AlertProvider)` function, `AlertContext` also gets an implicit `present(_ alert: Alert)` function from the generic `present(_ content: Content)` function.
 
 
 ## AlertProvider
