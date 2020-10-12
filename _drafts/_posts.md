@@ -4,7 +4,7 @@ date:   2018-xx-xx xx::00 +0100
 tags:	ios swift
 ---
 
-Uppdatera alerts, sheets, toasts!!!
+Uppdatera toasts!!!
 
 SwiftUIKit:
 Shadow styles (SwiftUIKit links)
