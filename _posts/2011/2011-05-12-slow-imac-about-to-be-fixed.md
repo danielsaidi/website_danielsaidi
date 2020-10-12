@@ -1,7 +1,7 @@
 ---
-title:  "Slow iMac about to be fixed?"
-date:   2011-05-12 12:00:00 +0100
-tags: 	osx
+title: Slow iMac about to be fixed?
+date:  2011-05-12 12:00:00 +0100
+tags:  macos
 ---
 
 I have been having big problems with my iMac 27″ (4GB RAM) that runs Windows 7 on
