@@ -1,9 +1,8 @@
 ---
-title:  "Using Moq with NUnit"
-date:   2009-08-19 13:28:00 +0100
-tags: 	.net unit-testing mocking
+title: "Using Moq with NUnit"
+date:  2009-08-19 13:28:00 +0100
+tags:  .net testing unit-testing mocking
 ---
-
 
 As I continue to work on the NerdDinner tutorial, I have discovered that some of
 my development patterns has to change. Surprise? One thing that has to change is
@@ -13,7 +12,7 @@ I use to create test classes that have private objects that are initialized in a
 `TextFixtureSetUp` method. If we consider that I am to test the DinnerController,
 using a mock repository, the approach would be as such:
 
-{% highlight c# %}
+```csharp
 private DinnerController controller;
 private Mock<IDinnerRepository> repository;
 
@@ -23,11 +22,11 @@ public void Init()
    repository = MockClasses.GetMockDinnerRepository();
    controller = new DinnerController(repository.Object);
 }
-{% endhighlight %}
+```
 
 However, consider the following tests:
 
-{% highlight c# %}
+```csharp
 [Test]
 public void Details_ShouldDisplayDetailsForValidDinner()
 {
@@ -51,7 +50,7 @@ public void Edit_ShouldDisplayEditForValidDinner()
 
    repository.Verify(x => x.Get(1), Times.Once());
 }
-{% endhighlight %}
+```
 
 Since the two test cases use the same object instances, their verifications will
 not work as expected. The repository's Get function will be called twice, since

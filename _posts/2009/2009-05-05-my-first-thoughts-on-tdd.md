@@ -1,13 +1,12 @@
 ---
 title:  "My first thoughts on TDD"
 date:   2009-05-05 13:16:00 +0100
-tags: 	unit-testing
+tags: 	testing unit-testing
 ---
 
-
-After a very interesting conference talk on Test Driven Development and Behavior
-Driven Development, I have finally started getting familiar with it, using NUnit
-to write unit tests while developing in .NET and C#.
+After a very interesting conference talk on Test Driven Development (TDD) and Behavior
+Driven Development (BDD), I have finally started using NUnit to write unit tests while
+developing new features in C#.
 
 My first thought was (as so many have told me it would be) "why haven't I worked
 like this before?". Perhaps I am having a honey-moon, but I am loving it, though

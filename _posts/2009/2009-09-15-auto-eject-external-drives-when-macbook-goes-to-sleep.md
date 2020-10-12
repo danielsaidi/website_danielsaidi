@@ -1,13 +1,12 @@
 ---
-title:  "Auto-eject external drives when Macbook goes to sleep"
-date:   2009-09-15 08:00:00 +0100
-tags:	osx
+title: "Auto-eject external drives when Macbook goes to sleep"
+date:  2009-09-15 08:00:00 +0100
+tags:  osx
 ---
 
-
-> **Edit August 28, 2010** SleepWatcher has been changed and differs compared to
-the information found in the link below. This approach does, however, still work,
-as does the modified script that I provide below.
+**Edit August 28, 2010** `SleepWatcher` has been changed since I wrote this post
+and now differs from the information found in the link below. This approach does
+still work, though, as does the modified script that I provide below.
 
 I have a Macbook, and have always been annoyed that I manually have to eject the
 external disk every time I put the computer to sleep.

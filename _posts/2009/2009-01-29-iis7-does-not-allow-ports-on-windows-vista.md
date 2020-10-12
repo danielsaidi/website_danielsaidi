@@ -4,7 +4,6 @@ date:   2009-01-29 08:28:00 +0100
 tags: 	.net windows
 ---
 
-
 After clean installing Windows Vista on my work computer, then installing Visual
 Studio 2005 and Visual Studio 2008, I suddenly faced problems with using dynamic
 ports when developing web applications in ASP.NET.

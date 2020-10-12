@@ -1,12 +1,11 @@
 ---
-title:  "Using themes in ASP.NET MVC"
-date:   2009-08-19 05:38:00 +0100
-tags: 	.net web css
+title: "Using themes in ASP.NET MVC"
+date:  2009-08-19 05:38:00 +0100
+tags:  .net web css
 ---
 
-
-I have finally got around to create my first web site with ASP.NET MVC 1.0. After
-looking through the nice started example, I noticed that .css files were manually
+I have finally gotten around to create my first web site with ASP.NET MVC. After
+looking through the nice start examples, I noticed that .css files were manually
 included in the master page. 
 
 Since I prefer to use ASP.NET themes, I decided to adjust the application a bit.
@@ -50,11 +49,11 @@ Turns out that the Default.aspx file in the project root is completely blank and
 only used to redirect the user. To make the application use the theme, I simply
 added this dummy code to the page:
 
-{% highlight html %}
+```html
 <html>
  <head runat="server"></head>
 </html>
-{% endhighlight %}
+```
 
 This will never be displayed and does not disturb the app in any way, but makes
 the default theme work...which at least I think is nice :)

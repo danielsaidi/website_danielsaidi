@@ -7,7 +7,7 @@ tags: 	.net c#
 
 **NOTE:** This post was written in 2009. Although the core logic has not changed
 since then, the implementation has. For the lastest implementation, check out my
-[NExtra](https://github.com/danielsaidi/nextra) project on GitHub.
+inactive [NExtra](https://github.com/danielsaidi/nextra) project on GitHub.
 
 
 When working with the DateTime class, it is not that straightforward to calculate

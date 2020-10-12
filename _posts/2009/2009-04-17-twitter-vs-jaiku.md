@@ -1,7 +1,7 @@
 ---
 title:  "Twitter vs Jaiku"
 date:   2009-04-17 21:50:00 +0100
-tags:	twitter
+tags:	social-media twitter
 ---
 
 

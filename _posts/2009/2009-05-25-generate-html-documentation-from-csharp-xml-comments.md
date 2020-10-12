@@ -4,7 +4,6 @@ date:   2009-05-25 11:01:00 +0100
 tags: 	.net documentation
 ---
 
-
 When developing .NET applications, XML comments is a good way of documenting the
 code (looking back in 2015, my advice would be to not state the obvious, though).
 
@@ -28,7 +27,6 @@ However, when you want to be able to automatically parse documentation from your
 .NET source code, XML comments is the way to, and this is how you do it:
 
 
-
 ## Generate an XML file from XML comments
 
 If you have documented your code with XML-comments, you can tell Visual Studio to
@@ -46,7 +44,6 @@ takes you so far. If so, you are better off generating an HTML-based documentati
 directly from your source code instead.
 
 
-
 ## Generate HTML documentation from XML comments
 
 Previous versions of Visual Studio had built-in support for generating HTML-based
@@ -57,7 +54,6 @@ After browsing around for a .NET version of [phpDoc](http://www.phpdoc.org) and
 [JavaDoc](http://www.google.se/url?q=http://java.sun.com/j2se/javadoc), I found
 [Doxygen](http://www.stack.nl/~dimitri/doxygen/). After giving it a try, I found
 this walkthrough to work well:
-
 
 
 ## Configure Doxygen

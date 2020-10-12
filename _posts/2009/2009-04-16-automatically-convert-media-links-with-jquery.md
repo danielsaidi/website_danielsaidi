@@ -4,7 +4,6 @@ date:   2009-04-16 22:25:00 +0100
 tags: 	javascript jquery web
 ---
 
-
 I am currently developing a PHP-based framework called Wigbi, which can be used
 to quickly generate sites with a database, data objects that are auto-generated
 in JavaScript, using PHP data classes. It also comes with a simple cms that lets

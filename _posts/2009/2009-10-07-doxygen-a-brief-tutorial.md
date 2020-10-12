@@ -1,9 +1,8 @@
 ---
-title:  "Doxygen - A brief tutorial"
-date:   2009-10-07 08:00:00 +0100
-tags:	.net documentation
+title: "Doxygen - A brief tutorial"
+date:  2009-10-07 08:00:00 +0100
+tags:  .net documentation
 ---
-
 
 I am using Doxygen to generate a web-based documentation from my well-documented
 NExtra project's source code. Doxygen also supports extracting the documentation

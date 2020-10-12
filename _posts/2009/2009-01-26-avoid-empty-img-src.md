@@ -4,7 +4,6 @@ date:   2009-01-26 08:00:00 +0100
 tags:	html web
 ---
 
-
 A while ago, I was assigned to optimize a really slow web site. The problems were
 numerous, like loading all content of an expandable dashboard with tons of data at
 once, instead of when the user expanded each section.

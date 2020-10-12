@@ -1,9 +1,8 @@
 ---
-title:  "JSON serialization in C#"
-date:   2009-08-24 09:08:00 +0100
-tags: 	.net c#
+title: "JSON serialization in C#"
+date:  2009-08-24 09:08:00 +0100
+tags:  .net c#
 ---
-
 
 From time to time, I forget where the various classes are defined. So, here is a
 short tutorial to how you get JSON working in C#:

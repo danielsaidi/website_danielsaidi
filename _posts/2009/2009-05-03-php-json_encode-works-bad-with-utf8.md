@@ -4,7 +4,6 @@ date:   2009-05-03 08:00:00 +0100
 tags: 	php web
 ---
 
-
 I have had some serious problems with UTF8 and PHP’s built-in JSON functionality.
 After solving it, I realized that it was not even an UTF-8 issue, but a JSON one.
 

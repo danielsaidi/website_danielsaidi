@@ -4,9 +4,8 @@ date:   2009-05-15 10:20:00 +0100
 tags: 	php web
 ---
 
-
-I currently have problems with identifying the project root in a PHP project.
-The separate ways to do so are easy enough, but have problems combining them.
+I currently have problems with identifying the project root in a PHP project. The
+separate ways to do so are easy enough, but have problems combining them.
 
 The problem applies to PHP, but the discussion is general and applies to the same
 situation in other languages and environments as well.

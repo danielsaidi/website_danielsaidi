@@ -4,7 +4,6 @@ date:   2009-01-28 15:12:00 +0100
 tags: 	.net windows
 ---
 
-
 After upgrading to Windows Vista, I have had many problems to run Visual Studio
 2008 and IIS 7 on it. For instance, IIS URL Rewriting does not work as it did earlier.
 

@@ -4,7 +4,6 @@ date:   2009-03-23 08:56:00 +0100
 tags:	.net c#
 ---
 
-
 In a project where I use the handy DataGridView control I, bind a data source to
 a grid view, then listen for the `SelectionChanged` event. When the event is fired,
 I enable or disable other controls according to the data that is contained in the

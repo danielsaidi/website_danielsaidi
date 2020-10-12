@@ -4,7 +4,6 @@ date:   2009-05-18 08:10:00 +0100
 tags: 	.net windows
 ---
 
-
 I have had a lot of problems with getting URL rewriting to work in Windows Vista,
 running IIS 7. Compared to IIS 6, virtual paths in IIS 7 will not allow extensions
 like .js, .css, which is really problematic if you are working on systems that use
