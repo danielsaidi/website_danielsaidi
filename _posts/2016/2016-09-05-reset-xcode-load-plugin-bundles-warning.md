@@ -1,9 +1,8 @@
 ---
-title:  "Reset Xcode \"load plugin bundles\" warning"
-date:   2016-09-05 17:42:00 +0100
-tags: 	ios xcode
+title: Reset Xcode load plugin bundles warning
+date:  2016-09-05 17:42:00 +0100
+tags:  ios xcode
 ---
-
 
 Today, I managed to click the "Skip Bundles" button instead of the "Load Bundles"
 button, when I started up Xcode after adding two new plugins.

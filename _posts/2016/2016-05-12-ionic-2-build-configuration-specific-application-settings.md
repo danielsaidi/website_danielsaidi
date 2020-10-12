@@ -1,9 +1,8 @@
 ---
-title:  "Ionic 2 - Build Configuration-Specific Application Settings"
-date:   2016-05-12 12:04:00 +0100
-tags: 	ionic cordova ios android
+title: Ionic 2 - Build Configuration-Specific Settings
+date:  2016-05-12 12:04:00 +0100
+tags:  ionic ios android
 ---
-
 
 In an Ionic 2 app that I am building for iOS and Android, I want to use different
 application settings for different build configurations. For instance, I want to
@@ -15,12 +14,10 @@ of information out there for Ionic 1, Ionic 2, ES6, TypeScript, Angular 1, Angul
 2 etc. If a better approach exist, please let me know.
 
 
-
 ## Step 1 - Create application settings classes
 
 I want the app to have a default configuration that is shared by all build configs,
 then be able to override any settings and add new ones when switching configuration.
-
 
 As such, I have a base class that defines most settings:
 
@@ -46,7 +43,6 @@ Note that the class is not injectable. This means that it can not be injected i
 different components in the app. For that, we will use build configuration-specific
 settings classes.
 
-
 Let's start off with the settings class that I will use for development:
 
 **app/config/app-settings-debug:**
@@ -69,7 +65,6 @@ a debug-specific value for the apiUrl property.
 
 This class *is* injectable, which means that we can use it in our app.
 
-
 Let's add a second settings class, that will be used for release builds:
 
 **app/config/app-settings-release:**
@@ -90,7 +85,6 @@ export class AppSettings extends AppSettingsBase {
 This file *also* contains an injectable AppSettings class that also inherits
 *AppSettingsBase* (you will only use one though), then sets a release-specific
 value for the apiUrl property.
-
 
 
 ## Step 2 -Use Gulp to apply the correct settings class
@@ -137,7 +131,6 @@ You could easily extend this functionality to support more build configuratio
 Just follow the same approach as above.
 
 
-
 ## Step 3 - Use the resulting settings class
 
 We have now generate a configuration-specific file generated every time we build
@@ -169,4 +162,3 @@ import {AppSettings} from './config/app-settings';
 
 If everything works as expected, you will see different output when you build for
 development and for release.
-

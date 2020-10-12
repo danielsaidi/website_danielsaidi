@@ -1,9 +1,8 @@
 ---
-title:  "UIImageView is pixelated after applying an async image"
-date:   2016-11-10 09:39:02 +0100
-tags:	ios swift
+title: UIImageView is pixelated after applying an async image
+date:  2016-11-10 09:39:02 +0100
+tags:  ios swift
 ---
-
 
 In a project that I'm currently working on, I load images asynchronously into an
 UIImageView. As the download starts, I apply a placeholder image from the bundle

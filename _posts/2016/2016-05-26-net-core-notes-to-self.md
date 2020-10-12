@@ -1,9 +1,8 @@
 ---
-title:  ".NET Core notes to self"
-date:   2016-05-26 07:52:00 +0100
-tags: 	.net testing
+title: .NET Core notes to self
+date:  2016-05-26 07:52:00 +0100
+tags:  .net testing
 ---
-
 
 I have been playing around with .NET Core since the early betas, but since I do
 so with rather long times in between, things break each time I decide to pick up
@@ -85,7 +84,3 @@ you already have it:
 You should now be able to run `dotnet watch run` and `dotnet watch test` to
 automatically restart your application or re-run your tests as soon as any code
 in your project changes.
-
-
-
-

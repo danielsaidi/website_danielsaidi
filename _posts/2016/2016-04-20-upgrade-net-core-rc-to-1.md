@@ -1,9 +1,8 @@
 ---
-title:  "Upgrade .NET Core RC to 1.0"
-date:   2016-04-20 08:31:00 +0100
-tags: 	.net
+title: Upgrade .NET Core RC to 1.0
+date:  2016-04-20 08:31:00 +0100
+tags:  .net
 ---
-
 
 With the release of [Visual Studio Code 1.0](https://code.visualstudio.com/blogs),
 I decided to upgrade .NET Core to the latest version. However, the older version
