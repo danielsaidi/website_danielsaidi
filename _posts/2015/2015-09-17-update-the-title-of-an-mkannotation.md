@@ -1,12 +1,11 @@
 ---
-title:  "Update the title of an MKAnnotation"
-date: 	2015-09-17 22:04:00 +0100
-tags: 	ios swift mapkit
+title: Update the title of an MKAnnotation
+date:  2015-09-17 22:04:00 +0100
+tags:  ios swift geo
 ---
 
-
-In an app that I am building, I have a map where users can save personal content
-and present it in a beauuutiful way. Ok, enough with the sales pitch.
+I'm building an app that has a map where users can save personalized content and
+present it in a beauuutiful way. Ok, enough with the sales pitch.
 
 When the user taps a pin on the map, the app will reverse geocode its coordinate
 and use it to display the full address in the callout's subtitle.

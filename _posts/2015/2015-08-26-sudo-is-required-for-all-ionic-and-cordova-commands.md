@@ -1,9 +1,8 @@
 ---
-title:  "sudo is required for all Ionic and Cordova commands"
-date:   2015-08-26 08:00:00 +0100
-tags: 	ios android ionic cordova
+title: sudo is required for all Ionic and Cordova commands
+date:  2015-08-26 08:00:00 +0100
+tags:  ios android ionic
 ---
-
 
 I am currently building my very first app with Ionic Framework. So far, Ionic is
 super fast to setup and performs really well, so I hope performance doesn't drop

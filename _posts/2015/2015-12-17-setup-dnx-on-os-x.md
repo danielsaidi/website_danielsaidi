@@ -1,7 +1,7 @@
 ---
-title:  "Setup DNX on OS X"
-date:   2015-12-17 08:48:00 +0100
-tags:	.net automation
+title: Setup DNX in macOS
+date:  2015-12-17 08:48:00 +0100
+tags:  .net automation
 ---
 
 After so much waiting, so many "I'll do this first", so much app coding etc. etc.
@@ -25,13 +25,11 @@ your apps etc.
 install dependencies for your projects, like *npm*.
 
 
-
 ## Step 1 - Install Mono
 
 To setup DNX, [first install Mono](http://www.mono-project.com/download). You can
 install it from the download page or by using [Homebrew](http://brew.sh/), which
-is an amazing package manager for OS X.
-
+is an amazing package manager for macOS.
 
 
 ## Step 2 - Install Visual Studio Code
@@ -54,7 +52,6 @@ Studio Code is stripped. You can not even create new projects or solutions with 
 To create new projects, you must setup ASP.NET 5.
 
 
-
 ## Step 3 - Install ASP.NET 5
 
 To install ASP.NET 5, download [this file](https://go.microsoft.com/fwlink/?LinkId=703940).
@@ -71,7 +68,6 @@ source /Users/<your user name>/.dnx/dnvm/dnvm.sh
 
 This will make it possible to run `dnx` and `dnu` from any folder. If you now run
 the `dnx` command again, it will be recognized.
-
 
 
 ## Step 4 - (Optional) Install Yeoman
@@ -96,11 +92,9 @@ any folder:
 yo aspnet
 ```
 
-
 This will open a wizard that lets you choose a project template from a selection
 of different project types. Once you have selected a template, Yeoman will setup
 the project for you in a sub folder with the same name as your project.
-
 
 
 ## Step 5 - Run your project
@@ -126,7 +120,6 @@ Depending on what kind of project you have, you run it in different ways:
 
 Although you can run `dnx build` to build your project prior to running it, there
 is no need for this, since the run commands builds the project as well.
-
 
 
 ## That's it!
