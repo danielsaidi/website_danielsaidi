@@ -1,9 +1,8 @@
 ---
-title:  "CLGeocoder fails silently"
-date: 	2012-08-08 20:48:00 +0100
-tags: 	ios objective-c geo mapkit
+title: CLGeocoder fails silently
+date:  2012-08-08 20:48:00 +0100
+tags:  ios objc geo
 ---
-
 
 I am currently developing a location-based app for iPad and iPhone. This is how
 it looks:

@@ -1,9 +1,8 @@
 ---
-title:  "Xcode - Disable ARC for individual files"
-date: 	2012-07-25 10:00:00 +0100
-tags: 	ios objective-c
+title: Xcode - Disable ARC for individual files
+date:  2012-07-25 10:00:00 +0100
+tags:  ios objc
 ---
-
 
 I am building an app that uses ARC (Automatic Reference Counting), which means I
 from now on will not have to handle memory management as actively as I have done

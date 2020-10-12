@@ -1,12 +1,10 @@
 ---
-title:  "Natural Scrolling in Windows 8"
-date:	2012-11-29 23:03:00 +0100
-tags: 	windows
+title: Natural Scrolling in Windows 8
+date:  2012-11-29 23:03:00 +0100
+tags:  windows
 ---
 
-
 ![Apple Mouse](/assets/blog/2012-11-29-mouse.jpg)
-
 
 In OS X Lion, Apple introduced natural scrolling. It means that when you scroll,
 the scrollable content will move around like it was a sheet of paper you pressed
@@ -39,7 +37,6 @@ to enable horizontal scrolling.
 * In the file that opens up in Notepad, add the following lines below the **#z**
 and **^!n::** rows:
 
-
 ```text
 #MaxHotkeysPerInterval 100000000000
 
@@ -59,7 +56,6 @@ WheelRight::
 Send {WheelLeft}
 Return
 ```
-
 
 The reason why I set `MaxHotkeysPerInterval` to a silly high number, is to avoid
 the alert that is displayed if the number of received hotkeys exceeds this number.

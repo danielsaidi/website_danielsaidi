@@ -1,15 +1,13 @@
 ---
-title:  "Øredev 2011 in the rear-view mirror – Part 5"
-date:    2012-01-20 12:00:00 +0100
+title: Øredev 2011 in the rear-view mirror – Part 5
+date:  2012-01-20 12:00:00 +0100
+tags:  conference
 categories: conferences
-tags: 	conference
 ---
-
 
 This is the fifth part of my sum-up of Øredev 2011. These sum-ups waere supposed
 to be rather short, but have grown out of proportions. I will try to keep it down.
 
- 
 
 ## 2:7 – Greg Young – How to get productive in a project in 24h
 
@@ -50,7 +48,6 @@ dependency matrix (they indicate circular references...bad) and rigid couplings
 All in all a great session that gave me a lot of things to aim for when holding
 presentations myself. As a consultant, you should not miss this video.
 
- 
 
 ## 3:1 – Keynote – Jeff Atwood – Stack Overflow: Social Software for the Anti-Social Part II: Electric Boogaloo
 
@@ -95,7 +92,6 @@ player. If you are not, the game will kill you 🙂
 
 I could go on and on, but I recommend you to watch the video instead.
 
- 
 
 ## 3:2 – Tim Huckaby – Building HTML5 Applications with Visual Studio 11 for Windows 8
 
@@ -131,7 +127,6 @@ Tim went through some browser statistics, explained why IE6 is still widely used
 but faced massive hardware problems and promised more if we stayed a while, so I
 stayed but the demos were not that wow.
 
- 
 
 ## 3:3 – Tim Huckaby – Delivering Improved User Experience with Metro Style Win 8 Applications
 
@@ -146,5 +141,3 @@ semi-cool, a great Swedish screen was also interesting and Tim also hinted about
 how the new XBOX Loop and a new Kinect will become a small revolution.
 
 I really do not know what to say about this. Watch the video. You will have fun.
-
-

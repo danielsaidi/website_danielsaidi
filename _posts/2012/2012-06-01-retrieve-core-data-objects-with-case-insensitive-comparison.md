@@ -1,9 +1,8 @@
 ---
-title:  "Retrive Core Data objects with case insensitive comparison"
-date: 	2012-06-01 12:45:00 +0100
-tags: 	ios objective-c
+title: Retrive Core Data objects with case insensitive comparison
+date:  2012-06-01 12:45:00 +0100
+tags:  ios objc
 ---
-
 
 I am currently building an iOS app that uses core data for data persistency. All
 works great, but as I started adding data and retrieved entities sorted by name,
@@ -20,7 +19,6 @@ This is the code I used to sort the data:
 ```objc
 NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
 ```
-
 
 The solution was to add selector to the sort, like this:
 

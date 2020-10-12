@@ -1,10 +1,9 @@
 ---
-title:  "Øredev 2011 in the rear-view mirror – Part 4"
-date:    2012-01-17 12:00:00 +0100
+title: Øredev 2011 in the rear-view mirror – Part 4
+date:  2012-01-17 12:00:00 +0100
+tags:  conference
 categories: conferences
-tags: 	conference
 ---
-
 
 This is the fourth part of my Øredev 2011 summary. It has taken quite a long time
 to get this finished, so I will write a bit less about each session in this post
@@ -30,7 +29,6 @@ Udi finally demonstrated NServiceBus and how to set it up. The demo was cool, bu
 hard to describe. So if you have not checked out NServiceBus, or any other buses
 for that matter, make sure to do so. They are great for certain tasks.
 
- 
 
 ## 2:5 – Jeff Atwood – Creating a Top 500 Internet Website in C# for Dummies
 
@@ -72,7 +70,6 @@ a farm, caching etc...even if you do not have one at the moment.
 
 A great, but intense session. I hope my description gave it justice.
 
- 
 
 ## 2:6 – Marc Mercuri – Cloud First Services
 
@@ -113,5 +110,3 @@ And finally, some final words of wisdom:
 - Support and operations are not automatically automised
 
 Phew, not bad for a one hour session! I even excluded the Azure-specific parts.
-
-

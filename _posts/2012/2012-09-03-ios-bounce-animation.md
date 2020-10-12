@@ -1,9 +1,8 @@
 ---
-title:  "iOS Bounce Animation"
-date: 	2012-09-03 17:44:00 +0100
-tags: 	ios objective-c
+title: iOS Bounce Animation
+date:  2012-09-03 17:44:00 +0100
+tags:  ios objc
 ---
-
 
 I have an app with a main menu, where users can swipe horizontally through a set
 of large icons that each take the user to a certain part of the app. When an icon

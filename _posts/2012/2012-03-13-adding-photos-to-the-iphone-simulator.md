@@ -1,9 +1,8 @@
 ---
-title:  "Adding photos to the iPhone simulator"
-date:   2012-03-13 12:00:00 +0100
-tags: 	ios
+title: Adding photos to the iPhone simulator
+date:  2012-03-13 12:00:00 +0100
+tags:  ios
 ---
-
 
 I am currently developing an iOS app that will make use of the device camera. It
 works really well, but since I am also running this app on the simulator, I want

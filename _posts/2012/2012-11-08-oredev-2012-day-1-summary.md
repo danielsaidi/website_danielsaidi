@@ -1,15 +1,13 @@
 ---
-title:  "Oredev 2012: Day 1 Summary"
-date: 	2012-11-08 00:30:00 +0100
+title: Oredev 2012 - Day 1
+date:  2012-11-08 00:30:00 +0100
+tags:  conference
 categories: conferences 
-tags: 	conference
 ---
-
 
 I am happy to once again attend Øredev in Malmö, Sweden. Thanks, Cloud Nine, for
 sending me here. Three days with great speakers and nice friends is just what is
 needed in the dark, Swedish November.
-
 
 
 ## David Rowan – Software won...now what?
@@ -63,7 +61,6 @@ Glenn finished off with demonstrating Collection+JSON, REST Agents, templates et
 All in all, it was a very interesting session.
 
 
-
 ## Christian Johansen – Pure, Functional Javascript
 
 This was a stuffed session, where Christian started with the difference between a
@@ -78,7 +75,6 @@ function or takes a function as argument).
 Christian then showed how to replace if-loops with array.forEach, replace clumsy
 transformation operations with array.map, reduce, method shortcuts etc. This part
 of the talk was a great fun and got my JavaScript nerve itching.
-
 
 
 ## Glenn Block – Node.js in the Cloud with Windows Azure
@@ -103,7 +99,6 @@ demoed how to do this in iOS.
 This session was really, really inspiring. Thanks!
 
 
-
 ## Damien Edwards – ASP.NET 4.5
 
 Resisting the urge to avoid WebForms for all eternity, I went to this session to
@@ -125,7 +120,6 @@ and new model binding functionality for ASP.NET data controls.
 All in all a really good presentation.
 
 
-
 ## Alex Papadimoulis – Ugly code
 
 Before I begin, let me just say that this was the best and most entertaining talk
@@ -136,7 +130,6 @@ The game - "Is this ugly or not" - consisted of him showing us code, after which
 we would raise our hands if we found it ugly. The first code snippet was a piece
 of MUMPS code, which looked absolutely terrible (hold on, we'll get back to this).
 Then, code for a flight simulator, shaped like...an airplane. And so on...
-
 
 Alex wrapped up the game with stating that beauty is in the eye of the beholder,
 while ugly is just plain ugly. He then listed five different types of ugly code:
@@ -155,7 +148,6 @@ room filled to the brink with stuff), but in which the creator finds his/her way
 
 * **Complex and Convoluted** - code with unnecessary complexity...and often dumb.
 
-
 Unlike ugly code, however, we also have code that is just not that pretty:
 
 * **Old and Over the Hill** - it's old and not that beautiful, but may still work
@@ -164,11 +156,9 @@ Unlike ugly code, however, we also have code that is just not that pretty:
 * **Freakishly Foreign** - code that we simply do not understand, because we are
 not familiar with it.
 
-
 This is where things got interesting. Returning to MUMPS, we really don't know if
 the code we saw was ugly, do we? None of us know how it's supposed to look, since
 we don't know it. Maybe the code we saw was really good MUMPS code?
-
 
 Alex then listed the developers who create ugly code:
 
@@ -179,7 +169,6 @@ like regulations, processes etc. get in the way. Gets shit(!) done.
 
 * **Clever coders** - They know what they do, they care about their craft...and
 when they do, they create the worst pieces ugly code you can imagine.
-
 
 So, why are clever coders so dangerous? Because cleverness is unavoidable, which
 Alex demonstrated with some great examples of how bad things can go when you try
@@ -196,7 +185,6 @@ reviews, testing etc. until they adapt or leave.
 
 * **Cease the cleverness** - Alex had a bike/glove analogy that I missed to jot down.
 
-
 When you are about to remove pieces of ugly code, ask yourself if you are really
 (really) sure you know what you are doing. Do you understand what the code does?
 Can some unintentional side-effects be critical to the system?
@@ -206,7 +194,6 @@ and tedious, with the result being code that does exactly the same thing (should
 have zero noticable impact). Giving up halfway in will make things worse!
 
 All in all, a really awesome session  - check it out!
-
 
 
 ## Dennis Gustafsson – Optimizing Mobile Games
@@ -230,6 +217,3 @@ not even the water simulation, which was completely dissected.
 This talk was really focused on technology. I will not go into details here, but
 if you are creating advanced games for mobile devices, I really suggest that you
 check it out.
-
-
-

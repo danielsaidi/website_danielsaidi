@@ -1,10 +1,9 @@
 ---
-title:  "Oredev 2012: Day 3 Summary"
-date: 	2012-11-13 21:10:00 +0100
+title: Oredev 2012 - Day 3
+date:  2012-11-13 21:10:00 +0100
+tags:  conference
 categories: conferences
-tags: 	conference
 ---
-
 
 My third and final day at Øredev 2012 offered some really nice talks, as well as
 a really crappy one.
@@ -15,7 +14,6 @@ a really crappy one.
 Jonas was one of the Swedish IT Boom's golden boys in the late 90s. I missed his
 talk, but will definitely watch it. He is not afraid to go his own way, which is
 a fitting characteristic for this year's rebel theme.
-
 
 
 ## Felix Geisendörfer – The Power of node
@@ -32,7 +30,6 @@ to control the drone, he then sent it away to attack my colleague.
 
 This was a fun talk, despite some network problems that also affected some other
 speakers (Øredev, please give the speakers a private network next year).
-
 
 
 ## Gergely Orosz – Building Highly Successful Windows Phone Apps
@@ -107,7 +104,6 @@ in the Marketplace. Kudos!
 To sum up, watch this session. Then watch it again. Thanks Gergely!
 
 
-
 ## Lars Vogel – Whats hot in Android 4.0 + 1
 
 I am just starting Android development, so this talk went over my head, since it
@@ -124,7 +120,6 @@ Last also talked about new components, like the ActionBar, Fragments, GridLayout
 If you're into Android, I'm sure you'll find this talk very informative.
 
 
-
 ## Jeff "Cheezy" Morgan – Test Driven Android
 
 I will keep this short.
@@ -135,7 +130,6 @@ Android Test to be is OK, since I assume it is a rather large framework with man
 people behind it. However, bashing on small frameworks created by one person and
 point out that "this framework was not maintained enough", "this guy didn't even
 test his own system", "this code looked like crap" is not very nice.
-
 
 
 ## Hojun Song – From Collective Intelligence to Collaborative Creation
@@ -164,6 +158,3 @@ world, talking about the project and selling t-shirts to fund it. I don't buy it
 
 Øredev 2012 was a fantastic ride, with some very high highs. I'm happy that I got
 the chance to attend this year as well.
-
-
-

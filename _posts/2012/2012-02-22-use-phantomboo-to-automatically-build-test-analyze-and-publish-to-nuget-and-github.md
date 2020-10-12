@@ -1,9 +1,8 @@
 ---
-title:  "Use Phantom/Boo to build, test and publish to NuGet and GitHub"
-date:    2012-02-22 12:00:00 +0100
-tags: 	.net continous-integration
+title: Use Phantom/Boo to build, test and publish to NuGet and GitHub
+date:  2012-02-22 12:00:00 +0100
+tags:  .net continous-integration
 ---
-
 
 When developing my NExtra library, I used to handle the release process manually.
 Since a release involves executing unit tests, bundling, zipping and uploading to
@@ -52,23 +51,24 @@ needed – the `build.bat` and `build.boo` (read on) files take care of everythi
 build.bat is used to trigger a build, build a .zip or perform a full publish from
 the command prompt. It is placed it in the solution root and looks like this:
 
-	@echo off
-	 
-	:: Change to the directory that this batch file is in
-	for /f %%i in ("%0") do set curpath=%%~dpi
-	cd /d %curpath%
-	 
-	:: Fetch input parameters
-	set target=%1
-	set config=%2
-	 
-	:: Set default target and config if needed
-	if "%target%"=="" set target=default
-	if "%config%"=="" set config=release
-	 
-	:: Execute the boo script with input params - accessible with env("x")
-	resources\phantom\phantom.exe -f:build.boo %target% -a:config=%config%
- 
+```bat
+@echo off
+	
+:: Change to the directory that this batch file is in
+for /f %%i in ("%0") do set curpath=%%~dpi
+cd /d %curpath%
+	
+:: Fetch input parameters
+set target=%1
+set config=%2
+	
+:: Set default target and config if needed
+if "%target%"=="" set target=default
+if "%config%"=="" set config=release
+	
+:: Execute the boo script with input params - accessible with env("x")
+resources\phantom\phantom.exe -f:build.boo %target% -a:config=%config%
+```
 
 Those of you who read Joel Abrahamsson’s blog, probably recognize the first part.
 These two lines moves the script to the folder that contains the `.bat` file and
@@ -315,4 +315,3 @@ I strongly recommend all projects to use a build script, even for small projects
 where a build server is a bit overkill.
 
 Automating the release process is a ticket to heaven. Or very close to that.
-

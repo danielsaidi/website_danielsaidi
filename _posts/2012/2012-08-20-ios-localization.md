@@ -1,9 +1,8 @@
 ---
-title:  "iOS Localization"
-date: 	2012-08-20 22:17:00 +0100
-tags: 	ios localization objective-c
+title: iOS Localization
+date:  2012-08-20 22:17:00 +0100
+tags:  ios localization objc
 ---
-
 
 This post will show you how to localize your iOS apps, so they can be translated
 to several languages. The post will describe how to translate plain text and how
@@ -11,7 +10,6 @@ to create localized versions of your storyboards.
 
 Since storyboard localization comes with a few quirks, the post will discuss how
 to automate synchronizing changes that are made in storyboards.
-
 
 
 ## Translating strings programmatically
@@ -92,7 +90,6 @@ Translate(STR_CANCEL)
 ```
 
 
-
 ## Translating storyboards
 
 Translating text programmatically turned out to be really simple. Now, let's see
@@ -148,7 +145,6 @@ download the script [here](http://code.google.com/p/edim-mobile/source/browse/tr
 ```python
 python [path to the python script] --mainIdiom=[the main idiom] --mainStoryboard=[path to the main storyboard] [list of idioms to translate]
 ```
-
 
 
 ## Conclusion

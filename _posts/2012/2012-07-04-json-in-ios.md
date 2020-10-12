@@ -1,10 +1,9 @@
 ---
-title:  JSON in iOS
-date: 	2012-07-04 21:25:00 +0100
-tags: 	ios objective-c
+title: JSON in iOS
+date:  2012-07-04 21:25:00 +0100
+tags:  ios objc
 redirect_from:  /blog/mobile/2012/07/04/json-in-ios
 ---
-
 
 I am currently creating an iOS app that will share data using JSON. Working with
 JSON is trivial in iOS 5, since there is now a great, native JSON serializer and
@@ -17,7 +16,6 @@ that uses the native iOS 5 JSON serializer under the hood.
 
 I first created the (really) simple protocol:
 
-
 ```objc
 #import <Foundation/Foundation.h>
 
@@ -29,9 +27,7 @@ I first created the (really) simple protocol:
 @end
 ```
 
-
 I then created a small implementation of this protocol, which looks like this:
-
 
 ```objc
 #import <Foundation/Foundation.h>
@@ -41,7 +37,6 @@ I then created a small implementation of this protocol, which looks like this:
 
 @end
 ```
-
 
 ```objc
 #import "NativeJsonSerializer.h"
@@ -74,10 +69,8 @@ I then created a small implementation of this protocol, which looks like this:
 @end
 ```
 
-
 Finally, I naturally have unit tests in place, that tests a lot of possible JSON
 operations. It seems to work well.
-
 
 ```objc
 #import <SenTestingKit/SenTestingKit.h>
@@ -86,8 +79,6 @@ operations. It seems to work well.
 
 @end
 ```
-
-
 
 ```objc
 #import "NativeJsonSerializerTests.h"
@@ -193,5 +184,3 @@ NativeJsonSerializer *_serializer;
 
 @end
 ```
-
-

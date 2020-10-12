@@ -1,15 +1,13 @@
 ---
-title:  "Oredev 2012: Day 2 Summary"
-date: 	2012-11-12 21:30:00 +0100
+title: Oredev 2012 - Day 2
+date:  2012-11-12 21:30:00 +0100
+tags:  conference
 categories: conferences
-tags: 	conference
 ---
-
 
 My second day at Øredev 2012 was amazing! When it was over, I had to sit down and
 take it all in. There were so many great talks, and I still had to skip many that
 I wanted to see.
-
 
 
 ## Reginald Braithwaite – The Rebellion Imperative
@@ -44,7 +42,6 @@ their mp3 software when iTunes was released.
 I found this session to be really fun and thoughtful.
 
 
-
 ## Henrik Kniberg – Lean from the Trenches
 
 Henrik's talk was a case study of introducing lean processes at the Swedish Police.
@@ -65,7 +62,6 @@ Henrik talked about so many things. It was all very interesting, but I think tha
 it's better that you watch the video, since I wouldn't do it justice by extracting
 small bits from it. Instead, I'll wrap it up with Henrik's most critical factors
 for project success: **co-location, incremental delivery and user involvement**.
-
 
 
 ## Johan Lindfors – Windows Phone Development Best Practices
@@ -137,7 +133,6 @@ Phew, that was a lot, and I still did not cover everything. It was a really grea
 session - a must-watch if you're into WP8 development!
 
 
-
 ## Steve Sanderson – Build Web Apps Faster
 
 Steve Sanderson always entertain me extremely when he live coded. This time, the
@@ -190,9 +185,7 @@ I my opinion, this talk was by far the most exciting and inspiring one at Ørede
 is a must see!
 
 
-
 ## Oren Eini, Alistair Jones and Chris Harris – NoSQL FTW
-
 
 In lack of other interesting sessions, I went to this talk and was (as expected)
 gravely disappointed. It consisted of three lightning talks about RavenDB, neo4j
@@ -200,7 +193,6 @@ and CouchDB. I expected demonstrations. Instead, I got a sale pitch.
 
 A bit of cred to Alistair Jones, however, for his cool neo4j demo that in detail
 showed how to traverse a graph database.
-
 
 
 ## Steve Klabnik – Designing Hypermedia APIs
@@ -226,7 +218,6 @@ to another session. If you want to know more about Hypermedia apis, though, it's
 a good watch.
 
 
-
 ## Shane Morris – Prototypes, prototypes, prototypes
 
 Shane begun by asking us five reasons why we use prototypes...and we nailed them:
@@ -247,7 +238,6 @@ expensive, start off with low fidelity ones and make sure that the prototypes ar
 **changeable**, **accessible** and **can evolve** over time.
 
 This talk was very good, but should be watched rather than read.
-
 
 
 ## Jesus Rodriguez – Rocking the Enterprise with the Kinect Experience
@@ -297,7 +287,6 @@ Jesus then wrapped up the talk by demoing facial tracking and gesture interactio
 Yet another killer talk. If you're into Kinect development, it is a must see.
 
 
-
 ## Alexander Bard – The Rebels Come Out Online
 
 I was not expecting much from Alexander Bard's keynote. As a Swede, knowing Alex
@@ -313,6 +302,3 @@ with shapes our ideas. He sure backed that up with some really great examples.
 
 I will not spoil anymore of this great keynote, since you simply **must** watch
 it (I told you that Thursday was amazing...almost all sessions were magnificent).
-
-
-

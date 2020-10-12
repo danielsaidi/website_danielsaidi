@@ -1,10 +1,9 @@
 ---
-title:  "DevSum 2012: Day 2 Summary"
-date:	2012-05-28 21:28:00 +0100
+title: DevSum 2012 - Day 2 Summary
+date:  2012-05-28 21:28:00 +0100
+tags:  conference
 categories: conferences
-tags: 	conference
 ---
-
 
 The second and last day of DevSum featured some great sessions. Some were really
 challenging as well, especially for a parental leave douchebag like myself :)
@@ -109,7 +108,6 @@ Before animations, Johan recommended the **Windows Phone Commands VS Extension**
 which lets you download and run apps on the simulator. No roms are needed - apps
 can be downloaded directly from the marketplace.
 
-
 ### Animations
 
 Johan mentioned three toolkits that simplify working with animations on Windows:
@@ -119,7 +117,6 @@ Johan mentioned three toolkits that simplify working with animations on Windows:
 * Metro in motion, which is a series of blog posts.
 
 Johan used MiM in this talk, and it looked great.
-
 
 ### MVVM
 
@@ -136,13 +133,11 @@ instead of dependency injection, how to handle communication between the view an
 the view model etc. He also told us that the **SmartObservableCollection** might
 help us out.
 
-
 ### Testability
 
 Unit testing on mobile devices can sometimes be tricky. Johan talked a bit about
 how to solve this, including using portable class libraries, and also adviced us
 to embed the required tools to make CI work.
-
 
 ### Localization
 
@@ -152,13 +147,11 @@ content as soon as a user selects another language. With localization, a general
 advice is to design text boxes 40% larger than they would be with English texts,
 in order to support longer texts.
 
-
 ### Security
 
 Johan talked about security, including how you can download .XAP files from the
 marketplace, change the extension to .zip, unzip them and get access to whatever
 the file contains. Feels like a call for source code obfuscating.
-
 
 ### Summary
 
@@ -167,14 +160,12 @@ if I had actually gotten around to developing for Windows Phone. Then, a session
 like this would have been extremely helpful. Now, it just rocked ;)
 
 
-
 ## Michael Björn - Windows Phone Best Practices – part 2 / 2
 
 Michael continued the Windows Phone talk and focused on prestanda, communication,
 background agents, push notifications and synchronization.
 
-
-### Prestanda
+### Performance
 
 Michael showed us how the fact that Windows Phone has **two** UI threads - a UI
 thread and a compository thread - can be used to achieve non-blocking animations.
@@ -194,7 +185,6 @@ run in views.
 * In order to reduce startup time (long startup times can get your app refused),
 consider how you load images, coordinates etc.
 
-
 ### Communication
 
 When it comes to picking between the `WebClient` and the `HttpWebRequest` classes,
@@ -206,8 +196,6 @@ Also, instead of having many calls with little data, it is better to bundle the
 calls into one. Otherwise, the phone will open and close the connection for each
 call, which makes the antenna toggle a lot and drain battery life in no time.
 
-
-
 ### Background agents
 
 Since WP lacks the possibility to create multi-threading apps, you must resort to
@@ -215,21 +203,17 @@ background agents. However, the two types of available agents (periodic tasks an
 resource intensive tasks) have great limitations and are non-reliable. You should
 never resort to background processes and use other means to achieve critical tasks.
 
-
 ### Push notifications
 
 There are not that many WP apps out there today that use push notifications, but
 it is quite easy to setup. Since push notifications can affect your live tiles,
 using them can make your app feel a lot more alive, even when it's not being used.
 
-
-
 ### Synchronization
 
 Today, the WP framework only has support for one synchronization framework - the
 `Sync Framework`. Michael did not talk much about this, but mentioned, that when
 stuff is synced for your app, the content will be placed in the isolated storage.
-
 
 
 ## Morten Nielsen - From Continuous Integration to Continuous delivery
@@ -252,6 +236,3 @@ To sum it up, using Hudson, Morten and his team now have builds that are:
 My advice to Morten is to focus less on very company (especially team) specific
 examples. I expected a CI/CD session and got a case study. Nice, but not what I
 was after. 
-
-
-

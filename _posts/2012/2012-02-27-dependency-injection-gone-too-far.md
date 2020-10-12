@@ -1,9 +1,8 @@
 ---
-title:  "Dependency Injection gone too far?"
-date:    2012-02-27 12:00:00 +0100
-tags: 	dependency-injection
+title: Dependency Injection gone too far?
+date:  2012-02-27 12:00:00 +0100
+tags:  dependency-injection
 ---
-
 
 I am currently working with a new version of a hobby console application project
 of mine. The app will execute certain actions depending on the input arguments.

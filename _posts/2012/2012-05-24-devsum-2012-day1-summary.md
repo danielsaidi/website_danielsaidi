@@ -1,10 +1,9 @@
 ---
-title:  "DevSum 2012: Day 1 Summary"
-date:    2012-05-24 07:33:00 +0100
+title: DevSum 2012 - Day 1 Summary
+date:  2012-05-24 07:33:00 +0100
+tags:  conference
 categories: conferences
-tags: 	conference
 ---
-
 
 Today was first day of DevSum 2012, in central Stockholm. This is a short sum-up
 of the first day. 
@@ -45,7 +44,6 @@ but also introduce new, more complex problems that arise when things go small an
 quantum effects start to show themselves.
 
 
-
 ## Ayende Rahien: RavenDB - Amazin feats.
 
 Ayende's talk was focusing on the awesome features of RavenDB. Ayende demoed the
@@ -54,7 +52,6 @@ why RavenDB can offer features like storing complex data types, a lightning fast
 Map/Reduce operation engine, ad hoc queries, sharding etc.
 
 This was an interesting session, although Ayende was as hard to hear as always.
-
 
 
 ## Andreas Håkansson - Developing web applications using Nancy
@@ -66,7 +63,6 @@ methods, convention, pipelines, configuration, bootstrapping. Yep, it's all here
 Nancy seems great and it looks like the team has something big going on. My only
 concern is how such a framework with so many external integration will manage to
 always be up to date with the latest versions of, say, StructureMap and NUnit.
-
 
 
 ## Fil Maj - Going Cross-Platform with HTML5 and PhoneGap
@@ -100,7 +96,6 @@ It looks awesome and I will try to play around with it in my next mobile project
 Thanks Fil, I really enjoyed your session!
 
 
-
 ## Rob Ashton - Modern technologies for web-based-gaming
 
 This was a cool session about HTML5-based games. Rob went into detail describing
@@ -112,7 +107,6 @@ elements around will give you really slow animations.
 Rob also demoed WebGL, hardware acceleration etc. The talk was too hysterical at
 times, but I had fun and learned a bunch about HTML5 game development...but doubt
 that I will find myself playing around with WebGL any evening soon.
-
 
 
 ## Robert Folkesson - ReST-baserade tjänster med WCF ASP.NET Web API
@@ -133,7 +127,6 @@ Robert had a good Web API demo with OData operations, media types and formatters
 I really enjoyed the session.
 
 
-
 ## Torkel Ödegaard - Build Real-Time Apps with Backbone.js and SignalR
 
 I have tried to read up on Backbone several times, but always found it to be too
@@ -148,7 +141,6 @@ SignalR to provide a UI with real-time updates as stuff happen on the server.
 Extremely impressive session!
 
 
-
 ## Emil Cardell - Front-End CQRS
 
 The last session of the day touched on an interesting area: CQRS. Emil discussed
@@ -158,7 +150,3 @@ applying CQRS (Command Query Responsibility Segregation).
 The demos were good, despite some unfortunate technical problems that for a long
 time caused no data to show up on the screen. For instance, Emil modified a CRUD
 app to use CQRS, demoed continuation with headers, JIT etc.
-
-
-
-

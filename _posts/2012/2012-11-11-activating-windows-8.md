@@ -1,9 +1,8 @@
 ---
-title:  "Activating Windows 8"
-date: 	2012-11-11 00:30:00 +0100
-tags: 	windows
+title: Activating Windows 8
+date:  2012-11-11 00:30:00 +0100
+tags:  windows
 ---
-
 
 Inspired by my trip to Oredev and all the great devices and presentation, I have
 finally installed Windows 8. I decided to upgrade my Windows 7 installation, and

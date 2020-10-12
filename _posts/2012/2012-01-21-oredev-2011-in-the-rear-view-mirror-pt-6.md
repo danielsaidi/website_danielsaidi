@@ -1,15 +1,13 @@
 ---
-title:  "Øredev 2011 in the rear-view mirror – Part 6"
-date:    2012-01-21 12:00:00 +0100
+title: Øredev 2011 in the rear-view mirror – Part 6
+date:  2012-01-21 12:00:00 +0100
+tags:  conference
 categories: conferences
-tags: 	conference
 ---
-
 
 This is the final part of my Øredev 2011 summary. It covers the last three talks
 that I attended and concludes my visit to Øredev.
 
- 
 
 ## 3:4 – Jim Benson – Healthy Projects
 
@@ -47,7 +45,6 @@ This session grew on me afterwards. While there, I found it hard to stay focused
 and found large parts to be rather passable, but after reading my notes afterwards,
 I found some golden gems.
 
- 
 
 ## 3:5 – Doc List – Development is a game
 
@@ -75,7 +72,6 @@ started on what he claims to be set out to do. So, I await Doc to prove me wrong
 and announce that he has started working on that global system of his. Until then,
 I lay my focus elsewhere.
 
- 
 
 ## 3:6 – Dan North – Pattern of effective delivery
 
@@ -92,7 +88,6 @@ Dan spoke of some exciting new patterns, like:
 I did not find this to be a interesting talk at all. I found it rather pointless,
 which was a huge disappointment. Please watch the video? Do you disagree with me?
 
- 
 
 ## Conclusion
 
@@ -105,9 +100,3 @@ I would like that.
 
 Anyway, a big, BIG thank to the Øredev crew! You delieved an inspiring conference
 that I often mentally revisit.
-
-
-
-
-
-
