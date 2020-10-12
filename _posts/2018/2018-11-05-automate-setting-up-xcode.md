@@ -195,4 +195,4 @@ enforce common conventions, while code snippets can be used to generate code and
 comments that should follow a desired format.
 
 Feel free to check out [my setup script](https://github.com/danielsaidi/osx) for
-some example scripts and snippets.
+some examples, scripts and code snippets.

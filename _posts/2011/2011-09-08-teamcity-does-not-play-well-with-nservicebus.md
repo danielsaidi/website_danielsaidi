@@ -1,7 +1,7 @@
 ---
 title: TeamCity 6.5.1 does not play well with NServiceBus
 date:  2011-09-08 12:00:00 +0100
-tags:  .net continous-integration
+tags:  .net continuous-integration
 ---
 
 I am currently moving some projects from an old TeamCity 5.1.2 server to a brand

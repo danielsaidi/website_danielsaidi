@@ -36,11 +36,15 @@ code a bit. Instead, do this:
 
 In `combine.php`, replace
 
-	$path = realpath($base . '/' . $element);
+```php
+$path = realpath($base . '/' . $element);
+```
 
 with:
 
-	$path = "../" . $element
+```php
+$path = "../" . $element
+```
 
 The code has to be replaced at two places in the PHP file, but all in all that's
 it! The only thing you have to consider now, is to use application root relative
@@ -49,11 +53,15 @@ paths when calling the bundle URL.
 For instance, I have my main js folder in the application root folder content/js.
 Let’s say that I have the files a.js and b.js. The bundle URL would then be:
 
-	bundle/javascript/content/js/a.js,content/js/b.js
+```
+bundle/javascript/content/js/a.js,content/js/b.js
+```
 
 To bundle CSS files, the corresponding code would look like:
 
-	bundle/css/content/css/a.css,content/css/b.css
+```
+bundle/css/content/css/a.css,content/css/b.css
+```
 
 The newly added code will add a ../ to each link, before attempting to parse the
 file, which will still work great since the combine.php file is placed one level

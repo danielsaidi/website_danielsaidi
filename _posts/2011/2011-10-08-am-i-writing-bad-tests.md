@@ -4,7 +4,6 @@ date:  2011-10-08 12:00:00 +0100
 tags:  .net testing
 ---
 
-
 To grow as a developer, there is nothing as good as inviting others to criticize
 your potential flaws...that as well as reading a book every now and then.
 
