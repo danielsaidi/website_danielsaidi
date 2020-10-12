@@ -17,7 +17,7 @@ computer etc. This will help you setup a new Mac in minutes.
 I (and many with me) prefer to automate as many tasks as possible, to reduce the
 amount of repetitive manual work, reduce the risk of human error and to increase
 the overall reliability of a certain process. For good developers, this involves
-unit testing, continous integration, release management etc., for testers it can
+unit testing, continuous integration, release management etc., for testers it can
 involve automated UI testing etc. In short, if you can automate, then automate.
 
 However, one thing that I have NOT automated until recently, is to setup a brand

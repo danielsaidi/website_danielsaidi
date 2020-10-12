@@ -13,7 +13,7 @@ Playgrounds and try to teach her a bit about programming.
 I have been meaning to do this for quite some time, but have never really gotten
 around to it. I did involve both daughters in iOS development some years ago, to
 create two kids apps for iPhone and iPad. We had a really fun time doing so, but
-after that, we haven't had a continous habit of playing with code together.
+after that, we haven't had a continuous habit of playing with code together.
 
 A couple of weeks ago, I attended a conference, where several earlier colleagues
 had brought their kids to an all day hands-on coding event. There, children were
