@@ -1,9 +1,8 @@
 ---
-title:  "Swift return does not work with line breaks"
-date:   2014-09-10 20:00:00 +0100
-tags: 	ios swift
+title: Swift return does not work with line breaks
+date:  2014-09-10 20:00:00 +0100
+tags:  ios swift
 ---
-
 
 I am currently porting some iOS games from Objective-C to Swift, which involves
 rewriting a lot of code. While doing this, I stumbled upon something interesting.

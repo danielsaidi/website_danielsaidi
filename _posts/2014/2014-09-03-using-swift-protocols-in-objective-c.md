@@ -1,9 +1,8 @@
 ---
-title:  "Using Swift protocols in Objective-C"
-date: 	2014-09-04 15:15:00 +0100
-tags: 	ios objective-c swift dependency-injection
+title: Using Swift protocols in Objective-C
+date:  2014-09-04 15:15:00 +0100
+tags:  ios objc swift dependency-injection
 ---
-
 
 I am currently creating two new games for iOS. One is made in Swift and SpriteKit,
 while the other is made in Objective-C and UIKit.

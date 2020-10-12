@@ -1,9 +1,8 @@
 ---
-title:  "Using Crittercism for iOS crash reporting"
-date: 	2014-07-02 09:26:00 +0100
-tags: 	ios swift objective-c
+title: Using Crittercism for iOS crash reporting
+date:  2014-07-02 09:26:00 +0100
+tags:  ios swift objc
 ---
-
 
 **Note:** Crittercism has shut down. A great alternative to Crittercism, in 2017,
 is [Fabric](https://fabric.io).
