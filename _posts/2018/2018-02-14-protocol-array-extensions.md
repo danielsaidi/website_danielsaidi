@@ -1,10 +1,9 @@
 ---
-title:  Protocol array extensions not working
-date:   2018-02-14 08:00:00 +0100
-tags:	ios swift
-image:  http://danielsaidi.com/assets/blog/2018-02-14.png
+title: Protocol array extensions not working
+date:  2018-02-14 08:00:00 +0100
+tags:  ios swift
+image: http://danielsaidi.com/assets/blog/2018-02-14.png
 ---
-
 
 In an app of mine, I had an idea on how to redesign how we extend protocol-based
 domain models. However, what first looked like a walk in the park, turned into a
@@ -158,4 +157,3 @@ and other logic parts of my apps.
 
 However, I think that Swift should improve the extension model so that the above
 code works even for protocols.
-

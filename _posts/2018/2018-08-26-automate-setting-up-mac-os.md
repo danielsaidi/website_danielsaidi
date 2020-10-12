@@ -1,7 +1,7 @@
 ---
-title:  Automate setting up macOS
-date:   2018-08-26 17:28:01 +0200
-tags:	  osx mac-os macbook homebrew rubygems npm automation
+title: Automate setting up macOS
+date:  2018-08-26 17:28:01 +0200
+tags:	 osx macos automation
 redirect_from: 
   - /blog/2018/08/26/automate-setting-up-your-macbook/
   - /blog/2018/08/26/automate-your-macbook-setup/
@@ -245,4 +245,3 @@ in a matter of minutes.
 I have a GitHub repo that you can fork and tweak to fit your needs. You can find
 it [here](https://github.com/danielsaidi/osx). Hopefully, it will save you a lot
 of time, as it have for me.
-

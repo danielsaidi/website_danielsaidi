@@ -1,13 +1,11 @@
 ---
-title:  Codable magic
-date:   2018-02-15 09:00:00 +0100
-tags:	ios swift codable
+title: Codable magic
+date:  2018-02-15 09:00:00 +0100
+tags:  ios swift
 ---
 
-
-It's been a long time coming, but I have eventually gotten around to replace all
-`NSCoding` objects in my Swift libraries with `Codable`. This post covers things
-that I've learned along the way.
+I have finally started replacing all `NSCoding` objects in my code with `Codable`.
+This post covers things that I've learned along the way.
 
 
 ## Disclaimer
@@ -203,5 +201,3 @@ encoding/decoding still worked.
 
 As long as your entire model is `Codable`, things seem to sort themselves out. I
 love this new approach and can't wait for the Swift community to embrace it.
-
-

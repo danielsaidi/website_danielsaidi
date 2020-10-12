@@ -1,9 +1,8 @@
 ---
-title:  Mojave backslash keybinding
-date:   2018-08-13 21:00:00 +0100
-tags:	swift mojave macos
+title: Mojave backslash keybinding
+date:  2018-08-13 21:00:00 +0100
+tags:  macos
 ---
-
 
 This year, I decided not to wait a while year before installing the latest macOS,
 so I grabbed it as a beta, installed it and didn't look back. Before doing so, I

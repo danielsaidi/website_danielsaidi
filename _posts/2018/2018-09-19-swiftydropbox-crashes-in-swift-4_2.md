@@ -1,9 +1,8 @@
 ---
-title:  SwiftyDropbox crashes in Swift 4.2
-date:   2018-09-19 08:00:01 +0200
-tags:	swift xcode
+title: SwiftyDropbox crashes in Swift 4.2
+date:  2018-09-19 08:00:01 +0200
+tags:	 swift xcode
 ---
-
 
 After installing Xcode 10 yesterday, I started migrating some libraries to Swift
 4.2. While most migrations were painless, one caused me some headache, since the

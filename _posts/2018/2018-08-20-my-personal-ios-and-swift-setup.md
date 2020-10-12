@@ -1,7 +1,7 @@
 ---
-title:  My personal iOS & Swift setup
-date:   2018-08-21 00:00:01 +0200
-tags:	ios swift mac-os
+title: My personal iOS & Swift setup
+date:  2018-08-21 00:00:01 +0200
+tags:  ios swift macos
 ---
 
 After putting years into iOS and Swift development, I have come to a point where
@@ -61,4 +61,3 @@ As soon as a topic is written, I will link to that post in the list.
 
 As you can see, the list is pretty unstructured. Hopefully, the pieces will fall
 into place as I proceed with the project :)
-

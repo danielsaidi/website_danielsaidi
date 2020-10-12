@@ -1,7 +1,7 @@
 ---
-title:  "Alamofire + AlamofireObjectMapper (Swift 4.2)"
-date:   2018-12-27 10:00:00 +0100
-tags:	ios alamofire realm swift
+title: Alamofire + AlamofireObjectMapper
+date:  2018-12-27 10:00:00 +0100
+tags:  ios alamofire realm swift
 
 api: http://danielsaidi.com/demo_Alamofire_AlamofireObjectMapper_Realm/api
 cocoapods: http://cocoapods.org/
@@ -12,7 +12,6 @@ twitter: http://twitter.com/danielsaidi
 
 original: http://danielsaidi.com/blog/2017/08/23/alamofire-realm
 ---
-
 
 This is an updated version of talk I gave at CocoaHeads Sthlm in April 2017. The
 talk was on how to use Alamofire to talk to an api, AlamofireObjectMapper to map

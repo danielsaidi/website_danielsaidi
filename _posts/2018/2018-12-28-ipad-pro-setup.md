@@ -1,7 +1,7 @@
 ---
-title:  "iPad Pro production setup"
-date:   2018-12-28 10:00:00 +0100
-tags:	git github workingcopy markdown jekyll
+title: iPad Pro production setup
+date:  2018-12-28 10:00:00 +0100
+tags:  git github jekyll
 
 jekyll: https://jekyllrb.com
 markdown: https://daringfireball.net/projects/markdown
@@ -44,5 +44,3 @@ For git, I decided to try [WorkingCopy]({{page.workingcopy}}). It is free to dow
 For text editing, I decided to purchase [iAWriter]({{page.iawriter}}) and...well, it's one of the best iOS apps I've ever tried. I am amazed with how intuitive it is. Writing is a pure joy, its Markdown support is amazing and I really could not ask for more.
 
 The interactions between the two apps also proved to work exceptionally well. Once you have cloned a repo in WorkingCopy, you can open any file in iAWriter. I am writing this post like that, so if you can read this, it means that iAWriter and WorkingCopy could save and push it to GitHub...and that my search is finally over.
-
-

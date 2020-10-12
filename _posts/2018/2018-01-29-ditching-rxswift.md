@@ -1,9 +1,8 @@
 ---
-title:  Ditching RxSwift
-date:   2018-01-19 20:20:00 +0100
-tags:	swift rxswift
+title: Ditching RxSwift
+date:  2018-01-19 20:20:00 +0100
+tags:  swift rxswift
 ---
-
 
 After hearing so many good things about `RxSwift` and not having the opportunity
 to try it at work, I decided to use it when I rewrote an old app of mine.

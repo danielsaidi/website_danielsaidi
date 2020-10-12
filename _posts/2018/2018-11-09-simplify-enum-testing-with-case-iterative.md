@@ -1,7 +1,7 @@
 ---
-title:  Simplify enum testing with CaseIterative
-date:   2018-11-09 15:00:00 +0200
-tags:	swift enum
+title: Simplify enum testing with CaseIterative
+date:  2018-11-09 15:00:00 +0200
+tags:  swift enum
 ---
 
 In this post, I will show how to reduce the amount of code you have to type when
@@ -213,5 +213,3 @@ class UserNotificationsTests: QuickSpec {
 
 This means that you can benefit from `CaseIterable` capabilities in your library
 and tests, without having to expose them outside these boundaries.
-
-

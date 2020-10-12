@@ -1,8 +1,8 @@
 ---
-title:  A Swift Playgrounds Evening
-date:   2017-11-10 20:20:00 +0100
-tags:	swift ios
-image:	http://danielsaidi.com/assets/blog/2017-11-10.jpg
+title: A Swift Playgrounds Evening
+date:  2017-11-10 20:20:00 +0100
+tags:  swift ios
+image: http://danielsaidi.com/assets/blog/2017-11-10.jpg
 ---
 
 Tonight, I finally sat down with my oldest daughter Cornelia, to play with Swift

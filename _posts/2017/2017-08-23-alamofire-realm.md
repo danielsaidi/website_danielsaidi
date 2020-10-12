@@ -1,7 +1,7 @@
 ---
-title:  "Alamofire + AlamofireObjectMapper + Realm (Swift 3)"
-date:   2017-08-23 10:00:00 +0100
-tags:	ios alamofire realm swift
+title: Alamofire + AlamofireObjectMapper + Realm (Swift 3)
+date:  2017-08-23 10:00:00 +0100
+tags:  ios alamofire realm swift
 
 api:    http://danielsaidi.com/demo_Alamofire_AlamofireObjectMapper_Realm/api
 cocoapods: http://cocoapods.org/

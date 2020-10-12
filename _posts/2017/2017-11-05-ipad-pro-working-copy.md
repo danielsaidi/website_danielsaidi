@@ -1,8 +1,8 @@
 ---
-title:  Using iPad Pro with Working Copy
-date:   2017-11-05 20:20:00 +0100
-tags:	git ios
-image:	http://danielsaidi.com/assets/blog/2017-11-05.jpg
+title: Using iPad Pro with Working Copy
+date:  2017-11-05 20:20:00 +0100
+tags:  git ios
+image: http://danielsaidi.com/assets/blog/2017-11-05.jpg
 ---
 
 In this post, I will write about my experience using Working Copy on my iPad Pro,
