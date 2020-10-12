@@ -6,7 +6,6 @@ icon:  swiftuikit
 
 lib:    https://github.com/danielsaidi/SwiftUIKit
 source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Sheets
-presentation-context: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Contexts/PresentationContext.swift
 ---
 
 In this post, we'll look at an easier way to manage sheets in `SwiftUI`, that lets us reuse functionality, reduce state management and present many different sheets in the same way.
@@ -25,12 +24,15 @@ struct MyView: View {
     var body: some View {
         Button("Show sheet", action: showSheet)
             .sheet(isPresented: $isSheetActive, content: { sheetView })
-        }
+    }
+
+    func showSheet() {
+        isSheetActive = true
     }
 }
 ```
 
-This example is simple, but I think it becomes tricky to manage sheets as soon as you want to present multiple sheets from the same screen or reuse sheets across an app. You may end up duplicating `isSheetActive` logic as well as the view builder logic.
+This is simple, sure, but I think it becomes tricky to manage sheets as soon as you want to present multiple sheets from the same screen or reuse sheets across an app. You may end up duplicating `isSheetActive` logic as well as the view builder logic.
 
 I therefore tried to find a way to work with sheets in a more reusable way, that requires less code and less state while still being flexible to support both global and screen-specific sheets.
 
