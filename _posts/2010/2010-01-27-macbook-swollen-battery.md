@@ -1,7 +1,7 @@
 ---
 title: MacBook swollen battery
 date:  2010-01-27 11:00:00 +0100
-tags:  osx
+tags:  macos
 ---
 
 I have previously written about my numerous problems with my new, white MacBook,
