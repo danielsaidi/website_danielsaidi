@@ -4,7 +4,6 @@ date:   2011-05-12 12:00:00 +0100
 tags: 	osx
 ---
 
-
 I have been having big problems with my iMac 27″ (4GB RAM) that runs Windows 7 on
 a Boot Camp Partition (using VMWare Fusion). It is basically the same setup as I
 have on my MacBook Pro (which has 8GB RAM though), with the minor difference that

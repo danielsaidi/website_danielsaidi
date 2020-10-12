@@ -1,9 +1,8 @@
 ---
-title:  "NUnit BadImageFormatException"
-date:   2011-05-27 12:00:00 +0100
-tags: 	.net testing
+title: NUnit BadImageFormatException
+date:  2011-05-27 12:00:00 +0100
+tags:  .net testing
 ---
-
 
 While developing a unit tested hobby project in .NET, everything has worked great
 until now. Suddenly, NUnit thinks that there is something wrong with an assembly:

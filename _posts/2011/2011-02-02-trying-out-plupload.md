@@ -1,11 +1,10 @@
 ---
-title:	"Trying out Plupload"
-date:	2011-02-02 12:00:00 +0100
-tags: 	web
+title: Trying out Plupload"
+date:	 2011-02-02 12:00:00 +0100
+tags:  web
 redirect_from: 
   - /blog/web/2011/02/02/trying-out-plupload
 ---
-
 
 In a hobby project of mine, I had a really handy UI plugin called FileUploadForm,
 that could upload any number of files with AJAX. All you needed to do was to add

@@ -1,9 +1,8 @@
 ---
 title:  "Clone a .NET solution in no time"
 date:   2011-07-24 12:00:00 +0100
-tags: 	.net hobby-projects
+tags: 	.net
 ---
-
 
 When working with .NET, I sometimes find myself wanting to just clone a solution
 instead of setting everything up from scratch over and over again.

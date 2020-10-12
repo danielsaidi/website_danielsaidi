@@ -1,9 +1,8 @@
 ---
-title:	"DataAnnotations and MetadataType fails in unit tests"
-date:	2010-07-05 12:00:00 +0100
-tags: 	.net c# entity-framework testing
+title: DataAnnotations and MetadataType fails in unit tests
+date:  2010-07-05 12:00:00 +0100
+tags:  .net c# entity-framework testing
 ---
-
 
 This post describes how to solve the problem that model validation will not work
 for ASP.NET MVC 2 (.NET 4.0), when testing a model that uses DataAnnotations and
@@ -50,12 +49,15 @@ the `CallWithModelValidation` Controller extension method.
 I added this extension method to my MVC 2 project and used it instead of calling
 `Create`. The test code that looked like this:
 
-	var result = controller.Create(new Employee());
+```csharp
+var result = controller.Create(new Employee());
+```
 
 thus became:
-	
-	var result = controller.CallWithModelValidation(c => c.Create(new Employee()), new Employee());
 
+```csharp
+var result = controller.CallWithModelValidation(c => c.Create(new Employee()), new Employee());
+```
 
 This makes my unit tests properly trigger model validation, which means that the
 test suite can now test that the controller behaves correctly for invalid models.

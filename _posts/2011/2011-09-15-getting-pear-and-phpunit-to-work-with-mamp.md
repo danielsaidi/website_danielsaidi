@@ -1,9 +1,8 @@
 ---
-title:  "Getting PEAR and PHPUnit to work with MAMP"
-date:   2011-09-15 12:00:00 +0100
-tags: 	php testing web
+title: Getting PEAR and PHPUnit to work with MAMP
+date:  2011-09-15 12:00:00 +0100
+tags:  php testing web
 ---
-
 
 When I recently decided to start re-creating a PHP project of mine from scratch,
 I decided to replace `SimpleTest` with `PHPUnit` and `PHPCover`.

@@ -1,9 +1,8 @@
 ---
-title:	"Spotify background playback problem on iOS"
-date:	2011-01-21 12:00:00 +0100
-tags: 	ios
+title: Spotify background playback problem on iOS
+date:  2011-01-21 12:00:00 +0100
+tags:  ios
 ---
-
 
 This is not a development-related blog post, but well worth mentioning to all of
 you who have been experiencing playback problems when the Spotify app for iOS is

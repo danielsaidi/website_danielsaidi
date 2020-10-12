@@ -1,9 +1,8 @@
 ---
-title:  "Tweaking the NDepend CQL rules to leverage awesome power"
-date:   2011-10-06 12:00:00 +0100
-tags: 	.net ndepend
+title: Tweaking the NDepend CQL rules to leverage awesome power
+date:  2011-10-06 12:00:00 +0100
+tags:  .net ndepend
 ---
-
 
 I have previously written about how to automate and schedule NDepend for several
 .NET solutions at once. After getting into the habit of using it more regurarly,

@@ -1,9 +1,8 @@
 ---
-title:  "Localizing a WPF application with resource files"
-date:	2011-05-12 12:00:00 +0100
-tags: 	.net localization
+title: Localizing a WPF application with resource files
+date:  2011-05-12 12:00:00 +0100
+tags:  .net localization
 ---
-
 
 I am localizing a WPF application that consists of a main application project as
 well as several separate DLL projects that provides the application with general

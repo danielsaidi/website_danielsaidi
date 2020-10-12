@@ -1,9 +1,8 @@
 ---
-title:	"Automatically convert HTML5 to HTML4"
-date:	2011-01-27 12:00:00 +0100
-tags: 	.net html web
+title: Automatically convert HTML5 to HTML4
+date:  2011-01-27 12:00:00 +0100
+tags:  .net html web
 ---
-
 
 I love HTML5 and how easy things will become once it breaks through. However, it
 will take time for many browsers to support HTML5 and until they do, the code we
@@ -15,9 +14,7 @@ To make it possible to write HTML5 and still support older browsers, I created a
 class that automatically converts most new HTML5 elements to HTML4 elements when
 the response is sent to the client.
 
-For instance, <nav>...</nav> is translated to:
-
-	...
+For instance, <nav>...</nav> is translated to `...`.
 
 for Internet Explorer 8 (which does not support HTML5), while Chrome and Firefox
 will receive the original HTML5 code (since they support it).
@@ -37,7 +34,6 @@ applied to the end tag (which the current implementation adds).
 
 If you feel like improving these classes, feel free to send a pull request with a
 better implementation 🙂
-
 
 
 ## The ugly test hack
@@ -79,12 +75,16 @@ To enable the module, actions differ depending on which IIS setup you are using.
 If you are using IIS 7.0 running in Integrated mode, you must add this following
 tag to the web.config system.webServer modules section:
 
-	<add name="NExtra.Web.HttpModules.Html5ElementConvertHttpModule" type="NExtra.Web.HttpModules.Html5ElementConvertHttpModule, NExtra, Version=2.0.0.0, Culture=neutral" />
+```xml
+<add name="NExtra.Web.HttpModules.Html5ElementConvertHttpModule" type="NExtra.Web.HttpModules.Html5ElementConvertHttpModule, NExtra, Version=2.0.0.0, Culture=neutral" />
+```
 
 If you are using IIS 6.0 or IIS 7.0 running in Classic mode (this also applies to
 the dev server), add the following to the web.config system.web httpModules section:
 
-	<add name="NExtra.Web.HttpModules.Html5ElementConvertHttpModule" type="NExtra.Web.HttpModules.Html5ElementConvertHttpModule, NExtra, Version=2.0.0.0, Culture=neutral" />
+```xml
+<add name="NExtra.Web.HttpModules.Html5ElementConvertHttpModule" type="NExtra.Web.HttpModules.Html5ElementConvertHttpModule, NExtra, Version=2.0.0.0, Culture=neutral" />
+```
 
 That should be all you have to do to enable automatic HTML5 to HTML4 conversion.
 

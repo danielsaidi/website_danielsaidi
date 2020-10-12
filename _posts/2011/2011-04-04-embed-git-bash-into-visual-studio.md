@@ -1,9 +1,8 @@
 ---
-title:  "Embed Git Bash into Visual Studio"
-date:	2011-04-04 12:00:00 +0100
-tags: 	git .net
+title: Embed Git Bash into Visual Studio
+date:  2011-04-04 12:00:00 +0100
+tags:  git .net
 ---
-
 
 I have started using git with my private projects. It works really well, but I'm
 having problems with how it integrates with Visual Studio.

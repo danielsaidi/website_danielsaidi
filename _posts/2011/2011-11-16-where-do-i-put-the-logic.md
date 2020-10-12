@@ -1,9 +1,8 @@
 ---
-title:  "Where do I put the logic?"
-date:   2011-11-16 12:00:00 +0100
-tags: 	
+title: Where do I put the logic?
+date:  2011-11-16 12:00:00 +0100
+tags:  c# .net
 ---
-
 
 I could use some advice regarding a project I'm currently working on. It's a web
 site where people can sign up and join various groups (did I hear a “Facebook is

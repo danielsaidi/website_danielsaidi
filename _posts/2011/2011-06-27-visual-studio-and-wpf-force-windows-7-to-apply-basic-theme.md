@@ -1,9 +1,8 @@
 ---
-title:  "Visual Studio and WPF force Windows 7 to apply basic theme"
-date:   2011-06-27 12:00:00 +0100
-tags: 	.net
+title: Visual Studio and WPF force Windows 7 to apply basic theme
+date:  2011-06-27 12:00:00 +0100
+tags:  .net
 ---
-
 
 Each time I open up my WPF projects in Visual Studio (2010) and open a XAML file,
 my computer switches from the nice semi-transparent theme to Windows 7 Basic.

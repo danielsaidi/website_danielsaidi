@@ -1,9 +1,8 @@
 ---
 title:  "How I solved my slow iMac with a constantly working hard-drive"
 date:   2011-05-15 12:00:00 +0100
-tags: 	osx
+tags: 	macos
 ---
-
 
 A couple of days ago, I blogged about solving a frustrating problem that made my
 iMac dead slow. At the time of writing, I was not sure if I had actually solved

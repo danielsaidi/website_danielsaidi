@@ -1,9 +1,8 @@
 ---
-title:  "Hide the close button of a WPF window"
-date:   2011-03-14 12:00:00 +0100
-tags: 	.net
+title: Hide the close button of a WPF window
+date:  2011-03-14 12:00:00 +0100
+tags:  .net
 ---
-
 
 In a WPF application that I am currently working with, I have to be able to hide
 the close button of a progress window. Instead of being closed by the user (like
@@ -16,7 +15,30 @@ importing :)
 
 First of all, define two constanst and two methods:
 
+```csharp
+private const int GWL_STYLE = -16;
+private const int WS_SYSMENU = 0x80000;
 
+[DllImport("user32.dll", SetLastError = true)]
+private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
+
+[DllImport("user32.dll")]
+private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
+```
+
+Then, in the window class, call the imported DLL methods as such:
+
+```csharp
+var hwnd = new WindowInteropHelper(this).Handle;
+SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) &amp; ~WS_SYSMENU);
+```
+
+The most convenient way to use this (in my opinion) is to wrap the functionality
+within an extension method:
+
+```csharp
+public static class WindowExtensions
+{
 	private const int GWL_STYLE = -16;
 	private const int WS_SYSMENU = 0x80000;
 
@@ -26,36 +48,13 @@ First of all, define two constanst and two methods:
 	[DllImport("user32.dll")]
 	private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
 
-
-Then, in the window class, call the imported DLL methods as such:
-
-
-	var hwnd = new WindowInteropHelper(this).Handle;
-	SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) &amp; ~WS_SYSMENU);
-
-
-The most convenient way to use this (in my opinion) is to wrap the functionality
-within an extension method:
-
-
-	public static class WindowExtensions
+	public static void HideCloseButton(this Window window)
 	{
-	  private const int GWL_STYLE = -16;
-	  private const int WS_SYSMENU = 0x80000;
-
-	  [DllImport("user32.dll", SetLastError = true)]
-	  private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
-
-	  [DllImport("user32.dll")]
-	  private static extern int SetWindowLong(IntPtr hWnd, int nIndex, int dwNewLong);
-
-	  public static void HideCloseButton(this Window window)
-	  {
-	     var hwnd = new WindowInteropHelper(window).Handle;
-	     SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) &amp; ~WS_SYSMENU);
-	  }
+		var hwnd = new WindowInteropHelper(window).Handle;
+		SetWindowLong(hwnd, GWL_STYLE, GetWindowLong(hwnd, GWL_STYLE) &amp; ~WS_SYSMENU);
 	}
-
+}
+```
 
 If you know a more convenient way to hide the close button (maybe I just did not
 find the correct property/method?), please tell me in the comments below.

@@ -1,11 +1,10 @@
 ---
-title:  "Running Facebook authentication on localhost"
-date:   2011-04-04 12:00:00 +0100
-tags: 	.net authentication
+title: Running Facebook authentication on localhost
+date:  2011-04-04 12:00:00 +0100
+tags:  .net authentication
 redirect_from: 
   - /blog/dotnet/2011/04/04/running-facebook-authentication-on-localhost
 ---
-
 
 It has taken some time, but I have finally started building an ASP.NET MVC3 site
 that will use the Facebook API to create and authorize users. It's a really easy

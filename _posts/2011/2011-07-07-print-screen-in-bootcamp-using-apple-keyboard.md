@@ -1,9 +1,8 @@
 ---
 title:  "Print screen in BootCamp using an Apple keyboard"
 date:   2011-07-07 12:00:00 +0100
-tags: 	osx
+tags: 	macos
 ---
-
 
 I have started to boot up Windows directly from my BootCamp partition on my iMac
 instead of running Windows under VMWare Fusion. This way, I do not have to share

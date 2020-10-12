@@ -1,14 +1,12 @@
 ---
-title:  "Øredev 2011 in the rear-view mirror – Part 1"
-date:   2011-11-23 12:00:00 +0100
+title: Øredev 2011 in the rear-view mirror – Part 1
+date:  2011-11-23 12:00:00 +0100
+tags:  conference
 categories: conferences
-tags: 	conference
 ---
-
 
 This is the first part of my Øredev 2011 summary. I will label each session with
 day:order to satisfy all structure freaks (myself included) that read this.
-
 
 
 ## About Øredev
@@ -67,7 +65,6 @@ that `async != parallell`
 I am looking forward to try this out!
 
 
-
 ## 1:3 - Gary Short - .NET 4.0 Collection Classes Deep Dive
 
 I found this talk to be really interesting while listening to it, but afterwards
@@ -90,5 +87,3 @@ session by going through various collection types.
 So, Gary knows a lot about collections, but I already knew about most of the stuff
 and feel like I maybe should have attended another session. For people not knowing
 about the various collections, though, I am sure it was a great run.
-
-
