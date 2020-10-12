@@ -1,9 +1,8 @@
 ---
-title:	"Hide successful QUnit tests"
-date:	2010-06-03 12:00:00 +0100
-tags: 	javascript jquery web unit-testing
+title: Hide successful tests in QUnit
+date:  2010-06-03 12:00:00 +0100
+tags:  javascript jquery web testing
 ---
-
 
 I am now using QUnit as TDD framework for my JavaScript development. It’s not as
 sophisticated as NUnit is for .NET or SimpleTest for PHP, but it’s reaaally easy

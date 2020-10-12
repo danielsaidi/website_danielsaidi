@@ -1,7 +1,7 @@
 ---
-title:  "Automatically convert media links with jQuery"
-date:   2009-04-16 22:25:00 +0100
-tags: 	javascript jquery web
+title: Automatically convert media links with jQuery
+date:  2009-04-16 22:25:00 +0100
+tags:  javascript jquery web
 ---
 
 I am currently developing a PHP-based framework called Wigbi, which can be used

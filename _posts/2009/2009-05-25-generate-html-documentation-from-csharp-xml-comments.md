@@ -1,7 +1,7 @@
 ---
-title:  "Generate HTML documentation from C# XML comments"
-date:   2009-05-25 11:01:00 +0100
-tags: 	.net documentation
+title: Generate HTML documentation from C# XML comments
+date:  2009-05-25 11:01:00 +0100
+tags:  .net documentation
 ---
 
 When developing .NET applications, XML comments is a good way of documenting the

@@ -1,9 +1,8 @@
 ---
-title:	"Fonts.com web fonts"
-date:	2010-09-21 12:00:00 +0100
-tags: 	typography css web
+title: Fonts.com web fonts
+date:  2010-09-21 12:00:00 +0100
+tags:  typography css web
 ---
-
 
 The time has finally come to throw Arial and Verdana and a bunch of other crappy
 fonts into the trash bin (Helvetica can stay for a while), as Monotype, Linotype

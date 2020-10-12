@@ -1,9 +1,8 @@
 ---
-title:	"Make Combres work with ASP.NET"
-date:	2010-12-20 12:00:00 +0100
-tags: 	.net
+title: Make Combres work with ASP.NET
+date:  2010-12-20 12:00:00 +0100
+tags:  .net
 ---
-
 
 After having problems with [SquishIt](http://www.codethinked.com/post/2010/05/26/SquishIt-The-Friendly-ASPNET-JavaScript-and-CSS-Squisher.aspx) 
 when bundling JavaScript, I decided to give [Combres](http://www.codeproject.com/KB/aspnet/combres2.aspx/)
@@ -31,30 +30,35 @@ With Combres up and running, I noticed that it did not work with IIS7 Integrated
 Pipeline mode. If you run into this, remove all content in the Combres `section`
 tag, so that it looks like this:
 
-	<section name=”combres” type=”Combres.ConfigSectionSetting” />
+```xml
+<section name=”combres” type=”Combres.ConfigSectionSetting” />
+```
 
 Then, instead of:
 
-	<httpModules>
-	        <add name="ScriptModule" type="System.Web.Handlers.ScriptModule,
-		System.Web.Extensions, Version=3.5.0.0, Culture=neutral,
-		PublicKeyToken=31BF3856AD364E35"/>
-	        <add name="UrlRoutingModule" type="System.Web.Routing.UrlRoutingModule,
-		System.Web.Routing, Version=3.5.0.0, Culture=neutral,
-		PublicKeyToken=31BF3856AD364E35"/>
-	</httpModules>
+```xml
+<httpModules>
+	<add name="ScriptModule" type="System.Web.Handlers.ScriptModule,
+	System.Web.Extensions, Version=3.5.0.0, Culture=neutral,
+	PublicKeyToken=31BF3856AD364E35"/>
+	<add name="UrlRoutingModule" type="System.Web.Routing.UrlRoutingModule,
+	System.Web.Routing, Version=3.5.0.0, Culture=neutral,
+	PublicKeyToken=31BF3856AD364E35"/>
+</httpModules>
+```
 
 you also have to add the modules to the `system.webServer/modules` tag, since it
 is the one used by IIS7 (keep the ones above as well, though):
 
-	<modules>
-	        <add name="ScriptModule" type="System.Web.Handlers.ScriptModule,
+```xml
+<modules>
+	<add name="ScriptModule" type="System.Web.Handlers.ScriptModule,
 		System.Web.Extensions, Version=3.5.0.0, Culture=neutral,
 		PublicKeyToken=31BF3856AD364E35"/>
-	        <add name="UrlRoutingModule" type="System.Web.Routing.UrlRoutingModule,
+	<add name="UrlRoutingModule" type="System.Web.Routing.UrlRoutingModule,
 		System.Web.Routing, Version=3.5.0.0, Culture=neutral,
 		PublicKeyToken=31BF3856AD364E35"/>
-	</modules>
+</modules>
+```
 
 If you follow these steps, Combres should work.
-

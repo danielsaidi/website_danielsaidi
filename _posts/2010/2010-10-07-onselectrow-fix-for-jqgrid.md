@@ -1,9 +1,8 @@
 ---
-title:	"onSelectRow fix for jqGrid"
-date:	2010-10-07 12:00:00 +0100
-tags: 	javascript jquery web
+title: onSelectRow fix for jqGrid
+date:  2010-10-07 12:00:00 +0100
+tags:  javascript jquery web
 ---
-
 
 I love the [jqGrid jQuery plugin](http://www.trirand.com/blog/). If you have not
 tried it yet, I really think you should.
@@ -15,7 +14,7 @@ the first one again.
 
 To fix this, I replaced the original onSelectRow method:
 
-```
+```javascript
 onSelectRow: function(id) {
    if (id && id!==lastsel) {
       jQuery('#rowed3').jqGrid('restoreRow',lastsel)
@@ -27,7 +26,7 @@ onSelectRow: function(id) {
 
 ...with this one:
 
-```
+```javascript
 onSelectRow: function(id) {
    if (id) {
       if (id !== lastsel) {

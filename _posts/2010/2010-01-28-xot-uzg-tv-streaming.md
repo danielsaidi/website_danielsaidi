@@ -1,9 +1,8 @@
 ---
 title:	"XOT-Uzg TV Streaming on your XBOX"
 date:	2010-01-28 12:00:00 +0100
-tags: 	gaming
+tags: 	games
 ---
-
 
 I recently picked up my old, black beast from my basement, where it has lived in
 solitude since I bought my Wii. Since it is *old* and much has happened with the

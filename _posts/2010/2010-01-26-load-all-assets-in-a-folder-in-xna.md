@@ -1,9 +1,8 @@
 ---
-title:	"Load all assets in a folder in XNA"
-date:	2010-01-26 12:00:00 +0100
-tags: 	.net game-development c#
+title: Load all assets in a folder in XNA
+date:  2010-01-26 12:00:00 +0100
+tags:  .net games c#
 ---
-
 
 I have started looking at XNA, which I've been longing to do for quite some time
 now. My friend Jens came over to guide me some of the basics, and after a little

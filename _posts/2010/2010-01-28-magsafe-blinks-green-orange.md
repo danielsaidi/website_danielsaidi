@@ -4,7 +4,6 @@ date:	2010-01-28 12:00:00 +0100
 tags: 	osx
 ---
 
-
 I have some strange updates regarding the greeen/orange blinking MagSafe I wrote
 about yesterday, where the LED on the MagSafe toggles between green orange, even
 though my new battery is fully loaded.

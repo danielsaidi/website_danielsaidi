@@ -1,9 +1,8 @@
 ---
-title:	"MacBook swollen battery"
-date:	2010-01-27 11:00:00 +0100
-tags: 	osx
+title: MacBook swollen battery
+date:  2010-01-27 11:00:00 +0100
+tags:  osx
 ---
-
 
 I have previously written about my numerous problems with my new, white MacBook,
 which I purchased in August 2007. For instance:

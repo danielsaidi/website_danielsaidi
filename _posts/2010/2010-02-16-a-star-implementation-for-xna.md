@@ -1,9 +1,8 @@
 ---
-title:	"A* implementation for XNA"
-date:	2010-02-16 12:00:00 +0100
-tags: 	xna game-development c# .net
+title: A* implementation for XNA
+date:  2010-02-16 12:00:00 +0100
+tags:  games c# .net
 ---
-
 
 I have recently been playing around with the XNA framework to get a grasp at how
 to develop games for the XBOX 360. It is great fun, but quite different from the

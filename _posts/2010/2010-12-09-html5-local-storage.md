@@ -1,9 +1,8 @@
 ---
-title:	"HTML5 localstorage"
-date:	2010-12-09 12:00:00 +0100
-tags: 	web html
+title: HTML5 localstorage
+date:  2010-12-09 12:00:00 +0100
+tags:  web html
 ---
-
 
 I have spend some time experimenting with the new HTML 5 `localStorage` feature.
 It is a new feature that simplifies storing data in a browser, using JavaScript.
@@ -20,8 +19,10 @@ store it in local storage. The browser can then use the ID to identify itself.
 
 For instance, this is all you need to store a small string in localStorage:
 
-	localStorage.setItem("name", "Daniel");
-	var name = localStorage.getItem("name");
-	localStorage.removeItem("name");
+```javascript
+localStorage.setItem("name", "Daniel");
+var name = localStorage.getItem("name");
+localStorage.removeItem("name");
+```
 
 As you can see, it’s really easy and quite powerful.

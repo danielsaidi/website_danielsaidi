@@ -1,9 +1,8 @@
 ---
-title:	"ConstraintException thrown when posting empty data for non-nullable properties"
-date:	2010-07-05 12:00:00 +0100
-tags: 	.net entity-framework
+title: ConstraintException thrown when posting empty data for non-nullable properties
+date:  2010-07-05 12:00:00 +0100
+tags:  .net entity-framework
 ---
-
 
 I am currently working with model validation in ASP.NET, using an Entity Framework 4
 entity model, `DataAnnotations` and partial classes with `MetadataType` connections.

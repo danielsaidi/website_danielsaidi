@@ -1,7 +1,7 @@
 ---
 title:  "Entity Framework Code First with auto migrations on AppHarbor...and more"
 date: 	2013-02-25 10:55:00 +0100
-tags: 	.net c# entity-framework cloud api-design dependency-injection unit-testing mocking
+tags: 	.net c# entity-framework cloud api-design dependency-injection testing mocking
 ---
 
 

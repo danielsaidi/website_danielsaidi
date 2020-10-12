@@ -1,7 +1,7 @@
 ---
 title:  "NUnit BadImageFormatException"
 date:   2011-05-27 12:00:00 +0100
-tags: 	.net unit-testing
+tags: 	.net testing
 ---
 
 

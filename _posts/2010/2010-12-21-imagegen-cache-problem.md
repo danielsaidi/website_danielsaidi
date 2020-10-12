@@ -1,9 +1,8 @@
 ---
-title:	"ImageGen Cache Problem"
-date:	2010-12-21 12:00:00 +0100
-tags: 	.net umbraco
+title: ImageGen Cache Problem
+date:  2010-12-21 12:00:00 +0100
+tags:  .net umbraco
 ---
-
 
 We will probably use ImageGen in a project that I'm currently working on. People
 who have used it before really seem to like it, so I look forward to try it out.

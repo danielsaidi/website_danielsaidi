@@ -1,7 +1,7 @@
 ---
-title: "Show all files in Finder"
+title: Show all files in Finder
 date:  2009-09-19 08:00:00 +0100
-tags:  osx
+tags:  macos
 ---
 
 A habit I've grown into while spending 80% of my time in front of a computer, is

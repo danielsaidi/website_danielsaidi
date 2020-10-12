@@ -1,7 +1,7 @@
 ---
-title:  "My first thoughts on TDD"
-date:   2009-05-05 13:16:00 +0100
-tags: 	testing unit-testing
+title: My first thoughts on TDD
+date:  2009-05-05 13:16:00 +0100
+tags:  testing
 ---
 
 After a very interesting conference talk on Test Driven Development (TDD) and Behavior

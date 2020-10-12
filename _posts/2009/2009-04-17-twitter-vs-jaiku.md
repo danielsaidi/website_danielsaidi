@@ -1,9 +1,8 @@
 ---
-title:  "Twitter vs Jaiku"
-date:   2009-04-17 21:50:00 +0100
-tags:	social-media twitter
+title: Twitter vs Jaiku
+date:  2009-04-17 21:50:00 +0100
+tags:  social-media twitter
 ---
-
 
 I have been trying out Twitter and Jaiku (a couple of years too late). Since the
 two services basically do the same thing, I have evaluated which service that is

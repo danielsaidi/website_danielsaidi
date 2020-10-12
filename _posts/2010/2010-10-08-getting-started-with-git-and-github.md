@@ -1,9 +1,8 @@
 ---
-title:	"Getting started with git and GitHub"
-date:	2010-10-08 12:00:00 +0100
-tags: 	git hobby-projects
+title: Getting started with git and GitHub
+date:  2010-10-08 12:00:00 +0100
+tags:  git github
 ---
-
 
 As some of my hobby projects are coming together, I have meant to move them from
 Google Code to GitHub for quite some time. Tonight, I decided to give it a try.

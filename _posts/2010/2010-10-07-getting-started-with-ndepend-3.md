@@ -1,9 +1,8 @@
 ---
-title:	"Getting started with NDepend 3"
-date:	2010-10-07 12:00:00 +0100
-tags: 	.net ndepend
+title: Getting started with NDepend 3
+date:  2010-10-07 12:00:00 +0100
+tags:  .net ndepend
 ---
-
 
 After some time, I have finally got my thumb out and added an NDepend project to
 one of my hobby project solution, to get some analyzing done before releasing it.
@@ -31,14 +30,12 @@ and display an analysis summary, which is saved in a folder called *NDependOut*:
 Let's look at what the report has to say, shall we?
 
 
-
 ## Report sections
 
 The NDepend report is divided into some sections, of which more (to me) are more
 interesing than others:
 
 ![Report sections](/assets/blog/2010-10-07-3.png "The various sections of the NDepend report")
-
 
 
 ### Application metrics
@@ -70,7 +67,6 @@ it has a cyclomatic complexity of 13! Turns out that NDepend displays the *ILCC*
 which is the *Intermediate Language Code Complexity* - the resulting CC. However,
 I will try to write a new blog post later on, in which I'll use this information
 to improve the GetHtml() method, that has this high cc.
-
 
 
 ### Assembly metrics + abstraction/stability summary
@@ -106,7 +102,6 @@ bit of reflecting over the graph and enjoying the green color (except for the so
 far empty build project), I understood what view intends to display.
 
 
-
 ### Dependencies, build order etc.
 
 The part of the report is probably a lot more interesting if you intend to delve
@@ -114,7 +109,6 @@ into a solution of which development you have not been a part of earlier on.
 
 However, for this solution, this part of the report didn't give me anything that
 I did not already know.
-
 
 
 ### Constraints
@@ -143,7 +137,6 @@ Just having a look at these constraints and how your code applies to them, gives
 you a deeper understanding of how you (or your team) writes code.
 
 
-
 ### Type metrics
 
 Finally comes an exhausting, thorough grid, with ALL the information you can ask
@@ -153,7 +146,6 @@ for about every single type in the solution.
 
 The "worst" cells in each category are highlighted, which makes it easy to get a
 quick overview of the entire framework (although the information is massive).
-
 
 
 ## Conclusion
@@ -179,6 +171,3 @@ It is a bit like comparing my iPhone with my iPad. ReSharper was like my phone -
 as soon as I started using it, I could not imagine being without it. NDepend, on
 the other hand, is much like the iPad. At first, I really could not see the use,
 but after some time, it finds it way into your day-to-day life.
-
-
-

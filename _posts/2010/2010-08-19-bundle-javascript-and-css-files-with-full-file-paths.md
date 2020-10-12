@@ -1,9 +1,8 @@
 ---
-title:	"Bundle JavaScript and CSS files with full file paths"
-date:	2010-08-19 12:00:00 +0100
-tags: 	javascript css web
+title: Bundle JavaScript and CSS files with full file paths
+date:  2010-08-19 12:00:00 +0100
+tags:  javascript css web
 ---
-
 
 I have looked at the great PHP-based CSS and JavaScript bundling approach that is
 presented at [rakaz.nl](http://rakaz.nl/2006/12/make-your-pages-load-faster-by-combining-and-compressing-javascript-and-css-files.html).

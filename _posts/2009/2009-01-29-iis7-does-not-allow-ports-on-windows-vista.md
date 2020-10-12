@@ -1,7 +1,7 @@
 ---
-title:  "IIS 7 does not allow ports on Windows Vista"
-date:   2009-01-29 08:28:00 +0100
-tags: 	.net windows
+title: IIS 7 does not allow ports on Windows Vista
+date:  2009-01-29 08:28:00 +0100
+tags:  .net windows
 ---
 
 After clean installing Windows Vista on my work computer, then installing Visual

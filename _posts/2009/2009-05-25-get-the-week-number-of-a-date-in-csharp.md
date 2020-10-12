@@ -1,13 +1,13 @@
 ---
-title:  "Get the week number of a date in C#"
-date:   2009-05-25 19:46:00 +0100
-tags: 	.net c#
+title: Get the week number of a date in C#
+date:  2009-05-25 19:46:00 +0100
+tags:  .net c#
 ---
 
 
 **NOTE:** This post was written in 2009. Although the core logic has not changed
 since then, the implementation has. For the lastest implementation, check out my
-inactive [NExtra](https://github.com/danielsaidi/nextra) project on GitHub.
+[NExtra](https://github.com/danielsaidi/nextra) project on GitHub.
 
 
 When working with the DateTime class, it is not that straightforward to calculate

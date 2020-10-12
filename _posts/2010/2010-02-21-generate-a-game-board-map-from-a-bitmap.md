@@ -1,9 +1,8 @@
 ---
-title:	"Generate a game board map from a bitmap"
-date:	2010-02-21 12:00:00 +0100
-tags: 	xna game-development c# .net
+title: Generate a game board map from a bitmap
+date:  2010-02-21 12:00:00 +0100
+tags:  games c# .net
 ---
-
 
 I am currently developing an adventure board game in XNA, where players can play
 missions that take place on a board that is made up of horizontal tiles. It is a

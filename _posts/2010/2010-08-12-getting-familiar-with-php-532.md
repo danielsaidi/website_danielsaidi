@@ -1,9 +1,8 @@
 ---
-title:	"Getting familiar with PHP 5.3.2"
-date:	2010-08-12 12:00:00 +0100
-tags: 	php web
+title: Getting familiar with PHP 5.3.2
+date:  2010-08-12 12:00:00 +0100
+tags:  php web
 ---
-
 
 Since I'm no real PHP developer (just pretending) I have only now started to use
 PHP 5.3.2, although it was released quite long ago. The reason to this is that I

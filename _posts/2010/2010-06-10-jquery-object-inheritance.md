@@ -1,9 +1,8 @@
 ---
-title:	"jQuery, MooTools, object inheritance and JSON"
-date:	2010-06-10 12:00:00 +0100
-tags: 	javascript jquery web
+title: jQuery, MooTools, object inheritance and JSON
+date:  2010-06-10 12:00:00 +0100
+tags:  javascript jquery web
 ---
-
 
 I have previously used both MooTools and jQuery as embedded toolkits in projects
 of mine. I have used MooTools a lot longer than jQuery, but as I have moved more

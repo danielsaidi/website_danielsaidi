@@ -1,9 +1,8 @@
 ---
-title:	"Moving ViewState to the bottom of the page"
-date:	2010-11-29 12:00:00 +0100
-tags: 	.net web
+title: Moving ViewState to the bottom of the page
+date:  2010-11-29 12:00:00 +0100
+tags:  .net web
 ---
-
 
 `ViewState` is ASP.NET's way of simulating state in the otherwise state-less web
 environment. It is a bag of bytes that is sent back and forth between the client

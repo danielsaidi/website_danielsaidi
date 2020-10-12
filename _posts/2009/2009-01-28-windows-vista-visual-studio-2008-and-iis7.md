@@ -1,5 +1,5 @@
 ---
-title:  "Windows Vista, Visual Studio 2008 and IIS7"
+title:  Windows Vista, Visual Studio 2008 and IIS7
 date:   2009-01-28 15:12:00 +0100
 tags: 	.net windows
 ---

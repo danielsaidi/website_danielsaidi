@@ -1,7 +1,7 @@
 ---
-title:  "Avoid empty img src values"
-date:   2009-01-26 08:00:00 +0100
-tags:	html web
+title: Avoid empty img src values
+date:  2009-01-26 08:00:00 +0100
+tags:  html web
 ---
 
 A while ago, I was assigned to optimize a really slow web site. The problems were

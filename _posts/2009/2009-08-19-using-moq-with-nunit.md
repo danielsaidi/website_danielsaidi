@@ -1,7 +1,7 @@
 ---
-title: "Using Moq with NUnit"
+title: Using Moq with NUnit
 date:  2009-08-19 13:28:00 +0100
-tags:  .net testing unit-testing mocking
+tags:  .net testing mocking
 ---
 
 As I continue to work on the NerdDinner tutorial, I have discovered that some of
