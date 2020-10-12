@@ -1,12 +1,11 @@
 ---
-title:  "David Planella: Ubuntu - A Powerful, New Force in Mobile"
-date: 	2013-11-08 17:45:00 +0100
+title: David Planella - Ubuntu, A Powerful, New Force in Mobile
+date:  2013-11-08 17:45:00 +0100
+tags:  conference mobile
 categories: conferences
-tags: 	conference
 ---
 
-
-I am very excited about the new Ubuntu Mobile platform, despite not being a Linux
+I'm very excited about the new Ubuntu Mobile platform, despite not being a Linux
 or Ubuntu guy.
 
 As Ubuntu was launched for mobile devices a short while back, a new mobile force
@@ -47,4 +46,3 @@ A really thorough and very interesting talk.
 
 I am really impressed, so do [check out the video](http://oredev.org/oredev2013/2013/videos.html)
 and tell me what you think. Could this be a glimpse of the future?
-

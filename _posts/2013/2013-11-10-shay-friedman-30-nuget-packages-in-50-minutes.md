@@ -1,10 +1,9 @@
 ---
-title:  "Shay Friedman: 30 NuGet packages in 50 minutes"
-date: 	2013-11-10 09:33:00 +0100
+title: Shay Friedman - 30 NuGet packages in 50 minutes
+date:  2013-11-10 09:33:00 +0100
+tags:  conference
 categories: conferences
-tags: 	conference
 ---
-
 
 Before I start writing about how perfect this session was, first some background
 information.

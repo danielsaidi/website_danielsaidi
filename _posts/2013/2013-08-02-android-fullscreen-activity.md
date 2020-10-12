@@ -1,12 +1,10 @@
 ---
-title:  "Android Fullscreen Activity"
-date: 	2013-08-02 09:14:00 +0100
-tags: 	android
+title: Android Fullscreen Activity
+date:  2013-08-02 09:14:00 +0100
+tags:  android
 ---
 
-
 ![Counter](/assets/blog/2013-08-05-android.png)
-
 
 The best way for me to get my act together when learning new things, is to write
 something about it as early as possible. This way, I can return to my early blog
@@ -20,7 +18,6 @@ then exposed simple methods that you can call from the subclass.
 
 Have a look at the code and let me know what you think. It may be crap, it may be
 a copy of things already out there...it may even be good.
-
 
 ```java
 import android.annotation.TargetApi;

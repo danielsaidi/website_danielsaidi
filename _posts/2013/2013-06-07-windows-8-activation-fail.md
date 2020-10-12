@@ -1,9 +1,8 @@
 ---
-title:  "Windows 8 Activation Fail"
-date: 	2013-06-07 09:32:00 +0100
-tags: 	windows
+title: Windows 8 Activation Fail
+date:  2013-06-07 09:32:00 +0100
+tags:  windows
 ---
-
 
 Unlike Apple's outstanding OS X experience, Microsoft really have to step up the
 Windows user experience. If you are going to charge a lot of money for people to

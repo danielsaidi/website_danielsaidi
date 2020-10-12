@@ -1,10 +1,9 @@
 ---
-title:  "Matthew McCollough: The third wave of artfulness in code"
-date: 	2013-11-11 18:30:00 +0100
+title: Matthew McCollough - The third wave of artfulness in code
+date:  2013-11-11 18:30:00 +0100
+tags:  conference
 categories: conferences
-tags: 	conference
 ---
-
 
 Oh, my f*****g GOD, I was not prepared for this.
 
@@ -60,4 +59,3 @@ So, could this be the best keynote I have ever attended? It might as well be, bu
 I think I will have to re-watch it in a while to be able to answer that question.
 [Check out the video](http://oredev.org/oredev2013/2013/videos.html) and tell me
 what you think.
-

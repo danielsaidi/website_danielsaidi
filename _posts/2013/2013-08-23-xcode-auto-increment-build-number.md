@@ -1,12 +1,10 @@
 ---
-title:  "Xcode: Auto-increment Build Number"
-date: 	2013-08-23 11:48:00 +0100
-tags: 	ios xcode
+title: Auto-increment Build Number in Xcode
+date:  2013-08-23 11:48:00 +0100
+tags:  ios xcode
 ---
 
-
 ![Counter](/assets/blog/2013-08-23-counter.jpg)
-
 
 When building and releasing iOS apps, I used to manually update the build number
 of the app. However, I found [this great script](http://stackoverflow.com/questions/9258344/xcode-better-way-of-incrementing-build-number)
@@ -26,7 +24,6 @@ buildnum=`date +%Y%m%d%H%M`
 ```
 
 This will set the build number to a timestamp instead of incrementing it by one.
-
 
 
 ## Run script permissions

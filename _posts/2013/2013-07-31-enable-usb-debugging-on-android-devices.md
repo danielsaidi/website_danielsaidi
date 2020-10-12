@@ -1,12 +1,10 @@
 ---
-title:  "Enable USB Debugging on Android Devices"
-date: 	2013-07-31 12:19:00 +0100
-tags: 	android debugging
+title: Enable USB Debugging on Android Devices
+date:  2013-07-31 12:19:00 +0100
+tags:  android
 ---
 
-
 ![Image of an Android teacher](/assets/blog/2013-08-05-android.png)
-
 
 I am currently looking at Android Development. Despite programming for iOS for a
 couple of years, I have never looked at Android except when doing some tutorials.

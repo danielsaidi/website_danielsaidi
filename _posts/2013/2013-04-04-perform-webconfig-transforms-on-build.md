@@ -1,9 +1,8 @@
 ---
-title:  "Perform web.config transforms on build"
-date: 	2013-04-04 09:29:00 +0100
-tags: 	.net web
+title: Perform web.config transforms on build
+date:  2013-04-04 09:29:00 +0100
+tags:  .net web
 ---
-
 
 In a current project, we are auto-creating deploy packages of an ASP.NET MVC web
 site, using Team City. When we do, we need to perform web.config transformations

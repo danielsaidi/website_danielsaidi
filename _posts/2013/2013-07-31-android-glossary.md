@@ -1,12 +1,10 @@
 ---
-title:  "Android Glossary"
-date: 	2013-07-31 13:29:00 +0100
-tags: 	android
+title: Android Glossary
+date:  2013-07-31 13:29:00 +0100
+tags:  android
 ---
 
-
 ![Image of an Android teacher](/assets/blog/2013-08-05-android.png)
-
 
 I am currently getting started with Android development, which means that I have
 a lot of new stuff to memorize. It is so obvious that the biggest challenge with

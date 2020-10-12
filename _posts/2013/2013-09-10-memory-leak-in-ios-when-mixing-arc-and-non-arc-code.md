@@ -1,9 +1,8 @@
 ---
-title:  "Memory leak in iOS when mixing ARC and non-ARC code"
-date: 	2013-09-10 13:13:00 +0100
-tags: 	ios xcode
+title: Memory leak in iOS when mixing ARC and non-ARC code
+date:  2013-09-10 13:13:00 +0100
+tags:  ios xcode
 ---
-
 
 In [an iOS app of mine](http://wally.danielsaidi.com/), that I made with friends,
 we had a situation where the app shut down after taking a couple of photos. 

@@ -1,9 +1,8 @@
 ---
-title:  "Automate with Automator"
-date: 	2013-10-08 19:42:00 +0100
-tags: 	osx automation
+title: Automate with Automator
+date:  2013-10-08 19:42:00 +0100
+tags:  macos automation
 ---
-
 
 ![Automator icon](/assets/blog/2013-10-08-automator.png)
 

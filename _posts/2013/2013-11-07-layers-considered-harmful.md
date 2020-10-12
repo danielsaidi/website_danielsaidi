@@ -1,10 +1,9 @@
 ---
-title:  "Christian Horsdal: Layers Considered Harmful"
-date: 	2013-11-07 17:40:00 +0100
+title: Christian Horsdal - Layers Considered Harmful
+date:  2013-11-07 17:40:00 +0100
+tags:  conference
 categories: conferences
-tags: 	conference
 ---
-
 
 In this session, Christian Horsdal talked about layers, carefully to distinguish
 between layers (logical) and tiers (physical).
@@ -55,4 +54,3 @@ applications.
 
 This was a packed and interesting session. If system architecture gets your juices
 flowing (ewww, sorry about that), [watch the video here](http://oredev.org/oredev2013/2013/videos.html).
-

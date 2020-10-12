@@ -1,9 +1,8 @@
 ---
-title:  "New legal label in MKMapView"
-date: 	2013-04-15 21:29:00 +0100
-tags: 	ios objective-c mapkit
+title: New legal label in MKMapView
+date:  2013-04-15 21:29:00 +0100
+tags:  ios objc geo
 ---
-
 
 I am using Google Maps in a couple of iOS apps that I have created. Or, at least
 I was before Apple threw out Google Maps and put in their own. So, now I guess I
@@ -41,7 +40,6 @@ typedef enum {
 
 @end
 ```
-
 
 ```objc
 #import "MKMapView+LegalLabel.h"
@@ -89,9 +87,5 @@ typedef enum {
 @end
 ```
 
-
 I have used this in an app that got approved, so I guess you can all just use it
 without being concerned that you do something you're not allowed to do.
-
-
-

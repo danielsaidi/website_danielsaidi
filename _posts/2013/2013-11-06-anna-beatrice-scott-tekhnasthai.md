@@ -1,10 +1,9 @@
 ---
-title:  "Anna Beatrice Scott: tekhnasthai"
-date: 	2013-11-06 12:47:00 +0100
+title: Anna Beatrice Scott - tekhnasthai
+date:  2013-11-06 12:47:00 +0100
+tags:  conference
 categories: conferences
-tags: 	conference
 ---
-
 
 ![xkcd book](/assets/blog/2013-11-06-xkcd.jpg)
 

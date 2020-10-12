@@ -1,12 +1,10 @@
 ---
-title:  "Run Lint in Android Studio"
-date: 	2013-07-31 14:29:00 +0100
-tags: 	android linting
+title: Run Lint in Android Studio
+date:  2013-07-31 14:29:00 +0100
+tags:  android lint
 ---
 
-
 ![Image of an Android teacher](/assets/blog/2013-08-05-android.png)
-
 
 As I have just started learning Android, I was happy to see that lint is such an
 integral part of the development process. Lint can be used to enforce general or

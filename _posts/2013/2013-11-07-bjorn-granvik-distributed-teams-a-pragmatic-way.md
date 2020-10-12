@@ -1,10 +1,9 @@
 ---
-title:  "Björn Granvik: Distributed Teams – a pragmatic way"
-date: 	2013-11-07 17:56:00 +0100
+title: Björn Granvik - Distributed Teams
+date:  2013-11-07 17:56:00 +0100
+tags:  conference
 categories: conferences
-tags: 	conference
 ---
-
 
 This session was interesting and required a lot of attention, which made it hard
 for me to sum it up properly. The abstract explains what the talk focused on:
@@ -54,4 +53,3 @@ To understand each other, meet often. And talk talk talk.
 Continuing on about being right and yet failing, face time and generation y, the
 10 minute pattern, ideal team sizes etc. Bjorn left my brain filled to the brink
 of burst. Want a brain filled to the brink of burst? [Watch the video](http://oredev.org/oredev2013/2013/videos.html)!
-

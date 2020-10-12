@@ -1,9 +1,8 @@
 ---
-title:  "Bashing the Bash Syntax"
-date: 	2013-09-26 08:13:00 +0100
-tags: 	ios bash xcode
+title: Bashing the Bash Syntax
+date:  2013-09-26 08:13:00 +0100
+tags:  ios bash xcode
 ---
-
 
 ![Bash icon](/assets/blog/2013-09-26-bash.png)
 
@@ -20,33 +19,27 @@ number to a date formatted string, e.g. 201306130824, so I needed to modify this
 original script a little.
 
 
-
 ## ` not " or '
 
 To achieve this, I added an extension that allows me to switch between different
 build number formats. I first believed this to be correct:
 
-
 ```sh
 buildnum="date +%Y%m%d%H%M"
 ```
-
 
 Since you can write e.g. "$CONFIGURATION", wrapping the date syntax in quotation
 marks should work, right. Turns out it didn't. Single quotes did not work either.
 Eventually, I found out that the correct syntax is to use `, like this:
 
-
 ```sh
 buildnum=`date +%Y%m%d%H%M`
 ```
-
 
 WTF!?
 
 However, I accepted this awful syntax and calmed myself with the fact that I now
 had a working build number bumping script.
-
 
 
 ## To little whitespace!
@@ -71,13 +64,11 @@ if ["$CONFIGURATION"="Debug"]; then
 fi
 ```
 
-
 Sadly, this did not work, so I read on and found the following warning:
 
 *OBS! Note the whitespaces around the =*
 
 Ah, so you obviously have to add whitespaces around the equal sign! Let's try it:
-
 
 ```sh
 if ["$CONFIGURATION" = "Debug"]; then
@@ -85,10 +76,8 @@ if ["$CONFIGURATION" = "Debug"]; then
 fi
 ```
 
-
 Hmmmm, still no luck. I wonder...no, that should be bad....that should be really
 bad! They cannot require that you...that you...what, like this?
-
 
 ```sh
 if [ "$CONFIGURATION" = "Debug" ]; then
@@ -96,13 +85,6 @@ if [ "$CONFIGURATION" = "Debug" ]; then
 fi
 ```
 
-
 Sure thing, you also need spaces after [ and before ]
 
-Obviously!
-
-I may be a n00b, but the Bash Gods are just plain evil.
-
-
-
-
+Obviously! I may be a n00b, but the Bash Gods are just plain evil.

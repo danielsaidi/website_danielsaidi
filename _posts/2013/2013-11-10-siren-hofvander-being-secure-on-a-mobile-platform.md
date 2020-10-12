@@ -1,10 +1,9 @@
 ---
-title:  "Siren Hofvander: Being Secure on a Mobile Platform"
-date: 	2013-11-10 20:59:00 +0100
+title: Siren Hofvander - Being Secure on a Mobile Platform
+date:  2013-11-10 20:59:00 +0100
+tags:  conference mobile
 categories: conferences
-tags: 	conference
 ---
-
 
 This nice talk on mobile security by Siren Hofvander kicked off with some general
 good-to-knows, like how a cell phone is lost every 3 minutes. Adding this to the

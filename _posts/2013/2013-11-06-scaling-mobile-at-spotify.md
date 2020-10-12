@@ -1,13 +1,11 @@
 ---
-title:  "Scaling mobile at Spotify"
-date: 	2013-11-06 12:59:00 +0100
+title: Scaling mobile at Spotify
+date:  2013-11-06 12:59:00 +0100
+tags:  conference
 categories: conferences
-tags: 	conference
 ---
 
-
 ![Spotify logo](/assets/blog/2013-11-06-spotify.jpg)
-
 
 After the morning's non-tech keynote, I went to watch Mattias Björnheden and Per
 Eckerdal from Spotify talk about how Spotify managed to scale their mobile teams.
@@ -64,5 +62,3 @@ time indicators, memory monitoring, feature flag management, face recording, an
 embedded log monitor etc. A perfect conclusion to a great session.
 
 [Check out the video here](http://oredev.org/oredev2013/2013/videos.html).
-
-

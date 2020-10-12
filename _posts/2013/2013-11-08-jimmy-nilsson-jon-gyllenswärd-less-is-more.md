@@ -1,10 +1,9 @@
 ---
-title:  "Jimmy Nilsson & Jon Gyllensward: Less is more! - When it comes to art and software"
-date: 	2013-11-08 09:54:00 +0100
+title: Jimmy Nilsson & Jon Gyllensward - Less is more! When it comes to art and software
+date:  2013-11-08 09:54:00 +0100
+tags:  conference
 categories: conferences
-tags: 	conference
 ---
-
 
 My fourth session of the day was a case study from Sirius International, where my
 old colleague Jon Gyllenswärd and friend and Jimmy Nilsson from factor 10 talked
@@ -43,5 +42,3 @@ talks and to hear about some of the more unconventional things the team tried ou
 The session was broad and at times very specific to Sirius, but than again, it was
 a case study. If you work in a situation like the one Sirius has undergone in the
 last two years, [this video](http://oredev.org/oredev2013/2013/videos.html) is a good watch.
-
-

@@ -1,12 +1,10 @@
 ---
-title:  "Hide the default objective-c initializer"
-date: 	2013-09-04 04:11:00 +0100
-tags: 	ios objective-c
+title: Hide the default Objective-c initializer
+date:  2013-09-04 04:11:00 +0100
+tags:  ios objc
 ---
 
-
 ![Init where are you](/assets/blog/2013-09-04-init.png)
-
 
 Languages like Java and C# let you override and hide the default constructors of
 a class, to ensure that developers can only create valid instances of the class.
@@ -17,7 +15,6 @@ Objective C, however, uses the init pattern when initializing class instances. I
 is all good, but have some implications. Consider a class that can be initialized
 with a required component, as such:
 
-
 ```objc
 - (id)initWithMoreStuff:(id)moreStuff {
    self = [self init];
@@ -27,7 +24,6 @@ with a required component, as such:
    return self;
 }
 ``
-
 
 The big problem with this, is that if the class requires moreStuff to be set, and
 the initializer above should be the *only* initializer available, a developer can
@@ -45,11 +41,8 @@ only available init method.
 Achieving this is easy. In the .h file, kist annotate the default initializer with
 `unavailable`, like this:
 
-
 ```objc
 - (id)init __attribute__((unavailable("...")));
 ``
 
-
 Now, you will get a compilation error if you try to use the default initializer.
-

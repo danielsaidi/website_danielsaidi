@@ -1,9 +1,8 @@
 ---
-title:  "UIViewController Custom Back Button Problem"
-date: 	2013-04-23 20:14:00 +0100
-tags: 	ios objective-c
+title: UIViewController Custom Back Button Problem
+date:  2013-04-23 20:14:00 +0100
+tags:  ios objc
 ---
-
 
 If you want your apps to have an identity of their own, you should put some time
 into adjusting the default appearance, such as fonts and standard iconography.

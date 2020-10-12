@@ -1,12 +1,10 @@
 ---
-title:  "Android Assets for Various Screen densities"
-date: 	2013-08-02 12:08:00 +0100
-tags: 	android
+title: Android Assets for Various Screen densities
+date:  2013-08-02 12:08:00 +0100
+tags:  android
 ---
 
-
 ![Counter](/assets/blog/2013-08-05-android.png)
-
 
 Android devices come in a great deal of different flavors. You have slow devices,
 fast devices, crappy devices, great devices, lowres devices and ultra-hd devices.
