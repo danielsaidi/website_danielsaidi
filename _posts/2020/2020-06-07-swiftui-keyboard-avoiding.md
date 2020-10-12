@@ -1,8 +1,8 @@
 ---
-title:  Avoiding the keyboard in SwiftUI
-date:   2020-06-08 23:00:00 +0100
-tags:   swift swiftui
-icon:   swiftuikit
+title: Avoiding the keyboard in SwiftUI
+date:  2020-06-08 23:00:00 +0100
+tags:  swift swiftui
+icon:  swiftuikit
 
 lib:    https://github.com/danielsaidi/SwiftUIKit
 source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Keyboard

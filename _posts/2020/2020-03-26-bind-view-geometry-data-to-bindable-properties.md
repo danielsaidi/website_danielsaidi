@@ -1,10 +1,10 @@
 ---
-title:  "Bind view geometry data to bindable properties"
-date:   2020-03-26 00:00:00 +0100
-tags:   swiftui swift
-icon:   swift
+title: Bind view geometry data to bindable properties
+date:  2020-03-26 00:00:00 +0100
+tags:  swiftui swift
+icon:  swift
 
-lib:    https://github.com/danielsaidi/SwiftUIKit
+lib:   https://github.com/danielsaidi/SwiftUIKit
 ---
 
 SwiftUI is an amazing tool for building declarative user interfaces. However, it's still young and lacks built-in ways to do many common things. In this post, we'll look at a way to read geometry information from any view in a view hierarchy.

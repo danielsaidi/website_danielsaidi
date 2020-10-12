@@ -2,6 +2,7 @@
 title: Coordinating async operations
 date:  2019-01-26 21:00:00 +0100
 tags:  swift rxswift
+icon:  swift
 
 tldr: http://danielsaidi.com/blog/2019/01/29/async-operations-bitesized
 source: https://github.com/danielsaidi/iExtra/tree/master/iExtra/Operations

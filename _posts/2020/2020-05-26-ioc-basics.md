@@ -1,15 +1,15 @@
 ---
-title:  "IoC and dependency injection - the basics"
-date:   2020-05-26 20:00:00 +0100
-tags:   swift ioc dependency-injection
-icon:   swift
+title: IoC and dependency injection - the basics
+date:  2020-05-26 20:00:00 +0100
+tags:  swift ioc dependency-injection
+icon:  swift
 
 lib:    https://github.com/danielsaidi/SwiftKit
 source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/IoC
 tests:  https://github.com/danielsaidi/SwiftKit/tree/master/Tests/SwiftKitTests/IoC
 
-dip:        https://github.com/AliSoftware/Dip
-swinject:   https://github.com/Swinject/Swinject
+dip:      https://github.com/AliSoftware/Dip
+swinject: https://github.com/Swinject/Swinject
 ---
 
 In this post, we'll look at the basics of Inversion of Control (IoC) and Dependency Injection and how to reduce coupling within your codebase.

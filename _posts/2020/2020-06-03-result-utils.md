@@ -1,8 +1,8 @@
 ---
-title:  "Extending the Swift Result type"
-date:   2020-06-03 12:00:00 +0100
-tags:   swift
-icon:   swift
+title: Extending the Swift Result type
+date:  2020-06-03 12:00:00 +0100
+tags:  swift
+icon:  swift
 
 lib:    https://github.com/danielsaidi/SwiftKit
 source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Extensions

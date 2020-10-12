@@ -1,8 +1,8 @@
 ---
-title:  "Using the iOS keychain to persist data"
-date:   2020-06-05 10:00:00 +0100
-tags:   swift keychain
-icon:   swift
+title: Using the iOS keychain to persist data
+date:  2020-06-05 10:00:00 +0100
+tags:  swift
+icon:  swift
 
 lib:    https://github.com/danielsaidi/SwiftKit
 source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Keychain

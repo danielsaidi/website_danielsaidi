@@ -1,8 +1,8 @@
 ---
-title:  "Comparing dates in Swift"
-date:   2020-05-28 22:00:00 +0100
-tags:   swift
-icon:   swift
+title: Comparing dates in Swift
+date:  2020-05-28 22:00:00 +0100
+tags:  swift
+icon:  swift
 
 lib:    https://github.com/danielsaidi/SwiftKit
 source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Date

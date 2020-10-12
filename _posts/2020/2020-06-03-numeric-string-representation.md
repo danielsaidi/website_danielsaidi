@@ -1,15 +1,15 @@
 ---
-title:  "Numeric string representations"
-date:   2020-06-03 16:00:00 +0100
-tags:   swift
-icon:   swift
+title: Numeric string representations
+date:  2020-06-03 16:00:00 +0100
+tags:  swift
+icon:  swift
 
 lib:    https://github.com/danielsaidi/SwiftKit
 source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Extensions
 tests:  https://github.com/danielsaidi/SwiftKit/tree/master/Tests/SwiftKitTests/Extensions
 ---
 
-In this post, we'll look at how to create string representations of numeric types in Swift and extend these types with functionality to make this easier. 
+In this post, we'll create string representations of numeric types in Swift and extend these types with convenience functionality to make them easier to use. 
 
 
 ## The basics

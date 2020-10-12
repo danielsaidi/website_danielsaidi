@@ -1,8 +1,8 @@
 ---
-title:  "Present delegating view controllers in SwiftUI"
-date:   2020-01-31 12:00:00 +0100
-tags:   swiftui uikit vision
-icon:   swift
+title: Present delegating view controllers in SwiftUI
+date:  2020-01-31 12:00:00 +0100
+tags:  swiftui
+icon:  swift
 ---
 
 Presenting `UIKit` view controllers in SwiftUI is trivial, but things become more complicated when a controller communicates back through delegation. Since `SwiftUI` views are structs, they therefore can't be delegates. In this post, we'll look at one way to solve this.
@@ -148,5 +148,3 @@ This approach lets you bind the delegate events to actions directly within the v
 ```
 
 I personally prefer this approach, since it makes the `DocumentCamera` class provide you with everything you need. All you have to do is to inject the functions you want it to trigger.
-
-Thanks for reading!

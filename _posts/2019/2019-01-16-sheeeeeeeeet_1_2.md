@@ -2,6 +2,7 @@
 title: Sheeeeeeeeet 1.2
 date:  2019-01-16 21:00:00 +0100
 tags:  ios swift
+icon:  sheeeeeeeeet
 
 sheeeeeeeeet: https://github.com/danielsaidi/Sheeeeeeeeet
 example: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Advanced-Example.md

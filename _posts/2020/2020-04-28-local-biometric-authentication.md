@@ -1,8 +1,8 @@
 ---
-title:  "Perform biometric authentication with FaceID or TouchID"
-date:   2020-04-28 00:00:00 +0100
-tags:   swiftui swift local-authentication ios ipados macos authentication
-icon:   swift
+title: Perform biometric authentication with FaceID or TouchID
+date:  2020-04-28 00:00:00 +0100
+tags:  swiftui swift ios ipados macos authentication
+icon:  swift
 
 lib:    https://github.com/danielsaidi/SwiftKit
 source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Authentication
