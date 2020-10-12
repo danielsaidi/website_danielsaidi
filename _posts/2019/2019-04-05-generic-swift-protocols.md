@@ -1,9 +1,9 @@
 ---
-title:  "Generic Swift protocols"
-date:   2019-04-05 21:00:00 +0100
-tags:   swift generics
-icon:   swift
-icon:   swift
+title: Generic Swift protocols
+date:  2019-04-05 21:00:00 +0100
+tags:  swift
+icon:  swift
+image: http://danielsaidi.com/assets/blog/swift.png
 ---
 
 For years, I've been struggling with combining generics and protocols in Swift. In this post, I'll describe how I finally made sense of it all.

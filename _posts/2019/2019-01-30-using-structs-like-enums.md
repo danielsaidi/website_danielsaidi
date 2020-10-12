@@ -1,13 +1,12 @@
 ---
-title:  "Using structs like enums"
-date:   2019-01-30 21:00:00 +0100
-tags:	swift
+title: Using structs like enums
+date:  2019-01-30 21:00:00 +0100
+tags:  swift
 
 swift-docs: https://docs.swift.org        
 enums:   https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html
 structs: https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html
 ---
-
 
 Swift `enum` and `struct` are two powerful tools. In this post, I'll discuss how you typically use them and how to use structs like enums when you need more flexibility.
 
@@ -310,11 +309,6 @@ default: print("Not up")                    // Will happen
 Yes, this works! As you can see, we don't have to implement any equality logic, just provide the struct with a property that will be unique for each case.
 
 
-
 ## Conclusion
 
 Enums are great when you want a fixed set of options. However, structs that behave like enums are better when you want a type that can be extended with more options. Just watch out for the unexpected pitfalls.
-
-
-
-

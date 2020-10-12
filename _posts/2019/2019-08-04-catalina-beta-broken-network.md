@@ -1,12 +1,10 @@
 ---
-title:  "Fix broken network in Catalina"
+title:  Fix broken network in Catalina
 date:   2019-08-04 12:00:00 +0100
-tags:   catalina beta swiftui
-icon:   swift
+tags:   macos
 ---
 
 In this post, I'll show how to restore the network configuration in macOS Catalina beta 5, if it suddenly stops working. It happened to me and the solution was to just delete a couple of files.
-
 
 I immediately upgraded to macOS Catalina beta 5 when it was released. It fixed a bunch of perfomance issues and Xcode compatibility problems, so I was very happy with this upgrade.
 

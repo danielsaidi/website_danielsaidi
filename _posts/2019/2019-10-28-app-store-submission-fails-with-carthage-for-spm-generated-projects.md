@@ -1,8 +1,8 @@
 ---
-title:  "App Store submission fails when Carthage uses SPM generated project"
-date:   2019-10-29 12:00:00 +0100
-tags:   spm carthage app-store
-icon:   swift
+title: App Store submission fails when Carthage uses SPM generated project
+date:  2019-10-29 12:00:00 +0100
+tags:  xcode spm
+icon:  swift
 ---
 
 If you use `swift package generate-xcodeproj` to generate an Xcode project for a SPM package, App Store will reject any apps that adds this library with [Carthage][Carthage]. This post will show you how to make App Store submission work.

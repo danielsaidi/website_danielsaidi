@@ -1,7 +1,7 @@
 ---
-title:  "Coordinating async operations"
-date:   2019-01-26 21:00:00 +0100
-tags:	swift rxswift async-await awaitkit promisekit
+title: Coordinating async operations
+date:  2019-01-26 21:00:00 +0100
+tags:  swift rxswift
 
 tldr: http://danielsaidi.com/blog/2019/01/29/async-operations-bitesized
 source: https://github.com/danielsaidi/iExtra/tree/master/iExtra/Operations
@@ -16,7 +16,6 @@ reactivecocoa: https://github.com/ReactiveCocoa/ReactiveCocoa
 ---
 
 Swift is an amazing language, but I find that it lacks good native support for coordinating async operations in sophisticated ways. In this post, I will look at existing libraries for solving this problem, then discuss a lightweight alternative and show you how to implement it with a couple of simple protocols and implementations.
-
 
 
 ## 3rd party alternatives
