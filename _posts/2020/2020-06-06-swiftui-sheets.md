@@ -154,7 +154,7 @@ With these new tools at our disposal, we can present sheets in a much easier way
 First, create a `@State` property in any view that should be able to present sheets:
 
 ```swift
-@State private var sheetContext = SheetContext()
+@ObservedObject private var sheetContext = SheetContext()
 ```
 
 then add a `SheetContext` specific view modifier to the view:
@@ -174,6 +174,12 @@ You can also present any custom view in the same way, using the same context:
 ```swift
 sheetContext.present(Text("Hello! I'm a custom modal."))
 ```
+
+
+## ObservedObject vs State
+
+`@ObservedObject` mostly works great, but I have had problems in apps that target
+iOS 14, where sheets don't appear or immediately closes. Replacing `@ObservedObject` with `@State` has solved the problem, but it is not consistent. My advice is to try `@ObservedObject` first and replace it with `@State` if it doesn't work.
 
 
 ## Conclusion

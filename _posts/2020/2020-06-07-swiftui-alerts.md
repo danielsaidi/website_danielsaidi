@@ -151,7 +151,7 @@ With these new tools at our disposal, we can present alerts in a much easier way
 First, create a `@State` property in any view that should be able to present alerts:
 
 ```swift
-@State private var alertContext = AlertContext()
+@ObservedObject private var alertContext = AlertContext()
 ```
 
 then add an `AlertContext` specific view modifier to the view:
@@ -167,6 +167,12 @@ alertContext.present(AppAlert.warning)
 ```
 
 You can also present any custom alerts in the same way, using the same context.
+
+
+## ObservedObject vs State
+
+`@ObservedObject` mostly works great, but I have had problems in apps that target
+iOS 14, where alerts don't appear or immediately closes. Replacing `@ObservedObject` with `@State` has solved the problem, but it is not consistent. My advice is to try `@ObservedObject` first and replace it with `@State` if it doesn't work.
 
 
 ## Conclusion
