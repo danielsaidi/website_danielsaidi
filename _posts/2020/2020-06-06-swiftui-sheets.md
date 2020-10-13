@@ -11,6 +11,11 @@ source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit
 In this post, we'll look at an easier way to manage sheets in `SwiftUI`, that lets us reuse functionality, reduce state management and present many different sheets in the same way.
 
 
+## TLDR;
+
+If you find this post too long, I have added this to my [SwiftUIKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}) and checkout the demo app for a fully working example.
+
+
 ## The basics
 
 To present sheets in a `SwiftUI` app, you would normally use a `sheet` modifier that takes an `isPresented` binding and a view-producing `content` function:
@@ -58,7 +63,7 @@ public class SheetContext: PresentationContext<AnyView> {
 }
 ```
 
-As you can see, `SheetContext` basically only contains code for presenting a `Sheet` or a `SheetProvider`. We'll come back to these concepts shortly.
+As you can see, `SheetContext` basically only contains code for presenting a `Sheet` (which is just a view) or a `SheetProvider`. We'll come back to the provider concept shortly.
 
 You may also notice that it inherits something called `PresentationContext`. Let's take a closer look at this base class.
 
@@ -67,7 +72,7 @@ You may also notice that it inherits something called `PresentationContext`. Let
 
 Since I find that the sheet problem also is true for alerts, context menus etc., I have created a `PresentationContext` on which I base other similar solutions to the same kind of problem.
 
-`PresentationContext` is an `ObservableObject` base class that handles state and views for presentable things, like sheets, alerts, toasts etc. It's a pretty simple little thing:
+`PresentationContext` is an `ObservableObject` base class that handles state and views for presentable things, like sheets, alerts, toasts etc. It's pretty simple:
 
 ```swift
 public class PresentationContext<Content>: ObservableObject {
@@ -151,19 +156,19 @@ The new modifier just provides the standard `sheet` modifier with the context's 
 
 With these new tools at our disposal, we can present sheets in a much easier way.
 
-First, create a `@State` property in any view that should be able to present sheets:
+First, create a context property in any view that should be able to present sheets:
 
 ```swift
 @ObservedObject private var sheetContext = SheetContext()
 ```
 
-then add a `SheetContext` specific view modifier to the view:
+then add a `sheet` modifier to the view:
 
 ```swift
 .sheet(context: sheetContext)
 ```
 
-You can now present any view and `SheetProvider` as a sheet, for instance the `AppSheet`:
+You can now present any `SheetProvider` as a sheet, for instance `AppSheet`:
 
 ```swift
 sheetContext.present(AppSheet.settings)
@@ -172,19 +177,18 @@ sheetContext.present(AppSheet.settings)
 You can also present any custom view in the same way, using the same context:
 
 ```swift
-sheetContext.present(Text("Hello! I'm a custom modal."))
+sheetContext.present(Text("Hello, I'm a custom sheet."))
 ```
 
 
 ## ObservedObject vs State
 
-`@ObservedObject` mostly works great, but I have had problems in apps that target
-iOS 14, where sheets don't appear or immediately closes. Replacing `@ObservedObject` with `@State` has solved the problem, but it is not consistent. My advice is to try `@ObservedObject` first and replace it with `@State` if it doesn't work.
+`@ObservedObject` mostly works great, but I have had problems in multiplatform apps that target iOS 14, where sheets don't appear or immediately close. Replacing `@ObservedObject` with `@State` has solved the problem for me, but it is not consistent. For instance, it does not work in the demo app this post links to. My advice is to try `@ObservedObject` first and replace it with `@State` if it doesn't work.
 
 
 ## Conclusion
 
-As you can see, `SheetContext` can be used to manage all different kind of sheets and views. It manages all state for you and lets you use a more convenient sheet modifier. All you have to do is provide it with the sheets you want to present.
+As you can see, `SheetContext` can be used to manage all different kind of sheets and views. It manages all state for you and lets you use a more convenient modifier. All you have to do is provide it with the sheets you want to present.
 
 
 ## Source code

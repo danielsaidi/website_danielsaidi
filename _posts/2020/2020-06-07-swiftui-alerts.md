@@ -11,6 +11,11 @@ source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit
 In this post, we'll look at an easier way to manage alerts in `SwiftUI`, that lets us reuse functionality, reduce state management and present many different alerts in the same way.
 
 
+## TLDR;
+
+If you find this post too long, I have added this to my [SwiftUIKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}) and checkout the demo app for a fully working example.
+
+
 ## The basics
 
 To present alerts in a `SwiftUI` app, you would normally use an `alert` modifier that takes an `isPresented` binding and an alert-producing `content` function:
@@ -63,7 +68,7 @@ You may also notice that it inherits something called `PresentationContext`. Let
 
 Since I find that the alert problem also is true for sheets, context menus etc., I have created a `PresentationContext` on which I base other similar solutions to the same kind of problem.
 
-`PresentationContext` is an `ObservableObject` base class that handles state and views for presentable things, like sheets, alerts, toasts etc. It's a pretty simple little thing:
+`PresentationContext` is an `ObservableObject` base class that handles state and views for presentable things, like sheets, alerts, toasts etc. It's pretty simple:
 
 ```swift
 public class PresentationContext<Content>: ObservableObject {
@@ -148,19 +153,19 @@ The new modifier just provides the standard `alert` modifier with the context's 
 
 With these new tools at our disposal, we can present alerts in a much easier way.
 
-First, create a `@State` property in any view that should be able to present alerts:
+First, create a context property in any view that should be able to present alerts:
 
 ```swift
 @ObservedObject private var alertContext = AlertContext()
 ```
 
-then add an `AlertContext` specific view modifier to the view:
+then add an `alert` modifier to the view:
 
 ```swift
 .alert(context: alertContext)
 ```
 
-You can now present any view and `AlertProvider` as a alert, for instance the `AppAlert`:
+You can now present any `AlertProvider` as a alert, for instance `AppAlert`:
 
 ```swift
 alertContext.present(AppAlert.warning)
@@ -171,13 +176,12 @@ You can also present any custom alerts in the same way, using the same context.
 
 ## ObservedObject vs State
 
-`@ObservedObject` mostly works great, but I have had problems in apps that target
-iOS 14, where alerts don't appear or immediately closes. Replacing `@ObservedObject` with `@State` has solved the problem, but it is not consistent. My advice is to try `@ObservedObject` first and replace it with `@State` if it doesn't work.
+`@ObservedObject` mostly works great, but I have had problems in multiplatform apps that target iOS 14, where alerts don't appear or immediately close. Replacing `@ObservedObject` with `@State` has solved the problem for me, but it is not consistent. For instance, it does not work in the demo app this post links to. My advice is to try `@ObservedObject` first and replace it with `@State` if it doesn't work.
 
 
 ## Conclusion
 
-As you can see, `AlertContext` can be used to manage all different kind of alerts. It manages all state for you and lets you use a more convenient alert modifier. All you have to do is provide it with the alerts you want to present.
+As you can see, `AlertContext` can be used to manage all different kind of alerts. It manages all state for you and lets you use a more convenient modifier. All you have to do is provide it with the alerts you want to present.
 
 
 ## Source code
