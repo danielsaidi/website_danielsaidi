@@ -18,7 +18,7 @@ If you find this post too long, I have added this to my [SwiftUIKit]({{page.lib}
 
 ## The basics
 
-To present sheets in a `SwiftUI` app, you would normally use a `sheet` modifier that takes an `isPresented` binding and a view-producing `content` function:
+To present sheets in a `SwiftUI` app, you normally use a `sheet` modifier that takes an `isPresented` binding and a view-producing `content` function:
 
 ```swift
 struct MyView: View {
@@ -37,14 +37,16 @@ struct MyView: View {
 }
 ```
 
-This is simple, sure, but I think it becomes tricky to manage sheets as soon as you want to present multiple sheets from the same screen or reuse sheets across an app. You may end up duplicating `isSheetActive` logic as well as the view builder logic.
+This is simple, sure, but I think it becomes tricky when you have to present multiple sheets from the same screen or reuse sheets across an app. You may end up duplicating `isSheetActive` logic as well as the view builder logic.
 
 I therefore tried to find a way to work with sheets in a more reusable way, that requires less code and less state while still being flexible to support both global and screen-specific sheets.
+
+It all begins with a very simple state manager that I call `SheetContext`.
 
 
 ## SheetContext
 
-After pondering this problem for a while, I think I have come up with a solution that simplies working with `SwiftUI` sheets. It all starts with an observable class called `SheetContext`:
+Instead of managing state in every view that should present sheets, I use a `SheetContext`:
 
 ```swift
 public class SheetContext: PresentationContext<AnyView> {
@@ -63,16 +65,14 @@ public class SheetContext: PresentationContext<AnyView> {
 }
 ```
 
-As you can see, `SheetContext` basically only contains code for presenting a `Sheet` (which is just a view) or a `SheetProvider`. We'll come back to the provider concept shortly.
+As you can see, it basically only contains code for presenting a `Sheet` (which is just a view) or a `SheetProvider`. We'll come back to the provider shortly.
 
 You may also notice that it inherits something called `PresentationContext`. Let's take a closer look at this base class.
 
 
 ## PresentationContext
 
-Since I find that the sheet problem also is true for alerts, context menus etc., I have created a `PresentationContext` on which I base other similar solutions to the same kind of problem.
-
-`PresentationContext` is an `ObservableObject` base class that handles state and views for presentable things, like sheets, alerts, toasts etc. It's pretty simple:
+Since I find that the sheet presentation problem also is true for alerts, toasts etc., I have a `PresentationContext`, which is a pretty simple `ObservableObject` base class:
 
 ```swift
 public class PresentationContext<Content>: ObservableObject {
@@ -135,10 +135,12 @@ enum AppSheet: SheetProvider {
 }
 ```
 
+This makes it possible to create app and view specific enums that contain your app's toast logic, which makes your presenting views easier to manage.
+
 
 ## New sheet modifier
 
-Since `SheetContext` handles all state for us, we can now implement a new `sheet` modifier for presenting sheets:
+In `SwiftUI`, you present sheets by adding modifiers to the presenting view. With the new `SheetContext` managing our state, we can create a new `sheet` modifier:
 
 ```swift
 public extension View {
@@ -154,12 +156,10 @@ The new modifier just provides the standard `sheet` modifier with the context's 
 
 ## Presenting a sheet
 
-With these new tools at our disposal, we can present sheets in a much easier way.
-
-First, create a context property in any view that should be able to present sheets:
+With these new tools at our disposal, we can present sheets in a much easier way. First, create a context property:
 
 ```swift
-@ObservedObject private var sheetContext = SheetContext()
+@StateObject private var sheetContext = SheetContext()
 ```
 
 then add a `sheet` modifier to the view:
@@ -180,10 +180,12 @@ You can also present any custom view in the same way, using the same context:
 sheetContext.present(Text("Hello, I'm a custom sheet."))
 ```
 
+That's it, your view don't need multiple `@State` properties for different sheets or to switch over an enum to determine which sheet to show.
 
-## ObservedObject vs State
 
-`@ObservedObject` mostly works great, but I have had problems in multiplatform apps that target iOS 14, where sheets don't appear or immediately close. Replacing `@ObservedObject` with `@State` has solved the problem for me, but it is not consistent. For instance, it does not work in the demo app this post links to. My advice is to try `@ObservedObject` first and replace it with `@State` if it doesn't work.
+## @StateObject vs @ObservedObject
+
+Use `@StateObject` for your contexts whenever possible. However, if you target `iOS 13` or if the context is created and managed by another part of your app, use `@ObservedObject`.
 
 
 ## Conclusion

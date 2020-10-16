@@ -18,7 +18,7 @@ If you find this post too long, I have added this to my [SwiftUIKit]({{page.lib}
 
 ## The basics
 
-To present alerts in a `SwiftUI` app, you would normally use an `alert` modifier that takes an `isPresented` binding and an alert-producing `content` function:
+To present alerts in a `SwiftUI` app, you normally use an `alert` modifier that takes an `isPresented` binding and an alert-producing `content` function:
 
 ```swift
 struct MyView: View {
@@ -37,14 +37,16 @@ struct MyView: View {
 }
 ```
 
-This is simple, sure, but I think it becomes tricky to manage alerts as soon as you want to present multiple alerts from the same screen or reuse alerts across an app. You may end up duplicating `isAlertActive` logic as well as the alert builder logic.
+This is simple, sure, but I think it becomes tricky when you have to present multiple alerts from the same screen or reuse alerts across an app. You may end up duplicating `isAlertActive` logic as well as the alert builder logic.
 
 I therefore tried to find a way to work with alerts in a more reusable way, that requires less code and less state while still being flexible to support both global and screen-specific alerts.
+
+It all begins with a very simple state manager that I call `AlertContext`.
 
 
 ## AlertContext
 
-After pondering this problem for a while, I think I have come up with a solution that simplies working with `SwiftUI` alerts. It all starts with an observable class called `AlertContext`:
+Instead of managing state in every view that should present alerts, I use a `AlertContext`:
 
 ```swift
 public class AlertContext: PresentationContext<Alert> {
@@ -59,16 +61,14 @@ public class AlertContext: PresentationContext<Alert> {
 }
 ```
 
-As you can see in the code above, `AlertContext` basically only contains code for presenting an `AlertProvider`. We'll come back to this concept shortly.
+As you can see, it basically only contains code for presenting an `AlertProvider`. We'll come back to the provider shortly.
 
 You may also notice that it inherits something called `PresentationContext`. Let's take a closer look at this base class.
 
 
 ## PresentationContext
 
-Since I find that the alert problem also is true for sheets, context menus etc., I have created a `PresentationContext` on which I base other similar solutions to the same kind of problem.
-
-`PresentationContext` is an `ObservableObject` base class that handles state and views for presentable things, like sheets, alerts, toasts etc. It's pretty simple:
+Since I find that the alert presentation problem also is true for sheets, toasts etc., I have a `PresentationContext`, which is a pretty simple `ObservableObject` base class:
 
 ```swift
 public class PresentationContext<Content>: ObservableObject {
@@ -106,7 +106,7 @@ In fact, this means that besides the `present(_ provider: AlertProvider)` functi
 
 ## AlertProvider
 
-As we saw earlier, `AlertContext` can present an `Alert` and an `AlertProvider`, where `AlertProvider` is a protocol for anything that can provide an alert:
+As we saw earlier, `AlertContext` can present an `Alert` and an `AlertProvider`. `Alert` is just a standard SwiftUI alert, while `AlertProvider` is a protocol for anything that can provide an alert:
 
 ```swift
 public protocol AlertProvider {
@@ -126,16 +126,18 @@ enum AppAlert: AlertProvider {
     
     var alert: Alert {
         switch self {
-        case .warning: return Alert(title: Text("Don't eat yellow snow!"))
+        case .warning: return Alert(title: Text("Something went wrong!"))
         }
     }
 }
 ```
 
+This makes it possible to create app and view specific enums that contain your app's toast logic, which makes your presenting views easier to manage.
+
 
 ## New alert modifier
 
-Since `AlertContext` handles all state for us, we can now implement a new `alert` modifier for presenting alerts:
+In `SwiftUI`, you present alerts by adding modifiers to the presenting view. With the new `AlertContext` managing our state, we can create a new `alert` modifier:
 
 ```swift
 public extension View {
@@ -151,12 +153,10 @@ The new modifier just provides the standard `alert` modifier with the context's 
 
 ## Presenting an alert
 
-With these new tools at our disposal, we can present alerts in a much easier way.
-
-First, create a context property in any view that should be able to present alerts:
+With these new tools at our disposal, we can present alerts in a much easier way. First, create a context property:
 
 ```swift
-@ObservedObject private var alertContext = AlertContext()
+@StateObject private var alertContext = AlertContext()
 ```
 
 then add an `alert` modifier to the view:
@@ -173,10 +173,12 @@ alertContext.present(AppAlert.warning)
 
 You can also present any custom alerts in the same way, using the same context.
 
+That's it, your view don't need multiple `@State` properties for different alerts or to switch over an enum to determine which alert to show.
 
-## ObservedObject vs State
 
-`@ObservedObject` mostly works great, but I have had problems in multiplatform apps that target iOS 14, where alerts don't appear or immediately close. Replacing `@ObservedObject` with `@State` has solved the problem for me, but it is not consistent. For instance, it does not work in the demo app this post links to. My advice is to try `@ObservedObject` first and replace it with `@State` if it doesn't work.
+## @StateObject vs @ObservedObject
+
+Use `@StateObject` for your contexts whenever possible. However, if you target `iOS 13` or if the context is created and managed by another part of your app, use `@ObservedObject`.
 
 
 ## Conclusion

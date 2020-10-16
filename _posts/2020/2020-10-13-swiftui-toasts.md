@@ -20,18 +20,18 @@ If you find this post too long, I have added this to my [SwiftUIKit]({{page.lib}
 
 ## The basics
 
-A toast is traditionally a short message or feedback that is presented as an overlay modal for a brief moment, before it is automatically dismissed. It usually slides or fades in from the top or bottom of the screen and can also present undo actions or other related actions.
+A toast is a short message or feedback that is presented as an overlay for a short moment, or until the user performs an action within it. It usually slides or fades in and can also present undo or other related actions.
 
 While the toast pattern has been a first class citizen in Android for a long time, Apple has never (at least to my knowledge) provided a native toast api for iOS. There are numerous great packages for this, but you are more or less forced to go 3rd party or build it yourself.
 
-Luckily, this is very easy to do in SwiftUI. Let's look at how to build a way to present toasts in a way similar [sheets]({{page.sheets}}) and [alerts]({{page.alerts}}).
+Luckily, this is very easy to do in SwiftUI. Let's look at how to build a way to present toasts in a way similar to [sheets]({{page.sheets}}) and [alerts]({{page.alerts}}).
+
+It all begins with a very simple state manager that I call `ToastContext`.
 
 
 ## ToastContext
 
-Instead of managing state in every view that should be able to present toasts, I prefer to create an observable object that handles this.
-
-For toasts, it all starts with a simple, observable class called `ToastContext`:
+Instead of managing state in every view that should present toasts, I use a `ToastContext`:
 
 ```swift
 public class ToastContext: PresentationContext<AnyView> {
@@ -50,16 +50,14 @@ public class ToastContext: PresentationContext<AnyView> {
 }
 ```
 
-As you can see, `ToastContext` basically only contains code for presenting a `Toast` (which is just a view) or a `ToastProvider`. We'll come back to the provider concept shortly.
+As you can see, it basically only contains code for presenting a `Toast` (which is just a view) or a `ToastProvider`. We'll come back to the provider shortly.
 
 You may also notice that it inherits something called `PresentationContext`. Let's take a closer look at this base class.
 
 
 ## PresentationContext
 
-Since I want to handle toasts in the same way as alerts and sheets, I have created a `PresentationContext` on which I base other similar solutions to the same kind of problem.
-
-`PresentationContext` is an `ObservableObject` base class that handles state and views for presentable things, like sheets, alerts, toasts etc. It's pretty simple:
+Since I find that the toast presentation problem also is true for alerts, sheets etc., I have a `PresentationContext`, which is a pretty simple `ObservableObject` base class:
 
 ```swift
 public class PresentationContext<Content>: ObservableObject {
@@ -95,7 +93,7 @@ By calling the more specific functions in `ToastContext`, the `PresentationConte
 
 ## ToastProvider
 
-As we saw earlier, `ToastContext` can present a `Toast` and an `ToastProvider`, where `ToastProvider` is a protocol for anything that can provide a toast view:
+As we saw earlier, `ToastContext` can present a `Toast` and an `ToastProvider`. `Toast` is just a view, while `ToastProvider` is a protocol for anything that can provide a toast view:
 
 ```swift
 public protocol ToastProvider {
@@ -121,12 +119,12 @@ enum AppToast: ToastProvider {
 }
 ```
 
+This makes it possible to create app and view specific enums that contain your app's toast logic, which makes your presenting views easier to manage.
+
 
 ## Toast modifiers
 
-In `SwiftUI`, you present alerts and sheets with by adding a modifier to the presenting view and set the state binding to true. 
-
-We can create such a modifier for presenting toasts as well:
+In `SwiftUI`, you present alerts and sheets by adding modifiers to the presenting view. We can create such modifiers for toasts as well:
 
 ```swift
 func toast<Content: View>(
@@ -159,12 +157,10 @@ If you look at the first modifier, you can see that it will add the toast as an 
 
 ## Presenting a toast
 
-With these new tools at our disposal, we can present toasts in a much easier way.
-
-First, create a context property in any view that should be able to present  toasts:
+With these new tools at our disposal, we can present toasts in a much easier way. First, create a context property:
 
 ```swift
-@ObservedObject private var toastContext = ToastContext()
+@StateObject private var toastContext = ToastContext()
 ```
 
 then add an `toast` modifier to the view:
@@ -185,12 +181,19 @@ You can also present any custom view in the same way, using the same context:
 toastContext.present(Text("Hello, I'm a custom toast!"))
 ```
 
-I use a `ToastStyle` to style the toasts in various ways. That way, you can create texts, images etc. in the same way, by just providing a style to the `toast` modifier. That separates the style of the toast from the style of its content.
+That's it, your view don't need multiple `@State` properties for different toasts or to switch over an enum to determine which toast to show.
 
 
-## ObservedObject vs State
+## Styling a toast
 
-`@ObservedObject` mostly works great, but I have had problems in multiplatform apps that target iOS 14, where toasts don't appear or immediately close. Replacing `@ObservedObject` with `@State` has solved the problem for me, but it is not consistent. For instance, it does not work in the demo app this post links to. My advice is to try `@ObservedObject` first and replace it with `@State` if it doesn't work.
+The solution above can show any view you like as a toast, which means that you can create specific toast style modifiers to style views in a consistent way.
+
+However, the toast modifier that I link to from this post has functionality for providing styles, which further separates toast styling from the toast content.
+
+
+## @StateObject vs @ObservedObject
+
+Use `@StateObject` for your contexts whenever possible. However, if you target `iOS 13` or if the context is created and managed by another part of your app, use `@ObservedObject`.
 
 
 ## Future Improvements
