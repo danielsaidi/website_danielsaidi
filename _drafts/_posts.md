@@ -22,6 +22,8 @@ MultilineTextField
 MultiPageView
 UIViewWrapper
 
+Validation (SwiftKit)
+
 Colors:
 Write about UIColor extensions to build palette (.app)
 
