@@ -1,6 +1,6 @@
 ---
 name: Daniel Saidi
-last-updated: 2009
+last-updated: 2020
 
 midnightenlightened: https://www.metal-archives.com/albums/Misfortune/Midnightenlightened/20186
 ---

@@ -1,6 +1,6 @@
 ---
 name: dEEd
-last-updated: 2007
+last-updated: 2008
 
 starfucker: https://open.spotify.com/album/3HvkwlUKUdMl3s1Odmz7od?si=AbzVfvt5SwiAtg36eIZLKw
 youtube-me: https://youtu.be/Tli4d_9OzXM

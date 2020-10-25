@@ -9,10 +9,10 @@ redirect_from: /bands/
 <article class="card">
   {% include cards/header.html title="Music" %}
   <p>
-    Here are some of the bands that I have played with over the years, ranging from 1996 to today. 
+    Here are some of the bands that I have played with over the years, ranging from 1996 to today. I have only included bands that recorded and released anything.
   </p>
   <p>
-    If I ever start creating music again, you will find it on my currently inactive <a href="https://www.facebook.com/daniel.saidi.music/">Facebook page</a>. I will also start uploading new rips of the songs in the pages below.
+    Whenever I release something new, I add it to my <a href="https://www.facebook.com/daniel.saidi.music/">Facebook page</a>. I will also start uploading new rips of the songs in the pages below.
   </p>
 </article>
 
