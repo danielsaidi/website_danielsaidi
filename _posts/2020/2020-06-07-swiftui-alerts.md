@@ -18,17 +18,20 @@ If you find this post too long, I have added this to my [SwiftUIKit]({{page.lib}
 
 ## The basics
 
-To present alerts in a `SwiftUI` app, you normally use an `alert` modifier that takes an `isPresented` binding and an alert-producing `content` function:
+To present alerts in a `SwiftUI` app, you use the `alert` modifier that takes an `isPresented` binding and a `content` function:
 
 ```swift
 struct MyView: View {
     
     @State private var isAlertActive = false
-    private let alert = Alert(title: Text("Hello, world!"))
     
     var body: some View {
         Button("Show alert", action: showAlert)
-            .alert(isPresented: $isAlertActive, content: { alert })
+            .alert(isPresented: $isAlertActive, content: alert)
+    }
+
+    func alert() -> Alert {
+        Alert(title: Text("Hello, world!"))
     }
 
     func showAlert() {
@@ -37,7 +40,7 @@ struct MyView: View {
 }
 ```
 
-This is simple, sure, but I think it becomes tricky when you have to present multiple alerts from the same screen or reuse alerts across an app. You may end up duplicating `isAlertActive` logic as well as the alert builder logic.
+This can becomee tricky when you have to present multiple alerts from the same screen or reuse alerts across an app. You may end up duplicating state and view builder logic and having to write the same code many times.
 
 I therefore tried to find a way to work with alerts in a more reusable way, that requires less code and less state while still being flexible to support both global and screen-specific alerts.
 
@@ -132,12 +135,12 @@ enum AppAlert: AlertProvider {
 }
 ```
 
-This makes it possible to create app and view specific enums that contain your app's toast logic, which makes your presenting views easier to manage.
+This makes it possible to create app and view specific enums that contain your app's alerts, which can all be presented in the same way.
 
 
 ## New alert modifier
 
-In `SwiftUI`, you present alerts by adding modifiers to the presenting view. With the new `AlertContext` managing our state, we can create a new `alert` modifier:
+In `SwiftUI`, you present alerts by adding a modifier to the presenting view. With the new `AlertContext` managing our state, we can create a new `alert` modifier:
 
 ```swift
 public extension View {

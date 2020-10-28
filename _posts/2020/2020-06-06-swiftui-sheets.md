@@ -18,17 +18,20 @@ If you find this post too long, I have added this to my [SwiftUIKit]({{page.lib}
 
 ## The basics
 
-To present sheets in a `SwiftUI` app, you normally use a `sheet` modifier that takes an `isPresented` binding and a view-producing `content` function:
+To present sheets in a `SwiftUI` app, you use the `sheet` modifier that takes an `isPresented` binding and a `content` function:
 
 ```swift
 struct MyView: View {
     
     @State private var isSheetActive = false
-    private let sheetView = "Hello, world!"
     
     var body: some View {
         Button("Show sheet", action: showSheet)
-            .sheet(isPresented: $isSheetActive, content: { sheetView })
+            .sheet(isPresented: $isSheetActive, content: sheetContent)
+    }
+    
+    func sheetContent() -> some View {
+        Text("Hello, world!")
     }
 
     func showSheet() {
@@ -37,7 +40,7 @@ struct MyView: View {
 }
 ```
 
-This is simple, sure, but I think it becomes tricky when you have to present multiple sheets from the same screen or reuse sheets across an app. You may end up duplicating `isSheetActive` logic as well as the view builder logic.
+This can become tricky when you have to present multiple sheets from the same screen or reuse sheets across an app. You may end up duplicating state and view builder logic and having to write the same code many times.
 
 I therefore tried to find a way to work with sheets in a more reusable way, that requires less code and less state while still being flexible to support both global and screen-specific sheets.
 
@@ -135,12 +138,12 @@ enum AppSheet: SheetProvider {
 }
 ```
 
-This makes it possible to create app and view specific enums that contain your app's toast logic, which makes your presenting views easier to manage.
+This makes it possible to create app and view specific enums that contain your app's sheet logic, which can all be presented in the same way.
 
 
 ## New sheet modifier
 
-In `SwiftUI`, you present sheets by adding modifiers to the presenting view. With the new `SheetContext` managing our state, we can create a new `sheet` modifier:
+In `SwiftUI`, you present sheets by adding a modifier to the presenting view. With the new `SheetContext` managing our state, we can create a new `sheet` modifier:
 
 ```swift
 public extension View {
@@ -190,7 +193,7 @@ Use `@StateObject` for your contexts whenever possible. However, if you target `
 
 ## Conclusion
 
-As you can see, `SheetContext` can be used to manage all different kind of sheets and views. It manages all state for you and lets you use a more convenient modifier. All you have to do is provide it with the sheets you want to present.
+As you can see, `SheetContext` can be used to manage all different kind of views. It manages all state for you and lets you use a more convenient modifier. All you have to do is provide it with the sheet you want to present.
 
 
 ## Source code
