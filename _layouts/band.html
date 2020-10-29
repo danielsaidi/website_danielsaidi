@@ -13,6 +13,7 @@ layout: default
   {{ content }}
 </article>
   
+{%- if band.photos -%}
 <h2>Photos</h2>
 <a name="photos"></a>
 <section class="grid photos">
@@ -22,6 +23,7 @@ layout: default
   </div>
   {%- endfor -%}
 </section>
+{%- endif -%}
 
 <h2>Recordings</h2>
 <a name="music"></a>
@@ -34,21 +36,28 @@ layout: default
       <img src="{{ assets_img }}{{ cover }}.jpg" alt="{{photo.text}}"></img>
     </div>
   </div>
-  <section class="card tracks">
-    <h4>{{album.name}} • {{album.year}}</h4>
-    <ol>
-        {%- for track in album.tracks -%}
-        <li>
-          <span>
-            <span class="index">{{ forloop.index }}.</span>
-            {{track.name}}
-          </span>
+  <section class="card">
+    <h4>
+      {{album.name}} • {{album.year}} 
+    </h4>
+    <ol class="tracks">
+      {%- for track in album.tracks -%}
+      <li>
+        <span>
+          <span class="index">{{ forloop.index }}.</span>
+          {{track.name}}
+        </span>
+        <span class="track-links">
+          {%- if track.youtube -%}
+          <a href="{{ track.youtube }}">YouTube</a><span class="bullet">·</span>
+          {%- endif -%}
           {%- if track.lyrics == false -%}{%- else -%}
           <a href="{{ lyrics_url }}{{ album.name | slugify }}/{{ track.name | slugify }}">Lyrics</a>
           {%- endif -%}
-        </li>
-        {%- endfor -%}
-    </ol>
+        </span>
+      </li>
+      {%- endfor -%}
+    </ol> 
   </section>
 </section>
 {%- endif -%}
