@@ -6,7 +6,7 @@
     <a href="{{ item.url }}">
     {{ endif }}
       <div class="card">
-        <img alt="{{ item.name }} icon" src="/assets/music/card-titles/{{ item.name | slugify }}.jpg" />
+        <img alt="{{ item.name }} icon" src="/assets/music/{{ item.name | slugify }}/image.jpg" />
       </div>  
       <h4 class="card-title">{{ item.name }}</h4>
     {{ if item.url}}

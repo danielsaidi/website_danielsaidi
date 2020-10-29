@@ -1,6 +1,7 @@
 ---
 name: Misfortune
 last-updated: 1999
+image: /assets/music/daniel-saidi/misfortune.jpg
 
 forsaken: https://open.spotify.com/album/7BAWQAsqeHmhiZGVOludpZ?si=oQVJt2AuQ5GZC0zyh5FXOA
 ---

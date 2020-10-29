@@ -1,6 +1,7 @@
 ---
 name: The Rakveres
 last-updated: 2001
+image: /assets/music/daniel-saidi/rakveres.jpg
 ---
 
 I joined Rakveres in 2001. We started off covering bands like Weezer, Danzig and Nirvana, but soon begun writing our own songs, of which we recorded four.
