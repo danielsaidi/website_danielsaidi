@@ -1,7 +1,7 @@
 ---
 name: dEEd
 last-updated: 2008
-image: /assets/music/daniel-saidi/deed.jpg
+image: /assets/music/deed/image.jpg
 
 starfucker: https://open.spotify.com/album/3HvkwlUKUdMl3s1Odmz7od?si=AbzVfvt5SwiAtg36eIZLKw
 youtube-me: https://youtu.be/Tli4d_9OzXM

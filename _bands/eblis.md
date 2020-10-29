@@ -1,7 +1,7 @@
 ---
 name: Eblis
 last-updated: 1999
-image: /assets/music/daniel-saidi/eblis.jpg
+image: /assets/music/eblis/image.jpg
 ---
 
 I formed Eblis in 1999 and was lucky to get the insanely talented Victor Larsson and Tomas Modin to join. In the studio, we got help from many talented friends, which made our studio times very special and creative. 
