@@ -18,7 +18,7 @@ If you find this post too long, I have added this to my [SwiftUIKit]({{page.lib}
 
 ## The basics
 
-To present sheets in a `SwiftUI` app, you use the `sheet` modifier that takes an `isPresented` binding and a `content` function:
+To present sheets in `SwiftUI`, you use the `sheet` modifier that takes an `isPresented` binding and a `content` function:
 
 ```swift
 struct MyView: View {
