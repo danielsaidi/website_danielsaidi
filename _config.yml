@@ -34,10 +34,9 @@ header_pages:
   # - pages/talks/talks.md
   - pages/blog/blog.md
 
+collections_dir: collections
+
 collections:
-  posts:
-    output: true
-    permalink: /blog/:categories/:year/:month/:day/:title
   apps:
     output: true
     permalink: /apps/:name/
@@ -46,6 +45,9 @@ collections:
     permalink: /bands/:name/
   lyrics:
     output: true
+  posts:
+    output: true
+    permalink: /blog/:categories/:year/:month/:day/:title
   privacy-policies:
     output: true
     permalink: /privacy/:title/
