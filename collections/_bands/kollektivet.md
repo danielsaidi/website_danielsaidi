@@ -1,7 +1,6 @@
 ---
 name: Kollektivet
 last-updated: 2007
-image: /assets/music/kollektivet/image.jpg
 ---
 
 I started Kollektivet in 2001, after writing Swedish songs for many years. The first 2001 lineup was small, with me and Lars Forsell trying out songs without reaching a recorded result.

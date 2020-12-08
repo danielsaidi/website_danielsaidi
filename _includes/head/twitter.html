@@ -2,12 +2,12 @@
 {% if page.image %}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="{{ page.image | absolute_url }}">
-{% else if page.icon %}
+{% elsif page.icon %}
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://danielsaidi.com/assets/icons/{{ page.icon }}.png">
 {% else %}
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://danielsaidi.com/assets/avatar.jpg">
+<meta name="twitter:image" content="https://danielsaidi.com/assets{{page.id}}/image.png">
 {% endif %}
 <meta name="twitter:site" content="@danielsaidi">
 <meta name="twitter:creator" content="@danielsaidi">

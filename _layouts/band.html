@@ -4,7 +4,7 @@ layout: default
 
 {%- assign id = page.id | split: "/" | last -%}
 {%- assign band = site.data.bands[id] -%}
-{%- capture assets -%}/assets/music/{{ page.name | slugify }}{%- endcapture -%}
+{%- capture assets -%}/assets/bands/{{ page.name | slugify }}{%- endcapture -%}
 {%- capture assets_img -%}{{ assets }}/{%- endcapture -%}
 {%- capture lyrics_url -%}/lyrics/{{ page.name | slugify }}/{%- endcapture -%}
 

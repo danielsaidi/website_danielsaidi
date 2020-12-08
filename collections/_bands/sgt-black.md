@@ -1,7 +1,6 @@
 ---
 name: Sgt. Black
 last-updated: 2001
-image: /assets/music/sgt-black/image.jpg
 ---
 
 I sang in sgt. Black between 2001 and 2004. During this time, we changed name and lineup twice. The first lineup (New Wave Stoner) wrote many, many songs, but recorded none. The second (x:o) was formed as members rotated and recorded a 7 track demo.
