@@ -5,7 +5,7 @@ tags:  conference
 categories: conferences
 ---
 
-![Woody on stage](/assets/blog/2013-11-08-woody-1.jpg)
+![Woody on stage](/assets/blog/2013/2013-11-08-woody-1.jpg)
 
 Woody claims that is not a public speaker, but rather a mere programmer that has
 been given the privilege to speak in public. If that is the case, I want more
@@ -43,7 +43,7 @@ Or what about "How can we be more productive with five people at one computer. I
 don't know. I just know that we are." Or how about "I don't know about the keyboard.
 Basically, it's just used to get the code into the computer."
 
-![What are the things that destroy productivity](/assets/blog/2013-11-08-woody-2.jpg)
+![What are the things that destroy productivity](/assets/blog/2013/2013-11-08-woody-2.jpg)
 
 Woody wrapped up hos talk by going though things that kill productivity. See the
 image above, then [check out the video](http://oredev.org/oredev2013/2013/videos.html).

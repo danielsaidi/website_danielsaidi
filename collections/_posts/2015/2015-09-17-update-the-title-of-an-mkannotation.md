@@ -10,7 +10,7 @@ present it in a beauuutiful way. Ok, enough with the sales pitch.
 When the user taps a pin on the map, the app will reverse geocode its coordinate
 and use it to display the full address in the callout's subtitle.
 
-![iOS Simulator Screen](/assets/blog/2015-09-17_simulator.png)
+![iOS Simulator Screen](/assets/blog/2013/2015-09-17_simulator.png)
 
 This may seem trivial, but turned out to be a hassle. If the geocoding operation
 takes too long and completes after the callout has been shown, the label text is

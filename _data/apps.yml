@@ -1,20 +1,20 @@
 - name: BookBeat
-  url: http://bookbeat.com
+  url: https://bookbeat.com
   appStoreUrl: https://itunes.apple.com/app/bookbeat/id1056652614
   playStoreUrl:
 
 - name: Tradera
-  url: http://tradera.com
+  url: https://tradera.com
   appStoreUrl: https://itunes.apple.com/us/app/tradera/id427984084
   playStoreUrl: https://play.google.com/store/apps/details?id=com.tradera
 
 - name: Harrys
-  url: http://www.harrys.se
+  url: https://www.harrys.se
   appStoreUrl: 
   playStoreUrl: 
 
 - name: Wally
-  url: http://wally.danielsaidi.com
+  url: https://wally.danielsaidi.com
   appStoreUrl: https://itunes.apple.com/app/wally/id516398915
   playStoreUrl:
 
@@ -44,7 +44,7 @@
   playStoreUrl: 
 
 - name: Vinylsamlaren
-  url: http://vinylsamlaren.se
+  url: https://itunes.apple.com/us/app/vinylsamlaren/id640253601
   appStoreUrl: https://itunes.apple.com/us/app/vinylsamlaren/id640253601
   playStoreUrl:
   

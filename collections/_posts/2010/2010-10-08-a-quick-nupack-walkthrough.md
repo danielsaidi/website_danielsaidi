@@ -18,22 +18,22 @@ visited the web site, downloaded NuPack and gave it a try. This is how you do it
 I hope that you see the subtle irony. Getting NuPack up and running is a walk in
 the park. After completing the steps above, this is what you should see:
 
-![Reference context menu](/assets/blog/2010-10-08-1.png "Add Package Reference context menu")
+![Reference context menu](/assets/blog/2010/10-08-1.png "Add Package Reference context menu")
 
 When you click “Add Package Reference”, a new window opens, where you can search
 for packages:
 
-![Package Reference Window](/assets/blog/2010-10-08-2.png "The Add Package Reference window")
+![Package Reference Window](/assets/blog/2010/10-08-2.png "The Add Package Reference window")
  
 In the image above, I search for log4net, which is a nice logging tool for .NET.
 If I click the Install button, the package is downloaded and added to my project:
 
-![Added reference](/assets/blog/2010-10-08-3.png "The package reference is added to References")
+![Added reference](/assets/blog/2010/10-08-3.png "The package reference is added to References")
 
 If we now look in the solution folder structure, NuPack has created a “packages”
 folder, which contains the downloaded package:
 
-![Packages folder](/assets/blog/2010-10-08-4.png "A “packages” folder is added to the project")
+![Packages folder](/assets/blog/2010/10-08-4.png "A “packages” folder is added to the project")
 
 That’s it! If you need log4net in another project or solution, just repeat these
 steps. Simple, huh?
@@ -41,7 +41,7 @@ steps. Simple, huh?
 Something to pay attention to, however, is that I noticed that the added log4net
 reference points to the GAC:
 
-![GAC Reference](/assets/blog/2010-10-08-5.png "Strange behavior. The GAC is used as reference")
+![GAC Reference](/assets/blog/2010/10-08-5.png "Strange behavior. The GAC is used as reference")
 
 Since I’d rather have a reference to the physical .dll file instead of a package
 reference, I can just make sure the NuPack downloaded .dll file is under version

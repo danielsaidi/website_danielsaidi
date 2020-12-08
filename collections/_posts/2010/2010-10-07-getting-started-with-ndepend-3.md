@@ -18,14 +18,14 @@ to my solution. I just had to:
 
 Once NDepend is added to your solution, the menu will change and look like this:
 
-![NDepend system menu](/assets/blog/2010-10-07-1.png "NDepend system menu")
+![NDepend system menu](/assets/blog/2010/10-07-1.png "NDepend system menu")
 
 But before that, NDepend will perform a first-time analysis of all projects that
 it asked to handle. This is done automatically as you bind NDepend to a solution.
 It will perform the analysis, after which your default browser will come to life
 and display an analysis summary, which is saved in a folder called *NDependOut*:
 
-![NDependOut folder](/assets/blog/2010-10-07-2.png "The generated NDependOut folder")
+![NDependOut folder](/assets/blog/2010/10-07-2.png "The generated NDependOut folder")
 
 Let's look at what the report has to say, shall we?
 
@@ -35,14 +35,14 @@ Let's look at what the report has to say, shall we?
 The NDepend report is divided into some sections, of which more (to me) are more
 interesing than others:
 
-![Report sections](/assets/blog/2010-10-07-3.png "The various sections of the NDepend report")
+![Report sections](/assets/blog/2010/10-07-3.png "The various sections of the NDepend report")
 
 
 ### Application metrics
 
 First of all, a complete textual summary of all application metrics is presented:
 
-![Application Metrics](/assets/blog/2010-10-07-4.png "Application Metrics summary")
+![Application Metrics](/assets/blog/2010/10-07-4.png "Application Metrics summary")
 
 This summary contains a couple of interesting metrics.
 
@@ -60,7 +60,7 @@ am happy that I have no public fields at all.
 
 The last row displays the method/function with the worst *cyclomatic complexity*:
 
-![Cyclomatic complexity](/assets/blog/2010-10-07-5.png "The worst *cyclomatic complexity")
+![Cyclomatic complexity](/assets/blog/2010/10-07-5.png "The worst *cyclomatic complexity")
 
 However, when I analyze the method with the Visual Studio analyzer, it says that
 it has a cyclomatic complexity of 13! Turns out that NDepend displays the *ILCC*,
@@ -76,16 +76,16 @@ as well as information about for the stability of the different assemblies.
 
 First of all, everything is presented a textual grid:
 
-![Assembly metrics table](/assets/blog/2010-10-07-6.png "The NDepend Assembly metrics table")
+![Assembly metrics table](/assets/blog/2010/10-07-6.png "The NDepend Assembly metrics table")
 
 This info is then displayed in various graphical components, such as the *Visual
 NDepend* view (in Visual Studio, you can use NDepend to navigate this view):
 
-![Visual NDepend](/assets/blog/2010-10-07-7.png "The Visual NDepend View")
+![Visual NDepend](/assets/blog/2010/10-07-7.png "The Visual NDepend View")
 
 ...as well as the Abstractness vs. Instability view...
 
-![Abstractness vs. Instability](/assets/blog/2010-10-07-8.png "The Abstractness vs. Instability view")
+![Abstractness vs. Instability](/assets/blog/2010/10-07-8.png "The Abstractness vs. Instability view")
 
 Now let's stop for a moment and discuss this graph. The word "instability" first
 made me feel like I had written the worst piece of junk ever made in the history
@@ -116,7 +116,7 @@ I did not already know.
 Finally, NDepend displays an amazing part, where the code is evaluated according
 to all existing constraints, e.g.:
 
-![Constraints](/assets/blog/2010-10-07-9.png "One of the vast number of constraint summaries")
+![Constraints](/assets/blog/2010/10-07-9.png "One of the vast number of constraint summaries")
 
 This part displays a constraint that selects all functions that:
 
@@ -142,7 +142,7 @@ you a deeper understanding of how you (or your team) writes code.
 Finally comes an exhausting, thorough grid, with ALL the information you can ask
 for about every single type in the solution.
 
-![Type metrics](/assets/blog/2010-10-07-10.png "Type metrics")
+![Type metrics](/assets/blog/2010/10-07-10.png "Type metrics")
 
 The "worst" cells in each category are highlighted, which makes it easy to get a
 quick overview of the entire framework (although the information is massive).

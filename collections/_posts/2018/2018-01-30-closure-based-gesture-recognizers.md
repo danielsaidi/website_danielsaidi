@@ -2,7 +2,7 @@
 title: Closure-based gesture recognizers
 date:  2018-01-30 09:00:00 +0100
 tags:  ios swift
-image: http://danielsaidi.com/assets/blog/2018-01-30.png
+image: /assets/blog/2018/2018-01-30.png
 ---
 
 In my [previous post](/blog/2018/01/19/ditching-rxswift), I wrote about how I do

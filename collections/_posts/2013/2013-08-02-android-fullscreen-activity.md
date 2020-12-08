@@ -4,7 +4,7 @@ date:  2013-08-02 09:14:00 +0100
 tags:  android
 ---
 
-![Counter](/assets/blog/2013-08-05-android.png)
+![Counter](/assets/blog/2013/2013-08-05-android.png)
 
 The best way for me to get my act together when learning new things, is to write
 something about it as early as possible. This way, I can return to my early blog

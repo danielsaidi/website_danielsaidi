@@ -2,6 +2,7 @@
 title: Generate a game board map from a bitmap
 date:  2010-02-21 12:00:00 +0100
 tags:  games c# .net
+image: /assets/blog/2010/02-21-1.png
 ---
 
 I am currently developing an adventure board game in XNA, where players can play
@@ -22,7 +23,7 @@ map, but first some relevant side information.
 
 The players and computer controlled enemies can move horizontally and vertically:
 
-![Board movement example 1](/assets/blog/2010-02-21-1.png)
+![Board movement example 1](/assets/blog/2010/02-21-1.png)
 
 Factors that limit whether or not a game piece can move from one tile to another
 (tile A to tile B) are (so far):
@@ -72,7 +73,7 @@ The XML file content is the topic of a future post.
 
 Consider the following bitmap, which is a really small example of a mission map:
 
-![Bitmap Example](/assets/blog/2010-02-21-2.png)
+![Bitmap Example](/assets/blog/2010/02-21-2.png)
 
 When the mission is initialized, it goes through the following steps:
 
@@ -253,7 +254,7 @@ In the image below, I display the room index as well. As you can see, the `None`
 and `NonWalkable` tiles are given a room index of -1, while all other tiles are
 separated into room 1-4.
 
-![Mission map](/assets/blog/2010-02-21-3.png)
+![Mission map](/assets/blog/2010/02-21-3.png)
 
 If I would like to create a totally different map for another mission, or simply
 edit the map above, this approach makes it reaaaaally easy to do so.

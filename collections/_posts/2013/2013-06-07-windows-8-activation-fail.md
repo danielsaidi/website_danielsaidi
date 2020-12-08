@@ -14,12 +14,12 @@ Sadly, Microsoft fails miserably at doing so.
 I use an MSDN Windows 8 distribution that I get from work. When I try to activate
 my copy in the (limited) Metro interface, I get this:
 
-!["Windows can't activate at the moment" screen.](/assets/blog/2013-06-07-windows-1.png)
+!["Windows can't activate at the moment" screen.](/assets/blog/2013/2013-06-07-windows-1.png)
 
 Clicking the Activate button does not help, though. If you do, you are presented
 a progress spinner that does not do anything:
 
-![An activation spinner doing nothing much](/assets/blog/2013-06-07-windows-2.png)
+![An activation spinner doing nothing much](/assets/blog/2013/2013-06-07-windows-2.png)
 
 You end up with the same, useless error message.
 
@@ -27,12 +27,12 @@ Obviously, this Metro app will not help you out, so let's go pre Windows 8 style
 and activate Windows from the Control Panel. Open the Control Panel, then search
 for "activat" and select "Action Center/Windows Activation".
 
-![Control panel activation screen](/assets/blog/2013-06-07-windows-3.png)
+![Control panel activation screen](/assets/blog/2013/2013-06-07-windows-3.png)
 
 This looks a lot more hi-tech, right? Sadly, this view is as useless as the Metro
 app. Click Activate and you're taken to a progress bar dialog, that ends up in...
 
-![0xC004F074 - Windows couldn't be activated](/assets/blog/2013-06-07-windows-4.png)
+![0xC004F074 - Windows couldn't be activated](/assets/blog/2013/2013-06-07-windows-4.png)
 
 This is getting ridiculous. How the f**k can you create a software that you have
 to activate, that can't be activated (this is also not the first time that I've

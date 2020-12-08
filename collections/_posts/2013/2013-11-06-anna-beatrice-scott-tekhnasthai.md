@@ -5,7 +5,7 @@ tags:  conference
 categories: conferences
 ---
 
-![xkcd book](/assets/blog/2013-11-06-xkcd.jpg)
+![xkcd book](/assets/blog/2013/2013-11-06-xkcd.jpg)
 
 After getting my goodiebag (containing a copy of *xkcd volume 0*!) and watching
 a rather fun introduction about why we are here and why the theme of the year is

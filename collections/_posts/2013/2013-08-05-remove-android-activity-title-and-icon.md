@@ -4,7 +4,7 @@ date:  2013-08-05 09:39:00 +0100
 tags:  android
 ---
 
-![Counter](/assets/blog/2013-08-05-android.png)
+![Counter](/assets/blog/2013/2013-08-05-android.png)
 
 My getting-to-know-and-to-love Android study session continues, and has now come 
 to themes. This morning, I have been learning how to use themes to customize the

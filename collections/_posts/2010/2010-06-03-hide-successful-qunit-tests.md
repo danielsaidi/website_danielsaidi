@@ -11,7 +11,7 @@ to get started with.
 However, QUnit strange enough QUnit lists *all* tests after a test run, not just
 the ones that fails. With just a few executing tests, the report looks like this:
 
-![QUnit - Full test report](/assets/blog/2010-06-03-1.png)
+![QUnit - Full test report](/assets/blog/2010/06-03-1.png)
 
 As you can see, QUnit lists all executed tests by default, even the ones that is
 successfully executed.
@@ -34,7 +34,7 @@ following approach (applies to jQuery 1.4.2 – let me know if this is out-of da
 This will make QUnit only append the list element if a test is “bad”, that is if
 it failed. The result will look like this:
 
-![QUnit - Compact test result presentation](/assets/blog/2010-06-03-2.png)
+![QUnit - Compact test result presentation](/assets/blog/2010/06-03-2.png)
 
 Maybe there is a built-in way of making QUnit behave like this. If you know how,
 please leave a comment.

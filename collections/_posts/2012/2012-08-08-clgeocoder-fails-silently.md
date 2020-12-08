@@ -7,7 +7,7 @@ tags:  ios objc geo
 I am currently developing a location-based app for iPad and iPhone. This is how
 it looks:
 
-<img src="/assets/blog/2012-08-08-app.png" width="250" alt="App Screenshot" />
+<img src="/assets/blog/2012/2012-08-08-app.png" width="250" alt="App Screenshot" />
 
 In the app, you can pin your current location, pin any place by pressing the map
 or search for an address.

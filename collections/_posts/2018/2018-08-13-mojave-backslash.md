@@ -17,6 +17,6 @@ To restore the old pre-Mojave behavior, just open `Keyboard Settings` in `System
 Preferences` and select `Shortcuts`. Select `Application shortcuts` then uncheck
 `Show help menu`, like this:
 
-[![Keyboard Settings]({{ "assets/blog/2018-08-13.png" | absolute_url }})]()
+[![Keyboard Settings]({{ "assets/blog/2018/2018-08-13.png" | absolute_url }})]()
 
 After this, the standard backslash keybinding should work once again.

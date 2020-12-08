@@ -13,7 +13,7 @@ drive has been writing constantly, especially when starting and when waking up,
 but also when idling. When the hard drive was reading and writing like hell, the
 iMac went into slow motion.
 
-![The mighty iMac – great once you fix Spotlight](/assets/blog/2011-05-15.jpg)
+![The mighty iMac – great once you fix Spotlight](/assets/blog/2011/2011-05-15.jpg)
 
 I use OSX 10.6.7 and have a BootCamp partition on which I have Windows 7 installed.
 

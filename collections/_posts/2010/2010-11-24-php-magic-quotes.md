@@ -12,7 +12,7 @@ Then, about a month ago, I published a new web site. When I posted HTML via AJAX
 on that site, all line feeds turned into u000a strings. The problem only occured
 on his domain, and not on mine, and looked like this:
 
-![Magic quotes](/assets/blog/2010-11-24.png "Magic quotes in action")
+![Magic quotes](/assets/blog/2010/11-24.png "Magic quotes in action")
 
 Then yesterday, the problem appeared on my domain as well. I did not understand
 this at all, until I had a chat with a friend of mine, who just brainstormed and

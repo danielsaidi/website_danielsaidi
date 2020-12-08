@@ -4,7 +4,7 @@ date:  2013-07-31 14:29:00 +0100
 tags:  android lint
 ---
 
-![Image of an Android teacher](/assets/blog/2013-08-05-android.png)
+![Image of an Android teacher](/assets/blog/2013/2013-08-05-android.png)
 
 As I have just started learning Android, I was happy to see that lint is such an
 integral part of the development process. Lint can be used to enforce general or
@@ -18,7 +18,7 @@ In the popup window that appears, you can set the scope of the analysis, such as
 which projects to analyze and which to skip. For my test, I just chose to analyze
 everything and ended up with this nice summary:
 
-![Android Lint Summary](/assets/blog/2013-07-31-lint.png)
+![Android Lint Summary](/assets/blog/2013/2013-07-31-lint.png)
 
 When you browse through the resulting report, you will notice that many warnings
 can just be ignored, such as spelling (which catches a lot of "typos" in strings).

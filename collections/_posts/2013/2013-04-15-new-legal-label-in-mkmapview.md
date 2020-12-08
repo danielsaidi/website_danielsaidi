@@ -11,7 +11,7 @@ am using Apple Maps instead.
 I have always admired Apple for their wonderful design, but when it comes to the
 new MKMapView that is powered by Apple Maps, I find the following annoying:
 
-![Apple Maps In Action](/assets/blog/2013-04-15-map.png)
+![Apple Maps In Action](/assets/blog/2013/2013-04-15-map.png)
 
 Take a look at the lower-left corner. See the nice little round button? Shouldn't
 it be even prettier pushed down even more into the corner? Yeah, I know...I think

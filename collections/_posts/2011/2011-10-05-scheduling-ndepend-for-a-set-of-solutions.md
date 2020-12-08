@@ -40,7 +40,7 @@ and run these analyses. If the code was unchanged, NDepend just would not run. I
 however noticed that the solution was simple – under `Tools / Options / Anaysis`,
 you can tell NDepend to always run a full analysis:
 
-![NDepend](/assets/blog/2011-10-05-2.png "NDepend")
+![NDepend](/assets/blog/2011/2011-10-05-2.png "NDepend")
 
 In most cases this default setting is correct, since it will run a full analysis
 at least once per day. However, in this case, I decided to keep the “Always Run

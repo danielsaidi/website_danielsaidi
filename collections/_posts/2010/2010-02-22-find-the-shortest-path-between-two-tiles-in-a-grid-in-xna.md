@@ -2,6 +2,7 @@
 title: Find the shortest path between two tiles in a grid in XNA
 date:  2010-02-22 12:00:00 +0100
 tags:  games c# .net
+image: /assets/blog/2010/02-22-1.png
 ---
 
 
@@ -32,7 +33,7 @@ Before I describe the method, let’s recap a bit.
 
 The players and computer controlled enemies can move horizontally and vertically:
 
-![Board movement example 1](/assets/blog/2010-02-22-1.png)
+![Board movement example 1](/assets/blog/2010/02-22-1.png)
 
 Factors that limit whether or not a game piece can move from one tile to another
 (tile A to tile B) are (so far):
@@ -64,7 +65,7 @@ that are not part of the game board from tiles that just can not be entered.
 Consider the following map, where a player stands on the green tile and wants to
 move to the red tile:
 
-![Board movement example 2](/assets/blog/2010-02-22-2.png)
+![Board movement example 2](/assets/blog/2010/02-22-2.png)
 
 In the example above, multiple “shortest paths” exist. As we will see later, the
 method I use will find a random path every time. It has the following main steps:
@@ -253,7 +254,7 @@ map into a game board, as is described in the previous blog post.
 
 This is how my game (for now) displays the tiles. For now, the walls are missing:
 
-![Rendered output](/assets/blog/2010-02-22-3.png)
+![Rendered output](/assets/blog/2010/02-22-3.png)
 
 In the image above, all tiles are walkable, to increase the number of “shortest” 
 paths. However, it is not possible to walk to a dark tile from a light one. This
@@ -266,7 +267,7 @@ When I run my game (well, game-to-be), I auto-generate a path between this green
 and red tile. Below are displayed three example of resulting path suggestions:
 
 
-![Three different paths](/assets/blog/2010-02-22-4.png)
+![Three different paths](/assets/blog/2010/02-22-4.png)
 
 The path finding operation is fast and can handle large board games. However, it
 would not be suitable for more complex games, where the world is not tile-based.

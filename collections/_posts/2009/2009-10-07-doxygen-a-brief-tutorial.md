@@ -2,13 +2,14 @@
 title: Doxygen - A brief tutorial
 date:  2009-10-07 08:00:00 +0100
 tags:  .net documentation
+image: /assets/blog/2009/10-07.png
 ---
 
 I am using Doxygen to generate a web-based documentation from my well-documented
 NExtra project's source code. Doxygen also supports extracting the documentation
 in various formats (HTML, LaTex, .man, XML etc.). I'll go with HTML for now.
 
-![Doxygen Wizard](/assets/blog/2009-10-07.png)
+![Doxygen Wizard](/assets/blog/2009/10-07.png)
 
 To extract a simple HTML site from your documentation, just follow these steps:
 

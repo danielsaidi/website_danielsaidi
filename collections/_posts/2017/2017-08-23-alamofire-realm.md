@@ -1137,7 +1137,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
 The result looks like this:
 
-![Image](/assets/blog/2015-08-23-app.png)
+![Image](/assets/blog/2013/2015-08-23-app.png)
 
 And...
 
