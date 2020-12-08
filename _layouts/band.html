@@ -4,8 +4,6 @@ layout: default
 
 {%- assign id = page.id | split: "/" | last -%}
 {%- assign band = site.data.bands[id] -%}
-{%- capture assets -%}/assets/bands/{{ page.name | slugify }}{%- endcapture -%}
-{%- capture assets_img -%}{{ assets }}/{%- endcapture -%}
 {%- capture lyrics_url -%}/lyrics/{{ page.name | slugify }}/{%- endcapture -%}
 
 <article class="card">
@@ -19,7 +17,9 @@ layout: default
 <section class="grid photos">
   {%- for photo in band.photos -%}
   <div class="card">
-    <img src="{{ assets_img }}{{ photo.file }}_sml.jpg" alt="{{photo.text}}"></img>
+    {%- capture name -%}{{photo.file}}_sml.jpg{%- endcapture -%}
+    {%- capture alt -%}An image of {{photo.text}}{%- endcapture -%}
+    {%- include image.html name=name alt=alt title=photo.text -%}
   </div>
   {%- endfor -%}
 </section>
@@ -32,8 +32,9 @@ layout: default
 <section class="grid album">
   <div class="details">
     <div class="card cover">
-      {%- assign cover = album.name | slugify -%}
-      <img src="{{ assets_img }}{{ cover }}.jpg" alt="{{photo.text}}"></img>
+      {%- capture name -%}{{album.name | slugify}}.jpg{%- endcapture -%}
+      {%- capture alt -%}The album cover of {{photo.text}}{%- endcapture -%}
+      {%- include image.html name=name alt=alt title=album.name -%}
     </div>
   </div>
   <section class="card">
