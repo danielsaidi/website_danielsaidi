@@ -8,7 +8,7 @@ lib:    https://github.com/danielsaidi/SwiftUIKit
 source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Sheets
 ---
 
-In this post, we'll look at an easier way to manage full screen covers in `SwiftUI`, that lets us reuse functionality, reduce state management and present many different covers in the same way.
+In this post, we'll look at an easier way to manage full screen covers in `SwiftUI`, that lets us reuse functionality, reduce state management and present many covers in the same way.
 
 
 ## TLDR;
