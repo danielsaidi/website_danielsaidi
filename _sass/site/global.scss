@@ -20,8 +20,8 @@ html, body {
 
 hr.styled {
   background: url(bg/hr.png) no-repeat center top;
+  background-size: 100% 20px;
   border: none;
   height: 20px;
   margin: 0px;
-  margin-top: $standard-margin;
 }
