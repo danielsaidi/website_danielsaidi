@@ -5,7 +5,6 @@ tags:  games c# .net
 image: /assets/blog/2010/02-22-1.png
 ---
 
-
 I am currently playing around with developing an adventure board game in XNA, in
 which players can play various missions that take place on a tile-based board. I
 am a full-blown XNA newbie who takes this approach to learn the platform, but it
