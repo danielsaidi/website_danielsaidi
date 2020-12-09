@@ -1,16 +1,10 @@
 {%- assign items = include.items -%}
 
-<section class="grid cards bands">
+<section class="grid photos bands">
   {% for item in items %}
-    {{ if item.url}}
     <a href="{{ item.url }}">
-    {{ endif }}
-      <div class="card">
-        <img alt="{{ item.name }} icon" src="/assets/bands/{{ item.name | slugify }}/image.jpg" />
-      </div>  
+      <img alt="{{ item.name }} icon" src="/assets/bands/{{ item.name | slugify }}/image.jpg" />
       <h4>{{ item.name }}</h4>
-    {{ if item.url}}
     </a>
-    {{ endif }}
   {% endfor %}
 </section>
