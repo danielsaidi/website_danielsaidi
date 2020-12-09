@@ -3,6 +3,7 @@ $standard-margin: 20px;
 @import "site/global";
 
 @import "site/code";
+@import "site/colors";
 @import "site/grids";
 @import "site/images";
 @import "site/lists";
@@ -14,4 +15,3 @@ $standard-margin: 20px;
 @import "site/blog/post";
 @import "site/blog/tags";
 @import "site/cards/cards";
-@import "site/cards/grid";

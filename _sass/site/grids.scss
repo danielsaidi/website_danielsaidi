@@ -3,6 +3,20 @@
   grid-template-columns: repeat(4, 1fr);
   grid-column-gap: $standard-margin;
   grid-row-gap: $standard-margin;
+
+  img {
+    margin-bottom: 10px;
+  }
+  
+  a {
+    text-align: center;
+  }
+}
+
+.grid.icons {
+  img {
+    border-radius: 23%;
+  }
 }
 
 .grid.photos {
