@@ -4,11 +4,11 @@ date:  2012-11-29 23:03:00 +0100
 tags:  windows
 ---
 
-![Apple Mouse](/assets/blog/2012/2012-11-29-mouse.jpg)
-
 In OS X Lion, Apple introduced natural scrolling. It means that when you scroll,
 the scrollable content will move around like it was a sheet of paper you pressed
 and dragged around with your finger. 
+
+![Apple Mouse](/assets/blog/2012/2012-11-29-mouse.jpg)
 
 If you read the lines above, but have not tried natural scrolling yourself, you
 may think that this is how you have scrolled all along. However, the traditional
