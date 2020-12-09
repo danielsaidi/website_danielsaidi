@@ -1,9 +1,4 @@
 
-- name: Blog
-  title: My blog
-  link-title: Read my blog
-  url: /blog/
-
 - name: GitHub
   title: Me on GitHub
   link-title: Checkout my code on GitHub
@@ -13,6 +8,11 @@
   title: Me on Twitter
   link-title: Checkout my Twitter profile
   url: https://twitter.com/danielsaidi
+
+- name: LinkedIn
+  title: LinkedIn
+  link-title: Checkout my LinkedIn profile
+  url: https://linkedin.com/in/danielsaidi
 
 - name: E-mail
   title: Send me an e-mail
