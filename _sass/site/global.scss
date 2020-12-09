@@ -12,6 +12,12 @@ html, body {
   border: 0px !important;
 }
 
+.site-footer {
+  border-top: 0;
+  .wrapper { padding: 20px; }
+  .wrapper, ul { text-align: center !important; }
+}
+
 hr.styled {
   background: url(bg/hr.png) no-repeat center top;
   border: none;
