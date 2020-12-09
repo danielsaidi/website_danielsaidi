@@ -1,9 +1,0 @@
-{%- assign items = include.items -%}
-
-<section class="grid icons {{type}}">
-  {% for item in items %}
-    <a href="{{ item.url }}">
-      <img alt="{{ item.name }} icon" src="/assets/icons/{{ item.name | downcase |  replace:' ','-' }}.png" />
-    </a>
-  {% endfor %}
-</section>

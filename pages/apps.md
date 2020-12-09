@@ -14,4 +14,4 @@ permalink: /apps/
   </p>
 </article>
 
-{% include cards/grid.html items=site.data.apps %}
+{% include grid.html items=site.data.apps %}

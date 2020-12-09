@@ -11,4 +11,4 @@ permalink: /open-source/
   </p>
 </article>
 
-{% include cards/grid.html items=site.data.open-source %}
+{% include grid.html items=site.data.open-source %}
