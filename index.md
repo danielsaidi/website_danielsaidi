@@ -3,7 +3,6 @@ layout: plain
 title: Home
 
 bookbeat: http://www.bookbeat.com/
-twitter: http://www.twitter.com/danielsaidi
 ---
 
 <div class="home">
@@ -18,7 +17,7 @@ twitter: http://www.twitter.com/danielsaidi
             I am a software engineer in Stockholm, Sweden, where I currently work as iOS Lead at <a href="{{page.bookbeat}}">BookBeat</a>. I have also worked with .NET, web and apis for 15+ years.
           </p>
           <p>
-            I love coding and to build <a href="apps">apps</a> and <a href="open-source">open source projects</a>. I <a href="{{page.twitter}}">tweet</a> often, <a href="blog">blog</a> seldom and enjoy giving occasional <a href="talks">talks</a>. I also used to make a lot of <a href="music">music</a>.
+            I love coding and to build <a href="apps">apps</a> and <a href="open-source">open source projects</a>. I <a href="{{site.twitter_url}}">tweet</a> often, <a href="blog">blog</a> seldom and enjoy giving occasional <a href="talks">talks</a>. I also used to make a lot of <a href="music">music</a>.
           </p>
         </div>
       </section>

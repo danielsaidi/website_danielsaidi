@@ -5,7 +5,9 @@ ul.horizontal {
 
   li {
     display: inline-block;
+    margin: 0;
     margin-right: 5px;
+    padding: 0;
   }
 
   li:before {

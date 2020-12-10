@@ -2,7 +2,12 @@ html, body {
   width: 100%;
 }
 
-.header-container hr {
+.site-header {
+  text-align: center;
+  padding: 5px;
+}
+
+.site-header + hr {
   margin-top: 0px !important;
 }
 
@@ -16,8 +21,13 @@ html, body {
 
 .site-footer {
   border-top: 0;
+  padding-top: 0;
   .wrapper { padding: 20px; }
   .wrapper, ul { text-align: center !important; }
+}
+
+hr.site-footer-separator {
+  margin-bottom: 20px;
 }
 
 hr {

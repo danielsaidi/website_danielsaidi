@@ -3,6 +3,10 @@ html, body {
   background-color: #004080;
 }
 
-a, a:hover, a:visited {
+a, a:hover, a.title:hover, a:visited {
   color: #F2C342;
+}
+
+a.title {
+  color: white;
 }

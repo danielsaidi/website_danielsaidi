@@ -1,10 +1,12 @@
 .grid { 
   display: grid; 
+  grid-column-gap: 30px;
+  grid-row-gap: 40px;
   grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: $standard-margin;
-  grid-row-gap: $standard-margin;
+  
 
   img {
+    margin-top: 0;
     margin-bottom: 10px;
   }
   

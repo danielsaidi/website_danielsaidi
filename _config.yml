@@ -17,9 +17,16 @@ kramdown:
   input: GFM
   syntax_highlighter: rouge
 
-twitter_username: danielsaidi
-github_username:  danielsaidi
 google_analytics: UA-2575180-1
+
+github_username:  danielsaidi
+linkedin_username: danielsaidi
+twitter_username: danielsaidi
+
+github_url: https://github.com/danielsaidi
+linkedin_url: https://linkedin.com/in/danielsaidi
+twitter_url: https://twitter.com/danielsaidi
+
 disqus:
     shortname: danielsaidi
 
