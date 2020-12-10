@@ -6,8 +6,12 @@ html, body {
   margin-top: 0px !important;
 }
 
+.page-content {
+  padding: 0;
+}
+
 .site-header {
-  border: 0px !important;
+  border: 0 !important;
 }
 
 .site-footer {
@@ -16,10 +20,11 @@ html, body {
   .wrapper, ul { text-align: center !important; }
 }
 
-hr.styled {
+hr {
   background: url(bg/hr.png) no-repeat center top;
   background-size: 100% 20px;
   border: none;
   height: 20px;
-  margin: 0px;
+  margin-top: 60px;
+  margin-bottom: 40px;
 }

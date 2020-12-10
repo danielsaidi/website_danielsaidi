@@ -17,4 +17,4 @@ redirect_from: /bands/
 </article>
 
 {%- assign bands = site.bands | sort: 'last-updated' | reverse | where:'hidden',false -%}
-{% include bands/grid.html items=bands %}
+{% include grid.html items=bands type="bands" extension="jpg" %}

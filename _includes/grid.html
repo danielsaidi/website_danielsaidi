@@ -1,9 +1,10 @@
 {%- assign type = include.type -%}
+{%- assign extension = include.extension | default: "png" -%}
 
 <section class="grid {{type}}">
   {% for item in include.items %}
     <a href="{{ item.url }}">
-      <img alt="{{ item.name }}" src="/assets/{{type}}/{{ item.name | downcase |  replace:' ','-' }}.png" />
+      <img alt="{{ item.name }}" src="/assets/{{type}}/{{ item.name | downcase |  replace:' ','-' }}.{{extension}}" />
       {{ item.name }}
     </a>
   {% endfor %}

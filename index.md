@@ -22,14 +22,16 @@ twitter: http://www.twitter.com/danielsaidi
           </p>
         </div>
       </section>
+      <hr />
       <section class="links">
         <h2>Links</h2>
         {%- include grid.html items=site.data.links type="icons" -%}
       </section>
-      <section class="apps">
+      <hr /><section class="apps">
         <h2>Apps</h2>
         {%- include grid.html items=site.data.apps type="icons" -%}
       </section>
+      <hr />
       <section class="open-source">
         <h2>Open Source</h2>
         {%- include grid.html items=site.data.open-source type="icons" -%}
