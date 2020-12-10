@@ -36,10 +36,9 @@ plugins:
 
 header_pages:
   - index.md
-  # - pages/apps.md
-  # - pages/open-source.md
-  # - pages/talks/talks.md
   - pages/blog/blog.md
+  - pages/apps.md
+  - pages/open-source.md
 
 collections_dir: collections
 

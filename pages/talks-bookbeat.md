@@ -4,7 +4,7 @@ title: Talks - BookBeat
 permalink: /talks/bookbeat
 ---
 
-<article class="card">
+<article>
   <h1>Talks</h1>
   <p>Here is a list of all presentations that I've done at BookBeat since joining in September 2016.</p>
 </article>

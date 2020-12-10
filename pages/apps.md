@@ -4,8 +4,8 @@ title: Apps
 permalink: /apps/
 ---
 
-<article class="card">
-  {% include cards/header.html title="Apps" %}
+<article>
+  <h1>Apps</h1>
   <p>
     Here is a list of some apps that I have built for iOS and Android, for myself as well as for clients.
   </p>
@@ -14,4 +14,6 @@ permalink: /apps/
   </p>
 </article>
 
-{% include grid.html items=site.data.apps %}
+<hr />
+
+{% include grid.html items=site.data.apps type="icons" %}

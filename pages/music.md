@@ -6,8 +6,8 @@ permalink: /music/
 redirect_from: /bands/
 ---
 
-<article class="card">
-  {% include cards/header.html title="Music" %}
+<article>
+  <h1>Music</h1>
   <p>
     Here are some of the bands that I have played with over the years, ranging from 1996 to today. I have only included bands that recorded and released anything.
   </p>
@@ -16,5 +16,7 @@ redirect_from: /bands/
   </p>
 </article>
 
+<hr />
+
 {%- assign bands = site.bands | sort: 'last-updated' | reverse | where:'hidden',false -%}
-{% include grid.html items=bands type="bands" extension="jpg" %}
+{% include grid.html items=bands type="bands" %}

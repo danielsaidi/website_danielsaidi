@@ -4,25 +4,46 @@ layout: default
 
 {%- assign id = page.id | split: "/" | last -%}
 {%- assign band = site.data.bands[id] -%}
+{%- assign info=band.info -%}
+{%- assign members=band.members -%}
 {%- capture lyrics_url -%}/lyrics/{{ page.name | slugify }}/{%- endcapture -%}
 
-<article class="card">
-  {% include bands/band-header.html band=band %}
+<article>
+
+  <h1>{{ info.name | escape }}</h1>
+  
+  <p>  
+    <ul class="horizontal">
+      <li>{{info.year-from}} - {{info.year-to}}</li>
+      <li>{{info.genres}}</li>
+    </ul>
+  </p>
+
+  <p>
+    <ul class="horizontal">
+      {%- for member in members -%}
+        <li>{{member.name}} ({{member.instrument}})</li>
+      {%- endfor -%}
+    </ul>
+  </p>
+
   {{ content }}
 </article>
+
+<hr />
   
 {%- if band.photos -%}
 <h2>Photos</h2>
 <a name="photos"></a>
 <section class="grid photos">
   {%- for photo in band.photos -%}
-  <div class="card">
     {%- capture name -%}{{photo.file}}_sml.jpg{%- endcapture -%}
     {%- capture alt -%}An image of {{photo.text}}{%- endcapture -%}
     {%- include image.html name=name alt=alt title=photo.text -%}
-  </div>
   {%- endfor -%}
 </section>
+
+<hr />
 {%- endif -%}
 
 <h2>Recordings</h2>
@@ -34,10 +55,10 @@ layout: default
     <div class="card cover">
       {%- capture name -%}{{album.name | slugify}}.jpg{%- endcapture -%}
       {%- capture alt -%}The album cover of {{photo.text}}{%- endcapture -%}
-      {%- include image.html name=name alt=alt title=album.name -%}
+      {%- include image.html name=name class="cover" alt=alt title=album.name -%}
     </div>
   </div>
-  <section class="card">
+  <section>
     <h4>
       {{album.name}} • {{album.year}} 
     </h4>
