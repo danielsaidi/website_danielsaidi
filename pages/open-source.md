@@ -11,6 +11,4 @@ permalink: /open-source/
   </p>
 </article>
 
-<hr />
-
 {% include grid.html items=site.data.open-source type="icons" %}
