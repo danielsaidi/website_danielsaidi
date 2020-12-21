@@ -1,5 +1,7 @@
 ---
-title: Flykt
+title:  Flykt
+band:   Magnus Wakander
+album:  Svärta
 ---
 
 Jag älskar sättet som du ser på mig

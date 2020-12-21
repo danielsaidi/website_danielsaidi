@@ -10,6 +10,7 @@ layout: default
 
 <article>
 
+  <a href="/music#{{ page.name | slugify }}"><h4>Music</h4></a>
   <h1>{{ info.name | escape }}</h1>
   
   <p>  
@@ -19,19 +20,26 @@ layout: default
     </ul>
   </p>
 
-  <p>
-    <ul class="horizontal">
-      {%- for member in members -%}
-        <li>{{member.name}} ({{member.instrument}})</li>
-      {%- endfor -%}
-    </ul>
-  </p>
-
   {{ content }}
 </article>
 
 <hr />
-  
+
+<!--
+{%- if band.members -%}
+<h2>Members</h2>
+<p>
+  <ul class="horizontal">
+    {%- for member in members -%}
+      <li>{{member.name}} ({{member.instrument}})</li>
+    {%- endfor -%}
+  </ul>
+</p>
+
+<hr />
+{%- endif -%}
+-->
+
 {%- if band.photos -%}
 <h2>Photos</h2>
 <a name="photos"></a>
@@ -51,21 +59,20 @@ layout: default
 {%- for album in band.discography -%}
 {%- if album.hidden -%}{%- else -%}
 <section class="grid album">
-  <div class="details">
-    <div class="card cover">
-      {%- capture name -%}{{album.name | slugify}}.jpg{%- endcapture -%}
-      {%- capture alt -%}The album cover of {{photo.text}}{%- endcapture -%}
-      {%- include image.html name=name class="cover" alt=alt title=album.name -%}
-    </div>
+  <div class="cover">
+    {%- capture name -%}{{album.name | slugify}}.jpg{%- endcapture -%}
+    {%- capture alt -%}The album cover of {{photo.text}}{%- endcapture -%}
+    {%- include image.html name=name class="cover" alt=alt title=album.name -%}
   </div>
   <section>
-    <h4>
+    <h3>
       {{album.name}} • {{album.year}} 
-    </h4>
+    </h3>
     <ol class="tracks">
       {%- for track in album.tracks -%}
+      <a name="{{album.name | slugify}}"></a>
       <li>
-        <span>
+        <span class="track-name">
           <span class="index">{{ forloop.index }}.</span>
           {{track.name}}
         </span>

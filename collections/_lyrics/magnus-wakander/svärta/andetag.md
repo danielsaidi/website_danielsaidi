@@ -1,5 +1,7 @@
 ---
-title: Andetag
+title:  Andetag
+artist: Magnus Wakander
+album:  Svärta
 ---
 
 Luften är klarare nu, men ändå sjukare

@@ -1,42 +1,43 @@
 .grid.album {
   grid-template-columns: 200px auto;
 
+  img.cover { margin: 0 }
+
   ol.tracks {
     padding: 0;
     margin: 0;
 
     li {
-      padding: 5px 0;
+      padding: 10px 0;
       list-style: none;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      border-bottom: solid 1px #ffffff33;
 
       .index { 
         margin-right: 5px;
       }
 
       .track-links {
-        text-align: right;
-
         .bullet {
           margin: 10px 10px;
         }
       }
     }
-    li:last-of-type {}
   } 
+}
+
+.grid.album + .grid.album {
+  margin-top: 40px;
 }
 
 @media (max-width: 600px) {
   .grid.album {
-    .cover { width: 200px; }
     grid-template-columns: repeat(1, 1fr);
   }
 }
 
 .lyrics {
-  margin-top: 2*$standard-margin;
   line-height: 1.7em;
   br { display: none; }
   p br { display: inline; }

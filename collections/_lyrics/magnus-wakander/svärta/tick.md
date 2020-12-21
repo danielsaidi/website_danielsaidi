@@ -1,5 +1,7 @@
 ---
-title: Tick
+title:  Tick
+band:   Magnus Wakander
+album:  Svärta
 ---
 
 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0

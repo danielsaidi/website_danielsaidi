@@ -1,5 +1,7 @@
 ---
-title: Död
+title:  Död
+band:   Magnus Wakander
+album:  Svärta
 ---
 
 Aldrig mera död

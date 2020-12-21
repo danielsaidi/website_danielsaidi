@@ -1,5 +1,7 @@
 ---
-title: Brinna ut
+title:  Brinna ut
+band:   Magnus Wakander
+album:  Svärta
 ---
 
 Likt en mardröm, när natten faller

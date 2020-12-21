@@ -1,5 +1,7 @@
 ---
-title: Ta slut
+title:  Ta slut
+band:   Magnus Wakander
+album:  Svärta
 ---
 
 Jag är, jag är

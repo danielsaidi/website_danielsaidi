@@ -7,6 +7,16 @@ a, a:hover, a.title:hover, a:visited {
   color: #F2C342;
 }
 
+.grid.album {
+  a, a:hover, a.title:hover, a:visited {
+    color: #F2C342;
+  }
+}
+
 a.title {
   color: white;
+}
+
+.discrete {
+  opacity: 0.9;
 }

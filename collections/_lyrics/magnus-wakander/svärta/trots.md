@@ -1,5 +1,7 @@
 ---
-title: Trots
+title:  Trots
+band:   Magnus Wakander
+album:  Svärta
 ---
 
 Ned på knä, Huvudet sänkt

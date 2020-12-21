@@ -1,5 +1,7 @@
 ---
-title: Kulspruta
+title:  Kulspruta
+band:   Magnus Wakander
+album:  Svärta
 ---
 
 Tiden rör sig framåt 

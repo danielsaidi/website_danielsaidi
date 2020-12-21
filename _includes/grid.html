@@ -7,7 +7,7 @@
 
 <section class="grid {{type}}">
   {% for item in include.items %}
-    <a href="{{ item.url }}">
+    <a href="{{ item.url }}" name="{{ item.name | slugify }}">
       <img alt="{{ item.name }}" src="/assets/{{type}}/{{ item.name | slugify }}.{{extension}}" />
       {%- if item.name -%}
       <p>{{ item.name }}</p>
