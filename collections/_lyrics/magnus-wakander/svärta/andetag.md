@@ -1,6 +1,6 @@
 ---
 title:  Andetag
-artist: Magnus Wakander
+band:   Magnus Wakander
 album:  Svärta
 ---
 

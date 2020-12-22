@@ -26,14 +26,6 @@ html, body {
   .wrapper, ul { text-align: center !important; }
 }
 
-hr.site-footer-separator {
-  margin-bottom: 20px;
-}
-
-article + section.grid {
-  margin-top: 60px;
-}
-
 hr {
   background: url(bg/hr.png) no-repeat center top;
   background-size: 100% 20px;
@@ -41,4 +33,28 @@ hr {
   height: 20px;
   margin-top: 60px;
   margin-bottom: 40px;
+}
+
+hr.site-footer-separator {
+  margin-bottom: 20px;
+}
+
+article.post {
+
+  h1 {
+    margin-bottom: 0px;
+  }
+
+  header {
+    margin-bottom: 20px;
+  }
+}
+
+article + section.grid {
+  margin-top: 60px;
+}
+
+article.post + article.post {
+
+  margin-top: 60px;
 }
