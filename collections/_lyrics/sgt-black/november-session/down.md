@@ -1,53 +1,56 @@
 ---
-title: Down
+title:  Down
+band:   sgt. Black
+album:  November Session
 ---
 
-Stained red on grey,
-met my eyes
-on their way down
-Nails carving stone,
-but no way up - too far down
+Stained red on grey
+Met my eyes
+On their way down
+Nails carving stone
+Nut no way up
+Too far down
 
-All different now,
-will make this mine,
-must tear this down 
+All different now
+Will make this mine
+Must tear this down 
 So I’ll stain pain on your strength
 Walls will crumble and fall down
 
 Don’t want to be
 Don’t want to be an open road
-for you to travel on
+For you to travel on
 Don’t want to feel
-don’t want to lie hidden in the dark
+Don’t want to lie hidden in the dark
 I deserve more
 
-So many smiles to hate/adore,
-to bring me down
-Successful lives,
-still glossy facades
-will crumble and fall down
+So many smiles to hate/adore
+To bring me down
+Successful lives
+Still glossy facades
+Will crumble and fall down
 
-Don’t want to be…
+Don’t want to be...
 
-Stained red on grey,
-met my eyes
-on their way down
+Stained red on grey
+Met my eyes
+On their way down
 Now I stain pain on your strength
 Walls will crumble and fall down
 
-Don’t want to be…
+Don’t want to be...
 
-No, I won’t be,
+No, I won’t be
 I won’t be a nobody
-when I can rule this world
-And I won’t kneel,
-won’t cease to exist among you all
+When I can rule this world
+And I won’t kneel
+Won’t cease to exist among you all
 I deserve more
 
-Denied to breathe your air,
-so I’ll suck it out of you
-Looked down on all my life,
-now I’ll stomp down on you
+Denied to breathe your air
+So I’ll suck it out of you
+Looked down on all my life
+Now I’ll stomp down on you
 I never felt as one
 Now, I’m the only one who stands
 As we go down

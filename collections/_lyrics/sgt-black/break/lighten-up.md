@@ -1,32 +1,33 @@
 ---
-title: Lighten Up
+title:  Lighten Up
+band:   sgt. Black
+album:  Break
 ---
 
-Your time is up,
-the seconds that passed made no change
-cause no one here
-would ever doubt to let you go
-You’re not alone,
-but no one’s here to answer,
-no one here to scream
+Your time is up
+The seconds that passed made no change
+Cause no one here would ever doubt to let you go
+You’re not alone
+But no one’s here to answer
+No one here to scream "Hello"
 
-“Hello, lighten up,
-you better believe in something new”
-Lighten up,
-you better believe it’s something…
+Lighten up
+You better believe in something new
+Lighten up
+You better believe it’s something...
 
-…that you may grab,
-that you may grab
-without the constant fear
-that you’ll have to let it go
+...that you may grab
+That you may grab
+Without the constant fear
+That you’ll have to let it go
 You’re not alone, (you’re so alone)
-but even your echo fails you;
-no reply to your “hello?”
+But even your echo fails you
+No reply to your “Hello?”
 
-But lighten up
-you better believe in something new
-Lighten up,
-you better believe and pierce it through
-Lighten up,
-you better believe it’s sometimes good to
+Lighten up
+You better believe in something new
+Lighten up
+You better believe and pierce it through
+Lighten up
+You better believe it’s sometimes good to
 Lighten up

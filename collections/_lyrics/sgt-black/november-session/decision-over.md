@@ -1,41 +1,45 @@
 ---
-title: "Decision: over"
+title:  "Decision: over"
+band:   sgt. Black
+album:  November Session
 ---
 
 I want to be there to tempt your eyes
 I want to be there for you to idolize
 
-Look at me,
-at this artificial life I live
+Look at me
+At this artificial life I live
 Placed within
-to fill with nothing
+To fill with nothing
 
 Turn, turn off, turn away
 Believe, it’s real
 So hard to feel like I feel
 
 So look at me,
-at this pointless life I live
+At this pointless life I live
 This is shit
-and still, you’re nailed to it
+And still, you’re nailed to it
 
 Don’t want to be a needle in your eyes
 Don’t want to be there for you to moralize
 
 Look at me,
-at this reflection of the lives you live
+At this reflection of the lives you live
 Nothing real,
-nothing left to feel
+Nothing left to feel
 
 I want to be there to tempt your eyes
 I want to be there for you to idolize
-But it’s over, it’s over now
-Decision: over, it’s over now
+But it’s over
+It’s over now
+Decision: over
+It’s over now
 
-Look at me,
-at this humiliating life I live
+Look at me
+At this humiliating life I live
 This is shit
-and still, you’re nailed to it
+and still you’re nailed to it
 
 Turn, turn off, turn away
 Believe, it’s me
@@ -46,5 +50,7 @@ I want to be there for you to idolize
 Don’t want to be a needle in your eyes
 Don’t want to be there for you to moralize
 
-But it’s over, it’s over now
-Decision: over, it’s over now
+But it’s over
+It’s over now
+Decision: over
+It’s over now
