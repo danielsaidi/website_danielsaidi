@@ -8,7 +8,7 @@ lib:    https://github.com/danielsaidi/SwiftUIKit
 source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Sheets
 ---
 
-In this post, we'll look at an easier way to manage sheets in `SwiftUI`, that lets us reuse functionality, reduce state management and present many different sheets in the same way.
+In this post, we'll look at an easier way to manage sheets in SwiftUI, that lets us reuse functionality, reduce state management and present many different sheets in the same way.
 
 
 ## TLDR;
@@ -18,7 +18,7 @@ If you find this post too long, I have added this to my [SwiftUIKit]({{page.lib}
 
 ## The basics
 
-To present sheets in `SwiftUI`, you use the `sheet` modifier that takes an `isPresented` binding and a `content` function:
+To present sheets in SwiftUI, you use the `sheet` modifier that takes an `isPresented` binding and a `content` function:
 
 ```swift
 struct MyView: View {
@@ -143,7 +143,7 @@ This makes it possible to create app and view specific enums that contain your a
 
 ## New sheet modifier
 
-In `SwiftUI`, you present sheets by adding a modifier to the presenting view. With the new `SheetContext` managing our state, we can create a new `sheet` modifier:
+In SwiftUI, you present sheets by adding a modifier to the presenting view. With the new `SheetContext` managing our state, we can create a new `sheet` modifier:
 
 ```swift
 public extension View {

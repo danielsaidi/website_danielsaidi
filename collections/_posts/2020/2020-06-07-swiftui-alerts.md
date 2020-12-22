@@ -8,7 +8,7 @@ lib:    https://github.com/danielsaidi/SwiftUIKit
 source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Alerts
 ---
 
-In this post, we'll look at an easier way to manage alerts in `SwiftUI`, that lets us reuse functionality, reduce state management and present many different alerts in the same way.
+In this post, we'll look at an easier way to manage alerts in SwiftUI, that lets us reuse functionality, reduce state management and present many different alerts in the same way.
 
 
 ## TLDR;
@@ -18,7 +18,7 @@ If you find this post too long, I have added this to my [SwiftUIKit]({{page.lib}
 
 ## The basics
 
-To present alerts in `SwiftUI`, you use the `alert` modifier that takes an `isPresented` binding and a `content` function:
+To present alerts in SwiftUI, you use the `alert` modifier that takes an `isPresented` binding and a `content` function:
 
 ```swift
 struct MyView: View {
@@ -140,7 +140,7 @@ This makes it possible to create app and view specific enums that contain your a
 
 ## New alert modifier
 
-In `SwiftUI`, you present alerts by adding a modifier to the presenting view. With the new `AlertContext` managing our state, we can create a new `alert` modifier:
+In SwiftUI, you present alerts by adding a modifier to the presenting view. With the new `AlertContext` managing our state, we can create a new `alert` modifier:
 
 ```swift
 public extension View {

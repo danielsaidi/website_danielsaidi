@@ -9,7 +9,7 @@ source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Dat
 tests:  https://github.com/danielsaidi/SwiftKit/tree/master/Tests/SwiftKitTests/Date
 ---
 
-In this post, we'll extend Swift's `Date` type with functions that let us compare dates with clean, readable code.
+In this post, we'll extend Date with functions that let us compare dates with clean, readable code.
 
 
 ## The basics

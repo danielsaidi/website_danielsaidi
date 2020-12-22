@@ -13,23 +13,16 @@ twitter: http://twitter.com/danielsaidi
 original: http://danielsaidi.com/blog/2017/08/23/alamofire-realm
 ---
 
-This is an updated version of talk I gave at CocoaHeads Sthlm in April 2017. The
-talk was on how to use Alamofire to talk to an api, AlamofireObjectMapper to map
-its responses, use the Alamofire `RequestRetrier` to automatically retry failing
-requests and use `RequestAdapter` to adapt all requests. I also demonstrated how
-to use Realm to seamlessly add offline support, using the decorator pattern.
+This is an updated version of a talk I gave at CocoaHeads Sthlm in 2017 on how to use Alamofire to communcate with an api, AlamofireObjectMapper to map responses, the Alamofire `RequestRetrier` to automatically retry failing requests and the `RequestAdapter` to adapt all requests. I also demonstrated how to use Realm to seamlessly add offline support, using the decorator pattern.
 
-In this post, I'll recreate the entire app from scratch, with some modifications.
-I have updated the [original post]({{page.original}}) to Swift 4.2. It uses some
-new code conventions as well, which I will cover in this post.
+In this post, I'll recreate the entire app from scratch, with some modifications. I have updated the [original post]({{page.original}}) to Swift 4.2. It uses some new code conventions as well, which I will cover in this post.
 
 
 ## Disclaimer 
 
-Since I gave this talk, `Codable` has been released as a native part of `Swift`.
-I will update this blog post to Swift 4.2 nevertheless, but you should really be
-using `Codable` instead of `Mappable`. In due time, I will release a new post to
-show you how easy it is to combine Alamofire and `Codable`.
+Since I gave this talk, `Codable` has been released as a native part of Swift. I
+will update this blog post to Swift 4.2, but you should really be using `Codable`
+instead of `Mappable`, since it's now SO easy to combine Alamofire and `Codable`.
 
 Regarding the demo app structure, I normally prefer to extract as much logic and
 code as possible to separate libraries, which I then can use as decoupled blocks.

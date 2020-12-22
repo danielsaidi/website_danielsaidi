@@ -9,7 +9,7 @@ source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Ext
 tests:  https://github.com/danielsaidi/SwiftKit/tree/master/Tests/SwiftKitTests/Extensions/String
 ---
 
-In this post, we'll discuss how to check if a `String` contain another `String`. We'll then create an extension that allows for easier case-insensitive checks.
+In this post, we'll discuss how to check if a String contain another String. We'll then create an extension that allows for easier case-insensitive checks.
 
 
 ## The basics

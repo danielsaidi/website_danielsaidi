@@ -1,18 +1,18 @@
 ---
 title: Present delegating view controllers in SwiftUI
 date:  2020-01-31 12:00:00 +0100
-tags:  swiftui
+tags:  swiftui uikit
 icon:  swift
 ---
 
-Presenting `UIKit` view controllers in SwiftUI is trivial, but things become more complicated when a controller communicates back through delegation. Since `SwiftUI` views are structs, they therefore can't be delegates. In this post, we'll look at one way to solve this.
+Presenting UIKit view controllers in SwiftUI is trivial, but things become more complicated when a controller communicates back through delegation. Since SwiftUI views are structs, they therefore can't be delegates. In this post, we'll look at one way to solve this.
 
 
 ## UIViewControllerRepresentable
 
 Since SwiftUI is still very young, there are many situations where you may have to use native UIKit view controllers, e.g. to compose e-mails, share data etc. You may also have your own view controllers that you want to reuse in SwiftUI.
 
-Presenting a `UIKit` view controller in SwiftUI is trivial. For instance, presenting a share sheet just requires you to create a `UIViewControllerRepresentable` that wraps the sheet:
+Presenting a UIKit view controller in SwiftUI is trivial. For instance, presenting a share sheet just requires you to create a `UIViewControllerRepresentable` that wraps the sheet:
 
 ```swift
 struct ShareSheet: UIViewControllerRepresentable {

@@ -5,7 +5,7 @@ tags:  spm swiftui
 icon:  swift
 ---
 
-In this post, we'll create a package for the Swift Package Manager. The result will be a package that adds more gestures to `SwiftUI`. You can find the finished package [here][Project].
+In this post, we'll create a package for the Swift Package Manager. The result will be a package that adds more gestures to SwiftUI. You can find the finished package [here][Project].
 
 I will evolve the package with support for CocoaPods, Carthage, Fastlane and Bitrise etc. in upcoming posts. At the end of this post, we'll have a fully functional package, but it will lack some features that every decent open source project should have.
 
@@ -44,13 +44,13 @@ Before we add functionality to the package, let's remove two files that are gene
 
 ## Specify supported platforms
 
-Since the package will use `SwiftUI`, we can only target iOS 13, tvOS 13, watchOS 6 and macOS 10.10 or later. If we don't, we would get the following build error:
+Since the package will use SwiftUI, we can only target iOS 13, tvOS 13, watchOS 6 and macOS 10.10 or later. If we don't, we would get the following build error:
 
 ```
 '...' is only available in iOS 13.0 or newer
 ```
 
-However, since the package will use gestures, it's not really applicable for tvOS and macOS either, so let's specify that it can only be used on platforms that support `SwiftUI` and swipe gestures - iOS 13 and later.
+However, since the package will use gestures, it's not really applicable for tvOS and macOS either, so let's specify that it can only be used on platforms that support SwiftUI and swipe gestures - iOS 13 and later.
 
 Open `Package.json` and add the following code below `name`:
 
@@ -60,14 +60,14 @@ platforms: [
 ]
 ```
 
-This tells the package that it can only be used on iOS 13 and later. Save the file, let Xcode refresh the package and you will now be able to build for `SwiftUI`.
+This tells the package that it can only be used on iOS 13 and later. Save the file, let Xcode refresh the package and you will now be able to build for SwiftUI.
 
 
 ## Create a swipe gesture
 
 It's time to start adding functionality to the package. Let's start by creating the class in which all the swipe gesture logic will go - `SwipeGesture`. 
 
-In `SwiftUI`, we can build this gesture as a view modifier, a function etc. but since we're going use `UISwipeGestureRecognizer`s and `UIView`s, let's build it as a `View` instead, or rather as a `UIViewRepresentable`, which will wrap a `UIView` in a `SwiftUI` `View`:
+In SwiftUI, we can build this gesture as a view modifier, a function etc. but since we're going use `UISwipeGestureRecognizer`s and `UIView`s, let's build it as a `View` instead, or rather as a `UIViewRepresentable`, which will wrap a `UIView` in a SwiftUI `View`:
 
 ```swift
 import SwiftUI
@@ -216,7 +216,7 @@ public func makeUIView(context: Context) -> UIView {
 }
 ```
 
-That's it! We now have a `SwiftUI` view that can be used to capture swipe gestures on any view it is added to. Next up, let's add this swipe gesture to a `SwiftUI` `View`.
+That's it! We now have a SwiftUI view that can be used to capture swipe gestures on any view it is added to. Next up, let's add this swipe gesture to a SwiftUI `View`.
 
 
 ## Add swipe gesture to any SwiftUI View
@@ -236,7 +236,7 @@ Color.red
 )
 ```
 
-However, this is not very nice (nor declarative) compared to `SwiftUI`'s `onTapGesture` and `onLongPressGesture`. Let's create such a modifier for this gesture as well:
+However, this is not very nice (nor declarative) compared to SwiftUI's `onTapGesture` and `onLongPressGesture`. Let's create such a modifier for this gesture as well:
 
 ```swift
 import SwiftUI

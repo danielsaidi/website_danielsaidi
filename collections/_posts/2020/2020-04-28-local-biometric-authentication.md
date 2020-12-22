@@ -9,16 +9,16 @@ source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Aut
 tests:  https://github.com/danielsaidi/SwiftKit/tree/master/Tests/SwiftKitTests/Authentication
 ---
 
-In this post, we'll look at how to perform local biometric authentication with `FaceID` or `TouchID` on Apple's various platforms, using the `LocalAuthentication` framework.
+In this post, we'll look at how to perform local biometric authentication with FaceID or TouchID on Apple's various platforms, using the `LocalAuthentication` framework.
 
 
 ## The basics
 
 Biometric information is a powerful way to protect sensitive or valuable information. If your app stores this kind of data, you can use native biometric authentication metchanisms to protect it.
 
-Performing biometric authentication with `FaceID` or `TouchID` is really easy and involves very little code. You just have to import the `LocalAuthentication` framework and use `LAPolicy` and `LAContext` to get the job done.
+Performing biometric authentication with FaceID or TouchID is really easy and involves very little code. You just have to import the `LocalAuthentication` framework and use `LAPolicy` and `LAContext` to get the job done.
 
-`LAPolicy` describes what kind of authentication to allow. `deviceOwnerAuthenticationWithBiometrics` requires biometric information like `FaceID` or `TouchID`, while `deviceOwnerAuthentication` also accepts a passcode.
+`LAPolicy` describes what kind of authentication to allow. `deviceOwnerAuthenticationWithBiometrics` requires biometric information like FaceID or TouchID, while `deviceOwnerAuthentication` also accepts a passcode.
 
 You can then use `LAContext` to perform an authentication with your policy of choice. First use `canEvaluatePolicy` to check if the device can handle the policy:
 
@@ -30,7 +30,7 @@ let result = LAContext().canEvaluatePolicy(policy, error: &error)
 
 The function takes an error pointer (not that Swifty) and your policy, then returns whether or not the device can use the policy to authenticate the user.
 
-Since most phones support either `FaceID` or `TouchID`, most phones will be able to perform biometric authentication. The same goes for most iPads and MacBooks, since most come with `TouchID`. However, there are older and more basic device types that lack both `FaceID` and `TouchID`. You must take this into consideration when choosing which policy to use.
+Since most phones support either FaceID or TouchID, most phones will be able to perform biometric authentication. The same goes for most iPads and MacBooks, since most come with TouchID. However, there are older and more basic device types that lack both FaceID and TouchID. You must take this into consideration when choosing which policy to use.
 
 To actually perform the authentication, you just have to call `evaluatePolicy` on the context with a localized reason that describes to the user why your app needs to authentication her/him:
 

@@ -10,7 +10,7 @@ alerts: http://danielsaidi.com/blog/2020/06/07/swiftui-alerts
 sheets: http://danielsaidi.com/blog/2020/06/06/swiftui-sheets
 ---
 
-In this post, we'll look at how to easily manage and present toasts in `SwiftUI`, in a way that borrows heavily from the [sheet]({{page.sheets}}) and [alert]({{page.alerts}}) approaches discussed in earlier posts.
+In this post, we'll look at how to easily manage and present toasts in SwiftUI, in a way that borrows heavily from the [sheet]({{page.sheets}}) and [alert]({{page.alerts}}) approaches discussed in earlier posts.
 
 
 ## TLDR;
@@ -124,7 +124,7 @@ This makes it possible to create app and view specific enums that contain your a
 
 ## Toast modifiers
 
-In `SwiftUI`, you present alerts and sheets by adding modifiers to the presenting view. We can create such modifiers for toasts as well:
+In SwiftUI, you present alerts and sheets by adding modifiers to the presenting view. We can create such modifiers for toasts as well:
 
 ```swift
 func toast<Content: View>(

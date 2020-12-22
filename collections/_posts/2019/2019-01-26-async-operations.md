@@ -16,7 +16,7 @@ rxswift-post: http://danielsaidi.com/blog/2018/01/19/ditching-rxswift
 reactivecocoa: https://github.com/ReactiveCocoa/ReactiveCocoa
 ---
 
-Swift is an amazing language, but I find that it lacks good native support for coordinating async operations in sophisticated ways. In this post, I will look at existing libraries for solving this problem, then discuss a lightweight alternative and show you how to implement it with a couple of simple protocols and implementations.
+Swift is an amazing language, but I find that it lacks good support for coordinating async operations in sophisticated ways. In this post, I will look at existing libraries for solving this problem, then discuss a lightweight alternative that uses a couple of simple protocols and implementations.
 
 
 ## 3rd party alternatives

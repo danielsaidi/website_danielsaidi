@@ -7,7 +7,7 @@ image: /assets/blog/2018/2018-02-14.png
 
 In an app of mine, I had an idea on how to redesign how we extend protocol-based
 domain models. However, what first looked like a walk in the park, turned into a
-`Swift` nightmare, with problems that I am still struggling with.
+Swift nightmare, with problems that I am still struggling with.
 
 
 ## Disclaimer

@@ -1,7 +1,7 @@
 ---
 title: Swift Semantics
 date:  2020-10-16 12:00:00 +0100
-tags:  swift swiftui
+tags:  swift swiftui uikit
 icon:  swift
 
 swiftkit:    https://github.com/danielsaidi/SwiftKit
@@ -15,12 +15,12 @@ In this post, we'll look at various ways to improve readability and writeability
 
 ## TLDR;
 
-If you find this post too long, I have added most of the extensions in this post to my [SwiftKit]({{page.swiftkit}}) and [SwiftUIKit]({{page.swiftuikit}}) libraries. I have chosen to exclude `UIKit`-specific code, since I have shifted focus to `SwiftUI` and don't have any `UIKit` code in these libraries.
+If you find this post too long, I have added most of the extensions in this post to my [SwiftKit]({{page.swiftkit}}) and [SwiftUIKit]({{page.swiftuikit}}) libraries. I have chosen to exclude UIKit-specific code, since I have shifted focus to SwiftUI and don't have any UIKit code in these libraries.
 
 
 ## Background
 
-There will always be parts of a language that you may think are missing or doesn't fit your personal coding style. Some things are just strange (e.g. why does `UIKit` only have an `isHidden` view property, but no `isVisible`) while some may be specific to your own needs.
+There will always be parts of a language that you may think are missing or doesn't fit your personal coding style. Some things are just strange (e.g. why does UIKit only have an `isHidden` view property, but no `isVisible`) while some may be specific to your own needs.
 
 Swift intentionally tries to be very focused, which means that it will intentionally leave out parts that you may think should be there, which may explain missing properties like `isVisible`. You can easily create such properties yourself with extensions, but doing so can be repetetive and tiresome. I have therefore started gathering reusable extensions in the libraries mentioned above, which makes my code more straightforward.
 
@@ -99,7 +99,7 @@ However, I think the syntax above may also reduce readability in some cases. I t
 
 ## Chaining semantics
 
-In many cases, chaining operators can improve readability by removing the use of `guard`s or `if let`s, for instance when you have to cast optional values. Consider this case, where you have to cast an optional `SwiftUI` `View` to `AnyView`:
+In many cases, chaining operators can improve readability by removing the use of `guard`s or `if let`s, for instance when you have to cast optional values. Consider this case, where you have to cast an optional SwiftUI `View` to `AnyView`:
 
 ```swift
 var body: some View {

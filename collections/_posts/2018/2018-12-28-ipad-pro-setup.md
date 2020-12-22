@@ -9,7 +9,7 @@ workingcopy: https://workingcopyapp.com/
 iawriter: https://ia.net/writer
 ---
 
-In this post, I’ll write about my long process to find a setup that lets me be more productive and flexible in how I work with my various sites, projects, blog etc. I will descibe how I moved away from my old hosting provider and Wordpress and how I finally found a setup that lets me create content on my iPad Pro.
+In this post, I’ll write about my process to find a setup that lets me be more productive and flexible in how I work with my various sites, projects, blog etc. I will descibe how I moved away from my old hosting provider and Wordpress and how I finally found a setup that lets me create content on my iPad Pro.
 
 
 ## Moving away from legacy hosting

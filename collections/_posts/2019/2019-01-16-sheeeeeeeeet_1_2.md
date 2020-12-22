@@ -8,7 +8,7 @@ sheeeeeeeeet: https://github.com/danielsaidi/Sheeeeeeeeet
 example: https://github.com/danielsaidi/Sheeeeeeeeet/blob/master/Readmes/Advanced-Example.md
 ---
 
-[Sheeeeeeeeet]({{page.sheeeeeeeeet}}) 1.2 introduces a completely rewritten appearance engine that makes it easier than ever to style and subclass your action sheets and their items. In this post, I'll discuss some of the major changes.
+[Sheeeeeeeeet]({{page.sheeeeeeeeet}}) 1.2 introduces a completely rewritten appearance engine that makes it easier to style and subclass your action sheets and their items. In this post, I'll discuss some of the major changes.
 
 To see these changes in action, please download the source code or have a look at [this example]({{page.example}}), which demonstrates how to create and customize action sheets, and also covers how you can create smarter, more self contained sheets.
 

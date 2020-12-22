@@ -9,7 +9,7 @@ source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Ext
 tests:  https://github.com/danielsaidi/SwiftKit/tree/master/Tests/SwiftKitTests/Extensions
 ---
 
-In this post, we'll extend the Swift `Result` type with extensions that make using it easier in certain situations. 
+In this post, we'll extend Result with extensions that make using it easier in certain situations. 
 
 
 ## The basics
