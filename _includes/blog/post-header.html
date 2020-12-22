@@ -15,13 +15,13 @@
       {%- assign blog_url = "blog" | relative_url -%}
       {%- assign year_path = post.date | date: "%Y" -%}
       {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-      {{ post.date | date: date_format }}
-    </li><li>
-      <a href="https://www.twitter.com/{{ site.twitter_username| cgi_escape | escape }}">
-        <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">@{{ post.author }}</span></span>
-      </a>
+      {{ post.date | date: date_format }}</li>
+    <li>
+      {%- for tag in post.tags -%}
+      {%- assign href = "blog/tags#" | append: tag -%}
+      <a href="{{ href | relative_url }}">#{{ tag }}</a>
+      {%- endfor -%}
     </li>
   </ul>
   <br />
-  {%- include blog/post-tags.html post=include.post -%}
 </header>

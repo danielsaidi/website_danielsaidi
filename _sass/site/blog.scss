@@ -1,0 +1,28 @@
+.blog-menu {
+  grid-template-columns: repeat(3, 1fr);
+  margin-bottom: $standard-margin*2;
+  .active {
+    text-decoration: underline;
+  }
+}
+
+.post-info {
+  a {
+    margin-left: 5px;
+  }
+}
+
+.tag-list {
+  a {
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    margin-right: 5px;
+  }
+}
+
+.tag-posts {
+  h2 {
+    margin-top: 0;
+  }
+}
