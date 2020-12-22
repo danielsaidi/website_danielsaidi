@@ -1,50 +1,55 @@
 ---
-name: The Prophecy
+name:   The Prophecy
+band:   Misfortune
+album:  Midnightenlightened
 ---
 
-Forged in fire by the hellspawns,
-then kept in earth for several eons,
-then carried further by the cold winds
-to the riverdales in the north
-Black waters of frustration -
-the result of a dying world’s despair
-And as the elements came together,
-it’s body was grinded
-by the waters of the damned
+Forged in fire by the hellspawns
+Then kept in earth for several eons
+Then carried further by the cold winds
+To the riverdales in the north
 
-A talisman of evil mind,
-enslaving souls - end of mankind
+Black waters of frustration
+The result of a dying world’s despair
+And as the elements came together
+It’s body was grinded
+By the waters of the damned
+
+A talisman of evil mind
+Enslaving souls
+End of mankind
 
 And so the black crystal of agony
-fulfills the foreseen prophecy
+Fulfills the foreseen prophecy
 The keeper this crimson stone
-will possess the dark throne
+Will possess the dark throne
 
 Carried on along the battlefield
-as the weapon of dark rebirth
+As the weapon of dark birth
 Bringing life to ancient warriors
-rising from the blood-soaked earth
+Rising from the blood-soaked earth
+
 The night devours the sunlight
-to the hymns of resignation
+To the hymns of resignation
 Human slaughter
 Extensive desolation
 
-Once foretold - now fulfilled
+Once foretold
+Now fulfilled
 Behold the blood that’s been spilled
 Written down centuries ago
 
 But the priests ignored the prophecy
 There would be no extinction of humanity
 The dark son of the elements
-would never appear,
-the world will see
+Would never appear
+The world will see
 
-Now they are adoring the path
-around the stronghold
+Now they are adoring the path around the stronghold
 Hung up in their own guts
 Blind eyes search for the way to heaven
 
-The shadows are drenching the world,
-from the stronghold they’re rising
-Enslaving humans that stand in their way,
-the way to ultimate darkness
+The shadows are drenching the world
+From the stronghold they’re rising
+Enslaving humans that stand in their way
+The way to ultimate darkness

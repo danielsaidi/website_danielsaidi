@@ -1,33 +1,40 @@
 ---
-name: Pain Unbearable
+name:   Pain Unbearable
+band:   Misfortune
+album:  Midnightenlightened
 ---
 
-Shadowland on the other side -
-by our nocturnal rites he arises
-Inside a temple of flesh he's been waiting,
-now released before our eyes
+Shadowland on the other side
+By our nocturnal rites he arises
+Inside a temple of flesh he's been waiting
+Now released before our eyes
 Beams of light sealed him in
-for his immense sins
+For his immense sins
 
-Through the night our master comes,
-shadows are hailing his freedom
+Through the night our master comes
+Shadows are hailing his freedom
 
-He cuts the ears of the blind men,
-so that they can feel but his touch
-Pain unbearable, growing stronger,
-but not enough
+He cuts the ears of the blind men
+So that they can feel but his touch
+Pain unbearable
+Growing stronger
+But not enough
 
-He walks the path of the darkened sense,
-through the night we march on,
-follow the unleashed manifestation,
-bringing on pain unbearable strong
+He walks the path of the darkened sense
+Through the night we march on
+Follow the unleashed manifestation
+Bringing on pain unbearable strong
+
 Beams of darkness burst free from the shadowland
 Night will last for eternity
 
-He punctures the eyes of the deaf men,
-so that they can feel but his touch
-Pain unbearable, growing stronger,
-but not enough
+He punctures the eyes of the deaf men
+So that they can feel but his touch
+Pain unbearable
+Growing stronger
+But not enough
 
-Pain - the fine art of demise
-Pain - unbearable it shines
+Pain
+The fine art of demise
+Pain
+Unbearable it shines

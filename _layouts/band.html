@@ -9,17 +9,17 @@ layout: default
 {%- assign albums=band.discography | reverse -%}
 {%- capture lyrics_url -%}/lyrics/{{ page.name | slugify }}/{%- endcapture -%}
 
-<article>
+<article class="post">
 
   <a href="/music#{{ page.name | slugify }}"><h4>Music</h4></a>
-  <h1>{{ info.name | escape }}</h1>
-  
-  <p>  
-    <ul class="horizontal">
+  <header>
+    <h1>{{ info.name | escape }}</h1>
+    
+    <ul class="horizontal post-info">
       <li>{{info.year-from}} - {{info.year-to}}</li>
       <li>{{info.genres}}</li>
     </ul>
-  </p>
+  </header>
 
   {{ content }}
 </article>
