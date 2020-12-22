@@ -29,6 +29,11 @@
 }
 
 .grid.album {
+  
+  a, a:hover, a.title:hover, a:visited {
+    color: #F2C342;
+  }
+
   h3 { margin-top: 0 }
 }
 
