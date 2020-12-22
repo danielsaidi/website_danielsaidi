@@ -1,5 +1,7 @@
 ---
-title: Hard-to-write-song
+title:  Hard-to-write-song
+band:   Daniel Saidi
+album:  Lake City Stories
 ---
 
 I went into the ocean,
