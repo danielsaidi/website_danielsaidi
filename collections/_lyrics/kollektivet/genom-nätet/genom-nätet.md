@@ -1,5 +1,7 @@
 ---
-title: Genom nätet
+title:  Genom nätet
+band:   Kollektivet
+album:  Genom nätet
 ---
 
 Den hösten föll hon genom nätet -

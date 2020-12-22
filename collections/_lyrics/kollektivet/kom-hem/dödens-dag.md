@@ -1,5 +1,7 @@
 ---
-title: Dödens dag
+title:  Dödens dag
+band:   Kollektivet
+album:  Kom hem
 ---
 
 Man låter ljusen släckas ner,

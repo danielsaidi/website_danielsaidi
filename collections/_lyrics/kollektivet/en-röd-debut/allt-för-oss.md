@@ -1,17 +1,19 @@
 ---
-title: Allt för oss
+title:  Allt för oss
+band:   Kollektivet
+album:  En röd debut
 ---
 
-Mörkret skingras till slut,
-ingenting varar för evigt
-Vår lycka är nu
+Mörkret skingras till slut
+Ingenting varar för evigt,
+vår lycka är nu
 vår största makt
 i en värld under slakt,
 värd att kämpa för
 
-För utan moln är himlen grå -
-en atmosfär på väg att förgås,
-men med lite hopp och goda motiv
+För utan moln är himlen grå
+En atmosfär på väg att förgås
+Men med lite hopp och goda motiv
 kan vi rädda liv
 
 För det kan vara värt lite besvär
@@ -23,10 +25,10 @@ och se sig omkring i vild berusning
 
 Runt omkring oss skändas jord,
 surnar hav, brinner skog
-Ja, det är allt för oss, men se på oss -
-en parasitinvasion
+Ja, det är allt för oss, men se på oss:
+En parasitinvasion
 som sakta utarmar denna jord
-Det svarta blodet som fläckar ner,
+Det svarta blodet fläckar ner,
 men det är ingen som ser vad som sker
 Vi vill ha mer, kräver mer,
 men ingen ser vad som sker

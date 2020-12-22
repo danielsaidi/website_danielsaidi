@@ -1,5 +1,7 @@
 ---
-title: Varma dagar
+title:  Varma dagar
+band:   Kollektivet
+album:  Genom nätet
 ---
 
 Jag rusar fram i mardrömsfart

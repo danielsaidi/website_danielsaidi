@@ -1,5 +1,7 @@
 ---
-title: Låt oss dansa hem
+title:  Låt oss dansa hem
+band:   Kollektivet
+album:  Fyra akustiska mirakel
 ---
 
 Du sa:

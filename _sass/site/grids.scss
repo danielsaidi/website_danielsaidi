@@ -28,6 +28,14 @@
   grid-template-columns: repeat(3, 1fr);
 }
 
+.grid.album {
+  h3 { margin-top: 0 }
+}
+
+a + .grid.album {
+  margin-top: 40px;
+}
+
 @media (max-width: 600px) {
   .grid { 
     grid-template-columns: repeat(2, 1fr);

@@ -1,5 +1,7 @@
 ---
-title: Mot asfalten
+title:  Mot asfalten
+band:   Kollektivet
+album:  En röd debut
 ---
 
 Krossade drömmar mot asfalten

@@ -1,5 +1,7 @@
 ---
-title: När man är två
+title:  När man är två
+band:   Kollektivet
+album:  Genom nätet
 ---
 
 När problemen tagit slut

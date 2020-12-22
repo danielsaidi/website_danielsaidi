@@ -1,5 +1,7 @@
 ---
-title: Jag vill behöva dig
+title:  Jag vill behöva dig
+band:   Kollektivet
+album:  Fem berättelser
 ---
 
 Vi lät ett beskt avskedstal hänga kvar,

@@ -1,5 +1,7 @@
 ---
-title: En plats (du skulle kunna kalla hem)
+title:  En plats (du skulle kunna kalla hem)
+band:   Kollektivet
+album:  Hårt mot hårt
 ---
 
 Han tog avsked med hämnd,

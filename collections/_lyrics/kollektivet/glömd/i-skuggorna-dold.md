@@ -1,5 +1,7 @@
 ---
-title: I skuggorna dold
+title:  I skuggorna dold
+band:   Kollektivet
+album:  Glömd
 ---
 
 Din heta kropp lagd ovanpå,

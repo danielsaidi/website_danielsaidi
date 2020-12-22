@@ -1,5 +1,7 @@
 ---
-title: Hårt mot hårt
+title:  Hårt mot hårt
+band:   Kollektivet
+album:  Hårt mot hårt
 ---
 
 Sen riksväg '95

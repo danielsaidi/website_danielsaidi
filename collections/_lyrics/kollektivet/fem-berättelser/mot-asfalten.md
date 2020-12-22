@@ -1,5 +1,7 @@
 ---
-title: Mot asfalten
+title:  Mot asfalten
+band:   Kollektivet
+album:  Fem berättelser
 ---
 
 Krossade drömmar mot asfalten

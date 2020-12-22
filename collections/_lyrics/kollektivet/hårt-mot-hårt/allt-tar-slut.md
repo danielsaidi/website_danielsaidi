@@ -1,5 +1,7 @@
 ---
-title: Allt tar slut
+title:  Allt tar slut
+band:   Kollektivet
+album:  Hårt mot hårt
 ---
 
 Det blir tyst i telefonen

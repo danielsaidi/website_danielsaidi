@@ -1,5 +1,7 @@
 ---
-title: Salta sår
+title:  Salta sår
+band:   Kollektivet
+album:  Fem berättelser
 ---
 
 Han slår sig ner

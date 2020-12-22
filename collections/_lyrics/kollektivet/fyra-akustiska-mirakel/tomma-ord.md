@@ -1,5 +1,7 @@
 ---
-title: Tomma ord
+title:  Tomma ord
+band:   Kollektivet
+album:  Fyra akustiska mirakel
 ---
 
 Tomma ord, ni har förföljt mig länge nog

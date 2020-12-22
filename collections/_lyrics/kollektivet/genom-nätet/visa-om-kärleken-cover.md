@@ -1,5 +1,7 @@
 ---
-title: Visa om den komplicerade kärleken
+title:  Visa om den komplicerade kärleken
+band:   Kollektivet
+album:  Genom nätet
 ---
 
 (Text/musik av Fredrik Johansson)

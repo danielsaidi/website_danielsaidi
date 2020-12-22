@@ -1,5 +1,7 @@
 ---
-title: Ideal
+title:  Ideal
+band:   Kollektivet
+album:  En röd debut
 ---
 
 Du laddar ner din ideal

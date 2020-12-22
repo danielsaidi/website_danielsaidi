@@ -1,5 +1,7 @@
 ---
-title: Kalla läppar
+title:  Kalla läppar
+band:   Kollektivet
+album:  Fyra akustiska mirakel
 ---
 
 Jag sa det lätt, men det landade tungt

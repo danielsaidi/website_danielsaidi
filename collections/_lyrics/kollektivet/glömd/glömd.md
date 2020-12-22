@@ -1,5 +1,7 @@
 ---
-title: Glömd
+title:  Glömd
+band:   Kollektivet
+album:  Glömd
 ---
 
 I drömmen är jag stark

@@ -1,5 +1,7 @@
 ---
-title: Kom hem
+title:  Kom hem
+band:   Kollektivet
+album:  Kom hem
 ---
 
 Har du planerat om ditt liv

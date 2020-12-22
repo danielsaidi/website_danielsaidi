@@ -6,6 +6,7 @@ layout: default
 {%- assign band = site.data.bands[id] -%}
 {%- assign info=band.info -%}
 {%- assign members=band.members -%}
+{%- assign albums=band.discography | reverse -%}
 {%- capture lyrics_url -%}/lyrics/{{ page.name | slugify }}/{%- endcapture -%}
 
 <article>
@@ -56,7 +57,7 @@ layout: default
 
 <h2>Recordings</h2>
 <a name="music"></a>
-{%- for album in band.discography -%}
+{%- for album in albums -%}
 {%- if album.hidden -%}{%- else -%}
 <a name="{{album.name | slugify}}"></a>
 <section class="grid album">

@@ -1,5 +1,7 @@
 ---
-title: Starka broar
+title:  Starka broar
+band:   Kollektivet
+album:  Kom hem
 ---
 
 Våra öron har vässats för guden kväll

@@ -1,5 +1,7 @@
 ---
-title: En röd debut
+title:  En röd debut
+band:   Kollektivet
+album:  En röd debut
 ---
 
 Jag hörde dig smyga iväg

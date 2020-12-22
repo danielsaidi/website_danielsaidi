@@ -1,5 +1,7 @@
 ---
-title: Tunga tungor
+title:  Tunga tungor
+band:   Kollektivet
+album:  Genom nätet
 ---
 
 Ge mig en mening, ge mig ett språk,

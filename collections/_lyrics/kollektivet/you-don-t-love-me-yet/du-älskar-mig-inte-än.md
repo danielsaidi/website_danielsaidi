@@ -1,5 +1,7 @@
 ---
-title: Du älskar mig inte än
+title:  Du älskar mig inte än
+band:   Kollektivet
+album:  You Don't Love Me Yet
 ---
 
 Blixten slog aldrig ner i mig igen

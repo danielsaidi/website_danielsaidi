@@ -1,5 +1,7 @@
 ---
-title: Stanna hos mig
+title:  Stanna hos mig
+band:   Kollektivet
+album:  Genom nätet
 ---
 
 Du tystnar och förklarar

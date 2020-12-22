@@ -1,5 +1,7 @@
 ---
-title: Kalla läppar
+title:  Kalla läppar
+band:   Kollektivet
+album:  Hårt mot hårt
 ---
 
 Du sa det lätt, men det landade tungt

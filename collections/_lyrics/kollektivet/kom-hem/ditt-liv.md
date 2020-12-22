@@ -1,5 +1,7 @@
 ---
-title: Ditt liv
+title:  Ditt liv
+band:   Kollektivet
+album:  Kom hem
 ---
 
 Ett sista test, sen var allt klart

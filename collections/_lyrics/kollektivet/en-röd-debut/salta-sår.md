@@ -1,5 +1,7 @@
 ---
-title: Salta sår
+title:  Salta sår
+band:   Kollektivet
+album:  En röd debut
 ---
 
 Han slår sig ner
