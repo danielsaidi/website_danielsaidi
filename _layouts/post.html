@@ -2,10 +2,11 @@
 layout: default
 ---
 
-<article class="post card h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+<a href="/blog">Blog</a>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
   {%- include blog/post-header.html post=page -%}
 
-  <div class="post-content e-content" itemprop="articleBody">
+  <div class="e-content" itemprop="articleBody">
     {{ content }}
   </div>
 
