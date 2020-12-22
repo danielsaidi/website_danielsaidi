@@ -1,3 +1,19 @@
+- name: Glömd
+  year: 1998
+  tracks:
+    - name: I skuggorna dold
+    - name: Glömd
+
+- name: En röd debut
+  year: 2001
+  tracks:
+    - name: Min ensamhet
+    - name: En röd debut
+    - name: Allt för oss
+    - name: Ideal
+    - name: Mot asfalten
+    - name: Salta sår
+    
 - name: Lake City Stories
   year: 2010
   tracks:
