@@ -58,6 +58,7 @@ layout: default
 <a name="music"></a>
 {%- for album in band.discography -%}
 {%- if album.hidden -%}{%- else -%}
+<a name="{{album.name | slugify}}"></a>
 <section class="grid album">
   <div class="cover">
     {%- capture name -%}{{album.name | slugify}}.jpg{%- endcapture -%}
@@ -70,7 +71,6 @@ layout: default
     </h3>
     <ol class="tracks">
       {%- for track in album.tracks -%}
-      <a name="{{album.name | slugify}}"></a>
       <li>
         <span class="track-name">
           <span class="index">{{ forloop.index }}.</span>
