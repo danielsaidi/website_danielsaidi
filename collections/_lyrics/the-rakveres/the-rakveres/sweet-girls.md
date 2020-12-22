@@ -1,5 +1,7 @@
 ---
-title: Sweet Girls
+title:  Sweet Girls
+band:   Rakveres
+album:  The Rakveres
 ---
 
 Sweet girls over there,

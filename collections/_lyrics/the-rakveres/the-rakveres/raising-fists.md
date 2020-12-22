@@ -1,5 +1,7 @@
 ---
-title: Raising fists
+title:  Raising fists
+band:   Rakveres
+album:  The Rakveres
 ---
 
 A stroke of hand,

@@ -1,5 +1,7 @@
 ---
-title: Once
+title:  Once
+band:   Rakveres
+album:  The Rakveres
 ---
 
 Once again I watch it break,

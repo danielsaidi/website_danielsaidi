@@ -7,4 +7,7 @@
     h3 {
         margin-top: 50px;
     }
+
+    hr + h2 { margin-top: 0px; }
+    hr + h3 { margin-top: 0px; }
 }

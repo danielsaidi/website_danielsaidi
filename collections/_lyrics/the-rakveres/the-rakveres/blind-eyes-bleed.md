@@ -1,5 +1,7 @@
 ---
-title: Blind Eyes Bleed
+title:  Blind Eyes Bleed
+band:   Rakveres
+album:  The Rakveres
 ---
 
 The days you spend by yourself
