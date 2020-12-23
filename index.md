@@ -27,14 +27,20 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
         <h2>Links</h2>
         {%- include grid.html items=site.data.links type="icons" -%}
       </section>
-      <hr /><section class="apps">
-        <h2>Apps</h2>
-        {%- include grid.html items=site.data.apps type="icons" -%}
+      <hr />
+      <section class="work">
+        <h2>Work</h2>
+        {%- include grid.html items=site.data.work type="icons" -%}
       </section>
       <hr />
       <section class="open-source">
         <h2>Open Source</h2>
         {%- include grid.html items=site.data.open-source type="icons" -%}
+      </section>
+      <hr />
+      <section class="apps">
+        <h2>Apps</h2>
+        {%- include grid.html items=site.data.apps type="icons" -%}
       </section>
     </div>
   </main>

@@ -1,18 +1,3 @@
-- name: BookBeat
-  url: https://bookbeat.com
-  appStoreUrl: https://itunes.apple.com/app/bookbeat/id1056652614
-  playStoreUrl:
-
-- name: Tradera
-  url: https://tradera.com
-  appStoreUrl: https://itunes.apple.com/us/app/tradera/id427984084
-  playStoreUrl: https://play.google.com/store/apps/details?id=com.tradera
-
-- name: Harrys
-  url: https://www.harrys.se
-  appStoreUrl: 
-  playStoreUrl: 
-
 - name: Wally
   url: https://wally.danielsaidi.com
   appStoreUrl: https://itunes.apple.com/app/wally/id516398915
