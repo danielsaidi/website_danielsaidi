@@ -1,26 +1,23 @@
 ---
-title: Building a tvOS app in SwiftUI
+title: Building a video streaming app for tvOS in SwiftUI
 date:  2020-12-09 07:00:00 +0100
-tags:  swift swiftui
-image: /assets/blog/2020/2020-12-09/image.jpg
+tags:   swift swiftui
+assets: /assets/blog/2020/2020-12-09/
+image:  /assets/blog/2020/2020-12-09/image.jpg
 
-cineasterna:    https://www.cineasterna.com/en/
-defagos:        https://twitter.com/defagos
-collectionview: https://github.com/defagos/SwiftUICollection
-
-assets: 
+cineasterna: https://www.cineasterna.com/en/
 ---
 
-In this post, I'll discuss how I built a movie-streaming tvOS app in SwiftUI, for the Swedish public library service [Cineasterna]({{page.cineasterna}}). 
+In this post, I'll discuss how I built a movie-streaming app for tvOS in SwiftUI, for the Swedish public library video streaming service [Cineasterna]({{page.cineasterna}}). 
 
-![A screenshot of the app](/assets/blog/2020/2020-12-09/image.jpg)
+![A screenshot of the app]({{page.assets}}image.jpg)
 
 
 ## Main tabs
 
 The app is oriented around four main tabs - Discover (Selected Titles), All Titles, Search and Settings. All text in the app is translated using a central localization data source.
 
-![A screenshot of the main tabs](/assets/blog/2020/2020-12-09/tabs.jpg)
+![A screenshot of the main tabs]({{page.assets}}tabs.jpg)
 
 If a user is logged in and has any favorites, an additional tab is added to let the user quickly find and manage her/his favorites.
 
@@ -29,11 +26,11 @@ If a user is logged in and has any favorites, an additional tab is added to let 
 
 The Discover screen is a vertical list with horizontally scrolling shelves. When the user scrolls to a new section, the header transforms to a navigation link that takes the user to the specific list. 
 
-![A screenshot of a focused list header](/assets/blog/2020/2020-12-09/headers.jpg)
+![A screenshot of a focused list header]({{page.assets}}headers.jpg)
 
 Navigating to a list renders it as a vertical grid. Grids use the same underlying collection view as shelves, but with a different layout.
 
-![A screenshot of a list screen](/assets/blog/2020/2020-12-09/list-screen.jpg)
+![A screenshot of a list screen]({{page.assets}}list-screen.jpg)
 
 This screen lazy loads more content as the user scrolls down and displays the last content on the page. More about lazy loading later.
 
@@ -42,7 +39,7 @@ This screen lazy loads more content as the user scrolls down and displays the la
 
 The Favorites screen only shows up if the user has any favorites. Unlike the Discover screen, this screen only has a single section and therefore uses a grid instead of shelves.
 
-![A screenshot of the favorites screen](/assets/blog/2020/2020-12-09/favorites.jpg)
+![A screenshot of the Favorites screen]({{page.assets}}favorites.jpg)
 
 This screen does not lazy load more content as the user scrolls, since the api returns all user favorites without pagination.
 
@@ -51,11 +48,13 @@ This screen does not lazy load more content as the user scrolls, since the api r
 
 The All Titles screen can be used to explore all content that Cineasterna have to offer. Just like Favorites, this is a single section and therefore uses a grid.
 
-![A screenshot of the favorites screen](/assets/blog/2020/2020-12-09/all-movies.jpg)
+![A screenshot of the All Movies screen]({{page.assets}}all-movies.jpg)
 
 Since the Cineasterna service offers thousands of movies, I added filtering options topmost. Filtering is done in a custom picker, since native SwiftUI pickers didn’t work on tvOS.
 
-![A screenshot of the favorites filtering](/assets/blog/2020/2020-12-09/all-movies-filter.jpg)
+![A screenshot of an All Movies filter screen]({{page.assets}}all-movies-filter.jpg)
+
+When a filter is active, the filter button is tinted with the app's yellow accent color. Many filters can be active at the same time.
 
 This screen lazy loads more content as the user scrolls down. As we'll discuss later, shelves and grids handle lazy loading differently.
 
@@ -64,11 +63,11 @@ This screen lazy loads more content as the user scrolls down. As we'll discuss l
 
 The Search screen can be used to search for movies. Just like Favorites and All Titles, this is a single section and therefore uses a grid.
 
-![A screenshot of the search screen](/assets/blog/2020/2020-12-09/search.jpg)
+![A screenshot of the Search screen]({{page.assets}}search.jpg)
 
 Search has a custom-made header, since there is no native search component in SwiftUI (yet). It opens a full screen input and performs a search when tapping ”done”.
 
-![A screenshot of the search input view](/assets/blog/2020/2020-12-09/search-input.jpg)
+![A screenshot of the search input view]({{page.assets}}search-input.jpg)
 
 I faced two problems with this. First, that dictation inserts invalid chars into the text string. The text must be therefore be cleaned up. Also, there is no native way to change ”done” to ”Search”without having to wrap a native UIKit text field.
 
@@ -79,7 +78,7 @@ This screen also lazy loads more content as the user scrolls.
 
 The settings screen is pretty limited in design and functionality so far. It lets the user login, logout, switch library and get more information about the service. 
 
-![A screenshot of the settings screen](/assets/blog/2020/2020-12-09/settings.jpg)
+![A screenshot of the Settings screen]({{page.assets}}settings.jpg)
 
 This screen will have more information and will also have QR codes that lead to support pages, so that user can scan the QR codes on her/his phone to get help.
 
@@ -88,11 +87,11 @@ This screen will have more information and will also have QR codes that lead to 
 
 The movie screen is clean, with a fullscreen background and information added on top. 
 
-![A screenshot of the settings screen](/assets/blog/2020/2020-12-09/movie.jpg)
+![A screenshot of the Movie screen]({{page.assets}}movie.jpg)
 
 Loaning a movie, which is free (public libraries, remember?), opens a movie player as a new full screen modal. Trailers are currently YouTube links, so they show a scannable QR code:
 
-![A screenshot of the settings screen](/assets/blog/2020/2020-12-09/movie-qr.jpg)
+![A screenshot of the Movie screen]({{page.assets}}movie-qr.jpg)
 
 Overall, I like the way QR codes can be used to let users explore more content on their mobile devices, but I think this design choice may have to be better explained, since users may not be all that famoliar with scanning QR codes.
 
@@ -136,7 +135,3 @@ The video player was easy to build, by just wrapping an `MPPlayerViewController`
 To wrap things up, SwiftUI is amazing, but tvOS support is not good and the performance of the native lazy stacks and grids is horrible. Many views and api:s are still missing, so you have to wrap native UIKit components. Focus is a real problem when navigating back, which causes the tab view to reclaim focus.
 
 All in all, this was a very fun project, that I'm proud to release. I’m super happy to help services like [Cineasterna]({{page.cineasterna}}) and the public libraries help people to discover culture from all over the world. To try it out, search for Cineasterna on the App Store. Thanks for reading!
-
-
-
-

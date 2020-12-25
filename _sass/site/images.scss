@@ -11,10 +11,6 @@
     margin-left: auto;
     margin-right: auto;
   }
-
-  div img:first-child {
-    margin-top: 0px;
-  }
 }
 
 img.cover {
@@ -24,6 +20,7 @@ img.cover {
 img.avatar {
   border-radius: 50%;
   background-color: white;
+  margin-top: 0px !important;
   padding: 2px;
   width: 150px;
   height: 150px;
