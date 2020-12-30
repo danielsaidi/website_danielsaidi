@@ -10,11 +10,13 @@ ul.horizontal {
   }
 
   li:before {
-    content: '\00a0\2022\00a0';
+    content: '\2022';
+    margin: 0 5px;
   }
 
   li:first-child:before {
     content: '';
+    margin: 0px;
   }
 
   .svg-icon {
