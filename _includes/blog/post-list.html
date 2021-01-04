@@ -3,7 +3,7 @@
   {% assign year = year | plus: 0 %}
   {% if year == include.year %}
   <hr />
-  <article class="post">
+  <article>
     {%- include blog/post-header.html post=include.post link=true -%}
     <p>
       {{ post.excerpt | remove: '<p>' | remove: '</p>' }}
