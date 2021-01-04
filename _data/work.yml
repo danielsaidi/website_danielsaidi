@@ -1,23 +1,35 @@
-- name: Cineasterna
+- name:     Cineasterna
+  years:    2020 -
   url:      /work/cineasterna
   website:  https://www.cineasterna.com/sv/ 
-  appStore: https://apps.apple.com/se/app/cineasterna/id1446065399
+  appstore: https://apps.apple.com/se/app/cineasterna/id1446065399
   tags:     swift swiftui ios tvos video streaming
 
-- name: BookBeat
-  url: https://bookbeat.com
-  appStoreUrl: https://itunes.apple.com/app/bookbeat/id1056652614
+- name:     BookBeat
+  years:    2016 - 2020
+  url:      /work/bookbeat
+  website:  https://bookbeat.com
+  appstore: https://itunes.apple.com/app/bookbeat/id1056652614
+  playstore: https://play.google.com/store/apps/details?id=com.bookbeat.android&hl=en&gl=US
 
-- name: Milo Creative
-  url: https://www.milocreative.com
+- name:     Milo Creative
+  years:    2020
+  url:      /work/milo
+  website:  https://www.milocreative.com
   
-- name: Anomaly
-  url: https://www.anomaly.net.au
+- name:     Anomaly Software
+  years:    2020
+  url:      /work/anomaly
+  website:  https://www.anomaly.net.au
 
-- name: Tradera
-  url: https://tradera.com
-  appStoreUrl: https://itunes.apple.com/us/app/tradera/id427984084
-  playStoreUrl: https://play.google.com/store/apps/details?id=com.tradera
+- name:     Voyado
+  years:    2015 - 2016
+  url:      /work/voyado
+  website:  https://voyado.com
 
-- name: Harrys
-  url: https://www.harrys.se
+- name:     Tradera
+  years:    2013 - 2015
+  url:      /work/tradera
+  website:  https://tradera.com
+  appstore: https://itunes.apple.com/us/app/tradera/id427984084
+  playstore: https://play.google.com/store/apps/details?id=com.tradera

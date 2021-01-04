@@ -2,10 +2,32 @@
 layout: default
 ---
 
-{%- assign id = page.id | split: "/" | last -%}
-{%- assign work = site.data.work[id] -%}
+{%- assign work = site.data.work | where:"name", page.name | first -%}
+{%- assign tags = work.tags | split:" " -%}
 
 <article>
-    <h1>{{work.name}}</h1>
+    <a href="/work#{{ page.name | slugify }}"><h4>Work</h4></a>
+    <header>
+      <h1>{{ work.name | escape }}</h1>
+    </header>
+  
     {{ content }}
+
+    <hr />
+
+    <h2>Links</h2>
+
+    <ul>
+        {% if work.website %}
+        <li><a href="{{work.website}}" title="Visit the {{work.name}} website">Visit the {{work.name}} website</a></li>
+        {% endif %}
+
+        {% if work.appstore %}
+        <li><a href="{{work.appstore}}" title="Download the iOS app">Download the iOS app</a></li>
+        {% endif %}
+
+        {% if work.playstore %}
+        <li><a href="{{work.appstore}}" title="Download the Android app">Download the Android app</a></li>
+        {% endif %}
+    </ul>
 </article>

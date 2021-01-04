@@ -10,7 +10,6 @@ layout: default
 {%- capture lyrics_url -%}/lyrics/{{ page.name | slugify }}/{%- endcapture -%}
 
 <article>
-
   <a href="/music#{{ page.name | slugify }}"><h4>Music</h4></a>
   <header>
     <h1>{{ info.name | escape }}</h1>
@@ -25,21 +24,6 @@ layout: default
 </article>
 
 <hr />
-
-<!--
-{%- if band.members -%}
-<h2>Members</h2>
-<p>
-  <ul class="horizontal">
-    {%- for member in members -%}
-      <li>{{member.name}} ({{member.instrument}})</li>
-    {%- endfor -%}
-  </ul>
-</p>
-
-<hr />
-{%- endif -%}
--->
 
 {%- if band.photos -%}
 <h2>Photos</h2>
