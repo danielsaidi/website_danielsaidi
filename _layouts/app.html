@@ -1,11 +1,13 @@
 ---
-layout: page
+layout: default
 ---
 
-{{ content }}
+<article>
+    {{ content }}
 
-{%- assign id = page.id | split: "/" | last -%}
-{%- assign info = site.data.apps | where:"name",page.name | first -%}
+    {%- assign id = page.id | split: "/" | last -%}
+    {%- assign info = site.data.apps | where:"name",page.name | first -%}
 
-<p>{{ id }}</p>
-<p>{{ info }}</p>
+    <p>{{ id }}</p>
+    <p>{{ info }}</p>
+</article>
