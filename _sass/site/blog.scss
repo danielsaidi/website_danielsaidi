@@ -1,13 +1,9 @@
-.grid.blog-menu {
-  grid-template-columns: repeat(3, 1fr);
-  margin-bottom: $standard-margin*2;
+.blog-menu {
+
+  margin-top: 0 !important;
 
   .active {
     text-decoration: underline;
-  }
-
-  h2 {
-    margin: 0;
   }
 }
 

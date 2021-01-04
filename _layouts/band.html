@@ -5,7 +5,6 @@ layout: default
 {%- assign id = page.id | split: "/" | last -%}
 {%- assign band = site.data.bands[id] -%}
 {%- assign info=band.info -%}
-{%- assign members=band.members -%}
 {%- assign albums=band.discography | reverse -%}
 {%- capture lyrics_url -%}/lyrics/{{ page.name | slugify }}/{%- endcapture -%}
 

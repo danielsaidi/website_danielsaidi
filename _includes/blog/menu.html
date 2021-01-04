@@ -1,11 +1,13 @@
-<section class="grid blog-menu">
-  {%- include blog/menu-item.html title="Latest" url="blog" active=include.latest -%}
-  {%- if include.year -%}
-    {%- assign year = include.year -%}
-    {%- capture url -%}blog/{{ year }}{%- endcapture -%}
-    {%- include blog/menu-item.html title=year url=url active=true -%}
-  {%- else -%}
-    {%- include blog/menu-item.html title="Archive" url="blog/archive" active=include.archive -%}
-  {%- endif -%}
-  {%- include blog/menu-item.html title="Tags" url="blog/tags" active=include.tags -%}
-</section>
+#### [Home](/)
+<h1 class="blog-title">
+  Blog
+</h1>
+
+<h3 class="blog-menu">
+  <ul class="horizontal">
+    <li><a 
+      href="/blog" class="{% if include.latest == true %}active{% endif %}">Latest</a></li>{%- if include.year -%}<li><a 
+      href="/blog/{{include.year}}" class="active">{{include.year}}</a></li>{%- endif -%}<li><a 
+      href="/blog/archive" class="{% if include.archive == true %}active{% endif %}">Archive</a></li><li><a 
+      href="/blog/tags" class="{% if include.tags == true %}active{% endif %}">Tags</a></li></ul>
+</h3>
