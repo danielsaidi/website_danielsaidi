@@ -2,6 +2,10 @@
 layout: default
 ---
 
+{%- assign id = page.id | split: "/" | last -%}
+{%- assign work = site.data.work[id] -%}
+
 <article>
+    <h1>{{work.name}}</h1>
     {{ content }}
 </article>

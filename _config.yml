@@ -93,19 +93,16 @@ defaults:
     values:
       author: "danielsaidi"
       layout: "presentation"
-      hidden: false
-  -
-    scope:
-      path: "_talks/bookbeat"
-    values:
-      assets: "/assets/talks/bookbeat"
-      location: "BookBeat"
-      hidden: true
   -
     scope:
       type: "privacy-policies"
     values:
       layout: "page"
+  -
+    scope:
+      type: "work"
+    values:
+      layout: "work"
 
 exclude:
   - Gemfile

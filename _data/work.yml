@@ -1,12 +1,14 @@
 - name: Cineasterna
-  url: https://www.cineasterna.com/sv/
-  appStoreUrl: https://apps.apple.com/se/app/cineasterna/id1446065399
+  url:      /work/cineasterna
+  website:  https://www.cineasterna.com/sv/ 
+  appStore: https://apps.apple.com/se/app/cineasterna/id1446065399
+  tags:     swift swiftui ios tvos video streaming
 
 - name: BookBeat
   url: https://bookbeat.com
   appStoreUrl: https://itunes.apple.com/app/bookbeat/id1056652614
 
-- name: Milo
+- name: Milo Creative
   url: https://www.milocreative.com
   
 - name: Anomaly
