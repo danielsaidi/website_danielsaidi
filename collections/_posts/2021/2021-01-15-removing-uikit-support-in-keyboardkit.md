@@ -47,9 +47,7 @@ This means that I have to start planning for deprecating and removing these part
 
 I plan to release `v 4.0` in Q1 2020, which means that it will be released about a year after I added the first SwiftUI support to the library. In calendar time it's about two months away, during which I will work hard on finalizing the new major version.
 
-I will aim to release a `3.6.0` during the second half of January. This release will add deprecations to all files in the `UIKit` folder and move this folder to the `_Deprecated` folder. These parts of the library will be frozen after this, and not touched until the major release is done. The readme will be updated to mention this deprecation and all information will be moved into the UIKit-specific readme files.
-
-I will cleanup the documentation and tutorials in `3.7.0`-`3.9.0`, which also will add more functionality to the SwiftUI parts of the library. I'm not sure the minor versions will go as high, but I will only deprecate new things in new minor versions.
+I will aim to release a `3.6.0` during the second half of January. I will clean up the documentation and tutorials in `3.7.0`-`3.9.0` and will add more functionality to the SwiftUI parts of the library to make it "complete" for a new major release. I will only deprecate new things in new minor versions.
 
 Once I and some other developers feel like the SwiftUI parts are in a good state, I will start working on the `4.0 RC`, which will be done in a separate branch. This branch will experience many changes in a short amount of time, where I will:
 
@@ -61,6 +59,8 @@ Once I and some other developers feel like the SwiftUI parts are in a good state
 * Change many protocols
 * Remove non-observable contexts and make the observable ones exclusive
 * ...plus much more
+
+This is when I also will deprecate all files in the `UIKit` folder and move it to the `_Deprecated` folder. These parts of the library will be frozen after this, and not touched until the major release is done.
 
 
 ## Release
