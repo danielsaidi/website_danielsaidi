@@ -342,7 +342,7 @@ Let's create a new iOS app and see if the package works. Create a SwiftUI projec
 
 Add a new dependency and enter the url to your repo. If you haven't created a repo of your own, you can use this url instead: `https://github.com/danielsaidi/SwiftUIKit`.
 
-After Xcode has synced SPM dependencies, you can now `import` the library and use it in your app, for instance:
+After Xcode has synced SPM dependencies, you can now `import` the library and use it in your app:
 
 ```swift
 import SwiftUIGestures // or SwiftUIKit if you use my library
