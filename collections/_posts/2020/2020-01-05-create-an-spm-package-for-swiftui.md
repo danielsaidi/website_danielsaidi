@@ -10,11 +10,16 @@ In this post, we'll create a package for the Swift Package Manager. The result w
 I will evolve the package with support for CocoaPods, Carthage, Fastlane and Bitrise etc. in upcoming posts. At the end of this post, we'll have a fully functional package, but it will lack some features that every decent open source project should have.
 
 
+## Updates
+
+Since this post was written, I have discontinued the SwiftUIGestures repo and moved those parts into my [SwiftUIKit][Project] repo. I will still call the package SwiftUIGestures in this post.
+
+
 ## Background
 
 I have [several open source projects][GitHub] and was very excited when Apple last WWDC announced that SPM was coming to iOS. [CocoaPods][CocoaPods] and [Carthage][Carthage] are great dependency managers, but have problems that SPM has the potential to solve, since it's integrated into Xcode.
 
-SPM is young and has many childhood problems and limitations. As the package evolves and you add more features, like demo projects, support for 3rd party dependency managers, CI integrations etc. you'll run into some nasty problems. However, in more basic setups, SPM will let you create a nice, useful package quickly and with minimum hassle.
+As this is written, SPM is young and has some childhood problems. As your package evolves and you add features like demo projects, support for 3rd party dependency managers, CI integrations etc. you may run into some problems.
 
 Therefore, let's focus on the most essential features in this post. Let's save these problems for later, and take them on as we add more features to the package.
 
@@ -371,7 +376,7 @@ I will expand the package further with these features in upcoming posts and will
 [CocoaPods]: http://cocoapods.org
 
 [GitHub]: https://github.com/danielsaidi
-[Project]: https://github.com/danielsaidi/SwiftUIGestures
+[Project]: https://github.com/danielsaidi/SwiftUIKit
 [gitignore]: https://danielsaidi.com/blog/2020/01/02/spm-gitignore
 
 [Quick]: https://github.com/Quick/Quick
