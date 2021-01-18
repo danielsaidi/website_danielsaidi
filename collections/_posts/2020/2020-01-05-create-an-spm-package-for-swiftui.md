@@ -333,16 +333,22 @@ The last part now is to publish the package. This can easily be as much work as 
 * `Documentation` to make it easy for people to use your package.
 * `A stunning logo` to...well, you don't have to, but it's fun.
 
-For now, though, just push it up to GitHub so that we can try it our in a  real Xcode project. You can find my version of the package [here][Project].
+For now, though, just push it up to GitHub so that we can try it our in a  real Xcode project. You can find my version of the package [here][Project] (moved into a larger repo since this post was written).
 
 
 ## Add the package to a new app
 
-Let's create a new iOS app and see if the package works. Create a SwiftUI project and add an SPM dependency under `Project/Swift Packages`. If you haven't published the package, you can use this url instead: `https://github.com/danielsaidi/SwiftUIGestures`.
+Let's create a new iOS app and see if the package works. Create a SwiftUI project and navigate to the SPM dependency manager under `Project/Swift Packages`.
 
-After Xcode has synced SPM dependencies, you can add `import SwiftUIGestures` to `ContentView` and add this code to it:
+Add a new dependency and enter the url to your repo. If you haven't created a repo of your own, you can use this url instead: `https://github.com/danielsaidi/SwiftUIKit`.
+
+After Xcode has synced SPM dependencies, you can now `import` the library and use it in your app, for instance:
 
 ```swift
+import SwiftUIGestures // or SwiftUIKit if you use my library
+
+...
+
 Color.red
     .onSwipeGesture(
         up: { print("UP") },
