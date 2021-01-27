@@ -1,5 +1,8 @@
-Our hunger grows intense
-========================
+---
+title:  Our hunger grows intense
+band:   New Wave Stoner
+album:  Live
+---
 
 It started with a kiss
 upon the lips of he who smiled

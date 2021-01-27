@@ -1,6 +1,6 @@
 ---
 title:  En röd debut
-band:   Kollektivet
+band:   Daniel Saidi
 album:  En röd debut
 ---
 

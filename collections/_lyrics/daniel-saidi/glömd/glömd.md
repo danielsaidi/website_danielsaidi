@@ -1,6 +1,6 @@
 ---
 title:  Glömd
-band:   Kollektivet
+band:   Daniel Saidi
 album:  Glömd
 ---
 

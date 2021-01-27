@@ -1,6 +1,6 @@
 ---
 title:  Mot asfalten
-band:   Kollektivet
+band:   Daniel Saidi
 album:  En röd debut
 ---
 

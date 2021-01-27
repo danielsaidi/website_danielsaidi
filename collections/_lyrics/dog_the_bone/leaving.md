@@ -1,5 +1,8 @@
-Leaving
-=======
+---
+title:  Leaving
+band:   Dog The Bone
+album:  Dog The Bone
+---
 
 We couldn’t see it coming
 as we ploughed our way through life

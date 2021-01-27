@@ -1,6 +1,6 @@
 ---
 title:  Ideal
-band:   Kollektivet
+band:   Daniel Saidi
 album:  En röd debut
 ---
 

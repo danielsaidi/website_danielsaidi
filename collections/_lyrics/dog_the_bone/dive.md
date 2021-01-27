@@ -1,34 +1,41 @@
-Dive
-====
+---
+title:  Dive
+band:   Dog The Bone
+album:  Dog The Bone
+---
 
-I just want to close my eyes
-It's time,
+I want to close my eyes
+It's time
 I'll be just fine in time
 At ease, please don’t cry
 
 Time seems endlessly
-and I can't stand this empty life
+And I
+Can't stand this empty life
 Fade, fade, smile
 
 Deny, why deny me
 a dive into my dreams?
 And why, why fear the dive
 when the dive will let me dream?
+
 It opens up my eyes
 
 So, it's time to let go
 You know it's low to grow
-this empty shell due to fear
-when I'm just lying here
+This empty shell due to fear
+When I'm just lying here
 
 Deny, why deny me
 a dive into my dreams?
 Dive, we all fade in time
 The dive will let me dream
+
 Deny, why deny me
 a dive into my dreams?
 And why, why fear the dive
 when the dive will let me dream?
+
 It opens up my eyes
 
 Just try to let me leave

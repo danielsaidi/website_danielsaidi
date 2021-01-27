@@ -1,5 +1,8 @@
-All That Easy
-=============
+---
+title:  All That Easy
+band:   New Wave Stoner
+album:  -
+---
 
 Hard to act like I care
 when I don’t give a damn

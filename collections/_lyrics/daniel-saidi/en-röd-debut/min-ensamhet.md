@@ -1,6 +1,6 @@
 ---
 title:  Min ensamhet
-band:   Kollektivet
+band:   Daniel Saidi
 album:  En röd debut
 ---
 

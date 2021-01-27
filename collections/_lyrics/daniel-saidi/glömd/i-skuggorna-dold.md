@@ -1,6 +1,6 @@
 ---
 title:  I skuggorna dold
-band:   Kollektivet
+band:   Daniel Saidi
 album:  Glömd
 ---
 

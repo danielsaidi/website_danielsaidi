@@ -1,30 +1,37 @@
-All there is
-============
+---
+title:  All There Is
+band:   New Wave Stoner
+album:  -
+---
 
 If you answered the walls,
 would they bend?
 To lean forward is to loose yourself
-Show infinity reverence,
-take a dive into the white
+Show infinity reverence
+
+Take a dive into the white
 
 My sermon fades right through you
 Must find her words to move you
 If I could see then would you
-show all there is
-Now would you?
+Show all there is
+
+Now, would you?
 Why should you?
 
-Make the rumble erupt,
-make my blazing mouth shut up
+Make the rumble erupt
+Make my blazing mouth shut up
 To lean forward is to get revenge
-Show infinity reverence,
-take a dive into the white
+Show infinity reverence
+
+Take a dive into the white
 
 My sermon fades right through you
 Must find her words to move you
 If I could see then would you
-show all there is
-Now would you?
+Show all there is
+
+Now, would you?
 Why should you?
 
 My empty prayers bleed through you

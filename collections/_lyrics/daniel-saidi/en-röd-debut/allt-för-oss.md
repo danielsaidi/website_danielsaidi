@@ -1,6 +1,6 @@
 ---
 title:  Allt för oss
-band:   Kollektivet
+band:   Daniel Saidi
 album:  En röd debut
 ---
 
