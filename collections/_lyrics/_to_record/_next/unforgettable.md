@@ -1,7 +1,10 @@
 ---
 title:  Unforgettable
-band:   sgt. Black
-album:  December Session
+band:   Daniel Saidi
+album:  Low-fi Sessions 1
+
+original-band:   sgt. Black
+original-album:  December Session
 ---
 
 Seconds of sliding

@@ -1,7 +1,9 @@
 ---
-title:  När man är två
-band:   Kollektivet
-album:  Fem berättelser
+title:  Hand in Hand
+band:   Daniel Saidi
+album:  Low-fi Sessions #1
+
+original-song:   När man är två
 ---
 
 När problemen tagit slut

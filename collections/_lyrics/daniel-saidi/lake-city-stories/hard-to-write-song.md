@@ -1,5 +1,5 @@
 ---
-title:  Hard-to-write-song
+title:  Hard to Write Song
 band:   Daniel Saidi
 album:  Lake City Stories
 ---

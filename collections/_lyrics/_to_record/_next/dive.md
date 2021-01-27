@@ -1,7 +1,10 @@
 ---
 title:  Dive
-band:   Dog The Bone
-album:  Dog The Bone
+band:   Daniel Saidi
+album:  Low-fi Sessions 1
+
+original-band:   Dog The Bone
+original-album:  Dog The Bone
 ---
 
 I want to close my eyes
