@@ -11,28 +11,29 @@ Life fades
 Relive those memories
 that only seems
 like fading dreams
-Try to fall asleep, well
+Try to fall asleep
 
-Remember this,
-if you can't remember anything at all
-Remember this,
-cause you will surely regret
-your ignorant way
-of leaving friends behind,
+Well, remember this
+If you can't remember anything at all
+Remember this
+Cause you will surely regret
+Your ignorant way
+of leaving friends behind
 Blind eyes bleed this time
 
-You spend your days alone -
-free to moan,
-letting bottles roll
+You spend your days alone
+Free to moan
+Letting bottles roll
+Life flows
 And a dusty haze
 slowly stains
 smiles on our faces
 Pictures of times to come once again
 
-Remember this,
-if you can't remember anything at all
-Remember this,
-cause you will surely regret
+Remember this
+If you can't remember anything at all
+Remember this
+Cause you will surely regret
 your ignorant way
 of leaving friends behind,
 Blind eyes bleed this time

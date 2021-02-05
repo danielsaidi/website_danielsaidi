@@ -1,10 +1,7 @@
 ---
 title:  Hard to Write Song
 band:   Daniel Saidi
-album:  Low-fi Sessions 1
-
-original-band:   Daniel Saidi
-original-album:  Lake City Stories
+album:  Lake City Stories
 ---
 
 I went into the ocean,

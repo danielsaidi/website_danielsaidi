@@ -34,15 +34,3 @@ Deny, why deny me
 a dive into my dreams?
 Dive, we all fade in time
 The dive will let me dream
-
-Deny, why deny me
-a dive into my dreams?
-And why, why fear the dive
-when the dive will let me dream?
-
-It opens up my eyes
-
-Just try to let me leave
-Just try to feel what I feel
-I hope and believe
-that you'll see what I mean
