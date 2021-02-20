@@ -1,7 +1,7 @@
 ---
 title:  All That Easy
 band:   New Wave Stoner
-album:  -
+album:  Unreleased
 ---
 
 Hard to act like I care

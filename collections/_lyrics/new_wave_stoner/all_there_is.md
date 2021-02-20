@@ -1,7 +1,7 @@
 ---
 title:  All There Is
 band:   New Wave Stoner
-album:  -
+album:  Unreleased
 ---
 
 If you answered the walls,
