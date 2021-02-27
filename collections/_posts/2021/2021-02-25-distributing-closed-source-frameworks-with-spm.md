@@ -6,7 +6,7 @@ tags:   swift xcode spm
 icon:   keyboardkit
 
 keyboardkit: https://github.com/danielsaidi/KeyboardKit
-keyboardkit: https://github.com/danielsaidi/KeyboardKitPro
+keyboardkitpro: https://github.com/danielsaidi/KeyboardKitPro
 ---
 
 
