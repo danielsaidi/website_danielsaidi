@@ -50,7 +50,7 @@ With these repositories in place, the idea was that developers could start using
 
 I tried this and verified that it worked. SPM took care of distributing and injecting the XCFramework into the target project without any problems. This would not have been possible two years ago.
 
-I could now run KeyboardKit and KeyboardKit Pro on simulator and on real devices, but for the setup to be viable, I had one critical test remaining: Could I distribute KeyboardKit Pro-based apps to the App Store?
+I could now run KeyboardKit and KeyboardKit Pro on simulator and on real devices, but for the setup to be viable, I had one critical test remaining: Could I distribute Pro-based apps to the App Store?
 
 I tried this...and failed. 
 
