@@ -127,8 +127,8 @@ I am excited about developing the license model even more.
 
 ## Conclusion
 
-I hope that this text has been an interesting read. I’m excited to release KeyboardKit Pro into the open and see if the model holds up in real life. I'm also developing a public web site and more stuff that I hope to release soon.
+I would love to hear your thoughts about this model. Do you see any pros and cons, risks and missed opportunities? At the end of the day, I hope that I have found a good balance between providing a powerful and completely free and open platform with a way for people and companies to upgrade with features that they could build themselves if they'd like, but choose to go the pro route for to save time, get new features without additional cost or work etc. To me, it feels like a good and fair model, but I'd love to hear your thoughts on this.
 
-You can find more information about KeyboardKit and KeyboardKit Pro at the [open source website]({{page.keyboardkit}}) and the [pro product page]({{page.keyboardkitpro}}).
+I hope that this text has been an interesting read. I’m excited to release this into the open and see if the model holds up in real life. You can find more information about KeyboardKit and KeyboardKit Pro at the [open source website]({{page.keyboardkit}}) and the [pro product page]({{page.keyboardkitpro}}). I'm also developing a public web site and more stuff that I hope to release soon.
 
 Thanks for reading!
