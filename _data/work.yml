@@ -1,3 +1,9 @@
+- name:     Oribi
+  years:    2021 -
+  url:      /work/oribi
+  website:  https://www.oribi.se/en/ 
+  tags:     swift swiftui ios keyboard-extension
+
 - name:     Cineasterna
   years:    2020 -
   url:      /work/cineasterna
@@ -11,21 +17,25 @@
   website:  https://bookbeat.com
   appstore: https://itunes.apple.com/app/bookbeat/id1056652614
   playstore: https://play.google.com/store/apps/details?id=com.bookbeat.android&hl=en&gl=US
+  tags:     swift swiftui ios watchos carplay uikit architecture
 
 - name:     Milo Creative
   years:    2020
   url:      /work/milo
   website:  https://www.milocreative.com
+  tags:     swift swiftui keyboard-extension
   
 - name:     Anomaly Software
   years:    2020
   url:      /work/anomaly
   website:  https://www.anomaly.net.au
+  tags:     swift swiftui keyboard-extension
 
 - name:     Voyado
   years:    2015 - 2016
   url:      /work/voyado
   website:  https://voyado.com
+  tags:     swift ios android ionic .net web javascript html
 
 - name:     Tradera
   years:    2013 - 2015
@@ -33,3 +43,4 @@
   website:  https://tradera.com
   appstore: https://itunes.apple.com/us/app/tradera/id427984084
   playstore: https://play.google.com/store/apps/details?id=com.tradera
+  tags:     swift ios android .net web javascript html

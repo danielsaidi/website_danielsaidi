@@ -18,7 +18,7 @@ I formed a mobile team together with a PO and two freelance developers. Together
 After getting the mobile apps back on track, I started working on brand new versions, where the goal was to create hybrid apps that could reuse as much as possible from the new, responsive web.
 
 
-## Hybrid Technology
+## Technologies
 
 To achieve this, I created a custom-made hybrid framework for iOS and Android, that wrapped the new, responsive web and adjusted it to run as an app, with a custom UI and a configuration engine that was used to "remote configure" the mobile apps.
 

@@ -4,7 +4,7 @@ name: BookBeat
 bonnier: https://bonnierbooks.com
 ---
 
-BookBeat is an audiobook and e-book subscription service from Swedish [Bonnier]({{page.bonnier}}). The service is live on 28 European markets, where some are focus markets while others feature general content.
+BookBeat is a Swedish audiobook and e-book subscription service. BookBeat is live on 28 European markets, where some are focus markets and others has general content.
 
 ![BookBeat title image](/assets/work/bookbeat-title.jpg)
 
