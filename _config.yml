@@ -35,6 +35,7 @@ plugins:
   - jekyll-redirect-from
 
 header_pages:
+  - index.md
   - pages/work.md
   - pages/apps.md
   - pages/open-source.md
