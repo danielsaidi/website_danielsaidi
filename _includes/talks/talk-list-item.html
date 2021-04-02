@@ -8,37 +8,24 @@
       <li>
         {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
         {{ talk.date | date: date_format }}
-      </li><li>{{ talk.location }}</li>
-  
-      {%- if talk.video -%}
-      <li>
-        <a href="{{ talk.video }}">
-          Video
-        </a>
+      </li><li>
+        {%- if talk.location_url -%}
+        <a href="{{ talk.location_url }}">{{ talk.location }}</a>
+        {%- else -%}
+        {{ talk.location }}
+        {%- endif -%}
+      </li><li class="links">
+        <a href="{{ talk.url }}">Presentation</a>
+        {%- if talk.video -%}
+        <a href="{{ talk.video }}">Video</a>
+        {%- endif -%}
+        {%- if talk.post -%}
+        <a href="{{ talk.post }}">Blog Post</a>
+        {%- endif -%}
+        {%- if talk.code -%}
+        <a href="{{ talk.code }}">Code</a>
+        {%- endif -%}
       </li>
-      {%- endif -%}
-    
-      <li>
-        <a href="{{ talk.url }}">
-          Presentation
-        </a>
-      </li>
-      
-      {%- if talk.post -%}
-      <li>
-        <a href="{{ talk.post }}">
-          Blog Post
-        </a>
-      </li>
-      {%- endif -%}
-      
-      {%- if talk.code -%}
-      <li>
-        <a href="{{ talk.code }}">
-          Code
-        </a>
-      </li>
-      {%- endif -%}
     </ul>
   </header>
 
