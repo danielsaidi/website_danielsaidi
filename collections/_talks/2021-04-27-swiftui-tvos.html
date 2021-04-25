@@ -1,0 +1,70 @@
+---
+title: Building a Video App for tvOS in SwiftUI
+date: 2021-04-25
+location: try! Swift World 2021
+location_url: https://www.tryswift.co
+
+abstract: |
+  I gave this workshop at the try! Swift World online workshop
+  conference 2021. In the workshop we look at how to build a
+  video streaming app for tvOS, using SwiftUI and Combine. We
+  create an app that lists movies in shelves and grids and a
+  movie detail page that lets us watch the movie and mark it
+  as a favorite. We will look at current SwiftUI performance
+  problems on tvOS and how to work around them.
+
+conference-abstract: |
+  In this workshop, we will look at how to build a video streaming app for tvOS, using SwiftUI and Combine. We will create an app that lists movies in shelves and grids and a movie detail page that lets us watch a trailer and mark the movie as a favorite. We will look at current SwiftUI performance problems on tvOS and how to work around them.
+
+  If time permits, we will use the general tools that we create to create a quick app for iOS as well. We will use SwiftUI 2, so make sure to have the latest version of Xcode if you want to code along.
+---
+
+{% capture assets %}{{ "assets/talks/2021-tryswift-tvOS/" | relative_url }}{% endcapture %}
+
+<section data-markdown class="image-section transparent-image" data-background="{{assets}}bg.jpg">
+  ### Building a Video App for tvOS in SwiftUI
+  ![Title]({{assets}}title_500.png "Title")
+  #### 
+  #### Daniel Saidi · @danielsaidi
+</section>
+
+<section data-markdown class="image-section" data-background="{{assets}}bg.jpg">
+  ## In this workshop
+  * Build a tvOS app in SwiftUI
+  * Get movies from an API
+  * List movies
+  * Show movie details
+  * Watch movie
+  * Add and remove favorites
+</section>
+
+<section data-markdown class="image-section" data-background="{{assets}}bg.jpg">
+  ## API
+  * OMDb - http://omdbapi.com
+  * Very easy to integrate with
+  * But lacks important information
+  * Therefore, a pretty basic app
+  * Simplicity to focus on SwiftUI
+</section>
+
+<section data-markdown class="image-section" data-background="{{assets}}bg.jpg">
+  ## App Screens
+  * Discover - List movies by year
+  * Favorites - List favorite movies
+  * Search - Free text search
+  * Movie - Movie details + actions
+  * Movie Player - Streams any video url
+</section>
+
+<section data-markdown class="image-section" data-background="{{assets}}bg.jpg">
+  ## SwiftUI + tvOS Limitations
+  * Various glitches, e.g. text field
+  * Styling, e.g. buttons and text fields
+  * Missing components, e.g. search field
+  * Focus engine behavior
+  * Bad performance in stacks and grids
+</section>
+
+<section data-markdown class="image-section" data-background="{{assets}}bg.jpg">
+  # Let's code!
+</section>
