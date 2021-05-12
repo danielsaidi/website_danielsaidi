@@ -8,6 +8,9 @@
 - name: DeckKit
   url: https://github.com/danielsaidi/DeckKit
 
+- name: BottomSheet
+  url: https://github.com/danielsaidi/BottomSheet
+
 - name: Tutti
   url: https://github.com/danielsaidi/Tutti
 
@@ -20,5 +23,5 @@
 - name: SwiftKit
   url: https://github.com/danielsaidi/SwiftKit
 
-- name: Cloney
-  url: https://github.com/danielsaidi/Cloney
+# - name: Cloney
+#  url: https://github.com/danielsaidi/Cloney
