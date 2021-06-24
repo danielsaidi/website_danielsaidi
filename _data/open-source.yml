@@ -14,8 +14,8 @@
 - name: Tutti
   url: https://github.com/danielsaidi/Tutti
 
-- name: Mockery
-  url: https://github.com/danielsaidi/Mockery
+- name: MockingKit
+  url: https://github.com/danielsaidi/MockingKit
 
 - name: SwiftUIKit
   url: https://github.com/danielsaidi/SwiftUIKit
