@@ -36,8 +36,6 @@ git tag -d $(git tag -l "*-<SUFFIX>")
 ```
 git push <REMOTE> --delete $(git ls-remote --tags <REMOTE> | grep "<PREFIX>.*[^}]$" | cut -f 2)
 git push <REMOTE> --delete $(git ls-remote --tags <REMOTE> | grep "\<SUFFIX>$" | cut -f 2)
-
-
 ```
 
 That's it for now, but I may return to this post and add new commands whenever I find some new ones that I want to remember.
