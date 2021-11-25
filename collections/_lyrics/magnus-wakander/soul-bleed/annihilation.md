@@ -1,7 +1,7 @@
 ---
 title:  Annihilation
 band:   Magnus Wakander
-album:  Annihilation
+album:  Soul Bleed
 ---
 
 We are never gonna serve on bended knees
