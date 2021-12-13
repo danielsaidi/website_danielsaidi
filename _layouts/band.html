@@ -53,6 +53,18 @@ layout: default
     <h3>
       {{album.name}} • {{album.year}} 
     </h3>
+    <h4>
+      Listen on 
+      {%- if album.links.spotify -%}
+      <span class="bullet">·</span><a href="{{ album.links.spotify }}">Spotify</a>
+      {%- endif -%}
+      {%- if album.links.youtube -%}
+      <span class="bullet">·</span><a href="{{ album.links.youtube }}">YouTube</a>
+      {%- endif -%}
+      {%- if album.links.apple -%}
+      <span class="bullet">·</span><a href="{{ album.links.apple }}">Apple Music</a>
+      {%- endif -%}
+    </h4>
     <ol class="tracks">
       {%- for track in album.tracks -%}
       <li>
@@ -61,8 +73,14 @@ layout: default
           {{track.name}}
         </span>
         <span class="track-links">
+          {%- if track.spotify -%}
+          <a href="{{ track.links.spotify }}">Spotify</a><span class="bullet">·</span>
+          {%- endif -%}
+          {%- if track.apple -%}
+          <a href="{{ track.links.apple }}">Apple</a><span class="bullet">·</span>
+          {%- endif -%}
           {%- if track.youtube -%}
-          <a href="{{ track.youtube }}">YouTube</a><span class="bullet">·</span>
+          <a href="{{ track.links.youtube }}">YouTube</a><span class="bullet">·</span>
           {%- endif -%}
           {%- if track.lyrics == false -%}{%- else -%}
           <a href="{{ lyrics_url }}{{ album.name | slugify }}/{{ track.name | slugify }}">Lyrics</a>
