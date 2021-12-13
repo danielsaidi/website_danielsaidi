@@ -54,16 +54,18 @@ layout: default
       {{album.name}} • {{album.year}} 
     </h3>
     <h4>
-      Listen on 
-      {%- if album.links.spotify -%}
-      <span class="bullet">·</span><a href="{{ album.links.spotify }}">Spotify</a>
-      {%- endif -%}
-      {%- if album.links.youtube -%}
-      <span class="bullet">·</span><a href="{{ album.links.youtube }}">YouTube</a>
-      {%- endif -%}
-      {%- if album.links.apple -%}
-      <span class="bullet">·</span><a href="{{ album.links.apple }}">Apple Music</a>
-      {%- endif -%}
+      Listen on:
+      <ul class="horizontal">
+        {%- if album.links.spotify -%}
+        <li><a href="{{ album.links.spotify }}">Spotify</a></li>
+        {%- endif -%}
+        {%- if album.links.youtube -%}
+        <li><a href="{{ album.links.youtube }}">YouTube</a></li>
+        {%- endif -%}
+        {%- if album.links.apple -%}
+        <li><a href="{{ album.links.apple }}">Apple Music</a></li>
+        {%- endif -%}
+      </ul>
     </h4>
     <ol class="tracks">
       {%- for track in album.tracks -%}
@@ -73,13 +75,13 @@ layout: default
           {{track.name}}
         </span>
         <span class="track-links">
-          {%- if track.spotify -%}
+          {%- if track.links.spotify -%}
           <a href="{{ track.links.spotify }}">Spotify</a><span class="bullet">·</span>
           {%- endif -%}
-          {%- if track.apple -%}
+          {%- if track.links.apple -%}
           <a href="{{ track.links.apple }}">Apple</a><span class="bullet">·</span>
           {%- endif -%}
-          {%- if track.youtube -%}
+          {%- if track.links.youtube -%}
           <a href="{{ track.links.youtube }}">YouTube</a><span class="bullet">·</span>
           {%- endif -%}
           {%- if track.lyrics == false -%}{%- else -%}
