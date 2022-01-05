@@ -4,7 +4,7 @@ date:  2013-09-10 13:13:00 +0100
 tags:  ios xcode
 ---
 
-In [an iOS app of mine](http://wally.danielsaidi.com/), that I made with friends,
+In [an iOS app of mine](https://wally.app), that I made with friends,
 we had a situation where the app shut down after taking a couple of photos. 
 
 Looking at the crash reports, it was obvious that we had a memory leak somewhere,
