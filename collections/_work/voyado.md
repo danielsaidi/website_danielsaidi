@@ -12,11 +12,11 @@ Voyado is an customer loyalty platform that lets companies connect with their cu
 
 ## Work
 
-I joined Voyado as Head of Mobile, to develop a mobile strategy for the company. During my time there, I developed a mobile api for mobile clients as well as apps that made use of the api to connect with the Voyado platform.
+I joined Voyado as Head of Mobile, to develop a mobile strategy for the company and to implement mobile utilities and application. 
 
-One such app was an iOS and Android app for Swedish restaurant chain [Harrys]({{page.harrys}}), that was used to push user-specific offers to users, let users navigate to the nearest restaurant etc.
+During my time there, I developed a mobile client api as well as apps that used the api to connect to the Voyado platform. One such app was an iOS and Android app for a Swedish restaurant chain, that was used to push user-specific offers, let users navigate to the nearest restaurant etc.
 
-After a year, Voyado (100% correctly) decided to focus on the core platform (which is mostly backend) and leave mobile integrations to each client. I then decided to leave Voyado for [BookBeat]({{page.bookbeat}}).
+After a year at Voyado, the company decided to focus on the core platform and web apis and leave mobile integrations to each client. I then decided to leave Voyado to join [BookBeat]({{page.bookbeat}}) as Mobile Lead.
 
 
 ## Technologies
