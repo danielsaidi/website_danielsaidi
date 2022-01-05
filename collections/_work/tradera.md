@@ -18,9 +18,9 @@ After getting the mobile apps back on track, I started working on brand new vers
 
 ## Technologies
 
-To achieve this, I created a hybrid framework for iOS and Android, that adjusted the responsive web to run as an app, with a custom UI and a remote configuration engine.
+To wrap the new, responsive web, I created a hybrid framework for iOS and Android, that adjusted the web to run as an app within a native framework, all configured with a configuration engine that let the web site configure the behavior of the apps.
 
-This made it possible for the mobile apps to display all content from the mobile web, minus content that was explicitly excluded by the configuration engine. The apps also got support for local reminders and push notifications when the user was overbid.
+This made it possible for the mobile apps to display all content from the mobile web, excluding content that was explicitly excluded by the configuration engine. The apps also got support for local reminders and push notifications, as well as other native features like deep links.
 
 
 ## Current state
