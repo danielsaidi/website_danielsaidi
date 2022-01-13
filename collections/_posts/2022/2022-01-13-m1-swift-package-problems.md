@@ -1,13 +1,13 @@
 ---
-title:  M1 Swift Package Problems
+title:  M1 Swift Package and XCFramework Problems
 date:   2022-01-13 08:00:00 +0100
 tags:   swift swiftui xcode
 ---
 
-I got my new 14" M1 MacBook Pro in mid-December and absolutely love it. However, there are things with the new architecture that cause a bunch of serious problems when wokring with Swift packages.
+I got my brand new 14" M1 MacBook Pro in mid-December and absolutely love it. However, there are things with the new architecture that cause serious problems when working with Swift packages and XCFramework builds.
 
 
-## SwiftUI previews are failing in packages
+## Swift Packages can't preview SwiftUI previews
 
 I have a bunch of open source projects that support Swift Package Manager, many of them containing SwiftUI views, and was very happy when Apple added the ability to use SwiftUI previews within packages. 
 
@@ -47,7 +47,7 @@ Previews work in app projects, though, so my current workaround is to create an 
 If you know how to solve the preview problem, please start a discussion in the comment section below. I'll update this section as soon as I find more information or a solution.
 
 
-## Bitcode failure for closed-source packages
+## XCFrameworks don't support Bitcode
 
 I have a closed-source project that I manage as a framework project, build with a terminal script and distribute as an XCFramework.
 

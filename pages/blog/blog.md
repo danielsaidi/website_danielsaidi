@@ -5,6 +5,7 @@ permalink: /blog/
 ---
 
 {% include blog/menu.html latest=true %}
+{% include blog/post-list.html year=2022 %}
 {% include blog/post-list.html year=2021 %}
 {% include blog/post-list.html year=2020 %}
 {% include blog/post-list.html year=2019 %}
