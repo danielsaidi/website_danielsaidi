@@ -4,7 +4,9 @@ date:   2022-01-13 08:00:00 +0100
 tags:   swift swiftui xcode
 ---
 
-I got my brand new 14" M1 MacBook Pro in mid-December and absolutely love it. However, there are things with the new architecture that cause serious problems when working with Swift packages and XCFramework builds.
+I got my brand new 14" M1 MacBook Pro in mid-December and absolutely love it. However, there are things with the new architecture that cause serious problems when working with Swift packages and XCFramework builds. In this post, I'll describe the problems and return with solutions, should I find any.
+
+Update 2022-01-18: I have solved the XCFramework Bitcode problem and have updated the text with how.
 
 
 ## Swift Packages can't preview SwiftUI previews
@@ -49,9 +51,9 @@ If you know how to solve the preview problem, please start a discussion in the c
 
 ## XCFrameworks don't support Bitcode
 
-I have a closed-source project that I manage as a framework project, build with a terminal script and distribute as an XCFramework.
+I have a closed-source project that I manage as an Xcode iOS Framework project, build with a Terminal script and distribute as an XCFramework.
 
-Everything worked great on my Intel-based MacBook Pro, but after switching over to my new M1, the generated framework no longer supports Bitcode. I have Bitcode enabled in the framework project, though, but for some reason this no longer applies when I run the archive script.
+Everything worked great on my Intel-based MacBook Pro, but after switching over to M1, the generated XCFramework no longer supports Bitcode. I have Bitcode enabled in the framework project, though, and have tried adding additional flags and tweaking the build script, but for some reason nothing I do bring Bitcode support back.
 
 The archive script is executed with Fastlane and contains of the following steps (real framework name replaced with MyFramework in the code below):
 
@@ -76,13 +78,28 @@ xcodebuild -create-xcframework
     -output build/MyFramework.xcframework'
 ```
 
-When I add the XCFramework file to an app, I now get a warning that the framework doesn't support Bitcode and that the app must therefore disable Bitcode as well.
+I have added options like `ENABLE_BITCODE`, flags like `-fembed-bitcode` and basically tried everything that I could find, but when I add the resulting XCFramework file to an app, I get this warning:
 
-Since this used to work on my Intel-based MacBook Pro, I'm not sure if this is due to the new hardware architecte or if it's a problem with the new macOS Mojave or Xcode 13.2.
+```
+*** was built without bitcode. You must rebuild it with bitcode enabled (Xcode setting ENABLE_BITCODE), obtain an updated library from the vendor, or disable bitcode for this target. Note: This will be an error in the future.
+```
 
-Any information you may have would be most welcome.
+Since this framework used to work great on my Intel-based MacBook Pro, I'm not sure if this is due to the new hardware architecte or if it's a problem with the new macOS Mojave or Xcode 13.2. All I know is that I'm looking for the solution a problem that is new to my M1 and that no one else seems to share. Any information you may have would be most welcome.
+
+
+### 2022-01-18: Solution
+
+I managed to solve the XCFramework Bitcode problem and now have a framework that supports Bitcode. I wish I could tell you about a magic switch or build setting, but the only thing that worked for me was to create a new Xcode iOS Framework project with the same name, move in all the source code and unit tests from the old project and build...and now it worked.
+
+I have compared the build settings in the old vs. the new project side by side, but to me they look identical, so I'm at a loss. 
+
+To see the silver lining here, this actually made me put some time into creating a Swift Package for the framework as well, which I didn't have before. Earlier, I had to generate the XCFramework while developing new features, but now I can just remove that Swift Package dependency and replace it with a local package, which simplifies development of new features a lot.
+
+All in all, if you find yourself facing the same problem, try creating a new project with Xcode 13 and cross those luck-bringing fingers of yours.
 
 
 ## Conclusion
 
-These problems above are pretty serious to my everyday workflow. I will update this post with any new information that I may find and would greatly appreciate any information you may have. If so, feel free to write in the discussion form below or reach out via [Twitter](https://twitter.com/danielsaidi).
+These problems above are pretty serious to my everyday workflow, but I am happy to at least have solved the most critical one by getting XCFramework and Bitcode to work again. 
+
+I will update this post with any new information about previews that I may find and would greatly appreciate any information you may have. If so, feel free to write in the discussion form below or reach out via [Twitter](https://twitter.com/danielsaidi).
