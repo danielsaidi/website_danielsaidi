@@ -1,0 +1,179 @@
+---
+title: Going Open-Source
+date: 2022-03-26
+location: MalagaMobile
+location_url: https://www.meetup.com/malagamobile/
+
+abstract: |
+  I will give this talk at the MalagaMobile Meetup on March 31st.
+  It's a presentation-adjusted version of the blog post I wrote
+  earlier in 2021, where I'll discuss my experiences of working
+  on various open-source projects, the steps involved and some
+  learnings. We'll also live code and publish a new open-source
+  project from scratch.
+
+conference-abstract: |
+  Some of the best software in the world is created in the open, maintained by people who join in their effort to solve problems and share their work with the world. Open-source software comes in all shapes and sizes, from operating systems like Linux and Android, programming languages like Swift and crucial tools like cURL, to tiny hobby projects only used by a handful of people.
+
+  Regardless of your ambitions, the first steps on your open-source journey can be scary. How do you start? Where do you put the code? How are people going to add it to their projects? And what about pull requests? Don't worry, this talk has you covered!
+  
+  In this talk, we'll look at how to get started with open-source, when a good opportunity to do so may be and things you should consider when doing so. We’ll look at how to set up a new package with the Swift Package Manager, write documentation in DocC, automate things with Fastlane etc. We will also discuss how having an open-source oriented mindset can help you out in other situations as well, such as when maintaining software shared between teams in an organization. 
+  
+  The talk will focus on Swift, Xcode and GitHub, but most topics are universal.
+---
+
+{% capture assets %}{{ "assets/talks/2022-03-26-malaga-opensource/" | relative_url }}{% endcapture %}
+
+<section data-markdown class="title-page">
+  # Going Open-Source
+  Daniel Saidi · @danielsaidi
+</section>
+
+<section data-markdown>
+  ## In this talk
+  * Open-source
+  * Private libraries
+  * Closed-source
+  * Live coding
+  * Discussions
+</section>
+
+<section data-markdown>
+  ## About me
+  * MSc in Media Technology
+  * Graduated in 2005
+  * C/C++, Python at school
+  * .NET, web, api at work
+  * iOS since 2011
+</section>
+
+<section data-markdown class="transparent-image">
+  ## First library
+  * ![Wigbi logo]({{assets}}wigbi-logo.png "Wigbi Logo")
+</section>
+
+<section data-markdown>
+  ## Wigbi
+  * Tool for ASP (Active Server Pages), later PHP
+  * Code generation - PHP to JavaScript (AJAX)
+  * Flash plugin, CMS etc.
+  * Obfuscated, not open-source
+  * Documentation, semver, configuration etc.
+</section>
+
+<section data-markdown>
+  ## Today
+  * Open-source is everywhere
+  * GitHub, GitLab, BitBucket etc.
+  * SPM, Gradle, NPM etc.
+  * Markdown, Doxygen, DocC etc.
+  * XCFrameworks for closed-source
+</section>
+
+<section data-markdown>
+  ## Some of my projects
+  * (not to promote, bear with me)
+  * UI libs like [Sheeeeeeeeet](https://github.com/danielsaidi/Sheeeeeeeeet) and [SystemNotification](https://github.com/danielsaidi/SystemNotification)
+  * Mono-repos like [SwiftKit](https://github.com/danielsaidi/SwiftKit) and [SwiftUIKit](https://github.com/danielsaidi/SwiftUIKit)
+  * Test tools like [MockingKit](https://github.com/danielsaidi/MockingKit)
+  * Commercial projects like [KeyboardKit](https://github.com/KeyboardKit/KeyboardKit)
+</section>
+
+<section data-markdown>
+  ## Reason to update 
+  * Feature or improvement
+  * Bug fixes
+  * User issues, feedback
+  * Pull requests
+  * External changes (e.g. iOS, Swift)
+</section>
+
+<section data-markdown>
+  ## Why frameworks 
+  * Reusability
+  * More focus, less distraction
+  * Faster to compile
+  * Easier to test
+  * Less cognitive load
+</section>
+
+<section data-markdown>
+  ## Why frameworks (cont.)
+  * Learn new things
+  * External dependencies
+  * Access modifiers
+  * Linking, importing
+  * System design etc.
+</section>
+
+<section data-markdown>
+  ## Why open-source
+  * Communication
+  * Planning
+  * Collaboration
+  * Learning from others
+  * Sharing is caring
+</section>
+
+<section data-markdown>
+  ## Why NOT open-source
+  * Time
+  * Intellectual property
+  * Work secrets
+  * High volatility
+  * You can still work in an oss way
+</section>
+
+<section data-markdown>
+  ## Private projects
+  * Private repo or server
+  * Accessed with SSH instead of HTTPS
+  * SSH gives granular access control
+  * Still open-source when used
+  * Perfect for e.g. company projects
+</section>
+
+<section data-markdown>
+  ## Closed-source
+  * Public repo
+  * Pre-compiled binary, e.g. XCFramework
+  * Can be protected with a license
+  * Can use documentation, issues etc.
+  * Perfect for commercial projects
+</section>
+
+<section data-markdown>
+  ## Good practices
+  * System design, access control etc.
+  * Only expose the essential
+  * Abstractions and loose coupling
+  * Test
+  * Automate
+</section>
+
+<section data-markdown>
+  ## License
+  * Picking a fitting license is important
+  * MIT is common, very allowing
+  * Others, like BSD, CPL, GPL etc.
+  * Code without license is NOT open-source
+  * Without open-source, the author has all rights
+</section>
+
+<section data-markdown>
+  ## Conclusion
+  * Open-source can be very rewarding
+  * Can also be very demanding
+  * Set clear expectations on yourself
+  * Communicate your ambitions and intent
+  * Have fun!
+</section>
+
+<section data-markdown>
+  # Live-coding
+</section>
+
+<section data-markdown class="title-page">
+  # Thank you!
+  Questions?
+</section>

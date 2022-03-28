@@ -5,16 +5,16 @@ tags:   swift open-source closed-source
 ---
 
 
-In this post, I'll discuss my journey with open-sorce and how I continously try to extract functionality from my various projects into public, open-source libraries. I'll reason around why I think this is good (and fun), the steps involved, some perhaps unexpected drawbacks, and when you should consider creating internal or closed-source libraries instead of public ones.
+In this post, I'll discuss my experiences of working on various open-source projects, the steps and processes involved and some learnings.
 
 
 ## Background
 
 I have created many apps over the years, and before that backend systems, apis and websites. There is nothing I enjoy as little as writing the same code twice. Perhaps copying code and watching the different copies diverge over time is even worse.
 
-I therefore started creating public libraries pretty early on, where the first I remember was an ambitious tool for ASP (Active Server Pages) and later PHP. I started building it in the early 2000s, with an aim to bridge front-end and backend by generating JavaScript entities from the corresponding backend types, that could trigger the same functionality in an async manner (AJAX, anyone?).
+I therefore started creating public libraries pretty early on, where the first I remember was an ambitious tool for ASP (Active Server Pages) and later PHP. I started building it mid-2000, with an aim to bridge front-end and back-end by generating JavaScript entities from custom back-end types, that could trigger the same functionality in an async manner (AJAX, anyone?).
 
-Wigbi (Watch It Grow By Itself, as it was called) wasn't open-source, but was released as obfuscated code, since I intended to build a product out of it. Still, building it for public use forced me to focus on tasks that I wasn't all that familiar with from just writing code. Documentation, versioning, configurability, bug reporting, building a web site - there was so much involved than just coding.
+Wigbi (Watch It Grow By Itself, as it was called) wasn't open-source, but was rather released as obfuscated code, since I intended to release it as a commercial product. Still, building it for public use forced me to work on tasks outsied of my comfort zone. Documentation, learning about and planning for semantic versioning, configurability, bug reporting etc. - there was so much involved than just coding.
 
 Wigbi had tons of functionality and even a built-in CMS, but never made it to a commercial product. One contributing factor was that I strived for perfection and didn't have a clear definition of done, which led me to decline showing Wigbi to a potential buyer, since it "wasn't done yet". Instead of showing what I had at the moment, present a project plan and describe my vision etc. I just said "no".
 
@@ -23,18 +23,11 @@ To sum up, I learned a LOT from working on Wigbi, not just coding. It made me a 
 
 ## Today
 
-Fast forward to today, and open source is everywhere. Services like GitHub and dependency managers (e.g. Swift Package Manager, Gradle, NPM etc.) have made it easy to create, maintain and distrivute open-source projects, host documentation etc.
+Fast forward to today, and open source is everywhere. Services like GitHub and dependency managers (e.g. Swift Package Manager, Gradle, NPM etc.) have made it easy to create, maintain and distribute open-source projects, host documentation etc.
 
-Although I eventually ended Wigbi, I have kept working on open-source projects ever since. Today, I more or less do it out of habit, when I create something that may be useful to others. Most of the libraries are just there for me and my own apps, but if they can help others, that's great.
+Although I eventually stopped working on Wigbi, I have kept building open-source projects ever since. Today, I more or less do it out of habit, when I create something that may be useful to others. If what I create can help others, that's great.
 
-It's worth repeating that there is a considerable overhead to create open-source software, than just writing code. If you build software that you intent others to use, you will have to deal with documentation, onboarding developers, versioning, release management, deprecations, breaking changes etc. 
-
-Although this may not always be fun per se, in my experience having to consider these parts will help you evolve your skills and let you work on things that you may not normally get to do at your day job. You will learn a lot...although you may come out a little more gray-haired on the other side.
-
-
-## My current projects
-
-Before we continue, let me list some of my open-source projects that I currently maintain, to give you an idea of the kind of software that I create.
+Let me list some of my current projects, to give you an idea of the kind of libraries that I create.
 
 * [BottomSheet](https://github.com/danielsaidi/BottomSheet) - A library for creating customizable bottom sheets in SwiftUI.
 * [DeckKit](https://github.com/danielsaidi/DeckKit) - A library for creating deck-based cards in SwiftUI.
@@ -50,42 +43,58 @@ These are projects that I work on every now and then, although most of them are 
 
 * I get an idea for a new feature or improvement.
 * I find a bug or something that needs fixing.
-* Users post an issue (bug of feature request).
-* Users send me a PR.
-* The library must be updated due to device or platform changes (new iOS, iPhone etc.)
+* Users post an issue.
+* Users send a PR.
+* The library must be updated due to external changes (e.g. changes in iOS)
 
-Only a few of these libraries are frequently updated, but I use most of them in every app that I make.
+Only a few of these libraries are frequently updated, but I use most of them in most apps that I make.
 
 
-## Reasons to go open-source
+## Reasons to start using frameworks
 
-You may wonder why you'd like to move code out of your app into an open-source project. Here are some reasons that I come to think of top of mind.
+You don't have to go open-source to benefit from many good practices that open-source also brings. Sometimes, it's enough to move code from your app target to a separate framework. 
+
+Some benefits include:
 
 * **Reusability** - reusing the same solution saves you time and effort.
-* **Reduce cognitive load** - reusing means your projects will start to behave more the same.
 * **More focus** - if an app only contains app-specific logic, it will be more focused.
 * **Less distraction** - if an app only contains app-specific logic, you will be less distracted.
 * **Faster to compile** - libraries tend to compile faster than big, bloated apps.
 * **Easier to unit test** - libraries are in general easier to test, since they encourage building smaller components in an abstract way.
-* **Improve your communication skills** - If you go open-source, be ready to having to think about what your code really does, then document it for others to understand.
-* **Improve your planning skills** - when your code is used by others, you can't just change what you want, how you want, whenever you want, but will have to plan ahead.
-* **Improve your collaboration skills** - in my opinion, few things beat collaborating with others and gather around a complex problem.
+* **Less cognitive load** - reusing the same functionality means your projects will start to behave more the same, which means that you don't have to re-learn as much when you revisit old code.
+
+You will also get to learn about things like access modifiers (what should be public, internal, private etc.), linking frameworks with your apps, importing etc. which will make you a better developer overall.
+
+Once you have code in a framework, you can easily take further steps and start creating your own local packages, e.g. which makes it even easier to reuse functionality across apps.
+
+
+## Reasons to go open-source
+
+However great the practice of extracting code into frameworks and local packages is, open-source will bring additional learnings to the table, for instance:
+
+* **Improve your communication** - If you go open-source, be ready to think about what your code does and document it for others to understand.
+* **Improve your planning** - when your code is used by others, you can't just change what you want, how you want, whenever you want, but will have to plan ahead.
+* **Improve your collaboration** - in my opinion, few things beat collaborating with others and gather around exciting ideas.
 * **Learn from others** - collaborating with others means learning from others.
-* **Sharing is caring** - creating something that can help others truly is amazing.
+* **Sharing is caring** - finally, creating something that helps others is in my opinion truly amazing.
 
 There are naturally so many more gains involved with open-source, but I think this gives you an idea of why I love working on open-source projects.
 
 
 ## Reasons to NOT go open-source
 
-However much I love open-source, you don't have to go *open-source* to reuse common logic or share your work with the world. Some reasons to not go open-source can be:
+However much I love open-source, it's not for everyone. Some reasons to not go open-source can be:
 
 * **Time** - maintaining open-source takes time, time that you perhaps not have.
 * **Intellectual property** - if you create something truly unique, perhaps you should protect it?
 * **Work secrets** - make sure to not open-source work-related stuff without proper approval.
 * **High volatility** - a system that's frequently changing may not be the candidate for open-source.
 
-With that said, you can still work on project in an open-source manner, while keeping the implementation details private or release it as closed-source.
+It's worth repeating that there is a considerable overhead involved with open-source, including having to work with documentation, dev onboarding, version planning, release management, deprecations etc. However, this will evolve your skills and let you work on things that perhaps don't get to do otherwise. 
+
+You will learn a lot.
+
+With that said, you can still work in an open-source manner, while keeping the implementation details private or release it as closed-source. For instance, you can still work in an open-source way within your company, to reuse components across teams, increase collaboratione etc.
 
 
 ## Private projects
@@ -106,16 +115,24 @@ If this sounds interesting, I have written a [separate blog post](https://daniel
 
 ## Good practices
 
-When moving things from private projects to open-source libraries, keep these things in mind:
+If you decide to go open-source, make sure to keep these things in mind:
 
-* **Access control** - consider what should be public and what should be private.
-* **Only expose what's essential** - the things you make public are harder to change later.
-* **Design with abstractions** - have your library communicate *what* it does, not *how* it does it.
-* **Loose coupling** - avoid relying on concrete types to make your library flexible and easier to test.
+* **Access control** - what should be public and what should be private.
+* **System design** - what story should your library tell?
+* **Only expose the essential** - things made public are harder to change.
+* **Design with abstractions** - communicate *what* your library does, not *how* it does it.
+* **Loose coupling** - avoid relying on concrete types to make your code flexible and easier to test.
 * **Test, test, test** - a nice test foundation will help you verify that things don't break between releases.
 * **Automate** - automate things like linting, versioning, release management etc. as much as possible.
 
-I have probably overlooked a bunch of things. Feel free to add more in the comment section below.
+Many of these bullets are blog posts in themselves. For instance, with good unit tests in place, you can hopefully replicate user reported bugs, fix them and be confident that the fix didn't break anything. Automation applies to both your own workflows as well as automating community workflows, like validating pull requests.
+
+
+## License
+
+Before releasing your open-source project, it's very important to pick a fitting license, like MIT, GPL etc. In fact, code without an explicit license is NOT open-source and by default copyright protected, with all right given to the author of the code. 
+
+Without a license in place, the author can add a restrictive license any time in the future, and you will have to comply with that change or stop using the code.
 
 
 ## Conclusion
