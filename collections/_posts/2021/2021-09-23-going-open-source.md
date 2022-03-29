@@ -12,20 +12,23 @@ In this post, I'll discuss my experiences of working on various open-source proj
 
 I have created many apps over the years, and before that backend systems, apis and websites. There is nothing I enjoy as little as writing the same code twice. Perhaps copying code and watching the different copies diverge over time is even worse.
 
-I therefore started creating public libraries pretty early on, where the first I remember was an ambitious tool for ASP (Active Server Pages) and later PHP. I started building it mid-2000, with an aim to bridge front-end and back-end by generating JavaScript entities from custom back-end types, that could trigger the same functionality in an async manner (AJAX, anyone?).
+I therefore started creating public libraries pretty early on, where the first I remember was an ambitious tool for ASP (Active Server Pages) and later PHP. I started building it mid-2000, with an aim to bridge front-end and back-end by generating JavaScript entities from custom back-end types, that could trigger the same functionality in an async manner (remember AJAX?).
 
-Wigbi (Watch It Grow By Itself, as it was called) wasn't open-source, but was rather released as obfuscated code, since I intended to release it as a commercial product. Still, building it for public use forced me to work on tasks outsied of my comfort zone. Documentation, learning about and planning for semantic versioning, configurability, bug reporting etc. - there was so much involved than just coding.
+Wigbi (Watch It Grow By Itself, as it was called) wasn't open-source, but released as obfuscated code, since I intended to make it a commercial product. Still, building it for public use forced me to work on tasks outside of my comfort zone, such as documentation, configurability, semantic versioning, release management, bug handling etc. - there was so much involved than just coding.
 
-Wigbi had tons of functionality and even a built-in CMS, but never made it to a commercial product. One contributing factor was that I strived for perfection and didn't have a clear definition of done, which led me to decline showing Wigbi to a potential buyer, since it "wasn't done yet". Instead of showing what I had at the moment, present a project plan and describe my vision etc. I just said "no".
+Wigbi had tons of functionality and even a built-in CMS and theme engine, but never made it to a commercial product. One contributing factor was that I strived for perfection and didn't have a clear definition of done, which led me to decline showing Wigbi to potential buyers, since it "wasn't done yet". Instead of showing what I had, present a project plan and describe my vision etc. I just said "no".
 
-To sum up, I learned a LOT from working on Wigbi, not just coding. It made me a much better developer, a less naïve product developer and (most importantly) was so much fun!
+To sum up, I learned a LOT from working on Wigbi, not just coding. It made me a much better developer, a less naïve product developer (although I still suck at sales) and most importantly - was so much fun!
 
 
 ## Today
 
-Fast forward to today, and open source is everywhere. Services like GitHub and dependency managers (e.g. Swift Package Manager, Gradle, NPM etc.) have made it easy to create, maintain and distribute open-source projects, host documentation etc.
+Today, and open source is everywhere. Services like GitHub, GitLab and BitBucket make it simple to host and share code. Dependency managers like Swift Package Manager, Gradle and NPM etc. make it easy to distribute versioned open-source projects. DocC, Doxygen and GitHub Pages makes it super simple to host documentation. And so on. The ecosystem is thriving.
 
-Although I eventually stopped working on Wigbi, I have kept building open-source projects ever since. Today, I more or less do it out of habit, when I create something that may be useful to others. If what I create can help others, that's great.
+Although I eventually sunset Wigbi, I have kept building open-source projects ever since. Today, I more or less do it out of habit, when I create something that may be useful to others, or useful to myself in other projects. Reusability is my focus, but if what I create can help others, that's of course amazing.
+
+
+## My projects
 
 Let me list some of my current projects, to give you an idea of the kind of libraries that I create.
 
@@ -39,20 +42,29 @@ Let me list some of my current projects, to give you an idea of the kind of libr
 * [SystemNotification](https://github.com/danielsaidi/SystemNotification) - A library for creating customizable system notifications in SwiftUI.
 * [Tutti](https://github.com/danielsaidi/Tutti) - An library for creating different onboarding experiences, hints and tutorials.
 
-These are projects that I work on every now and then, although most of them are only revisited when something like this happens:
-
-* I get an idea for a new feature or improvement.
-* I find a bug or something that needs fixing.
-* Users post an issue.
-* Users send a PR.
-* The library must be updated due to external changes (e.g. changes in iOS)
-
-Only a few of these libraries are frequently updated, but I use most of them in most apps that I make.
+These are projects that I work on every now and then, although most of them are only revisited when I get an idea for a feature or improvement, have to fix a bug, get feedback or pull requests from the community or need to update the library due to external changes (e.g. new iOS version).
 
 
-## Reasons to start using frameworks
+## My work structure
 
-You don't have to go open-source to benefit from many good practices that open-source also brings. Sometimes, it's enough to move code from your app target to a separate framework. 
+The way that code I create in an app ends up in an open-source library follows a pretty standard path.
+
+I first of all try to only have app-specific code in my app target, which means that I from start create a framework target within the app target, often suffixed with the name `Kit`. This means that for the Wally app, I have a framework in the same project called `WallyKit`.
+
+I then place everything that isn't app-specific in this framework. And here, with app-specific, I mean things that are specific to a certain app, not it's domain or business model. So, in Wally, which is all about keeping a digital copy of your wallet, the domain model with wallets and cards, database logic etc. would be placed in `WallyKit`, while localizations, views etc. would be placed in the app target. 
+
+Furthermore, the framework must have no external dependencies, which means that implementations of e.g. the database layer often ends up in the app-specific target, since that's where I pull in dependencies like Firebase. This makes the framework solely focused on the app's domain model, and having no external dependencies makes testing very fast.
+
+I also generally test the framework thoroughly, but often leave the code in the app target untested, since that logic is mostly view logic and extensions to types that are already tested in the framework. This means that as much logic as possible should be in the framework.
+
+Once my work is done, either by launching a new app or a new version of an already existing app, there may be general value in both the app and the framework. If I have an open-source library that fits something that I've created, I can move that logic from the app project to the library. If I've created something general that can become it's own thing (as I did with [DeckKit](https://github.com/danielsaidi/DeckKit) after creating [Lunchrrrrr](https://apps.apple.com/se/app/lunchrrrrr/id1209779063?l=en)), I create a new open-source project.
+
+I also sometimes extract logic to private repositories, that I only use in my own projects. This is great if you want to create standard things for your own apps, that is of little use to others, as well as if you're not up for all the work involved in open-source. More on that later.
+
+
+## App-specific frameworks
+
+You don't have to go open-source to benefit from many good practices that open-source also brings. Sometimes, it's enough to move code from your app target to a separate framework in the same project. 
 
 Some benefits include:
 
@@ -68,15 +80,22 @@ You will also get to learn about things like access modifiers (what should be pu
 Once you have code in a framework, you can easily take further steps and start creating your own local packages, e.g. which makes it even easier to reuse functionality across apps.
 
 
-## Reasons to go open-source
+## Local packages
 
-However great the practice of extracting code into frameworks and local packages is, open-source will bring additional learnings to the table, for instance:
+If you want to really separate the app from the framework, you can create local packages within the app project folder, then use SPM to add the local packages to your project.
 
-* **Improve your communication** - If you go open-source, be ready to think about what your code does and document it for others to understand.
-* **Improve your planning** - when your code is used by others, you can't just change what you want, how you want, whenever you want, but will have to plan ahead.
-* **Improve your collaboration** - in my opinion, few things beat collaborating with others and gather around exciting ideas.
-* **Learn from others** - collaborating with others means learning from others.
-* **Sharing is caring** - finally, creating something that helps others is in my opinion truly amazing.
+Local packages greatly increase modularity and separation of concerns between the app and the package, compared to having the framework in the same project. It's a pretty new SPM feature, and one that I have started using more and more since it was released.
+
+
+## Open-source
+
+However great the practice of extracting code into frameworks and local packages is, open-source brings additional benefits to the table, for instance:
+
+* **Better code** - If you decide to go open-source, you probably also tend to put more time into making the more readable, more general etc.
+* **Communication** - When you go open-source, you get to view your code from the outside as you describe for others what it does and how it works.
+* **Planning** - when your code is used by others, you can't just change what you want, how you want, whenever you want, but have to plan ahead.
+* **Collaboration** - few things (in my opinion) beat collaborating with and learning from other developers as you gath around exciting ideas and problems.
+* **Sharing** - creating something that ends up helping others, is in my opinion truly amazing.
 
 There are naturally so many more gains involved with open-source, but I think this gives you an idea of why I love working on open-source projects.
 
