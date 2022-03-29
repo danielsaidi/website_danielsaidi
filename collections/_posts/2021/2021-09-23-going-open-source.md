@@ -75,7 +75,7 @@ Some benefits include:
 * **Easier to unit test** - libraries are in general easier to test, since they encourage building smaller components in an abstract way.
 * **Less cognitive load** - reusing the same functionality means your projects will start to behave more the same, which means that you don't have to re-learn as much when you revisit old code.
 
-You will also get to learn about things like access modifiers (what should be public, internal, private etc.), linking frameworks with your apps, importing etc. which will make you a better developer overall.
+You will also get to learn about things like access modifiers (what should be public, internal, private etc.), linking frameworks with your apps, importing etc. which will make you a better developer overall and helps preparing the code if you want to move it out of the app later.
 
 Once you have code in a framework, you can easily take further steps and start creating your own local packages, e.g. which makes it even easier to reuse functionality across apps.
 
@@ -84,7 +84,9 @@ Once you have code in a framework, you can easily take further steps and start c
 
 If you want to really separate the app from the framework, you can create local packages within the app project folder, then use SPM to add the local packages to your project.
 
-Local packages greatly increase modularity and separation of concerns between the app and the package, compared to having the framework in the same project. It's a pretty new SPM feature, and one that I have started using more and more since it was released.
+Local packages further increase modularity and separation of concerns between the app and the package, compared to having the framework in the same project. It's a pretty new SPM feature, and one that I have started using more and more since it was released.
+
+Another benefit with local packages and the modularity they bring, is that you can easily move the package somewhere else and start using it as a private package in more projects, and even make it open-source very easily.
 
 
 ## Open-source

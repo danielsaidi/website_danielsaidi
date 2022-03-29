@@ -91,15 +91,15 @@ conference-abstract: |
 <section data-markdown>
   ## My work structure
   * App-specific code in app target
-  * Domain model, agnostic utils etc. in framework
+  * Domain model in the framework
+  * Domain extensions in the app target
   * No external dependencies in framework
-  * Pull requests
-  * External changes (e.g. iOS, Swift)
+  * Unit test the framework, not the app
 </section>
 
 <section data-markdown>
-  ## Why frameworks 
-  * Reusability
+  ## App-specific frameworks 
+  * Reusability between targets
   * More focus, less distraction
   * Faster to compile
   * Easier to test
@@ -107,20 +107,20 @@ conference-abstract: |
 </section>
 
 <section data-markdown>
-  ## Why frameworks (cont.)
-  * Learn new things
-  * External dependencies
-  * Access modifiers
-  * Linking, importing
-  * System design etc.
+  ## Local packages
+  * Reusability across apps
+  * Clean separations betwen app and library
+  * Increased modularity
+  * Easier to combine packages
+  * Good preparation for open-source
 </section>
 
 <section data-markdown>
   ## Why open-source
+  * Better code
   * Communication
   * Planning
   * Collaboration
-  * Learning from others
   * Sharing is caring
 </section>
 
@@ -130,7 +130,7 @@ conference-abstract: |
   * Intellectual property
   * Work secrets
   * High volatility
-  * You can still work in an oss way
+  * You can still work in an open-source way
 </section>
 
 <section data-markdown>
@@ -138,7 +138,7 @@ conference-abstract: |
   * Private repo or server
   * Accessed with SSH instead of HTTPS
   * SSH gives granular access control
-  * Still open-source when used
+  * Still "open-source" when used
   * Perfect for e.g. company projects
 </section>
 
@@ -184,5 +184,8 @@ conference-abstract: |
 
 <section data-markdown class="title-page">
   # Thank you!
-  Questions?
+</section>
+
+<section data-markdown class="title-page">
+  # Questions?
 </section>

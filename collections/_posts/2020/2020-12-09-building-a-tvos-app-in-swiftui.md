@@ -6,6 +6,8 @@ assets: /assets/blog/2020/2020-12-09/
 image:  /assets/blog/2020/2020-12-09/image.jpg
 
 cineasterna: https://www.cineasterna.com/en/
+collection-view: https://github.com/defagos/SwiftUICollection
+defagos: https://twitter.com/defagos
 ---
 
 In this post, I'll discuss how I built a movie-streaming app for tvOS in SwiftUI, for the Swedish public library video streaming service [Cineasterna]({{page.cineasterna}}). 
@@ -103,7 +105,7 @@ Let's go through some technological aspects of the app as well.
 
 ### Performance
 
-I first built shelves with LazyVStack and nested LazyHStacks and grids with LazyVGrid, but performance was horrible. I tried *everything* and eventually found [this great collection view]({{page.collectionview}}) by [@defagos]({{page.defagos}}) and rewrote it to fit my needs.
+I first built shelves with LazyVStack and nested LazyHStacks and grids with LazyVGrid, but performance was horrible. I tried *everything* and eventually found [this great collection view]({{page.collection-view}}) by [@defagos]({{page.defagos}}) and rewrote it to fit my needs.
 
 This collection view wraps a native `UICollectionView` and uses the latest collection view techniques, like diffable data sources. It works GREAT, has amazing performance and also remembers horizontal scroll offsets in shelves, which the LazyHStack doesn’t do.
 
