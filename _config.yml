@@ -9,7 +9,7 @@ description: >-
   My name is Daniel Saidi. I am a System Developer in Stockholm, Sweden. I build
   mobile apps, apis and backend systems. I currently work as iOS Lead at BookBeat.
 baseurl: ""
-url: "http://danielsaidi.com"
+url: "https://danielsaidi.com"
 theme: minima
 
 markdown: kramdown
@@ -26,6 +26,8 @@ twitter_username: danielsaidi
 github_url: https://github.com/danielsaidi
 linkedin_url: https://linkedin.com/in/danielsaidi
 twitter_url: https://twitter.com/danielsaidi
+
+talk_thats_all_url: https://media.giphy.com/media/upg0i1m4DLe5q/giphy.gif
 
 disqus:
     shortname: danielsaidi
