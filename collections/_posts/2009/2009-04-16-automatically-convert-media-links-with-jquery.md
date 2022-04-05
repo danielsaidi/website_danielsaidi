@@ -4,20 +4,24 @@ date:  2009-04-16 22:25:00 +0100
 tags:  javascript jquery web
 ---
 
-I am currently developing a PHP-based framework called Wigbi, which can be used
-to quickly generate sites with a database, data objects that are auto-generated
-in JavaScript, using PHP data classes. It also comes with a simple cms that lets
-you add pages and populate them with text, images, links and any data object you
-like. It's actually quite amazing.
+This post will show you how to automatically convert media links with jQuery, for
+instance audio links to a Flash-based audio player.
 
-As I now used Wigbi to create a personal web site, I downloaded the jQuery Flash
-and Media plugins and was blown away! I use it to automatically convert "a" tags
-that refer to MP3 files or YouTube clips to a music/video player! I also use the
-media plugin to automatically convert any "a" tag that uses the "media" class to
-the proper media player.
+I'm currently building a PHP-based framework that can be used to create web sites
+with a database and PHP classes that auto-generate corresponding JavaScript
+types that trigger the same functionality in an asynchronous way. It also comes
+with a CMS that lets you add pages with text, images, links and any data you like.
 
-Check out the plugins for yourself - they are quite amazing:
+As I now use this framework to create a personal web site, which contains a bunch
+of links to MP3 files and YouTube clips, I want to let visitors play this content
+directly from the web site. I therefore want to convert these links to proper media
+players, depending on the content type. 
 
-[http://jquery.lukelutman.com/plugins/flash/](http://jquery.lukelutman.com/plugins/flash/)
+Imagine my excitement, when I found a jQuery Flash and Media plugins, that convert
+"a" tags that refer to MP3 files or YouTube clips to a music/video player! I use it
+to automatically convert any `a` tag that uses the `media` class to the proper media
+player, based on the media type.
+
+The Flash plugin has been discontinued, but the jQuery media plugin is still up:
 
 [http://malsup.com/jquery/media](http://malsup.com/jquery/media)

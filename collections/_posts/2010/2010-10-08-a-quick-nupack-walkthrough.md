@@ -1,18 +1,22 @@
 ---
-title: A quick NuPack walkthrough
+title: NuPack - a quick walkthrough
 date:  2010-10-08 12:00:00 +0100
 tags:  .net
+
+nuget: https://www.nuget.org
 ---
 
-Yesterday, I got a demonstration of [NuPack](http://nuget.codeplex.com/): a free,
-open source, developer-focused package manager for .NET. It looked awesome, so I
-visited the web site, downloaded NuPack and gave it a try. This is how you do it:
+[NuPack]({{page.nuget}}) is a free, open source, developer-focused package
+manager for .NET. It looks absolutely awesome, so I downloaded it and gave
+it a try. Let's have a look at how to use it.
 
-* Visit the [NuPack](http://nuget.codeplex.com/) web site
-* Click the download button to download the latest release
-* Double click on the downloaded file to install NuPacl
-* Open any .NET solution or create a new one
-* Right-click "references"
+To get started with NuPack, just do the following:
+
+* Visit the [NuPack]({{page.nuget}}) web site.
+* Click the download button to download the latest release.
+* Double click on the downloaded file to install NuPack.
+* Open any .NET solution or create a new one.
+* Right-click "references".
 * Voilá! A new “Add Package Reference” context menu item exists!
 
 I hope that you see the subtle irony. Getting NuPack up and running is a walk in
@@ -35,16 +39,16 @@ folder, which contains the downloaded package:
 
 ![Packages folder](/assets/blog/2010/10-08-4.png "A “packages” folder is added to the project")
 
-That’s it! If you need log4net in another project or solution, just repeat these
+That’s it! If you need `log4net` in another project or solution, just repeat these
 steps. Simple, huh?
 
-Something to pay attention to, however, is that I noticed that the added log4net
+Something to pay attention to, is that I noticed that the added `log4net`
 reference points to the GAC:
 
 ![GAC Reference](/assets/blog/2010/10-08-5.png "Strange behavior. The GAC is used as reference")
 
-Since I’d rather have a reference to the physical .dll file instead of a package
-reference, I can just make sure the NuPack downloaded .dll file is under version
-control, then remove the package reference and refer to the .dll file instead.
+Since I’d rather have a reference to a physical .dll file instead of a package
+reference, I just add the NuPack fetched .dll file to version control, then
+remove the package reference and refer to the .dll file.
 
 Conclusion? NuPack rocks!

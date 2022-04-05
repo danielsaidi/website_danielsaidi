@@ -1,25 +1,27 @@
 ---
 title: A* implementation for XNA
 date:  2010-02-16 12:00:00 +0100
-tags:  games c# .net
+tags:  .net c# gaming
 ---
 
-I have recently been playing around with the XNA framework to get a grasp at how
-to develop games for the XBOX 360. It is great fun, but quite different from the
-development I usually do. So far, I have a game engine foundation, which lets me
-create generate missions from image/text file tuples, where the image determines
-the mission's board and the text file describes the mission, emenies, goals etc.
+I have recently been playing around with the XNA game framework that can
+be used to develop games for the Xbox 360. It's fun, but different from
+the code I usually write. For instance, I'm currently trying to implement
+the A* pathfinding algorithm in C# for a board game that I'm working on.
 
-This setup makes it easy to quickly develop a large amount of missions, that can
-be divided into multiple campaigns. By making the base model solid, new missions
-will be more like content management than programming.
+So far, I have an engine foundation for a board game that mimics the old
+Hero Quest board game. It lets me generate missions from images and text
+files, where the image defines the board and the text file describes the
+mission, emenies, goals etc.
 
-When my game engine imports a mission map image, it generates a grid of walkable
-and unwalkable tiles, of which the board consists. I will write more about these
-tiles and how to handle them in a future blog post.
+This makes it easy to develop a large amount of missions, that can be
+grouped into campaigns. By making the base model solid, new missions will
+involve more content management than programming.
 
-The next step is now to be able to find the shortest patj from a tile to another.
-I found this great tutorial and will use it to implement the A* algorithm, which
-hopefully will take care of this for me:
+When my game engine imports a mission map, it generates a grid of walkable
+and unwalkable tiles that make up the board. I will write more about these
+tiles and how to handle them in a future post.
 
-[http://dotnetperls.com/pathfinding](http://dotnetperls.com/pathfinding)
+The next step is to be able to find the shortest path between two tiles. I
+have found a great tutorial for this and will use it to implement the A* 
+pathfinding algorithm in C#.

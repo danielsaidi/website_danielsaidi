@@ -4,19 +4,22 @@ date:  2009-08-27 08:00:00 +0100
 tags:  .net c#
 ---
 
+This post looks at how to easily paginate collections in C#, which can be easily
+achieved with two very basic extensions.
+
 When paginating a collection in C#, I find the following extensions useful:
 
 ```csharp
 public static IEnumerable<TSource> Paginate<TSource>(this IEnumerable<TSource> source, int? page, int pageSize)
 {
-	return source.Skip((page ?? 0) * pageSize).Take(pageSize);
+    return source.Skip((page ?? 0) * pageSize).Take(pageSize);
 }
 ```
 
 ```csharp
 public static IQueryable<TSource> Paginate<TSource>(this IQueryable<TSource> source, int? page, int pageSize)
 {
-	return source.Skip((page ?? 0) * pageSize).Take(pageSize);
+    return source.Skip((page ?? 0) * pageSize).Take(pageSize);
 }
 ```
 
@@ -28,4 +31,4 @@ List<string> strings = new List<string> { "a","b","c","d","e","f" };
 strings.Paginate(2, 2);
 ```
 
-This will return a list that contains “c” and “d”.
+The pagination code above will return a list that contains “c” and “d”.

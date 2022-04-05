@@ -1,17 +1,17 @@
 ---
 title:  Windows Vista, Visual Studio 2008 and IIS7
 date:   2009-01-28 15:12:00 +0100
-tags: 	.net windows
+tags: 	.net
 ---
 
-After upgrading to Windows Vista, I have had many problems to run Visual Studio
-2008 and IIS 7 on it. For instance, IIS URL Rewriting does not work as it did earlier.
+After upgrading to Windows Vista, I've had many problems with running Visual Studio
+2008 and IIS 7 on it. This blog post discusses some problems and how to solve them.
 
-Windows Vista seems to focus more on security than on developer functionality.
-This makes sense, but means that you have to install a lot of additional software
-to make IIS 7 and Visual Studio 2008 behave the way you want them to.
+Vista seems to focus more on security than developer functionality. This means that
+you may have to install a lot of additional software to make IIS 7 and Visual Studio
+2008 behave the way you expect.
 
-You may want to confirm that you have the following installed:
+For instance, IIS URL Rewriting now requires that you have the following installed:
 
 * Visual Studio 2008 SP1 (a big recommendation if you use VS 2008)
 * Web Management Tools (activated in the Control Panel)
@@ -30,5 +30,5 @@ You may want to confirm that you have the following installed:
 * Basic Authentication
 * Windows Authentication
 
-If you have found yourself having the same problems as I have, I really hope that
-installing and configuring the stuff above helps you out.
+If you have the same problems as I have had with URL rewriting, I hope that installing
+and configuring the tools above helps you out.

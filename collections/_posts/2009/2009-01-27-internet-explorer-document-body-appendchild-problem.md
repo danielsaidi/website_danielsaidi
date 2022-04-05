@@ -5,33 +5,26 @@ tags:  html javascript web
 ---
 
 On my spare time, I develop a PHP web application on OS X and thus test my sites
-in Firefox, Safari and Opera on a daily basis. Every once in a while, however, I
-also verify that the code works in Internet Explorer.
+in Firefox, Safari and Opera on a daily basis. More seldom, I also verify that it
+works in Internet Explorer. Or doesn't.
 
-Not too surprisingly, IE often crashes where other browsers do not (including my
-iPhone browser). The reasons for the crashes can be most peculiar.
+One issue occured after I added a popup element control to a site, which makes it
+possible to display a div element as a popup with a semi-transparent background
+that closes the popup when it's clicked.
 
-One issue occured after I added a PopupElement control to a site. The PopupElement
-control makes it possible to display a div as a popup and automatically append a
-semi-transparent background element to the page.
+This control worked great in all browsers that I tested it on. However, when I
+eventually tested it in Internet Explorer, I found that it couldn't handle this
+piece of JavaScript:
 
-This control worked perfectly in all browsers that I tested it on. However, when
-I eventually also tested it in Internet Explorer, I found that Internet Explored
-did not like the following piece of JavaScript at all:
-
-{% highlight javascript %}
+```
 document.body.appendChild
-{% endhighlight %}
+```
 
 As I tried to access the site, Internet Explorer 6 refused to load the page, and
-simply alerted that **"The operation was aborted"**.
+simply alerted that `The operation was aborted`.
 
-It turns out that I appended the background "incorrectly", according to IE 6. If
-`document.body.appendChild(...)` is executed within the body tag before the body
-is closed, IE 6 will simply not load the page.
-
-I have only had this problem in IE 6, not in any other browsers and not in later
-versions of IE. It is most irritating, but still manageable.
+It turns out that if `document.body.appendChild(...)` is executed within the body
+tag, before the body is closed, IE 6 will simply not load the page.
 
 To handle this situation, you can:
 
@@ -39,9 +32,7 @@ To handle this situation, you can:
 * append the element to another element, instead of the body tag
 
 Waiting for the body to load is not an option in many cases, since it causes the
-logic to halt while waiting for the event. It is an ugly workaround that changes
-the initial behavior, so I really do not recommend it.
+logic to halt while waiting for the event. I don't recommend it.
 
 Instead, I use the second option. Appending elements to any other element works
-great and does not require you to change anything in how your page is loaded by
-Internet Explorer 6.
+great and doesn't require you to change how your page is loaded by Internet Explorer 6.

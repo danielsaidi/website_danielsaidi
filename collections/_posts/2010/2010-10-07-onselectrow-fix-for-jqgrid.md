@@ -4,15 +4,15 @@ date:  2010-10-07 12:00:00 +0100
 tags:  javascript jquery web
 ---
 
-I love the [jqGrid jQuery plugin](http://www.trirand.com/blog/). If you have not
-tried it yet, I really think you should.
+I love the [jqGrid jQuery plugin](http://www.trirand.com/blog/). If you haven't
+tried it, I think you should. However, the `onSelectRow` event doesn't work that
+well. Let's fix it.
 
-However, when you look at the online demos that describe how to edit a grid row,
-you may discover that the `onSelectRow` method that is used in the demos doesn't
-work perfect. After editing a row, you must select a new one before you can edit
+When you look at online demos that describe how to edit a grid row, you may have
+noticed that after editing a row, you must select a new one before you can edit
 the first one again.
 
-To fix this, I replaced the original onSelectRow method:
+To fix this, I replaced the original `onSelectRow` implementation:
 
 ```javascript
 onSelectRow: function(id) {
@@ -41,6 +41,4 @@ onSelectRow: function(id) {
 }
 ```
 
-Now, the grid behaves a lot more like I want it to. 
-
-Hope it helps!
+With this tiny adjustment, the grid now behaves a lot more like I want it to.

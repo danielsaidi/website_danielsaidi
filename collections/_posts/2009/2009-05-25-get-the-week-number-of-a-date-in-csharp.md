@@ -2,25 +2,27 @@
 title: Get the week number of a date in C#
 date:  2009-05-25 19:46:00 +0100
 tags:  .net c#
+
+nextra: https://github.com/danielsaidi/nextra
 ---
 
 
-**NOTE:** This post was written in 2009. Although the core logic has not changed
-since then, the implementation has. For the lastest implementation, check out my
-[NExtra](https://github.com/danielsaidi/nextra) project on GitHub.
+This post was written in 2009. Although the core logic hasn't changed since then, 
+the implementation has. For the lastest implementation, check out [NExtra]({{page.nextra}}) on GitHub.
 
 
-When working with the DateTime class, it is not that straightforward to calculate
-the week number for a certain date. This post will present an alternative to the
-standard Globalization approach.
+## Background
 
-Note that this approach only works if the first weekday is Monday, the first week
-of a year is the one that includes the first Thursday of that year, and the last
-week of a year is the one that precedes the first calendar week of the next year.
+When working with the `DateTime` class, it's not that straightforward to calculate
+the week number for a certain date. This post will present an easier approach than
+using `Globalization`.
 
-I found the original version of the function at *Simen Sandelien's* website. The
-web site has disappeared since then, and since I have modified the code a lot, I
-chose to publish it.
+Note that this only works if the first weekday is Monday, the first week of a year 
+is the one that includes the first Thursday and the last week of a year is the one
+that precedes the first week of the next year.
+
+I found the original version of the function at Simen Sandelien's website. The site
+has disappeared since then, and since I have modified the code, I chose to publish it.
 
 
 ```csharp
@@ -97,8 +99,8 @@ public static int GetWeekNumber(this DateTime date)
 ```
 
 
-With this function available, it is a piece of cake to get the first and last date
-for a certain date's week, as such:
+With this in place, getting the first and last date for a certain
+date's week is easy:
 
 
 ```csharp
@@ -159,7 +161,7 @@ public static DateTime GetLastDateOfWeek(this DateTime date)
 
 
 I hope that this helps anyone having problem with retrieving the week number. If
-you want the latest version, checkout [NExtra](https://github.com/danielsaidi/nextra).
+you want the latest version, check out [NExtra]({{page.nextra}}) on GitHub.
 
 
 

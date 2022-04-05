@@ -1,43 +1,42 @@
 ---
 title: Load all assets in a folder in XNA
 date:  2010-01-26 12:00:00 +0100
-tags:  .net games c#
+tags:  .net c# gaming
 ---
 
-I have started looking at XNA, which I've been longing to do for quite some time
-now. My friend Jens came over to guide me some of the basics, and after a little
-configuration, we happily loaded random textures by pressing space.
+I have started looking at XNA and am currently working with assets in a small game.
+This post show how to load all assets in a folder, which is convenient for smaller
+games where resources isn't as critical.
 
 
-## Gettings started with XNA
+## Getting started with XNA
 
 Although XNA has much to offer, I'm glad if I could even get so far as to create
 a crappy game that no one will ever download. Jens, however, has created quite a
-few games for XNA as *kobingo*. Make sure to check them out, especially the nice
-*Painting Party* app!
+few games for XNA under the username *kobingo*. Make sure to check them out, and
+especially have a look at the nice *Painting Party* game!
 
-Jens has also created a nice XNA framework that helps you get started quickly. I
-think it looks absolutely amazing, but still think that I’d benefit from reading
-a tutorial or two before just using a framework on top of XNA. Game projects are
-quite different from the software I usually create, so I’d better read something
-before I get my hands dirty.
+Jens has also created a nice framework to help you get started quickly. I think
+it looks amazing, but I’d probably benefit from reading a tutorial or two on XNA
+before using a framework on top of it. Game development is different from the code
+I usually write, so I’d better read up before I get my hands dirty.
 
-I chose to start my XNA journey with a Microsoft tutorial that shows you how you
-get a small 2D game up and running, with a bouncing sprite. You can check it out
-[here](http://msdn.microsoft.com/en-us/library/bb203893.aspx). I will then check
-out some more tutorials with 3D models and a more advanced functionality, before
-I continue my “which-I-thought-would-be-trivial" project.
+I chose to start my journey with a Microsoft tutorial that shows you how to get a
+small 2D game up and running, with a bouncing sprite, and I will then go through
+some more tutorials with 3D models and more advanced features, before I continue
+my own project.
 
 
-## My first util: Batch load assets from a folder
+## My first utility: Batch load assets from a folder
 
-After playing around with XNA for a while, I quickly realized how tedious it is
-to load assets manually, especially if the project uses a lot of images, sounds,
-textures etc. I therefore decided to create a util that loads all assets from a
-folder with one single call.
+After playing around with XNA for a while, I realized how tedious it is to load
+assets manually, especially if the project uses a lot of images, sounds, textures
+etc. I understand that asset management is important, but if your game will use
+all resources in every level, things could be more convenient. 
 
-The function below is a `ContentManager` extension that can load all asset files
-in a folder and parse them into any asset types. The extension requires that the
+I therefore decided to create a util that loads all assets from a folder with one
+single call. The function below is a `ContentManager` extension that can load all
+asset files in a folder and parse them into any asset types. It requires that the
 specified folder is relative to the `Content.RootDirectory` folder.
 
 ```csharp
@@ -66,7 +65,7 @@ public static Dictionary<String, T> LoadContent<T>(this ContentManager contentMa
 }
 ```
 
-The function can, for instance, be used by the main Game class like this:
+This function can then, for instance, be used by the main `Game` class like this:
 
 ```csharp
 var textures = Content.LoadContent<Texture2D>("Textures");
@@ -80,6 +79,9 @@ the models dictionary, you just have to access it as such:
 ```csharp
 var warriorModel = models["warrior"];
 ```
+
+You could then build on top of this, add named keys for the most important asset
+keys, add structs that refer to the models etc. but that is beyond the scope here.
 
 Hope it helps!
 

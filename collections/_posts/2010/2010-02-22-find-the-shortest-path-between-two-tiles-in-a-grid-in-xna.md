@@ -1,14 +1,13 @@
 ---
-title: Find the shortest path between two tiles in a grid in XNA
+title: Find the shortest path in a grid in XNA
 date:  2010-02-22 12:00:00 +0100
-tags:  games c# .net
+tags:  .net c# gaming
 image: /assets/blog/2010/02-22-1.png
 ---
 
-I am currently playing around with developing an adventure board game in XNA, in
-which players can play various missions that take place on a tile-based board. I
-am a full-blown XNA newbie who takes this approach to learn the platform, but it
-is a lot of fun.
+I'm currently playing around with a board game engine in XNA, where players can
+play missions that take place on a tile-based board. I'm now working on using the
+A* algorithm to find paths between tiles.
 
 
 ## About the game
@@ -17,71 +16,60 @@ In the game, players have a number of steps to move in each round, and should be
 able to select which tile they want to move to. The game should then suggest the
 shortest possible path to that tile, and mark tiles that are too far away in red.
 
-The path finding algorithm will also be used by the game, to move enemies on the
-board. These enemies are controlled by the computer and will thus have some form
-of primitive AI, to help them decide how and where to move.
+The pathfinding algorithm will also be used by the engine itself, to move enemies
+around the board. The enemies are controlled by the engine and will have some form
+of primitive AI, to help them decide things like how and where to move, which player
+to attack etc.
 
 To improve the illusion of enemy intelligence, the algorithm should also be able
-to select a random path if multiple options exist, which will give the enemies a
-random, unpredictable (well, sort of) behavior.
+to select a random path, if multiple options exist. This will give the enemies a
+random, unpredictable behavior.
 
-Before I describe the method, let’s recap a bit.
+Before we continue with how this is implemented, let’s recap.
 
 
 ## Board movement
 
-The players and computer controlled enemies can move horizontally and vertically:
+The players and computer controlled enemies can move sideways, but not diagonally:
 
 ![Board movement example 1](/assets/blog/2010/02-22-1.png)
 
 Factors that limit whether or not a game piece can move from one tile to another
-(tile A to tile B) are (so far):
+(tile A to tile B) are:
 
-* Tile B does not exist (the piece would move outside of the board boundaries)
-* Tile B is marked as a None or a Nonwalkable tile (see below)
-* Tile B belongs to another room and is separated from tile A by a wall (covered in the previous post)
-* Tile B is occupied by another piece or furniture (another piece can not stop here)
-* Tile B is occupied by a player or enemy (players and enemies can not walk past eachother)
+* Tile B doesn't exist (the piece would move outside of the board boundaries).
+* Tile B is marked as a `None` or a `Nonwalkable` tile (see below).
+* Tile B belongs to another room and is separated from tile A by a wall.
+* Tile B is occupied by another piece or furniture (another piece can not stop here).
+* Tile B is occupied by a player or enemy (players and enemies can not walk past eachother).
 
 All these rules are then handled by a bunch of tile-related functions, that take
 a player or enemy and decide whether or not the character can move to a tile.
 
 
-## Tile types
-
-I have chosen to limit myself to three different tile types:
-
-* `None` (tile has no properties and is ignored)
-* `NonWalkable`
-* `Walkable`
-
-`None` is really not needed, but I decided to keep it in order to separate tiles
-that are not part of the game board from tiles that just can not be entered.
-
-
 ## Path finding overview
 
 Consider the following map, where a player stands on the green tile and wants to
-move to the red tile:
+move to the red one:
 
 ![Board movement example 2](/assets/blog/2010/02-22-2.png)
 
-In the example above, multiple “shortest paths” exist. As we will see later, the
-method I use will find a random path every time. It has the following main steps:
+In the example above, multiple “shortest paths” exist. As we will see, the method
+I use will find a random path every time and has the following steps:
 
-* Beginning at the start tile, set its “path length” to zero.
-* Recursively handle each sibling, according to the following:
-* If the sibling has not been handled yet, set its path length
-* If the sibling has already been handled, do it again if the new path length is shorter
-* When no tile can be improved, start at the end tile and find the shortest path to the start tile
+* Begin at the start tile and set its path length to zero.
+* Recursively handle each sibling.
+* If the sibling hasn't been handled yet, set its path length to the current length + 1.
+* If the sibling has already been handled, override the its path length if the new length is shorter.
+* When no tile can be improved, start at the end tile and find the shortest path to the start tile.
 
-I call these two main processes `spreading` (a tile spreads its path's length to
-its siblings) and `tracing` (trace the shortest path found while spreading).
+I call these two processes `spreading` (a tile spreads its path's length to its
+siblings) and `tracing` (trace the shortest path found while spreading).
 
 
 ## Step 1: Spreading
 
-In my game, the path-finding operation is started with this `Board` function :
+In my game engine, the path-finding operation is started with this `Board` function:
 
 ```csharp
 //Placeholder for the calculated path (not thread safe :)
@@ -134,11 +122,11 @@ proceed if any tile is null or if the end tile can not be stopped at.
 We then initialize a placeholder array with max length values, then run a spread
 operation from the start tile. Once the spread is done, we trace the path.
 
-As you can see, this function only returns a path if ot contains the start tile.
-If the trace operation can not reach the start tile, no path should be returned.
+As you can see, this function only returns a path if it contains the start tile.
+If the trace operation can't reach the start tile, no path should be returned.
 
-The spread operation is a recursive one that eventually will handle each tile at
-least once. It consists of two functions:
+The spread operation is recursive and will eventually handle each tile at least
+once. It consists of two functions, as can be seen below:
 
 ```csharp
 private void FindPath_Spread(Tile tile)
@@ -175,17 +163,17 @@ private void FindPath_Spread(Tile tile, Tile target)
 ```
 
 We initialize the spread operation at the start tile, which has a path length of
-zero. The path then spreads out to the tile's siblings, but is only handled when
-the sibling’s path length would be improved. Thus, this recursive operation will
-stop once all tiles are “as good as they can be”.
+zero. It then spreads out to the tile's siblings, but is only handled if a sibling's
+path length would be improved. The operation will thus stop once all tiles are as 
+good as they can be.
 
 
 ## Step 2: Tracing
 
 Once the spread operation is done, the recursive trace operation will be started.
-The trace operation will start at the end tile and find the shortest way back to
-the start tile. If the start tile can not be reached, no path exists between the
-two tiles. If so, the operation will return an empty list.
+It starts at the end tile and find the shortest way back to the start tile. If
+the start tile can't be reached, no path exists between the two tiles. If so, the
+operation will return an empty list.
 
 The trace operation consists of a single function:
 
@@ -248,28 +236,25 @@ private int FindPath_GetPathLength(Tile tile)
 
 ## Example
 
-Using the map at the beginning of this post, my game engine will first parse the
-map into a game board, as is described in the previous blog post.
+Using the map at the beginning of this post, the engine will first parse the map
+into a game board, as is described in a previous post.
 
 This is how my game (for now) displays the tiles. For now, the walls are missing:
 
 ![Rendered output](/assets/blog/2010/02-22-3.png)
 
 In the image above, all tiles are walkable, to increase the number of “shortest” 
-paths. However, it is not possible to walk to a dark tile from a light one. This
-means that the path must be concentrated to light grey tiles only. 
+paths. However, it is not possible to walk to a dark tile from a light one. The
+green and red tiles are just highlighted display the start and end tile. In the
+game, they are light grey.
 
-In this image, the green and red tile are just highlighted display the start and
-end tile. In the game, they are also light grey!
-
-When I run my game (well, game-to-be), I auto-generate a path between this green
-and red tile. Below are displayed three example of resulting path suggestions:
-
+When I run my game-to-be, I auto-generate a path between this green and red tile.
+As you can see in these images, the game engine suggests different paths each time:
 
 ![Three different paths](/assets/blog/2010/02-22-4.png)
 
 The path finding operation is fast and can handle large board games. However, it
-would not be suitable for more complex games, where the world is not tile-based.
+wouldn't be suitable for more complex games, where the world isn't tile-based.
 
 
 

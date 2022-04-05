@@ -2,31 +2,28 @@
 title: Make Combres work with ASP.NET
 date:  2010-12-20 12:00:00 +0100
 tags:  .net
+
+combres:	http://www.codeproject.com/KB/aspnet/combres2.aspx/
+squishit: 	http://www.codethinked.com/post/2010/05/26/SquishIt-The-Friendly-ASPNET-JavaScript-and-CSS-Squisher.aspx
+post:		http://www.codeproject.com/KB/aspnet/combres2.aspx
 ---
 
-After having problems with [SquishIt](http://www.codethinked.com/post/2010/05/26/SquishIt-The-Friendly-ASPNET-JavaScript-and-CSS-Squisher.aspx) 
-when bundling JavaScript, I decided to give [Combres](http://www.codeproject.com/KB/aspnet/combres2.aspx/)
-a try instead.
+After having problems with [SquishIt]({{page.squishit}}) when bundling JavaScript, I have decided to give [Combres]({{page.combres}}) a try. However, while SquishIt works right out of the box, Combres must be configured quite a bit.
 
-However, while SquishIt works right out of the box, Combres must be configured a
-little. [This page](http://www.codeproject.com/KB/aspnet/combres2.aspx) describes
-how you configure it for your project.
+[This page]({{page.post}}) describes how you configure Combres for your project. In short, you need to:
 
-In short, you need to:
-
-- Create a custom Combres configuration file
-- Add the following to web.config:
-- 1. A Combres configSection tag
-- 2. A Combres section tag (which you point to the Combres config file)
-- 3. Two httpModule tags
-- Add `RouteTable.Routes.AddCombresRoute(“Combres Route”);` to `Application_Start` in `Global.asax`
-- Add `<%= WebExtensions.CombresLink(“…”) %>` wherever you want to add JS or CSS tags
+- Create a custom Combres configuration file.
+- Add the following to `web.config`:
+	1. A Combres `configSection` tag.
+	2. A Combres `section` tag (which you point to the Combres config file).
+	3. Two `httpModule` tags.
+- Add `RouteTable.Routes.AddCombresRoute(“Combres Route”);` to `Application_Start` in `Global.asax`.
+- Add `<%= WebExtensions.CombresLink(“…”) %>` wherever you want to add JS or CSS tags.
 
 With SquishIt, you only need to add a bundle tag to your page, which is easier.
-However, Combres is said to perform better and handles JavaScript closures with
-no problems at all.
+However, Combres is said to perform better and handles JavaScript closures better.
 
-With Combres up and running, I noticed that it did not work with IIS7 Integrated
+With Combres up and running, I noticed that it didn't work with IIS7 Integrated
 Pipeline mode. If you run into this, remove all content in the Combres `section`
 tag, so that it looks like this:
 
@@ -47,8 +44,8 @@ Then, instead of:
 </httpModules>
 ```
 
-you also have to add the modules to the `system.webServer/modules` tag, since it
-is the one used by IIS7 (keep the ones above as well, though):
+you have to add the modules to the `system.webServer/modules` tag, since it's
+the one that is used by IIS7 (keep the tags above as well, though):
 
 ```xml
 <modules>

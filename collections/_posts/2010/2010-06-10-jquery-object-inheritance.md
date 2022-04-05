@@ -1,36 +1,32 @@
 ---
 title: jQuery, MooTools, object inheritance and JSON
 date:  2010-06-10 12:00:00 +0100
-tags:  javascript jquery web
+tags:  javascript jquery
 ---
 
-I have previously used both MooTools and jQuery as embedded toolkits in projects
-of mine. I have used MooTools a lot longer than jQuery, but as I have moved more
-and more towards jQuery, I now only use MooTools for its nice type capabilities.
+I use both MooTools and jQuery in various projects. As I now have started moving
+more towards jQuery, I only use MooTools for its nice type and json capabilities.
+Let's look at how to implement this in jQuery.
 
 
 ## Class inheritance
 
-However, I have now decided to drop MooTools altogether and focus on exclusively
-using jQuery. Since this means that I will no longer have access to the MooTools
-`Object` class, I instead use the jQuery `extend` function to create "inheriting"
-classes.
-
-In jQuery, I handle this as such:
-
-```
-function InheritingClass() {
-	$.extend(this, new BaseClass("optional parameters"));
-};
-```
-
-while the MooTools Object class required a syntax like this:
+As I have decided to drop MooTools, I will no longer have access to the MooTools
+`Object` class, where inheritance was implemented like this:
 
 ```
 var InheritingClass = Class({
 	Extends: BaseClass,
 	initialize: function() { this.parent("optional parameters"); }
 });
+```
+
+I will instead use the jQuery `extend` function to create a similar inheritance model:
+
+```
+function InheritingClass() {
+	$.extend(this, new BaseClass("optional parameters"));
+};
 ```
 
 The MooTools example requires knowledge about the object model, while the jQuery

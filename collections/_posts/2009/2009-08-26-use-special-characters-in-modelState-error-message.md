@@ -4,29 +4,27 @@ date:  2009-08-26 07:53:00 +0100
 tags:  .net c#
 ---
 
-I have been trying to use special characters (like &laquo; and &raquo;) in model
-errors that I add to the model state.
+I've been trying to use special characters (like &laquo; and &raquo;) to model
+errors that I add to `ModelState`. This post shows you how to do it.
 
-My first approach was to avoid using the characters in ModelState.AddModelError,
-since I want to keep the messages general (so that they can be displayed in both
-a summary and next to the invalid control), but I have not found a way to check
-if ModelState contains a certain model error, and only add these characters then.
+My first approach was to avoid using the characters in `ModelState.AddModelError`,
+since I want to keep the messages general, so that they can be displayed in both
+a summary and next to the invalid control. Hopwever, I havn't found a way to check
+if `ModelState` contains a certain model error.
 
-If anyone knows how to do this, please let me know.
-
-My temp approach is to add the special characters in the message itself and to not
-use a validation summary for the view. However, this caused display problems since
-the message is HTML encoded when
+My workaround is to add the special characters in the message itself and not use a
+validation summary for the view. However, this caused display problems since the
+message is HTML encoded when
 
 ```csharp
 <%= Html.ValidationMessage("errorKey")%>
 ```
 
 is added to the page. &laquo;, for instance, will be displayed as plain text, and
-not as the two left arrows that it should be.
+not as two left arrows.
 
 The workaround for this is quite simple. Since the string is HTML encoded, simply
-decode the special characters, as such:
+decode special characters like this:
 
 ```csharp
 var laquo = Server.HtmlDecode("&laquo;");

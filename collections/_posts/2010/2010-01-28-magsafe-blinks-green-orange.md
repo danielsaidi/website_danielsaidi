@@ -5,28 +5,27 @@ tags: 	macos
 ---
 
 I have some strange updates regarding the greeen/orange blinking MagSafe I wrote
-about yesterday, where the LED on the MagSafe toggles between green orange, even
-though my new battery is fully loaded.
+about yesterday, where the LED on the MagSafe toggles green/orange, even when the
+battery is fully loaded.
 
-When I tried the battery in a friend's computer, it worked perfectly...and while
-trying the battery at her place, the MagSafe indicator worked even in my MacBook!
-Yet, when I came home, the blinking re-appeared, and even continued when I tried
-another MagSafe connector. Straaaange times!
+The battery worked great in a friend's computer, and her MagSafe worked great in
+my MacBook! Yet, when I came home, the blinking re-appeared and continues with
+another MagSafe connector as well.
 
-However, an even stranger thing has happened since then.
+Strange times indeed, and they became even stranger.
 
 Before going to bed yesterday (after reading about blinking and exploding MagSafe
 connectors for hours) I decided to install OS X upgrades. The upgrade notes said
-something abot adjusting the computer for new hardware (strange) and then I shut
+something about adjusting the computer for new hardware (strange) and then I shut
 it down for the night.
 
 When I then started the computer this morning, the MagSafe no longer blinked! It
 actually seems to work! Either, my MagSafe connector is faulty and the other one
-I tried is loose or broken as well (quite unlikely), or I just had to install an
-additional driver update for the battery. I don't understand this at all, but as
-long as the blinking have stopped, I am mr. Happy.
+I tried is broken as well (unlikely), or I just needed additional battery drivers. 
+I don't understand this, but as long as it's fixed, I'm happy.
 
-Update: At 10:30 am, the MagSafe LED indicator started blinking once more. Seems
-like it does not blink when I have had the MagSafe disconnected for a while, but
-since my neighbor's MagSafe blinked with my computer and the battery is replaced,
-the only thing left is the computer.
+**Update** At 10:30 am, the MagSafe started blinking again. It seems like it doesn't
+blink when I've had it disconnected for a while, which could be because the battery
+needs some extra charging, which takes a while. Since my neighbors's MagSafe blinked
+with my computer and the battery is now replaced, the only thing that's left is the
+computer...most probably the motherboard.

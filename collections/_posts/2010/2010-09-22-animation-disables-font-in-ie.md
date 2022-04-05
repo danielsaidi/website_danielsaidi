@@ -4,22 +4,26 @@ date:  2010-09-22 12:00:00 +0100
 tags:  jquery web
 ---
 
-Yesterday, I built a simple demo page where I demonstrate how easily you can get
-[fonts.com Web Fonts](https://www.fonts.com/web-fonts) to work.
+Yesterday, I built a simple demo page to demonstrate how easy it is to get
+[fonts.com Web Fonts](https://www.fonts.com/web-fonts) up and running. However, 
+as I did, I noticed that Internet Explorer disables custom fonts during animations.
 
-However, as I animated some of the elements on the page, I noticed that Internet
-Explorer started disabling the fonts, falling back to the original fonts.
+As the animation starts, Internet Explorer started disabling the fonts, falling
+back to the original fonts.
 
-Turns out that this button code:
+However, it turns out that it wasn't a limitation in Internet Explorer, but rather
+a bug in the animation code.
+
+Turns out that this button code's trailing comma made Internet Explorer fail:
 
 ```html
 <button onclick="$('.comic').animate({fontSize: '3em', });">Click me!</button>
 ```
 
-was too much for Internet Explorer to handle. It should be:
+Removing the comma fixes the font disabling bug:
 
 ```html
 <button onclick="$('.comic').animate({fontSize: '3em' });">Click me!</button>
 ```
 
-This fixes the font disabling bug. Thanks for not handling any exceptions, IE!
+Thanks for not any exceptions at all, IE!

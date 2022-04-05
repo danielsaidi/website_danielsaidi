@@ -1,23 +1,21 @@
 ---
 title: HTML5 localstorage
 date:  2010-12-09 12:00:00 +0100
-tags:  web html
+tags:  javascript web
 ---
 
-I have spend some time experimenting with the new HTML 5 `localStorage` feature.
-It is a new feature that simplifies storing data in a browser, using JavaScript.
+I have spent some time experimenting with the new HTML 5 `localStorage` feature, 
+which is a new feature that simplifies storing data in the browser using JavaScript.
 
-Local storage does NOT replace a real database, since it is unique for a browser
-and can not hold that large amounts of data, but it is great for smaller tasks.
+For instance, say that you have a web application that needs to uniquely identify
+the device. The device itself doesn't send information like the MAC address, phone
+number etc. so, you’re at a loss.
 
-For instance, say that you have an iPhone web application that needs to uniquely
-identify the mobile device. The device itself does not send any such information
-(like the MAC address, phone number etc.) so, you’re at a loss.
+You can then easily create a unique ID and store it in local storage. The browser
+can then use the persisted to identify itself consistently until the user clears
+the local storage.
 
-With localStorage, however, you can easily create a unique ID (e.g. a GUID) then
-store it in local storage. The browser can then use the ID to identify itself.
-
-For instance, this is all you need to store a small string in localStorage:
+This is all you need to store a small string in local storage:
 
 ```javascript
 localStorage.setItem("name", "Daniel");
@@ -25,4 +23,5 @@ var name = localStorage.getItem("name");
 localStorage.removeItem("name");
 ```
 
-As you can see, it’s really easy and quite powerful.
+Local storage does NOT replace a real database, since it's unique for each browser
+and can't hold large amounts of data. It's however great for smaller pieces of data.

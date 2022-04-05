@@ -4,9 +4,11 @@ date:  2010-08-06 12:00:00 +0100
 tags:  css web
 ---
 
-Today, my collegue Johan Driessen showed me a CSS fix for a problem that happens
-when a div container has nested, floating divs. This causes the div container to
-not resize according to the size of its nested elements, as such:
+Today, my collegue Johan showed me a css fix for a problem that happens when a
+div container has nested, floating divs. 
+
+The fix makes the div container not resize itself according to the size of its
+nested elements, as such:
 
 ![Default div behavior](/assets/blog/2010/08-06-1.png "Default div behavior")
 
