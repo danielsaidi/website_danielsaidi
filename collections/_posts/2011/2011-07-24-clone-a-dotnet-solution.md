@@ -10,15 +10,15 @@ instead of setting everything up from scratch over and over again.
 For instance, you may want to clone a project stub, where you can reuse code and
 structure and setup that are not suitable to be extracted into a base library.
 
-In my opinion, the biggest problem with cloning a .NET solution by copying it to
-a new folder, is that you have to replace everything that has to do with the old
-namespace. For instance, if you have a solution X, where X is the base namespace,
-X can contain several projects, such as X.Core, X.Domain etc. If you now clone X
-and call the clone Y, the new solution and all its projects must be renamed. The
-same goes for any other references to the name X.
+The biggest problem with cloning a .NET solution by copying it, is that you have
+to replace everything that has to do with the old namespace. For instance, if you
+have a solution X, where X is the base namespace, X can contain several projects,
+such as X.Core, X.Domain etc. If you now clone X and call the clone Y, the new
+solution and all its projects must be renamed as well. The same goes for any other
+references to the name X.
 
 I have therefore created an application that makes cloning a .NET solution easy.
-It is currently in beta and can be downloaded [here](https://danielsaidi.github.com/Cloney).
+It's currently in beta and can be downloaded [here](https://danielsaidi.github.com/Cloney).
 
 With Cloney, you just have to point out a source folder that contains a solution
 you want to clone, as well as a target folder to where you want to clone it. When
@@ -29,7 +29,7 @@ you then press "Clone", Cloney will:
 - Ignore certain file types, such as *.suo, *.user, *,vssscc
 - Replace the old namespace with the new one everywhere
 
-You then end up with a fresh, clean solution without any traces of old settings,
-version control-related folders and files etc.
+You end up with a fresh, clean solution without any traces of old settings, version
+control-related folders and files etc.
 
 Feel free to download Cloney and give it a try and le me know what you think.

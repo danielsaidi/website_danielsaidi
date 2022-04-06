@@ -4,17 +4,16 @@ date:  2011-01-21 12:00:00 +0100
 tags:  ios
 ---
 
-This is not a development-related blog post, but well worth mentioning to all of
-you who have been experiencing playback problems when the Spotify app for iOS is
-sent to the background.
+Sometimes, Spotify stops being able to play music on iOS when it's sent
+to the background. Whenever this happens, you may have to free up memory
+by removing some background apps.
 
-For me, the problems turned out to occur when there are too many active programs
-in the background (I guess the device has little available memory or something).
-Whenever this happens, Spotify does not seem to be able to add playback features
-to the background process, an can thus not continue to play when the app is sent
-to the background.
+For me, this seems to occur when there are many active programs in the
+background. Although apps shouldn't consume memory when they're suspended, 
+they seem to at least take up some small amount, because shutting them 
+down always fixes the problem.
 
-To solve this, I just kill off a few apps, then restart Spotify. This solves the
-problem and makes background playback work again. At least for me. Hopefully for
-you as well.
+Whenever Spotify stops being able to play music in the background, just
+open the app switcher and remove some background apps. This will make
+Spofity work again, although a restart may be needed.
 

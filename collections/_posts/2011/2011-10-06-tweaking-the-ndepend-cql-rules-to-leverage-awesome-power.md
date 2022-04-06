@@ -4,17 +4,16 @@ date:  2011-10-06 12:00:00 +0100
 tags:  .net ndepend
 ---
 
-I have previously written about how to automate and schedule NDepend for several
-.NET solutions at once. After getting into the habit of using it more regurarly,
-the power of CQL has grown on me.
+After learning on how to automate and schedule NDepend to run for several .NET
+solutions at once and starting to use NDepend more regularly, the power of CQL
+has grown on me.
 
 For instance, one big problem that I have wrestled with at work is that the code
-contains static fields for non-static-should-be fields. In a web context. Enough
-said.
+contains static fields for non-static-should-be fields. In a web context, that's
+a big no-no for user-specific state.
 
 Prior to CQL, I used to search for "static" in the entire .NET solution, then go
-through the search result (which of course also did include valid static methods
-and properties) and...well, it really did not work.
+through the search result. It was exhausting and a non-viable approach.
 
 As I yesterday dug into the standard CQL rules, to get a better understanding of
 the NDepend analysis tools, I noticed the following standard CQL:
@@ -32,8 +31,7 @@ the NDepend analysis tools, I noticed the following standard CQL:
 	// Don't hesitate to customize the regex of 
 	// NameLike to your preference.
 
-Although NDepend's naming conventions do not quite fit my conventions, this rule
-is just plain awesome. I just had to edit the CQL to
+This rule is just awesome! I just had to edit the CQL to
 
 	// <Name>Static fields should not exist...mostly</Name>
 	WARN IF Count > 0 IN SELECT FIELDS WHERE 
@@ -48,7 +46,7 @@ is just plain awesome. I just had to edit the CQL to
 	// NameLike to your preference.
 
 and voilá: NDepend will now automatically find all static fields in the solution
-and ignore any naming conventions.
+and ignore NDepend's default naming conventions.
 
 Since this got me going, I also went ahead to modify the following rule
 
@@ -65,8 +63,7 @@ Since this got me going, I also went ahead to modify the following rule
 	// Don't hesitate to customize the regex of 
 	// NameLike to your preference.
 
-to instead require that fields are camel cased (ignoring the static condition as
-well):
+to instead require that fields are camel cased:
 
 	// <Name>Instance fields should be camelCase</Name>
 	WARN IF Count > 0 IN SELECT FIELDS WHERE 
@@ -76,11 +73,6 @@ well):
 	 !IsSpecialName AND 
 	 !IsEventDelegateObject
 
-Two small changes to the original setup that are insanely helpful. Another great
-thing is that when you edit the queries in `VisualNDepend`, you get an immediate,
-visual feedback to how the rule applies to the entire solution.
-
-So, now I can start tweaking the standard CQL rules to conform to my conventions.
-
-
-
+These two small changes to the original setup proved to be insanely helpful.
+Another great thing is that when you edit the queries in `VisualNDepend`, you 
+get an immediate, visual feedback to how the rule applies to the entire solution.

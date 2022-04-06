@@ -4,21 +4,18 @@ date:  2011-05-27 12:00:00 +0100
 tags:  .net testing
 ---
 
-While developing a unit tested hobby project in .NET, everything has worked great
-until now. Suddenly, NUnit thinks that there is something wrong with an assembly:
+In a project of mine, NUnit suddenly started to warn that something's wrong with
+the assembly. Turns out that accidentally disabling architectures is a bad thing.
+
+I use NUnit in all my projects. It works amazingly well in all of them. In this
+new project, it worked great at first, then suddenly starting failing with the
+following errors:
 
 ![BadImageFormatException](/assets/blog/2011/2011-05-27.png)
 
-So far, this assembly only contains two classes, so the easiest would be to just
-delete it and create a new project and hope for the best...but I have this thing
-for wanting to know what is causing this problem.
+I tried to solve this problem for a long time, but eventually gave up and recreated
+the project from scratch, which solved the problem.
 
-However, my ambitions were abandoned when deleting and recreating these projects
-solved all my problems. I would have posted a solution here, but now we’ll never
-know what caused this problem in the first place.
-
-Or will we? After writing this blog post, Mikey posted a comment that pointed me
-in the right direction. Turns out that I must have disabled one architecture and
-thus caused the test project to fail when using the project.
-
-Thanks Mikey!
+After doing so, I sat down with a colleague and had a look at the original, still
+failing project. We found that one architecture has been accidentally disabled. This
+caused the test project to fail when it tested the project.

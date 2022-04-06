@@ -4,39 +4,33 @@ date:  2011-10-05 12:00:00 +0100
 tags:  git web
 ---
 
-I currently have several repositories at GitHub. For some of these repositories,
-I have also created a `gh-pages` branch with a public web site for each project.
+I currently have several GitHub repositories, where some also have a `gh-pages`
+branch with a public web site for each project. On these pages, I want to show
+and link to the latest version.
 
-The public web site should present and rescribe the repository, and make it easy
-to download the latest release. I therefore often have big download buttons that
-say "Download My Library". However, I have yet not displayed a version number in
-these buttons, which I would really like to do.
+On these pages, I present and drescribe the repository. I also want to make it
+easy to download the latest release. I therefore have a big download button in
+which I want to show the latest version number.
 
-I thus set out to solve “how do I grab the latest version number from the GitHub
-repository”. The answer is really simple. Use the GitHub API! For the example in
-this post to work, each new version must be pushed as a tag to GitHub.
+The answer is really simple. Use the GitHub API! For the example in this post
+to work, each new version must be pushed as a tag to GitHub.
 
-Let’s say that you have a new version (let’s say..hmmmm...2.1.0) of your project.
-Now, create a tag for this version, using these two lines:
+Let’s say that we want to create a 2.1.0 version of a library. We would then 
+(after all other version operations) create and and push a tag to GitHub:
 
 ```
 git tag 2.1.0
 git push origin 2.1.0
 ```
 
-This will create a new tag with the version number and push it to GitHub. Before
-moving on, I want to emphasize that tags should use a name convention that makes
-each new tag get a string value greater than one preceding it. If you name a tag
-“release 0.1.0.0” and another “2.1.5.0”, the first will always be returned since
-it will end up last in the list. No good.
+We can now use the GitHub api to fetch and present the latest version.
 
 
 ## Use the GitHub API to grab all tags
 
-The GitHub API is really slick, and let’s you do most anything possible. You can
-find all the information you need [here](http://develop.github.com/p/repo.html).
-However, instead of using jQuerying to call the API, I decided to try fitzgen’s
-JavaScript `github-api` library.
+The GitHub API let’s you do almost anything. You can find all the information
+you need [here](http://develop.github.com/p/repo.html). However, instead of using 
+jQuery to call the API, I decided to try fitzgen’s JavaScript `github-api` library.
 
 To grab all tags for a certain repository, you just have write the following:
 
@@ -45,11 +39,9 @@ var repo = new gh.repo("danielsaidi", "Facadebook");
 repo.tags(function(result){ alert(JSON.stringify(result)); });
 ```
 
-Wow, that was easy! Now, let's grab the latest version number from the response.
-
-Since I will use this approach for all GitHub repository web sites, I decided to
-package my custom script according to the rest of the JavaScript library. I thus
-created another async method for the gh.repo prototype, like this:
+Since I will use this for all GitHub repositories, I decided to package my custom
+script according to the rest of the JavaScript library. I thus created another
+async method for the `gh.repo` prototype, like this:
 
 ```
 gh.repo.prototype.getLatestRelease = function(callback) {
@@ -65,8 +57,8 @@ gh.repo.prototype.getLatestRelease = function(callback) {
 }
 ```
 
-On each site, I have a span element with the id “version”. I then added the code
-snippet below to the end of github.js:
+On each site, I have a span element with the id `version` and add the code
+snippet below to the end of `github.js`:
 
 ```
 $(document).ready(function() {
@@ -75,10 +67,8 @@ $(document).ready(function() {
 });
 ```
 
-That is is! When the page loads, this script loads all available repository tags,
-iterate over them and grab the “highest” tag name (version number).
-
-The result is rather nice:
+That's is! When the page loads, th script loads all available repository tags,
+iterates over them and grab the highest tag name. The result is rather nice:
 
 ![Cloney screenshot](/assets/blog/2011/2011-10-05.png "A version number is now displayed within the download button")
 

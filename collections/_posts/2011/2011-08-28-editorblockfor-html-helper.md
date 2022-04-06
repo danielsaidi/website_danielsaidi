@@ -5,66 +5,60 @@ tags:  .net c# web
 ---
 
 In ASP.NET MVC, Microsoft has done a nice job with creating various HTML helpers
-that can be used in a form, e.g. `LabelFor`, `EditorFor`, `ValidationMessageFor`
-and many others.
+that can be used in a form, e.g. `LabelFor`, `EditorFor`, `ValidationMessageFor`.
+Let's see how we can make our own.
 
-However, despite these nice helpers, the HTML markup still tend to become rather
-tedious and repetitive. For instance, this HTML generates a form that can be used
-to create groups in a web application that I am currently working on:
+In my opinion, despite these nice helpers, the HTML markup still tend to become
+tedious and repetitive. 
 
-```html
-@using (Html.BeginForm())
-{
-	@Html.ValidationSummary(true)
-	
-	<div class="editor-label">
-		@Html.LabelFor(model => model.Name)
-	</div>
-	<div class="editor-field">
-		@Html.EditorFor(model => model.Name)
-		@Html.ValidationMessageFor(model => model.Name)
-	</div>
-	
-	<div class="editor-label">
-		@Html.LabelFor(model => model.CollectionName)
-	</div>
-	<div class="editor-field">
-		@Html.EditorFor(model => model.CollectionName)
-		@Html.ValidationMessageFor(model => model.CollectionName)
-	</div>
-	
-	<div class="form-buttons">
-		<input type="submit" value="@this.GlobalResource(Resources.Language.Create)" />
-	</div>
-}
-```
-
-That is quite a lot of code for handling two single properties. Furthermore, the
-two editor blocks look rather similar, don’t you think?
-
-I therefore decided to create a small HTML helper extension, that can be used to
-generate an editor block (a label, and editor and a validation message). With it,
-the resulting form becomes a lot shorter and much easier to handle:
+For instance, this HTML generates a form that can be used to create groups in a
+web application:
 
 ```html
 @using (Html.BeginForm())
 {
-	@Html.ValidationSummary(true)
-	@Html.EditorBlockFor(model => model.Name);
-	@Html.EditorBlockFor(model => model.CollectionName);
-	
-	<div class="form-buttons">
-		<input type="submit" value="@this.GlobalResource(Resources.Language.Create)" />
-	</div>
+    @Html.ValidationSummary(true)
+    
+    <div class="editor-label">
+        @Html.LabelFor(model => model.Name)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.Name)
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+    
+    <div class="editor-label">
+        @Html.LabelFor(model => model.CollectionName)
+    </div>
+    <div class="editor-field">
+        @Html.EditorFor(model => model.CollectionName)
+        @Html.ValidationMessageFor(model => model.CollectionName)
+    </div>
+    
+    <div class="form-buttons">
+        <input type="submit" value="@this.GlobalResource(Resources.Language.Create)" />
+    </div>
 }
 ```
 
-As you see, this method is only to be used if you want to follow the conventions
-that are used by auto-generated ASP.NET MVC form code. If you do, you can save a
-lot of keystrokes.
+That's quite a lot of code for handling two single properties. Furthermore, the
+two editor blocks look rather similar.
 
-I am not familiar with the `MvcHtmlString` type, which the native methods return,
-so returning an `IHtmlString` instead of `MvcHtmlString` could be a big NO, that
-I do not know about.
+To improve, we can create a small HTML helper extension that can generate an
+editor block as above, with a label, and editor and a validation message. With it,
+the form becomes a lot shorter and cleaner:
+
+```html
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.EditorBlockFor(model => model.Name);
+    @Html.EditorBlockFor(model => model.CollectionName);
+    
+    <div class="form-buttons">
+        <input type="submit" value="@this.GlobalResource(Resources.Language.Create)" />
+    </div>
+}
+```
 
 Please let me know if I have ruined the order of the universe.

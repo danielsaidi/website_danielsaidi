@@ -5,28 +5,24 @@ tags: 	macos
 ---
 
 I have started to boot up Windows directly from my BootCamp partition on my iMac
-instead of running Windows under VMWare Fusion. This way, I do not have to share
-resources with the OS X partition, which is nice for gaming, programming etc.
+instead of running it under VMWare Fusion. This way, I don't have to share
+resources with the OS X partition, which is nice for gaming, programming etc. There
+are however some rough edges.
 
-This works really well, but sometimes, running Windows on an iMac using an Apple
-bluetooth keyboard can be a bit frustrating.
+This works really well, but can sometimes be a bit frustrating. For instance,
+running Windows on an iMac, using an Apple bluetooth keyboard isn't all that nice.
 
-Today, for instance, I had to take a screen dump. Without OS X keyboard shortcut.
+For instance, I had to take a screen dump. Without OS X keyboard shortcut.
 Without a PC print screen button. How do you do that? I was at a total loss. The
-`Shift+Fn+F11` combination did not work for me, since I had this option enabled:
+`Shift+Fn+F11` combination didn't work for me, since I had this option enabled:
 
 ![Boot Camp Control Panel](/assets/blog/2011/2011-07-07.png)
 
-With this option enabled, neither Shift+Fn+F11 or Shift+F11 work. Now before you
-rule me out as a no-brainer, I naturally tried to press Shift+F11 without the Fn
-key, but that did not work either.
+With this option enabled, neither Shift+Fn+F11 or Shift+F11 work. What did work, 
+however, was:
 
-What did work, however, was:
+- Uncheck the checkbox above.
+- Press Shift+Fn+F11.
+- Enjoy the screen dump.
 
-- Uncheck the checkbox above
-- Press Shift+Fn+F11
-- Enjoy your screen dump in any way you like
-- Re-check the checkbox above
-
-It's a bit of a pain, yes. Any suggestions? Having to press the Fn-key each time
-I have to press an F-key is not an option.
+It's a bit of a pain, but at least I can now take screenshots like a human being.

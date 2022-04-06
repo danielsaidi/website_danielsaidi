@@ -1,61 +1,60 @@
 ---
-title: Am I writing tests?
+title: Am I writing bad tests?
 date:  2011-10-08 12:00:00 +0100
 tags:  .net testing
 ---
 
-To grow as a developer, there is nothing as good as inviting others to criticize
-your potential flaws...that as well as reading a book every now and then.
+To grow as a developer, there's nothing better than to invite others to criticize
+your potential flaws. This post will expose my shortcomings as a unit test loving
+developer. Enjoy!
 
-In real life, you have to be a pragmatic programmer (provided that you are, in
-fact, a programmer to begin with) and do what is “best” for the project, even if
-that means releasing a project instead of polishing it to perfection.
+In real life, aiming to be a pragmatic programmer, I aim to do what is “best” for
+the project, even that means releasing a project with flaws instead of polishing
+it to perfection. In hobby projects, however, I more than often find myself striving
+for perfection, where this strife often proves folly in hindsight.
 
-In hobby projects, however, I more than often find myself reaching for this very
-perfection all the time (however, my earlier attempts of perfection has involved
-having standardized regions for variables, properties, methods, constructors etc.
-as well as writing comments for all public members of every class...aka failing).
-I was ruthlessly beaten out of this bad behavior by http://twitter.com/#!/nahojd,
-to whom I hold eternal gratitude.
-
-I now suspect that I have become trapped in another bad behavior – the unit test
-everything trap. At its worst, I may not even be writing unit tests, so I invite
-all readers to comment on if I am out on a bad streak here.
+I now suspect that I have become trapped in another bad behavior – to unit test
+everything. At its worst, I may not even be writing unit tests. I thus invite all
+readers to comment on if I'm out of line here.
 
 
 ## The standard setup
 
-In the standard setup, I have:
+Let's consider a pretty common scenario, where we have a service interface, an 
+interface implementation and an implementation test class:
 
-- `IGroupInviteService` – this interface has several methods, e.g. AcceptInvite and CreateInvite
-- `GroupInviteService` – a standard implementation of IGroupInviteService that handles the core processes, with no addons
-- `GroupInviteServiceBehavior` – a test class that tests every little part of the standard implementation
+- `IGroupInviteService` – an interface with several methods.
+- `GroupInviteService` – a standard, core implementation of IGroupInviteService.
+- `GroupInviteServiceBehavior` – a test class that tests the standard implementation.
 
-The setup above works great. It is the e-mail setup below that makes me doubt my
-own competence.
+This setup works great. However, as I add more specific implementations, things become
+a bit nasty.
 
 
 ## The e-mail setup
 
-In the extended e-mail sending setup, I have:
+Consider extending the service model above with an service implementation that sends
+out e-mails when an invite is successfully created:
 
-- `EmailSendingGroupInviteService` – facades any IGroupInviteService and sends out an e-mail when an invite is created.
-- `EmailSendingGroupInviteServiceBehavior` – a test class that...well, that is the problem.
+- `EmailSendingGroupInviteService` – wraps any IGroupInviteService and adds sends e-mails.
+- `EmailSendingGroupInviteServiceBehavior` – a test class that...well, this is the problem.
+
+How can I ensure that this test class only tests the e-mail extensions in this new service?
 
 
 ## EmailSendingGroupInviteService
 
-Before moving on, let’s take a look at the EmailSendingGroupInviteService class.
+Let’s take a look at the `EmailSendingGroupInviteService` class.
 
 ![EmailSendingGroupInviteService](/assets/blog/2011/2011-10-08-1.png "EmailSendingGroupInviteService")
 
-As you can see, the e-mail sending part is not yet developed. 😉 As you can also
-see, the methods only call the base instance. Now, let’s look at some tests.
+The e-mail sending part is not yet developed. 😉 As you can also see, the methods only
+call the base instance.
 
 
 ## EmailSendingGroupInviteServiceBehavior
 
-Let’s take a look at some of the tests in EmailSendingGroupInviteServiceBehavior.
+Let’s take a look at the `EmailSendingGroupInviteServiceBehavior` test class.
 
 ![EmailSendingGroupInviteServiceBehavior](/assets/blog/2011/2011-10-08-2.png "EmailSendingGroupInviteServiceBehavior")
 
@@ -65,13 +64,9 @@ and that the base instance result is returned.
 
 ## Conclusion
 
-Testing the decorator class like this is really time-consuming, and for each new
-method I add, I have to write more of these tests for each decorator class. That
-could become a lot of useless tests. I just hate having to write them 🙂
+Testing the decorator class like this is time-consuming, and for each new method,
+I have to write more of these tests. I want to ensure that the base service is 
+properly used, but I really hate writing these tests.
 
-So, this raises my final question:
-
-Wouldn't it be better to only test the stuff that differ? In this case, keep the
-CreateInvite_ShouldSendEmail and skip the rest.
-
-Let me know what you think.
+Wouldn't it be better to only test the stuff that differ, i.e. keep the
+`CreateInvite_ShouldSendEmail` and skip the rest? Let me know what you think.
