@@ -5,17 +5,17 @@ tags:  ios objc
 ---
 
 I have an app with a main menu, where users can swipe horizontally through a set
-of large icons that each take the user to a certain part of the app. When an icon
-is tapped, it bounces, plays a sound, then takes the user to that particular part
-of the app.
+of icons that take the user to certain parts of the app. When an icon is tapped, 
+it bounces, plays a sound and takes the user to that particular part of the app.
+Let's see how the bounce animation was made.
 
 After trying out many different animations, I fell in love with a nice and clean
 bounce animation that does its job without being too obvious. Unfortunately, the
 link to the original implementation is now dead.
 
-I modified the code by creating a UIView category for the animation, and added a
+I modified the code by creating a `UIView` category for the animation, and added a
 bounce factor so the effect can be used in various situations. I should probably
-do the same for the repeat count as well, but that's a later issue.
+do the same for the repeat count as well.
 
 Here's the code for the category:
 
@@ -76,3 +76,5 @@ Here's the code for the category:
 
 @end
 ```
+
+Feel free to try it out. Hope you like it!

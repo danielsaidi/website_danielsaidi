@@ -12,7 +12,7 @@ a really crappy one.
 ## Jonas Birgersson – Tailwind/Headwind in the pursuit of the Fibre to All
 
 Jonas was one of the Swedish IT Boom's golden boys in the late 90s. I missed his
-talk, but will definitely watch it. He is not afraid to go his own way, which is
+talk, but will definitely watch it. He's not afraid to go his own way, which is
 a fitting characteristic for this year's rebel theme.
 
 
@@ -25,8 +25,8 @@ right thing to do, despite being bleeding edge is sometimes exhausting.
 Felix's talk was extremely entertaining. He used a Parrot AR drone 2.0, and used
 its open api to control it from a simple web page that he live-coded in node and
 express. The page fetched and displayed sensor data and current controls from the
-drone, then posted new controls to the drone from a simple web ui. Using sockets
-to control the drone, he then sent it away to attack my colleague.
+drone, then posted new controls to the drone from a simple web-based UI. Using 
+sockets to control the drone, he then sent it away to attack my colleague.
 
 This was a fun talk, despite some network problems that also affected some other
 speakers (Øredev, please give the speakers a private network next year).
@@ -80,7 +80,7 @@ to be too crowded, Nokia App Highlights has almost the same coverage.
 Gergerly urged (while also admitting that it's easy to say) us to think different.
 When building for Windows Phone, learn from the massive amount of apps that exist
 for iOS and Android. Since most apps are super simple and beautiful, yours should
-be so as well. Also, don't try to be smart. If you find a simple concept that works,
+be as well. Also, don't try to be smart. If you find a simple concept that works,
 don't cram more features into the app. Obviously, people use the app because they
 like it. Many frequent updates and features can actually make them dislike the app.
 
@@ -88,34 +88,33 @@ When it comes to **monetization**, Gergely was generous with details. He added a
 trial mode to all his apps from start, but disabled it at first. When an app was
 high on the charts, he disabled the trial mode. When the apps started to drop, he
 could simply enable the trial mode again, to attract new users. He also suggested
-give-aways with a twist...perhaps adding some bonus content for users who paid for
-the app after trying it out.
+give-aways with a twist, like adding bonus content for users who paid for the app
+after trying it out.
 
 Gergely advised us to **abuse** the system in any way possible. For instance, the
 marketplace keywords could initially be abused to get high search ranks...and he
-sure did abuse that. If you see a feature that you like, but can't understand how
-it is done...have a look at the source code. Wow, is nothing sacred? :)
+sure did. If you see a feature that you like, but can't understand how it is done,
+"just have a look at the source code".
 
-Besides this, Gergely also had some more morally defendable advices, like working
-a lot with localization, both in the app and the Marketplace material (including
-the images). One of his apps was actually translated for all available languages
-in the Marketplace. Kudos!
+Besides this, he also had some more morally defendable advices, like focusing on
+localization, both in the app and the Marketplace material (including the images).
+One of his apps was actually translated for all available languages in the
+ Marketplace. Kudos!
 
 To sum up, watch this session. Then watch it again. Thanks Gergely!
 
 
 ## Lars Vogel – Whats hot in Android 4.0 + 1
 
-I am just starting Android development, so this talk went over my head, since it
+I'm just starting Android development, so this talk went over my head, since it
 focused on what's new in Android 4.0. It was very well-presented talk, but I was
 lost from the start.
 
-Lars talked about news in the project generator, emulator improvements (host GPU
-and Open GL support, x86 virtualization etc) the new Gradle build system and how
+Lars talked about news in the project generator, emulator improvements (host GPU, 
+Open GL support, x86 virtualization etc), the new Gradle build system and how
 you now have one single API for phones and tablets, instead of the previous two.
-
-Last also talked about new components, like the ActionBar, Fragments, GridLayout
-(do not use table layout anymore), drag activities, TextureView etc.
+He also talked about new components, like the `ActionBar`, `Fragments`, `GridLayout`
+(do not use table layout anymore), drag activities, `TextureView` etc.
 
 If you're into Android, I'm sure you'll find this talk very informative.
 
@@ -124,34 +123,33 @@ If you're into Android, I'm sure you'll find this talk very informative.
 
 I will keep this short.
 
-Jeff, if you are in your 50's, which I assume you are, you should have learned a
-set of golden rules by now. For instance, complaining about how terrible you find
-Android Test to be is OK, since I assume it is a rather large framework with many
-people behind it. However, bashing on small frameworks created by one person and
-point out that "this framework was not maintained enough", "this guy didn't even
-test his own system", "this code looked like crap" is not very nice.
+Jeff, you should have learned a set of golden rules by now. Complaining about how 
+terrible you find Android Test to be is OK, since it's a large framework with many
+developers behind it. However, bashing on small frameworks created by one person 
+and point out that "this framework was not maintained enough", "this guy didn't 
+even test his own system", "this code looked like crap" is not very nice.
 
 
 ## Hojun Song – From Collective Intelligence to Collaborative Creation
 
-The final keynote was not exactly a disappointment, since I did not know what to
+The final keynote was not exactly a disappointment, since I didn't know what to
 expect. However, it left me rather annoyed. I'll try to explain why.
 
-Hojun is an artist (as he tells us so many times) that has made many cool things,
+Hojun is an artist (as he tells us so many times) who has made many cool things,
 like a giant hand, an attention seeking apple that turns red when you take a photo
 of it, a big button that says "I love you" when you hit it with a sledgehammer etc.
+This talk was about him wanting to build his own satellite. 
 
-This talk was about him wanting to build his own satellite. One of many problems
-I had with this talk, though, was that when he started to talk about the project
-and describe the process, it turns out that many others are already building the
-same thing, while he seems to only be interested in talking about it, rather than
-working on it. I was particularly annoyed that he joked about the "serious Russian
-scientists" that helped him out, while he is just out to have fun.
+One of many problems I had with this talk, though, was that when he started to talk 
+about the project and describe the process, it turns out that many others are already 
+building the same thing, while he seems to only be interested in talking about it, 
+rather than working on it. I was particularly annoyed that he joked about the "serious 
+Russian scientists" that helped him out, while he is just out to have fun.
 
-Why should we care about this particular project? Because Hojun is an artist who
-can back up the project with cool graphics and nice videos? Well, I don't buy it.
-Hojun has worked on his satellite for a while, but most of the time he tours the
-world, talking about the project and selling t-shirts to fund it. I don't buy it.
+Why should we care about this project? Because Hojun is an "artist" who can back up 
+the project with cool graphics and nice videos? Well, I don't buy it. Hojun has worked
+ on his satellite for a while, but most of the time he tours the world, talking about
+  the project and selling t-shirts to fund it. I don't buy it.
 
 
 ## Summary

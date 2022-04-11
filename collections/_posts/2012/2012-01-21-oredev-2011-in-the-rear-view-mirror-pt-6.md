@@ -9,7 +9,7 @@ This is the final part of my Øredev 2011 summary. It covers the last three talk
 that I attended and concludes my visit to Øredev.
 
 
-## 3:4 – Jim Benson – Healthy Projects
+## Jim Benson – Healthy Projects
 
 Acccording to Jim, healthy projects are:
 
@@ -28,33 +28,27 @@ visualized with the following organizational structure:
 - Tasks
 
 Imagine someone working at task level being “promoted” to project level, e.g. by
-becoming a product owner. If this person can not understand his new area of work
-and keep focusing on the details of task level, it will lead to micro management.
-The same applies when moving from project to portfolio and portfolio to company.
+becoming a product owner. If this person can't understand his new role and keep
+focusing on task level details, it will lead to micro management. The same applies
+when moving from project to portfolio and portfolio to company.
 
-Jim then talked about rules. If/when you add a lot of rules to the organization,
-you also have to introduce a process to handle these rules. If the rules are hard
-to follow, people will fail. When they do, they will blame the process.
+Jim then talked about rules. If/when you add rules to an organization, you also
+have to introduce processes to handle these rules. If the rules are hard to follow, people will fail. When they do, they will blame the process.
 
-A good technique to visualize how the team feels is to have it marking the scrum
-or kanban notes with an illustration that describe how they feel after completing
-a task. I found this to be a very good idea! It is so simple, yet communicates so
-clearly how the team is feeling.
+A good technique to visualize how a team is feeling is to mark scrum or kanban notes
+with an illustration that describe how they feel after completing a task. Simple, yet communicative!
 
-This session grew on me afterwards. While there, I found it hard to stay focused
-and found large parts to be rather passable, but after reading my notes afterwards,
-I found some golden gems.
+I found it hard to stay focused during this session, but it really grew on me afterwards.
 
 
-## 3:5 – Doc List – Development is a game
+## Doc List – Development is a game
 
-Okey, so this session was about Doc having an idea and wanted a lot of stuff to
-happen. His asked us, how do we measure how good we are at what we do, and what
-are the kpi:s we should use? Certificates? Level of success?
+This session was all about Doc having an idea and wanted a lot of stuff to happen.
+He asked, how do we measure how good we are at what we do, and what are the kpi:s
+to use? Certificates? Level of success?
 
-He then asked us – why can’t life itself be a game? Why can’t we have rewards in
-our professions (actually, Visual Studio has just introduced achievements, so we 
-are getting there)? Why can’t we have quests? Want to measure a person? Give him
+He then asked – why can’t life itself be a game? Why can’t we have rewards in
+our professions? Why can’t we have quests? Want to measure a person? Give him
 or her a quest! Want to measure a team? Give it a group quest!
 
 Doc wants to create a globally applicable system, that ranks people according to 
@@ -64,39 +58,29 @@ are at that level (since it is measurable). Doc wants to build a global communit
 for this and wants...
 
 ...well, there you have my problem with this talk. Doc is a charming man who has
-been around a while and has a great rep, but...he wants a lot of things and talks
-about it without having created nothing so far. So, he just describes a vision.
-
-I could have found this talk interesting, and Doc convincing, if he at least had
-started on what he claims to be set out to do. So, I await Doc to prove me wrong
-and announce that he has started working on that global system of his. Until then,
-I lay my focus elsewhere.
+been around a while and has a great rep, but...this was just talk. I'll wait for
+Doc to prove me wrong and actually announce that he has started working on his
+global system. Until then, I lay my focus elsewhere.
 
 
-## 3:6 – Dan North – Pattern of effective delivery
+## Dan North – Pattern of effective delivery
 
-With Dan’s keynote being the highlight of Øredev for everyone that I know saw it
-(I did not, unfortunately), I looked forward to this session. So did the rest of
-the conference. The room was packed.
+With Dan’s keynote being one of the highlights of Øredev (I missed it), I looked
+forward to this session. So did the rest of the conference. The room was packed.
 
 Dan spoke of some exciting new patterns, like:
 
-- Spike and Stabilize (easy, semi-effective) – try something out, then build it well. Optimize for discovery.
-- Ginger Cake (semi-hard, semi-effective) – break the rules once you go senior...”it’s like a chocolate cake, but with ginger”
-- Short software half-life – how long does it take before you have to fix a bug? Optimize for throwawayability.
+- Spike and Stabilize (easy, semi-effective) – try something, then build it well. Optimize for discovery.
+- Ginger Cake (semi-hard, semi-effective) – break the rules once you go senior, like an experienced baker baking ”a chocolate cake, but with ginger”.
+- Short software half-life – how long before you have to fix a bug? Optimize for throwawayability.
 
-I did not find this to be a interesting talk at all. I found it rather pointless,
-which was a huge disappointment. Please watch the video? Do you disagree with me?
+I didn't find this to be an interesting talk at all, but rather pointless. Watch
+the video - do you agree?
 
 
 ## Conclusion
 
-Øredev 2011 was a fantastic conference, with high mountains and some rather deep
-valleys. Next year, I hope to see more local talents, and a more odd and exciting
-selection of speakers. How about a grave russian who in bad English demonstrates
-some kick-ass piece of technology without any jokes or charming smiles?
+Øredev 2011 was fantastic, with high mountains and some valleys. Next year, I hope
+to see more local talents and a better mix of speakers. Being an American shouldn't automatically quality you.
 
-I would like that.
-
-Anyway, a big, BIG thank to the Øredev crew! You delieved an inspiring conference
-that I often mentally revisit.
+Anyway, a BIG thank to the crew! You delieved an inspiring conference that I often mentally revisit.

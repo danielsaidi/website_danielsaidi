@@ -6,7 +6,7 @@ tags: 	conference
 ---
 
 
-This is the second part of my sum-up of Øredev 2011, which took place in Malmö, 
+This is the third part of my sum-up of Øredev 2011, which took place in Malmö, 
 Sweden.
 
 

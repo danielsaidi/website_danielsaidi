@@ -5,36 +5,29 @@ tags:  conference
 categories: conferences
 ---
 
-The second and last day of DevSum featured some great sessions. Some were really
-challenging as well, especially for a parental leave douchebag like myself :)
+This is a short summary of the second day of the DevSum 2012 conference in 
+Stockholm, Sweden.
 
 
 ## Keynote - Aral Balkan - A Happy Grain of Sand
 
 Boy, what a great session!
 
-According to his personal site, Aral is a "designer, developer, author, teacher,
-entrepreneur and performer; a Renaissance Geek with a passion for designing user
-experiences and a desire to make the world a better place through technology and
-oratory".
-
-Should be interesting, right? :)
-
 Aral started his talk with a coordinated introduction. As someone who lives for
-creating things that make people happy, he then presented some examples from his
-daily life that makes him...well, sad:
+creating things that make people happy, he presented some examples from his daily
+life that makes him...sad:
 
 * A hotel toilet, where a flush button outside of the natural grouping, makes it
-really hard to understand how to flush. **Proximity implies relation** and **out
-of sight = out of mind.**
+hard to understand how to flush. **Proximity implies relation** and **out of sight 
+= out of mind**.
 
 * A hotel toilet (another one), where the flush button and toilet fulfill their
-purposes, but where the toilet lid hides the flush button once it opens, making
-it hard to see how to flush. **An experience is as strong as its weakest part.**
+purposes, but where the lid hides the flush button once it opens. **An experience
+is as strong as its weakest part.**
 
-Various examples of elevator button panels, including the pun Schindler's lift.
-He also went into a long description of his washing machine, which together with
-the dishwasher most often have horrible user interfaces.
+Various examples of elevator button panels followed, including the pun Schindler's 
+lift. He also went into a long description of his washing machine, which together 
+with the dishwasher most often have horrible user interfaces.
 
 According to Aral, *we do not need more things, we need things that work better*.
 He compared the Swedish Arlanda Express ticket machine (which is terrible) with
@@ -52,36 +45,38 @@ get the chance.
 ## Scott Allen - Modern Javascript
 
 This was a highly interesting session, where Scott talked about great JavaScript
-features and also discussed **scope, constructor functions, prototypes, closures, 
+features and discussed **scope, constructor functions, prototypes, closures, 
 getters/setters, modules** etc. 
 
-The talk was almost entirely code-oriented and thus hard to summarize...but make
-sure to watch it if you stumble upon the video.
+The talk was almost entirely code-oriented and thus hard to summarize, but make
+sure to watch it if you happen to find the video.
 
 
 
 ## Steve Sanderson - Building mobile web applications with Node.js
 
-This talk focused on Node.js and how to get started with it, and on to mastering
-it etc. Steve started from (basically) nil and used Node to create various types
-of applications and APIs, using extensions like Express to simplify it, handling
-static content, templating etc.
+This talk focused on Node.js and how to get started, then on to mastering it. 
+Steve started from nil and used Node to create various types of applications 
+and APIs, using extensions like Express to simplify it, handling static content, 
+templating etc.
 
 Steve improved a mobile web application with responsive design, viewport settings
-etc. He then demonstrated how to use the seemingly great Opera Mobile Emulator to
-simulate various device types, including limiting the bandwidth of the device and
-using cache manifest files to improve caching.
+etc. and showed how to use the Opera Mobile Emulator to simulate various device
+types, including limiting the bandwidth of the device and using cache manifest 
+files to improve caching.
 
-Although a bit overwhelming (I want this session on vid), it was very interesting.
-Steve took many of these things that I have been meaning to look at for some time
-now and presented them in a way that makes me want to use them now, now, NOW!
+Although a bit overwhelming, it was very interesting. Steve took many of the
+things that I have been meaning to look at and presented them in a way that makes
+me want to use them now, now, NOW!
 
 
 
 ## Johan Lindfors - Windows Phone Best Practices – part 1 / 2
 
 This was the first part of two, in which Johan and Michael talked about Windows
-Phone development. Johan covered the following areas:
+Phone development. 
+
+Johan covered the following areas:
 
 * Design / development
 * MVVM
@@ -104,7 +99,7 @@ Johan then talked about **design data**, which replaces real data with mock data
 during the design phase. With design data, developers and designers can see data
 in the UI when developing and designing.
 
-Before animations, Johan recommended the **Windows Phone Commands VS Extension**,
+Before animations, he recommended the **Windows Phone Commands VS Extension**,
 which lets you download and run apps on the simulator. No roms are needed - apps
 can be downloaded directly from the marketplace.
 
@@ -128,7 +123,7 @@ Johan compared several frameworks for working with Windows Phone and *MVVM*:
 * Prism
 * DYI (Do It Yourself - requires more code, but gets you exactly what you need).
 
-Johan then talked about keeping the framework simple, using the singleton pattern
+Johan then suggested keeping the framework simple, using the singleton pattern
 instead of dependency injection, how to handle communication between the view and
 the view model etc. He also told us that the **SmartObservableCollection** might
 help us out.
@@ -136,8 +131,8 @@ help us out.
 ### Testability
 
 Unit testing on mobile devices can sometimes be tricky. Johan talked a bit about
-how to solve this, including using portable class libraries, and also adviced us
-to embed the required tools to make CI work.
+how to solve this using portable class libraries, and also adviced us to embed
+the required tools to make CI work.
 
 ### Localization
 
@@ -151,7 +146,7 @@ in order to support longer texts.
 
 Johan talked about security, including how you can download .XAP files from the
 marketplace, change the extension to .zip, unzip them and get access to whatever
-the file contains. Feels like a call for source code obfuscating.
+the file contains. Feels like a call for source code obfuscation.
 
 ### Summary
 
@@ -167,30 +162,27 @@ background agents, push notifications and synchronization.
 
 ### Performance
 
-Michael showed us how the fact that Windows Phone has **two** UI threads - a UI
-thread and a compository thread - can be used to achieve non-blocking animations.
-He demoed this with different progress bars - the built in one, an external one
-and another native one that animates in the very top of the screen.
+Michael showed us how Windows Phone's **two** UI threads - a UI thread and a
+compository thread - can be used to achieve non-blocking animations. He demoed 
+this with different progress bars - the built in one, an external one and another
+native one that animates in the very top of the screen.
 
 He also demonstrated moving stuff around and how textures can cause the phone to
 redraw small or large parts of the screen, depending on how you manage it. Some
 other general advices were that:
 
-* If you have a long-running operation, use a Thread.Sleep(1) in the operation
+* If you have a long-running operation, use `Thread.Sleep(1)` in the operation
 to avoid blocking the compository thread.
-
 * In order to avoid memory leaks when working with textures, disable timers that
 run in views.
-
 * In order to reduce startup time (long startup times can get your app refused),
 consider how you load images, coordinates etc.
 
 ### Communication
 
-When it comes to picking between the `WebClient` and the `HttpWebRequest` classes,
-Michael strongly advocated the latter. Since the WebClient class runs on the UI
-thread, using it may come back to haunt you later on. HWR takes a bit more setup,
-but is worth it.
+When it comes to picking between `WebClient` and `HttpWebRequest`, Michael strongly
+advocated the latter. Since the WebClient class runs on the UI thread, using it may
+come back to haunt you later on. HWR takes a bit more setup, but is worth it.
 
 Also, instead of having many calls with little data, it is better to bundle the
 calls into one. Otherwise, the phone will open and close the connection for each
@@ -220,7 +212,6 @@ stuff is synced for your app, the content will be placed in the isolated storage
 
 This talk focused heavily on the specific challenges for Morten's company, where
 the release processes caused updating customer installations to take a day or so.
-
 Per customer.
 
 With CI and CD, they managed to drastically reduce this time...which is the kind

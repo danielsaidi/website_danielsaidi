@@ -8,26 +8,25 @@ I am currently working with a new version of a hobby console application project
 of mine. The app will execute certain actions depending on the input arguments.
 
 I'm now wondering if I am taking dependency injection too far in this project. I
-will describe the project and its code structure. I would then love to hear your
+will describe the project and its code structure and would love to hear your
 thoughts on this.
 
 
 ## How does the application work?
 
-The console application (Cloney) will do different things depending on the input
-arguments it is provided with. For instance, if I type
+The console application (Called Cloney) will do different things depending on the 
+input arguments it is provided with. For instance, if I type
 
 	cloney --clone --source=c:/MyProject --target=d:/MyNewProject
 
 Cloney will clone the solution according to certain rules.
 
-To keep the design clean and flexible, I introduced the concept of sub routines.
-A sub routine is a class that implement the `ISubRoutine` interface, which means
-that it can be executed using the input arguments of the console application.
+To keep the design flexible, I have introduced the concept of sub routines, which 
+is a  class that implement the  `ISubRoutine` interface, which means that it can be 
+executed using input arguments.
 
-For instance, `CloneRoutine` listens for the input arguments above, and triggers
-if the correct arguments are provided. Another sub routine - `HelpRoutine` - will
-trigger if I type:
+For instance, the main `CloneRoutine` only triggers if the correct arguments are 
+provided. Another sub routine - `HelpRoutine` - will trigger if I type:
 
 	cloney -–help
 
@@ -36,11 +35,11 @@ tries to execute each using the provided input arguments. Some may trigger, some
 may not. If no sub routine triggers, Cloney displays a help message.
 
 
-## So, what is the problem?
+## The problem
 
-Well, there is really no problem…just different ways to do things.
+Well, there's really no problem, just different ways to do things.
 
-For instance, when I parse and handle the input arguments, I use a class called
+For instance, when I parse input arguments, I use a class called
 `CommandLineArgumentParser`, which implements `ICommandLineArgumentParser`. This
 class transforms the default argument array to a dictionary and makes it easy to
 map an arg key to an arg value.
@@ -52,7 +51,8 @@ sub routine interface only defines the following method:
 
 each sub routine is basically a program of its own. As far as the master program
 is concerned, it just delegates the raw argument array to each sub routine. Then,
-it's up to each sub routine to use it as it sees fit.
+it's up to each sub routine to use it as it sees fit, or ignore any irrelevant
+arguments that it doesn't need.
 
 
 ## The old design – DI for all (too much?)
@@ -64,7 +64,7 @@ Previously, the `CloneRoutine` class had two constructors:
 
 	public CloneRoutine(IConsole console, ITranslator translator, ICommandLineArgumentParser argumentParser, ISolutionCloner solutionCloner) { ... }
 
-Since the sub routines are created using reflection, each routine must provide a
+Since sub routines are created using reflection, each routine must provide a
 default constructor. Here, the default constructor uses a default implementation
 of each interface, while the custom constructor is used by unit tests. Here, the
 dependencies are fully exposed and pluggable.
