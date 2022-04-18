@@ -1,5 +1,5 @@
 ---
-title: Swift return does not work with line breaks
+title: Swift return statements and line breaks
 date:  2014-09-10 20:00:00 +0100
 tags:  ios swift
 ---

@@ -1,16 +1,16 @@
 ---
 title: Setup DNX in macOS
 date:  2015-12-17 08:48:00 +0100
-tags:  .net automation
+tags:  article .net automation
 ---
 
 After so much waiting, so many "I'll do this first", so much app coding etc. etc.
 (yep, I blame my family as well), I finally managed to start playing around with
 DNX and ASP.NET 5.
 
-For those of you who do not know the story, ASP.NET 5 will change everything...ish.
-You can create your web applications, web api:s and console apps on OS X and Linux,
-then run it everywhere. Nice, right?
+For those of you who don't know it, .NET 5 will add platform agnostic capabilities
+to .NET. With it, you can create web apps, api:s and console apps on Windows, OS X
+and Linux and run them everywhere.
 
 Before I begin, I'll just mention some terms that I'll use in this post.
 
@@ -29,37 +29,35 @@ install dependencies for your projects, like *npm*.
 
 To setup DNX, [first install Mono](http://www.mono-project.com/download). You can
 install it from the download page or by using [Homebrew](http://brew.sh/), which
-is an amazing package manager for macOS.
+is a great package manager for macOS.
 
 
 ## Step 2 - Install Visual Studio Code
 
-Visual Studio Code is an open source IDE (well, not quite yet - for now, it is a
-clean but powerful text editor rather than a full IDE), that can be used for all
-kinds of projects. It was built with plugins in mind, so expect an explosion in
+Visual Studio Code is an open source IDE (well, not quite yet), that can be used for 
+all kinds of projects. It was built with plugins in mind, so expect an explosion in
 the upcoming months.
 
-You do not have to use Visual Studio Code to write ASP.NET 5 code. You can any of
-your favorite editors, like Sublime or Atom. However, I think you should at least
-have a look at Visual Studio Code, since it is a really nice editor.
+You don't have to use Visual Studio Code to write ASP.NET 5 code. You can use any
+other editor, like Sublime or Atom. However, I think you should have a look at Visual
+Studio Code. It's a pretty nice editor.
 
 Visual Studio Code can be downloaded [here](https://go.microsoft.com/fwlink/?LinkID=534106)
-or installed using [Homebrew Cask](https://caskroom.github.io/), which is an OS X
-package manager for applications. 
+or installed with [Homebrew Cask](https://caskroom.github.io/), which is a great
+package manager for OS X applications.
 
-If you are used to the full Visual Studio experience, you will notice that Visual
-Studio Code is stripped. You can not even create new projects or solutions with it.
-To create new projects, you must setup ASP.NET 5.
+If you are used to the full Visual Studio experience, you'll notice that Visual
+Studio Code is stripped. You can't even create new projects or solutions with it.
+To create new projects, you must use ASP.NET 5.
 
 
 ## Step 3 - Install ASP.NET 5
 
 To install ASP.NET 5, download [this file](https://go.microsoft.com/fwlink/?LinkId=703940).
-After installing ASP.NET 5, you must set it up. Now, brace yourself - you will no
-longer rest in the comforting arms of install bundles. The rest of the setup will
-take place in the terminal...which to some is a most welcome change.
+After installing it, you must set it up. Now, brace yourself - you will have to
+do the rest in the Terminal, which for some is a most welcome change.
 
-Open the terminal, then type `dnx`. You will notice that the command will not be
+Open the Terminal, then type `dnx`. You'll notice that the command is not
 recognized yet. To register it, run the following command:
 
 ```sh
@@ -72,9 +70,9 @@ the `dnx` command again, it will be recognized.
 
 ## Step 4 - (Optional) Install Yeoman
 
-If you want to hack away with ASP.NET 5, you have all the tools you need (and an
+If you want to develop ASP.NET 5, you now have all the tools you need (and an
 optional Visual Studio Code as well). However, to simplify things even more, you
-can use [Yeoman](http://yeoman.io) to generate projects. With Yeoman, you do not
+can use [Yeoman](http://yeoman.io) to generate projects. With Yeoman, you don't
 have to setup each new project from scratch.
 
 To install Yeoman and the ASP.NET project generator plugin, run these commands in
@@ -92,9 +90,8 @@ any folder:
 yo aspnet
 ```
 
-This will open a wizard that lets you choose a project template from a selection
-of different project types. Once you have selected a template, Yeoman will setup
-the project for you in a sub folder with the same name as your project.
+This will open a wizard that lets you choose a project template, after which Yeoman
+will setup the project for you in a sub folder with the same name as your project.
 
 
 ## Step 5 - Run your project
@@ -124,5 +121,5 @@ is no need for this, since the run commands builds the project as well.
 
 ## That's it!
 
-That's about it. In a future post, I'll cover how to setup a code project with a
-test project.
+That's about it. You should now be able to create and run new projects in ASP.NET
+5 In a future post, we'll look at how to setup a code project with a test project.
