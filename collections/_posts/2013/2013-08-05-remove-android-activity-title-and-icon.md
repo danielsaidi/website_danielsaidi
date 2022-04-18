@@ -2,15 +2,17 @@
 title: Remove Android Activity Title and Icon
 date:  2013-08-05 09:39:00 +0100
 tags:  android
+
+image: /assets/blog/2013/2013-08-05-android.png
 ---
 
-![Counter](/assets/blog/2013/2013-08-05-android.png)
-
-My getting-to-know-and-to-love Android study session continues, and has now come 
-to themes. This morning, I have been learning how to use themes to customize the
+My getting-to-know-and-to-love Android journey continues, and has now come to
+themes. This morning, I have been learning how to use themes to customize the
 action bar and remove its icon and title.
 
-At first, I removed the icon and title by running this piece of code in my start
+![Image of an Android teacher]({{page.image}})
+
+I first removed the icon and title by running this piece of code in my start
 activity's `onCreate` method:
 
 
@@ -24,7 +26,7 @@ This works, but causes the icon and title to be removed with a small delay. You
 will see the icon and title while the activity loads, after which they fade away.
 
 A better way to achieve this is to remove the icon and title with themes instead
-of with code. I removed the code above and did the following instead:
+of with code. I removed the code above and did the following instead.
 
 
 ## Create a default action bar style (optional)
@@ -77,11 +79,11 @@ as well as a new action bar style:
 
 ## Apply the new action bar style
 
-To apply the new style, open your manifest file and add the following line to the
+To apply the style, open your manifest file and add the following line to the
 activities that should use it:
 
 ```xml
 android:theme="@style/AppThemeWithoutActionBarTitle"
 ```
 
-After this, the affected activities should not display the title or icon at all.
+After this, the affected activities should no longer display an title or icon.

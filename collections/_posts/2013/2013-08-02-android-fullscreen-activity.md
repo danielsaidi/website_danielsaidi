@@ -2,22 +2,21 @@
 title: Android Fullscreen Activity
 date:  2013-08-02 09:14:00 +0100
 tags:  android
+
+image: /assets/blog/2013/2013-08-05-android.png
 ---
 
-![Counter](/assets/blog/2013/2013-08-05-android.png)
-
 The best way for me to get my act together when learning new things, is to write
-something about it as early as possible. This way, I can return to my early blog
-posts and verify that knew nothing once, and that I hopefully have learned a few
-thing along the way.
+about it as early as possible. This way, I can return to my earlier posts and
+verify that I knew nothing once, and that I hopefully have learned a few thing
+along the way. Today, I thought that I should honor this strategy, by publishing
+a simple base class that can be used for fullscreen Android activities.
 
-Today, I thought that I should honor this strategy, by publishing a simple base
-class that can be used for fullscreen activities. I have basically just stripped
-and refactored the boilerplate code you get when creating a fullscreen activity,
-then exposed simple methods that you can call from the subclass.
+![Image of an Android teacher]({{page.image}})
 
-Have a look at the code and let me know what you think. It may be crap, it may be
-a copy of things already out there...it may even be good.
+In this class, I have basically just stripped and refactored the boilerplate code
+you get when creating a fullscreen activity, then exposed simple methods that you
+can call from the subclass.
 
 ```java
 import android.annotation.TargetApi;
@@ -29,8 +28,6 @@ import android.view.View;
 import android.view.Window;
 
 /**
-Created by Daniel Saidi on 2013-08-01.
-
 If you inherit this class, call initFullscreenWithContentView
 or initFullscreenWithContentViewId in onCreate, after setting
 the content view.
@@ -129,3 +126,7 @@ public class FullscreenActivity extends Activity {
     }
 }
 ```
+
+This is completely different from any iOS code that I've previously written. 
+I used to write and teach Java at the university, but I'm really torn on it.
+However, I have to say that it's way nicer than Objective-C.

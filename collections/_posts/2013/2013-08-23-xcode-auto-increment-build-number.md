@@ -2,22 +2,24 @@
 title: Auto-increment Build Number in Xcode
 date:  2013-08-23 11:48:00 +0100
 tags:  ios xcode
+
+script: http://stackoverflow.com/questions/9258344/xcode-better-way-of-incrementing-build-number
 ---
+
+When releasing new version of my iOS apps, I used to manually update the build number. However, a better approach is to have Xcode do it automatically.
+Let's take a look at how to do it.
 
 ![Counter](/assets/blog/2013/2013-08-23-counter.jpg)
 
-When building and releasing iOS apps, I used to manually update the build number
-of the app. However, I found [this great script](http://stackoverflow.com/questions/9258344/xcode-better-way-of-incrementing-build-number)
-that will automatically increment the build number each time you build the app.
+When looking for ways to automate bumping the build number in Xcode, I found [this 
+great script]({{page.script}}) that will automatically increment the build number 
+each time you build the app.
 
+However, the original script will increment the build number by one each time the app 
+is build. I prefer to have a date stamp, so that I can immediately see when a build
+was performed. I therefore use a build number with the date format `yyyymmddHHMM`.
 
-## Date as build number
-
-However, that script will increment the build number by one each time the app is
-build. I prefer to have a date stamp, so that I can immediately see when a build
-was performed. I therefore use a build number with a date format: “yyyymmddHHMM”.
-
-To make this work, I replaced the default builnum value with this one:
+To make this work, I replaced the default `buildnum` value with this one:
 
 ```sh
 buildnum=`date +%Y%m%d%H%M`
@@ -25,11 +27,8 @@ buildnum=`date +%Y%m%d%H%M`
 
 This will set the build number to a timestamp instead of incrementing it by one.
 
-
-## Run script permissions
-
-Initially, XCode may have problems executing your script. For this to work, you
-will need to enable run access. Do so by running the following terminal script:
+Initially, Xcode may have problems executing your script. For this to work, you
+will need to enable run access. Do so by running the following script from the Terminal:
 
 ```sh
 sudo chmod 755 'filename'

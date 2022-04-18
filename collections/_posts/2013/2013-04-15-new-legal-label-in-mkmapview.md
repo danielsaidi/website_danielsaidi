@@ -4,12 +4,12 @@ date:  2013-04-15 21:29:00 +0100
 tags:  ios objc geo
 ---
 
-I am using Google Maps in a couple of iOS apps that I have created. Or, at least
-I was before Apple threw out Google Maps and put in their own. So, now I guess I
-am using Apple Maps instead.
+I'm using Google Maps in a couple of iOS apps. Or, at least I was before Apple 
+replaced Google Maps with their own engine. So, now I guess I use Apple Maps.
+And Apple Maps adds an annoying little label.
 
 I have always admired Apple for their wonderful design, but when it comes to the
-new MKMapView that is powered by Apple Maps, I find the following annoying:
+new `MKMapView` that is powered by Apple Maps, I find the new legal label annoying:
 
 ![Apple Maps In Action](/assets/blog/2013/2013-04-15-map.png)
 
@@ -18,9 +18,9 @@ it be even prettier pushed down even more into the corner? Yeah, I know...I thin
 so too. However, that area is occupied by a legal label that Apple for some reason
 have decided to include.
 
-I have not been able to find a way to remove this label with the native MKMapView
-methods, but I did manage to find a way to programmatically move the label to the
-bottom-right corner instead, using a category that I wrote:
+I haven't found a way to remove this label with the native `MKMapView` methods, but
+managed to find a way to programmatically move it to the bottom-right corner instead, 
+using a custom category:
 
 
 ```objc
