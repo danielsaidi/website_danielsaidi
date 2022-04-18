@@ -1,7 +1,7 @@
 ---
-title: Alamofire + AlamofireObjectMapper + Realm (Swift 3)
+title: Swift 3 + Alamofire + AlamofireObjectMapper + Realm
 date:  2017-08-23 10:00:00 +0100
-tags:  ios alamofire realm swift
+tags:  article ios alamofire realm swift
 
 api:    http://danielsaidi.com/demo_Alamofire_AlamofireObjectMapper_Realm/api
 cocoapods: http://cocoapods.org/
@@ -14,45 +14,37 @@ new:    http://danielsaidi.com/blog/2018/12/27/alamofire-objectmapper
 
 This is a summary of my talk at [CocoaHeads Sthlm, April 3 2017]({{page.video}}),
 where I talked about using Alamofire, AlamofireObjectMapper and Realm to talk to
-an api, map its responses, automatically retry and adapt requests and how to use
-Realm to create implicit offline support.
+an api, map its responses, retry and adapt requests and then use Realm to create 
+offline support layer by persisting data locally.
 
 In this post, I'll recreate the entire app from scratch, with some modifications.
 
 
 ## Update information
 
-I have written a new post that is based on this, but that uses Swift 4.2 instead.
-It also changes some fundamental things and is more in line with modern Swift so
-you should [check it out instead]({{page.new}}).
+I have written a new post that uses Swift 4.2 instead of Swift 3. It also changes
+some fundamental things and is more in line with modern Swift, so you should
+[check it out]({{page.new}}) instead of this post.
 
 
 ## Video
 
 You can watch the original talk [here]({{page.video}}). The talk focuses more on
-concepts than code, so that talk and this post complete eachother pretty well.
+concepts than code, so that talk and this post complete each other pretty well.
 
 
 ## Prerequisites
 
-For this tutorial, I expect that you know how [CocoaPods]({{page.cocoapods}}) do
-work. I will use terms like `podfile`, expecting you to know what it means.
-
-
-## Source Code
-
-I recommend that you create an empty app project then work through this tutorial
-by coding. The source code is up on [GitHub]({{page.github}}), where the `master`
-branch contains source code for the demo app and `gh-pages` contains source code
-for the static api.
+For this tutorial, I expect that you know how [CocoaPods]({{page.cocoapods}})
+works. I will use terms like `podfile`, expecting you to know what it means.
 
 
 ## Disclaimer 
 
 In large app projects, I prefer to extract as much code and logic as possible to
 separate libraries, which I then use as decoupled building blocks. For instance,
-I would keep domain logic in a domain library, which doesn't know anything about
-the app. In this small project, however, I will keep it all together.
+I would keep domain logic in a domain library that doesn't know anything about
+the app. In this small project, however, I will keep it all in a single target.
 
 I use to separate public and private functions and any interface implementations
 into extensions as well, but will skip that pattern in this demo, so that we get
@@ -61,16 +53,9 @@ as little code and conventions as possible.
 
 ## Why use a static api?
 
-In the demo, we will use a static api to fetch movies in different ways. The api
-is a static Jekyll web site with a small movie collection, that lets us grab top
-rated and top grossing movies, as well as single movies by id.
-
-If you want to have a look at the static api data model, you can use these links:
-
-* [Get a fake auth token]({{page.api}}/auth)
-* [Get a single movie by id]({{page.api}}/movies/1)
-* [Get top grossing movies 2016]({{page.api}}/movies/topGrossing/2016)
-* [Get top grossing movies 2016 - sorted on rating]({{page.api}}/movies/topRated/2016)
+In the app, we'll use a static api to fetch movies. The api is a static Jekyll
+site with a small movie collection, that lets us grab top rated and top grossing
+movies, as well as single movies by id.
 
 The limited api hopefully lets us focus on Alamofire and Realm instead of having
 to understand an external api, set up a developer account, handle auth logic etc.
@@ -79,15 +64,15 @@ to understand an external api, set up a developer account, handle auth logic etc
 ## Step 1 - Define the domain model
 
 Start by creating a clean Xcode project. I went with a simple iOS storyboard app,
-but you can set it up in any way you like.
+but you can set it up however you like. We can then start by defining the domain model.
 
-The app will fetch movie data from our api. A `Movie` has basic info and a `cast`
-array of `Actor` objects. For simplicity, `Actor` only has a name and is used to
-show how amazingly easy recursive mapping is with Alamofire.
+The app will fetch movie data from our api. A `Movie` has basic info about the
+movie as well as a `cast` array property of `Actor` objects. For simplicity, `Actor`
+only has a name and is used to show how easy recursive mapping is with Alamofire.
  
-To avoid an app that is coupled to a specific model, let us define this model as
-protocols. Create a `Domain` folder in the project root, add a `Model` folder to
-it then add these two files to `Model`:
+To avoid coupling the app to concrete types, let's define the model as protocols. 
+Create a `Domain` folder in the project root, add a `Model` folder to it then add
+these two files to `Model`:
 
 ```swift
 // Movie.swift
@@ -117,14 +102,19 @@ protocol Actor {
 }
 ```
 
-As you'll see later, our app will only use protocols. This makes it very easy to
-switch out the implementations used by the app, whenever needed.
+As you'll see later, the app will only handle protocols, not concrete types. This
+makes it easy to switch out the implementations used by the app, whenever needed.
+
+`Update` Since this was written, I have started using plain structs for data types
+instead of protocols, and instead have different structs for the api model and the 
+local domain model for the app. Mapping from api-specific to app-specific types
+requires more code, but is a lot better.
 
 
 ## Step 2 - Define the domain logic
 
-Now let's describe how the app should fetch movies from our api. Add a `Services`
-sub folder to `Domain`, then add this file:
+Now, let's describe how the app should fetch movies from the api. Add a `Services`
+folder to `Domain`, then add this file:
 
 ```swift
 // MovieService.swift
@@ -142,20 +132,19 @@ protocol MovieService: class {
 }
 ```
 
-It took me a while to start using `typealias`, but I love it now, since it makes
-the code more readable. Basically, this service tells us that we will be able to
-get movies asynchronously (well, rather, a completion block implies it, but does
-not enforce async) - both a single, optional movie as well as movie collections.
+Basically, this service protocol tells us that a movie service will let us get movies
+asynchronously (well, a completion block implies it, but doesn't enforce async) -
+both single movies by id as well as top grossing and top rated movie collections.
 
 
 ## Step 3 - Create an api specific domain model
 
 Before we can add an api specific implementation to the project, we must add two
-`pods` to `podfile` - `Alamofire` and `AlamofireObjectMapper`. Run `pod install`
-then open the generated workspace.
+pods to `podfile` - `Alamofire` and `AlamofireObjectMapper`. Run `pod install`,
+then open the created workspace.
 
-Now create an `Api` folder in the project root, add a `Model` folder to it, then
-add these two files to `Model`:
+Now create an `Api` folder in the project root, add a `Model` folder to it and
+add these files to `Model`:
 
 ```swift
 // ApiMovie.swift
@@ -175,7 +164,6 @@ class ApiMovie: Movie, Mappable {
     var cast: [Actor] { return _cast }
     
     private var _cast = [ApiActor]()
-    
     
     func mapping(map: Map) {
         id <- map["id"]
@@ -200,7 +188,6 @@ class ApiActor: Actor, Mappable {
 
     var name = ""
     
-
     func mapping(map: Map) {
         name <- map["name"]
     }
@@ -208,7 +195,7 @@ class ApiActor: Actor, Mappable {
 ``` 
 
 These classes implement the domain model, with additional mapping. `ApiActor` is
-pretty straightforward, while `ApiMovie` can be further described:
+straightforward, while `ApiMovie` can be further described:
 
 * `releaseDate` is parsed with `DateTransform`. We may have to adjust this later.
 
@@ -221,23 +208,24 @@ valid url and recursively parse movie data with little effort.
 
 ## Step 4 - Setup the core api logic
 
-Before we create an api specific `MovieService` implementation, let's setup some
-core api logic in the `api` folder.
+Before we create an api-specific `MovieService` implementation, let's setup some
+core api logic in the `api` folder, to define how to communicate with the api.
 
 
 ### Managing api environments
 
-Since we developers often have to switch between different api environments (e.g.
-test and production) I use to have an enum where I manage available environments.
-I know we only have a single environment in this app, but let's create it anyway:
+Since we often have to use different api environments in test and prod, I use to
+have an enum to define api endpoints. Even though we only have a single endpoint
+in this app, I still prefer to have it in place:
 
 ```swift
 // ApiEnvironment.swift
 
 import Foundation
 
-enum ApiEnvironment: String { case
+enum ApiEnvironment: String { 
     
+    case
     production = "http://danielsaidi.com/presentation_2017-04-03_AlamofireRealm/api/"
     
     var url: String {
@@ -254,8 +242,9 @@ With this environment in place, we can list available api routes in another enum
 ```swift
 // ApiRoute.swift
 
-enum ApiRoute { case
+enum ApiRoute { 
     
+    case
     movie(id: Int),
     topGrossingMovies(year: Int),
     topRatedMovies(year: Int)
@@ -279,12 +268,12 @@ Since `year` and `id` are dynamic route segments, we use parametered enum cases.
 
 ### Managing api context
 
-I usually have an `ApiContext` class that holds api specific information for the
-app, such as environment and tokens. If you use a singleton, every context-based
-service will automatically be affected when the context is modified.
+I usually have an `ApiContext` class that holds api-specific information for the
+app, such as tokens and environments. If you use a singleton, every context-based
+api service is automatically affected when the context is modified.
 
-Let's create an `ApiContext` protocol and as a non-persisted implementation. Add
-these files to a `Context` sub folder:
+Let's create an `ApiContext` protocol and a non-persisted implementation in a new
+`Context` folder:
 
 ```swift
 // ApiContext.swift
@@ -312,15 +301,15 @@ class NonPersistentApiContext: ApiContext {
 }
 ```
 
-We can now inject this context into all out api specific service implementations.
-If we later would like to create a persistent context, e.g. one that saves token
-data in `UserDefault`, we would just have to create another implementation, then
-replace the implementation we use in our app.
+We can now inject this context into all api-specific service implementations. If
+we later want to create a persistent context, e.g. one that saves token data in
+`UserDefault`, we just have to create another implementation, then replace the
+implementation we use in our app.
 
 
 ### Specifying basic api behavior
 
-To simplify how to talk with the api using Alamofire, let us create a base class
+To simplify how to talk with the api using Alamofire, let's create a base class
 for our api-based services. Add this file to a `Services` sub folder:
 
 ```swift
@@ -338,35 +327,34 @@ class AlamofireService {
     
     func get(at route: ApiRoute, params: Parameters? = nil) -> DataRequest {
         return request(
-        	at: route, 
-        	method: .get, 
-        	params: params, 
-        	encoding: URLEncoding.default)
+            at: route, 
+            method: .get, 
+            params: params, 
+            encoding: URLEncoding.default)
     }
     
     func post(at route: ApiRoute, params: Parameters? = nil) -> DataRequest {
         return request(
-        	at: route, 
-        	method: .post, 
-        	params: params, 
-        	encoding: JSONEncoding.default)
+            at: route, 
+            method: .post, 
+            params: params, 
+            encoding: JSONEncoding.default)
     }
     
     func put(at route: ApiRoute, params: Parameters? = nil) -> DataRequest {
         return request(
-        	at: route, 
-        	method: .put, 
-        	params: params, 
-        	encoding: JSONEncoding.default)
+            at: route, 
+            method: .put, 
+            params: params, 
+            encoding: JSONEncoding.default)
     }
     
     func request(at route: ApiRoute, method: HTTPMethod, params: Parameters?, encoding: ParameterEncoding) -> DataRequest {
-        let url = route.url(for: context.environment)
         return Alamofire.request(
-        	url, 
-        	method: method, 
-        	parameters: params, 
-        	encoding: encoding)
+            route.url(for: context.environment), 
+            method: method, 
+            parameters: params, 
+            encoding: encoding)
         .validate()
     }
 }
@@ -374,7 +362,7 @@ class AlamofireService {
 
 Restricting our services to only request `ApiRoute` ensures that the app doesn't
 make any unspecified requests. If you need to call custom URLs, I suggest adding
-a `.custom(...)` case in the `ApiRoute` enum.
+a `.custom` case to the `ApiRoute` enum.
 
 Ok, that was a pretty long setup, but I think that we are now ready to load some
 movies from the api.
@@ -415,22 +403,21 @@ class AlamofireMovieService: AlamofireService, MovieService {
 ```
 
 As you see, the implementation is super-simple. It just performs get requests on
-the routes and specify the return type. Alamofire and AlamofireObjectMapper then
-automatically take care of fetching and mapping the api response.
+the routes and specifies a return type. Alamofire and AlamofireObjectMapper then
+take care of fetching and mapping responses.
 
-As you can also see, `getMovie` uses `responseObject`, while the other functions
-use `responseArray`. This is because a single movie is returned as single object
-while top grossing and top rated movies are instead returned as arrays. If these
-arrays were instead part of a response object (much recommended), you would have
-to specify a new api model that can map that response, then use `responseObject`.
-This would give you a lot more future flexibility, so I'd suggest that you avoid
-using arrays in your api.
+As you can see `getMovie` uses `responseObject`, while the other functions use
+`responseArray` instead. This is because a single movie is returned as single object,
+while top grossing and top rated movies are returned as arrays. If these arrays were
+instead parts of a response object (recommended), you would have to specify a  new
+api model that can map that response, then use `responseObject`. This would give you
+a lot more future flexibility, so I'd suggest that you avoid using arrays in your api.
 
 
 ## Step 6 - Perform your very first request
 
 We will now setup our app to fetch data from the api. Remove all the boilerplate
-code and add this to `ViewController`:
+code and add this to your `ViewController`:
 
 ```swift
 override func viewDidLoad() {
@@ -448,9 +435,9 @@ override func viewDidLoad() {
 }
 ```
 
-**IMPORTANT** Before you can do this, you must allow the app to perform external
-requests. Just add this to `Info.plist` (in a real world app, you should specify
-the exact domains your app allows):
+Before you can run this code, you must allow the app to perform external requests,
+which you do by adding this to `Info.plist` (in a real app, you should specify the
+exact domains your app allows):
 
 ```xml
 <key>NSAppTransportSecurity</key>
@@ -481,7 +468,9 @@ If you see this in Xcode's log, the app loads movie data from the api. Well done
 Now change the print format for each movie to look like this:
 
 ```swift
-movies.forEach { print("   \($0.name) (\($0.releaseDate))") }
+movies.forEach {
+    print("   \($0.name) (\($0.releaseDate))") 
+}
 ```
 
 The app should now output the following instead:
@@ -504,14 +493,14 @@ Oooops! Seems like the date parsing does not work. I TOLD you that we would have
 fix this. Let's do it.
 
 
-## Step 7 - Fix date parsing
+## Step 7 - Adjust date parsing
 
 The problem is that the api uses a different date format than expected. This can
-be solved by replacing which `DateTransform` we use. Create a new `DateTransform`
-extension and place it in an `Extensions` folder:
+be solved by replacing the `DateTransform`. Create this `DateTransform` extension
+and place it in an `Extensions` folder:
 
 ```swift
-DateTransform_Custom.swift
+// DateTransform_Custom.swift
 
 import ObjectMapper
 
@@ -554,13 +543,14 @@ as well. Time to celebrate! ...then return here for some database persistency.
 
 ## Step 8 - Create a Realm-specific domain model
 
-When you get data from an api, it does not hurt to store some data in a database,
-e.g. for offline support. A very convenient database engine is `Realm`, so let's
-try it out.
+When you get data from an api, it doesn't hurt to store some data in a database,
+e.g. for offline support. A very convenient database engine is `Realm`.
 
 Add a `Realm` folder to the application root, then add a `Model` and a `Services`
 folder to it. Now, let's create...wait! Before we can use Realm, we have to grab
-it from CocoaPods. Add `RealmSwift` to `podfile`, then add this bottommost:
+it from CocoaPods and add it to the project. 
+
+Add `RealmSwift` to `podfile`, then add this bottommost:
 
 ```
 post_install do |installer|
@@ -572,12 +562,12 @@ post_install do |installer|
 end
 ```
 
-After running `pod install`, we can now create some Realm-specific model classes.
-They will either be created manually as we map and persist data from the api, or
-automatically as we fetch data from the database.
+After running `pod install`, we can now create Realm-specific models that will
+either be created manually as we map and persist data from the api, or automatically
+as we fetch data from the database.
 
 Realm will take care of the latter case, but we have to find a way to easily map
-api objects to Realm objects. Easily done: add these files to the `Model` folder:
+api objects to Realm objects. To fix this, just add these files to the `Model` folder:
 
 ```swift
 // RealmMovie.swift
@@ -737,7 +727,7 @@ class RealmMovieService: MovieService {
 ```
 
 As you can see, `RealmMovieService`'s initializer requires another `MovieService`
-instance. Why is that?
+instance. Why?
 
 `RealmMovieService` is a so called `decorator`, which uses a base implementation
 of a protocol it implements, to extend the base implementation with its on logic.
@@ -747,7 +737,7 @@ shouldn't know about how the base service works, just what the protocol promises
 In this case, `RealmMovieService` will try to get data from the database, but at
 the same time, it will also try to get data from the base service. When the base
 service completes, `RealmMovieService` saves any data it receives. It then calls
-the incoming completion block, to notify its caller about the new data.
+the completion block to notify its caller about the new data.
 
 `Disclaimer:` This is an intentionally simple design. `RealmMovieService` always
 loads data from the database **and** from the base service. In a real app, you'd
@@ -799,24 +789,24 @@ Found 10 movies (callback #1)
 Found 10 movies (callback #2)
 ```
 
-This happens because the database now has data, which means that both completion
-calls will return 10 movies.
+This happens because the database now has data, which means that both completions
+return movies.
 
-Now, go ahead and **KILL THE INTERNET CONNECTION**, then call `getTopRatedMovies`
-instead of `getTopGrossingMovies` (Alamofire will cache the previous result). If
-you run the app again, the output should be:
+Now, kill your Internet connection and call `getTopRatedMovies` instead of
+`getTopGrossingMovies` (Alamofire will cache the previous result). If you run the
+app again, the output should be:
 
 ```
 Found 10 movies (callback #1)
 ERROR: The Internet connection appears to be offline.
 ```
 
-This happens because the database data can still be loaded, while the api cannot
+This happens because the database data can still be loaded, while the api can't
 be called since the Internet connection is dead.
 
 We now have an app with offline support, that only refreshes its data whenever a
-call to the api provides new data. All we had to do was to change two lines that
-determines which service implementation we use.
+call to the api provides new data. All we had to do was change two lines that
+determine which service implementation we use.
 
 
 ## Step 11 - Retry failing requests
@@ -825,23 +815,27 @@ In the real world, a user most often has to authenticate her/himself in order to
 use some parts of an api. Authentication often returns a set of tokens, commonly
 an `auth token` and a `refresh token` (but how this works is up to the api).
 
-If the `auth token` and `refresh token` pattern is used, the authentication flow
-could look something like this:
+If the `auth token` and `refresh token` pattern is used, authentication could
+look something like this:
 
  * If no tokens are available and a request fails with an HTTP 401, the user may
  have to login (if the request is mandatory). If so, show a login screen/prompt.
+
  * If tokens are available, the app should request the api with the `auth` token.
+
  * If an `auth` token-based request fails with an HTTP 401, the `auth` token has
  most probably expired. The app should then save any requests that fail with 401
  and automatically use the `refresh` token to request new tokens from the api.
+
  * If the refresh request succeeds, the app should parse the new tokens from the
  response and retry any failed requests with these new tokens. It should use the
  new tokens from now on.
+
  * If the refresh request fails, the app should delete all tokens and logout the
  user. If the app requires a logged in user, the app should show a login screen.
 
-Alamofire 4 makes this kind of logic **super simple** to implement, since it has
-a `RequestRetrier` protocol that we can implement and inject into Alamofire. The
+Alamofire 4 makes this kind of logic easy to implement, since it has a 
+`RequestRetrier` protocol that we can implement and inject into Alamofire. The
 retrier will be notified about all failing requests, and lets you determine if a
 request should be retried or not.
 
@@ -873,16 +867,15 @@ related parts instead of class types. In other words, instead of the `Model` and
 groups instead.
 
 Ok, back to storing auth tokens. Remember what I told you about the `ApiContext`
-earlier? Well, it's a **PERFECT** place to store these tokens, so let's do just
-that. Add an `authToken` property to the `ApiContext` protocol:
+earlier? Well, it's a perfect place to store tokens, so let's do that. 
+
+First, add an `authToken` property to the `ApiContext` protocol:
 
 ```swift
 var authToken: String? { get set }
 ```
 
-Also, add this property to `NonPersistentApiContext` (if we had a persistent one,
-it would remember the auth token even if restarted the app, but that's something
-you could try to build yourself):
+Make sure to add this property to `NonPersistentApiContext` as well:
 
 ```swift
 var authToken: String?
@@ -985,9 +978,9 @@ class ApiRequestRetrier: RequestRetrier {
 
 ```
 
-Whenever a request fails, Alamofire will ask the retrier if it should be retried.
-The retrier will trigger a retry if the request is not a failing auth (read more
-about the commented out 401 later). If not, it just lets the request fail.
+When a request fails, Alamofire will ask the retrier if it should be retried. The
+retrier will trigger a retry if the request isn't a failing auth (read more about
+the commented out 401 later). If not, it will just let the request fail, as it should.
 
 If a request should be retried, it's added it to a retry queue. The retrier then
 triggers an authorization. Once it completes, the retrier checks if it succeeded.
@@ -1006,10 +999,10 @@ let manager = SessionManager.default
 manager.retrier = ApiRequestRetrier(context: context, authService: authService)
 ```
 
-**IMPORTANT**  In the real world, a 401 status code is an indication that tokens
-should be refreshed. If this refresh fails, a 401 indicates that the user has to
-log in, since the tokens are invalid. Here, however, we will never receive a 401.
-We therefore have to trigger these mechanisms by doing the following:
+In the real world, a 401 status code is an indication that tokens should be 
+refreshed. If this refresh fails, a 401 indicates that the user has to log in, 
+since the tokens are invalid. Here, however, we will never get a 401. We
+therefore have to trigger these mechanisms by doing the following:
 
  * Kill your connection and perform a clean install, to remove all stored data.
  * Add a breakpoint to the retrier's `authService.authorizeApplication` call.
@@ -1025,9 +1018,9 @@ That's it! Alamofire should now retry any failing request that are not auth ones
 Sometimes, you have to add custom headers to every request you make to an api. A
 common scenario is to add `Accept` information, auth tokens etc.
 
-To adapt any Alamofire requests before they are sent, you just have to implement
-the `RequestAdapter` protocol and inject it into Alamofire. Add this file to the
-`Api` folder:
+To adapt Alamofire requests before they are sent, you just have to implement the
+`RequestAdapter` protocol and inject it into Alamofire. Add this file to the `Api`
+folder:
 
 ```swift
 // ApiRequestAdapter.swift
@@ -1051,8 +1044,9 @@ class ApiRequestAdapter: RequestAdapter {
 }
 ```
 
-As you can see, this adapter just adds any existing token to the request headers.
-Inject it into `Alamofire` by adding the following to our `viewDidLoad`:
+As you can see, the adapter just adds any existing token to the request header.
+You can then inject the adapter into `Alamofire` by adding the following to
+`viewDidLoad`:
 
 ```swift
 manager.adapter = ApiRequestAdapter(context: context)
@@ -1063,14 +1057,12 @@ That's it! Alamofire should now add the auth token to all requests, if it exists
 
 ## Step 13 - Dependency Injection
 
-Well, I won't do this here, since it just add even more complexity to an already
-super-long tutorial. In the demo application, however, I have an `IoC` folder in
-which I use a library called [Dip](https://github.com/AliSoftware/Dip) to manage
-dependencies in the app. 
+I won't do this here, since it just add even more complexity to an already long
+tutorial. In the demo app, however, I have an `IoC` folder in which I use a
+library called [Dip](https://github.com/AliSoftware/Dip) to manage app dependencies.
 
-With `Dip` in place, the view controller becomes a lot cleaner, with the benefit
-that the view controller no longer knows anything about the implementations used
-in the app:
+With Dip in place, the view controller becomes a lot cleaner, with the benefit that
+the view controller no longer knows anything about the implementations used in the app:
 
 ```swift
 import UIKit
@@ -1137,7 +1129,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
 
 The result looks like this:
 
-![Image](/assets/blog/2013/2015-08-23-app.png)
+![Image](/assets/blog/2015/2015-08-23-app.png)
 
 And...
 
@@ -1148,10 +1140,6 @@ Well done! You have created an app with abstract protocols, then added Alamofire
 object mapping and Realm to the mix. You have also added request retry and adapt
 logic using the `RequestRetrier` and `RequestAdapter` protocols. Wow!
 
-I hope this was helpful. Do not hesistate to throw your thoughts and ideas at me.
-
-All the best
-
-Daniel Saidi
-
-* Feedback me on Twitter: [@danielsaidi](http://twitter.com/danielsaidi)
+I hope this was helpful. Don't hesistate to throw your thoughts and ideas at me.
+Hit me up on Twitter at [@danielsaidi](http://twitter.com/danielsaidi), if you want
+to discuss this further.

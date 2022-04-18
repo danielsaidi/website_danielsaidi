@@ -28,20 +28,18 @@ public extension UITextView {
 }
 ```
 
-As you can see, the placeholder text and color is fully customizable. However, I
-add app-specific extensions that call the functions with app-specific colors, so
-I don't have to pass around colors everywhere in my app.
+As you can see, the placeholder text and color is customizable. However, I add
+app-specific extensions that call the functions with app-specific colors, so I
+don't have to pass around colors everywhere.
 
 Whenever I create a text view, I run `setupPlaceholder(...)` to setup a standard
 placeholder text. This operation will abort if the view already has text content. 
 
-Whenever editing will begin, I call `setupPlaceholderBeforeEditing(...)` to make
-sure the placeholder text is correctly removed and prepare the view for editing.
-To determine if the view currently displays the placeholder, we compare the text
+When editing begins, I call `setupPlaceholderBeforeEditing(...)` to ensure that
+the placeholder text is correctly removed and prepare the view for editing. To
+determine if the view currently displays the placeholder, we compare the text
 and placeholder colors. However, this requires that we use different text colors
 for text and placeholder text.
 
 Whenever editing ends, I call `setupPlaceholder(...)` once again to re-apply the
 placeholder, if the user hasn't entered any text.
-
-You can grab the code from my [iExtra](https://github.com/danielsaidi/iExtra).
