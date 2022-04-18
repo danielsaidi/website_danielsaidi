@@ -5,16 +5,16 @@ tags:  .net testing
 ---
 
 I have been playing around with .NET Core since the early betas, but since I do
-so with rather long times in between, things break each time I decide to pick up
-from where I started.
+so with rather long times in between, things break each time I pick up from where
+I left it. Here are some notes to self.
 
-This means that I often have to start from scratch, since the different versions
-have conflicts, old versions are not being unlinked etc. This can cause really
-frustrating problems, since the new versions you've installed are not being used,
-or worse, being **partially** used.
+The many breaking changes in .NET Core means that I often have to start from
+scratch when I return to .NET, since the different versions have conflicts, old
+versions aren't being properly unlinked etc. This can cause really frustrating 
+problems, since new versions may not be used, or worse, be **partially** used.
 
-So, this is just a quick brain dump of what I have to do when I bumped my .NET
-Core environment up to the RC2 Preview 1.
+So, here is a quick brain dump of what I often have to do when I upgrade my .NET
+Core environment.
 
 
 ## Links

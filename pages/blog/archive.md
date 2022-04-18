@@ -5,6 +5,8 @@ permalink: /blog/archive
 ---
 
 {%- include blog/menu.html archive=true -%}
+{%- include blog/post-list.html year=2017 -%}
+{%- include blog/post-list.html year=2016 -%}
 {%- include blog/post-list.html year=2015 -%}
 {%- include blog/post-list.html year=2014 -%}
 {%- include blog/post-list.html year=2013 -%}

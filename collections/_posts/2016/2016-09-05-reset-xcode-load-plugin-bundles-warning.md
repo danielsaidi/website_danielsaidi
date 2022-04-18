@@ -4,23 +4,25 @@ date:  2016-09-05 17:42:00 +0100
 tags:  ios xcode
 ---
 
-Today, I managed to click the "Skip Bundles" button instead of the "Load Bundles"
-button, when I started up Xcode after adding two new plugins.
+Today, I accidentally clicked "Skip Bundles" instead of "Load Bundles" when I started
+Xcode after adding new plugins. This cause Xcode to not load the plugins on subsequent
+launches. How can we fix this?
 
-With that highlighted, blue button, can you blame me?
+Xcode obviously doesn't want you to load custom plugins, since the blue skip button is 
+the default one:
 
 ![Xcode Load Plugin Bundles Warning Dialog](/assets/blog/2016/2016-09-05_bundles.png)
 
-If you too have managed to make this mistake, you may have noticed that killing
-and restarting Xcode will not solve the problem - the plugins won't load and you
-are never again prompted about these plugins.
+If you also made this mistake, you may have noticed that restarting Xcode will not help.
+The plugins will not load and you are never again prompted about whether or not to load
+them.
 
-So, if you really want to load these bundles, you have to resort to the Terminal.
-Open up the terminal and enter the following command:
+If you really want to load these plugins, you have open up the Terminal and run the
+following command:
 
 ```sh
 defaults delete com.apple.dt.Xcode DVTPlugInManagerNonApplePlugIns-Xcode-7.3.1
 ```
 
-Then restart Xcode and you will once more be prompted about loading these bundles.
-This time, press "Load Bundles"! Unless you really enjoyed all this nice work.
+If you restart Xcode, you will now be prompted about whether or not to load these 
+bundles. This time, press "Load Bundles" and your plugins will be properly loaded.
