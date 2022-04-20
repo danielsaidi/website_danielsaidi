@@ -1,12 +1,11 @@
 ---
 title: Using the iOS keychain to persist data
 date:  2020-06-05 10:00:00 +0100
-tags:  swift
+tags:  quick-tip swift keychain
 icon:  swift
 
 lib:    https://github.com/danielsaidi/SwiftKit
 source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Keychain
-tests:  https://github.com/danielsaidi/SwiftKit/tree/master/Tests/SwiftKitTests/Keychain
 
 repo:   https://github.com/jrendel/SwiftKeychainWrapper
 ---
@@ -16,7 +15,7 @@ In this post, we'll look at how to read from and write to the keychain on iOS de
 
 ## The basics
 
-The device keychain can be used to small amounts of data outside of our applications. This lets data stick around even if a user reinstalls an application. The data can also be backed up and restored by encrypted backups.
+The device keychain can be used to small amounts of data outside of our applications. This lets data stick around even if users reinstall our application. The data can also be backed up and restored by encrypted backups.
 
 However, working with the keychain is not very convenient. Therefore, the [SwiftKeychainWrapper]({{page.repo}}) project is nice, since it lets us use the keychain like `UserDefaults`.
 
@@ -81,7 +80,7 @@ public protocol KeychainWriter: AnyObject {
 }
 ```
 
-I then have a `KeychainService` that implements both or these protocols (much like `Codable` implements `Encodable` and `Decodable`):
+I then have a `KeychainService` that implements these protocols (like how `Codable` implements `Encodable` and `Decodable`):
 
 ```swift
 public protocol KeychainService: KeychainReader, KeychainWriter {}
@@ -195,4 +194,4 @@ Wrapping a wrapper may seem a bit too much, but it's to separate the protocols f
 
 ## Source code
 
-I have added this extension to my [SwiftKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}) and the unit tests [here]({{page.tests}}).
+I have added these extensions to my [SwiftKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think!

@@ -1,24 +1,24 @@
 ---
 title: An easier way to manage sheets in SwiftUI
 date:  2020-06-06 20:00:00 +0100
-tags:  swift swiftui
+tags:  article swiftui
 icon:  swiftuikit
 
 lib:    https://github.com/danielsaidi/SwiftUIKit
-source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Sheets
+source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Presentation/Sheet
 ---
 
-In this post, we'll look at an easier way to manage sheets in SwiftUI, that lets us reuse functionality, reduce state management and present many different sheets in the same way.
+In this post, we'll look at an easier way to manage sheets in SwiftUI, in a way that lets us reuse functionality, reduce state management and present many different sheets with the same modifier.
 
 
 ## TLDR;
 
-If you find this post too long, I have added this to my [SwiftUIKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}) and checkout the demo app for a fully working example.
+If you find this post too long, I have added this to my [SwiftUIKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think.
 
 
 ## The basics
 
-To present sheets in SwiftUI, you use the `sheet` modifier that takes an `isPresented` binding and a `content` function:
+To present sheets in SwiftUI, you use the `sheet` modifier that takes an `isPresented` binding and a `content` function (since this was written, more options have been added):
 
 ```swift
 struct MyView: View {
@@ -40,14 +40,14 @@ struct MyView: View {
 }
 ```
 
-This can become tricky when you have to present multiple sheets from the same screen or reuse sheets across an app. You may end up duplicating state and view builder logic and having to write the same code many times.
+This can become tricky when you have to present multiple sheets from the same screen or reuse sheets across an app. You may end up duplicating code, state, view builders etc.
 
-I therefore tried to find a way to work with sheets in a more reusable way, that requires less code and less state while still being flexible to support both global and screen-specific sheets.
+I have therefore tried to find a way to handle sheets in a more reusable way, that requires less code and less state, while still being flexible to support both global and screen-specific sheets.
 
 It all begins with a very simple state manager that I call `SheetContext`.
 
 
-## SheetContext
+## Sheet context
 
 Instead of managing state in every view that should present sheets, I use a `SheetContext`:
 
@@ -68,14 +68,14 @@ public class SheetContext: PresentationContext<AnyView> {
 }
 ```
 
-As you can see, it basically only contains code for presenting a `Sheet` (which is just a view) or a `SheetProvider`. We'll come back to the provider shortly.
+As you can see, it contains code for presenting a `Sheet` (which is just a view) or a `SheetProvider`. We'll come back to the provider shortly.
 
 You may also notice that it inherits something called `PresentationContext`. Let's take a closer look at this base class.
 
 
-## PresentationContext
+## Presentation context
 
-Since I find that the sheet presentation problem also is true for alerts, toasts etc., I have a `PresentationContext`, which is a pretty simple `ObservableObject` base class:
+Since I find that this problem is also true for alerts, modals etc. I have a `PresentationContext`, which is a small `ObservableObject` base class with an `isActive` binding and a generic `content` view:
 
 ```swift
 public class PresentationContext<Content>: ObservableObject {
@@ -106,12 +106,12 @@ public class PresentationContext<Content>: ObservableObject {
 }
 ```
 
-By calling the more specific functions in `SheetContext`, the `PresentationContext` state is properly updated.
+By calling the sheet-specific functions in `SheetContext`, the context state is properly updated.
 
 
-## SheetProvider
+## Sheet provider
 
-As we saw earlier, `SheetContext` can present a `Sheet` and a `SheetProvider`. `Sheet` is just a view, while `SheetProvider` is a protocol for anything that can provide a sheet view:
+As we saw earlier, `SheetContext` can present `Sheet` views and `SheetProvider`s. `Sheet` is just a view, while `SheetProvider` is a protocol for anything that can provide sheet views:
 
 ```swift
 public protocol SheetProvider {
@@ -120,14 +120,13 @@ public protocol SheetProvider {
 }
 ```
 
-With this in place, you can now implement custom sheets in many different ways and present all of them the same way, using this new context.
-
-For instance, you can have an enum that represents the various sheets your app supports:
+For instance, you can have an enum that represents various sheets that your app supports:
 
 ```swift
 enum AppSheet: SheetProvider {
     
-    case settings, tutorial
+    case settings
+    case tutorial
     
     var sheet: AnyView {
         switch self {
@@ -138,64 +137,67 @@ enum AppSheet: SheetProvider {
 }
 ```
 
-This makes it possible to create app and view specific enums that contain your app's sheet logic, which can all be presented in the same way.
+Then present these sheets like this:
+
+```swift
+context.present(AppSheet.settings)
+```
+
+This makes it possible to create plain sheet views or app- and view-specific enums and present all of them in the same way, using the same context.
 
 
 ## New sheet modifier
 
-In SwiftUI, you present sheets by adding a modifier to the presenting view. With the new `SheetContext` managing our state, we can create a new `sheet` modifier:
+To present sheet, your context must be added to a view. We can do this by wrapping the native `sheet` modifier in a context-based modifier and provide it with the context state:
 
 ```swift
 public extension View {
     
-    func sheet(context: SheetContext) -> some View {
+    func sheet(_ context: SheetContext) -> some View {
         sheet(isPresented: context.isActiveBinding, content: context.content)
     }
 }
 ```
 
-The new modifier just provides the standard `sheet` modifier with the context's state, which makes things easier for you.
+If you use this modifier instead of the native `sheet` modifier, you can use the context to present sheets.
 
 
 ## Presenting a sheet
 
-With these new tools at our disposal, we can present sheets in a much easier way. First, create a context property:
+With these new tools at our disposal, we can present sheets in a much easier way. 
+
+First, create a context property:
 
 ```swift
-@StateObject private var sheetContext = SheetContext()
+@StateObject private var sheet = SheetContext()
 ```
 
 then add a `sheet` modifier to the view:
 
 ```swift
-.sheet(context: sheetContext)
+.sheet(sheet)
 ```
 
-You can now present any `SheetProvider` as a sheet, for instance `AppSheet`:
+You can now present any views or `SheetProvider`s with the context:
 
 ```swift
-sheetContext.present(AppSheet.settings)
+// Present a view
+sheet.present(Text("Hello, I'm a custom sheet."))
 ```
-
-You can also present any custom view in the same way, using the same context:
 
 ```swift
-sheetContext.present(Text("Hello, I'm a custom sheet."))
+// Present a sheet provider
+sheet.present(AppSheet.settings)
 ```
 
-That's it, your view don't need multiple `@State` properties for different sheets or to switch over an enum to determine which sheet to show.
-
-
-## @StateObject vs @ObservedObject
-
-Use `@StateObject` for your contexts whenever possible. However, if you target `iOS 13` or if the context is created and managed by another part of your app, use `@ObservedObject`.
+You no longer need multiple `@State` properties for different sheets or switch over an enum to determine which sheet to show.
 
 
 ## Conclusion
 
-As you can see, `SheetContext` can be used to manage all different kind of views. It manages all state for you and lets you use a more convenient modifier. All you have to do is provide it with the sheet you want to present.
+`SheetContext` can be used to present all different kind of views. It manages all state for you and lets you use a more convenient modifier. All you have to do is provide it with the views to present.
 
 
 ## Source code
 
-I have added these components to my [SwiftUIKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}).
+I have added these types to my [SwiftUIKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think.

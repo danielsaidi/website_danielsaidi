@@ -1,7 +1,7 @@
 ---
 title:  Building a video streaming app for iOS in SwiftUI
 date:   2020-12-25 07:00:00 +0100
-tags:   swift swiftui
+tags:   article swiftui
 assets: /assets/blog/2020/2020-12-25/
 image:  /assets/blog/2020/2020-12-25/1-title.jpg
 
@@ -9,11 +9,11 @@ post-tvos:  /blog/2020/12/09/building-a-tvos-app-in-swiftui
 cineasterna: https://www.cineasterna.com/en/
 ---
 
-In this post, I'll discuss how I built a movie-streaming app for iOS and iPadOS in SwiftUI, for the Swedish video streaming service [Cineasterna]({{page.cineasterna}}).
+
+This is a follow-up post to [this previous blog post]({{page.post-tvos}}), where I discussed my experiences with building a video streaming app for tvOS, using SwiftUI. This post will discuss how I ported the app to iOS. 
 
 ![A screenshot of the app]({{page.assets}}1-title-sml.jpg)
 
-This is a follow-up post to [this previous blog post]({{page.post-tvos}}), where I discussed my experiences with building the same app for tvOS. This thread will discuss how I ported the tvOS app to iOS. 
 
 Throughout the post, I will refer to this app as an iOS app, although it targets both iOS and iPadOS.
 
@@ -22,7 +22,7 @@ Throughout the post, I will refer to this app as an iOS app, although it targets
 
 The app is a universal SwiftUI app, which means that it runs on iOS and iPadOS as well as on macOS. However, due to time restrictions, I have not put any effort into making it functional on macOS.
 
-The business logic is kept in a separate library that is shared between the tvOS and the iOS app. It is pulled in with Swift Package Manager (SPM), which is very convenient. 
+The business logic is kept in a library that is shared by the tvOS and the iOS app. It's pulled in with Swift Package Manager (SPM), which is very convenient. 
 
 Since the iOS app supports Chromecast, I had to use CocoaPods to pull in the external `GoogleCast` library as well. This makes the iOS project setup a bit messier than the tvOS project.
 
@@ -81,7 +81,7 @@ This screen does not lazy load more content as the user scrolls, since the api r
 
 ### All Movies
 
-The All Movies screen can be used to explore all content that Cineasterna have to offer. Just like Favorites, this is a single section and therefore uses a grid.
+The All Movies screen can be used to explore all the movies that Cineasterna has to offer. Just like Favorites, it has a single section and therefore uses a grid.
 
 ![A screenshot of the favorites screen]({{page.assets}}8-all-movies.jpg)
 
@@ -96,7 +96,7 @@ This screen lazy loads more content as the user scrolls down. As we'll discuss l
 
 ### Search
 
-The Search screen can be used to search for movies. Just like Favorites and All Movies, this is a single section and therefore uses a grid.
+The Search screen can be used to search for movies. Just like Favorites and All Movies, it has a single section and therefore uses a grid.
 
 ![A screenshot of the search screen]({{page.assets}}9-search.jpg)
 
@@ -137,7 +137,7 @@ Trailers are currently YouTube links, so they open either the YouTube app (if in
 
 ## Chromecast
 
-A fun addition to this app was to build Chromecast support with the `GoogleCast` library. If the user starts the app and gives it permission to detect Chromecast devices, a Chromecast button is presented whenever a Chromecast device is available on the same network.
+A fun addition to this app was to build Chromecast support with the `GoogleCast` library. If a user gives the app permission to detect Chromecast devices, a cast button is presented when a Chromecast device is available on the same network.
 
 ![A screenshot of the Chromecast button]({{page.assets}}12-chromecast.jpg)
 
@@ -147,7 +147,7 @@ According to the documentation, the Chromecast button should be added to *all* s
 
 I really like how the button only appears when there is a Chromecast device on the same network, which means that it only appears when it makes sense.
 
-This was the first time I worked with Chromecast development. My five cents is that the docs are great, the Swift sample code pretty nasty and not that swifty, the sample app badly focused at the core aspects of Chromecast and the overall developer experience not that great.
+This was the first time I worked with Chromecast development. I found the docs to be great, the Swift sample code pretty nasty, the sample app badly focused at the core aspects of using Chromecast and the overall developer experience not that great.
 
 
 ## Technology
@@ -191,4 +191,4 @@ The video player was easy to build, by just wrapping an `MPPlayerViewController`
 
 To wrap up, building this app in SwiftUI was a lot easier than to build it for tvOS, much since I know the HIG better and that grids and stacks work better. Some views and api:s are still missing, so you still have to wrap native UIKit components, but not as much as in tvOS.
 
-All in all, this was another fun project that I'm proud to release. I’m super happy to help services like [Cineasterna]({{page.cineasterna}}) and the public libraries help people to discover culture from all over the world. To try it out, search for Cineasterna on the App Store. Thanks for reading!
+All in all, this was another fun project that I'm proud to release. I’m super happy to help services like [Cineasterna]({{page.cineasterna}}) and the public libraries help people to discover culture from all over the world.

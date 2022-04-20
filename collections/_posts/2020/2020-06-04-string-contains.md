@@ -1,15 +1,14 @@
 ---
 title: Case-sensitive String contains checks
 date:  2020-06-04 12:00:00 +0100
-tags:  swift
+tags:  quick-tip swift
 icon:  swift
 
 lib:    https://github.com/danielsaidi/SwiftKit
 source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Extensions/String
-tests:  https://github.com/danielsaidi/SwiftKit/tree/master/Tests/SwiftKitTests/Extensions/String
 ---
 
-In this post, we'll discuss how to check if a String contain another String. We'll then create an extension that allows for easier case-insensitive checks.
+In this post, we'll look at how to check if a string contains another string. We'll then create an extension that allows for easier case-insensitive checks.
 
 
 ## The basics
@@ -24,6 +23,7 @@ string.contains("contains") // => true
 However, this will not perform a case-insensitive check, which means that
 
 ```swift
+let string = "This string contains text"
 string.contains("Contains") // => false
 ```
 
@@ -33,7 +33,7 @@ To allow for case-insensitive contains checks, you could lower-case both strings
 string.lowercased().contains("Contains".lowercased()) // => true
 ```
 
-However, this is not that performant, since you create two new strings to perform this check. You could use `range` instead, and provide it with a `.caseInsensitive` option:
+However, this is not performant, since you create two new strings to perform this check. You could use `range` instead, and provide it with a `.caseInsensitive` option:
 
 ```swift
 string.range(of: "Contains", options: .caseInsensitive) != nil // => true
@@ -71,4 +71,4 @@ I think that this is a lot cleaner, and for case-sensitive checks a lot more rea
 
 ## Source code
 
-I have added this extension to my [SwiftKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}) and the unit tests [here]({{page.tests}}).
+I have added this extension to my [SwiftKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think!

@@ -1,15 +1,14 @@
 ---
 title: Modify dates in Swift
 date:  2020-05-27 22:00:00 +0100
-tags:  swift
+tags:  quick-tip swift
 icon:  swift
 
 lib:    https://github.com/danielsaidi/SwiftKit
 source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Date
-tests:  https://github.com/danielsaidi/SwiftKit/tree/master/Tests/SwiftKitTests/Date
 ---
 
-In this post, we'll extend Date with functions that let us add and remove seconds, minutes, hours and days to dates.
+In this post, we'll extend `Date` with functions that let us add and remove seconds, minutes, hours and days to a date.
 
 
 ## The basics
@@ -25,7 +24,7 @@ let date = Date()
 date.addingTimeInterval(3600)
 ```
 
-However, I find `addingTimeInterval` cumbersome to use when you want more fine-grained control or use larger units than seconds. Also, the resulting code isn't that readable.
+However, I find `addingTimeInterval` cumbersome to use when you want more fine-grained control or use larger units than seconds. Also, the code isn't that readable.
 
 
 ## More readable extensions
@@ -86,4 +85,4 @@ I think this is much more readable than the time interval-based function.
 
 ## Source code
 
-I have added these extensions to my [SwiftKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}) and the unit tests [here]({{page.tests}}).
+I have added these extensions to my [SwiftKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think!

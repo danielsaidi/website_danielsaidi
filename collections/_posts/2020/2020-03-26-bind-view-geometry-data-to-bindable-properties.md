@@ -7,24 +7,24 @@ icon:  swift
 lib:   https://github.com/danielsaidi/SwiftUIKit
 ---
 
-SwiftUI is an amazing tool for building declarative user interfaces. However, it's still young and lacks built-in ways to do many common things. In this post, we'll look at a way to read geometry information from any view in a view hierarchy.
+SwiftUI is great for building declarative user interfaces. However, it's still young and lacks many common things. In this post, we'll look at a way to read geometry information from any view in a view hierarchy.
 
 
 ## GeometryReader
 
-If you need to fetch geometric information about of your view hierarchy, `GeometryReader` is a given tool. It wraps any view and provides geometric information via a `GeometryProxy` that it passes into the view hierarcy.
+If you need to fetch geometric information about of your view hierarchy, `GeometryReader` can be used to wrap any view and provide geometric information via a `GeometryProxy`. 
 
 You can use it like this:
 
 ```swift
-GeometryReader { geo in
-    Text("\(geo.size.height)")
+GeometryReader { geoProxy in
+    Text("\(geoProxy.size.height)")
 }
 ```
 
-But beware! `GeometryReader` is greedy and will expand to take up as much space as it can. If you add the code above as the `text` of a view in your app. The height information will not be that of the text, but that of the available space.
+But beware! `GeometryReader` is greedy and will expand to take up as much space as it can. If you use the code above in your app, the height will not be that of the text, but of the available space.
 
-`GeometryReader` is a great tool, but it comes with many quirks. Until you understand it, it can mess up your view hierarchy in nasty ways. Instead, let's use it to create powerful extensions.
+`GeometryReader` is a great tool, but it comes with many quirks. Until you understand it, it can mess up your view hierarchy. Instead, let's use it to create powerful extensions.
 
 
 ## Extensions
@@ -50,7 +50,9 @@ var body: some View {
 }
 ```
 
-Since `Color` is greedy, it will expand cause the `ZStack` to expand as well. We can therefore bind the `body` properties to any of these views with the same result. `Text`, on the other hand, is not greedy. The `text` property bindings will therefore get the size of the text itself.
+Since `Color` is greedy, it will take up as much space as it can, and therefore cause the `ZStack` to expand as well. We can therefore bind the `body` properties to any of these views with the same result. 
+
+`Text`, on the other hand, is not greedy. The text bindings will therefore get the size of the text itself.
 
 
 ## Implementation
@@ -100,9 +102,9 @@ private struct GeometryPreference: PreferenceKey {
 }
 ```
 
-`bindGeometry` takes a `binding` and a `reader` function that takes a `GeometryProxy` and returns a `CGFloat`. It then creates a `GeometryBinding` with the `reader` and adds it to the calling view, then binds an `onPreferenceChanged` to the provided `binding`.
+`bindGeometry` takes a `binding` and a `reader` function that takes a `GeometryProxy` and returns a `CGFloat`. It then creates a `GeometryBinding` using the `reader`, adds it to the calling view, then binds an `onPreferenceChanged` to the provided `binding`.
 
-`GeometryBinding` is just a `View` creator, that creates a `GeometryReader` and binds a second `preference` modifier to the provided `reader`.
+`GeometryBinding` is just a view creator that creates a `GeometryReader` and binds a `preference` modifier to the provided `reader`.
 
 With this in place, we can now bind any `CGFloat` property of the `GeometryProxy` to any bindable property, e.g. `@State` or the properties of an `@ObservedObject`.
 
@@ -125,9 +127,7 @@ var body: some View {
 }
 ```
 
-I therefore prefer to use it to create cleaner, more specific extensions, rather than using it as is.
-
-For instance, we can use it to create an extension that reads the safe area inset of any `Edge`:
+I therefore prefer to use it to create cleaner, more specific extensions, rather than using it as is. For instance, we can use it to create an extension that reads the safe area inset of any `Edge`:
 
 ```swift
 public extension View {
@@ -176,9 +176,9 @@ to the much cleaner and easier to read:
 .bindSafeAreaInset(of: .top, to: $topInset)
 ```
 
-However, this is just a matter of taste. I like the cleaner syntax, but the original extension is really all you need.
+This is just a matter of taste. I like the cleaner syntax, but the original extension is really all you need.
 
 
 ## Code
 
-I have added these extensions to my personal [SwiftUIKit]({{page.lib}}) library. You can find them under `Sources/SwiftUIKit/Extensions`.
+I have added these extensions to my [SwiftUIKit]({{page.lib}}) library, under `Sources/SwiftUIKit/Extensions`.

@@ -1,24 +1,25 @@
 ---
 title: An easier way to manage full screen covers in SwiftUI
 date:  2020-10-28 20:00:00 +0100
-tags:  swift swiftui
+tags:  article swiftui
 icon:  swiftuikit
 
 lib:    https://github.com/danielsaidi/SwiftUIKit
-source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Sheets
+source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Presentation/FullScreenCover
 ---
 
-In this post, we'll look at an easier way to manage full screen covers in SwiftUI, that lets us reuse functionality, reduce state management and present many covers in the same way.
+In this post, we'll look at an easier way to manage full screen covers in SwiftUI, in a way that lets us reuse functionality, reduce state management and present many different covers with the same modifier.
 
 
 ## TLDR;
 
-If you find this post too long, I have added this to my [SwiftUIKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}) and checkout the demo app for a fully working example.
+If you find this post too long, I have added this to my [SwiftUIKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think.
 
 
 ## The basics
 
-To present full screen covers in SwiftUI, you use the `fullScreenCover` modifier that takes an `isPresented` binding and a `content` function:
+To present covers in SwiftUI, you use the `fullScreenCover` modifier that takes an `isPresented` binding and a `content` function (since this was written, more options have been added):
+
 
 ```swift
 struct MyView: View {
@@ -43,16 +44,16 @@ struct MyView: View {
 }
 ```
 
-This can become tricky when you have to present multiple covers from the same screen or reuse covers across an app. You may end up duplicating state and view builder logic and having to write the same code many times.
+This can become tricky when you have to present multiple covers from the same screen or reuse covers across an app. You may end up duplicating code, state, view builders etc.
 
-I therefore tried to find a way to work with covers in a more reusable way, that requires less code and less state while still being flexible to support both global and screen-specific covers.
+I have therefore tried to find a way to handle covers in a more reusable way, that requires less code and less state, while still being flexible to support both global and screen-specific covers.
 
 It all begins with a very simple state manager that I call `FullScreenCoverContext`.
 
 
-## FullScreenCoverContext
+## Full screen cover context
 
-Instead of managing state in every view that should present covers, I use a `FullScreenCoverContext`:
+Instead of managing state in every view that presents covers, I use a `FullScreenCoverContext`:
 
 ```swift
 public class FullScreenCoverContext: PresentationContext<AnyView> {
@@ -71,14 +72,14 @@ public class FullScreenCoverContext: PresentationContext<AnyView> {
 }
 ```
 
-As you can see, it basically only contains code for presenting a `Cover` (which is just a view) or a `FullScreenCoverProvider`. We'll come back to the provider shortly.
+As you can see, it contains code for presenting a `Cover` (which is just a view) or a cover provider. We'll come back to the provider shortly.
 
 You may also notice that it inherits something called `PresentationContext`. Let's take a closer look at this base class.
 
 
 ## PresentationContext
 
-Since I find that the cover presentation problem also is true for alerts, sheets etc., I have a `PresentationContext`, which is a pretty simple `ObservableObject` base class:
+Since I find that this problem is also true for alerts, sheets etc. I have a `PresentationContext`, which is a small `ObservableObject` base class with an `isActive` binding and a generic `content` view:
 
 ```swift
 public class PresentationContext<Content>: ObservableObject {
@@ -109,12 +110,12 @@ public class PresentationContext<Content>: ObservableObject {
 }
 ```
 
-By calling the more specific functions in `FullScreenCoverContext`, the `PresentationContext` state is properly updated.
+By calling the cover-specific functions in `FullScreenCoverContext`, the context is properly updated.
 
 
-## FullScreenCoverProvider
+## Cover provider
 
-As we saw earlier, `FullScreenCoverContext` can present a `Cover` and a `FullScreenCoverProvider`. `Cover` is just a view, while `FullScreenCoverProvider` is a protocol for anything that can provide a cover view:
+As we saw earlier, `FullScreenCoverContext` can present views and cover providers. `Cover` is just a view, while `FullScreenCoverProvider` is a protocol for anything that can provide cover views:
 
 ```swift
 public protocol FullScreenCoverProvider {
@@ -123,14 +124,13 @@ public protocol FullScreenCoverProvider {
 }
 ```
 
-With this in place, you can now implement custom covers in many different ways and present all of them the same way, using this new context.
-
-For instance, you can have an enum that represents the various covers your app supports:
+For instance, you can have an enum that represents various covers that your app supports:
 
 ```swift
 enum AppCover: FullScreenCoverProvider {
     
-    case settings, tutorial
+    case settings
+    case tutorial
     
     var cover: AnyView {
         switch self {
@@ -141,64 +141,67 @@ enum AppCover: FullScreenCoverProvider {
 }
 ```
 
-This makes it possible to create app and view specific enums that contain your app's covers, which can all be presented in the same way.
+Then present these covers like this:
+
+```swift
+context.present(AppCover.settings)
+```
+
+This makes it possible to create plain cover views or app- and view-specific enums and present all of them in the same way, using the same context.
 
 
 ## New fullScreenCover modifier
 
-In SwiftUI, you present full screen covers by adding a modifier to the presenting view. With the new `FullScreenCoverContext` managing our state, we can create a new `fullScreenCover` modifier:
+To present full screen covers, your context must be added to a view. We can do this by wrapping the native `fullScreenCover` modifier in a context-based modifier and provide it with the context state:
 
 ```swift
 public extension View {
     
-    func fullScreenCover(context: FullScreenCoverContext) -> some View {
+    func fullScreenCover(_ context: FullScreenCoverContext) -> some View {
         fullScreenCover(isPresented: context.isActiveBinding, content: context.content)
     }
 }
 ```
 
-The new modifier just provides the standard `fullScreenCover` modifier with the context's state, which makes things easier for you.
+If you use this modifier instead of the native `fullScreenCover` modifier, you can then use the context to present covers.
 
 
 ## Presenting a cover
 
-With these new tools at our disposal, we can present full screen covers in a much easier way. First, create a context property:
+With these new tools at our disposal, we can present covers in a much easier way. 
+
+First, create a context property:
 
 ```swift
-@StateObject private var coverContext = FullScreenCoverContext()
+@StateObject private var cover = FullScreenCoverContext()
 ```
 
 then add a `fullScreenCover` modifier to the view:
 
 ```swift
-.fullScreenCover(context: coverContext)
+.fullScreenCover(cover)
 ```
 
-You can now present any `FullScreenCoverProvider` as a cover, for instance `AppCover`:
+You can now present any views or `FullScreenCoverProvider`s with the context:
 
 ```swift
-coverContext.present(AppCover.settings)
+// Present a view
+cover.present(Text("Hello, I'm a custom cover."))
 ```
-
-You can also present any custom view in the same way, using the same context:
 
 ```swift
-coverContext.present(Text("Hello, I'm a custom cover."))
+// Present a cover provider
+cover.present(AppCover.settings)
 ```
 
-That's it, your view don't need multiple `@State` properties for different covers or to switch over an enum to determine which cover to show.
-
-
-## @StateObject vs @ObservedObject
-
-Use `@StateObject` for your contexts whenever possible. However, if you target `iOS 13` or if the context is created and managed by another part of your app, use `@ObservedObject`.
+You no longer need multiple `@State` properties for different covers or switch over an enum to determine which cover to show.
 
 
 ## Conclusion
 
-As you can see, `FullScreenCoverContext` can be used to manage all different kind of views. It manages all state for you and lets you use a more convenient modifier. All you have to do is provide it with the covers you want to present.
+`FullScreenCoverContext` can be used to present all different kind of views. It manages state for you and lets you use a more convenient modifier. All you have to do is provide it with the views to present.
 
 
 ## Source code
 
-I have added these components to my [SwiftUIKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}).
+I have added these types to my [SwiftUIKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think.

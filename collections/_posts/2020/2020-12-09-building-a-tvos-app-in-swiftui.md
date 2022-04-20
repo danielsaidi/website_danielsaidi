@@ -1,7 +1,7 @@
 ---
 title: Building a video streaming app for tvOS in SwiftUI
 date:  2020-12-09 07:00:00 +0100
-tags:   swift swiftui
+tags:  article swiftui
 assets: /assets/blog/2020/2020-12-09/
 image:  /assets/blog/2020/2020-12-09/image.jpg
 
@@ -10,7 +10,7 @@ collection-view: https://github.com/defagos/SwiftUICollection
 defagos: https://twitter.com/defagos
 ---
 
-In this post, I'll discuss how I built a movie-streaming app for tvOS in SwiftUI, for the Swedish public library video streaming service [Cineasterna]({{page.cineasterna}}). 
+In this post, I'll discuss how I built a movie-streaming app for tvOS in SwiftUI, for the Swedish streaming service [Cineasterna]({{page.cineasterna}}), which lets people stream videos using their public library card.
 
 ![A screenshot of the app]({{page.assets}}image.jpg)
 
@@ -39,16 +39,16 @@ This screen lazy loads more content as the user scrolls down and displays the la
 
 ### Favorites
 
-The Favorites screen only shows up if the user has any favorites. Unlike the Discover screen, this screen only has a single section and therefore uses a grid instead of shelves.
+The Favorites screen only shows up if the user has any favorites. Unlike the Discover screen, it only has a single section and therefore uses a grid instead of shelves.
 
 ![A screenshot of the Favorites screen]({{page.assets}}favorites.jpg)
 
-This screen does not lazy load more content as the user scrolls, since the api returns all user favorites without pagination.
+This screen doesn't load more content as the user scrolls, since the api returns all user favorites at once.
 
 
 ### All Titles
 
-The All Titles screen can be used to explore all content that Cineasterna have to offer. Just like Favorites, this is a single section and therefore uses a grid.
+The All Titles screen can be used to explore all the movies Cineasterna have to offer. Just like Favorites, it has a single section and therefore uses a grid.
 
 ![A screenshot of the All Movies screen]({{page.assets}}all-movies.jpg)
 
@@ -63,15 +63,15 @@ This screen lazy loads more content as the user scrolls down. As we'll discuss l
 
 ### Search
 
-The Search screen can be used to search for movies. Just like Favorites and All Titles, this is a single section and therefore uses a grid.
+The Search screen can be used to search for movies. Just like Favorites and All Titles, it has a single section and therefore uses a grid.
 
 ![A screenshot of the Search screen]({{page.assets}}search.jpg)
 
-Search has a custom-made header, since there is no native search component in SwiftUI (yet). It opens a full screen input and performs a search when tapping ”done”.
+Search has a custom-made header, since there's no native search component in SwiftUI (yet). It opens a full screen input and performs a search when tapping ”done”.
 
 ![A screenshot of the search input view]({{page.assets}}search-input.jpg)
 
-I faced two problems with this. First, that dictation inserts invalid chars into the text string. The text must be therefore be cleaned up. Also, there is no native way to change ”done” to ”Search”without having to wrap a native UIKit text field.
+I faced two problems with this. First, dictation inserts invalid chars into the dictation string, so it must be cleaned up. Also, there's no native way to change "done" to "Search" without wrapping a native UIKit text field.
 
 This screen also lazy loads more content as the user scrolls.
 
@@ -95,7 +95,7 @@ Loaning a movie, which is free (public libraries, remember?), opens a movie play
 
 ![A screenshot of the Movie screen]({{page.assets}}movie-qr.jpg)
 
-Overall, I like the way QR codes can be used to let users explore more content on their mobile devices, but I think this design choice may have to be better explained, since users may not be all that famoliar with scanning QR codes.
+Overall, I like the way QR codes can be used to let users explore more content on their mobile devices, but I think it has to be better explained, since users may not be all that famoliar with scanning QR codes.
 
 
 ## Technology
@@ -105,35 +105,41 @@ Let's go through some technological aspects of the app as well.
 
 ### Performance
 
-I first built shelves with LazyVStack and nested LazyHStacks and grids with LazyVGrid, but performance was horrible. I tried *everything* and eventually found [this great collection view]({{page.collection-view}}) by [@defagos]({{page.defagos}}) and rewrote it to fit my needs.
+I first built shelves with LazyVStack and nested LazyHStacks and grids with LazyVGrid, but performance was horrible. I tried *everything* and eventually found [this great collection view]({{page.collection-view}}) by [@defagos]({{page.defagos}}).
 
-This collection view wraps a native `UICollectionView` and uses the latest collection view techniques, like diffable data sources. It works GREAT, has amazing performance and also remembers horizontal scroll offsets in shelves, which the LazyHStack doesn’t do.
+This collection view wraps a native `UICollectionView` and uses the latest collection view techniques, like diffable data sources. It works GREAT, has amazing performance and also remembers scroll offset.
 
-The only drawbacks with this custom collection view, is that I have to resize images in a very precis manner for them to look good. Also, navigation links don’t work, which probably has to do with the fact that the movie covers are rendered within a hosting controller. For tvOS, I can use sheets to work around this, but that wouldn't be nice on iOS.
+The only drawbacks with this wrapper, is that I have to resize images in a very precis manner for them to look good. Also, navigation links don’t work, which probably has to do with the fact that the movie covers are rendered within a hosting controller. On tvOS, I can use sheets to work around this.
+
+Since having these performance problems, I have verification from Apple engineers, that scrolling stacks and grids is broken in SwiftUI on tvOS. I just wish they could have mentioned this somewhere.
 
 
 ### Async Images
 
 Movie covers are downloaded with Kingfisher, which needed some fiddling to perform well on the TV. I use a pre-processor that scales images down to exact points and use disk cache.
 
-Note that tvOS apps are recycled way less than iOS apps, so ou should probably consider to set a manual cache lifetime limit, to avoid that Kingfisher keeps images around forever.
+Note that tvOS apps are recycled way less often than iOS apps. You should therefore consider setting a manual cache lifetime limit, to avoid that Kingfisher keeps images around forever.
 
 
 ### Lazy Loading
 
-Both shelves and grids can lazy load more content as the user scroll down and reaches the end of the fetched content. This was easy to do, by looking at the movie when rendering a list item. For shelves to trigger a lazy load, the movie must be the first movie in the last available list. For grids, it must be the last available movie. 
+Both shelves and grids can lazy load more content as the user scroll down and reaches the end of the fetched content. This was easy to do, by looking at the movie when rendering a list item. 
+
+For shelves to trigger a lazy load, the movie must be the first movie in the last available list. For grids, it must be the last available movie. 
 
 If this is true, the collection view automatically triggers an injected action that performs an async data fetch and puts more content to the end of the collection. The collection is observed and automatically updates the view.
 
 
 ### Video Player
 
-The video player was easy to build, by just wrapping an `MPPlayerViewController` and giving it a url and start position. It remembers the position of each unique movie and restores it the next time that movie is played. Reaching the end resets this position and closes the player.
+The video player was easy to build, by wrapping an `MPPlayerViewController` and giving it a url and start position. It remembers the position of each unique movie and restores it the next time that movie is played. Reaching the end resets this position and closes the player.
 
 
 
 ## Conclusion
 
-To wrap things up, SwiftUI is amazing, but tvOS support is not good and the performance of the native lazy stacks and grids is horrible. Many views and api:s are still missing, so you have to wrap native UIKit components. Focus is a real problem when navigating back, which causes the tab view to reclaim focus.
+To wrap things up, SwiftUI is amazing, but tvOS support is not good and the scroll performance of stacks and grids is horrible. Many views and api:s are still missing, so you have to wrap UIKit components. 
 
-All in all, this was a very fun project, that I'm proud to release. I’m super happy to help services like [Cineasterna]({{page.cineasterna}}) and the public libraries help people to discover culture from all over the world. To try it out, search for Cineasterna on the App Store. Thanks for reading!
+Focus is also a real problem when navigating back, which causes the tab view to reclaim focus. (**Update**: As of spring 2022, this seems to have been solved and now works great).
+
+All in all, this was a very fun project that I'm proud to release. I’m happy to help services like [Cineasterna]({{page.cineasterna}}) and public libraries help people to discover culture from all over the world.

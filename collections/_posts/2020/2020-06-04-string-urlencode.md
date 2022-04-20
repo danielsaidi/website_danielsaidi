@@ -1,15 +1,14 @@
 ---
 title: Url encode strings
 date:  2020-06-04 20:00:00 +0100
-tags:  swift
+tags:  quick-tip swift
 icon:  swift
 
 lib:    https://github.com/danielsaidi/SwiftKit
 source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Extensions/String
-tests:  https://github.com/danielsaidi/SwiftKit/tree/master/Tests/SwiftKitTests/Extensions/String
 ---
 
-In this post, we'll discuss how to url encode strings. We'll then create an extension that let's us do this easier and with less code.
+In this post, we'll look at how to url encode strings. We'll then create an extension that let's us do this easier and with less code.
 
 
 ## The basics
@@ -22,9 +21,9 @@ string.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
 // => "Hello,%20world%20&%20beyond!"
 ```
 
-However, this will not perform a complete encoding. If the string contains "&" for instance, it will remain unchanged and mess up things if the string should be used as query parameters.
+However, this will not perform a complete encoding. If the string contains `&` for instance, that character will remain unchanged and mess up things if the string should be used as query parameters.
 
-To solve this, we need to replace all "&" with their url encoded form:
+To solve this, we need to replace all `&` with their url encoded form, `%26`:
 
 ```swift
 string.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
@@ -61,4 +60,4 @@ I think this is a lot cleaner. It's also less error-prone, since we don't repeat
 
 ## Source code
 
-I have added this extension to my [SwiftKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}) and the unit tests [here]({{page.tests}}).
+I have added this extension to my [SwiftKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think!

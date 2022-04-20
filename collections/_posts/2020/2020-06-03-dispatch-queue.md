@@ -1,15 +1,14 @@
 ---
 title: Delay and chain operations with DispatchQueue
 date:  2020-06-03 12:00:00 +0100
-tags:  swift
+tags:  quick-tip swift
 icon:  swift
 
 lib:    https://github.com/danielsaidi/SwiftKit
 source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Extensions
-tests:  https://github.com/danielsaidi/SwiftKit/tree/master/Tests/SwiftKitTests/Extensions
 ---
 
-In this post, we'll look at how `DispatchQueue` can be used to delay and chain operations. We'll also extend it with more convenient functions that simplify these tasks.
+In this post, we'll look at how `DispatchQueue` can be used to delay and chain operations. We'll also extend it with convenient functions that simplify these tasks.
 
 
 ## Delaying operations
@@ -24,7 +23,7 @@ queue.asyncAfter(deadline: .now() + delay) {
 }
 ```
 
-However, I think the `deadline` function is strangely named and not that convenient to use, since you have to add `.now()` to your "deadline". It's probably correct from how the queue operates, but using it is not that nice.
+However, I think the `deadline` function is not that convenient to use, since you have to add `.now()` to your "deadline". It's probably correct from how the queue operates, but using it is not that nice.
 
 Let's create an extension that makes delaying operations easier:
 
@@ -55,17 +54,17 @@ I think this is much cleaner, although I'd prefer the function to be called `per
 
 ## Chaining operations
 
-Chaining operations with `DispatchQueue` is easy as well, using `async` then performing another operation on the same or another queue:
+Chaining operations with `DispatchQueue` is easy as well, using `async` to perform another operation on the same or another queue:
 
 ```swift
 let queue = DispatchQueue.main
-async {
+queue.async {
     { print("Hello") }
     queue.async { print(", world!") }
 }
 ```
 
-If the async operation returns a value, it can be passed to the chained operation like this:
+If an async operation returns a value, it can be passed to the chained operation like this:
 
 ```swift
 let queue = DispatchQueue.main
@@ -116,9 +115,9 @@ queue.async(execute: { return "Hello"}) {
 }
 ```
 
-As with the delay operations, I'd have preferred to use `perform` instead of `async` and will perhaps over time make the functions even more compact, but for now I've chosen to conform to the existing apis.
+As with the delay operations, I'd have preferred to use `perform` instead of `async` and will perhaps over time make the functions more compact, but for now I've chosen to conform to the existing apis.
 
 
 ## Source code
 
-I have added these extensions to my [SwiftKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}) and the unit tests [here]({{page.tests}}).
+I have added these extensions to my [SwiftKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think!

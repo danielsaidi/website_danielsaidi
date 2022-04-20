@@ -1,12 +1,11 @@
 ---
 title: Case-sensitive String replace operations
 date:  2020-06-04 16:00:00 +0100
-tags:  swift
+tags:  quick-tip swift
 icon:  swift
 
 lib:    https://github.com/danielsaidi/SwiftKit
 source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Extensions/String
-tests:  https://github.com/danielsaidi/SwiftKit/tree/master/Tests/SwiftKitTests/Extensions/String
 ---
 
 In this post, we'll discuss how to replace all occurences of a string within another string. We'll then create an extension that allows for easier case-sensitive replacements.
@@ -14,7 +13,7 @@ In this post, we'll discuss how to replace all occurences of a string within ano
 
 ## The basics
 
-Replacing all occurences of a string within another string is easy, using `replacingOccurrences(of:with:)`:
+Replacing all occurences of a string within another string is very easy, using the rather long-named `replacingOccurrences(of:with:)`:
 
 ```swift
 let string = "This string contains text"
@@ -70,4 +69,4 @@ I like this since it lets me write a little less code when replacing strings in 
 
 ## Source code
 
-I have added these extensions to my [SwiftKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}) and the unit tests [here]({{page.tests}}).
+I have added these extensions to my [SwiftKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think!
