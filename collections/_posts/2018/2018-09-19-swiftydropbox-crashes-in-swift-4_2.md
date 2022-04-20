@@ -5,11 +5,11 @@ tags:	 swift xcode
 ---
 
 After installing Xcode 10 yesterday, I started migrating some libraries to Swift
-4.2. While most migrations were painless, one caused me some headache, since the
-library depends on `SwiftyDropbox` which does not yet support Swift 4.2.
+4.2. While most migrations were painless, one failed, since it depends on
+`SwiftyDropbox` which doesn't support Swift 4.2.
 
-Adding `SwiftyDropbox` to the library makes it compile, but the demo app crashes
-at runtime, with the following error:
+Adding `SwiftyDropbox` to the library makes it compile, but the code then crashes
+at runtime instead, with the following error:
 
 ```swift
 dyld: Symbol not found: _$S8Dispatch0A3QoSV0B6SClassO7utilityyA2EmFWC
@@ -19,23 +19,22 @@ dyld: Symbol not found: _$S8Dispatch0A3QoSV0B6SClassO7utilityyA2EmFWC
 (lldb) 
 ```
 
-So, the problem is not caused by `SwiftyDropbox` itself, but rather that is uses
-an old version of Alamofire. `4.5.0` to be exact. You can solve this by adding a
-later version of Alamofire to your `Cartfile` or `Podfile`.
+If we look at this error, we can see that it's not caused by `SwiftyDropbox`, but 
+rather that is uses an old version of Alamofire. `4.5.0` to be exact. 
 
-So, instead of having this in my `Cartfile`:
+You can solve this by adding a later version of Alamofire to your `Cartfile` or 
+`Podfile`. So instead of having this in my `Cartfile`:
 
 ```swift
 github "dropbox/SwiftyDropbox" ~> 4.6.0
 ```
 
-I have this:
+I now have this:
 
 ```swift
 github "dropbox/SwiftyDropbox" ~> 4.6.0
 github "Alamofire/Alamofire" ~> 4.7.0
 ```
 
-This is just a temporary fix until `SwiftyDropbox` updates the Alamofire version,
-which hopefully will not take too long. I have sent a PR to the team and hope it
-will be approved and merged shortly.
+This is just a temporary fix until `SwiftyDropbox` updates its Alamofire dependency,
+which hopefully will not take too long.

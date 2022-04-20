@@ -1,23 +1,22 @@
 ---
 title: Automate setting up Xcode
 date:  2018-11-05 15:00:00 +0200
-tags:	 macos automation xcode fastlane lint
+tags:	 article macos automation xcode fastlane lint
+
 image: /assets/blog/xcode.png
 ---
 
-In this blog post, I will show how to automate setting up Xcode for you and your
-team, including setting up required tools, simplify enforcing common conventions
-etc. using `Homebrew` and `Fastlane` in a way that is easy to extend if you need
-to automate more tasks later on.
+In this post, I will show how to automate setting up Xcode using `Homebrew` and
+`Fastlane` in a way that is easy to extend if you need to automate more later on.
+
+![Xcode]({{page.image}}){:class="plain" width="150px"}
 
 
 ## Why automate?
 
 I (and many with me) prefer to automate as many tasks as possible, to reduce the
 amount of repetitive manual work, reduce the risk of human error and to increase
-the overall reliability of a certain process. For good developers, this involves
-unit testing, continuous integration, release management etc., for testers it can
-involve automated UI testing etc. In short, if you can automate, then automate.
+the overall reliability of a certain process.
 
 For a development team, automation can also be used to streamline the setup of a
 certain developer environment and make it easy to follow shared conventions. For
@@ -25,11 +24,11 @@ instance, `swiftlint` can help to enforce code conventions, code snippets can be
 used to generate comments and code blocks etc.
 
 
-## Automate setting up required tools
+## External dependencies
 
-Whenever you have a set of requirements in order to build and run a project, you
-should consider using dependency and package managers to setup your dependencies,
-so that your team can install all dependencies with a single command.
+When you have external dependencies for building and runing a project, you should
+consider using dependency and package managers to setup your dependencies with a
+single command.
 
 To achieve this, we can use tools like Homebrew and Fastlane and compose them in
 a way that makes the setup process simple and painless.
@@ -43,41 +42,39 @@ brew "swiftgen"
 brew "swiftlint" 
 ```
 
-Your team can now install all these tools by typing this command in the terminal:
+Your can now install all these tools by typing a single command in the Terminal:
 
 ```bash
 brew bundle
 ``` 
 
 Although `homebrew` is a standard tool, you can always make this setup even more
-accessible by adding it to `Fastlane`. Just add two new lanes to your `Fastfile`:
+accessible by adding it to `Fastlane`. Just add this lane to your `Fastfile`:
 
 ```
 desc "Setup Xcode"
 lane :setup_xcode do |options|
-  setup_xcode_tools
-end
-
-desc "Setup Xcode Tools"
-lane :setup_xcode_tools do |options|
   sh "cd .. && brew bundle"
 end
 ```
 
-Now, your team just have to type `fastlane setup_xcode` to install all tools. It
-may seem like a no-win for now, but the nice thing with this approach is that it
-can easily be extended to handle even more tasks, unlike `brew bundle`.
+Now, you just have to type `fastlane setup_xcode` to install all tools. It may
+seem like a no-win for now, but the nice thing with this approach is that it
+can easily be extended to handle even more tasks.
 
 
-## swiftlint
+## Linting
 
-`swiftlint` is a great tool that can be injected into the build process and will
-trigger warnings and errors if your code doesn't follow certain conventions. The
-standard setup is good, but you can customize it by adding a `.swiftlint.yml` to
-the project root, in which you can ignore rules or tweak them to fit your style.
+Linting is a way to automatically check your code for programmatic and stylistic
+errors. To do this, you use a code analyzer tool called a linter.
 
-When you read the `swiftlint` readme, it suggests you to add a `Run Script Phase`
-that looks like this:
+`swiftlint` is a great linter for Swift. It triggers warnings and errors if the 
+code doesn't follow certain conventions. The standard setup is good, but you can
+customize it by adding a `.swiftlint.yml` to the project root, in which you can
+ignore rules, tweak them to fit your style and add new ones.
+
+When you read the swiftlint readme, it suggests you to add a `Run Script Phase`
+to your target, that looks like this:
 
 ```bash
 if which swiftlint >/dev/null; then
@@ -87,26 +84,31 @@ else
 fi
 ```
 
-However, since `swiftlint` is such a critical tool, I think that the optionality
-is really bad. Instead, my build step looks just like this:
+However, since swiftlint is such a critical tool, I prefer to have it mandatory.
+I therefore skip the if/else check and just have:
 
 ```bash
 swiftlint
 ```
 
-This means that the app now fails to build whenever `swiftlint` isn't available,
-which means that `swiftlint` has gone from being an optional to a required tool.
+This means that the app now fails to build whenever swiftlint isn't available,
+which means that it has gone from being an optional to a required tool.
+
+If you build packages with Swift Package Manager, you will not have a build phase
+where you can inject swiftlint. I then inject swiftlint into certain Fastlane lanes,
+so that linting is done in critical processes, like making new versions of my
+open-source projects.
 
 
 ## Xcode snippets
 
 Xcode snippets let you generate text that you type often. For instance, I use it
-to generate `MARK` blocks, extension bodies, test suite imports, test suite body
-templates etc. They save me a lot of time and makes my code look the same across
-the entire code base, with no extra effort.
+to generate `MARK` blocks, extension bodies, test suite imports, test templates
+etc. They save me a lot of time and makes my code look the same across the entire
+code base, with no extra effort.
 
-For instance, a snippet that creates a "plain" `// MARK - ` statement is defined
-in a file named `mark_plain.codesnippet`, that looks like this:
+For instance, I have a snippet that creates a "plain" `// MARK - ` statement, and
+have it defined in a file named `mark_plain.codesnippet`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -135,13 +137,13 @@ in a file named `mark_plain.codesnippet`, that looks like this:
 </plist>
 ```
 
-Since snippets are so powerful and convenient, I decided to automate how my team
-shares these snippets. It was very easy, since snippets are just text files. The
-setup therefore basically just involved setting up a shared folder with snippets
-files and writing a script that copies these files to the correct place.
+Since snippets are so powerful, I decided to automate how my team shares these
+snippets. It was very easy, since snippets are just text files. It therefore
+basically just involved setting up a shared folder with snippets files and
+writing a script that copies these files to the correct place.
 
-For my personal hobby projects, I just added a snippet folder to a setup project
-that I have made public [here](https://github.com/danielsaidi/osx), then created
+For my personal projects, I just added a snippet folder to a setup project that
+I have made public [here](https://github.com/danielsaidi/osx), then created
 a script that copies these files to the correct place. It looks like this:
 
 ```bash
@@ -155,10 +157,10 @@ for file in $path_src/*.codesnippet; do
 done
 ```
 
-At work, however, I added a snippet folder to the main app project instead, then
-added a bunch of general and company-specific snippets to it. After that, I just
-extended the `setup_xcode` lane to copy all these code snippets to their correct
-place, as such:
+At work, where the team works on multiple projects that share conventions, I
+added a snippet folder to a private repo, then added general and work-specific
+snippets to it. After that, I extended `setup_xcode` to copy all these code
+snippets to their correct place, as such:
 
 ```
 desc "Setup Xcode"
@@ -190,9 +192,10 @@ more tasks whenever we need.
 ## Conclusion
 
 Using shell scripts, dependency managers and Fastlane is a simple and convenient
-way to setup Xcode with a single command. Tools like `swiftlint` make it easy to
-enforce common conventions, while code snippets can be used to generate code and
-comments that should follow a desired format.
+way to setup Xcode with a single command, which can help you standardize things
+in your personal or work environment. Tools like `swiftlint` make it easy to enforce 
+conventions, while code snippets can generate code and comments that should follow
+a desired format.
 
 Feel free to check out [my setup script](https://github.com/danielsaidi/osx) for
 some examples, scripts and code snippets.

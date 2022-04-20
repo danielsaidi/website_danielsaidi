@@ -1,27 +1,28 @@
 ---
 title: Automate setting up macOS
 date:  2018-08-26 17:28:01 +0200
-tags:	 macos automation
+tags:	 article macos automation
 redirect_from: 
   - /blog/2018/08/26/automate-setting-up-your-macbook/
   - /blog/2018/08/26/automate-your-macbook-setup/
 ---
 
-In this post, I'll describe how you can automate setting up a brand new Mac with
-a terminal script that will install system software, applications, configure the
-computer etc. This will help you setup a new Mac in minutes.
+In this post, I'll describe how to automate setting up a new Mac with a
+terminal script that will install system software and applications, configure
+the computer etc. This lets you setup a new Mac in minutes.
 
 
 ## Why automate?
 
 I (and many with me) prefer to automate as many tasks as possible, to reduce the
 amount of repetitive manual work, reduce the risk of human error and to increase
-the overall reliability of a certain process. For good developers, this involves
-unit testing, continuous integration, release management etc., for testers it can
-involve automated UI testing etc. In short, if you can automate, then automate.
+the overall reliability of a certain process. 
 
-However, one thing that I have NOT automated until recently, is to setup a brand
-new Mac for development, which is time consuming and just not fun. It is tedious
+For good developers, this involves unit testing, continuous integration, release 
+management etc. while for testers it can involve automated UI testing etc.
+
+However, one thing that I haven't automated until recently, is to setup a brand
+new Mac for development, which is time consuming and just not fun. It's tedious
 to remember all the tools and applications that you need. Without automation, it
 can easily take a day, with you filling out gaps for weeks.
 
@@ -32,8 +33,8 @@ takes time linear to the speed of your Internet connection.
 ## Tools on which I base my script
 
 Before I show you the script that I have put together to solve this problem, let
-me first go through some of the tools that I base the script on. These tools are
-great and will simplify your life. I really recommend you to check them out.
+me go through some tools that I base the script on. They are great and will
+simplify your life, so make sure to check them out.
 
 * [Homebrew](https://brew.sh) is a package manager (one of several) for macOS.
 It makes it super easy to install new system tools on your Mac.
@@ -52,8 +53,8 @@ tools as well as other scripts.
 
 ## Creating the script
 
-Let's create the main system script. The script will be modular, to make it easy
-to adjust as my needs change over time.
+Let's create the main system script. It will be modular, to make it easy to adjust
+over time when needed.
 
 First, create a file called `setup.sh` and add the following code to it:
 
@@ -86,8 +87,8 @@ while true; do
 done
 ```
 
-This prints a "main menu" with various options. As you can see, I have split the
-setup into several modules, with an `all` option that installs everything.
+This prints a "main menu" with various options. As you can see, I have split it 
+into several modules, with an `all` option that installs everything.
 
 The script above lacks the `process_options` function that it refers to. Add the
 following code snippet above `while true`:
@@ -131,17 +132,17 @@ process_option() {
 }
 ```
 
-As you can see, each option just calls another script in the `scripts` folder or
-runs a terminal command, where each external file is very simple. The `Brewfile`
-contains brew and cask dependencies, the `Gemfile` contains gem dependencies and
-the script files contain commands you could type manually in the terminal.
+Here, each option just calls another script in the `scripts` folder or runs a
+terminal command, where each external file is very simple. The `Brewfile`
+contains brew and cask dependencies, the `Gemfile` gem dependencies and the script
+files commands that you could type manually in the terminal.
 
 Have a look at some examples from each file:
 
 
-### scripts/system.sh
-
 ```bash
+// scripts/system.sh
+
 if ! command -v brew > /dev/null; then
     printf "[SYSTEM] Install Homebrew\n"
     ruby -e "$(curl --location --fail --silent --show-error https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -158,28 +159,27 @@ printf "\n"
 ...
 ```
 
-### scripts/config.sh
-
 ```bash
+// scripts/config.sh
+
 printf "[CONFIG] Finder, Show hidden files\n"
 defaults write com.apple.finder AppleShowAllFiles -bool true
 killall Finder -9
 printf "\n"
 ```
 
-
-### scripts/npm.sh
-
 ```bash
+// scripts/npm.sh
+
 printf "[NPM] Installing TypeScript\n"
 sudo npm install -g typescript
 printf "\n"
 ```
 
 
-### scripts/ssh.sh
-
 ```bash
+// scripts/ssh.sh
+
 read -p "[SSH] Create new SSH key (yes/no): " response
 if test "$response" = "yes"; then
 	printf "\n"
@@ -203,9 +203,9 @@ printf "\n"
 ```
 
 
-### Brewfile
-
 ```bash
+// Brewfile
+
 cask_args appdir: "/Applications"
 
 brew "mas"
@@ -213,9 +213,10 @@ cask "android-studio"
 ...
 ```
 
-### Gemfile
 
 ```bash
+// Gemfile
+
 # frozen_string_literal: true
 source "https://rubygems.org"
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }

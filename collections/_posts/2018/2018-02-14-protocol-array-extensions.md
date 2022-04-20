@@ -5,17 +5,16 @@ tags:  ios swift
 image: /assets/blog/2018/2018-02-14.png
 ---
 
-In an app of mine, I had an idea on how to redesign how we extend protocol-based
-domain models. However, what first looked like a walk in the park, turned into a
-Swift nightmare, with problems that I am still struggling with.
+In an app of mine, I want to redesign how we extend protocol-based domain models.
+However, what first looked like a walk in the park, turned into a Swift nightmare,
+with problems that I'm still struggling with.
 
 
 ## Disclaimer
 
-In this post, I will intentionally use a simple example model. If you think that
-it makes no sense (e.g. "why the hell are you using a memory collection, instead
-of a search service"), just keep in mind that the code you are about to see is a
-work of fiction. Relax, put on your problem solving hat and let's go.
+In this post, I will intentionally use simple models. If you think that something
+makes no sense (e.g. "why the hell are you using x instead of y"), keep in mind
+that the code you'll see is a work of fiction.
 
 
 ## Protocol extensions
@@ -25,9 +24,20 @@ with a bunch of logic that makes use of the protocol specification. This reduces
 the need for duplicate code, base classes etc. by using the protocol contract to
 provide calculated properties, additional functionality etc.
 
-For instance, consider a `Person` protocol that requires implementations to have
-two properties: `firstName` and `lastName`. Instead of also requiring that these
-implementations implement `fullName`, we can provide it as a calculated property:
+For instance, consider a `Person` protocol that requires two properties: `firstName`
+and `lastName`. 
+
+```swift
+protocol Person {
+
+    var firstName: String { get }
+    var lastName: String { get }
+}
+```
+
+Instead of requiring all implementations to implement `fullName`, we can add a
+calculated property as a extension to the protocol instead, making use of the two
+properties that it requires:
 
 ```swift
 extension Person {
@@ -38,20 +48,30 @@ extension Person {
 }
 ```
 
-This is really convenient in many cases. Just make sure that you do NOT use this
-approach for functionality that should be impemented by each implementation.
+This approach is convenient in many cases. Just make sure to not use it for
+functionality that *should* be impemented by each implementation.
 
 
 ## Protocol collection extensions
 
-Now, let's move on to what I'm currently struggling with - extending collections
-where the elements are of a certain protocol.
+Now, let's look at my struggle - extending collections where the elements are of
+a certain protocol.
 
 Let's extend the `Person` protocol a little. If we consider that a person should
-be able to have friends (seems nice), we could add `var friends: [Person]` to it.
+be able to have friends (seems nice), we could add a `friends` property to the
+protocol:
 
-If we later would like to be able to search for a person's friends, we could now
-use `filter` to find all friends that match a certain query:
+```swift
+protocol Person {
+
+    var firstName: String { get }
+    var lastName: String { get }
+    var friends: [Person] { get }
+}
+```
+
+If we now would like to be able to search for a person's friends, we could
+`filter` on the `fullName` property to find all friends that match a certain query:
 
 ```swift
 let matchingFriends = person.friends.filter { $0.fullName.contains(query) }
@@ -84,16 +104,20 @@ let matchingFriends = person.friends(matching: query)
 
 In my opinion, this is much more readable. You can use the `friends` property to
 get all friends and this extension to get a filtered collection. Still, I really
-don't like this approach for many reasons. 
+don't like this approach for a couple of reasons. 
+
+One reason is that this filtering only applies when searching for a person's 
+friends, while in fact it could apply to all `Person` collections. A better approach
+would be to extend all `Person` collections instead.
 
 
-## Extending `Person` collections instead
+## Extending `Person` collections
 
-If we keep the domain discussions away, one big drawback with the approach above
-is that it's only valid when you have a person, while in reality, this extension
-could apply to every collection where each element is a `Person`, friends or not.
+To repeat, a big drawback with extending `Person` with a `friends(matching:)` 
+function is that it can only be used to filter friends, while it could apply to
+all `Person` collections.
 
-So I decided to convert it to a collection extension instead:
+Let's refactor the extension to be a collection extension instead:
 
 ```swift
 extension Collection where Element: Person {
@@ -104,30 +128,22 @@ extension Collection where Element: Person {
 }
 ```
 
-Even better! You can now use this extensions for every person collection you may
+That's better! You can now use this extensions for every person collection you may
 stumble upon:
 
 ```swift
 let matchingFriends = person.friends.matching("peter")
 ```
 
-...or CAN YOU?
-
-NO.
-
-YOU.
-
-CAN'T!
-
-Since `Person` is a protocol and not a concrete type, the code above won't work!
-If you try it, it will fail with this error:
+...or can you? Turns out...you can't. Since `Person` is a protocol and not a concrete 
+type, the code above won't work! If you try it, it will fail with this error:
 
 ```
 Using 'Person' as a concrete type conforming to protocol 'Person' is not supported
 ```
 
-This does not happen if I perform the same operation on an array that contains a
-type that implements `Person`, e.g.:
+This doesn't happen for collections that contain types that implement `Person`, for
+instance:
 
 ```swift
 struct PersonStruct: Person {
@@ -139,7 +155,7 @@ let persons = [PersonStruct(firstName: "sarah", lastName: "huckabee")]
 let matches = persons.matching("ah huck")   // Great success!
 ```
 
-However, if you convert friends as a `[Person]` array, the error arises:
+However, if you cast `persons` to `[Person]`, the error arises once more:
 
 ```swift
 let persons: [Person] = [PersonStruct(firstName: "sarah", lastName: "huckabee")]
@@ -149,11 +165,10 @@ let matches = persons.matching("ah huck")   // Great success!
 
 ## Conclusion
 
-This was an unexpected and unfortunate discovery for me, since I based my entire
-domain model on protocols. However, it led me to experiment more on these things,
-where I eventually came to the conclusion that protocols are not good for models.
-Instead, I now use structs to the greatest extent and use protocols for services
-and other logic parts of my apps.
+This was an unexpected and unfortunate discovery, since I based my entire domain
+model on protocols. However, it led me to evaluate this architecture, where I
+eventually came to the conclusion that protocols are not good for models. Instead,
+I now use structs for models and protocols for services.
 
-However, I think that Swift should improve the extension model so that the above
-code works even for protocols.
+However, I think that Swift should improve its extensions so the code above works
+for protocols as well.

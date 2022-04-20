@@ -33,8 +33,11 @@ extension Notification.Name {
 }
 ```
 
-Simple enough, right? Still, if we want to test this enum, we have to write much
-code to test all cases, for instance:
+
+## Separate tests for each enum case
+
+To test this enum, we could write a lot of code to test all enum cases, for
+instance (in the code below, I use Quick and Nimble):
 
 ```swift
 import Quick
@@ -87,11 +90,13 @@ class UserNotificationsTests: QuickSpec {
 }
 ```
 
-This code could be compressed, sure, but would still be a pain to maintain. Each
-new case would require you to add 9 more lines of text, with the additional risk
-of copy/paste bugs etc. 
+However, this code would still be a pain to maintain. Each new case would require
+you to add more code, with the additional risk of copy/paste bugs etc. 
 
-You could also simplify this test suite by creating an array with all enum cases:
+
+## Iterate over a fixed array
+
+You could simplify the test suite above by creating an array with all enum cases:
 
 ```swift
 import Quick
@@ -126,12 +131,12 @@ class UserNotificationsTests: QuickSpec {
 }
 ```
 
-However, this approach would still require you to remember to add every new case
-to this array. It is tedious...and completely unnecessary, since we now have the
+However, this would still require you to remember to add new cases to the
+array. It's tedious...and completely unnecessary, since we now have the
 brand new `CaseIterable` to help us out.
 
 
-## Testing iterable enums
+## Using CaseIterable
 
 `CaseIterable` is a Swift 4.2 protocol that adds an `allCases` property to enums
 that implement it. With it, we can reduce the amount of code we have to write in
@@ -146,7 +151,7 @@ public enum UserNotification: String, CaseIterable {
 }
 ```
 
-You can now reduce the manually managed test array, by using `allCases` instead:
+You can now reduce the test suite by using `allCases` instead:
 
 ```swift
 import Quick
@@ -180,7 +185,7 @@ class UserNotificationsTests: QuickSpec {
 ```
 
 Another benefit is that you don't have to remember to write new tests every time
-you add new cases to `UserNotification`.
+you add a new case.
 
 
 ## Internally iterable enums
@@ -212,4 +217,14 @@ class UserNotificationsTests: QuickSpec {
 ```
 
 This means that you can benefit from `CaseIterable` capabilities in your library
-and tests, without having to expose them outside these boundaries.
+and tests, without having to expose them outside these boundaries. You can also
+add the `CaseIterable` extension to the test bundle instead of the public project.
+
+
+## Conclusion
+
+`CaseIterable` makes it really easy to test your enums, for instance to verify 
+that certain properties or functions behave correctly for all cases.
+
+Note that not all enums can implement `CaseIterable`. If your enum cases have
+parameters, you can't, since there are an infinite amount of potential cases.

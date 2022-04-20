@@ -10,8 +10,9 @@ This post covers things that I've learned along the way.
 
 ## Disclaimer
 
-The protocol and implementations in this post are fictional representations of a
-real world domain model that I work with.
+The models in this post are fictional representations of a real world domain model
+of mine. If they seem too simple or if there are bugs, it's because the code was
+only written for this post.
 
 
 ## Model
@@ -42,8 +43,8 @@ this functionality before, using `NSCoding`:
 
 ## NSCoding
 
-Before `Codable`, you could have added this support by letting `Movie` implement
-`NSCoding`. However, that would also require it to be a `class` and not a struct:
+Before `Codable`, you would let `Movie` implement `NSCoding`. However, that would
+have required it to be a class   and not a struct:
 
 ```swift
 import Foundation
@@ -97,15 +98,15 @@ class Movie: NSObject, NSCoding {
 }
 ```
 
-As you can see, we inherit `NSObject` and implement a bunch of encoding/decoding
-logic. This is really tedious, especially if you have nested types. Let's take a
-look at how `Codable` can make this a lot easier and cleaner.
+As you see, we inherit `NSObject` and implement a bunch of encoding/decoding
+logic. This is tedious, especially if you have nested types. Let's take a
+look at how `Codable` can make this a lot leaner.
 
 
 ## Codable
 
-First of all, `Codable` does not require you to use classes. Your `Movie` can be
-a struct and still implement `Codable`, like this:
+`Codable` doesn't require you to use classes. `Movie` can be a struct and still
+implement `Codable`:
 
 ```swift
 import Foundation
@@ -119,9 +120,11 @@ struct Movie: Codable {
 }
 ```
 
-With the code above, however, the compiler will complain that the `Movie` struct
-does not implement `Decodable`. If you're new to using `Codable`, you can easily
-end up adding a bunch of code to make it conform to `Codable`, for instance:
+With the code above, however, the compiler will complain that `Movie` doesn't
+implement `Decodable`.
+
+If you're new to using `Codable`, you can easily end up adding a bunch of code
+to make it conform to `Codable`, for instance:
 
 
 ```swift
@@ -173,17 +176,16 @@ struct Movie: Codable {
 }
 ```
 
-Keep in mind that this is a simple example model, and that your real world model
-would probably contain a lot more properties, nested types etc. With an approach
-like the one above, the `Codable` approach would ended up looking a lot like the
-old `NSCoding` implementation, with the biggest difference being using enum keys
-instead of strings (which we could have used in the old model as well).
+Keep in mind that this is a simple model, and that your real world models would
+probably contain a lot more properties, nested types etc. Using the approach
+above, the `Codable` approach would end up a lot like the `NSCoding`
+implementation, with the big difference of using enum keys instead of strings.
 
 So clearly, this approach should be used very seldom, if ever, and only when you
-know exactly what you're doing and as a conscious choice.
+know exactly what you're doing and as a conscious choice. 
 
-Instead, the correct way of solving the problem above is to make the `MovieGenre`
-model `Codable` as well, like this:
+Instead, the correct way of fixing the problem is to make the `MovieGenre`  model
+`Codable` as well:
 
 ```swift
 enum MovieGenre: String, Codable {
