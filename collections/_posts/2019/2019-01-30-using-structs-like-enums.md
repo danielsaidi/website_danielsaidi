@@ -1,7 +1,8 @@
 ---
 title: Using structs like enums
 date:  2019-01-30 21:00:00 +0100
-tags:  swift
+tags:  article swift
+
 icon:  swift
 
 swift-docs: https://docs.swift.org        
@@ -35,11 +36,11 @@ I will not go into further detail on how enums work. If you want to learn more, 
 
 ## Structs
 
-[Swift Docs]({{page.swift-docs}}) describes structs like this: "Structures are general-purpose, flexible constructs that become the building blocks of your program’s code. You define properties and methods to add functionality to your structures and classes using the same syntax you use to define constants, variables, and functions."
+[Swift Docs]({{page.swift-docs}}) describes structs like this: "Structs are general-purpose, flexible constructs that become the building blocks of your program’s code. You define properties and methods to add functionality to your structures and classes using the same syntax you use to define constants, variables, and functions."
 
 In short, if you need to pass values around, structs are great and give you better data integrity than you get with classes. It took me a while to start using structs, but now I can't live without them.
 
-For instance, the following struct defines a food order with an immutable order number and item collection:
+For instance, the following struct defines a food order with an immutable order number and food items:
 
 ```swift
 struct FoodOrder: Codable {
@@ -49,14 +50,14 @@ struct FoodOrder: Codable {
 }
 ```  
 
-As with enums, I will not go into detail on how structs work. If you want to learn more, check out [the official docs]({{page.structs}}).
+As with enums, I will not go into further detail on how structs work. If you want to learn more, check out [the official docs]({{page.structs}}).
 
 
 ## Using structs instead of enums
 
-Given the discussion above, consider that we'd like to specify a list of possible shadow styles as well as an extension that can be used to apply it to views.
+Given the discussion above, consider that we'd like to specify a list of possible shadow styles as well as an extension that can be used to apply it to UIKit views.
 
-If you'd asked me some years ago, I would have done this as an enum:
+If you'd asked me some years ago, I would have implemented this using an enum:
 
 ```swift
 enum ShadowStyle {
@@ -112,7 +113,7 @@ extension ShadowStyle {
 }
 ```
 
-I would then finally have created a `UIView` extension that can be used to apply typed shadows to views:
+I would then have created a `UIView` extension that can be used to apply shadow types to views:
 
 ```swift
 extension UIView {
@@ -163,7 +164,7 @@ let view = UIView(frame.zero)
 view.applyShadow(.medium)
 ```
 
-This works great, but there is a big limitation with this enum approach. If the shadow is defined in a library, e.g. in an open source library, we'd be stuck with the fixed values that it provides. There would be no way for an app to create custom shadows.
+This works great, but the enum approach has a big limitation. If the shadow is defined in a library, e.g. in an open source library, we'd be stuck with the fixed values that it provides. There would be no way for an app to create custom shadows.
 
 Sometimes, this is EXACTLY what you want - a fixed set of options. If so, use enums with a smile on your face. However, if you find that the enum model is holding you back, you can simulate enums using structs and get a much more flexible result.
 
@@ -198,9 +199,9 @@ struct Shadow {
 
 This struct has the same properties as the enum, but they are much easier to overview. You define them when you create a shadow. After that, they're immutable.
 
-We now have a shadow type with properties, but not any predefined styles, opposite to when we created the enum. We then started with the available options, then defined their properties. I think this feels more natural.
+We now have a shadow type with properties, but no predefined styles, opposite to when we created the enum, where we started with the available options, then defined their properties. 
 
-We can now redefine the shadow styles from before as struct extensions:
+I think this approach feels more natural. We can now redefine the shadow styles from before as struct extensions, to provide pre-defined shadow styles:
 
 ```swift
 extension Shadow {
@@ -219,7 +220,7 @@ extension Shadow {
 }
 ```
 
-That's it! We now have an extensive set of shadow styles that we can apply just like the enum from before:
+That's it! We now have a set of shadow styles that we can apply just like the enum from before:
 
 ```swift
 let myShadow = Shadow.medium
@@ -228,14 +229,14 @@ let view = UIView(frame.zero)
 view.applyShadow(.medium)
 ```
 
-If we would have to create another app-specific shadow for a unique tvOS app, we'd just have to define another static shadow property like above.
+If we would have to create another app-specific shadow for a unique tvOS app, we'd just have to define new, app-specific shadow styles like the ones above.
 
-This is much better...or at least much more flexible. No enum is holding us back anymore. However, if you switch over to structs, there are some side-effects that you must be aware of.
+This is much more flexible. No enum is holding us back anymore. However, if you switch over to structs, there are some side-effects that you must be aware of.
 
 
 ## Unexpected side-effects
 
-You can handle structs in much the same way as an enum, e.g. compare two instances if they implement `Equatable`, switch over a value etc.
+You can handle structs in much the same way as an enum, e.g. compare two `Equatable` instances, switch over values etc.
 
 For enums, it would look like this:
 
@@ -278,9 +279,9 @@ default: print("Not up")                    // Won't happen
 }
 ```
 
-...but the comparison results are not. We create a `.down` direction, but when we check for equality and switch over it, it's equal to both `.up` and `.down`.
+...but the results does not. We create a `.down` direction, but when we check for equality and switch over it, it's equal to both `.up` and `.down`. What's going on here?
 
-What is going on here?? Well, the reason is that all directions *are* identical! The `Direction` struct is equatable, but basically, it uses identical values for all four "cases".
+The reason is that all directions *are* identical! The `Direction` struct is implicitly equatable, but uses identical values for all four "cases".
 
 To solve this, every struct options must be unique. We can solve this by making sure that `Equatable` behaves correctly, for instance:
 
@@ -307,9 +308,13 @@ default: print("Not up")                    // Will happen
 }
 ```
 
-Yes, this works! As you can see, we don't have to implement any equality logic, just provide the struct with a property that will be unique for each case.
+By making each direction unique, this now works! We don't have to implement any equality logic, just provide the struct with a property that will be unique for each case.
 
 
 ## Conclusion
 
-Enums are great when you want a fixed set of options. However, structs that behave like enums are better when you want a type that can be extended with more options. Just watch out for the unexpected pitfalls.
+Enums are great when you want a fixed set of options. However, structs that behave like enums are better when you want a type that can be extended with more options.
+
+Another option is to used parameterized enum cases, but when this post was written, Swift enums couldn't implement certain protocols if a case had parameters. This is however no longer the case.
+
+If you decide to use structs in this way, just watch out for unexpected pitfalls.
