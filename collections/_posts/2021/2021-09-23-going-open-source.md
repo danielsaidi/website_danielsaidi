@@ -1,11 +1,11 @@
 ---
 title:  Going open-source
 date:   2021-09-23 07:00:00 +0100
-tags:   swift open-source closed-source
+tags:   article swift open-source closed-source
 ---
 
 
-In this post, I'll discuss my experiences of working on various open-source projects, the steps and processes involved and some learnings.
+In this post, I'll discuss my experiences of working on various open-source projects, some of the steps and processes involved as well as some learnings.
 
 
 ## Background
