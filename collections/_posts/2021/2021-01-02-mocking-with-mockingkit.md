@@ -13,6 +13,8 @@ mockingkit:    https://github.com/danielsaidi/MockingKit
 
 In this post, I'll demonstrate how to use [MockingKit]({{page.mockingkit}}) to create dynamic mocks of protocols and classes, that let you record and inspect function calls, register conditional returns etc. We can then use this in unit tests and to fake not yet implemented logic.
 
+![MockingKit]({{page.image}})
+
 
 ## Background
 
@@ -96,9 +98,10 @@ We can do better.
 
 ## MockingKit
 
-![MockingKit]({{page.assets}}title.png)
-
 [MockingKit]({{page.mockingkit}}) is a Swift-based mocking library that makes it easy to create dynamic and interactive mocks of protocols and classes. It lets you invoke and inspect function calls, register function results etc.
+
+Let's use MockingKit to be able to use dynamic and interactive mocks, and see how this can help us simplify things when unit testing.
+
 
 ### Terminology
 
