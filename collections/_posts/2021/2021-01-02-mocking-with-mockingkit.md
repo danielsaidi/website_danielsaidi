@@ -2,6 +2,7 @@
 title:  Mocking with MockingKit
 date:   2021-01-02 07:00:00 +0100
 tags:   article swift unit-testing mocking
+
 assets: /assets/blog/2021/2021-01-02/
 image:  /assets/blog/2021/2021-01-02/title.png
 

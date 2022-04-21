@@ -6,18 +6,16 @@ tags:   swift swiftui xcode
 
 I got my brand new 14" M1 MacBook Pro in mid-December and absolutely love it. However, there are things with the new architecture that cause serious problems when working with Swift packages and XCFramework builds. In this post, I'll describe the problems and return with solutions, should I find any.
 
-Update 2022-01-18: I have solved the XCFramework Bitcode problem and have updated the text with how.
+**Update** I have solved the XCFramework Bitcode problem and have updated the text with information.
 
 
 ## Swift Packages can't preview SwiftUI previews
 
-I have a bunch of open source projects that support Swift Package Manager, many of them containing SwiftUI views, and was very happy when Apple added the ability to use SwiftUI previews within packages. 
+I have a bunch of open source projects that support Swift Package Manager. Many of them contain SwiftUI views, and I was happy that Apple added the ability to use SwiftUI previews within packages. 
 
-Since then, I often extract app-agnostic views and logics to app-specific packages, just to improve build times when just working with the app domain or views. Running unit tests and building previews has never been faster.
+Since then, I often extract app-agnostic views and logics to app-specific packages, to improve build times and separate concertns. Running unit tests and building previews has never been faster.
 
-Until M1.
-
-After getting my M1, previews no longer work in Swift Packages. It doesn't matter if create a new package from scratch, if I select simulator or a real device, if I clean derived data and the build folder. It never works.
+However, on my M1, previews no longer work in Swift Packages. It doesn't matter if create a new package, use a simulator or a real device, clean derived data and the build folder. It never works.
 
 Even this view in a brand new package fails:
 
@@ -37,23 +35,21 @@ struct TestView_Previews: PreviewProvider {
 }
 ```
 
-When it fails, I get a preview error saying "Cannot preview in this file - Message send failure for update" and tapping the Diagnosticts button reveal a long message filled with various folder paths, but also these nuggets:
+When it fails, I get a preview error saying "Cannot preview in this file - Message send failure for update" and tapping the Diagnosticts button reveal a long message where you can find these gems:
 
 * LoadingError: failed to load library at path 
 * mach-o file, but is an incompatible architecture (have 'x86_64', need 'arm64')
 
-It seems like the previews are built with x86_64, while the computer needs arm64 to display them. However, I haven't found any way to specify the architecture for the previews. The same problem appears in framework projects as well.
+Previews work in app projects, though, so my current workaround is to create an app project and drag in the views that I work with. However, this is a time consuming workaround.
 
-Previews work in app projects, though, so my current workaround is to create an app project and drag in the views that I work with. However, this is a time consuming workaround that I'd love not having to spend time on.
-
-If you know how to solve the preview problem, please start a discussion in the comment section below. I'll update this section as soon as I find more information or a solution.
+After getting in contact with Apple, it turns out that Xcode was running in Rosetta. I have no idea how this happened and can't remember enabling that option, but unchecking Rosetta made previews work.
 
 
 ## XCFrameworks don't support Bitcode
 
 I have a closed-source project that I manage as an Xcode iOS Framework project, build with a Terminal script and distribute as an XCFramework.
 
-Everything worked great on my Intel-based MacBook Pro, but after switching over to M1, the generated XCFramework no longer supports Bitcode. I have Bitcode enabled in the framework project, though, and have tried adding additional flags and tweaking the build script, but for some reason nothing I do bring Bitcode support back.
+Everything worked great on my Intel-based MacBook Pro, but after switching over to M1, the generated XCFramework no longer supports Bitcode. I have Bitcode enabled in the framework project, though, and have tried adding additional flags and tweaking the build script, but nothing brings Bitcode support back.
 
 The archive script is executed with Fastlane and contains of the following steps (real framework name replaced with MyFramework in the code below):
 
@@ -84,22 +80,10 @@ I have added options like `ENABLE_BITCODE`, flags like `-fembed-bitcode` and bas
 *** was built without bitcode. You must rebuild it with bitcode enabled (Xcode setting ENABLE_BITCODE), obtain an updated library from the vendor, or disable bitcode for this target. Note: This will be an error in the future.
 ```
 
-Since this framework used to work great on my Intel-based MacBook Pro, I'm not sure if this is due to the new hardware architecte or if it's a problem with the new macOS Mojave or Xcode 13.2. All I know is that I'm looking for the solution a problem that is new to my M1 and that no one else seems to share. Any information you may have would be most welcome.
+Since this framework used to work great on my Intel-based MacBook Pro, I'm not sure if this is due to the new hardware architecture or if it's a problem with the new macOS Mojave or Xcode 13.2. All I know is that I'm looking for the solution a problem that is new to my M1 and that no one else seems to share.
 
+What finally made me solve this problem was simply to create a new Xcode iOS Framework project with the same name and move the source code from the old project into the new one. This works, but since the build settings of the two projects are identical, I'm at a loss as to why it works.
 
-### 2022-01-18: Solution
-
-I managed to solve the XCFramework Bitcode problem and now have a framework that supports Bitcode. I wish I could tell you about a magic switch or build setting, but the only thing that worked for me was to create a new Xcode iOS Framework project with the same name, move in all the source code and unit tests from the old project and build...and now it worked.
-
-I have compared the build settings in the old vs. the new project side by side, but to me they look identical, so I'm at a loss. 
-
-To see the silver lining here, this actually made me put some time into creating a Swift Package for the framework as well, which I didn't have before. Earlier, I had to generate the XCFramework while developing new features, but now I can just remove that Swift Package dependency and replace it with a local package, which simplifies development of new features a lot.
+To see the silver lining here, this actually made me put some time into creating a Swift Package for the framework as well, which I didn't have before. Earlier, I generated the XCFramework while developing new features, but now I can just use it as a local package, which simplifies development of new features.
 
 All in all, if you find yourself facing the same problem, try creating a new project with Xcode 13 and cross those luck-bringing fingers of yours.
-
-
-## Conclusion
-
-These problems above are pretty serious to my everyday workflow, but I am happy to at least have solved the most critical one by getting XCFramework and Bitcode to work again. 
-
-I will update this post with any new information about previews that I may find and would greatly appreciate any information you may have. If so, feel free to write in the discussion form below or reach out via [Twitter](https://twitter.com/danielsaidi).
