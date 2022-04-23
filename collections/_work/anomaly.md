@@ -5,7 +5,7 @@ keyboardkit: https://github.com/danielsaidi/KeyboardKit
 
 Anomaly Software is an Australian-based tech-company that hired me for keyboard-related work and sponsored my [KeyboardKit]({{page.keyboardKit}}) open source project.
 
-![BookBeat title image](/assets/work/anomaly-title.jpg)
+![Anomaly logo](/assets/work/anomaly-title.jpg)
 
 One of Anomaly's custom keyboards has a custom autocomplete engine that provides translations between various indigenous languages. It was really cool to see KeyboardKit be used to bring people together, overcoming language barriers.
 

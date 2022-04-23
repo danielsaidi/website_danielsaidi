@@ -6,7 +6,7 @@ paypal: https://paypal.com
 
 Tradera is a Swedish e-auction house and marketplace that is currently owned by [PayPal]({{page.paypal}}). It's a Swedish version of eBay (previously owned by eBay) that lets user bid on auction items and buy fixed-prices.
 
-![Tradera title image](/assets/work/tradera-title.png)
+![Tradera logo](/assets/work/tradera-title.png)
 
 
 ## Work
