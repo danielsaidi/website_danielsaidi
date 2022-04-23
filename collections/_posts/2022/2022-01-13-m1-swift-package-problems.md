@@ -4,9 +4,7 @@ date:   2022-01-13 08:00:00 +0100
 tags:   swift swiftui xcode
 ---
 
-I got my brand new 14" M1 MacBook Pro in mid-December and absolutely love it. However, there are things with the new architecture that cause serious problems when working with Swift packages and XCFramework builds. In this post, I'll describe the problems and return with solutions, should I find any.
-
-**Update** I have solved the XCFramework Bitcode problem and have updated the text with information.
+I absolutely love my brand new 14" M1 MacBook Pro, but there are architectural problems when working with Swift packages and XCFramework builds. In this post, I'll describe some problems...and solutions.
 
 
 ## Swift Packages can't preview SwiftUI previews
