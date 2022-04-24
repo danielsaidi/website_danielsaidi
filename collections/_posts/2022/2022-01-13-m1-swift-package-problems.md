@@ -1,7 +1,7 @@
 ---
 title:  M1 Swift Package and XCFramework Problems
 date:   2022-01-13 08:00:00 +0100
-tags:   swift swiftui xcode
+tags:   swiftui xcode
 ---
 
 I absolutely love my brand new 14" M1 MacBook Pro, but there are architectural problems when working with Swift packages and XCFramework builds. In this post, I'll describe some problems...and solutions.
