@@ -1,5 +1,5 @@
 ---
-title:  Bulding a WebView for iOS and macOS in SwiftUI
+title:  Building a WebView for iOS and macOS in SwiftUI
 date:   2022-04-24 08:00:00 +0100
 tags:   article swiftui
 

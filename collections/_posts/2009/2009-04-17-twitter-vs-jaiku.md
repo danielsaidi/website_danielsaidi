@@ -1,7 +1,7 @@
 ---
 title: Twitter vs Jaiku
 date:  2009-04-17 21:50:00 +0100
-tags:  social-media twitter
+tags:  general
 ---
 
 I've been trying out Twitter and Jaiku for a while now. Since both provide more
