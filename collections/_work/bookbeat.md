@@ -1,12 +1,15 @@
 ---
 name: BookBeat
 
+assets: /assets/work/bookbeat-
+image:  /assets/work/bookbeat-title.jpg
+
 bonnier: https://bonnierbooks.com
 ---
 
 BookBeat is a subscription service that lets users listen to audiobooks and read e-books. The app has support for multiple profiles and a Kids mode that protects children from adult content.
 
-![BookBeat title image](/assets/work/bookbeat-title.jpg)
+![BookBeat logo]({{page.image}})
 
 ## Work
 

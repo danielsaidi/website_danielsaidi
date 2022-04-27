@@ -2,12 +2,14 @@
 layout: default
 ---
 
+{%- assign app = site.data.apps | where:"name", page.name | first -%}
+{%- assign tags = app.tags | split:" " -%}
+
 <article>
+    <a href="/apps#{{ page.name | slugify }}"><h4>Apps</h4></a>
+    <header>
+      <h1>{{ app.name | escape }}</h1>
+    </header>
+  
     {{ content }}
-
-    {%- assign id = page.id | split: "/" | last -%}
-    {%- assign info = site.data.apps | where:"name",page.name | first -%}
-
-    <p>{{ id }}</p>
-    <p>{{ info }}</p>
 </article>

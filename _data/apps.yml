@@ -2,13 +2,13 @@
   url: https://wally.app
   appStoreUrl: https://itunes.apple.com/app/wally/id516398915
 
-- name: Appamini ABC
+- name: Keyboard Studio
+  url: http://app.getkeyboardkit.com
+  appStoreUrl: https://app.getkeyboardkit.com/assets/appstore.png
+
+- name: Appamini
   url: http://appamini.com
   appStoreUrl: https://itunes.apple.com/app/appamini-abc/id581402736
-
-- name: Appamini 123
-  url: http://appamini.com
-  appStoreUrl: https://itunes.apple.com/app/appamini-123/id944820281
 
 - name: Goth Emoji
   url: https://gothemoji.danielsaidi.com
@@ -27,6 +27,6 @@
   appStoreUrl: https://itunes.apple.com/us/app/vinylsamlaren/id640253601
   
 - name: Pinny
-  url: https://itunes.apple.com/app/pinny/id984638325
+  url: /apps/pinny
   appStoreUrl: https://itunes.apple.com/app/pinny/id984638325
 

@@ -1,17 +1,17 @@
 ---
 name: Oribi
 
+assets: /assets/work/oribi-
+image:  /assets/work/oribi-title.png
+
 keyboardkit: https://getkeyboardkit.com
 okeyboard: https://oribi.se/program/okeyboard/
 oribiwriter: https://oribi.se/program/oribi-writer/
-
-
-assets: /assets/work/oribi-
 ---
 
 Oribi develops powerful spelling aids and other types of language support for the digital and physical world. They provide tools like word prediction, spell checking, voice synthesizing and more.
 
-![Oribi logo]({{page.assets}}title.png)
+![Oribi logo]({{page.image}})
 
 Oribi first hired me for keyboard-related work and are heavily sponsoring my [KeyboardKit]({{page.keyboardKit}}) open source project, which has been drastically improved during this project.
 

@@ -1,6 +1,9 @@
 ---
 name: Voyado
 
+assets: /assets/work/voyado-
+image:  /assets/work/voyado-title.png
+
 bookbeat:   /work/bookbeat
 harrys:     https://harrys.se
 ionic:      https://ionicframework.com
@@ -8,7 +11,7 @@ ionic:      https://ionicframework.com
 
 Voyado is an customer loyalty platform that lets companies connect with their customer base, see sales statistics and much, much more.
 
-![Voyado title image](/assets/work/voyado-title.png)
+![Voyado logo]({{page.image}}){:style="width:500px"}
 
 ## Work
 

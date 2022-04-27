@@ -8,7 +8,10 @@ permalink: /apps/
   <a href="/"><h4>Home</h4></a>
   <h1>Apps</h1>
   <p>
-    Here is a list of some apps that I have built myself as well as with friends. I do freelance work, so don't hesitate to <a href="mailto:{{site.email}}">contact me</a> if you need help with development, architecture, automation, testing etc.
+    Here is a list of some apps that I have built myself as well as with friends. Since I <a href="/work">freelance</a> and focus more on <a href="/open-source">open-source</a> on my spare time, most of my own apps are currently pretty old.
+  </p>
+  <p>
+    I do freelance work, so don't hesitate to <a href="mailto:{{site.email}}">contact me</a> if you need help with development, architecture, automation, testing etc.
   </p>
 </article>
 

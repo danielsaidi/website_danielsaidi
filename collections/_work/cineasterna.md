@@ -1,16 +1,19 @@
 ---
 name: Cineasterna
 
-assets: /assets/work/oribi-
+assets: /assets/work/cineasterna-
+image:  /assets/work/cineasterna-title.jpg
+
+screenshot: https://danielsaidi.com/assets/blog/2020/2020-12-25/3-discover-ipad.jpg
 ---
 
 Cineasterna is a Swedish streaming video with content from public libraries. Users can loan movies for free with their public library card.
 
-![Cineasterna logo]({{page.assets}}title.png)
+![Cineasterna logo]({{page.image}})
 
 I developed the Cineasterna app for iPhone, iPad and Apple TV, as a complement to their web-based app. The apps are written in Swift and SwiftUI and makes use of the latest technologies.
 
-![Screenshot from the Cineasterna iPad app](https://danielsaidi.com/assets/blog/2020/2020-12-25/3-discover-ipad.jpg)
+![Screenshot from the Cineasterna iPad app]({{page.screenshot}})
 
 The app lets users browse movies in shelves and grids and explore the total movie stock through filters and search. Users can manage their favorites, switch libraries and loan/watch any movie they like.
 
