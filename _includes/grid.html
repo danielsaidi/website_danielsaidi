@@ -5,7 +5,17 @@
 {%- assign extension = "png" -%}
 {%- endif -%}
 
-<section class="grid {{type}}">
+<section class="grid-section">
+  {%- if include.title -%}
+  <div class="grid-header">
+    {%- if include.link -%}
+    <a href="{{include.link}}">View more</a>
+    {%- endif -%}
+    <h2>{{include.title}}</h2>
+  </div>
+  {%- endif -%}
+
+  <div class="grid {{type}}">
   {% for item in include.items %}
     <a href="{{ item.url }}" name="{{ item.name | slugify }}">
       <img alt="{{ item.name }}" src="/assets/{{type}}/{{ item.name | slugify }}.{{extension}}" />
@@ -14,4 +24,5 @@
       {%- endif -%}
     </a>
   {% endfor %}
+  </div>
 </section>

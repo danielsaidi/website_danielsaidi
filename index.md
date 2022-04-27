@@ -29,18 +29,18 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
       </section>
       <hr />
       <section class="work">
-        <h2>Work</h2>
-        {%- include grid.html items=site.data.work type="icons" -%}
+        {% assign work = site.data.work | slice: 0, 4 %}
+        {%- include grid.html items=work title="Work" link="work" type="icons" -%}
       </section>
       <hr />
       <section class="open-source">
-        <h2>Open Source</h2>
-        {%- include grid.html items=site.data.open-source type="icons" -%}
+        {% assign open-source = site.data.open-source | slice: 0, 4 %}
+        {%- include grid.html items=open-source title="Open Source" link="open-source" type="icons" -%}
       </section>
       <hr />
       <section class="apps">
-        <h2>Apps</h2>
-        {%- include grid.html items=site.data.apps type="icons" -%}
+        {% assign apps = site.data.apps | slice: 0, 4 %}
+        {%- include grid.html items=apps title="Apps" link="apps" type="icons" -%}
       </section>
     </div>
   </main>

@@ -1,3 +1,13 @@
+.grid-header {
+  padding: 0px 10px;
+
+  a {
+    display: block;
+    float: right;
+    padding-top: 10px;
+  }
+}
+
 .grid { 
   display: grid; 
   grid-column-gap: 40px;
