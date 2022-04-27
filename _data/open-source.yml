@@ -1,6 +1,6 @@
 
 - name: KeyboardKit
-  url: https://getKeyboardKit.com
+  url: https://getkeyboardkit.com
 
 - name: SwiftUIKit
   url: https://github.com/danielsaidi/SwiftUIKit
@@ -12,14 +12,17 @@
   url: https://github.com/danielsaidi/MockingKit
 
 
-- name: Sheeeeeeeeet
-  url: https://github.com/danielsaidi/Sheeeeeeeeet
+- name: BottomSheet
+  url: https://github.com/danielsaidi/BottomSheet
 
 - name: DeckKit
   url: https://github.com/danielsaidi/DeckKit
 
-- name: BottomSheet
-  url: https://github.com/danielsaidi/BottomSheet
+- name: LicenseKit
+  url: https://getlicensekit.com
+
+- name: Sheeeeeeeeet
+  url: https://github.com/danielsaidi/Sheeeeeeeeet
 
 - name: Tutti
   url: https://github.com/danielsaidi/Tutti
