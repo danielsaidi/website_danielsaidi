@@ -1,7 +1,7 @@
 ---
 title:  Building multi-platform documentation with DocC
 date:   2022-04-27 07:00:00 +0100
-tags:   article swift
+tags:   article swift docc
 
 image:  /assets/blog/2022/2022-04-27/image.jpg
 assets: /assets/blog/2022/2022-04-27/
