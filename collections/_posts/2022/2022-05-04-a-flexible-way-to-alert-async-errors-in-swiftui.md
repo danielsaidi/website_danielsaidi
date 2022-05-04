@@ -1,6 +1,6 @@
 ---
-title:  A flexible way to handle async errors in SwiftUI
-date:   2022-05-05 17:00:00 +0100
+title:  A flexible way to handle and alert errors in SwiftUI
+date:   2022-05-04 12:00:00 +0000
 tags:   article swift swiftui
 
 icon:  swiftui
