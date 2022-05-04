@@ -5,6 +5,7 @@ tags:   quick-tip swift spm docc
 
 image:  /assets/blog/2022/2022-04-27/image.jpg
 assets: /assets/blog/2022/2022-04-27/
+tweet:  https://twitter.com/danielsaidi/status/1521200257002094592?s=20&t=wF1kbk5Nxm27t6vxQ1OeLQ
 
 lib:    https://github.com/danielsaidi/BottomSheet
 ---
@@ -53,4 +54,4 @@ To explicitly link to a type instead of a target, just add the target's name bef
 - ``BottomSheetStyle``
 ```
 
-This will make DocC link correctly to the type instead of the arget.
+Addint this prefix will make DocC link correctly to the type instead of the target. However, since it's easy to forget and you may link quite a lot to a type with the same name as the target (since it's probably the main type), you may want to avoid naming your types after the target.

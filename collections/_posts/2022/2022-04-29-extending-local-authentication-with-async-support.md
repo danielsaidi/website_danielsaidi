@@ -5,6 +5,7 @@ tags:   quick-tip swift
 
 icon:   swift
 assets: /assets/blog/2022/2022-04-29/
+tweet:  https://twitter.com/danielsaidi/status/1520032656007737345?s=20&t=wF1kbk5Nxm27t6vxQ1OeLQ
 
 lib:    https://github.com/danielsaidi/SwiftKit
 post:   https://danielsaidi.com/blog/2020/04/27/local-biometric-authentication

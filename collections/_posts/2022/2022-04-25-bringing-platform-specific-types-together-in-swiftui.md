@@ -5,6 +5,7 @@ tags:   article swiftui swift
 
 icon:   swiftui
 assets: /assets/blog/2022/2022-04-25/
+tweet:  https://twitter.com/danielsaidi/status/1518493789517717505?s=20&t=wF1kbk5Nxm27t6vxQ1OeLQ
 
 swiftuikit: https://github.com/danielsaidi/SwiftUIKit
 ---

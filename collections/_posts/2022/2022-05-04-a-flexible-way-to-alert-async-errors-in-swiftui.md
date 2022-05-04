@@ -3,7 +3,8 @@ title:  A flexible way to handle and alert errors in SwiftUI
 date:   2022-05-04 12:00:00 +0000
 tags:   article swift swiftui
 
-icon:  swiftui
+icon:   swiftui
+tweet:  https://twitter.com/danielsaidi/status/1521909311471034373?s=20&t=wF1kbk5Nxm27t6vxQ1OeLQ
 
 alert-post: https://danielsaidi.com/blog/2020/06/07/swiftui-alerts
 swiftuikit:  https://github.com/danielsaidi/SwiftUIKit

@@ -5,6 +5,7 @@ tags:   article swift docc
 
 image:  /assets/blog/2022/2022-04-27/image.jpg
 assets: /assets/blog/2022/2022-04-27/
+tweet:  https://twitter.com/danielsaidi/status/1519332230535000067?s=20&t=wF1kbk5Nxm27t6vxQ1OeLQ
 
 docc: https://developer.apple.com/documentation/docc
 fastlane: https://fastlane.tools
@@ -255,8 +256,6 @@ This will generate macOS specific documentations, but since this is just for me 
 
 ## Conclusion
 
-I really like the DocC plugin, but it's currently not covering all my use-cases. I hope that it evolves to provide more options in the future. If so, I will probably adjust my lanes to use it more.
+I really like the DocC plugin, but it's currently not covering all my needs. I hope that it evolves to provide more options in the future. If so, I will probably adjust my lanes to use it more.
 
-I'd also love to combine the static sites into a single one, but since each is around ~300MB for SwiftUIKit (how is this possible), I will just publish the iOS site and have it mention how to generate documentation for the other platforms from Xcode.
-
-If you have the same challenges as I currently have, I hope that this post helped you out.
+I'd also love to combine the static sites into a single one, but since each is around ~300MB for SwiftUIKit (how is this possible!?), I will publish the iOS site and have it mention how to generate documentation for the other platforms from Xcode.
