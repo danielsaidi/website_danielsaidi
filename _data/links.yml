@@ -1,12 +1,11 @@
-
-- name: GitHub
-  url: https://github.com/danielsaidi
+- name: Blog
+  url: https://danielsaidi.com/blog
 
 - name: Twitter
   url: https://twitter.com/danielsaidi
 
+- name: GitHub
+  url: https://github.com/danielsaidi
+
 - name: LinkedIn
   url: https://linkedin.com/in/danielsaidi
-
-- name: Blog
-  url: https://danielsaidi.com/blog
