@@ -4,6 +4,7 @@ date:   2022-05-06 12:00:00 +0000
 tags:   quick-tip swift swiftui
 
 icon:   swift
+tweet:  https://twitter.com/danielsaidi/status/1522656182288228363?s=20&t=XrGntucoal6gYN7TbY2PvA
 
 swiftuikit:  https://github.com/danielsaidi/SwiftUIKit
 ---
@@ -49,18 +50,16 @@ Let's start with the integer-based initializer:
 ```swift
 extension ColorRepresentable {
 
-    convenience init(hex: UInt64) {
-        let r, g, b, a: CGFloat
-        r = CGFloat((hex & 0xff000000) >> 24) / 255
-        g = CGFloat((hex & 0x00ff0000) >> 16) / 255
-        b = CGFloat((hex & 0x0000ff00) >> 8) / 255
-        a = CGFloat(hex & 0x000000ff) / 255
-        self.init(red: r, green: g, blue: b, alpha: a)
+    convenience init(hex: UInt64, alpha: CGFloat = 1) {
+        let r = CGFloat((hex >> 16) & 0xff) / 255
+        let g = CGFloat((hex >> 08) & 0xff) / 255
+        let b = CGFloat((hex >> 00) & 0xff) / 255
+        self.init(red: r, green: g, blue: b, alpha: alpha)
     }
 }
 ```
 
-This initializer lets us provide both numeric values like `0xabcdef` (which lacks an alpha component) and `0xabcdef55` (which provides one with the last two digits). Omitting the alpha component makes the color opaque instead of transparent.
+This initializer lets us provide numeric values like `0xabcdef`, which lets you express hex colors without the `#` that you often see when working with colors.
 
 For the string-based initializer, we first need a few string extensions, which we can keep private:
 
@@ -91,13 +90,13 @@ We can now implement the string-based initializer:
 ```swift
 public extension ColorRepresentable {
 
-    convenience init?(hex: String) {
+    convenience init?(hex: String, alpha: CGFloat = 1) {
         let hex = hex.cleanedForHex()
         guard hex.conforms(to: "[a-fA-F0-9]+") else { return nil }
         let scanner = Scanner(string: hex)
         var hexNumber: UInt64 = 0
         guard scanner.scanHexInt64(&hexNumber) else { return nil }
-        self.init(hex: hexNumber)
+        self.init(hex: hexNumber, alpha: alpha)
     }
 }
 ```
@@ -118,13 +117,15 @@ We basically just have to add these two initializers:
 ```swift
 public extension Color {
 
-    init?(hex: String) {
-        guard let color = ColorRepresentable(hex: hex) else { return nil }
+    init(hex: UInt64, alpha: CGFloat = 1) {
+        let color = ColorRepresentable(hex: hex, alpha: alpha)
         self.init(color)
     }
 
-    init(hex: UInt64) {
-        let color = ColorRepresentable(hex: hex)
+    init?(hex: String, alpha: CGFloat = 1) {
+        guard 
+            let color = ColorRepresentable(hex: hex, alpha: alpha) 
+        else { return nil }
         self.init(color)
     }
 }
