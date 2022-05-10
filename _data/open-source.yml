@@ -25,15 +25,19 @@
 - name: MockingKit
   url: https://github.com/danielsaidi/MockingKit
 
+- name: RichTextKit
+  url: https://github.com/danielsaidi/RichTextKit
+
 - name: Sheeeeeeeeet
   url: https://github.com/danielsaidi/Sheeeeeeeeet
 
 - name: SystemNotification
   url: https://github.com/danielsaidi/SystemNotification
 
-
 - name: WebViewKit
   url: https://github.com/danielsaidi/WebViewKit
+
+
 
 # - name: Cloney
 #  url: https://github.com/danielsaidi/Cloney
