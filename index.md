@@ -15,10 +15,11 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
         </div>
         <div>
           <p>
-            I am a <a href="work">freelance</a> software engineer in <a href="{{page.stockholm}}">Stockholm, Sweden</a>. I specialize in mobile product development with focus on Apple platforms like iOS, tvOS and watchOS. I have also worked with .NET, web and api development for 15+ years.
+            I'm a <a href="work">freelance</a> software engineer in <a href="{{page.stockholm}}">Stockholm, Sweden</a>. I specialize in mobile product development, with with focus on Apple
+            platforms like iOS, macOS, tvOS and watchOS and tech like Swift and SwiftUI.
           </p>
           <p>
-            I love coding and to build <a href="apps">apps</a> and <a href="open-source">open source projects</a>. I <a href="{{site.twitter_url}}">tweet</a> often, <a href="blog">blog</a> seldom and enjoy giving occasional <a href="talks">talks & workshops</a>. I also used to make a lot of <a href="music">music</a>.
+            I love to code and build <a href="apps">apps</a> and <a href="open-source">open source projects</a>. I <a href="{{site.twitter_url}}">tweet</a> often, <a href="blog">blog</a> and enjoy giving occasional <a href="talks">talks & workshops</a>. I also love creating <a href="music">music</a>.
           </p>
         </div>
       </section>
