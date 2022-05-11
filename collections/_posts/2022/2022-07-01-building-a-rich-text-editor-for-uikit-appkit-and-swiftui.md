@@ -8,6 +8,7 @@ richtextkit:    https://github.com/danielsaidi/RichTextKit
 
 In this post, we'll look at how to build a rich text editor for UIKit, AppKit and SwiftUI. We'll create new types to bridge the various platforms and extend a bunch of native types to extend the foundation support for rich text.
 
+![GitHub Actions logo]({{page.image}})
 
 ## Conclusion
 

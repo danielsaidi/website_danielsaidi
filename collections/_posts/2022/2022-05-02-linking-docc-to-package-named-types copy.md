@@ -3,8 +3,8 @@ title:  Linking DocC to package named types
 date:   2022-05-02 07:00:00 +0100
 tags:   quick-tip swift spm docc
 
-image:  /assets/blog/2022/2022-04-27/image.jpg
 assets: /assets/blog/2022/2022-04-27/
+image:  /assets/blog/2022/2022-04-27/image.jpg
 tweet:  https://twitter.com/danielsaidi/status/1521200257002094592?s=20&t=wF1kbk5Nxm27t6vxQ1OeLQ
 
 lib:    https://github.com/danielsaidi/BottomSheet
