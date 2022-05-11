@@ -2,7 +2,7 @@ name: Republish
 
 on:
   schedule:
-    - cron: '1 18 * * *'  # Run at 6:01 pm every day.
+    - cron: '1 12 * * *'  # Run at 12:01 pm every day.
 jobs:
   refresh:
     runs-on: ubuntu-latest
