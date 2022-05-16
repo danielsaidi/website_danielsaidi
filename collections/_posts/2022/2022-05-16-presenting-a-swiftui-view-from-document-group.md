@@ -4,6 +4,8 @@ date:   2022-05-16 10:00:00 +0000
 tags:   quick-tip swiftui
 
 icon:   swiftui
+
+tweet:  https://twitter.com/danielsaidi/status/1526212709338988545?s=20&t=c-v01r2HDFnL3BfXzlKa5w
 ---
 
 The SwiftUI `DocumentGroup` makes it super-easy to create document-based apps. However, the api:s are currently very limited, which means that even the most basic things are hard to achieve. In this post, let's take a quick look at how we can present custom SwiftUI views as modals from a `DocumentGroup`.
