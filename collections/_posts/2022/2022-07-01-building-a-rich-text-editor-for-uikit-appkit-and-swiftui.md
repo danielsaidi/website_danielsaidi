@@ -80,4 +80,4 @@ As you can see, we can only implement this view for `macOS`, `iOS` and `tvOS`, s
 
 Although UIKit and AppKit has a bunch of build-in support for rich text, a lot is still missing. Also, some things work very different in UIKit and AppKit, and SwiftUI has no support at all as this is written.
 
-If you're interested in the source code, you can find it in my [RichTextKit]({{page.swiftuikit}}) library. Don't hesitate to comment or reach out with any thoughts you may have. I'd love to hear your thoughts on this.
+If you're interested in the source code, you can find it in my [RichTextKit]({{page.richtextkit}}) library. Don't hesitate to comment or reach out with any thoughts you may have. I'd love to hear your thoughts on this.
