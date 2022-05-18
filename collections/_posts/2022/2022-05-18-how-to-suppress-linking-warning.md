@@ -31,13 +31,13 @@ We can also link the main app target or the widget to either `MyAppFramework` or
 
 ![Xcode app with linked framework]({{page.assets}}app-with-framework.png){:class="plain"}
 
-However, if we now link the main app target or the widget to both `MyAppFramework` and `MyPackage`, we get a `linking against dylib not safe for use in application extensions` warning:
+However, if we link the app or widget to both `MyAppFramework` and `MyPackage`, we get a `linking against a dylib which is not safe for use in application extensions` warning:
 
 ![Xcode app with linked framework and package]({{page.assets}}app-with-framework-and-package.png){:class="plain"}
 
-We can't specify "Allow app extension API only" for Swift packages, but we also shouldn't have to, since the packages don't contain any unsafe code. I have tried finding a solution to this without finding one.
+We can't specify "Allow app extension API only" for Swift packages, but we also shouldn't have to, since the package doesn't contain any unsafe code. I've tried to find a solution with no success.
 
-Since this warning is incorrect, at least from a package perspective, and I prefer to have as few warnings as possible to distract from things that really need attention, I'd like to find a way to remove this warning. Since there doesn't seem to be a way to fix it, perhaps we can just suppress it?
+Since this warning is incorrect, at least from a package perspective, and I prefer to have no warnings to emphasize things that really need attention, I'd like to remove this warning. Since there doesn't seem to be a way to fix it, perhaps we can just suppress it?
 
 Just a word of warning before we continue. Only consider suppressing this warning if you are absolutely sure about the code you pull in. You don't want to suppress warnings for things that could actually break your app due to problems in the code.
 
