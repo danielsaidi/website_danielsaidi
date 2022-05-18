@@ -1,7 +1,7 @@
 ---
 title:  Linking DocC to package named types
 date:   2022-05-02 07:00:00 +0100
-tags:   quick-tip swift spm docc
+tags:   swift spm docc
 
 assets: /assets/blog/2022/2022-04-27/
 image:  /assets/blog/2022/2022-04-27/image.jpg

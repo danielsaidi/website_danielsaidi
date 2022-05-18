@@ -1,7 +1,7 @@
 ---
 title:  Git tags cheat sheet
 date:   2021-08-26 07:00:00 +0100
-tags:   quick-tip git
+tags:   git
 ---
 
 

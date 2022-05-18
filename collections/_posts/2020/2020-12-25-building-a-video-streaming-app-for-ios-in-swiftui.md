@@ -1,7 +1,7 @@
 ---
 title:  Building a video streaming app for iOS in SwiftUI
 date:   2020-12-25 07:00:00 +0100
-tags:   article swiftui
+tags:   swiftui
 assets: /assets/blog/2020/2020-12-25/
 image:  /assets/blog/2020/2020-12-25/1-title.jpg
 

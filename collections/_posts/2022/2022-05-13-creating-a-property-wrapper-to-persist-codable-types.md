@@ -1,10 +1,9 @@
 ---
 title:  Creating a property wrapper to persist Codable types
 date:   2022-05-13 10:00:00 +0000
-tags:   quick-tip swiftui swift
+tags:   wiftui swift
 
 icon:   swiftui
-assets: /assets/blog/2022/2022-04-25/
 
 swiftuikit: https://github.com/danielsaidi/SwiftUIKit
 ---

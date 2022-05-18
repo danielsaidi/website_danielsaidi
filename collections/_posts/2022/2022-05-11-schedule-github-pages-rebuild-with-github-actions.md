@@ -1,7 +1,7 @@
 ---
 title:  Schedule GitHub Pages rebuild with GitHub Actions
 date:   2022-05-11 12:00:00 +0000
-tags:   article git github
+tags:   git github
 
 assets: /assets/blog/2022/2022-05-11/
 image:  /assets/blog/2022/2022-05-11/image.jpg
