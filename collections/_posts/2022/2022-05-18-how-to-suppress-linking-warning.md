@@ -5,6 +5,8 @@ tags:   xcode swift
 
 icon:   swift
 assets: /assets/blog/2022/2022-05-18/
+
+tweet:  https://twitter.com/danielsaidi/status/1526890018819788805?s=20&t=b2pADt7urhtlz3IJuo66LA
 ---
 
 Swift packages is an easy and powerful tool for separating your code into modules. However, Xcode currently shows a `linking against a dylib which is not safe for use in application extensions` warning when linking targets and packages in certain ways, even though a package is extension-safe. Let's look at how we can suppress this warning.
