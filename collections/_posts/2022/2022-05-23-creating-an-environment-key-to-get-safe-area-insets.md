@@ -4,6 +4,7 @@ date:   2022-05-23 10:00:00 +0000
 tags:   swiftui swift
 
 icon:   swiftui
+tweet:  https://twitter.com/danielsaidi/status/1528773060123303937?s=20&t=PiJnnQfR8Ta3V-NP2TU-sQ
 
 hackingwithswift: https://www.hackingwithswift.com/quick-start/swiftui/how-to-inset-the-safe-area-with-custom-content
 swiftuikit: https://github.com/danielsaidi/SwiftUIKit
