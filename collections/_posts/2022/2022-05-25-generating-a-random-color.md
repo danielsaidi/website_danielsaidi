@@ -28,7 +28,6 @@ public extension Color {
         )
     }
 }
-
 ```
 
 This lets you generate a random color and also lets you specify whether you want a random opacity or not. You can use random colors for various features, as a background color to make view debugging easier etc. since it makes it easy to see which views redraw.
