@@ -23,18 +23,7 @@ Well, you could think that it'd be that easy, but unfortunately it's not. Many b
 
 Another complication is SwiftUI, where we have to find a way to embed and bridge the platform-specific views in a way that works on all platforms. We also need some way of letting SwiftUI affect the platform-specific views, and for the platform-specific views and their delegates to affect SwiftUI correctly.
 
-All in all, this is a pretty complicated task, which is why I'm happy to announce that my client [Oribi]({{page.oribi}}) has given me permission to open-source a rich text engine that I created for them as part of building a new version of their text editor [Oribi Writer]({{page.oribi-writer}}). The result will be an open-source library that you’ll be able to use in your own projects.
-
-
-## About Oribi and Oribi Writer
-
-[Oribi]({{page.oribi}}) is a Swedish company that develops powerful spelling aids and other types of language support for the digital and physical world. [Oribi Writer]({{page.oribi-writer}}) is their rich text editor, which features many of Oribi's amazing features, like spellcheck, word prediction, TTS, a lexicon and much more.
-
-![OribiWriter screenshot]({{page.assets}}oribi-writer.jpg){:width="650px"}
-
-Oribi Writer was a 10+ years old Objective-C app, when Oribi asked me to build a new version, after I helped them build their [oKeyboard]({{page.okeyboard}}) keyboard app. I built the new app from scratch as a SwiftUI multi-platform, document app. It lets you view and edit rich text, with the additional Oribi features mentioned earlier. It supports bold, italic and underline, fonts, font sizes and alignments, images, highlighting etc.
-
-The technical challenges with implementing rich text support in Oribi Writer proved significant, especially since it had to support multiple platforms as well as SwiftUI. Considering how much time I spend on the rich text support, how little information that is available and how old most of the code you find is,  it's very generous of them to let me open-source this. Many thanks to [Oribi]({{page.oribi}})!
+All in all, this is a pretty complicated task, which is why I'm happy to announce that my client [Oribi]({{page.oribi}}) has given me permission to open-source a multi-platform rich text engine that I created for them as part of building a new version of their text editor [Oribi Writer]({{page.oribi-writer}}). The result will be an open-source library that you’ll be able to use in your own projects. Many thanks to [Oribi]({{page.oribi}}) for this!
 
 
 ## Designing for multi-platform
@@ -63,9 +52,9 @@ public class RichTextView: NSTextView {}
 
 As you can see, we can only implement this view for `macOS`, `iOS` and `tvOS`, since `UITextView` is not available on `watchOS`. 
 
-Furthermore, the `UITextView` and `NSTextView` api:s differ quite a bit. For instance, to get and set the attributed string, `UITextView` has an `attributedText` property, while `NSTextView` has an `attributedString()` function to get the string and provides an optional `textStorage` to change it.
+Furthermore, the `UITextView` and `NSTextView` APIs differ quite a bit. For instance, to get and set the attributed string, `UITextView` has an `attributedText` property, while `NSTextView` has an `attributedString()` function to get the string and an optional `textStorage` property to change it.
 
-To bridge the platform differences, we can add extend the views with additional properties, to make them get the same api:s. To ensure that we actually do have the same api:s for both platforms, I prefer to add protocols that enforce this. For the rich text view, let's add a `RichTextViewRepresentable` protocol:
+To bridge the platform differences, we can extend the views with additional properties, to make them get the same APIs. I also prefer to use protocols to enforce that we've done this correctly. For these views, let's add a `RichTextViewRepresentable` protocol:
 
 ```swift
 public protocol RichTextViewRepresentable {
@@ -104,7 +93,7 @@ public extension RichTextView {
 #endif
 ```
 
-Using protocols to communicate any bridging between the two platforms is a nice way to make our code cleaner in a controlled way. The most important thing is however that both platforms get the same api:s and to remove the need for `#if` checks in our library.
+Using protocols to communicate any bridging between the two platforms is a nice way to make our code cleaner in a controlled way and remove the need for `#if` checks within the library.
 
 To design SwiftUI for multi-platform use, we can create a `ViewRepresentable` typealias that makes platform-specific views in SwiftUI regardless of platform.
 
@@ -267,7 +256,7 @@ private extension RichTextEditorCoordinator {
 }
 ```
 
-We can now setup the (so far limited) delegate handling, where we'll update the text binding when we type in the text view or changes its selection. Note that UIKit and AppKit has similar, but different api:s:
+We can now setup the (so far limited) delegate handling to update the text binding when we type in the text view or changes its selection:
 
 ```swift
 open class RichTextCoordinator: NSObject {
@@ -474,7 +463,7 @@ private extension RichTextCoordinator {
 }
 ```
 
-As you can see, the api:s are still rough even though we added a `textAttributes(at:)` function to the text view. This is why we should add more extensions later, to make these operations easier.
+As you can see, the code is still rough even though we added a `textAttributes(at:)` function to the text view. This is why we should add more extensions later, to make these operations easier.
 
 You can now add a `@StateObject private var context = RichTextContext()` to the test app and pass it into the `RichTextEditor`. When you move the text input cursor, the coordinator will sync the underline information with the context, which you can then use as you wish in SwiftUI.
 
@@ -584,18 +573,16 @@ And with that, we're done (for now)! The coordinator will write to the context w
 
 We can now add a button to our test app and have it highlight when the rich text context indicates that the current text is underlined. We can also tap the button to toggle the underlined style:
 
-![Screenshot of two iOS devices showing not underlined and underlined text]({{page.assets}}underline-ios.jpg){:width="650px"}
+![Two iOS devices showing underline support]({{page.assets}}underline-ios.jpg){:width="650px"}
 
-Since we've designed the engine for multi-platform, we should verify that it works on macOS as well:
-
-![Screenshot of two iOS devices showing not underlined and underlined text]({{page.assets}}underline-macos.jpg){:width="650px"}
+![Two macOS windows showing underline support]({{page.assets}}underline-macos.jpg){:width="650px"}
 
 There are still tons to do to make attribute and trait management easier, and we haven't even started looking at more advanced features like image support. However, we now have a solid, multi-platform foundation that we can expand further.
 
 
 ## Introducing RichTextKit
 
-This post has highlighted a few of the complicated api:s we have to use when working with rich text, how much that behaves differently between platforms and how much is missing when working with rich text in SwiftUI. I have spent numerous hours wrestling strange edge cases, searching all over the web to find nuggets of useful information in 10+ years old Objective-C posts etc. Furthermore, if finding information for iOS is hard, finding information for macOS is even worse.
+This post has highlighted a few of the complicated APIs we have to use when working with rich text, how much that behaves differently between platforms and how much that is missing when working with rich text in SwiftUI. I have spent numerous hours wrestling strange edge cases, searching all over the web to find nuggets of useful information in 10+ years old Objective-C posts etc. Furthermore, if finding information for iOS is hard, finding information for macOS is even worse.
 
 So, since I have already implemented all the rich text functionality covered in this post and much, much more while working for a Swedish company called [Oribi]({{page.oribi}}), we felt that it's such a waste that we all have to reinvent the same wheel and work around the same limitations every time a new rich text-based app is to be developed.
 
@@ -603,10 +590,9 @@ This is why I'm happy to announce that I will be making all the rich text functi
 
 ![RichTextKit logo]({{page.assets}}richtextkit.png){:width="650px"}
 
-[RichTextKit]({{page.richtextkit}}) is currently under active development, and so far only contains the functionality covered in this post, but I will aim to make all the functionality available during the next couple of weeks. I will also try to cover the implementation in separate blog posts and link to them from this post.
+[RichTextKit]({{page.richtextkit}}) is currently under active development, and so far only contains the functionality covered in this post. I will aim to make all the functionality available during the next couple of weeks and will also try to cover the implementation in separate blog posts.
 
-If you think rich text is an exciting topic, I'd love to get you involved in the development of [RichTextKit]({{page.richtextkit}}). Just star the repository, comment on this post or reach out in any way that suits you, and let's make rich text on Apple's platforms much more fun than it is today.
-
+If you think rich text is an exciting topic, I'd love to get your eyes on [RichTextKit]({{page.richtextkit}}). Just star the repository, comment on this post or reach out in any way that suits you, and let's make rich text on Apple's platforms much more fun than it is today.
 
 
 ## Conclusion
