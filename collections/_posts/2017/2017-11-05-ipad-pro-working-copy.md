@@ -1,7 +1,7 @@
 ---
 title: Using iPad Pro with Working Copy
 date:  2017-11-05 20:20:00 +0100
-tags:  article git ios
+tags:  article ios git
 
 image: /assets/blog/2017/2017-11-05.jpg
 ---

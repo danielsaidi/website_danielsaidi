@@ -2,6 +2,7 @@
 title: Natural Scrolling in Windows 8
 date:  2012-11-29 23:03:00 +0100
 tags:  windows
+icon:  avatar
 ---
 
 In OS X Lion, Apple introduced `natural scrolling`. It means that when you scroll,

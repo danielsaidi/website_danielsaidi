@@ -2,6 +2,7 @@
 title: .NET Core notes to self
 date:  2016-05-26 07:52:00 +0100
 tags:  .net testing
+icon:  dotnet
 ---
 
 I have been playing around with .NET Core since the early betas, but since I do

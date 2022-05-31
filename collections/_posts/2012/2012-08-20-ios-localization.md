@@ -2,6 +2,7 @@
 title: iOS Localization
 date:  2012-08-20 22:17:00 +0100
 tags:  ios localization objc
+icon:  swift
 ---
 
 This post will show you how to localize your iOS apps, so they can be translated

@@ -2,16 +2,17 @@
 title: HoloLens, Microsoft, VR and Apple
 date:  2017-02-04 10:00:00 +0100
 tags:  virtual-reality augmented-reality
+icon:  avatar
 
 redirect_from: /blog/general/2017/02/04/hololens-microsoft-vr-and-apple
 
-image: https://www.inexhibit.com/wp-content/uploads/2016/06/Microsoft-Hololens-augmented-reality-headset.jpg
+title: https://www.inexhibit.com/wp-content/uploads/2016/06/Microsoft-Hololens-augmented-reality-headset.jpg
 ---
 
 I'm really looking forward to an event at [tretton17](http://tretton37.com) next 
 week, where Jimmy Engström will demonstrate the awesome Microsoft Hololens.
 
-![HoloLens]({{page.image}})
+![HoloLens]({{page.title}})
 
 I haven't had the opportunity to try the HoloLens yet, but I think it looks really 
 promising. Even if many of the videos I've seen have been conceptual future visions

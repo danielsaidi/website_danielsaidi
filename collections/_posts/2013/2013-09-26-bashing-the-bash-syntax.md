@@ -2,7 +2,6 @@
 title: Bashing the Bash Syntax
 date:  2013-09-26 08:13:00 +0100
 tags:  ios bash xcode
-
 image: /assets/blog/2013/2013-09-26-bash.png
 
 post:  /blog/2013/08/23/xcode-auto-increment-build-number

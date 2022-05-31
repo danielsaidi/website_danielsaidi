@@ -2,6 +2,7 @@
 title: Use special characters in ModelState error message
 date:  2009-08-26 07:53:00 +0100
 tags:  .net c#
+icon:  dotnet
 ---
 
 I've been trying to use special characters (like &laquo; and &raquo;) to model

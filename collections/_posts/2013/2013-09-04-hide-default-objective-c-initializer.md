@@ -2,6 +2,7 @@
 title: Hide the default Objective-C initializer
 date:  2013-09-04 04:11:00 +0100
 tags:  ios objc
+icon:  swift
 ---
 
 Languages like Java and C# let you override and hide the default constructors of

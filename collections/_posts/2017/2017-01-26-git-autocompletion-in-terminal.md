@@ -2,6 +2,7 @@
 title: git autocompletion in OS X Terminal
 date:  2017-01-26 10:56:02 +0100
 tags:  git macos
+icon:  git
 
 post:  http://apple.stackexchange.com/questions/55875/git-auto-complete-for-branches-at-the-command-line
 ---

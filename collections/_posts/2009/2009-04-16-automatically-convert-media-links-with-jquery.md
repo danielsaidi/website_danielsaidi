@@ -2,6 +2,7 @@
 title: Automatically convert media links with jQuery
 date:  2009-04-16 22:25:00 +0100
 tags:  javascript jquery web
+icon:  javascript
 ---
 
 This post will show you how to automatically convert media links with jQuery, for

@@ -2,6 +2,7 @@
 title: Mouse scroll sensitivity in Parallels Desktop
 date:  2014-05-21 07:19:00 +0100
 tags:  macos windows
+icon:  avatar
 ---
 
 I use Parallels Desktop to run Windows from a dedicated OS X partition. It works

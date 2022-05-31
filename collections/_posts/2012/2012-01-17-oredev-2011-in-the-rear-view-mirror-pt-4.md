@@ -1,8 +1,9 @@
 ---
 title: Øredev 2011 in the rear-view mirror – Part 4
 date:  2012-01-17 12:00:00 +0100
-tags:  conference
 categories: conferences
+tags:  conference
+icon:  avatar
 ---
 
 This is the fourth part of my Øredev 2011 summary. It has taken quite a long time

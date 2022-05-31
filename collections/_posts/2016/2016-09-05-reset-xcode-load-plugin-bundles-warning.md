@@ -1,7 +1,8 @@
 ---
 title: Reset Xcode load plugin bundles warning
 date:  2016-09-05 17:42:00 +0100
-tags:  ios xcode
+tags:  xcode
+icon:  swift
 ---
 
 Today, I accidentally clicked "Skip Bundles" instead of "Load Bundles" when I started

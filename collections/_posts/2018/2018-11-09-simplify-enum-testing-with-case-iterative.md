@@ -1,7 +1,8 @@
 ---
 title: Simplify enum testing with CaseIterative
 date:  2018-11-09 15:00:00 +0200
-tags:  swift
+tags:  swift testing
+icon:  swift
 ---
 
 In this post, I will show how to reduce the amount of code you have to type when

@@ -2,7 +2,7 @@
 title: Building an Apple Watch app in SwiftUI
 date:  2020-02-11 00:00:00 +0100
 tags:  watchos swiftui combine
-icon:  swift
+icon:  swiftui
 ---
 
 SwiftUI and Combine makes it easy to build apps for watchOS. However, if the app is part of a larger system, you may have to adjust your architecture. In this post, we'll take a look at the work involved in building a SwiftUI/Combine-based app for Apple Watch.

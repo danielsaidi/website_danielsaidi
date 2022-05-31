@@ -1,7 +1,7 @@
 ---
 title: Validate Localized Resources
 date:  2020-10-20 14:00:00 +0100
-tags:  swift  continuous-integration
+tags:  swift localization continuous-integration
 icon:  swift
 
 fastlane: https://fastlane.tools 

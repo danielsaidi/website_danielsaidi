@@ -2,6 +2,7 @@
 title: Mojave backslash keybinding
 date:  2018-08-13 21:00:00 +0100
 tags:  macos
+icon:  avatar
 ---
 
 This year, I decided not to wait a whole year before installing the latest macOS

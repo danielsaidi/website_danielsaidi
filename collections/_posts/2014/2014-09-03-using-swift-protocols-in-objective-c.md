@@ -1,7 +1,8 @@
 ---
 title: Using Swift protocols in Objective-C
 date:  2014-09-03 15:15:00 +0100
-tags:  ios objc swift dependency-injection
+tags:  swift objc dependency-injection
+icon:  swift
 
 coremeta: https://github.com/jgretz/CoreMeta
 ---

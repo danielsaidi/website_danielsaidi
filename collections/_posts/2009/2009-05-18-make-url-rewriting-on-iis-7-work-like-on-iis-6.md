@@ -2,6 +2,7 @@
 title: Make URL rewriting in IIS 7 work like in IIS 6
 date:  2009-05-18 08:10:00 +0100
 tags:  .net windows
+icon:  dotnet
 
 article: http://www.improve.dk/blog/2006/12/11/making-url-rewriting-on-iis7-work-like-iis6
 ---

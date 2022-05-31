@@ -1,7 +1,8 @@
 ---
-title:	"MagSafe toggles green/orange (part 2)"
-date:	2010-01-28 12:00:00 +0100
-tags: 	macos
+title: MagSafe toggles green/orange (part 2)
+date:  2010-01-28 12:00:00 +0100
+tags:  macos
+icon:  avatar-sweat
 ---
 
 I have some strange updates regarding the greeen/orange blinking MagSafe I wrote

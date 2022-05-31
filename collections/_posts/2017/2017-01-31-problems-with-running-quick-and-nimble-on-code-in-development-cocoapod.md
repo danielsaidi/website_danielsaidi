@@ -1,7 +1,9 @@
 ---
 title: Problems with Quick, Nimble and CocoaPods
 date:  2017-01-31 21:50:00 +0100
-tags:  ios xcode cocoapods testing
+tags:  swift cocoapods testing
+icon:  swift
+
 redirect_from: /blog/mobile/2017/01/31/problems-with-running-quick-and-nimble-on-code-in-development-cocoapod
 ---
 

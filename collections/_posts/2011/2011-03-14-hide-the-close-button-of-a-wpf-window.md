@@ -2,6 +2,7 @@
 title: Hide the close button of a WPF window
 date:  2011-03-14 12:00:00 +0100
 tags:  .net
+icon:  dotnet
 ---
 
 In a WPF application that I'm currently working on, I have to hide the close

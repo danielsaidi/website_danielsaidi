@@ -2,6 +2,7 @@
 title: NuPack - a quick walkthrough
 date:  2010-10-08 12:00:00 +0100
 tags:  .net
+icon:  dotnet
 
 nuget: https://www.nuget.org
 ---

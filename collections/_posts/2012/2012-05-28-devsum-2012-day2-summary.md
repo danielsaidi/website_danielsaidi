@@ -1,8 +1,9 @@
 ---
 title: DevSum 2012 - Day 2 Summary
 date:  2012-05-28 21:28:00 +0100
-tags:  conference
 categories: conferences
+tags:  conference
+icon:  avatar
 ---
 
 This is a short summary of the second day of the DevSum 2012 conference in 

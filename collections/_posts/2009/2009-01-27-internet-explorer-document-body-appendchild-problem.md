@@ -2,6 +2,7 @@
 title: Internet Explorer document.body.appendChild(...) problem
 date:  2009-01-27 08:46:00 +0100
 tags:  html javascript web
+icon:  html
 ---
 
 On my spare time, I develop a PHP web application on OS X and thus test my sites

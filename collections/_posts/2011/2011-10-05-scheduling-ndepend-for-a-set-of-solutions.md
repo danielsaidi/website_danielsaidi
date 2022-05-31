@@ -1,7 +1,8 @@
 ---
 title: Scheduling NDepend for a set of solutions
 date:  2011-10-05 12:00:00 +0100
-tags:  .net ndepend
+tags:  .net code-quality
+icon:  dotnet
 ---
 
 In a project of mine, I use NDepend to continuously run a scheduled code analysis

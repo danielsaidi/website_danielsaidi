@@ -2,6 +2,7 @@
 title: Using themes in ASP.NET MVC
 date:  2009-08-19 05:38:00 +0100
 tags:  .net web css
+icon:  dotnet
 ---
 
 I have finally started creating my first web site with ASP.NET MVC. After looking

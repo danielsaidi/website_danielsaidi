@@ -1,7 +1,8 @@
 ---
 title: Grabbing the latest version number from a GitHub repository
 date:  2011-10-05 12:00:00 +0100
-tags:  git web
+tags:  github web open-source
+icon:  github
 ---
 
 I currently have several GitHub repositories, where some also have a `gh-pages`

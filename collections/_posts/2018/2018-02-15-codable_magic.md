@@ -1,7 +1,8 @@
 ---
 title: Codable magic
 date:  2018-02-15 09:00:00 +0100
-tags:  ios swift
+tags:  swift
+icon:  swift
 ---
 
 I have finally started replacing all `NSCoding` objects in my code with `Codable`.

@@ -2,6 +2,7 @@
 title: Open file with the keyboard in OS X
 date:  2011-06-14 12:00:00 +0100
 tags:  macos
+icon:  avatar
 ---
 
 Although I love OS X, I am still new to it and a Windows user by habit. As such,

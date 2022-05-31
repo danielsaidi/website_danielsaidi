@@ -2,6 +2,7 @@
 title: Get the week number of a date in C#
 date:  2009-05-25 19:46:00 +0100
 tags:  .net c#
+icon:  dotnet
 
 nextra: https://github.com/danielsaidi/nextra
 ---

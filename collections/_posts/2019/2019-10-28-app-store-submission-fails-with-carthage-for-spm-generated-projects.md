@@ -1,7 +1,7 @@
 ---
 title: App Store submission fails with Carthage and SPM
 date:  2019-10-29 12:00:00 +0100
-tags:  xcode spm
+tags:  swift xcode spm cocoapods carthage
 icon:  swift
 ---
 

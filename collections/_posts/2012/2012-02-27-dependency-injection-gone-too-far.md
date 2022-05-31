@@ -2,6 +2,7 @@
 title: Dependency Injection gone too far?
 date:  2012-02-27 12:00:00 +0100
 tags:  dependency-injection
+icon:  avatar-sweat
 ---
 
 I am currently working with a new version of a hobby console application project

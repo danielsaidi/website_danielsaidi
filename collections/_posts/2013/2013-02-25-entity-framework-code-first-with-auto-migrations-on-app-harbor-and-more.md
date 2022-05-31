@@ -2,6 +2,7 @@
 title: Entity Framework Code First with auto migrations on AppHarbor...and more
 date:  2013-02-25 10:55:00 +0100
 tags:  .net c# entity-framework api dependency-injection testing mocking
+icon:  dotnet
 ---
 
 I'm working on an iOS app that is powered by an ASP.NET MVC 4 backend that uses

@@ -2,6 +2,7 @@
 title: Git not found in Mountain Lion
 date:  2012-11-27 10:24:00 +0100
 tags:  macos git
+icon:  avatar-sweat
 ---
 
 I recently updated OS X Lion to OS X Mountain Lion on all my personal computers.

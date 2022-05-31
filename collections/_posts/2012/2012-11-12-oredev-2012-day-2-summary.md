@@ -1,8 +1,9 @@
 ---
 title: Oredev 2012 - Day 2
 date:  2012-11-12 21:30:00 +0100
+categories: conferences 
 tags:  conference
-categories: conferences
+icon:  avatar
 ---
 
 My second day at Øredev 2012 was amazing! When it was over, I had to sit down and

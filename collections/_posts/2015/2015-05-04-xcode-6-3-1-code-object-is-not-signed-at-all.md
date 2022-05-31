@@ -1,7 +1,8 @@
 ---
 title: Xcode 6.3.1 - Code object is not signed at all
 date:  2015-05-04 20:54:00 +0100
-tags:  xcode ios
+tags:  xcode
+icon:  avatar
 ---
 
 After upgrading to Xcode 6.3.1, I get an error that says `ERROR ITMS-90035: 

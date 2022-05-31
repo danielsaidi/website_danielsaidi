@@ -2,6 +2,7 @@
 title: Find all classes that inherit a certain class
 date:  2009-05-25 20:23:00 +0100
 tags:  .net c#
+icon:  dotnet
 ---
 
 In a typed language, it can be handy to retrieve all types that inherit a certain

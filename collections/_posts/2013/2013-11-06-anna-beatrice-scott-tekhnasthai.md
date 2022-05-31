@@ -1,9 +1,8 @@
 ---
 title: Anna Beatrice Scott - tekhnasthai
 date:  2013-11-06 12:47:00 +0100
-tags:  conference
 categories: conferences
-
+tags:  conference
 image: /assets/blog/2013/oredev.jpg
 ---
 

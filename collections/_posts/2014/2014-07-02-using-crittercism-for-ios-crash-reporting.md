@@ -2,6 +2,7 @@
 title: Using Crittercism for iOS crash reporting
 date:  2014-07-02 09:26:00 +0100
 tags:  ios swift objc
+icon:  swift
 
 firebase: https://firebase.google.com
 ---

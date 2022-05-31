@@ -2,6 +2,7 @@
 title: Multiple SSH Files
 date:  2013-06-07 07:08:00 +0100
 tags:  git
+icon:  git
 ---
 
 When working with git, I use a single SSH key pair, which I use for e.g. GitHub.

@@ -1,7 +1,8 @@
 ---
 title: json_encode works bad with UTF8
 date:  2009-05-03 08:00:00 +0100
-tags:  php web
+tags:  javascript php
+icon:  php
 ---
 
 I have had some serious problems with UTF8 and PHP’s built-in JSON functionality.

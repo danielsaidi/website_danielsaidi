@@ -1,7 +1,8 @@
 ---
 title: Ditching RxSwift
 date:  2018-01-19 20:20:00 +0100
-tags:  article swift rxswift uikit
+tags:  article swift
+icon:  swift
 ---
 
 After hearing so many good things about RxSwift, I decided to use it in an app of mine. However, after struggling with it for months, I still haven't found a nice setup and have now decided to ditch it. 

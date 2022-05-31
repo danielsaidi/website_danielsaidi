@@ -2,7 +2,6 @@
 title: Automate with Automator
 date:  2013-10-08 19:42:00 +0100
 tags:  macos automation
-
 image: /assets/blog/2013/2013-10-08-automator.png
 ---
 

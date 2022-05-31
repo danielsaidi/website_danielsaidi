@@ -2,6 +2,7 @@
 title: PHP magic quotes
 date:  2010-11-24 12:00:00 +0100
 tags:  php
+icon:  php
 ---
 
 About a year ago, I had problems when sending data to a php page, using AJAX. To

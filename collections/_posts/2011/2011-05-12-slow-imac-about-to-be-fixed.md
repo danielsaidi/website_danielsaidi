@@ -2,6 +2,7 @@
 title: Slow iMac about to be fixed?
 date:  2011-05-12 12:00:00 +0100
 tags:  macos
+icon:  avatar-sweat
 
 forum: https://discussions.apple.com/message/12913591?messageID=12913591
 ---

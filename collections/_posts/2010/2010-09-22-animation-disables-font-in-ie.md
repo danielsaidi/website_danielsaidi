@@ -2,6 +2,7 @@
 title: Animation disables font in Internet Explorer
 date:  2010-09-22 12:00:00 +0100
 tags:  jquery web
+icon:  javascript
 ---
 
 Yesterday, I built a simple demo page to demonstrate how easy it is to get

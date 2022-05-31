@@ -2,6 +2,7 @@
 title: Hide successful tests in QUnit
 date:  2010-06-03 12:00:00 +0100
 tags:  javascript jquery testing
+icon:  javascript
 ---
 
 I am using QUnit as TDD framework for my JavaScript development. It’s not as

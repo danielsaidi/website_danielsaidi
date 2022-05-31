@@ -1,8 +1,9 @@
 ---
 title: Øredev 2012 - Day 1
 date:  2012-11-08 00:30:00 +0100
-tags:  conference
 categories: conferences 
+tags:  conference
+icon:  avatar
 ---
 
 I am happy to once again attend Øredev in Malmö, Sweden. Three days with great

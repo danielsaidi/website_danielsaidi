@@ -2,6 +2,7 @@
 title: Xcode - Disable ARC for individual files
 date:  2012-07-25 10:00:00 +0100
 tags:  ios objc
+icon:  swift
 ---
 
 I am building an app that uses ARC (Automatic Reference Counting), which means I

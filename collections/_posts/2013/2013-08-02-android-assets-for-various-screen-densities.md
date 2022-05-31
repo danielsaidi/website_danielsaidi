@@ -2,7 +2,6 @@
 title: Android Assets for Various Screen densities
 date:  2013-08-02 12:08:00 +0100
 tags:  android
-
 image: /assets/blog/2013/2013-08-05-android.png
 
 android-iconography: http://developer.android.com/design/style/iconography.html

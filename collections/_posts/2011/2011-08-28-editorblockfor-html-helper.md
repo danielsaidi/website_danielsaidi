@@ -2,6 +2,7 @@
 title: EditorBlockFor HTML helper
 date:  2011-08-28 12:00:00 +0100
 tags:  .net c# web
+icon:  dotnet
 ---
 
 In ASP.NET MVC, Microsoft has done a nice job with creating various HTML helpers

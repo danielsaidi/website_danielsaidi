@@ -2,6 +2,7 @@
 title: UIViewController Custom Back Button Problem
 date:  2013-04-23 20:14:00 +0100
 tags:  ios objc
+icon:  swift
 ---
 
 If you want your apps to have their own identity, you should put time into adjusting 

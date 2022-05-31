@@ -2,6 +2,7 @@
 title: CLGeocoder fails silently
 date:  2012-08-08 20:48:00 +0100
 tags:  ios objc geo
+icon:  swift
 ---
 
 I'm currently developing a location-based app for iPad and iPhone, that will allow

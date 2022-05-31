@@ -1,7 +1,8 @@
 ---
 title: Automate setting up Xcode
 date:  2018-11-05 15:00:00 +0200
-tags:	 article macos automation xcode fastlane lint
+tags:	 article xcode macos automation fastlane lint
+icon:  swift
 
 image: /assets/blog/xcode.png
 ---

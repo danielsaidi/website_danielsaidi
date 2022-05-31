@@ -2,6 +2,7 @@
 title: Retrive Core Data objects with case-insensitive comparison
 date:  2012-06-01 12:45:00 +0100
 tags:  ios objc
+icon:  swift
 ---
 
 I'm currently building an iOS app that uses core data for data persistency. It

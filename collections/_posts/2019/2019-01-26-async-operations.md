@@ -1,7 +1,7 @@
 ---
 title: Coordinating async operations
 date:  2019-01-26 21:00:00 +0100
-tags:  article swift rxswift
+tags:  article swift
 icon:  swift
 
 tldr: http://danielsaidi.com/blog/2019/01/29/async-operations-bitesized
@@ -68,7 +68,6 @@ If promises and async/await doesn't appeal to you, you could take a look at obse
 ### ProcedureKit
 
 I found [ProcedureKit]({{page.procedurekit}}) after writing the first version of post. It seems well designed and well maintained, with nice documentations and great examples. Not a lot of stars, but it's been going strong for several years, so it may be worth checking out.
-
 
 
 ## Building it yourself

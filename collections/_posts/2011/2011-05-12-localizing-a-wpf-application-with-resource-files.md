@@ -2,6 +2,7 @@
 title: Localizing a WPF application with resource files
 date:  2011-05-12 12:00:00 +0100
 tags:  .net localization
+icon:  dotnet
 ---
 
 This post will show you how to localize a WPF application that consists of a 

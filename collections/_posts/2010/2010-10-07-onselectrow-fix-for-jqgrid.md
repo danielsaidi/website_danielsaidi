@@ -2,6 +2,7 @@
 title: onSelectRow fix for jqGrid
 date:  2010-10-07 12:00:00 +0100
 tags:  javascript jquery web
+icon:  javascript
 ---
 
 I love the [jqGrid jQuery plugin](http://www.trirand.com/blog/). If you haven't

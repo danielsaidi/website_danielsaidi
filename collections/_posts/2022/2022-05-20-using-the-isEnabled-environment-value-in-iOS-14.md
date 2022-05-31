@@ -4,9 +4,9 @@ date:   2022-05-20 10:00:00 +0000
 tags:   swiftui
 
 icon:   swiftui
-tweet:  https://twitter.com/danielsaidi/status/1527690267360378881?s=20&t=PiJnnQfR8Ta3V-NP2TU-sQ
-
 assets: /assets/blog/2022/2022-05-20/
+
+tweet:  https://twitter.com/danielsaidi/status/1527690267360378881?s=20&t=PiJnnQfR8Ta3V-NP2TU-sQ
 ---
 
 SwiftUI is amazing, but has a history of seriously buggy behavior. Even if you follow the documentation and your code compiles, you must still verify that it actually works if you target older iOS versions. As an example, let's take a look at using the `isEnabled` environment value with custom button styles.

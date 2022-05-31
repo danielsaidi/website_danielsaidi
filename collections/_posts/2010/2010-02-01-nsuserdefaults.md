@@ -1,7 +1,8 @@
 ---
-title: "NSUserDefaults"
+title: NSUserDefaults
 date:  2010-02-01 12:00:00 +0100
 tags:  ios objc
+icon:  swift
 ---
 
 As I've started to look into iOS development, I have created a test app with a tab

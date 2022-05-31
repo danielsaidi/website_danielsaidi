@@ -1,7 +1,8 @@
 ---
 title: Swift return statements and line breaks
 date:  2014-09-10 20:00:00 +0100
-tags:  ios swift
+tags:  swift
+icon:  swift
 ---
 
 I'm currently porting some iOS games from Objective-C to Swift. While doing this, 

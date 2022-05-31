@@ -2,7 +2,7 @@
 title: How to use view controller delegation in SwiftUI
 date:  2020-01-31 12:00:00 +0100
 tags:  swiftui uikit
-icon:  swift
+icon:  swiftui
 ---
 
 Presenting UIKit view controllers in SwiftUI is simple, but things become more complicated when they communicate through delegation. In this post, we'll look at a way to solve this.

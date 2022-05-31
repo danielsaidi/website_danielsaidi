@@ -2,6 +2,7 @@
 title: iPad Pro production setup
 date:  2018-12-28 10:00:00 +0100
 tags:  git github jekyll
+icon:  swift
 
 jekyll: https://jekyllrb.com
 markdown: https://daringfireball.net/projects/markdown

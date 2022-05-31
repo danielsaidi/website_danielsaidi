@@ -2,6 +2,7 @@
 title:  Windows Vista, Visual Studio 2008 and IIS7
 date:   2009-01-28 15:12:00 +0100
 tags: 	.net
+icon:   dotnet
 ---
 
 After upgrading to Windows Vista, I've had many problems with running Visual Studio

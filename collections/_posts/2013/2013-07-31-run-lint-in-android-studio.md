@@ -2,7 +2,6 @@
 title: Run Lint in Android Studio
 date:  2013-07-31 14:29:00 +0100
 tags:  android lint
-
 image: /assets/blog/2013/2013-08-05-android.png
 
 linting: https://en.wikipedia.org/wiki/Lint_(software)

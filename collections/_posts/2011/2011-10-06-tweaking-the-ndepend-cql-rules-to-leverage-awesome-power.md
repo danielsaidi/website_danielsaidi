@@ -1,7 +1,8 @@
 ---
 title: Tweaking NDepend CQL rules
 date:  2011-10-06 12:00:00 +0100
-tags:  .net ndepend
+tags:  .net code-quality
+icon:  dotnet
 ---
 
 After learning on how to automate and schedule NDepend to run for several .NET

@@ -1,9 +1,9 @@
 ---
 title:  Presenting a SwiftUI view from DocumentGroup
 date:   2022-05-16 10:00:00 +0000
-tags:   swiftui
+tags:   swiftui document-apps
 
-icon:   swiftui document-group
+icon:   swiftui
 
 tweet:  https://twitter.com/danielsaidi/status/1526212709338988545?s=20&t=c-v01r2HDFnL3BfXzlKa5w
 ---

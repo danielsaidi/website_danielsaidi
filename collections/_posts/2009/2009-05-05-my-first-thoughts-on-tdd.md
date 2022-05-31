@@ -2,6 +2,7 @@
 title: My first thoughts on TDD
 date:  2009-05-05 13:16:00 +0100
 tags:  testing
+icon:  avatar
 ---
 
 After an interesting conference talk on Test and Behavior Driven Development (TDD 

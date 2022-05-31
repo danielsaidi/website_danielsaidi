@@ -1,7 +1,8 @@
 ---
 title: Add placeholder support to UITextView
 date:  2017-11-01 00:01:00 +0100
-tags:  ios swift
+tags:  swift uikit
+icon:  swift
 ---
 
 This post will show you how to apply the `UITextField` placeholder behavior to a

@@ -2,6 +2,7 @@
 title: DataAnnotations and MetadataType fails in unit tests
 date:  2010-07-05 12:00:00 +0100
 tags:  .net c# entity-framework testing
+icon:  dotnet
 ---
 
 This post describes how to solve the problem that model validation will not work

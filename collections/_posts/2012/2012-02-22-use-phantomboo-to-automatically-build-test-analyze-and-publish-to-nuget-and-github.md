@@ -2,6 +2,7 @@
 title: Use Phantom/Boo to build, test and publish to NuGet and GitHub
 date:  2012-02-22 12:00:00 +0100
 tags:  .net continuous-integration git
+icon:  dotnet
 ---
 
 When building open-source, I used to handle the release process manually. Since

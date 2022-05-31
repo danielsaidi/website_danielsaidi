@@ -1,7 +1,8 @@
 ---
 title: Auto-increment Build Number in Xcode
 date:  2013-08-23 11:48:00 +0100
-tags:  ios xcode
+tags:  xcode
+icon:  swift
 
 script: http://stackoverflow.com/questions/9258344/xcode-better-way-of-incrementing-build-number
 ---

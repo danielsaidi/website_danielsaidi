@@ -2,6 +2,7 @@
 title: New legal label in MKMapView
 date:  2013-04-15 21:29:00 +0100
 tags:  ios objc geo
+icon:  swift
 ---
 
 I'm using Google Maps in a couple of iOS apps. Or, at least I was before Apple 

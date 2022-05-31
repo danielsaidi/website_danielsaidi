@@ -2,7 +2,6 @@
 title: Android Glossary
 date:  2013-07-31 13:29:00 +0100
 tags:  android
-
 image: /assets/blog/2013/2013-08-05-android.png
 ---
 

@@ -2,6 +2,7 @@
 title: Am I writing bad tests?
 date:  2011-10-08 12:00:00 +0100
 tags:  .net testing
+icon:  dotnet
 ---
 
 To grow as a developer, there's nothing better than to invite others to criticize

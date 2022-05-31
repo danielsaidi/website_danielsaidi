@@ -2,6 +2,7 @@
 title: ConstraintException is thrown when posting empty data for non-nullable properties
 date:  2010-07-05 12:00:00 +0100
 tags:  .net entity-framework
+icon:  dotnet
 ---
 
 I am working with model validation in .NET, Entity Framework 4, `DataAnnotations` and

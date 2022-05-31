@@ -2,6 +2,7 @@
 title: Reload DNX whenever a file changes
 date:  2015-12-17 20:39:00 +0100
 tags:  .net
+icon:  dotnet
 ---
 
 I'm currently developing a console app in .NET Core on my Mac. It's a rather nice

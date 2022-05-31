@@ -1,7 +1,8 @@
 ---
-title:  "Print screen in BootCamp using an Apple keyboard"
-date:   2011-07-07 12:00:00 +0100
-tags: 	macos
+title: Print screen in BootCamp using an Apple keyboard
+date:  2011-07-07 12:00:00 +0100
+tags:  macos
+icon:  avatar
 ---
 
 I have started to boot up Windows directly from my BootCamp partition on my iMac

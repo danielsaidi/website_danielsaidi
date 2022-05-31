@@ -1,8 +1,7 @@
 ---
 title:  Distributing closed-source frameworks with SPM
 date:   2021-02-15 07:00:00 +0100
-tags:   swift xcode spm
-
+tags:   article swift xcode spm open-source closed-source
 icon:   swift
 
 keyboardkit: https://github.com/danielsaidi/KeyboardKit

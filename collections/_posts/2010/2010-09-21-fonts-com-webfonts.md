@@ -2,6 +2,7 @@
 title: Fonts.com web fonts
 date:  2010-09-21 12:00:00 +0100
 tags:  typography css web
+icon:  avatar
 ---
 
 The time has finally come to throw Arial and Verdana into the trash (Helvetica

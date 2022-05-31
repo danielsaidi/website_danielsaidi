@@ -2,6 +2,7 @@
 title: Spotify background playback problem on iOS
 date:  2011-01-21 12:00:00 +0100
 tags:  ios
+icon:  avatar
 ---
 
 Sometimes, Spotify stops being able to play music on iOS when it's sent

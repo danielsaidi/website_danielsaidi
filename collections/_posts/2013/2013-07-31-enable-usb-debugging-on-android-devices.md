@@ -2,7 +2,6 @@
 title: Enable USB Debugging on Android Devices
 date:  2013-07-31 12:19:00 +0100
 tags:  android
-
 image: /assets/blog/2013/2013-08-05-android.png
 ---
 
