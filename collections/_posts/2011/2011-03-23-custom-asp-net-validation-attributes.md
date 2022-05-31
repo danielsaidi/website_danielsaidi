@@ -1,7 +1,7 @@
 ---
 title: Custom ASP.NET validation attributes
 date:  2011-03-23 12:00:00 +0100
-tags:  .net c# web validation
+tags:  .net c# web
 icon:  dotnet
 ---
 

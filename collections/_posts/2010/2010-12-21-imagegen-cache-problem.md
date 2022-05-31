@@ -1,7 +1,7 @@
 ---
 title: ImageGen Cache Problem
 date:  2010-12-21 12:00:00 +0100
-tags:  .net umbraco
+tags:  .net
 icon:  dotnet
 
 post:   http://our.umbraco.org/projects/website-utilities/imagegen/imagegen-bugs/2982-%5BUPDATE%5D-Fix-to-caching-bug-in-201
