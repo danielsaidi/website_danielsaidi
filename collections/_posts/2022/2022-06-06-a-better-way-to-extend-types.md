@@ -50,13 +50,13 @@ public protocol PasteboardImageReader {
 We can then make both `UIPasteboard` and `NSPasteboard` conform to this protocol:
 
 ```swift
-#if canImport(UIKit)
+#if os(iOS)
 import UIKit
 
 extension UIPasteboard: PasteboardImageReader {}
 #endif
 
-#if canImport(AppKit)
+#if os(macOS)
 import AppKit
 
 extension NSPasteboard: PasteboardImageReader {}

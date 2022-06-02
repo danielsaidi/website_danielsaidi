@@ -1,6 +1,6 @@
 ---
 title:  Mastering rich text attributes in UIKit, AppKit and SwiftUI
-date:   2022-07-02 06:00:00 +0000
+date:   2025-07-02 06:00:00 +0000
 tags:   article rich-text swift swiftui uikit appkit
 
 icon:   swiftui
