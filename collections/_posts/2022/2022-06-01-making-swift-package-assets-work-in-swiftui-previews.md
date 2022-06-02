@@ -1,6 +1,6 @@
 ---
-title:  Making Swift package assets work in external SwiftUI previews
-date:   2022-06-02 10:00:00 +0000
+title:  Making Swift package assets work in SwiftUI previews
+date:   2022-06-01 01:00:00 +0000
 tags:   swiftui swift spm swiftgen
 
 icon:   swiftui
@@ -11,12 +11,12 @@ swiftgen:   https://github.com/SwiftGen/SwiftGen
 ---
 
 
-In this post, we'll take a look at how we can get colors, images and other assets that are defined in Swift packages to work in external SwiftUI previews, such as in an app project.
+In this post, we'll take a look at how we can get colors, images and other assets that are defined in Swift packages to work in external SwiftUI previews, such as in an app.
 
 
 ## Background
 
-Swift packages make it very easy to share assets, such as colors and images, as well as files, such as fonts. Just add resources to a package folder and specify the folder in the package definition file:
+Swift packages make it very easy to share assets, such as colors and images, as well as files, e.g. fonts. Just add resources to a package folder and specify the folder in the package definition file:
 
 ```swift
 // swift-tools-version: 5.6
@@ -43,16 +43,16 @@ let package = Package(
 )
 ```
 
-When you define resources, the package will generate a `.module` bundle that you can use to access any embedded assets and resources. Tools like [SwiftGen]({{page.swiftgen}}) also use this bundle to access resources.
+When you define resources for a package, the package will generate a `.module` bundle that you can use to access any embedded assets and resources. Tools like [SwiftGen]({{page.swiftgen}}) also use this bundle to access resources from the package.
 
-However, while this works great within the package itself, such as in package previews, Swift will not be able to use the `.module` bundle in external previews, due to its lacking capabilities to locate the bundle while in preview mode. If another package or an app uses the package, any previews that refer to the package assets in any way will crash.
+However, while this works great within the package, SwiftUI is currently not able to use the `.module` bundle in external previews. Any previews that refer to external package assets in any way will crash.
 
-This is most likely a bug, rather than the intended behavior, and is discussed in great detail [here]({{page.article1}}) and [here]({{page.article2}}). The proposed and currently working solution is to create a custom bundle extension, that adds some missing ways to resolve the bundle when it's being used in a preview.
+This bug is discussed in great detail [here]({{page.article1}}) and [here]({{page.article2}}), where [Skyler_S](https://developer.apple.com/forums/profile/Skyler_S) and [Jeremy Gale](https://hashnode.com/@jgale) proposes creating a custom bundle that adds additional ways to resolve a bundle when it's being used in a SwiftUI preview.
 
 
 ## Creating a custom bundle
 
-Let's solve this problem by defining a custom package bundle. First, extend `Bundle` with a class that we can use to find the package:
+To create this custom bundle, lets first extend `Bundle` with a private class that the package can use to find the package bundle:
 
 ```swift 
 extension Bundle {
@@ -61,8 +61,7 @@ extension Bundle {
 }
 ```
 
-We then have to define the name of the package. This could change in every new version of Xcode, so make sure to test it whenever a new version of Xcode is released.
-
+We then have to define the package name. The pattern used to be `LocalPackages_<ModuleName>` for iOS, but the new format is:
 
 ```swift 
 extension Bundle {
@@ -71,7 +70,7 @@ extension Bundle {
 }
 ```
 
-The name convention used to be `LocalPackages_<ModuleName>` for iOS, but it may change at any time. If it stops working, you can print out the path like this and look for the bundle name in the print:
+This can however change in new Xcode versions, so make sure to test it when a new version of Xcode is released. If it stops working, you can print out the path like this and look for the bundle name:
 
 ```swift
 Bundle(for: BundleFinder.self)
@@ -80,9 +79,9 @@ Bundle(for: BundleFinder.self)
     .deletingLastPathComponent()
 ```
 
-Also note that the name pattern above may be different for macOS.
+Also note that the name pattern above may be different for macOS, but you should then just be able to add an `#if os(macOS)` check and return another value.
 
-We can now define a custom bundle, which will look for the package bundle in more places than the generated `.module` bundle:
+We can now define a custom bundle that will look for the bundle in more places than `.module` does:
 
 ```swift
 public static let myPackage: Bundle = {
@@ -117,7 +116,7 @@ public static let myPackage: Bundle = {
 }()
 ```
 
-That's it! If you now use the `.myPackage` bundle instead of `.module`, external previews should work as well. If they don't, you can use the techniques above to find out why they don't.
+With this new bundle in place, you can now use the `.myPackage` bundle instead of `.module` to make external previews work. If they start crashing again, you can use the technique above to find out why.
 
 
 ## Using our custom bundle in SwiftGen
@@ -148,11 +147,11 @@ xcassets:
         bundle: Bundle.myPackage
 ```
 
-If you now run `swiftgen` from the Terminal, the generated code should use the `myPackage` bundle instead of `.module`. Referring to your fonts and assets from external previews will now hopefully work.
+If you run `swiftgen`, the generated code should now use `.myPackage` instead of `.module` and any external previews that refer to these assets should render without crashes.
 
 
 ## Conclusion
 
-Adding assets to Swift packages is very easy and convenient, but currently have some bugs that make using them problematic. If you have faced these problems, I hope that you found this post helpful. 
+Adding assets to Swift packages is very easy and convenient, but SwiftUI currently have some bugs that make using them problematic. If you have these problems, I hope that this post was helpful. 
 
-Let's hope that the Swift package team is aware of this problem and that the upcoming changes at this year's WWDC will finally provide a fix for it.
+Let's hope that the Swift package team is aware of this problem and that the upcoming changes at this year's WWDC will finally provide a fix for it and make this post obsolete.
