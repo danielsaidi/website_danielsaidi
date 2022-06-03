@@ -1,14 +1,16 @@
 ---
 title:  Getting images from the AppKit pasteboard
-date:   2022-06-03 10:00:00 +0000
-tags:   swift appkit
+date:   2022-06-03 8:00:00 +0000
+tags:   swift uikit appkit
 
 icon:   swift
 ---
 
-In this post, we'll take a quick look at how we can fetch images from `NSPasteboard`, which lacks a lot of functionality compared to `UIPasteboard`.
+In this post, we'll take a quick look at how we can fetch images from the AppKit `NSPasteboard`, which lacks a lot of functionality compared to the UIKit `UIPasteboard`.
 
-Unlike `UIPasteboard`, the `NSPasteboard` in AppKit has no convenient way to fetch any images that the user has copied into the pasteboard. You can make it behave more like `UIPasteboard` by adding these two extensions to it:
+Unlike `UIPasteboard`, `NSPasteboard` has no convenient way to fetch images. Instead, you have to use `readObjects(forClasses:)` and cast the result to an `NSImage` array, which isn't ideal. 
+
+You can make `NSPasteboard` behave more like `UIPasteboard` by adding these two properties to it:
 
 ```swift
 import AppKit
