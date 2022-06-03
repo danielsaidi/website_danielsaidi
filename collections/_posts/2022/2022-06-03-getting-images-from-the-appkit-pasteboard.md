@@ -4,6 +4,8 @@ date:   2022-06-03 8:00:00 +0000
 tags:   swift uikit appkit
 
 icon:   swift
+
+tweet:  https://twitter.com/danielsaidi/status/1532695001959911427?s=20&t=oawr9-x9iAsexoKgphA6OA
 ---
 
 In this post, we'll take a quick look at how we can fetch images from the AppKit `NSPasteboard`, which lacks a lot of functionality compared to the UIKit `UIPasteboard`.
