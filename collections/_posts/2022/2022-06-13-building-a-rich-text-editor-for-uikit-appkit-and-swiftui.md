@@ -1,18 +1,22 @@
 ---
 title:  Building a rich text editor for UIKit, AppKit and SwiftUI
-date:   2025-07-01 06:00:00 +0000
+date:   2022-06-13 10:00:00 +0000
 tags:   article rich-text swift swiftui uikit appkit
 
 icon:   swiftui
 assets: /assets/blog/2022/2022-07-01/
 
-oribi:         https://www.oribi.se/en
-oribi-writer:  https://oribi.se/en/apps/oribi-writer/
-okeyboard:     https://oribi.se/en/apps/okeyboard/
-richtextkit:   https://github.com/danielsaidi/RichTextKit
+tweet:  https://twitter.com/danielsaidi/status/1532836356900237313?s=20&t=lkHbVZyPQE3MIG6dA8bw0g
+
+article:        https://cindori.com/developer/building-rich-text-editor
+oribi:          https://www.oribi.se/en
+oribi-writer:   https://oribi.se/en/apps/oribi-writer/
+richtextkit:    https://github.com/danielsaidi/RichTextKit
 ---
 
 In this post, we'll look at how to build a rich text editor for UIKit, AppKit and SwiftUI. We'll extend native types to extend the foundation support for rich text, create new types to bridge the various platforms and make sure that we have a basic, working foundation that we can expand in future posts.
+
+This blog post was originally posted as a guest article at the [Cindory website]({{page.article}}). This post will be used as baseline for future posts about rich text editing, and will link to any new articles in the same series.
 
 
 ## Background
