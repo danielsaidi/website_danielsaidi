@@ -20,6 +20,14 @@ Link to this from master post...
 NSAttributedString+Format, Rtf, Archive etc.
 
 
+Mer saker:
+ - Bilder
+ - Scrolla till range
+ - Attachments
+
+
+
+
 
 ## Conclusion
 

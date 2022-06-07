@@ -4,9 +4,14 @@ date:   2022-06-06 10:00:00 +0000
 tags:   swift multi-platform uikit appkit
 
 icon:   swift
+
+tweet:  https://twitter.com/danielsaidi/status/1534121018716999681?s=20&t=HuAkOPV9JSNSw7eWgtmaVQ
 ---
 
 In this post, we'll take a quick look at a better way to extend types in Swift, to make the extensions more versatile and discoverable.
+
+
+## Background
 
 Extensions are convenient and common ways to extend types in Swift. In Swift, extensions are even the core of various coding styles, for instance to separate public and private members, encapsulate protocol implementations etc.
 
