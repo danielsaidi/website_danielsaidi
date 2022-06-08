@@ -4,6 +4,7 @@ date:   2022-06-08 01:00:00 +0000
 tags:   swiftui tvos
 
 image:  /assets/blog/2022/2022-06-08/image.jpg
+tweet:  https://twitter.com/danielsaidi/status/1534436700344164352?s=20&t=FH9px9RehnPiSAQmZMizQg
 
 post:   https://danielsaidi.com/blog/2020/12/09/building-a-tvos-app-in-swiftui
 demo:   https://twitter.com/danielsaidi/status/1534413867648000000?s=20&t=0v0mkS3sNxXNptr_rBafmA
