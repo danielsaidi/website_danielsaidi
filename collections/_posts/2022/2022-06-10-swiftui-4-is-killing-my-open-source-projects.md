@@ -21,7 +21,7 @@ One example of a great new feature is that the resizable sheets that were added 
 
 This is more or less exactly what I did in my [BottomSheet]({{page.bottomsheet}}) library, which was based on [Majid Jabrayilov's]({{page.mecid}}) sample code that he posted in [this great blog post]({{page.mecid-post}}) in 2019. This means that with SwiftUI 4, BottomSheet will no longer be needed, although there is still a use for it if your app targets iOS 15 and earlier.
 
-There are also a bunch of new features that replace utilities and extensions that I have in my [SwiftUIKit]({{page.swiftuikit}}) library, which means that I will have to deprecate this functionality as well, and point users to these new, native additions in SwiftUI. This is all good, since the less we have to implement ourselves, the better. 
+There are also a bunch of new features that replace utilities and extensions that I have in my [SwiftUIKit]({{page.swiftuikit}}) library. For instance, the `ShareSheet` will be replaced with the new, native `ShareLink`. This means that I'll have to deprecate this kind of now obsolete functionality in this library as well, and point users to these new, native additions. This is all good, since the less we have to implement ourselves, the better. 
 
 However, I now consider how to best deprecate the obsolete functionality. I could use the `@available` attribute and instruct developers to use the native SwiftUI functionality instead, but that would be really annoying for people who still depend on these deprecated parts in apps that target iOS 15 and earlier, since using deprecated logic will generate build warnings.
 
