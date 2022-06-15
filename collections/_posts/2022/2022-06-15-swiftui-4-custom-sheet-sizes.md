@@ -4,6 +4,7 @@ date:   2022-06-15 01:00:00 +0000
 tags:   swiftui open-source
 
 icon:   swiftui
+tweet:  https://twitter.com/danielsaidi/status/1537032522365812736?s=20&t=6cXx2n4Jpm6UDJR8dxPZNg
 
 article: https://danielsaidi.com/blog/2022/06/10/swiftui-4-is-killing-my-open-source-projects
 bottomsheet: https://github.com/danielsaidi/BottomSheet
@@ -76,7 +77,7 @@ The sheet will still be draggable between sizes, but the handle will be hidden. 
 
 ## Disabling interactive dismissal
 
-If you want to support multiple sheet sizes, but still want the sheet to be nin-dismissable, you can use the `.interactiveDismissDisabled` modifier:
+If you want to support multiple sheet sizes, but still want the sheet to be non-dismissable, you can use the `.interactiveDismissDisabled` modifier:
 
 ```swift
 struct MyView: View {
