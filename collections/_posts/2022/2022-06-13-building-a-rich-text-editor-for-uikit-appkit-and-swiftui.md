@@ -4,7 +4,7 @@ date:   2022-06-13 01:00:00 +0000
 tags:   article rich-text swift swiftui uikit appkit
 
 icon:   swiftui
-assets: /assets/blog/2022/2022-07-01/
+assets: /assets/blog/2022/2022-06-13/
 
 tweet:  https://twitter.com/danielsaidi/status/1532836356900237313?s=20&t=lkHbVZyPQE3MIG6dA8bw0g
 
