@@ -13,9 +13,6 @@
 
 
 
-- name: BottomSheet
-  url: https://github.com/danielsaidi/BottomSheet
-
 - name: DeckKit
   url: https://github.com/danielsaidi/DeckKit
 
@@ -30,6 +27,9 @@
 
 - name: Sheeeeeeeeet
   url: https://github.com/danielsaidi/Sheeeeeeeeet
+
+- name: StoreKitPlus
+  url: https://github.com/danielsaidi/StoreKitPlus
 
 - name: SystemNotification
   url: https://github.com/danielsaidi/SystemNotification
