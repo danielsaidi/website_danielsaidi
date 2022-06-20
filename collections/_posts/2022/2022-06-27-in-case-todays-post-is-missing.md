@@ -1,6 +1,6 @@
 ---
 title:  In case today's post is missing
-date:   2022-06-24 08:00:00 +0000
+date:   2022-06-27 08:00:00 +0000
 tags:   general
 
 icon:   blog
