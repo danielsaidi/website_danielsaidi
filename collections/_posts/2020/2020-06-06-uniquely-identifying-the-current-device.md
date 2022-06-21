@@ -1,7 +1,7 @@
 ---
 title: Uniquely identify the current device
 date:  2020-06-06 10:00:00 +0100
-tags:  swift keychain
+tags:  swift keychain device
 icon:  swift
 
 lib:    https://github.com/danielsaidi/SwiftKit
