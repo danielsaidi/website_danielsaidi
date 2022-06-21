@@ -5,6 +5,7 @@ tags:   article swiftui sheet
 
 icon:   swiftui
 assets: /assets/blog/2022/2022-06-21/
+tweet:  https://twitter.com/danielsaidi/status/1539343541155028993?s=20&t=mIWJ4rucrEUZSxr9gkm6MA
 
 article:    https://danielsaidi.com/blog/2022/06/15/swiftui-4-custom-sheet-sizes
 swiftuikit: https://github.com/danielsaidi/SwiftUIKit
