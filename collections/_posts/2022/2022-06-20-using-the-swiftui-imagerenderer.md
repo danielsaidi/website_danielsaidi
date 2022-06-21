@@ -1,10 +1,11 @@
 ---
 title:  Using the SwiftUI 4 ImageRenderer
 date:   2022-06-20 08:00:00 +0000
-tags:   swiftui
+tags:   swiftui imagerenderer
 
 icon:   swiftui
 assets: /assets/blog/2022/2022-06-20/
+tweet:  https://twitter.com/danielsaidi/status/1539211313267806208?s=20&t=SN3bYVnuIDihKECT4Vqfsg
 
 swiftuikit: https://github.com/danielsaidi/SwiftUIKit
 ---
