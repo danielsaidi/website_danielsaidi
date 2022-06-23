@@ -1,5 +1,5 @@
 ---
-title:  SwiftUI scrolling finally works on tvOS
+title:  SwiftUI scrolling finally works in tvOS 16
 date:   2022-06-08 01:00:00 +0000
 tags:   swiftui tvos
 
@@ -33,7 +33,7 @@ One example where SwiftUI ended up costing me both time and money, was the first
 
 So, there I was - building a tvOS app for SwiftUI! I started building the domain logic, api integration etc. and then started working on the UI...just to notice that the scrolling was off. Scrolling with `HStack`, `VStack` (and in SwiftUI 2), `LazyHStack`, `LazyVStack`, `LazyHGrid`, `LazyVGrid` just didn't work. The scrolling was lagging so badly that the whole project was in jeopardy.
 
-I finally solved this by wrapping a UIKit `UIScrollView` in SwiftUI, which I describe in [this article]({{page.article}}). It was not ideal, but did let me ship the app with minimal changes to the overall architecture. The app was well received by the users and later ported to iOS and iPadOS, where SwiftUI did deliver on its promise and let me create these new apps quickly, building on the same foundation as the tvOS app.
+I finally solved this by wrapping a UIKit `UIScrollView` in SwiftUI, which I describe in [this article]({{page.post}}). It was not ideal, but did let me ship the app with minimal changes to the overall architecture. The app was well received by the users and later ported to iOS and iPadOS, where SwiftUI did deliver on its promise and let me create these new apps quickly, building on the same foundation as the tvOS app.
 
 Apple have never mentioned these problems or recognized them in my bug reports, but I eventually got confirmation during last year's WWDC labs, that the problem does originate from the framework, and not from my code. I'd like for Apple to communicate these limitations, instead of letting each developer find it out the hard way and go through so many hours of trial and error, debugging and workarounds.
 
