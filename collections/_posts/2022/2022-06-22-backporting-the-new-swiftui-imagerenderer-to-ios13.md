@@ -5,6 +5,7 @@ tags:   swiftui imagerenderer
 
 icon:   swiftui
 assets: /assets/blog/2022/2022-06-22/
+tweet:  https://twitter.com/danielsaidi/status/1539875509814935552?s=20&t=eoAA2uzGrsotG6V9s3-PFQ
 
 article: http://danielsaidi.com/blog/2022/06/20/using-the-swiftui-imagerenderer
 matt: https://twitter.com/mattie
@@ -62,7 +63,7 @@ When backporting `ImageRenderer` to iOS 13, we first need to make sure that we o
 
 However, there doesn't seem to be a convenient way to make a type unavailable for a certain upper os version. `if #unavailable(iOS 16)` check doesn't work, since it causes a `"Statements are not allowed at the top level"` warning for types, and there's no `@unavailable` attribute.
 
-To work around this, [Matt Massicotte]({{page.matt}}) has written a great [post]({{page.matt-article}}), in which he suggests using a `compiler` check instead, which lets us check the version of the Swift compiler. Since the native `ImageRenderer` is available in SwiftUI 4 and Xcode 14, we can make our own renderer unavailable in iOS 5.7 and later.
+To work around this, [Matt Massicotte]({{page.matt}}) has written a great [post]({{page.matt-article}}), in which he suggests using a `compiler` check instead, which lets us check the version of the Swift compiler. Since the native `ImageRenderer` is available in SwiftUI 4 and Xcode 14, we can make our own renderer unavailable in Swift 5.7 and later.
 
 ```swift
 #if os(iOS) && compiler(<5.7)
