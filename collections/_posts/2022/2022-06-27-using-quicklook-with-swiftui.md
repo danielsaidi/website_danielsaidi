@@ -5,6 +5,7 @@ tags:   swiftui quicklook
 
 icon:   swiftui
 assets: /assets/blog/2022/2022-06-27/
+tweet:  https://twitter.com/danielsaidi/status/1541363945465942016?s=20&t=pHrBeDbqn-sQh8qvy0pmCg
 ---
 
 SwiftUI is growing with every new release, but there are still old treasures to be found in various Apple frameworks, that aren't part of the core SwiftUI library. One example is `MapView` in MapKit, another is the amazing `quickLookPreview` view modifier in the QuickLook framework. Let's take a quick look.
