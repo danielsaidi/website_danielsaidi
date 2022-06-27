@@ -4,6 +4,7 @@ date:   2022-06-24 08:00:00 +0000
 tags:   article storekit open-source
 
 image: /assets/blog/headers/storekitplus.png
+tweet: https://twitter.com/danielsaidi/status/1541295027208556544?s=20&t=KLgrRJR_DDdJ70DjpNTB5Q
 
 storekitplus: https://github.com/danielsaidi/StoreKitPlus
 ---
