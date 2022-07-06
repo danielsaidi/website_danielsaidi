@@ -1,5 +1,5 @@
 ---
-title:  Resizing images in UIKit and AppKit
+title:  Multi-platform image resizing
 date:   2022-06-29 09:00:00 +0000
 tags:   uikit appkit multi-platform
 
