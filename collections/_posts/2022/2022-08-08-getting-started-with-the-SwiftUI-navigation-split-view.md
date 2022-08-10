@@ -81,7 +81,7 @@ extension ContentView {
     }
 
     @ViewBuilder
-    func mainContent(for screen: DemoScreen) -> some View {
+    func detailContent(for screen: DemoScreen) -> some View {
         switch screen {
         case .first: Button("First button") {}
         case .second: Button("Second button") {}
