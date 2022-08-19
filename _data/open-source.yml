@@ -34,6 +34,9 @@
 - name: SystemNotification
   url: https://github.com/danielsaidi/SystemNotification
 
+- name: TagKit
+  url: https://github.com/danielsaidi/TagKit
+
 - name: WebViewKit
   url: https://github.com/danielsaidi/WebViewKit
 
