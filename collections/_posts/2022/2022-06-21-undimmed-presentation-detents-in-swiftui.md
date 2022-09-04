@@ -17,6 +17,8 @@ tgrapperon: https://twitter.com/tgrapperon
 
 SwiftUI 4 adds a bunch of amazing features, such as custom sized sheets. However, the current sheets will always dim the underlying view when they are presented, even when they use a smaller size. Let's look at how to fix this.
 
+> Update 2022-09-04: I have been notified that the approach in this post now only works in the latest Xcode betas if `.large` is in the provided set of detents. Furthermore, I noticed that SwiftUI previews in the latest Xcode betas started crashing when they use this undimmed modifier. The post has been updated with a setup that doesn't cause a crash and the modifier now always adds `.large` to the provided set of detents, to ensure that undimming works. If you have any other ideas on how to make this work without inserting `.large`, please leave a comment or reply in [this thread]({{page.tweet}}).
+
 
 ## Background
 
@@ -78,14 +80,25 @@ extension View {
 }
 ```
 
-We will now create a `UIViewControllerRepresentable` that wraps a `UIHostingController` that in turn will manipulate the sheet presentation controller. Let's start with the hosting controller:
+We will now create a `UIViewControllerRepresentable` that wraps a `UIViewController` that in turn will manipulate the sheet presentation controller. 
+
+Let's start with the controller:
 
 ```swift
-class UndimmedDetentController<Content: View>: UIHostingController<Content> {
+class UndimmedDetentController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        avoidDimmingParent()
+        avoidDisablingControls()
+    }
+
+    func avoidDimmingParent() {
         sheetPresentationController?.largestUndimmedDetentIdentifier = .large
+    }
+
+    func avoidDisablingControls() {
+        presentingViewController?.view.tintAdjustmentMode = .normal
     }
 }
 ```
@@ -100,7 +113,7 @@ struct UndimmedDetentView: UIViewControllerRepresentable {
     var largestUndimmedDetent: PresentationDetent?
 
     func makeUIViewController(context: Context) -> UIViewController {
-        UndimmedDetentController(rootView: Color.clear)
+        UndimmedDetentController()
     }
 
     func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
@@ -108,7 +121,7 @@ struct UndimmedDetentView: UIViewControllerRepresentable {
 }
 ```
 
-The only thing this view controller representable does, is to return our custom controller, which means that it will affect the sheetp presentation controller when it's presented.
+The only thing this struct does is to return our custom controller, which will affect the sheet presentation controller when it's presented.
 
 Let's do this by updating the view extension that we defined earlier:
 
@@ -118,21 +131,61 @@ extension View {
     func presentationDetents(
         undimmed detents: Set<PresentationDetent>
     ) -> some View {
-        self.presentationDetents(detents)
-            .background(UndimmedDetentView())
+        self.background(UndimmedDetentView())
+            .presentationDetents(detents)
     }
 
     func presentationDetents(
-        undimmed detents: Set<PresentationDetent>, 
+        undimmed detents: Set<PresentationDetent>,
         selection: Binding<PresentationDetent>
     ) -> some View {
-        self.presentationDetents(detents, selection: selection)
-            .background(UndimmedDetentView())
+        self.background(UndimmedDetentView())
+            .presentationDetents(detents, selection: selection)
     }
 }
 ```
 
-Turns out that this fix actually works! If we now use `.presentationDetents(undimmed:)` instead of `.presentationDetents()` on our view, the underlying view will not be dimmed nor disabled.
+This used to work in earlier Xcode 14 betas, but doesn't work in the latest Xcode 14 betas, where `.large` must be in the provided detents set for undimming to work.
+
+To solve this, hopefully temporary, lets add a convenience extension that lets us add `.large` to the provided set:
+
+```swift
+extension Set where Element == PresentationDetent {
+
+    func withLarge() -> Set<PresentationDetent> {
+        var detent = self
+        detent.insert(.large)
+        return detent
+    }
+}
+```
+
+Then lets modify the view extensions to use this extension:
+
+```swift
+extension View {
+
+    func presentationDetents(
+        undimmed detents: Set<PresentationDetent>
+    ) -> some View {
+        self.background(UndimmedDetentView())
+            .presentationDetents(detents.withLarge())
+    }
+
+    func presentationDetents(
+        undimmed detents: Set<PresentationDetent>,
+        selection: Binding<PresentationDetent>
+    ) -> some View {
+        self.background(UndimmedDetentView())
+            .presentationDetents(
+                detents.withLarge(),
+                selection: selection
+            )
+    }
+}
+```
+
+Turns out that this actually works! If we now use `.presentationDetents(undimmed:)` instead of `.presentationDetents()` on our view, the underlying view will not be dimmed nor disabled. Hopefully, the large fix workaround is only temporarily needed.
 
 However, there is still one thing that we have to fix. Although the underlying view no longer gets dimmed nor disabled, it still *looks* disabled. The buttons are still greyed out, even though they can be tapped.
 
