@@ -10,6 +10,7 @@ tweet:  https://twitter.com/danielsaidi/status/1539343541155028993?s=20&t=mIWJ4r
 article:    https://danielsaidi.com/blog/2022/06/15/swiftui-4-custom-sheet-sizes
 swiftuikit: https://github.com/danielsaidi/SwiftUIKit
 
+edward:     https://twitter.com/edwardsainsbury 
 ericlewis:  https://twitter.com/ericlewis
 kzyryanov:  https://twitter.com/kzyryanov
 tgrapperon: https://twitter.com/tgrapperon
@@ -145,7 +146,7 @@ extension View {
 }
 ```
 
-This used to work in earlier Xcode 14 betas, but doesn't work in the latest Xcode 14 betas, where `.large` must be in the provided detents set for undimming to work.
+This worked in earlier Xcode 14 betas, but doesn't work in the latest ones, where [@edwardsainsbury]({{page.edward}}) discovered that you must now add `.large` to the provided detents set for undimming to work.
 
 To solve this, hopefully temporary, lets add a convenience extension that lets us add `.large` to the provided set:
 
@@ -185,7 +186,7 @@ extension View {
 }
 ```
 
-Turns out that this actually works! If we now use `.presentationDetents(undimmed:)` instead of `.presentationDetents()` on our view, the underlying view will not be dimmed nor disabled. Hopefully, the large fix workaround is only temporarily needed.
+Not, this actually works! If we now use `.presentationDetents(undimmed:)` instead of `.presentationDetents()` on our view, the underlying view will not be dimmed nor disabled. Hopefully, the large fix workaround is only temporarily needed.
 
 However, there is still one thing that we have to fix. Although the underlying view no longer gets dimmed nor disabled, it still *looks* disabled. The buttons are still greyed out, even though they can be tapped.
 
