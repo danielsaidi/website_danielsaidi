@@ -1,11 +1,18 @@
-# Important information
+# About this website
+
+This repository contains the [website][Website] for the Wally app for iOS.
+
+
+## Run website
+
+To run the website with live reload, run `bash run.sh` or `bash run-incremental.sh`.
+
+
+## Device resources
+
+Make sure to continously update the home page device hero with the latest resources from [Apple's Marketing Resources and Identity Guidelines][Apple-marketing].
 
 
 
-## Syntax highlighting
-
-Tp preview themes, visit [this page](`https://spsarolkar.github.io/rouge-theme-preview/`)
-
-To see all available themes, run `rougify help style`.
-
-To copy a certain theme, run `rougify style THEME > assets/css/syntax.css`
+[Apple-marketing]: https://developer.apple.com/app-store/marketing/guidelines/#section-products
+[Website]: https://wally.app

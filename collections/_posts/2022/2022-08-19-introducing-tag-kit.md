@@ -14,7 +14,7 @@ tagkit:     https://github.com/danielsaidi/TagKit
 wally:      https://wally.app
 ---
 
-As I'm currently rewriting my old [Wally]({{page.wally}}) app from scratch for iOS 16 and SwiftUI 2, I'm adding a bunch of user requested features. One such feature is tagging, which will let users categorize their content. For reusability and sharing purposes, I've put all this tag-specific logic in a brand new, tiny package called [TagKit]({{page.tagkit}}). Let's take a look!
+As I'm currently rewriting my old [Wally]({{page.wally}}) app from scratch for iOS 16 and SwiftUI 4, I'm adding a bunch of user requested features. One such feature is tagging, which will let users categorize their content. For reusability and sharing purposes, I've put all this tag-specific logic in a brand new, tiny package called [TagKit]({{page.tagkit}}). Let's take a look!
 
 Tagging is used in many platforms and applications, and I’m happy to finally add it to Wally. Since I will probably add this to other apps, I decided to extract tag-related functionality from Wally and libraries like [SwiftKit]({{page.swiftkit}}) and [SwiftUIKit]({{page.swiftuikit}}), which is part of my long-term strategy to make these large libraries smaller, in favor for smaller and more focused libraries. If this can also help others out, that’s a great bonus!
 
