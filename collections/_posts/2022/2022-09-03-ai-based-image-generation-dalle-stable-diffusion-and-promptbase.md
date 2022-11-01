@@ -3,6 +3,7 @@ title:  AI-based image generation with DALL·E, Stable Diffusion and Promptbase
 date:   2022-09-03 00:00:00 +0000
 tags:   ai machine-learning dall-e stable-diffusion promptbase
 
+icon:   blog
 image:  https://i.imgur.com/06D3jgk.png
 
 assets: /assets/blog/2022/2022-09-03/

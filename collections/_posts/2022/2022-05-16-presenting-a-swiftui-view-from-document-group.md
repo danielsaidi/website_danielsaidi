@@ -1,7 +1,7 @@
 ---
 title:  Presenting a SwiftUI view from DocumentGroup
 date:   2022-05-16 10:00:00 +0000
-tags:   swiftui document-apps
+tags:   swiftui document-group
 
 icon:   swiftui
 

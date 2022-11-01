@@ -1,7 +1,7 @@
 ---
 title:  Using the SwiftUI 4 ImageRenderer
 date:   2022-06-20 08:00:00 +0000
-tags:   swiftui imagerenderer
+tags:   swiftui image-renderer
 
 icon:   swiftui
 assets: /assets/blog/2022/2022-06-20/

@@ -1,7 +1,7 @@
 ---
 title:  Introducing TagKit
 date:   2022-08-19 00:00:00 +0000
-tags:   article swift swiftui tagging 
+tags:   article swift swiftui tagging open-source
 
 image:  https://raw.githubusercontent.com/danielsaidi/TagKit/main/Resources/Logo_github.png
 demo:   https://github.com/danielsaidi/TagKit/raw/main/Resources/Demo.gif

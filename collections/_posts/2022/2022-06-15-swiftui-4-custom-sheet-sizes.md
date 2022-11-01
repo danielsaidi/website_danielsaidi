@@ -1,23 +1,23 @@
 ---
-title:  SwiftUI 4 custom sheet sizes
+title:  Custom sheet sizes in SwiftUI
 date:   2022-06-15 01:00:00 +0000
-tags:   swiftui sheet
+tags:   swiftui sheet presentation-detents
 
 icon:   swiftui
 tweet:  https://twitter.com/danielsaidi/status/1537032522365812736?s=20&t=6cXx2n4Jpm6UDJR8dxPZNg
 
-article: https://danielsaidi.com/blog/2022/06/10/swiftui-4-is-killing-my-open-source-projects
+article: https://danielsaidi.com/blog/2022/06/21/undimmed-presentation-detents-in-swiftui
 bottomsheet: https://github.com/danielsaidi/BottomSheet
 ---
 
-WWDC'22 introduced a bunch of amazing additions to SwiftUI, many of which will render many 3rd party libraries obsolete. One such addition is SwiftUI's new support for custom sheet sizes. Let's take a look at this amazing new feature.
+WWDC'22 introduced a bunch of amazing additions to SwiftUI, many of which will render many 3rd party libraries obsolete. One such addition is SwiftUI's upcoming support for custom sheet sizes.
 
 
 ## Background
 
 Until now, SwiftUI sheets have only supported a single, large size, where the parent view is pushed back and the sheet takes over most of the screen. When UIKit added support for custom sheet sizes last year, it wasn't added to SwiftUI.
 
-As such, custom sheets has been a popular problem for the community to solve, which is why we have a bunch of open-source projects for this, my own [BottomSheet]({{page.bottomsheet}}) library included. Many of these libraries will however no longer be needed, as SwiftUI gets support for custom sheet sizes in SwiftUI 4 and iOS 16.
+As such, custom sheets has been a popular problem for the community to solve, which is why we have a bunch of open-source projects for this, my own [BottomSheet]({{page.bottomsheet}}) library included. Many of these libraries will however no longer be needed when SwiftUI gets support for custom sheet sizes in SwiftUI 4 and iOS 16.
 
 
 ## Defining custom sheet sizes
@@ -46,9 +46,9 @@ struct MyView: View {
 
 This is easy to use and works very well. The view will get a drag handle that the user can pull to move a sheet between its available sizes. The animation is very smooth and the feature satisfying to use.
 
-Note that since the detents argument is a `Set`, adding multiple values of the same type will be ignored. If you for instance add two `.height` detents, only one is applied. Also, these custom sizes don't apply to iPad, where the sheet will still be presented as a centered modal window.
-
 If you define a single sheet size, the drag handle will disappear and the sheet become non-dismissable. The sheet will bounce in a playful manner when you drag it, but it will not resize to other sizes and can't be dismissed by swiping down the sheet. This is perfect for onboarding guides and mandatory dialogs.
+
+Note that these detents don't apply to iPad, where the sheet will still be presented as a centered window.
 
 
 ## Hiding the drag handle
@@ -72,7 +72,14 @@ struct MyView: View {
 }
 ```
 
-The sheet will still be draggable between sizes, but the handle will be hidden. I guess this could be useful if you want to create a custom handle that looks or behaves differently than the standard one.
+The sheet will still be draggable between sizes, but the handle will be hidden. I guess this can be useful if you want to create a custom handle that looks or behaves differently than the standard one.
+
+
+## Undimming the underlying view
+
+In UIKit, you can define the largest undimmed presentation detent. This can be used to create always on sheets that don't dim the underlying view, such as the Apple Maps overlay sheet.
+
+In SwiftUI, this is not yet possible with the native api:s. I have therefore written [an article]({{page.article}}) that describes how you can do this in SwiftUI as well, so please check it out if you need this.
 
 
 ## Disabling interactive dismissal

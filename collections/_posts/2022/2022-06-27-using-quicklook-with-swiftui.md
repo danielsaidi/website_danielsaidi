@@ -1,7 +1,7 @@
 ---
-title:  Using QuickLook with SwiftUI
+title:  Using QuickLook in SwiftUI
 date:   2022-06-27 08:00:00 +0000
-tags:   swiftui quicklook
+tags:   swiftui quick-look
 
 icon:   swiftui
 assets: /assets/blog/2022/2022-06-27/
