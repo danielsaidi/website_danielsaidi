@@ -1,7 +1,7 @@
 ---
 title: Case-sensitive String replace operations
 date:  2020-06-04 16:00:00 +0100
-tags:  swift
+tags:  swift extensions
 icon:  swift
 
 lib:    https://github.com/danielsaidi/SwiftKit
