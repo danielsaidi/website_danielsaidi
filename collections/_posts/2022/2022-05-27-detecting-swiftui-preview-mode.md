@@ -54,9 +54,6 @@ class StandardSwiftPreviewInspector: SwiftPreviewInspector {
 }
 ```
 
-
-
-
 ## Conclusion
 
 This was a short post, but I hope you found it helpful. You can find the source code in my [SwiftUIKit]({{page.swiftuikit}}) library. Feel free to try it out and let me know what you think.

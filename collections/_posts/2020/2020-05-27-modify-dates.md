@@ -1,7 +1,7 @@
 ---
 title: Modify dates in Swift
 date:  2020-05-27 22:00:00 +0100
-tags:  swift
+tags:  swift dates extensions
 icon:  swift
 
 lib:    https://github.com/danielsaidi/SwiftKit

@@ -1,7 +1,7 @@
 ---
 title: Automate setting up macOS
 date:  2018-08-26 17:28:01 +0200
-tags:	 article macos automation
+tags:	 automation macos
 icon:  avatar
 
 redirect_from: 

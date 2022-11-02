@@ -1,7 +1,7 @@
 ---
 title:  SF Symbols 4 variable colors
 date:   2022-06-17 01:00:00 +0000
-tags:   swiftui sf-symbols color
+tags:   swiftui sf-symbols colors
 
 assets: /assets/blog/2022/2022-06-17/
 image:  /assets/blog/2022/2022-06-17/image.jpg

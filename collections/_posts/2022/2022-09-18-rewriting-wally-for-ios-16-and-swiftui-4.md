@@ -1,7 +1,7 @@
 ---
 title:  Rewriting Wally for iOS 16 and SwiftUI 4
 date:   2022-09-19 00:00:00 +0000
-tags:   article swift swiftui spm testing storekit apps
+tags:   apps swift swiftui spm testing storekit iap subscriptions
 
 image:  /assets/blog/2022/2022-09-19/devices-leather.jpg
 assets: /assets/blog/2022/2022-09-19/

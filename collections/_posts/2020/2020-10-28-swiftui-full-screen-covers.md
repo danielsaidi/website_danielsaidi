@@ -1,7 +1,7 @@
 ---
 title: An easier way to manage full screen covers in SwiftUI
 date:  2020-10-28 20:00:00 +0100
-tags:  article swiftui sheet
+tags:  swiftui full-screen-cover
 icon:  swiftui
 
 lib:    https://github.com/danielsaidi/SwiftUIKit

@@ -1,7 +1,7 @@
 ---
 title: Building a video streaming app for tvOS in SwiftUI
 date:  2020-12-09 07:00:00 +0100
-tags:  article swiftui tvos
+tags:  apps swiftui tvos
 assets: /assets/blog/2020/2020-12-09/
 image:  /assets/blog/2020/2020-12-09/image.jpg
 

@@ -1,7 +1,7 @@
 ---
 title:  Making Xcode and SPM trust a private SSH server
 date:   2021-01-02 07:00:00 +0100
-tags:   xcode spm git
+tags:   spm xcode git
 assets: /assets/blog/2021/2021-01-12/
 ---
 

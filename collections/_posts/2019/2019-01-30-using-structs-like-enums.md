@@ -1,7 +1,7 @@
 ---
 title: Using structs like enums
 date:  2019-01-30 21:00:00 +0100
-tags:  article swift
+tags:  swift
 icon:  swift
 
 swift-docs: https://docs.swift.org        

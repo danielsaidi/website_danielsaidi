@@ -1,7 +1,7 @@
 ---
 title: An easier way to manage alerts in SwiftUI
 date:  2020-06-07 10:00:00 +0100
-tags:  article swiftui alert
+tags:  swiftui alert
 icon:  swiftui
 
 lib:    https://github.com/danielsaidi/SwiftUIKit

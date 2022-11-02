@@ -1,7 +1,7 @@
 ---
 title:  Building a WebView for iOS and macOS in SwiftUI
 date:   2022-04-24 08:00:00 +0100
-tags:   article swiftui uikit appkit multi-platform webview
+tags:   swiftui webview multi-platform uikit appkit
 
 assets: /assets/blog/2022/2022-04-24/
 image:  /assets/blog/2022/2022-04-24/image.jpg

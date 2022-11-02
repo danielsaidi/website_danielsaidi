@@ -1,7 +1,7 @@
 ---
 title: Create an SPM Package for SwiftUI
 date:  2020-01-05 12:00:00 +0100
-tags:  article swiftui swift spm
+tags:  spm swiftui swift
 icon:  swiftui
 ---
 

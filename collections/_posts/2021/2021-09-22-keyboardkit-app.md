@@ -1,7 +1,7 @@
 ---
 title:  Building the KeyboardKit app
 date:   2021-09-22 07:00:00 +0100
-tags:   article general
+tags:   apps
 icon:   avatar
 assets: /assets/blog/2021/2021-09-22/
 

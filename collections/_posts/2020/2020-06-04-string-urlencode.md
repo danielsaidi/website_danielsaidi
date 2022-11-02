@@ -1,7 +1,7 @@
 ---
 title: Url encode strings
 date:  2020-06-04 20:00:00 +0100
-tags:  swift api
+tags:  swift url-encode
 icon:  swift
 
 lib:    https://github.com/danielsaidi/SwiftKit

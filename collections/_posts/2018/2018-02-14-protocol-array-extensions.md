@@ -1,7 +1,7 @@
 ---
 title: Protocol array extensions not working
 date:  2018-02-14 08:00:00 +0100
-tags:  ios swift
+tags:  ios swift protocols extensions
 image: /assets/blog/2018/2018-02-14.png
 ---
 

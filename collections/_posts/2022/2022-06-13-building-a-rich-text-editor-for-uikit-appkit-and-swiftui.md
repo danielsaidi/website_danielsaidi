@@ -1,7 +1,7 @@
 ---
 title:  Building a rich text editor for UIKit, AppKit and SwiftUI
 date:   2022-06-13 01:00:00 +0000
-tags:   article rich-text swift swiftui uikit appkit open-source
+tags:   open-source rich-text swift swiftui multi-platform uikit appkit
 
 icon:   swiftui
 assets: /assets/blog/2022/2022-06-13/

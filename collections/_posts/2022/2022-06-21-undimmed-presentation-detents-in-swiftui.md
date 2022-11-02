@@ -1,7 +1,7 @@
 ---
 title:  Undimmed presentation detents in SwiftUI
 date:   2022-06-21 08:00:00 +0000
-tags:   article swiftui sheet presentation-detents
+tags:   swiftui sheet presentation-detents
 
 icon:   swiftui
 assets: /assets/blog/2022/2022-06-21/
