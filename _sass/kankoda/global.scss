@@ -1,0 +1,29 @@
+html, body {
+  color: $foreground;
+  background-color: $background;
+  width: 100%;
+}
+
+a {
+  transition: all 200ms ease-in-out, color 1s ease-out 100ms !important;
+}
+
+a, a:visited {
+  color: $link;
+  display: inline-block;
+}
+
+a:hover, a:visited:hover {
+  color: $link-hover;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+blockquote {
+  color: $foreground !important;
+  background-color: #fff3;
+}
+
+.home {
+  text-align: center;
+}

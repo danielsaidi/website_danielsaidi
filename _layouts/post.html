@@ -2,25 +2,21 @@
 layout: default
 ---
 
-<a href="/blog">Blog</a>
-<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-  {%- include blog/post-header.html post=page -%}
-
+<article class="blog post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  <a class="back-button">
+    Blog
+  </a>
+  <h1>
+    {{ page.title | escape }}
+    {% include kankoda/blog/post-header.html post=page %}
+  </h1>
   <div class="e-content" itemprop="articleBody">
     {{ content }}
-
-    {%- if page.tweet -%}
-    <h2>Discussion</h2>
-
-    <p>
-      I hope that you found this post interesting. I would love to 
-      hear your thoughts and feedback, so feel free to comment in
-      the Disqus section below or in <a href="{{page.tweet}}">this tweet</a>.
-    </p>
-    {%- endif -%}
   </div>
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
 
-{%- include disqus-card.html -%}
+{% include kankoda/disqus/disqus-card.html %}
+{% include kankoda/tags/scripts.html %}

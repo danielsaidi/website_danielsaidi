@@ -21,7 +21,7 @@ I’ll craft your body to a vessel for gods
 He will enter your void like the darkest of floods
 You’ll grant him life
 
-	You’ll grant me life
+"You’ll grant me life"
 
 You’ll bleed, you’ll scream, you’ll beg, you’ll cry
 I’ll do anything with you except to let you die
@@ -39,14 +39,14 @@ He’s coming alive
 An evil reborn in this world is now hiding inside
 He’s hiding inside
 
-	Bring me to life
+"Bring me to life"
 
 There’s nothing left to do
 There’s nothing left to say
 There’s no reason to pray
 Just accept that this ancient being is finally
 
-	Growing inside
+"Growing inside"
 
 There’s nothing left to do
 There’s no more skin nor flesh
@@ -54,7 +54,7 @@ Defleshed you are the vessel
 For the essence
 Years of waiting finally over as he’s
 
-	Coming alive
+"Coming alive"
 
 There’s nothing left to do
 There’s only waiting 
@@ -62,7 +62,7 @@ for the pain to make him stronger
 He will feed on all the feelings 
 that the blade has brought to life in you
 
-	Bring me to life!
+"Bring me to life!"
 
 Your flesh will heal, you’ll seem alive
 But your body now belongs to the other side
@@ -72,13 +72,20 @@ for the legions to be gathered for the end of times
 You may seem alone, but you’re just one
 There are many, many more like him left to come
 
-	One more time
+"One more time"
+
 One more time I’ll skin and deflesh to invite another from the other side
-	One more life
+
+"One more life"
+
 One more life I’ll prepare for the union with rulers of the other side
-	One more sacrifice
+
+"One more sacrifice"
+
 One more sacrifice I’ll offer as I open gateways to the other side
-	One more time
+
+"One more time"
+
 One more time I’ll skin and deflesh to invite the legions from the other side
 
 They’ll bleed, they’ll scream, they’ll beg, they’ll cry
@@ -88,7 +95,7 @@ It’s just another way for us to let them in
 You’re by my side as we dig deep
 You’re outside always smiling while your inside weeps
 
-	Bring us lives
+"Bring us lives"
 
 They’ll fill the ranks up one by one
 They’ll join us in the carving ’til the war is won
@@ -97,16 +104,16 @@ But their bodies only stand because of things we hid
 They seem like few, but they’re not all
 There are many, many more to come to heed the call
 
-	Bring use lives
+"Bring use lives"
 
-	Bring us alive
+"Bring us alive"
 
 There’s nothing left to do
 There’s nothing left to say
 There’s no reason to pray
 Just accept that these ancient beings are finally
 
-	Growing inside
+"Growing inside"
 
 There’s nothing left to do
 There’s no more skin nor flesh
@@ -114,7 +121,7 @@ Defleshed they are the vessel
 For the essence
 Years of waiting finally over as they’re
 
-	Coming alive
+"Coming alive"
 
 There’s nothing left to do
 There’s only waiting 
@@ -122,7 +129,7 @@ for the pain to make them stronger
 They will feed on all the feelings 
 that the blade has brought to life in them
 
-	Bring me to life!
+"Bring me to life!"
 
 They’ll fill the world up one by one
 Human carving human ’til the war is won
@@ -133,13 +140,20 @@ It’s time for ancient rulers to become their own
 No more resistance life, it was all in vain
 The only thing that’s left is never-ending pain
 
-	No more time
+"No more time"
+
 No more time to save this realm of skin from the being from other side
-	No more life
+
+"No more life"
+
 No more life is needed when this world is finally blending with the other side
-	No more sacrifice
+
+"No more sacrifice"
+
 No more sacrifice is needed as they cross the gateway from the other side
-	No more time
+
+"No more time"
+
 No more time will ever exist anymore, nevermore
 
 Through your eyes hung high you see the world starting to die

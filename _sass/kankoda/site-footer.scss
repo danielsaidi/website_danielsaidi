@@ -1,0 +1,55 @@
+.site-footer {
+  margin-top: 60px;
+  background-color: $footer-background;
+  border: 0 !important;
+  padding-top: 0;
+  text-align: center;
+
+  ul + p { 
+    margin: 20px; 
+  }
+
+  .row {
+    flex-wrap: wrap;
+    margin-bottom: 50px;
+  }
+
+  .column {
+    flex-basis: 25%;
+    
+    p {
+      font-weight: bold;
+    }
+
+    a {
+      font-weight: normal;
+      margin-bottom: 5px;
+    }
+
+    a:hover, a:visited:hover {
+      transform: translateX(2px);
+    }
+  }
+
+  .copyright {
+    text-align: center;
+  }
+
+  @media (max-width: 800px) {
+    .row {
+      margin-bottom: 0px;
+    }
+
+    .column { 
+      flex-basis: 100%;
+      margin-bottom: 30px;
+    }
+  }
+}
+
+.site-footer.paper {
+
+  hr {
+    margin-top: 0;
+  }
+}

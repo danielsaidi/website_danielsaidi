@@ -1,14 +1,12 @@
 $standard-margin: 20px;
 
-@import "site/global";
+@import "kankoda/_variables";
+@import "site/_variables";
+@import "kankoda/_styles";
 
-@import "site/blog";
-@import "site/code";
-@import "site/colors";
-@import "site/content";
-@import "site/grids";
+@import "site/global";
+@import "site/tags";
 @import "site/images";
-@import "site/lists";
 @import "site/music";
 @import "site/typography";
 

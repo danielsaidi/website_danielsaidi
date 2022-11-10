@@ -3,10 +3,12 @@ layout: default
 ---
 
 {%- assign app = site.data.apps | where:"name", page.name | first -%}
-{%- assign tags = app.tags | split:" " -%}
+{%- assign tags = app.tags | split: " " -%}
 
 <article>
-    <a href="/apps#{{ page.name | slugify }}"><h4>Apps</h4></a>
+    <a class="back-button" href="/apps#{{ page.name | slugify }}">
+      Apps
+    </a>
     <header>
       <h1>{{ app.name | escape }}</h1>
     </header>

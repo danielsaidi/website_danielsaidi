@@ -1,0 +1,35 @@
+.blog {
+
+  .list {
+
+    margin-top: 50px;
+
+    article + article {
+      margin-top: 50px;
+    }
+  }
+}
+
+.post-header {
+  font-size: small; 
+  font-weight: normal;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  color: $foreground-secondary !important;
+
+  .spacer {
+    margin: 5px;
+  }
+
+  .tag {
+    font-size: smaller; 
+    font-weight: normal;
+  }
+}
+
+.list {
+  
+  .post-header {
+    margin-top: -10px;
+  }
+}

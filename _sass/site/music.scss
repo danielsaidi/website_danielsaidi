@@ -1,9 +1,32 @@
+.lyrics {
+  line-height: 1.7em;
+  br { display: none; }
+  p br { display: inline; }
+  p { margin-bottom: $standard-margin; }
+}
+
+.grid.bands { 
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid.album {
+  
+  a, a:hover, a.title:hover, a:visited {
+    color: #F2C342;
+  }
+
+  h3 { margin-top: 0 }
+
+  .post-header {
+    margin-top: -10px;
+  }
+}
+
 .grid.album {
   grid-template-columns: 200px auto;
 
-  img.cover { margin: 0 }
-
   ol.tracks {
+    font-size: small;
     padding: 0;
     margin: 0;
 
@@ -28,18 +51,20 @@
 }
 
 .grid.album + .grid.album {
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 @media (max-width: 600px) {
+
+  .grid { 
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .grid.album {
     grid-template-columns: repeat(1, 1fr);
   }
-}
 
-.lyrics {
-  line-height: 1.7em;
-  br { display: none; }
-  p br { display: inline; }
-  p { margin-bottom: $standard-margin; }
+  .grid.bands { 
+    grid-template-columns: repeat(1, 1fr);
+  }
 }

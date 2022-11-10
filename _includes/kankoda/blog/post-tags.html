@@ -1,0 +1,7 @@
+{%- assign tags = include.tags -%}
+{%- if tags -%}
+  {%- for tag in tags -%}
+    {%- assign tag = tag | slugify -%}
+    <a href="javascript:showTag('{{ tag }}')" class="tag {{ tag }}">{{ tag }}</a>
+  {%- endfor -%}
+{%- endif -%}

@@ -6,28 +6,28 @@ layout: default
 {%- assign tags = work.tags | split:" " -%}
 
 <article>
-    <a href="/work#{{ page.name | slugify }}"><h4>Work</h4></a>
-    <header>
-      <h1>{{ work.name | escape }}</h1>
-    </header>
+  <a class="back-button" href="/work#{{ page.name | slugify }}">
+    Work
+  </a>
+  <h1>{{ work.name | escape }}</h1>
   
-    {{ content }}
+  {{ content }}
 
-    <hr />
+  <hr />
 
-    <h2>Links</h2>
+  <h2>Links</h2>
 
-    <ul>
-        {% if work.website %}
-        <li><a href="{{work.website}}" title="Visit the {{work.name}} website">Visit the {{work.name}} website</a></li>
-        {% endif %}
+  <ul>
+      {% if work.website %}
+      <li><a href="{{work.website}}" title="Visit the {{work.name}} website">Visit the {{work.name}} website</a></li>
+      {% endif %}
 
-        {% if work.appstore %}
-        <li><a href="{{work.appstore}}" title="Download the iOS app">Download the iOS app</a></li>
-        {% endif %}
+      {% if work.appstore %}
+      <li><a href="{{work.appstore}}" title="Download the iOS app">Download the iOS app</a></li>
+      {% endif %}
 
-        {% if work.playstore %}
-        <li><a href="{{work.appstore}}" title="Download the Android app">Download the Android app</a></li>
-        {% endif %}
-    </ul>
+      {% if work.playstore %}
+      <li><a href="{{work.appstore}}" title="Download the Android app">Download the Android app</a></li>
+      {% endif %}
+  </ul>
 </article>
