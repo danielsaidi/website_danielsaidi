@@ -6,7 +6,7 @@ tags:   closed-source licenses
 image:   /assets/blog/headers/licensekit.png
 
 keyboardkit: https://getkeyboardkit.com
-keyboardkit: https://getlicensekit.com
+licensekit: https://getlicensekit.com
 ---
 
 When building closed-source software, you don’t only have to protect your source code, but also the binaries themselves, so that you can distribute them freely without having to worry that they can be used by people who haven’t paid to use your software. One way to do this is with software licenses, which is why I have created LicenseKit.
