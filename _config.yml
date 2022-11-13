@@ -37,7 +37,6 @@ disqus:
     shortname: danielsaidi
 
 header_pages:
-  - index.md
   - pages/apps.md
   - pages/open-source.md
   - pages/blog.md

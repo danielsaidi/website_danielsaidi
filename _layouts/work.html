@@ -5,7 +5,7 @@ layout: default
 {%- assign work = site.data.work | where:"name", page.name | first -%}
 {%- assign tags = work.tags | split:" " -%}
 
-<article>
+<article class="paper">
   <a class="back-button" href="/work#{{ page.name | slugify }}">
     Work
   </a>
