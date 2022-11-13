@@ -6,7 +6,7 @@ icon:  avatar
 
 redirect_from: /blog/general/2017/02/04/hololens-microsoft-vr-and-apple
 
-title: https://www.inexhibit.com/wp-content/uploads/2016/06/Microsoft-Hololens-augmented-reality-headset.jpg
+image: https://www.inexhibit.com/wp-content/uploads/2016/06/Microsoft-Hololens-augmented-reality-headset.jpg
 ---
 
 I'm really looking forward to an event at [tretton17](http://tretton37.com) next 
