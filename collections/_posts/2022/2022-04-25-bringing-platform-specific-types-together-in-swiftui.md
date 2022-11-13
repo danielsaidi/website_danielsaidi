@@ -1,7 +1,7 @@
 ---
 title:  Bringing platform-specific types together in SwiftUI
 date:   2022-04-25 07:00:00 +0100
-tags:   swiftui swift multi-platform
+tags:   swiftui multi-platform
 
 icon:   swiftui
 assets: /assets/blog/2022/2022-04-25/

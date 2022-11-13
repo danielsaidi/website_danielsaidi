@@ -1,7 +1,7 @@
 ---
 title: Swift Semantics
 date:  2020-10-16 12:00:00 +0100
-tags:  swift swiftui
+tags:  swift
 icon:  swift
 
 swiftkit:    https://github.com/danielsaidi/SwiftKit

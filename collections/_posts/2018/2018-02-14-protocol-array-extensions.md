@@ -1,13 +1,13 @@
 ---
 title: Protocol array extensions not working
 date:  2018-02-14 08:00:00 +0100
-tags:  ios swift protocols extensions
+tags:  swift protocols extensions
 image: /assets/blog/2018/2018-02-14.png
 ---
 
-In an app of mine, I want to redesign how we extend protocol-based domain models.
-However, what first looked like a walk in the park, turned into a Swift nightmare,
-with problems that I'm still struggling with.
+In a project that I'm currently working on, I want to redesign how we extend 
+protocol-based domain models. However, what first looked east turned into a Swift
+nightmare, with problems that I'm still struggling with.
 
 
 ## Disclaimer

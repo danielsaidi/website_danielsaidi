@@ -1,7 +1,7 @@
 ---
 title:  Going open-source
 date:   2021-09-23 07:00:00 +0100
-tags:   open-source closed-source swift spm
+tags:   swift open-source closed-source spm
 icon:   avatar
 ---
 

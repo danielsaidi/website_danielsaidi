@@ -1,7 +1,7 @@
 ---
 title:  Creating a property wrapper to persist Codable types
 date:   2022-05-13 10:00:00 +0000
-tags:   swiftui swift codable property-wrappers
+tags:   swiftui codable property-wrappers
 
 icon:   swiftui
 

@@ -1,7 +1,7 @@
 ---
 title:  How to fix 'linking against a dylib which is not safe for use in application extensions' warning
 date:   2022-05-18 10:00:00 +0000
-tags:   xcode swift spm
+tags:   xcode spm
 
 icon:   swift
 assets: /assets/blog/2022/2022-05-18/

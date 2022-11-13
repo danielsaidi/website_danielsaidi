@@ -50,6 +50,7 @@
     if ($(".tag-item")[0]){
       hideAllTags();
       $(".tag-" + tag).show();
+      scrollToAnchor("tag-item-list");
     } else {
       window.location.href = "/blog#" + tag; 
     }

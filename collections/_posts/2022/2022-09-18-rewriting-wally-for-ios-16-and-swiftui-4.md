@@ -1,7 +1,7 @@
 ---
 title:  Rewriting Wally for iOS 16 and SwiftUI 4
 date:   2022-09-19 00:00:00 +0000
-tags:   apps swift swiftui spm testing storekit iap subscriptions
+tags:   apps swiftui spm testing storekit iap subscriptions
 
 image:  /assets/blog/2022/2022-09-19/devices-leather.jpg
 assets: /assets/blog/2022/2022-09-19/
@@ -16,7 +16,7 @@ wally:  https://wally.app
 wally-appstore:   https://apple.co/3BRXoMP
 ---
 
-I'm about to release a brand new version of [Wally]({{page.wally}}), which was the first app I ever made for iOS 10+ years ago. Wally 4 has been rewritten for iOS 16 and iPadOS 16 using Swift 4. This post will go through some of the things involved in this major rewrite.
+I'm about to release a brand new version of [Wally]({{page.wally}}), which was the first app I ever made for iOS 10+ years ago. Wally 4 has been rewritten for iOS 16 and iPadOS 16 using SwiftUI 4. This post will go through some of the things involved in this major rewrite.
 
 ![A bunch of devices that run Wally 4]({{page.assets}}devices.png){:class="plain"}
 

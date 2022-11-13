@@ -12,6 +12,7 @@ permalink: /blog/
     <a class="tag-list-toggle" href="javascript:toggleTagList()">Show tags</a>
     <hr />
   </div>
+  <a name="tag-item-list"></a>
 
   {% include kankoda/blog/post-list.html posts=site.posts %}
   {% include kankoda/tags/scripts.html %}

@@ -1,7 +1,7 @@
 ---
 title: Bind view geometry data to bindable properties
 date:  2020-03-26 00:00:00 +0100
-tags:  swiftui swift
+tags:  swiftui
 icon:  swiftui
 
 lib:   https://github.com/danielsaidi/SwiftUIKit

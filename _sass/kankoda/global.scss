@@ -4,6 +4,10 @@ html, body {
   width: 100%;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 a {
   transition: all 200ms ease-in-out, color 1s ease-out 100ms !important;
 }

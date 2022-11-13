@@ -1,7 +1,7 @@
 ---
-title:  A flexible way to handle and alert errors in SwiftUI
+title:  A flexible way to handle async errors in SwiftUI
 date:   2022-05-04 12:00:00 +0000
-tags:   article swift swiftui async-await error
+tags:   swiftui async-await error-handling
 
 icon:   swiftui
 tweet:  https://twitter.com/danielsaidi/status/1521909311471034373?s=20&t=wF1kbk5Nxm27t6vxQ1OeLQ
