@@ -4,85 +4,93 @@ layout: default
 
 {%- assign id = page.id | split: "/" | last -%}
 {%- assign band = site.data.bands[id] -%}
+{%- assign band-name = page.name | slugify -%}
+{%- assign band-assets = site.assets | append: "bands/" | append: band-name | append: "/" -%}
 {%- assign info=band.info -%}
+
 {%- assign albums=band.discography | reverse -%}
 {%- capture lyrics_url -%}/lyrics/{{ page.name | slugify }}/{%- endcapture -%}
 
-<articl class="paper">
-  <a class="back-button" href="/music#{{ page.name | slugify }}">
-    Music
-  </a>
-
-  <h1>
-    {{ info.name | escape }}
-    <div class="post-header">
-      <span class="date">{{info.year-from}} - {{info.year-to}}</span>
-      <span class="spacer"></span>
-      {%- assign genres = info.genres | downcase | split: ", " -%}
-      {%- include genres/list.html genres=genres -%}
-    </ul>
-  </h1>
-
-  {{ content }}
-</article>
-
-<hr />
-
-{%- if band.photos -%}
-<h2>Photos</h2>
-<a name="photos"></a>
-<section class="grid photos">
-  {%- for photo in band.photos -%}
-    {%- capture name -%}{{photo.file}}_sml.jpg{%- endcapture -%}
-    {%- capture alt -%}An image of {{photo.text}}{%- endcapture -%}
-    {% include image.html name=name alt=alt title=photo.text %}
-  {%- endfor -%}
-</section>
-
-<hr />
-{%- endif -%}
-
-<h2>Recordings</h2>
-<a name="music"></a>
-{%- for album in albums -%}
-{%- if album.hidden -%}{%- else -%}
-<section class="grid album">
-  <div class="cover">
-    {%- capture name -%}{{album.name | slugify}}.jpg{%- endcapture -%}
-    {%- capture alt -%}The album cover of {{photo.text}}{%- endcapture -%}
-    {% include image.html name=name class="cover" alt=alt title=album.name %}
-  </div>
+<article class="paper">
   <section>
-    <h3>
-      {{album.name}}
-    </h3>
-    <div class="post-header">{{album.year}} </div>
-    
-    <ol class="tracks">
-      {%- for track in album.tracks -%}
-      <li>
-        <span class="track-name">
-          <span class="index">{{ forloop.index }}.</span>
-          {{track.name}}
-        </span>
-        <span class="track-links">
-          {%- if track.links.spotify -%}
-          <a href="{{ track.links.spotify }}">Spotify</a><span class="bullet">·</span>
-          {%- endif -%}
-          {%- if track.links.apple -%}
-          <a href="{{ track.links.apple }}">Apple</a><span class="bullet">·</span>
-          {%- endif -%}
-          {%- if track.links.youtube -%}
-          <a href="{{ track.links.youtube }}">YouTube</a><span class="bullet">·</span>
-          {%- endif -%}
-          {%- if track.lyrics == false -%}{%- else -%}
-          <a href="{{ lyrics_url }}{{ album.name | slugify }}/{{ track.name | slugify }}">Lyrics</a>
-          {%- endif -%}
-        </span>
-      </li>
-      {%- endfor -%}
-    </ol> 
+    {%- assign href = "/music#" | append: band-name -%}
+    {% include kankoda/buttons/back.html title="Music" href=href %}
+
+    <h1>
+      {{ info.name | escape }}
+      <div class="post-header">
+        <span class="date">{{info.year-from}} - {{info.year-to}}</span>
+        <span class="spacer"></span>
+        {%- assign genres = info.genres | downcase | split: ", " -%}
+        {% include genres/list.html genres=genres %}
+      </ul>
+    </h1>
+
+    {{ content }}
   </section>
-</section>
-{%- endif -%}
-{%- endfor -%}
+
+  <hr />
+
+  {%- if band.photos -%}
+  <h2>Photos</h2>
+  <a name="photos"></a>
+  <section class="grid photos">
+    {%- for photo in band.photos -%}
+      {%- capture name -%}{{photo.file}}_sml.jpg{%- endcapture -%}
+      {%- capture alt -%}An image of {{photo.text}}{%- endcapture -%}
+      {%- assign src=band-assets | append: name -%}
+      {% include image.html src=src name=name alt=alt title=photo.text %}
+    {%- endfor -%}
+  </section>
+
+  <hr />
+  {%- endif -%}
+
+  <h2>Recordings</h2>
+  <a name="music"></a>
+  {%- for album in albums -%}
+  {%- if album.hidden -%}{%- else -%}
+  {%- assign album-name = album.name | slugify -%}
+  <a name="{{album-name}}"></a>
+  <section class="grid album">
+    <div class="cover">
+      {%- capture name -%}{{ album-name}}.jpg{%- endcapture -%}
+      {%- capture alt -%}The album cover of {{photo.text}}{%- endcapture -%}
+      {%- assign src=band-assets | append: name -%}
+      {% include image.html src=src name=name class="cover" alt=alt title=album.name %}
+    </div>
+    <section>
+      <h3>
+        {{album.name}}
+      </h3>
+      <div class="post-header">{{album.year}} </div>
+      
+      <ol class="tracks">
+        {%- for track in album.tracks -%}
+        <li>
+          <span class="track-name">
+            <span class="index">{{ forloop.index }}.</span>
+            {{track.name}}
+          </span>
+          <span class="track-links">
+            {%- if track.links.spotify -%}
+            <a href="{{ track.links.spotify }}">Spotify</a><span class="bullet">·</span>
+            {%- endif -%}
+            {%- if track.links.apple -%}
+            <a href="{{ track.links.apple }}">Apple</a><span class="bullet">·</span>
+            {%- endif -%}
+            {%- if track.links.youtube -%}
+            <a href="{{ track.links.youtube }}">YouTube</a><span class="bullet">·</span>
+            {%- endif -%}
+            {%- if track.lyrics == false -%}{%- else -%}
+            <a href="{{ lyrics_url }}{{ album.name | slugify }}/{{ track.name | slugify }}">Lyrics</a>
+            {%- endif -%}
+          </span>
+        </li>
+        {%- endfor -%}
+      </ol> 
+    </section>
+  </section>
+  {%- endif -%}
+  {%- endfor -%}
+</article>

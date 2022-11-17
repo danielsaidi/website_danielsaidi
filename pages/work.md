@@ -5,10 +5,10 @@ permalink: /work/
 ---
 
 <article>
-  <a class="back-button" href="/">
-    Home
-  </a>
+  {% include kankoda/buttons/back.html title="Home" href="/" %}
+
   <h1>Work</h1>
+  
   <p>
     I do freelance work, so don't hesitate to <a href="mailto:{{site.email}}">contact me</a> if you need help with development, architecture, automation, testing etc. Below is a list of some clients and employments that I have had over the years. 
   </p>

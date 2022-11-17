@@ -6,12 +6,11 @@ layout: default
 {%- assign tags = app.tags | split: " " -%}
 
 <article>
-    <a class="back-button" href="/apps#{{ page.name | slugify }}">
-      Apps
-    </a>
-    <header>
-      <h1>{{ app.name | escape }}</h1>
-    </header>
+    {%- assign anchor-name = page.name | slugify -%}
+    {%- assign href = "/apps#" | append: anchor-name -%}
+    {% include kankoda/buttons/back.html title="Apps" href=href %}
+    
+    <h1>{{ app.name | escape }}</h1>
   
     {{ content }}
 </article>

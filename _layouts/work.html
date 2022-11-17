@@ -6,9 +6,11 @@ layout: default
 {%- assign tags = work.tags | split:" " -%}
 
 <article class="paper">
-  <a class="back-button" href="/work#{{ page.name | slugify }}">
-    Work
-  </a>
+
+  {%- assign work-name = work.name | slugify -%}  
+  {%- assign href = "/work#" | append: work-name -%}
+  {% include kankoda/buttons/back.html title="Work" href=href %}
+
   <h1>{{ work.name | escape }}</h1>
   
   {{ content }}

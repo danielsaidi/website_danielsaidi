@@ -51,14 +51,14 @@ footer_sitemap:
 
 footer_extra_title: Music
 footer_extra:
-  - Magnus Wakander|bands/magnus-wakander/
-  - Daniel Saidi|bands/daniel-saidi/
-  - dEEd|bands/deed/
-  - Kollektivet|bands/kollektivet/
-  - Rakveres|bands/the-rakveres/
-  - sgt. Black|bands/sgt-black/
-  - Eblis|bands/eblis/
-  - Misfortune|bands/misfortune/
+  - Magnus Wakander|/bands/magnus-wakander/
+  - Daniel Saidi|/bands/daniel-saidi/
+  - dEEd|/bands/deed/
+  - Kollektivet|/bands/kollektivet/
+  - Rakveres|/bands/the-rakveres/
+  - sgt. Black|/bands/sgt-black/
+  - Eblis|/bands/eblis/
+  - Misfortune|/bands/misfortune/
 
 collections_dir: collections
 
