@@ -4,9 +4,8 @@ layout: default
 
 <article class="blog post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
   
-  <a class="back-button" href="/blog">
-    Blog
-  </a>
+  {% include kankoda/buttons/back.html href="/blog" title="Blog" %}
+
   <h1>
     {{ page.title | escape }}
     {% include kankoda/blog/post-header.html post=page %}

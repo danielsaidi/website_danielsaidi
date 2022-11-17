@@ -4,6 +4,9 @@ title: Blog
 permalink: /blog/
 ---
 
+<a class="back-button" href="/">
+  Home
+</a>
 <h1>Blog</h1>
 
 <div class="paper">
