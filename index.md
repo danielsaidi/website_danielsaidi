@@ -19,31 +19,44 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
             platforms like iOS, macOS, tvOS and watchOS and tech like Swift and SwiftUI.
           </p>
           <p>
-            I love to make <a href="apps">apps</a>, <a href="open-source">open-source</a> and <a href="music">music</a>. I <a href="{{site.twitter_url}}">tweet</a> often, <a href="blog">blog</a> and give occasional <a href="talks">talks & workshops</a>.
+            I make <a href="apps">apps</a>, <a href="open-source">open-source</a> and <a href="music">music</a>. I also <a href="blog">blog</a>, <a href="{{site.twitter_url}}">tweet</a> and <a href="{{site.mastodon_url}}">toot</a> and give occasional <a href="talks">talks & workshops</a>.
           </p>
         </div>
       </section>
       <hr />
+      <section class="blog">
+        {% include kankoda/titles/section.html title="Latest posts" link="/blog" %}
+        <div class="grid blog list">
+          <div>
+            {%- assign post = include.posts.first -%}  
+            {% include kankoda/blog/post-list-item.html post=site.posts.first %}
+          </div>
+          <div>
+            {% include kankoda/blog/post-list-item.html post=site.posts.first %}
+          </div>
+        </div>
+      </section>
+      <hr />
       <section class="links">
-        {% include kankoda/grids/grid-title.html title="Links" %}
+        {% include kankoda/grids/title.html title="Links" %}
         {% include kankoda/grids/grid.html items=site.data.links type="icons" %}
       </section>
       <hr />
       <section class="work">
         {% assign work = site.data.work | slice: 0, 4 %}
-        {% include kankoda/grids/grid-title.html title="Work" link="/work" %}
+        {% include kankoda/grids/title.html title="Work" link="/work" %}
         {% include kankoda/grids/grid.html items=work link="work" type="icons" %}
       </section>
       <hr />
       <section class="open-source">
         {% assign open-source = site.data.open-source | slice: 0, 4 %}
-        {% include kankoda/grids/grid-title.html title="Open Source" link="/open-source" %}
+        {% include kankoda/grids/title.html title="Open Source" link="/open-source" %}
         {% include kankoda/grids/grid.html items=open-source link="open-source" type="icons" %}
       </section>
       <hr />
       <section class="apps">
         {% assign apps = site.data.apps | slice: 0, 4 %}
-        {% include kankoda/grids/grid-title.html title="Apps" link="/apps" %}
+        {% include kankoda/grids/title.html title="Apps" link="/apps" %}
         {% include kankoda/grids/grid.html items=apps link="apps" type="icons" %}
       </section>
     </div>

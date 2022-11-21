@@ -9,6 +9,7 @@ tweet:  https://twitter.com/danielsaidi/status/1539343541155028993?s=20&t=mIWJ4r
 
 article:    https://danielsaidi.com/blog/2022/06/15/swiftui-4-custom-sheet-sizes
 swiftuikit: https://github.com/danielsaidi/SwiftUIKit
+extension:  https://github.com/danielsaidi/SwiftUIKit/blob/master/Sources/SwiftUIKit/Presentation/Detents/UndimmedPresentationDetentsViewModifier.swift
 
 edward:     https://twitter.com/edwardsainsbury 
 ericlewis:  https://twitter.com/ericlewis
@@ -232,4 +233,4 @@ SwiftUI 4 custom sized sheets are amazing, but unfortunately some things are sti
 
 Big, big thanks to [kzyryanov]({{page.kzyryanov}}) for notifying me about this and to [tgrapperon]({{page.tgrapperon}}) and [ericlewis]({{page.ericlewis}}) for your amazing help! You are what makes this Internet thing still being great!
 
-I have added this extension to [SwiftUIKit]({{page.swiftuikit}}). Feel free to try it out and let me know what you think, and just let me know if you find any more things that need fixing.
+I have added [this extension]({{page.extension}}) to [SwiftUIKit]({{page.swiftuikit}}). Feel free to try it out and let me know what you think, and just let me know if you find any more things that need fixing.
