@@ -9,14 +9,23 @@ tweet: https://twitter.com/danielsaidi/status/1592988560642428928
 
 konstantin: https://twitter.com/kzyryanov
 keyboardkit: https://getkeyboardkit.com
+swiftuikit: https://github.com/danielsaidi/SwiftUIKit
+button: https://github.com/danielsaidi/SwiftUIKit/blob/master/Sources/SwiftUIKit/Gestures/GestureButton.swift
 ---
 
-Using long press and drag gestures in SwiftUI `ScrollView`s is complicated, since they steal the touch events and cause scrolling to stop working. I've been trying to fix this, and have found a way that seems promising, that involves using a button style to handle the scroll blocking gestures.
+Using long press and drag gestures in a SwiftUI `ScrollView` is complicated, since they steal the touch events and cause scrolling to stop working. I've been trying to fix this, and have found a way that seems promising, that involves using a button style to handle the scroll blocking gestures.
+
+
+## Post updates
+
+**2022-11-20** I have added a "Going further" section that describes how to add support for drag gestures, and also added a link to a component that supports detecting and handling presses, releases (inside & outside), long presses, double taps, repeats (press & hold), drag gestures, as well as when gestures end.
 
 
 ## The problem
 
-Let's say you have a horizontal `ScrollView` with a `LazyHStack`, to which you add a bunch of views:
+The reason for me to tackle this problem, was that I ran into problems in a project where I need complex gestures on views that are nested in a `ScrollView`. The gestures conflict with the scroll view gestures, which cause scrolling to stop working and the gestures not being detected.
+
+To explain, let's say you have a `ScrollView` with a `LazyHStack`, to which you add a bunch of views:
 
 ```swift
 struct MyView: View {
@@ -41,7 +50,7 @@ struct MyView: View {
 }
 ```
 
-If run this code, you'll get a horizontal list with red squares. As expected, you can swipe horizontally to scroll throught the items in the list.
+If run this code, you'll get a horizontal list with red squares, which can swipe to scroll through the items.
 
 Let's update the code above to add an `onTapGesture` modifier to each list item:
 
@@ -50,16 +59,16 @@ listItem
     .onTapGesture { print("Tap") }
 ```
 
-Run the code again, and you'll see that things will still work. You can tap the items to trigger the action, and scroll through the items as before.
+Run the code again, and you'll see that things will still work. You can tap the items to trigger the action, while still scrolling through the items as before.
 
-Let's now update the code to use an `onLongPressGesture` modifier instead:
+Let's now update the code to use an `onLongPressGesture` modifier instead of the `onTapGesture`:
 
 ```swift
 listItem
     .onLongPressGesture { print("Long press") }
 ```
 
-If you run this code, you can long press the items to trigger the long press action. However, if you try to scroll in the list, you'll notice that scrolling no longer works.
+If you run this code, you can now long press the items to trigger the long press action. However, if you try to scroll in the list, you'll notice that scrolling no longer works.
 
 It doesn't matter if you use a `gesture` with a `LongPressGesture` instead, scrolling is still broken:
 
@@ -72,7 +81,7 @@ listItem
     )
 ```
 
-With this code, the `onChange` and `onEnded` functions will trigger as expected, but the list will still not scroll. The same will happen if you use a `DragGesture` instead of a `LongPressGesture`.
+With this code, the `onChange` and `onEnded` functions will trigger as expected, but the list will not scroll. The same will happen if you use a `DragGesture` instead of a `LongPressGesture`.
 
 
 ## Why does this happen?
@@ -84,7 +93,7 @@ I don't know why tap gestures work while long presses and drags don't, but I gue
 
 ## Some non-working solutions
 
-If you search for this problem online, you will find suggestions that you can fix this by adding an empty `onTapGesture` before the long press and drag gestures, for instance:
+If you search for this problem online, you will find suggestions that you can fix this by adding an empty `onTapGesture` before the long press and drag gestures:
 
 ```swift
 listItem
@@ -95,7 +104,7 @@ listItem
     )
 ```
 
-If you try this, it will actually work in a way that is good enough for long press gestures. However, if you replace the `gesture` with a `simultaneousGesture`, things stop working again:
+This will actually work. The long press gesture will trigger and you will still be able to scroll through the list. However, if you replace `gesture` with a `simultaneousGesture`, scrolling will stop working again:
 
 ```swift
 listItem
@@ -108,22 +117,22 @@ listItem
 
 The reason why `gesture` works and `simultaneousGesture` doesn't, is because `gesture` schedules itself after any prior gestures, while `simultaneousGesture` schedules itself together with them.
 
-In other words, `gesture` triggers *after* `onTapGesture`, which means that it doesn't interfere with the scrolling, which is why scrolling still works. However, `simultaneousGesture` triggers immediately, and is therefore interfering with the scrolling, which is why scrolling stops working.
+In other words, `gesture` triggers *after* `onTapGesture`, which means that it doesn't interfere with the scrolling. This is why scrolling still works. However, since `simultaneousGesture` triggers immediately, it's interfering with the scrolling. This is why scrolling stops working.
 
-This means that the `onTapGesture` approach requires a delay. If we want to use immediate gestures, such as detecting drags and presses, this approach is therefore not viable.
+This means that the `onTapGesture` approach requires a delay. If we want to use immediate gestures, such as detecting drags and presses, this approach is not viable.
 
-You may also find other delay-based solutions, some of which are pretty complicated. These also won't work if we want the gestures to be immediately detected.
+You may find other delay-based solutions, some of which are pretty complicated. Since these are also based on delays, they won't work if we want the gestures to be immediately detected.
 
 
 ## Finding a workaround
 
-While `UIKit` has very granular gesture detection, gesture detection in `SwiftUI` is more limited. You can still do much of the same things, but with fewer tools. For instance, we often use a `DragGesture` with a 0 distance to detect `press` gestures.
+While `UIKit` has very granular gesture detection, `SwiftUI` is more limited. We can still do much of the same things, but with fewer tools. For instance, you can use a `DragGesture` with a `0` distance to detect `press` gestures. To detect `releases`, we can listen for the drag gesture to end.
 
-While this approach is ok (albeit a bit conter-intuitive) in most cases, it won't work in a scroll view, since it causes scrolling to stop working. The challenge is thus to find a way to detect some of these gestures in a way that doesn't mess with the scrolling.
+However, since long presses and drag gestures don't work in a `ScrollView`, the challenge is to find a way to detect some of these gestures in a way that doesn't mess with the scrolling.
 
 After pondering this for a while and trying many non-working solutions, me and [Konstantin Zyryanov]({{page.konstantin}}) did realize that we have a way to detect that a view is being pressed - using a `ButtonStyle`.
 
-For those of you who are unfamiliar with SwiftUI button styles, they let you change the style of a button depending on its `role` and whether or not it's pressed. For instance, this style changes the opacity of its `label` based on if the button is pressed or not:
+For those of you who are unfamiliar with SwiftUI button styles, they let you change the style of a button depending on its `role` and `isPressed` state. For instance, this style changes the opacity of its `label`:
 
 ```swift
 struct MyButtonStyle: ButtonStyle {
@@ -135,61 +144,62 @@ struct MyButtonStyle: ButtonStyle {
 }
 ```
 
-As most of you who have worked with SwiftUI probably know, button styles don't interfere with scrolling. That would have made the entire style approach unusable (much like not being able to use gestures in a scroll view). Perhaps this is the hack we've been looking for? Perhaps we can use a button style to work around the scroll view limitations and detect presses and releases without having to use a drag gesture?
+As most of you who have worked with SwiftUI probably know, button styles don't interfere with scrolling. That would have made the entire style approach unusable (much like not being able to use gestures in a scroll view). Perhaps this is the hack we've been looking for? 
+
+Perhaps we can use a button style to work around the scroll view limitations and use it to detect presses and releases, without having to use a drag gesture? Let's find out!
 
 
 ## Building a gesture button
 
-When creating this button style-based approach, we want it to be able to detect the following gestures, to make it as versatile as possible:
+When creating this button style-based approach, we want it to be able to detect the following gestures:
 
 * Presses
 * Releases
-* Cancelled gestures
 * Long presses
 * Double taps
+* Ended gestures
 
 Most will be handled by the style, while some must be handled by the button. Let's start with the style.
 
 
 ### Defining a button style
 
-Let's call the style `GestureButtonStyle` and define all the functionality that it should help us handle:
+Let's create a `GestureButtonStyle` and define all the functionality that it will help us handle:
 
 ```swift
 struct GestureButtonStyle: ButtonStyle {
 
     init(
-        doubleTapTimeout: TimeInterval,
-        longPressDelay: TimeInterval,
         pressAction: @escaping () -> Void,
-        endAction: @escaping () -> Void,
+        longPressTime: TimeInterval,
         longPressAction: @escaping () -> Void,
-        doubleTapAction: @escaping () -> Void
+        doubleTapTimeout: TimeInterval,
+        doubleTapAction: @escaping () -> Void,
+        endAction: @escaping () -> Void
     ) {
-        self.doubleTapTimeout = doubleTapTimeout
-        self.longPressDelay = longPressDelay
         self.pressAction = pressAction
-        self.endAction = endAction
+        self.longPressTime = longPressTime
         self.longPressAction = longPressAction
+        self.doubleTapTimeout = doubleTapTimeout
         self.doubleTapAction = doubleTapAction
+        self.endAction = endAction
     }
 
     private var doubleTapTimeout: TimeInterval
-    private var longPressDelay: TimeInterval
+    private var longPressTime: TimeInterval
 
     private var pressAction: () -> Void
-    private var endAction: () -> Void
     private var longPressAction: () -> Void
     private var doubleTapAction: () -> Void
+    private var endAction: () -> Void
 
     func makeBody(configuration: Configuration) -> some View {
-        configuration.label
-            // Magic code here
+        // Insert magic here
     }
 }
 ```
 
-Besides the gesture actions, we also add configurations to let us define the max time between taps for a double tap, and how long a long press must be.
+Besides the gesture actions, we also add configurations to let us define the max time between two taps to count as a double tap, as well as how long time that is required for a long press.
 
 With this foundation in place, we can start handling the pressed state within `makeBody`, which we detect by using the `configuration.isPressed` value:
 
@@ -206,15 +216,14 @@ func makeBody(configuration: Configuration) -> some View {
 }
 ```
 
-In the code above, we subscribe to the pressed state and trigger a function every time the state changes. We then trigger the 
-`pressAction` if the configuration is pressed and the `endAction` if it's not.
+In the code above, we subscribe to the pressed state and trigger a function every time the state changes. We then trigger the `pressAction` if the configuration is pressed and the `endAction` if it's not.
 
-If you wonder why the actions aren't named `pressAction` and `releaseAction`, let me spoil a future finding. If we apply this to a button, then start scrolling while pressing the button, the `endAction` will be triggered as the gesture is cancelled, even if we still keep our finger pressed. On other words, it's *not* a release event, but rather an event for when the gesture ends. We need to handle release in another way.
+If you wonder why `endAction` isn't called `releaseAction`, let me spoil a future finding. If we apply this style to a button in a scroll view, then start scrolling when the button is pressed, the `endAction` will be triggered as the gesture is cancelled, even if we still press the button. In other words, this is *not* a release action. We must handle releases in another way.
 
 
-## How to handle double taps
+### How to handle double taps
 
-To handle double taps, we just have to detect how fast two press events are triggered. To implement this for our button style, first add this state:
+To handle double taps, we just have to detect how fast two press events are triggered. To implement this for our button style, first add this state to the style:
 
 ```swift
 @State
@@ -246,14 +255,14 @@ if isPressed {
 }
 ```
 
-When the view is pressed, we check if there's an earlier registered press that should cause the new press to be handled as a double tap. If two presses happen within the `doubleTapTimeout`, we trigger a double tap, otherwise we set the `doubleTapDate` to the distant past to avoid a subsequent double tap.
+When the view is pressed, we check if there's an earlier registered press that should cause the new press to be handled as a double tap. If two presses happen within the `doubleTapTimeout` time, we trigger a double tap, otherwise we set the `doubleTapDate` to the distant past to avoid a subsequent double tap.
 
-Now, this is technically not a double tap gesture, rather a double press. However, rewriting it to behave as a double tap is a bit more complicated, so let's go with this for now.
+To be clear, this is technically not a double tap gesture, but rather a double press. However, rewriting it to behave as a double tap is a bit more complicated, so let's go with this for now.
 
 
-## How to handle long presses
+### How to handle long presses
 
-To handle long presses, we just have to detect how long a press event is being active. To implement this for our button style, first add this state:
+To handle long presses, we just have to detect how long a press event is being active. To implement this for our button style, first add this state to the style:
 
 ```swift
 @State
@@ -266,7 +275,7 @@ then add the following function:
 private extension GestureButtonStyle {
 
     func tryTriggerLongPressAfterDelay(triggered date: Date) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + longPressDelay) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + longPressTime) {
             guard date == longPressDate else { return }
             longPressAction()
         }
@@ -287,7 +296,10 @@ if isPressed {
 }
 ```
 
-We first set the `longPressDate` to the current date, then trigger an async operation to be performed after a `longPressDelay`. If the date is still the same when it triggers, we trigger the `longPressAction`.
+We first set the `longPressDate` to the current date, then trigger an async operation to be performed after a `longPressTime`. If the date is still the same when it triggers, we trigger the `longPressAction`.
+
+
+### Wrapping up our style
 
 Our button style is now complete. All in all, it looks like this:
 
@@ -295,28 +307,28 @@ Our button style is now complete. All in all, it looks like this:
 struct GestureButtonStyle: ButtonStyle {
 
     init(
-        doubleTapTimeout: TimeInterval,
-        longPressDelay: TimeInterval,
         pressAction: @escaping () -> Void,
-        endAction: @escaping () -> Void,
+        doubleTapTimeoutout: TimeInterval,
+        doubleTapAction: @escaping () -> Void,
+        longPressTime: TimeInterval,
         longPressAction: @escaping () -> Void,
-        doubleTapAction: @escaping () -> Void
+        endAction: @escaping () -> Void
     ) {
-        self.doubleTapTimeout = doubleTapTimeout
-        self.longPressDelay = longPressDelay
         self.pressAction = pressAction
-        self.endAction = endAction
-        self.longPressAction = longPressAction
+        self.doubleTapTimeoutout = doubleTapTimeoutout
         self.doubleTapAction = doubleTapAction
+        self.longPressTime = longPressTime
+        self.longPressAction = longPressAction
+        self.endAction = endAction
     }
 
-    private var doubleTapTimeout: TimeInterval
-    private var longPressDelay: TimeInterval
+    private var doubleTapTimeoutout: TimeInterval
+    private var longPressTime: TimeInterval
 
     private var pressAction: () -> Void
-    private var endAction: () -> Void
     private var longPressAction: () -> Void
     private var doubleTapAction: () -> Void
+    private var endAction: () -> Void
 
     @State
     var doubleTapDate = Date()
@@ -343,13 +355,13 @@ private extension GestureButtonStyle {
 
     func tryTriggerDoubleTap() -> Bool {
         let interval = Date().timeIntervalSince(doubleTapDate)
-        guard interval < doubleTapTimeout else { return false }
+        guard interval < doubleTapTimeoutout else { return false }
         doubleTapAction()
         return true
     }
 
     func tryTriggerLongPressAfterDelay(triggered date: Date) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + longPressDelay) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + longPressTime) {
             guard date == longPressDate else { return }
             longPressAction()
         }
@@ -357,10 +369,10 @@ private extension GestureButtonStyle {
 }
 ```
 
-We are however missing some functionality, such as detecting when a button is released. Let's define a button that will apply the style and fill out these missing parts.
+We are however still missing some functionality, such as detecting when a button is released. This can't be done within the style, since the style gesture may be cancelled, so let's define a button that will apply the style and fill out these missing parts.
 
 
-## Defining a button
+### How to handle gesture releases
 
 To implement the `release` gesture, lets create a button that uses a `releaseAction` as its tap action and applies the button style that we just defined:
 
@@ -368,8 +380,8 @@ To implement the `release` gesture, lets create a button that uses a `releaseAct
 struct GestureButton<Label: View>: View {
 
     init(
-        doubleTapTimeout: TimeInterval = 0.5,
-        longPressDelay: TimeInterval = 1,
+        doubleTapTimeoutout: TimeInterval = 0.5,
+        longPressTime: TimeInterval = 1,
         pressAction: @escaping () -> Void = {},
         releaseAction: @escaping () -> Void = {},
         endAction: @escaping () -> Void = {},
@@ -378,8 +390,8 @@ struct GestureButton<Label: View>: View {
         label: @escaping () -> Label
     ) {
         self.style = GestureButtonStyle(
-            doubleTapTimeout: doubleTapTimeout,
-            longPressDelay: longPressDelay,
+            doubleTapTimeoutout: doubleTapTimeoutout,
+            longPressTime: longPressTime,
             pressAction: pressAction,
             endAction: endAction,
             longPressAction: longPressAction,
@@ -401,11 +413,28 @@ struct GestureButton<Label: View>: View {
 
 That's it! The button just has to wrap the provided label, trigger the provided `releaseAction` and apply the newly created style to take care of the remaining gestures.
 
-If you try this out, you'll see that it actually works. You can press, relase, double tap, long press etc. and scrolling still works. All made possible by the fact that button styles detect presses without blocking the scroll view scrolling.
+If you try this out, you'll see that it actually works. You can press, relase, double tap, long press etc. and scrolling still works. All made possible by the fact that button styles can detect presses without blocking the scroll view gestures.
 
 
-## Conclusion & future work
+## Going further
 
-While the above works well and is probably enough for most needs, it's actually not enough if you need to detect drag gestures. For instance, I'm trying to find a better way to handle gestures in a library of mine called [KeyboardKit]({{page.keyboardkit}}), where buttons must be able to handle a wide variety of gestures and transition to dragging when a button presents a callout with secondary actions.
+While the above works well and is probably enough for most needs, it's actually not enough if you need to detect drag gestures. For instance, my [KeyboardKit]({{page.keyboardkit}}) library needs buttons to be able to handle a wide variety of gestures and transition to dragging when a button presents a callout with secondary actions.
 
-I will therefore try to improve the solution above further to also handle drag operations. I will update this post if I manage to solve it. Until then, I'd love to hear what you think about the solution above.
+I therefore decided to improve the solution above further to also handle drag operations, which turned out to be way more compolicated than I could first expect.
+
+For instance, we can't apply the drag gesture directly to the `Button`, but must instead apply it to the button content view:
+
+```swift
+Button(action: releaseAction) {
+    buttonContentView
+        .gesture(DragGesture(...))  // Must go here
+}
+.buttonStyle(style)
+.gesture(DragGesture(...))  // This will not work!
+```
+
+However, adding a `DragGesture` to the content view means that it will start to conflict with the button style. For instance, quickly tapping the button will only trigger the button action and not the style, which means that we must handle double taps in both the button and the style. Also, the drag gesture will stop the style from detecting the long press etc. 
+
+Adding drag gestures turned out to open a can of worms, the Pandora's box of gesture mayhem. Having the same functionality at many places means making the code more complex to avoid code duplication and future bugs. All in all, the simple solution above turned out to become not as simple when adding drag gestures to the mix.
+
+I tried to rewrite the whole thing by removing the button style and only use gestures, but that turned out to be a dead end, since some gestures were then lost. I eventually came up with a solution that works great, that supports all the gestures that we've covered in this post. I will however not add it here, since it solves a bunch of nitty gritty details. If you want to take a look at it and give it a try, you can find it [here]({{page.button}}), as part of my [SwiftUIKit]({{page.swiftuikit}}) package. I'd love to hear what you think of it.
