@@ -21,8 +21,8 @@ layout: default
       <div class="post-header">
         <span class="date">{{info.year-from}} - {{info.year-to}}</span>
         <span class="spacer"></span>
-        {%- assign genres = info.genres | downcase | split: ", " -%}
-        {% include genres/list.html genres=genres %}
+        {%- assign genres = info.genres | downcase | split: " " -%}
+        {% include tags/band-genres.html genres=genres %}
       </ul>
     </h1>
 

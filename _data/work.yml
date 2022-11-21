@@ -1,14 +1,14 @@
-- name:     Bambuser
-  years:    2021
-  url:      /work/bambuser
-  website:  https://www.bambuser.com
-  tags:     swift swiftui ios video streaming
+- name:     Qapital
+  years:    2022 -
+  url:      /work/qapital
+  website:  https://www.qapital.com
+  tags:     swift swiftui ios
 
 - name:     Oribi
   years:    2021 -
   url:      /work/oribi
   website:  https://www.oribi.se/en/ 
-  tags:     swift swiftui ios keyboard-extension
+  tags:     swift swiftui ios macos closed-source keyboard-extension
 
 - name:     Cineasterna
   years:    2020 -
@@ -16,6 +16,12 @@
   website:  https://www.cineasterna.com/sv/ 
   appstore: https://apps.apple.com/se/app/cineasterna/id1446065399
   tags:     swift swiftui ios tvos video streaming
+
+- name:     Bambuser
+  years:    2021
+  url:      /work/bambuser
+  website:  https://www.bambuser.com
+  tags:     swift swiftui ios closed-source video streaming
 
 - name:     BookBeat
   years:    2016 - 2020

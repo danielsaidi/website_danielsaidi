@@ -11,7 +11,15 @@ layout: default
   {%- assign href = "/work#" | append: work-name -%}
   {% include kankoda/buttons/back.html title="Work" href=href %}
 
-  <h1>{{ work.name | escape }}</h1>
+  <h1>
+    {{ work.name | escape }}
+    <div class="post-header">
+      <span class="date">{{work.years}}</span>
+      <span class="spacer"></span>
+      {%- assign tags = work.tags | downcase | split: " " -%}
+      {% include tags/work-tags.html tags=tags %}
+    </ul>
+  </h1>
   
   {{ content }}
 
