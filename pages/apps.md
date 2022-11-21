@@ -5,7 +5,7 @@ permalink: /apps/
 ---
 
 <article>
-  {% include kankoda/buttons/back.html title="Home" href="/" %}
+  {% include kankoda/buttons/home.html %}
   
   <h1>Apps</h1>
   

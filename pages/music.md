@@ -7,7 +7,7 @@ redirect_from: /bands/
 ---
 
 <article>
-  {% include kankoda/buttons/back.html title="Home" href="/" %}
+  {% include kankoda/buttons/home.html %}
 
   <h1>Music</h1>
   

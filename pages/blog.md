@@ -4,7 +4,7 @@ title: Blog
 permalink: /blog/
 ---
 
-{% include kankoda/buttons/back.html title="Home" href="/" %}
+{% include kankoda/buttons/home.html %}
 
 <h1>Blog</h1>
 

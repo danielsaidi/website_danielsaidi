@@ -5,7 +5,7 @@ permalink: /talks/
 ---
 
 <article>
-  {% include kankoda/buttons/back.html title="Home" href="/" %}
+  {% include kankoda/buttons/home.html %}
 
   <h1>Talks & Workshops</h1>
   <p>
