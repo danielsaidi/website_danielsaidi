@@ -33,13 +33,11 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
       <section class="blog">
         {% include kankoda/titles/section.html title="Latest posts" link="/blog" %}
         <div class="grid blog list">
-          <div>
-            {%- assign post = include.posts.first -%}
-            {% include kankoda/blog/post-list-item.html post=site.posts.first %}
-          </div>
-          <div>
-            {% include kankoda/blog/post-list-item.html post=site.posts.first %}
-          </div>
+          {% for post in site.posts limit:2 %}
+              <div>
+                {% include kankoda/blog/post-list-item.html post=posts.first %}
+              </div>
+          {% endfor %}
         </div>
       </section>
       <hr />
