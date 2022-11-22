@@ -15,14 +15,6 @@
   a.back-button + h1 {
     margin-top: 0px;
   }
-
-  a.back-button:before {
-    content: "«";
-  }
-
-  a.forward-button:after {
-    content: "»";
-  }
 }
 
 .row {

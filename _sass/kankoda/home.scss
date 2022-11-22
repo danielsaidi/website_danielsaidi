@@ -1,5 +1,18 @@
 .home {
 
+  .avatar + .social-buttons {
+    p {
+      margin-top: -10px;
+      margin-bottom: 40px;
+    }
+  }
+
+  .social-buttons {
+    img { 
+      box-shadow: none;
+    }
+  }
+
   section.blog {
     text-align: left;
 
