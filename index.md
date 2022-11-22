@@ -41,11 +41,6 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
         </div>
       </section>
       <hr />
-      <section class="links">
-        {% include kankoda/grids/title.html title="Links" %}
-        {% include kankoda/grids/grid.html items=site.data.links type="icons" %}
-      </section>
-      <hr />
       <section class="work">
         {% assign work = site.data.work | slice: 0, 4 %}
         {% include kankoda/grids/title.html title="Work" link="/work" %}
