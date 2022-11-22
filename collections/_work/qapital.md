@@ -9,4 +9,4 @@ Qapital develops personal, financial tools for automating your financial plan wi
 
 ![Oribi logo]({{page.image}})
 
-I've been doing freelance work for Qapital since earlier in 2022, involving iOS and multi-platform work in Swift, SwiftUI, using the Swift Package Manager to great extent.
+I joined Qapital as a freelancer earlier in 2022. I've done iOS and multi-platform work in Swift, SwiftUI, using the Swift Package Manager to great extent.
