@@ -8,6 +8,8 @@ html, body {
 }
 
 .site-header {
+
+  box-shadow: none !important;
  
   .column:nth-of-type(1) {
     flex-basis: 30%;

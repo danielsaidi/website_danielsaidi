@@ -1,10 +1,11 @@
 $background-overlay: #0005;
 
-$background: #004080;
+$site-background: #004080;
+$content-background: #004080;
+$footer-background: $background-overlay;
+
 $foreground: #fff;
 $foreground-secondary: #fffa;
 
 $link: #F2C342;
 $link-hover: #FFE372;
-
-$footer-background: $background-overlay;
