@@ -3,7 +3,7 @@ title:  Introducing StoreKitPlus
 date:   2022-06-24 08:00:00 +0000
 tags:   open-source storekit iap subscriptions
 
-image: /assets/blog/headers/storekitplus.png
+image: /assets/headers/storekitplus.png
 tweet: https://twitter.com/danielsaidi/status/1541295027208556544?s=20&t=KLgrRJR_DDdJ70DjpNTB5Q
 
 storekitplus: https://github.com/danielsaidi/StoreKitPlus
@@ -11,7 +11,7 @@ storekitplus: https://github.com/danielsaidi/StoreKitPlus
 
 In this post, let's take a look at a new library that I just released. [StoreKitPlus]({{page.storekitplus}}) adds extra functionality for working with StoreKit 2, like extensions, observable state, services, etc. and aims to make using StoreKit much easier, especially in SwiftUI-based applications.
 
-![StoreKitPlus logo]({{page.image}})
+![StoreKitPlus logotype]({{page.image}})
 
 
 ## Background

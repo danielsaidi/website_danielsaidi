@@ -3,7 +3,7 @@ title:  Introducing LicenseKit
 date:   2022-11-09 08:00:00 +0000
 tags:   closed-source licenses
 
-image:   /assets/blog/headers/licensekit.png
+image:  /assets/headers/licensekit.png
 
 keyboardkit: https://getkeyboardkit.com
 licensekit: https://getlicensekit.com
@@ -11,7 +11,7 @@ licensekit: https://getlicensekit.com
 
 When building closed-source software, you don’t only have to protect your source code, but also the binaries themselves, so that you can distribute them freely without having to worry that they can be used by people who haven’t paid to use your software. One way to do this is with software licenses, which is why I have created LicenseKit.
 
-![StoreKitPlus logo]({{page.image}})
+![LicenseKit logo]({{page.image}})
 
 When I created KeyboardKit Pro as a commercial add-on to the open-source library [KeyboardKit]({{page.keyboardkit}}), I realized that I needed to be able define licenses for my various customers. I therefore created a license engine as part of KeyboardKit Pro, and have been using that for over a year now.
 
