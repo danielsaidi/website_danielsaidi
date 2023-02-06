@@ -19,15 +19,14 @@ layout: default
 
     {%- if site.disqus.shortname -%}
     <p>
-      I hope that you found this post interesting. I would love to 
-      hear your thoughts and feedback, so feel free to comment in
-      the Disqus section below or as a reply to <a href="{{page.tweet}}">this tweet</a>.
+      If you found this post interesting and would like to share 
+      your thoughts, ideas, feedback etc. please comment in the
+      Disqus section below or reply to {% include kankoda/blog/post-discussion-links.html %}.
     </p>
     {%- else -%}
     <p>
-      We hope that you found this post interesting. We would love to 
-      hear your thoughts and feedback, so feel free to discuss it as
-      a reply to <a href="{{page.tweet}}">this tweet</a>.
+      If you found this post interesting and would like to share 
+      your thoughts, ideas, feedback etc. please reply to {% include kankoda/blog/post-discussion-links.html %}.
     </p>
     {%- endif -%}
   {%- endif -%}
