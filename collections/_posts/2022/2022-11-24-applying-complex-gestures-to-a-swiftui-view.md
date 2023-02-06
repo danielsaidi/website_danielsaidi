@@ -1,7 +1,7 @@
 ---
 title:  Applying complex gestures to a SwiftUI view
 date:   2022-11-24 08:00:00 +0000
-tags:   swiftui
+tags:   swiftui open-source gestures
 
 icon:   swiftui
 
@@ -10,8 +10,8 @@ toot:   https://mastodon.social/@danielsaidi/109405390884591414
 
 post:   /blog/2022/11/16/using-complex-gestures-in-a-scroll-view
 
-swiftuikit: https://github.com/danielsaidi/SwiftUIKit
-repeatgesturetimer: https://github.com/danielsaidi/SwiftUIKit/blob/master/Sources/SwiftUIKit/Gestures/RepeatGestureTimer.swift
+github: https://github.com/danielsaidi/SwiftUIKit
+timer: https://github.com/danielsaidi/SwiftUIKit/blob/master/Sources/SwiftUIKit/Gestures/RepeatGestureTimer.swift
 button: https://github.com/danielsaidi/SwiftUIKit/blob/master/Sources/SwiftUIKit/Gestures/GestureButton.swift
 ---
 
@@ -260,7 +260,7 @@ We first check that we have a `longPressAction`, otherwise we abort the operatio
 
 With the long press taken care of, let's look at how to handle repeats, which are actions that trigger on a regular basis for as long as you keep the button pressed.
 
-To handle the repeats, we will use a component called [RepatGestureTimer]({{page.repeatgesturetimer}}), which is a simple class that starts calling an action with a certain interval when it's started, then stops when it's stopped. Tap the link to see the source code, if you're interested in the implementation.
+To handle the repeats, we will use a component called [RepatGestureTimer]({{page.timer}}), which is a simple class that starts calling an action with a certain interval when it's started, then stops when it's stopped. Tap the link to see the source code, if you're interested in the implementation.
 
 Trying to trigger a repeating action involve the following operations:
 
@@ -345,8 +345,8 @@ And that's it! If the release is done within the view bounds, we call `releaseIn
 
 ## Conclusion
 
-If you give the button a try, you'll see that it works great. You can presses, relases outside and inside, long presses, double taps, trigger repeating actions etc. all with a single `DragGesture`. How about that?
+The `GestureButton` lets you handle multiple gestures with a single button. You can presses, relases outside and inside, long presses, double taps, trigger repeating actions etc. all with a single `DragGesture`.
 
-You can find the source code [here]({{page.button}}), as part of my [SwiftUIKit]({{page.swiftuikit}}) library. Feel free to grab the code as it is or pull in the library with SPM if you want to try it out. 
+I have added `GestureButton` to my [SwiftUIKit]({{page.github}}) library. You can find the source code [here]({{page.button}}). If you decide to give it a try, I'd be very interested in hearing what you think.
 
 Happy button mashing!

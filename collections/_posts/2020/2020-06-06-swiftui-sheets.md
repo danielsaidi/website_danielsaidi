@@ -4,7 +4,7 @@ date:  2020-06-06 20:00:00 +0100
 tags:  swiftui sheet
 icon:  swiftui
 
-lib:    https://github.com/danielsaidi/SwiftUIKit
+github: https://github.com/danielsaidi/SwiftUIKit
 source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Presentation/Sheet
 ---
 
@@ -13,7 +13,7 @@ In this post, we'll look at an easier way to manage sheets in SwiftUI, in a way 
 
 ## TLDR;
 
-If you find this post too long, I have added this to my [SwiftUIKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think.
+If you find this post too long, I have added this to my [SwiftUIKit]({{page.github}}) library. You can find the source code [here]({{page.source}}).  If you decide to try it out, I'd be very interested in hearing what you think.
 
 
 ## The basics
@@ -200,4 +200,4 @@ You no longer need multiple `@State` properties for different sheets or switch o
 
 ## Source code
 
-I have added these types to my [SwiftUIKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think.
+I have added this to my [SwiftUIKit]({{page.github}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think.

@@ -12,14 +12,14 @@ lib:    https://github.com/danielsaidi/SystemNotification
 gif:    https://github.com/danielsaidi/SystemNotification/raw/master/Resources/Demo.gif
 ---
 
-Since I put a lot of time into various open-source projects, I've decided to write about them every once in a while, at least when I create new stuff or just to show how a specific library can be used. In this post, I'll show how you can use [SystemNotificaton]({{page.lib}}) to mimic the iOS system notifications.
+Since I put a lot of time into various open-source projects, I've decided to write about them every once in a while, at least when I create new stuff. In this post, I'll show how you can use [SystemNotificaton]({{page.github}}) to mimic the iOS system notifications.
 
 ![SystemNotification logo]({{page.image}})
 
 
 ## What is SystemNotification?
 
-[SystemNotificaton]({{page.lib}}) is a `SwiftUI` library that lets you mimic the native iOS system notification, which for instance is presented when you toggle silent mode on and off, connect your AirPods etc.
+[SystemNotificaton]({{page.github}}) is a `SwiftUI` library that lets you mimic the native iOS system notification, which for instance is presented when you toggle silent mode on and off, connect your AirPods etc.
 
 ![An animated gif that shows the SystemNotification library being used]({{page.gif}}){:width="200"}
 
@@ -30,7 +30,7 @@ SystemNotification supports `iOS 14`, `macOS 11`, `tvOS 14` and `watchOS 7`, whi
 
 ## Getting started
 
-You must first add [SystemNotificaton]({{page.lib}}) to your project, preferably using the Swift Package Manager. You can then apply a system notification just like you apply a `sheet`, `alert` and `fullScreenModal`:
+You must first add [SystemNotificaton]({{page.github}}) to your project, preferably using the Swift Package Manager. You can then apply a system notification just like you apply a `sheet`, `alert` and `fullScreenModal`:
 
 ```swift
 import SystemNotification
@@ -302,9 +302,7 @@ As a bonus, you can use the same context from all these tabs. The notification w
 
 ## Conclusion
 
-As you have seen in this article, the [SystemNotificaton]({{page.lib}}) library is pretty focused, and aims to do a single thing well. It also looks and behaves the same on `macOS`, `tvOS` and `watchOS`, which makes it versatile.
-
-If you decide to try it out, I'd love to hear what you think about it.
+The [SystemNotificaton]({{page.github}}) library can be used to mimic the iOS system notification on `iOS`, `macOS`, `tvOS` and `watchOS`, which makes it versatile. If you decide to give it a try, I'd be very interested in hearing what you think.
 
 
 

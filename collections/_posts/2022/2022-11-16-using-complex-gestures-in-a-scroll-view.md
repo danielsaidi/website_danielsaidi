@@ -1,7 +1,7 @@
 ---
 title:  Using complex gestures in a SwiftUI ScrollView
 date:   2022-11-16 08:00:00 +0000
-tags:   swiftui
+tags:   swiftui open-source gestures
 
 icon:   swiftui
 
@@ -10,8 +10,8 @@ tweet: https://twitter.com/danielsaidi/status/1592988560642428928
 konstantin: https://twitter.com/kzyryanov
 
 keyboardkit: https://getkeyboardkit.com
-swiftuikit: https://github.com/danielsaidi/SwiftUIKit
-button: https://github.com/danielsaidi/SwiftUIKit/blob/master/Sources/SwiftUIKit/Gestures/ScrollViewGestureButton.swift
+github: https://github.com/danielsaidi/SwiftUIKit
+source: https://github.com/danielsaidi/SwiftUIKit/blob/master/Sources/SwiftUIKit/Gestures/ScrollViewGestureButton.swift
 ---
 
 Using complex gestures in a SwiftUI `ScrollView` is complicated, since they block scroll view gestures in a way that causes scrolling to stop working. I've looked into this, and found a way to use a button style to handle gestures in a way that doesn't block the scrolling.
@@ -442,8 +442,11 @@ Adding drag gestures turned out to open a can of worms.
 
 Since the different parts of the code must handle the same functionality in different cases, I also had to make the code more complex to avoid code duplication. The simple solution above became a lot more complicated when adding drag gestures to the mix.
 
-I eventually came up with a solution that works great, that supports all the gestures that we've covered in this post. I will however not add it here, since it solves a bunch of nitty gritty details. 
 
-You can find the source code [here]({{page.button}}), as part of my [SwiftUIKit]({{page.swiftuikit}}) library. Feel free to grab the code as it is or pull in the library with SPM if you want to try it out. 
+## Conclusion
+
+`ScrollViewGestureButton` lets you handle multiple gestures with a single button. You can detect presses, relases outside and inside, long presses, double taps, trigger repeating actions etc. all with a single `DragGesture`.
+
+I have added `ScrollViewGestureButton` to my [SwiftUIKit]({{page.github}}) library. You can find the source code [here]({{page.source}}). If you decide to give it a try, I'd be very interested in hearing what you think.
 
 Happy button mashing!

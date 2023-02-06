@@ -4,7 +4,8 @@ date:  2020-03-26 00:00:00 +0100
 tags:  swiftui
 icon:  swiftui
 
-lib:   https://github.com/danielsaidi/SwiftUIKit
+github: https://github.com/danielsaidi/SwiftUIKit
+source: https://github.com/danielsaidi/SwiftUIKit/Sources/SwiftUIKit/Extensions
 ---
 
 SwiftUI is great for building declarative user interfaces. However, it's still young and lacks many common things. In this post, we'll look at a way to read geometry information from any view in a view hierarchy.
@@ -181,4 +182,4 @@ This is just a matter of taste. I like the cleaner syntax, but the original exte
 
 ## Code
 
-I have added these extensions to my [SwiftUIKit]({{page.lib}}) library, under `Sources/SwiftUIKit/Extensions`.
+I have added these extensions to my [SwiftUIKit]({{page.github}}) library. You can find the source code [here]({{page.source}}). If you decide to give it a try, I'd be very interested in hearing what you think.
