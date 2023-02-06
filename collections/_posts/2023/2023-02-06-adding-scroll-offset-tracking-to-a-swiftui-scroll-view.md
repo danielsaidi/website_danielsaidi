@@ -11,6 +11,7 @@ toot:   https://mastodon.social/@danielsaidi/109817236038724013
 
 arden:  https://danielarden.com
 github: https://github.com/danielsaidi/ScrollKit
+source: https://github.com/danielsaidi/ScrollKit/blob/main/Sources/ScrollKit/ScrollViewWithOffset.swift
 ---
 
 The SwiftUI `ScrollView` is currently pretty limited in functionality, and for instance doesn't let us detect the current scroll offset. In this post, let's look at how to add offset tracking to a scroll view, which we'll then use to build a fun thing on top of the offset tracking.
