@@ -25,6 +25,9 @@
 - name: RichTextKit
   url: https://github.com/danielsaidi/RichTextKit
 
+- name: ScrollKit
+  url: https://github.com/danielsaidi/ScrollKit
+
 - name: StoreKitPlus
   url: https://github.com/danielsaidi/StoreKitPlus
 

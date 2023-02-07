@@ -345,7 +345,7 @@ And that's it! If the release is done within the view bounds, we call `releaseIn
 
 ## Conclusion
 
-The `GestureButton` lets you handle multiple gestures with a single button. You can presses, relases outside and inside, long presses, double taps, trigger repeating actions etc. all with a single `DragGesture`.
+`GestureButton` lets you handle multiple gestures with a single button. You can detect presses, relases outside and inside, long presses, double taps, trigger repeating actions etc. all with a single `DragGesture`.
 
 I have added `GestureButton` to my [SwiftUIKit]({{page.github}}) library. You can find the source code [here]({{page.button}}). If you decide to give it a try, I'd be very interested in hearing what you think.
 
