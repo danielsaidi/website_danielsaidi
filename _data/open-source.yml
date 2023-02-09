@@ -8,8 +8,8 @@
 - name: SwiftKit
   url: https://github.com/danielsaidi/SwiftKit
 
-- name: Tutti
-  url: https://github.com/danielsaidi/Tutti
+- name: RichTextKit
+  url: https://github.com/danielsaidi/RichTextKit
 
 
 
@@ -22,9 +22,6 @@
 - name: MockingKit
   url: https://github.com/danielsaidi/MockingKit
 
-- name: RichTextKit
-  url: https://github.com/danielsaidi/RichTextKit
-
 - name: ScrollKit
   url: https://github.com/danielsaidi/ScrollKit
 
@@ -36,6 +33,9 @@
 
 - name: TagKit
   url: https://github.com/danielsaidi/TagKit
+
+- name: Tutti
+  url: https://github.com/danielsaidi/Tutti
 
 - name: WebViewKit
   url: https://github.com/danielsaidi/WebViewKit
