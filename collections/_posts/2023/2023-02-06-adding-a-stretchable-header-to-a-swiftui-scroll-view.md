@@ -16,16 +16,16 @@ github: https://github.com/danielsaidi/ScrollKit
 source: https://github.com/danielsaidi/ScrollKit/blob/main/Sources/ScrollKit/ScrollViewHeader.swift
 ---
 
-Many iOS apps have screens where the header view stretches out when you pull down the screen. It's a commonly used and loved component, so it's strange that it's not natively available in UIKit or SwiftUI. In this post, let’s look at how to implement such a header view.
+Many iOS apps have screens where the header view stretches out when you pull down the screen. It's a commonly used and loved component, so it's strange that it's not natively available in UIKit or SwiftUI. In this post, let’s look at how to implement such a header view in SwiftUI.
 
 If you are unsure of what kind of view I mean, consider this nice album screen from the Spotify iOS app:
 
 ![A Spotify screenshot]({{page.assets}}spotify-demo.jpg)
 
-When you pull down the screen, the header resizes in a nice way, instead of leaving a gap at the top. The header then scrolls away with the rest of the content with a nice fade animation.
+As you can see, the header stretches out when you pull it down, instead of leaving a gap at the top, then scrolls away with the rest of the content with a nice fade animation.
 
 
-## How to build a stretchable scroll view header
+## How to implement a stretchable scroll view header
 
 Turns out that building a stretchable scroll view header is actually pretty simple, and only requires you to use a `GeometryReader` and apply a `frame` and `offset` to your content view.
 
