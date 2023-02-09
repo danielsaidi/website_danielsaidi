@@ -1,5 +1,5 @@
 ---
-title:  Adding a sticky header to a SwiftUI ScrollView
+title:  Adding a stretchable and sticky header to a SwiftUI ScrollView
 date:   2023-02-09 10:00:00 +0000
 tags:   swiftui open-source scrollview
 
