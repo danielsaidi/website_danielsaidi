@@ -7,7 +7,7 @@ icon:   swiftui
 assets: /assets/blog/2023/2023-02-09/
 assets-stretch: /assets/blog/2023/2023-02-06/
 
-tweet:  https://twitter.com/danielsaidi/status/1623727983801384960?s=20&t=J6iHidP-sc9AlxvKVXzKJA
+tweet:  https://twitter.com/danielsaidi/status/1623804862638039042?s=20&t=J6iHidP-sc9AlxvKVXzKJA
 toot:   https://mastodon.social/@danielsaidi/109835843154685679
 
 post-offset:    https://danielsaidi.com/blog/2023/02/06/adding-scroll-offset-tracking-to-a-swiftui-scroll-view
