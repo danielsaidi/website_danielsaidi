@@ -3,7 +3,7 @@ layout: default
 title: Work
 permalink: /work/
 
-keyboardkit: https://getkeyboardkit.com
+keyboardkit: https://keyboardkit.com
 licensekit: https://getlicensekit.com
 ---
 

@@ -4,7 +4,7 @@ name: Oribi
 assets: /assets/work/oribi-
 image:  /assets/work/oribi-title.png
 
-keyboardkit: https://getkeyboardkit.com
+keyboardkit: https://keyboardkit.com
 okeyboard: https://oribi.se/program/okeyboard/
 oribiwriter: https://oribi.se/program/oribi-writer/
 ---

@@ -5,7 +5,7 @@ tags:   swift closed-source licenses
 
 image:  /assets/headers/licensekit.png
 
-keyboardkit: https://getkeyboardkit.com
+keyboardkit: https://keyboardkit.com
 licensekit: https://getlicensekit.com
 ---
 

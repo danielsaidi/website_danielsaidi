@@ -6,7 +6,7 @@ icon:   swift
 
 keyboardkit: https://github.com/danielsaidi/KeyboardKit
 keyboardkitpro: https://github.com/danielsaidi/KeyboardKitPro
-website: https://getkeyboardkit.com
+website: https://keyboardkit.com
 ---
 
 

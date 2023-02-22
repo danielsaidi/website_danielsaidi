@@ -7,7 +7,7 @@ assets: /assets/blog/2021/2021-09-22/
 
 goth:   https://gothemoji.danielsaidi.com
 metal:  https://metalemoji.danielsaidi.com
-keyboardkit:    https://getkeyboardkit.com
+keyboardkit:    https://keyboardkit.com
 ---
 
 
@@ -125,4 +125,4 @@ Users can also publish their creations, which will send them for review and a ch
 
 The development of the KeyboardKit app is the result of many projects coming together. Although the first version is a bit rough, I am proud to release it, and look forward to improving it.
 
-You can read more about the Keyboard Kit library [here](https://getkeyboardkit.com), the Keyboard Kit app [here](https://app.getkeyboardkit.com). Grab the app from the App Store if you want to try it out. I would love to hear what you think.
+You can read more about the Keyboard Kit library [here](https://keyboardkit.com), the Keyboard Kit app [here](https://app.getkeyboardkit.com). Grab the app from the App Store if you want to try it out. I would love to hear what you think.

@@ -9,7 +9,7 @@ tweet: https://twitter.com/danielsaidi/status/1592988560642428928
 
 konstantin: https://twitter.com/kzyryanov
 
-keyboardkit: https://getkeyboardkit.com
+keyboardkit: https://keyboardkit.com
 github: https://github.com/danielsaidi/SwiftUIKit
 source: https://github.com/danielsaidi/SwiftUIKit/blob/master/Sources/SwiftUIKit/Gestures/ScrollViewGestureButton.swift
 ---

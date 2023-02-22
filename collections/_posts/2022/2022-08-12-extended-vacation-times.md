@@ -5,7 +5,7 @@ tags:   general
 
 post:   http://127.0.0.1:4000/blog/2022/07/01/vacation-times-ahead
 wally:  https://wally.app
-kk:     https://getkeyboardkit.com
+kk:     https://keyboardkit.com
 ---
 
 As the Swedish summer keeps on delivering, I'm struggling to combine enjoying life with my family and friends with full-time work, open-source projects, a big app rewrite and this blog.
