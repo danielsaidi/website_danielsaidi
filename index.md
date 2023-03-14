@@ -25,7 +25,7 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
             platforms like iOS, macOS, tvOS and watchOS and tech like Swift and SwiftUI.
           </p>
           <p>
-            I make <a href="apps">apps</a>, <a href="open-source">open-source</a> and <a href="music">music</a>. I also <a href="blog">blog</a>, <a href="{{site.twitter_url}}">tweet</a> and <a href="{{site.mastodon_url}}">toot</a> and give occasional <a href="talks">talks & workshops</a>.
+            I make <a href="apps">apps</a> and <a href="open-source">open-source</a> stuff. I also <a href="blog">blog</a>, <a href="{{site.twitter_url}}">tweet</a> and <a href="{{site.mastodon_url}}">toot</a> and give occasional <a href="talks">talks & workshops</a>.
           </p>
         </div>
       </section>

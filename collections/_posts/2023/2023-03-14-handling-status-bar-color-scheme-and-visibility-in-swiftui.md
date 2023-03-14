@@ -1,14 +1,14 @@
 ---
 title:  Handling status bar color scheme and visibility in SwiftUI
 date:   2023-03-14 06:00:00 +0000
-tags:   swiftui
+tags:   swiftui scrollview
 
 icon:   swiftui
 assets: /assets/blog/2023/2023-03-14/
 assets-stretch: /assets/blog/2023/2023-02-06/
 
-tweet:  https://twitter.com/danielsaidi/status/1623804862638039042?s=20&t=J6iHidP-sc9AlxvKVXzKJA
-toot:   https://mastodon.social/@danielsaidi/109835843154685679
+tweet:  https://twitter.com/danielsaidi/status/1635622334412341248?s=20
+toot:   https://mastodon.social/@danielsaidi/110021688423151183
 
 post-offset:    https://danielsaidi.com/blog/2023/02/06/adding-scroll-offset-tracking-to-a-swiftui-scroll-view
 post-stretch:   https://danielsaidi.com/blog/2023/02/06/adding-a-stretchable-header-to-a-swiftui-scroll-view
