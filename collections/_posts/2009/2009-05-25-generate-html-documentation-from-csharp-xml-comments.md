@@ -1,7 +1,7 @@
 ---
 title: Generate HTML documentation from C# comments
 date:  2009-05-25 11:01:00 +0100
-tags:  .net documentation
+tags:  archive
 icon:  dotnet
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Perform web.config transforms on build
 date:  2013-04-04 09:29:00 +0100
-tags:  .net web
+tags:  archive
 icon:  dotnet
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Flush the Visual Studio Template Cache
 date:  2011-01-14 12:00:00 +0100
-tags:  .net
+tags:  archive
 icon:  dotnet
 ---
 

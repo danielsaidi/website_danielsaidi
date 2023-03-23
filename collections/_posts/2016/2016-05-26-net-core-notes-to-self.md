@@ -1,7 +1,7 @@
 ---
 title: .NET Core notes to self
 date:  2016-05-26 07:52:00 +0100
-tags:  .net testing
+tags:  archive
 icon:  dotnet
 ---
 

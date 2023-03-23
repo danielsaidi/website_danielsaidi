@@ -1,7 +1,7 @@
 ---
 title: Using Moq with NUnit
 date:  2009-08-19 13:28:00 +0100
-tags:  .net testing mocking
+tags:  archive
 icon:  dotnet
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Use special characters in ModelState error message
 date:  2009-08-26 07:53:00 +0100
-tags:  .net c#
+tags:  archive
 icon:  dotnet
 ---
 

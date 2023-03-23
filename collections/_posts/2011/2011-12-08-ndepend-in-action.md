@@ -1,7 +1,7 @@
 ---
 title: Various NDepend learnings
 date:  2011-12-08 12:00:00 +0100
-tags:  .net code-quality
+tags:  archive
 icon:  dotnet
 ---
 

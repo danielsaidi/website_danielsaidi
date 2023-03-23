@@ -1,7 +1,7 @@
 ---
 title: ASP.NET and WebApi attributes with StructureMap
 date:  2015-09-11 09:45:00 +0100
-tags:  .net c# api dependency-injection
+tags:  archive
 icon:  dotnet
 ---
 

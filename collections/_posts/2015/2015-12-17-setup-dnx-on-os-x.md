@@ -1,7 +1,7 @@
 ---
 title: Setup DNX in macOS
 date:  2015-12-17 08:48:00 +0100
-tags:  .net automation
+tags:  archive
 icon:  dotnet
 ---
 

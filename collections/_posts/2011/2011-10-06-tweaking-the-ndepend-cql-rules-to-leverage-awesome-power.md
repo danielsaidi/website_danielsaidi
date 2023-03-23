@@ -1,7 +1,7 @@
 ---
 title: Tweaking NDepend CQL rules
 date:  2011-10-06 12:00:00 +0100
-tags:  .net code-quality
+tags:  archive
 icon:  dotnet
 ---
 

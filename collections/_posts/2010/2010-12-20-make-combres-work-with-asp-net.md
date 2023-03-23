@@ -1,7 +1,7 @@
 ---
 title: Make Combres work with ASP.NET
 date:  2010-12-20 12:00:00 +0100
-tags:  .net
+tags:  archive
 icon:  dotnet
 
 combres:	http://www.codeproject.com/KB/aspnet/combres2.aspx/

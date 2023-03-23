@@ -1,7 +1,7 @@
 ---
 title: Visual Studio and WPF applies basic Windows 7 theme
 date:  2011-06-27 12:00:00 +0100
-tags:  .net
+tags:  archive
 icon:  dotnet
 ---
 

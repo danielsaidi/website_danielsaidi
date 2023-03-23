@@ -1,7 +1,7 @@
 ---
 title: Getting the name of the current controller and action in ASP.NET MVC
 date:  2010-08-15 12:00:00 +0100
-tags:  .net c# web
+tags:  archive
 icon:  dotnet
 ---
 

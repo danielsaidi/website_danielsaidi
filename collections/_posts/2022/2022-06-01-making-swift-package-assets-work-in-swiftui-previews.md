@@ -1,7 +1,7 @@
 ---
 title:  Making Swift package assets work in SwiftUI previews
 date:   2022-06-01 01:00:00 +0000
-tags:   swiftui spm swiftgen swiftui-previews
+tags:   swiftui spm swiftgen
 
 icon:   swiftui
 

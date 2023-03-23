@@ -1,7 +1,7 @@
 ---
 title:  How to detect SwiftUI preview mode
 date:   2022-05-27 01:00:00 +0000
-tags:   swiftui swiftui-previews process-info
+tags:   swiftui
 
 icon:   swiftui
 

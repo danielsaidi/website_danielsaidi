@@ -1,7 +1,7 @@
 ---
 title: Am I writing bad tests?
 date:  2011-10-08 12:00:00 +0100
-tags:  .net testing
+tags:  archive
 icon:  dotnet
 ---
 
