@@ -1,7 +1,7 @@
 ---
 title: sudo is required for all Ionic and Cordova commands
 date:  2015-08-26 08:00:00 +0100
-tags:  ios android ionic
+tags:  archive
 icon:  javascript
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Activating Windows 8
 date:  2012-11-11 00:30:00 +0100
-tags:  windows
+tags:  archive
 icon:  avatar-swear
 ---
 

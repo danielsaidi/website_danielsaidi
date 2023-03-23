@@ -1,7 +1,7 @@
 ---
 title: Building an Apple Watch app in SwiftUI
 date:  2020-02-11 00:00:00 +0100
-tags:  watchos swiftui combine
+tags:  watchos swiftui
 icon:  swiftui
 ---
 

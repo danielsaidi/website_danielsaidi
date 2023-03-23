@@ -1,7 +1,7 @@
 ---
 title: IoC and dependency injection - the basics
 date:  2020-05-26 20:00:00 +0100
-tags:  swift ioc dependency-injection
+tags:  swift ioc di
 icon:  swift
 
 lib:    https://github.com/danielsaidi/SwiftKit

@@ -1,7 +1,7 @@
 ---
 title: Natural Scrolling in Windows 8
 date:  2012-11-29 23:03:00 +0100
-tags:  windows
+tags:  archive
 icon:  avatar
 ---
 

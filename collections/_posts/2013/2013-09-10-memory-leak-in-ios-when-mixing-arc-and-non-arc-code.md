@@ -1,7 +1,7 @@
 ---
 title: Memory leak in iOS when mixing ARC and non-ARC code
 date:  2013-09-10 13:13:00 +0100
-tags:  ios objc
+tags:  ios
 icon:  swift
 ---
 

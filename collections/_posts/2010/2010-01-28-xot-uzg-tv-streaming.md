@@ -1,7 +1,7 @@
 ---
 title: XOT-Uzg TV Streaming on your Xbox
 date:  2010-01-28 12:00:00 +0100
-tags:  gaming
+tags:  general
 icon:  avatar
 ---
 

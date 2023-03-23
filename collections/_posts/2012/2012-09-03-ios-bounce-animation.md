@@ -1,7 +1,7 @@
 ---
 title: iOS Bounce Animation
 date:  2012-09-03 17:44:00 +0100
-tags:  ios objc
+tags:  ios
 icon:  swift
 ---
 

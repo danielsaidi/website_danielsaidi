@@ -1,7 +1,7 @@
 ---
 title: Getting PEAR and PHPUnit to work with MAMP
 date:  2011-09-15 12:00:00 +0100
-tags:  php testing web
+tags:  archive
 icon:  php
 
 tutorial: http://akrabat.com/php/setting-up-php-mysql-on-os-x-10-7-lion/

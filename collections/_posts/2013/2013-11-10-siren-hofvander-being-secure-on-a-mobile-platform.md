@@ -2,7 +2,7 @@
 title: Siren Hofvander - Being Secure on a Mobile Platform
 date:  2013-11-10 20:59:00 +0100
 categories: conferences
-tags:  conference mobile
+tags:  conference
 image: /assets/blog/2013/oredev.jpg
 
 video: http://oredev.org/oredev2013/2013/videos.html

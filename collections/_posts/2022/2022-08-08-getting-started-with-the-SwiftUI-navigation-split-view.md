@@ -1,7 +1,7 @@
 ---
 title:  Getting started with the SwiftUI NavigationSplitView
 date:   2022-08-08 06:00:00 +0000
-tags:   swiftui navigation
+tags:   swiftui
 
 icon:   swiftui
 assets: /assets/blog/2022/2022-08-08/

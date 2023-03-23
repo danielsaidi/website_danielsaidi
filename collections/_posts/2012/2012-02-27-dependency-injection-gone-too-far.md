@@ -1,7 +1,7 @@
 ---
 title: Dependency Injection gone too far?
 date:  2012-02-27 12:00:00 +0100
-tags:  dependency-injection
+tags:  di
 icon:  avatar-sweat
 ---
 

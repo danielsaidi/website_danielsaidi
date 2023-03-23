@@ -1,7 +1,7 @@
 ---
 title:  Removing the iOS home indicator in SwiftUI
 date:   2022-08-01 06:00:00 +0000
-tags:   swiftui home-indicator
+tags:   swiftui
 
 icon:   swiftui
 assets: /assets/blog/2022/2022-08-01/

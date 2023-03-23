@@ -2,7 +2,7 @@
 title: Scaling mobile at Spotify
 date:  2013-11-06 12:59:00 +0100
 categories: conferences
-tags:  conference mobile
+tags:  conference
 image: /assets/blog/2013/2013-11-06-spotify.jpg
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Ionic 2 - Build Configuration-Specific Settings
 date:  2016-05-12 12:04:00 +0100
-tags:  ionic ios android
+tags:  archive
 icon:  avatar
 ---
 

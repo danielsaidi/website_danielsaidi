@@ -1,7 +1,7 @@
 ---
 title: Bundle CSS files with relative file paths
 date:  2010-06-09 11:00:00 +0100
-tags:  css php
+tags:  archive
 icon:  php
 ---
 

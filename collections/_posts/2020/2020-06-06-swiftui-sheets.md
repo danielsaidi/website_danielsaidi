@@ -1,7 +1,7 @@
 ---
 title: An easier way to manage sheets in SwiftUI
 date:  2020-06-06 20:00:00 +0100
-tags:  swiftui sheet
+tags:  swiftui swiftui-presentation
 icon:  swiftui
 
 github: https://github.com/danielsaidi/SwiftUIKit
