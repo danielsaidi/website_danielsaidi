@@ -13,6 +13,9 @@
 
 
 
+- name: ApiKit
+  url: https://github.com/danielsaidi/ApiKit
+
 - name: DeckKit
   url: https://github.com/danielsaidi/DeckKit
 
