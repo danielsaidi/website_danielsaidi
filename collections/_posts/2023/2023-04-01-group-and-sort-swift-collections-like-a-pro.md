@@ -4,40 +4,50 @@ date:   2023-04-01 06:00:00 +0000
 tags:   swift
 
 icon:   swift
+
+tweet:  https://twitter.com/danielsaidi/status/1642412403542433792?s=20
+toot:   https://mastodon.social/@danielsaidi/110127782998293315
 ---
 
-Swift provides many powerful ways to sort collections, but what if you want to be able to curate the sort order slightly? Let's take a look at one way to do this.
+Swift provides powerful ways to group and sort collections. Let's take a look at some ways to do this and how to change the sort logic a bit.
 
 Imagine having a type that can be grouped into named collections, for instance a `Person` that defines a city of residence:
 
 ```swift
 struct Person {
-
-    var name: String
-    var city: String
+  var name: String
+  var city: String
 }
 ```
-
-In the example above, each person only defines a `name` and a `city` and the named collection has a `name` and a generic list of `items`.
 
 Let's now say that we have a couple of persons:
 
 ```swift
 let persons: [Person] = [
-    .init(name: "Johanna", city: "Stockholm"),
-    .init(name: "Daniel", city: "Stockholm"),
-    .init(name: "Joe", city: "Washington"),
-    .init(name: "Kamala", city: "San Francisco")
+  .init(name: "Johanna", city: "Stockholm"),
+  .init(name: "Daniel", city: "Stockholm"),
+  .init(name: "Joe", city: "Washington"),
+  .init(name: "Kamala", city: "San Francisco")
 ]
 ```
 
-We can easily group persons by city and get a `Dictionary` as result:
+Using `Dictionary(grouping:by:)` we can easily group persons by city:
 
 ```swift
-Dictionary(grouping: persons, by: { $0.city })
+extension Collection where Element == Person {
+  func groupedByCity() -> Dictionary<String, [Element]> {
+    Dictionary(grouping: self, by: { $0.city })
+  }
+}
 ```
 
-This results in a `[String: Person]` dictionary, with one `Stockholm` key with Daniel and Johanna, one `Washington` key with `Joe` and one `San Francisco` key with Kamala:
+and call it like this:
+
+```swift
+persons.groupedByCity()
+```
+
+This returns a dictionary, where the keys are city names and the dictionary values are an array of people:
 
 ```swift
 [0] = {
@@ -55,31 +65,41 @@ This results in a `[String: Person]` dictionary, with one `Stockholm` key with D
 }
 [1] = {
   key = "San Francisco"
-  ...
+  value = 1 value {
+    [0] = {
+      name = "Johanna"
+      city = "Stockholm"
+    }
+  }
+}
+...
 ```
 
-Dictionaries are great for key-value structured data, but one problem is that the keys are unordered, which means that the result above will be shuffled every time you create it.
+Dictionaries are great for key-value structured data, but a problem is that the keys are unordered, which means that the result above will be shuffled every time you create it.
 
-We could get all keys, sort them in a certain order and iterate over the sorted keys to fetch data for each key, but sometimes you may want an array with a built-in order.
-
-Let's instead add this generic, named collection to get a bit more structure:
+We could get and sort all keys from the dictionary, then iterate over the sorted keys to fetch users, but let's instead add this generic, named collection to get a bit more structure:
 
 ```swift
 struct NamedCollection<Item> {
 
-    var name: String
-    var items: [Item]
+  var name: String
+  var items: [Item]
 }
 ```
 
 We can now map the dictionary to a `[NamedCollection]` like this:
 
 ```swift
-Dictionary(grouping: persons, by: { $0.city })
-    .map { NamedCollection(name: $0, items: $1) }
+extension Collection where Element == Person {
+
+    func groupedByCity() -> [NamedCollection<Element>] {
+        Dictionary(grouping: persons, by: { $0.city })
+            .map { NamedCollection(name: $0, items: $1) }
+    }
+}
 ```
 
-Since the keys are unordered, we still get random sort order every time we do this:
+Since the keys are unordered, we still get random order every time we do this:
 
 ```swift
 [0] = {
@@ -100,15 +120,19 @@ Since the keys are unordered, we still get random sort order every time we do th
   ...
 ```
 
-However, it's now very easy to sort the collection by city:
+But it's now very easy to add sorting to the mix and sort the groups by city name:
 
 ```swift
-Dictionary(grouping: persons, by: { $0.city })
-    .map { NamedCollection(name: $0, items: $1) }
-    .sorted { $0.name < $1.name } 
+extension Collection where Element == Person { 
+    func groupedByCity() -> [NamedCollection<Element>] { 
+        Dictionary(grouping: persons, by: { $0.city })
+            .map { NamedCollection(name: $0, items: $1) }
+            .sorted { $0.name < $1.name }   // <--
+    } 
+} 
 ```
 
-With this, we now get always get the cities in alphabetic ascending order:
+With this, we always get the cities in alphabetic ascending order:
 
 ```swift
 [0] = {
@@ -125,16 +149,20 @@ With this, we now get always get the cities in alphabetic ascending order:
   ...
 ```
 
-However, consider the fact where we perhaps don't care about the overall order, but want to add one or several items topmost, for instance, in this case perhaps a currently selected city.
+Now consider a situation where we want to sort this in alphabetical order, but also want to place one or several cities topmost. We may have a "city" of the week, a currently selected city etc.
 
-We can easily fix this by adding a `NamedCollection` extension that allows us to curate the content of such a collection:
+This would have been easy to do with the dictionary, where we just would fetch and list a certain city key, then removed that key, then listed the remaining keys, although they would be listed in random order.
+
+With the named collection, we instead have a sorted array, where we want to place a certain item first, then list the rest in alphabetical order. This could involve iterating the collection many times to find the city we're after, remove it from the collection then append the remaining, sorted cities after it.
+
+A more efficient approach is to create a custom sort function for the `NamedCollection`:
 
 ```swift
-public extension Collection where Element == KeyboardThemeCollection {
+public extension Collection where Element == NamedCollection {
 
-    func curated(topmost: [String]) -> [Element] {
+    func sorted(firstmost: [String]) -> [Element] {
         sorted {
-            for name in topmost {
+            for name in firstmost {
                 if $0.name == name { return true }
                 if $1.name == name { return false }
             }
@@ -144,16 +172,18 @@ public extension Collection where Element == KeyboardThemeCollection {
 }
 ```
 
-All this does is to look if either of the compared elements has the same name as a customizable list of names to place topmost.
+All this does is to look if either of the compared element names is in the list of names to place firstmost. Since we iterate over the `firstmost` collection, the provided order will be preserved.
 
 We can now do this:
 
 ```swift
-Dictionary(grouping: persons, by: { $0.city })
-    .map { NamedCollection(name: $0, items: $1) }
-    .curated(topmost: ["Washington"])
+persons
+  .groupedByCity()
+  .sorted(firstmost: ["Washington"])
 ```
 
-This will always place Washington topmost then sort the rest of the cities in alphabetical order. If you want a completely random sort order for the rest, you can replace the last `return $0.name < $1.name` with `return Bool.random()`.
+This will always place `Washington` first, then sort the rest in alphabetical ascending order. Replacing the `return $0.name < $1.name` with `return $0.name > $1.name` would apply a descending order while `return Bool.random()` would sort randomly.
+
+You could also extend `Collection where Element == Person` further, to let you specify the topmost cities at the same time as grouping them. The possibilities are basically endless, so you are free to come up with a design that fits your domain and use-case.
 
 That's it, you're now a Swift collection grouping and sorting pro! 🎉
