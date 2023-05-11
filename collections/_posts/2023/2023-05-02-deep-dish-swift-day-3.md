@@ -64,9 +64,19 @@ Having not worked with live activities, this talk was full of good to knows for 
 
 ### 13 Tips to Write Code like a Swiftie
 
-[Mikaela]({{page.mikaela}}) talked about writing code lime a (Taylor) Swiftie, including using proper casing (PascalCasing, camelCasing etc.), naming (use US spelling, says the US person), argument labels, type aliases, code documentation, access control, code structure, enums, namespaces etc. - all in a Taylor Swift context where most jokes flew over my head.
+[Mikaela]({{page.mikaela}}) talked about writing code like a (Taylor) Swiftie. In her talk, she touched on many topics, like for instance casing (PascalCasing, camelCasing etc.), naming conventions, argument labels, type aliases, documentation, access control, code structure, enums, namespaces etc. and many other great things to consider - all in a fun Taylor Swift context, where I truly felt my age.
 
-Mikaela's talk was fun and thorough, but highly opinionated in parts. While highly opinionated views expressed as recommendations are far from common, I have equally opinionated views that contradict many of the recommendations given in this talk. I will die on the hill where the initializers are placed first.
+Mikaela's talk was very fun and impressively thorough, and I just loved how she highlighted incorrect and correct usages in a very clear way. showing examples of both how to do things and how not to do it.
+
+The talk was a bit opinionated in parts, which is far from common in these kind of talks. I have equally opinionated views that contradict many recommendations given in this talk. For instance, I find it a bit fun that a U.S. person advocates using U.S. and not U.K. naming. To me, it depends on the domain. 
+
+I also think the protocol naming convention that was advocated in this talk and that is often used by the community (Calmable, Loveable...gosh, Taylor Swift was everywhere) is not a silver bullet. For instance, I tend to name my protocols in a different way, e.g. `MovieService` instead of `MovieServiceable`. I also don't like using enums as namespaces, but that's just a nitpick.
+
+The code structure part was probably the most opinionated part, where I think an absolute way to order and group your code depends on many different factors, such as the size of the file. But I've been highly opinionated in this regard myself, so I see where it is coming from.
+
+I will still die on the hill where the initializers are placed first, but will probably change my mind in a year. That's the beauty of opinions, they are allowed to change. 
+
+Overall this was a great talk and I can really recommend that you watch it if you get a chance. Just make sure to listen to some Taylor Swift before you do.
 
 
 ## Simon B. Støvring
