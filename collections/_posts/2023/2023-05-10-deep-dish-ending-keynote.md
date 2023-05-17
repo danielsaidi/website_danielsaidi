@@ -1,12 +1,11 @@
 ---
 title:  Thoughts on a closing keynote
-date:   2023-05-10 06:00:00 +0000
+date:   3000-05-10 06:00:00 +0000
 tags:   conference
 
 image:  /assets/headers/deepdish.png
 
 layout: blog
-permalink: post-preview
 ---
 
 Deep Dish Swift is done, and what an amazing conference it was! Thanks to all who made it happen. The closing keynote however left me a bit conflicted, and I hope to gather my thoughts on it in this post.
