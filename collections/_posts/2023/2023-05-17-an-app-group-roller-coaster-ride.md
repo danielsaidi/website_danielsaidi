@@ -6,8 +6,8 @@ tags:   swift swiftui
 icon:   swift
 assets: /assets/blog/2023/2023-05-17/
 
-tweet:  
-toot:   
+tweet:  https://twitter.com/danielsaidi/status/1658808366657937409?s=20
+toot:   https://mastodon.social/@danielsaidi/110383970932692857
 
 keyboardkit:    https://keyboardkit.com
 oribiwriter:    https://oribi.se/en/apps/oribi-writer/
