@@ -9,7 +9,7 @@ tweet:  https://twitter.com/danielsaidi/status/1539343541155028993?s=20&t=mIWJ4r
 
 article:    https://danielsaidi.com/blog/2022/06/15/swiftui-4-custom-sheet-sizes
 swiftuikit: https://github.com/danielsaidi/SwiftUIKit
-extension:  https://github.com/danielsaidi/SwiftUIKit/blob/master/Sources/SwiftUIKit/Presentation/Detents/UndimmedPresentationDetentsViewModifier.swift
+extension:  https://github.com/danielsaidi/SwiftUIKit/blob/master/Sources/SwiftUIKit/Presentation/Detents/PresentationDetentsViewModifier.swift
 
 edward:     https://twitter.com/edwardsainsbury 
 ericlewis:  https://twitter.com/ericlewis
@@ -17,24 +17,20 @@ kzyryanov:  https://twitter.com/kzyryanov
 tgrapperon: https://twitter.com/tgrapperon
 ---
 
-SwiftUI 4 adds a bunch of amazing features, such as custom sized sheets. However, the current sheets will always dim the underlying view when they are presented, even when they use a smaller size. Let's look at how to fix this.
+SwiftUI 4 adds a bunch of great features, such as custom sized sheets. However, these sheets will always dim the underlying view, even when they use a smaller size. Let's look at how to fix this.
 
-> Update 2022-11-01: I have updated this post with a new way to handle the largest undimmed presentation detents, that doesn't require always including `.large` in the provided detent collection.
-
-> Update 2022-09-04: I noticed that the approach in this post now only works if `.large` is in the provided set of detents. Furthermore, SwiftUI previews started crashing when they used the undimmed modifier. The post has been updated with a setup that doesn't cause a crash and the modifier now always adds `.large` to the provided set of detents, to ensure that undimming works.
+> Update 2023-05-25: After some discussions and GitHub issues, I have cleaned up the code quite a bit. This post now has the latest version. You can always visit [SwiftUIKit]({{page.swiftuikit}}) for the latest version of the code.
 
 
 ## Background
 
-I [recently wrote]({{page.article}}) about how you can use the new `presentationDetents` view modifier to setup custom sheet sizes in SwiftUI 4.
+I [recently wrote]({{page.article}}) about how you can use the new `presentationDetents` view modifier to set up sheets with custom sizes in SwiftUI 4.
 
-Even though this API is nice and easy to use, it doesn't let you do all you can in UIKit. For instance, you can't keep the underlying view undimmed when a sheet is presented. This means that you can't build apps like Apple Maps, where a small sheet is always presented over an always interactable map.
-
-This is how a SwiftUI map app would behave if we were to present a small sheet over a fullscreen map:
+Even though this is great, it always dims the underlying when a sheet is presented. This means that we can't build an apps like Apple Maps, where a sheet is always presented over an always interactable map:
 
 ![A SwiftUI map app without and with a small sheet overlay]({{page.assets}}/maps.jpg){:style="width:650px"}
 
-Even if it's hard to see in the images above, the underlying map becomes disabled when the sheet is presented. This won't do if we want the map to be interactable while the sheet is presented.
+In the images above, the map becomes disabled when the sheet is presented with this new modifier, and will hide the sheet when you tap on it. We thus need a way to keep the underlying view undimmed.
 
 
 ## Undimming the underlying view in UIKit
@@ -47,7 +43,7 @@ For instance, if you want the underlying view to be enabled up to and including 
 sheetPresentationController?.largestUndimmedDetentIdentifier = .medium
 ```
 
-This feature is not available in SwiftUI at the moment, which means that SwiftUI sheets will always dim the underlying view. We can however add support for undimming to SwiftUI with a tiny fix, which will let us affect the sheet presentation controller from SwiftUI.
+This feature is not available in SwiftUI at the moment, but we can add support for it with a tiny fix, which will let us affect the sheet presentation controller from SwiftUI.
 
 
 ## Undimming the underlying view in SwiftUI
@@ -56,45 +52,43 @@ When I went to Twitter to cry about these missing capabilities, I quickly got a 
 
 So, I did just that. I want the workaround to be as close to the current APIs as possible, to make it easy to replace when the feature is added in a future version of SwiftUI.
 
-The native SwiftUI extension that is used to set custom sheet sizes is called `presentationDetents` and is used like this:
+The native SwiftUI extension that is used to set custom sheet sizes is called `presentationDetents`:
 
 ```swift
 myView.presentationDetents([.medium, .large])
 ```
 
-I therefore decided to call the undim supporting extension `presentationDetents` as well, but instead of having an unnamed detents parameters, I called it `undimmed`:
+I decided to call my view modifier `presentationDetents` as well, but also added a `largestUndimmed` parameter to support undimming and an optional `selection` binding:
 
 ```swift
 extension View {
 
     func presentationDetents(
-        undimmed detents: Set<PresentationDetent>
+        _ detents: [PresentationDetent],
+        largestUndimmed: PresentationDetent,
+        selection: Binding<PresentationDetent>? = nil
     ) -> some View {
-        self.presentationDetents(detents)
-        // Now what???
-    }
-
-    func presentationDetents(
-        undimmed detents: Set<PresentationDetent>, 
-        selection: Binding<PresentationDetent>
-    ) -> some View {
-        self.presentationDetents(detents, selection: selection)
-        // Now what???
+        // Insert magic here
     }
 }
 ```
 
-Before we continue, I want to pause and address an Xcode 14 beta bug that caused undimming to stop working unless you provided a largest undimmed detent size, which can only be defined with UIKit.
+Unfortunately, things will not be this easy. Since we have to use UIKit to make undimming work, we need to find a way to bridge the SwiftUI `PresentationDetent` with the UIKit one.
 
-Since we therefore will need to use both the SwiftUI `PresentationDetent` as well as the UIKit detents identifier, and there is no clean way to bridge the two, I decided to add a new enum:
+
+## Bridging UIKit and SwiftUI
+
+Since there is no clean way to bridge the two detent types, I decided to add a new enum that does this:
 
 ```swift
-enum UndimmedPresentationDetent {
+public enum PresentationDetentReference: Hashable {
 
     case large
+
     case medium
 
     case fraction(_ value: CGFloat)
+
     case height(_ value: CGFloat)
 
     var swiftUIDetent: PresentationDetent {
@@ -117,7 +111,7 @@ enum UndimmedPresentationDetent {
 }
 ```
 
-The `uiKitIdentifier` property also needs new identifier extensions for `.fraction` and `.height`:
+where the `uiKitIdentifier` property needs these extensions for `.fraction` and `.height`:
 
 ```swift
 extension UISheetPresentationController.Detent.Identifier {
@@ -132,10 +126,10 @@ extension UISheetPresentationController.Detent.Identifier {
 }
 ```
 
-Let's also add an extension to any collection that contains `UndimmedPresentationDetent`, to make it easy to create a `PresentationDetent` set:
+Let's also add a reference extension that makes it easy to create a SwiftUI `PresentationDetent` set:
 
 ```swift
-extension Collection where Element == UndimmedPresentationDetent {
+extension Collection where Element == PresentationDetentReference {
 
     var swiftUISet: Set<PresentationDetent> {
         Set(map { $0.swiftUIDetent })
@@ -143,23 +137,28 @@ extension Collection where Element == UndimmedPresentationDetent {
 }
 ```
 
-We can now create a `UIViewControllerRepresentable` that can wrap a `UIViewController` that can manipulate the sheet presentation controller.
+With this in place, we can now handle presentation detents in UIKit and SwiftUI with just a single type.
 
-Let's start with the controller:
+
+## Controlling SwiftUI undimming with UIKit
+
+To add undimming support to SwiftUI, we can create a `UIViewControllerRepresentable` that wraps a `UIViewController` that we can use to manipulate the underlying views.
+
+Let's first create a view controller to set the largest undimmed detent of the shet presentation controller and tweak the tint adjustment mode, to avoid a bug where undimmed sheets still look dimmed:
 
 ```swift
-private class UndimmedDetentController: UIViewController {
+private class UndimmedDetentViewController: UIViewController {
 
-    var largestUndimmed: UndimmedPresentationDetent?
+    var largestUndimmedDetent: PresentationDetentReference?
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         avoidDimmingParent()
         avoidDisablingControls()
     }
 
     func avoidDimmingParent() {
-        let id = largestUndimmed?.uiKitIdentifier
+        let id = largestUndimmedDetent?.uiKitIdentifier
         sheetPresentationController?.largestUndimmedDetentIdentifier = id
     }
 
@@ -169,68 +168,113 @@ private class UndimmedDetentController: UIViewController {
 }
 ```
 
-We can provide this controller with a `largestUndimmedDetent` that it then used to configure the shet presentation controller. We also need to tweak the tint to avoid that undimmed sheets still look dimmed.
-
-Let's now define a `UIViewControllerRepresentable` that we can use in a SwiftUI view extension:
+We can now wrap the controller in a `UIViewControllerRepresentable` to make it available to SwiftUI:
 
 ```swift
 private struct UndimmedDetentView: UIViewControllerRepresentable {
 
-    var largestUndimmed: UndimmedPresentationDetent?
+    var largestUndimmed: PresentationDetentReference?
 
-    func makeUIViewController(context: Context) -> UIViewController {
-        let result = UndimmedDetentController()
+    func makeUIViewController(
+        context: Context
+    ) -> UndimmedDetentViewController {
+        let result = UndimmedDetentViewController()
         result.largestUndimmedDetent = largestUndimmed
         return result
     }
 
-    func updateUIViewController(_ uiViewController: UIViewController, context: Context) {
+    func updateUIViewController(
+        _ controller: UndimmedDetentViewController, 
+        context: Context
+    ) {
+        controller.largestUndimmedDetent = largestUndimmed
     }
 }
 ```
 
-The only thing this does is to return our custom controller, which affects the sheet presentation controller.
+If we now add this view to a SwiftUI view hierarchy, it will adjust the underlying UIKit views to play well with any undimming that we want to apply to our custom sized sheets.
 
-We can now redefine the view extension that we defined earlier, to support both undimmed detents and the largest undimmed detent:
+
+## Undimming the underlying view in SwiftUI
+
+With all these new things in place, we can now create a view modifier that lets us provide presentation detents together with a largest undimmed detent value:
+
+```swift
+public struct PresentationDetentsViewModifier: ViewModifier {
+
+    public init(
+        presentationDetents: [PresentationDetentReference],
+        largestUndimmed: PresentationDetentReference,
+        selection: Binding<PresentationDetent>? = nil
+    ) {
+        self.presentationDetents = presentationDetents + [largestUndimmed]
+        self.largestUndimmed = largestUndimmed
+        self.selection = selection
+    }
+
+    private let presentationDetents: [PresentationDetentReference]
+    private let largestUndimmed: PresentationDetentReference
+    private let selection: Binding<PresentationDetent>?
+
+    public func body(content: Content) -> some View {
+        if let selection = selection {
+            content
+                .background(background)
+                .presentationDetents(
+                    Set(presentationDetents.swiftUISet),
+                    selection: selection)
+        } else {
+            content
+                .background(background)
+                .presentationDetents(Set(presentationDetents.swiftUISet))
+        }
+    }
+}
+
+private extension PresentationDetentsViewModifier {
+
+    var background: some View {
+        UndimmedDetentView(
+            largestUndimmed: largestUndimmed
+        )
+    }
+}
+```
+
+The view modifier adds the `UndimmedDetentView` we defined earlier as a background, which makes the underlying UIKit view perform the required modifications.
+
+We also have to add the `largestUndimmed` detent to the `presentationDetents` collection, to ensure that it's in that collection. If not, the undimming will not work.
+
+We can now create a `presentationDetents` view extension as a shorthand to this new view modifier:
 
 ```swift
 public extension View {
 
     func presentationDetents(
-        undimmed detents: [UndimmedPresentationDetent],
-        largestUndimmed: UndimmedPresentationDetent? = nil
+        _ detents: [PresentationDetentReference],
+        largestUndimmed: PresentationDetentReference,
+        selection: Binding<PresentationDetent>? = nil
     ) -> some View {
-        self.background(UndimmedDetentView(largestUndimmed: largestUndimmed ?? detents.last))
-            .presentationDetents(detents.swiftUISet)
-    }
-
-    func presentationDetents(
-        undimmed detents: [UndimmedPresentationDetent],
-        largestUndimmed: UndimmedPresentationDetent? = nil,
-        selection: Binding<PresentationDetent>
-    ) -> some View {
-        self.background(UndimmedDetentView(largestUndimmed: largestUndimmed ?? detents.last))
-            .presentationDetents(
-                Set(detents.swiftUISet),
+        self.modifier(
+            PresentationDetentsViewModifier(
+                presentationDetents: detents + [largestUndimmed],
+                largestUndimmed: largestUndimmed,
                 selection: selection
             )
+        )
     }
 }
 ```
 
-These extensions let us specify a set of `undimmed` detents, as well as a `largestUndimmed` detent. If no largest detent is provided, the last of the `undimmed` detents is used.
+This modifier looks just like the already existing, native view extensions, which means that it will sit nicely next to the native extensions and be easy to discover.
 
-Now, guess what? This actually works! If we use `.presentationDetents(undimmed:)` instead of the native `.presentationDetents()`, the underlying view will not be dimmed nor disabled.
-
-This post used to have a separate section about the `tintAdjustmentMode` fix, but I put it all together to make it more compact. it was however provided by [ericlewis]({{page.ericlewis}}), so all cred to him for making this work!
-
-We can now use the `.presentationDetents(undimmed:)` instead of `.presentationDetents()` until Apple updates SwiftUI to support this natively. Hopefully, it won't take too long.
+We can now use `.presentationDetents(:largestUndimmed:selectin:)` to get undimming support in our iOS 16 apps. 
 
 
 ## Conclusion
 
-SwiftUI 4 custom sized sheets are amazing, but unfortunately some things are still missing. If you want to keep the underlying views undimmed as sheets are presented, I hope that this article helped you out.
+SwiftUI 4 custom sized sheets are greatamazing, but will unfortunately not let you keep the underlying view undimmed. This post presents a workaround until Apple adds this as a native feature.
 
-Big, big thanks to [kzyryanov]({{page.kzyryanov}}) for notifying me about this and to [tgrapperon]({{page.tgrapperon}}) and [ericlewis]({{page.ericlewis}}) for your amazing help! You are what makes this Internet thing still being great!
+Big thanks to [kzyryanov]({{page.kzyryanov}}) for notifying me about this, and to [tgrapperon]({{page.tgrapperon}}) and [ericlewis]({{page.ericlewis}}) for your amazing help! You are what makes this Internet thing still being great!
 
-I have added [this extension]({{page.extension}}) to [SwiftUIKit]({{page.swiftuikit}}). Feel free to try it out and let me know what you think, and just let me know if you find any more things that need fixing.
+I have added [this extension]({{page.extension}}) to my [SwiftUIKit]({{page.swiftuikit}}) library, which I use for misc SwiftUI utilities. Feel free to try it out and let me know what you think, and if you find anything that needs fixing.
