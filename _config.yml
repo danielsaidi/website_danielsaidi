@@ -30,6 +30,13 @@ mastodon_username: danielsaidi@mastodon.social
 twitter_url: https://twitter.com/danielsaidi
 twitter_username: danielsaidi
 
+apikit:               https://github.com/danielsaidi/apikit
+documentkit:          https://github.com/danielsaidi/documentkit
+keyboardkit:          https://github.com/danielsaidi/keyboardkit
+richtextkit:          https://github.com/danielsaidi/richtextkit
+systemnotification:   https://github.com/danielsaidi/systemnotification
+tutti:                https://github.com/danielsaidi/tutti
+
 assets: /assets/
 fonts: 
   - Caveat
