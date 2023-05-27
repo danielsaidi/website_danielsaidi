@@ -153,6 +153,48 @@ MyModalView()
 
 This means that any view can now be programmatically presented as a modal from a `DocumentGroup`.
 
+However, as you may know, SwiftUI makes heavy use of view modifiers, which often return `some View`. This means that if we apply a to a `DocumentGroupModal`, it's no longer of the same type, which means that the extensions will no longer be available.
+
+To solve this, we can add an internal `DocumentGroupInspector` and make the presentation extensions apply to all views instead:
+
+```swift
+public protocol DocumentGroupModal: View, DocumentGroupInspector  {
+
+    func presentAsDocumentGroupSheet() throws
+
+    func presentAsDocumentGroupFullScreenCover() throws
+
+    func presentAsDocumentGroupModal(_ style: UIModalPresentationStyle ) throws
+}
+
+/// This internal inspector is used by the view extensions.
+private class InternalInspector: DocumentGroupInspector {
+
+    static var shared = InternalInspector()
+}
+
+public extension View {
+
+    func presentAsDocumentGroupSheet() throws {
+        try presentAsDocumentGroupModal(.automatic)
+    }
+
+    func presentAsDocumentGroupFullScreenCover() throws {
+        try presentAsDocumentGroupModal(.fullScreen)
+    }
+
+    func presentAsDocumentGroupModal(_ style: UIModalPresentationStyle) throws {
+        let inspector = InternalInspector.shared
+        guard let parent = inspector.rootViewController else { throw DocumentGroupError.noParentWindow }
+        let controller = UIHostingController(rootView: self)
+        controller.modalPresentationStyle = style
+        parent.present(controller, animated: true, completion: nil)
+    }
+}
+```
+
+This may defeat the purpose of having the `DocumentGroupModal` protocol, but I think it brings clarity to the library. The intended use is still to implement it, but you can now modify a modal and still be able to use these extensions.
+
 
 
 ## How to present an initial onboarding screen

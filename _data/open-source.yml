@@ -19,6 +19,9 @@
 - name: DeckKit
   url: https://github.com/danielsaidi/DeckKit
 
+- name: DocumentKit
+  url: https://github.com/danielsaidi/DocumentKit
+
 - name: LicenseKit
   url: https://getlicensekit.com
 

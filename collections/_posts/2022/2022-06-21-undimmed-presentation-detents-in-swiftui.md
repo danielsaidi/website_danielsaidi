@@ -268,7 +268,7 @@ public extension View {
 
 This modifier looks just like the already existing, native view extensions, which means that it will sit nicely next to the native extensions and be easy to discover.
 
-We can now use `.presentationDetents(:largestUndimmed:selectin:)` to get undimming support in our iOS 16 apps. 
+We can now use `.presentationDetents(...)` to get undimming support in our iOS 16 apps. 
 
 
 ## Conclusion
