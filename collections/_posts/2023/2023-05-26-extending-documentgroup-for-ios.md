@@ -5,8 +5,6 @@ tags:   swiftui document-group
 
 image:  /assets/headers/documentkit.png
 
-layout: blog
-
 documentkit:    https://github.com/danielsaidi/documentkit
 ---
 
