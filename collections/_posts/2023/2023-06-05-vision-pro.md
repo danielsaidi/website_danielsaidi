@@ -5,8 +5,8 @@ tags:   general
 
 image:  /assets/headers/vision-pro.webp
 
-richtextkit: https://github.com/danielsaidi/RichTextKit
-release: https://github.com/danielsaidi/RichTextKit/releases/tag/0.6.0
+tweet:  https://twitter.com/danielsaidi/status/1665871186822144002?s=20
+toot:   https://mastodon.social/@danielsaidi/110494327182363788
 ---
 
 Apple Vision Pro is finally unveiled! As a surprise to no one, it looks absolutely spectacular. However, for every rumor and question that were addressed today, new ones arised, leaving me very confused.
