@@ -31,11 +31,19 @@ twitter_url: https://twitter.com/danielsaidi
 twitter_username: danielsaidi
 
 apikit:               https://github.com/danielsaidi/apikit
+deckkit:              https://github.com/danielsaidi/deckkit
 documentkit:          https://github.com/danielsaidi/documentkit
 keyboardkit:          https://github.com/danielsaidi/keyboardkit
+licensekit:           https://github.com/danielsaidi/licensekit
+mockingkit:           https://github.com/danielsaidi/mockingkit
+onboardingkit:        https://github.com/danielsaidi/onboardingkit
 richtextkit:          https://github.com/danielsaidi/richtextkit
+scrollkit:            https://github.com/danielsaidi/scrollkit
+storekitplus:         https://github.com/danielsaidi/storekitplus
+swiftkit:             https://github.com/danielsaidi/swiftkit
+swiftuikit:           https://github.com/danielsaidi/swiftuikit
 systemnotification:   https://github.com/danielsaidi/systemnotification
-tutti:                https://github.com/danielsaidi/tutti
+webviewkit:           https://github.com/danielsaidi/webviewkit
 
 assets: /assets/
 fonts: 

@@ -28,6 +28,9 @@
 - name: MockingKit
   url: https://github.com/danielsaidi/MockingKit
 
+- name: OnboardingKit
+  url: https://github.com/danielsaidi/OnboardingKit
+
 - name: ScrollKit
   url: https://github.com/danielsaidi/ScrollKit
 
@@ -39,9 +42,6 @@
 
 - name: TagKit
   url: https://github.com/danielsaidi/TagKit
-
-- name: Tutti
-  url: https://github.com/danielsaidi/Tutti
 
 - name: WebViewKit
   url: https://github.com/danielsaidi/WebViewKit

@@ -40,7 +40,7 @@ Let me list some of my current projects, to give you an idea of the kind of libr
 * [SwiftKit](https://github.com/danielsaidi/SwiftKit) - A library in which I put general, reusable Swift code.
 * [SwiftUIKit](https://github.com/danielsaidi/SwiftUIKit) - A library in which I put general, reusable SwiftUI code.
 * [SystemNotification](https://github.com/danielsaidi/SystemNotification) - A library for creating customizable system notifications in SwiftUI.
-* [Tutti](https://github.com/danielsaidi/Tutti) - An library for creating different onboarding experiences, hints and tutorials.
+* [OnboardingKit](https://github.com/danielsaidi/OnboardingKit) - An library for creating different onboarding experiences, hints and tutorials.
 
 These are projects that I work on every now and then, although most of them are only revisited when I get an idea for a feature or improvement, have to fix a bug, get feedback or pull requests from the community or need to update the library due to external changes (e.g. new iOS version).
 
