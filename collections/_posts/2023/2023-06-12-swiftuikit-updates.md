@@ -1,14 +1,11 @@
 ---
 title:  SwiftUIKit Updates
 date:   2023-06-12 06:00:00 +0000
-tags:   swiftui
+tags:   swiftui open-source
 
 image:  /assets/headers/swiftuikit.png
 
 release:    https://github.com/danielsaidi/SwiftUIKit/releases/tag/3.3.0
-
-tweet:  
-toot:   
 ---
 
 SwiftUIKit 3.3 is out! It has some nice additions and changes, like more tools for using `Codable` with `AppStorage` and new list utils. Let's take a look at what's new in this minor update.
