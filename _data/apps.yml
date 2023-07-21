@@ -1,10 +1,10 @@
+- name: KeyboardKit
+  url: http://keyboardkit.com/app
+  appStoreUrl: http://itunes.apple.com/app/keyboardkit/id1568444977
+  
 - name: Wally
   url: https://wally.app
   appStoreUrl: https://itunes.apple.com/app/wally/id516398915
-
-- name: Keyboard Studio
-  url: http://app.getkeyboardkit.com
-  appStoreUrl: https://app.getkeyboardkit.com/assets/appstore.png
 
 - name: Appamini
   url: http://appamini.com
