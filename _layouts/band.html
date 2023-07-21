@@ -18,13 +18,14 @@ layout: default
 
     <h1>
       {{ info.name | escape }}
-      <div class="post-header">
-        <span class="date">{{info.year-from}} - {{info.year-to}}</span>
-        <span class="spacer"></span>
-        {%- assign genres = info.genres | downcase | split: " " -%}
-        {% include tags/band-genres.html genres=genres %}
-      </ul>
     </h1>
+
+    <div class="post-header">
+      <span class="date">{{info.year-from}} - {{info.year-to}}</span>
+      <span class="spacer"></span>
+      {%- assign genres = info.genres | downcase | split: " " -%}
+      {% include tags/band-genres.html genres=genres %}
+    </div>
 
     {{ content }}
   </section>

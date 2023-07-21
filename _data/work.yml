@@ -1,9 +1,3 @@
-- name:     Qapital
-  years:    2022 -
-  url:      /work/qapital
-  website:  https://www.qapital.com
-  tags:     swift swiftui ios spm passkey
-
 - name:     Oribi
   years:    2021 -
   url:      /work/oribi
@@ -13,14 +7,20 @@
 - name:     Cineasterna
   years:    2020 -
   url:      /work/cineasterna
-  website:  https://www.cineasterna.com/sv/ 
+  website:  https://cineasterna.com
   appstore: https://apps.apple.com/se/app/cineasterna/id1446065399
   tags:     swift swiftui ios tvos video streaming
+
+- name:     Qapital
+  years:    2022 - 2023
+  url:      /work/qapital
+  website:  https://qapital.com
+  tags:     swift swiftui ios spm passkey
 
 - name:     Bambuser
   years:    2021
   url:      /work/bambuser
-  website:  https://www.bambuser.com
+  website:  https://bambuser.com
   tags:     swift swiftui ios closed-source video streaming
 
 - name:     BookBeat
