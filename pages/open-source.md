@@ -8,10 +8,12 @@ permalink: /open-source/
   {% include kankoda/buttons/home.html %}
 
   <h1>Open Source</h1>
-  
+
   <p>
-    Here is a list of some of my open source projects that I currently maintain. For a list of all public projects, please have a look at my <a href="https://github.com/{{ site.github_username| cgi_escape | escape }}">GitHub</a> profile.
+    Here are some open-source projects that I have created and currently maintain. For a list of all public projects, please have a look at my <a href="{{ site.github_url }}">GitHub</a> profile.
   </p>
+
+  {% include work-paragraph.html %}
 </article>
 
 {% include kankoda/grids/grid.html items=site.data.open-source type="icons" %}

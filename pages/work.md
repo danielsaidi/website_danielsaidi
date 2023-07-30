@@ -11,10 +11,12 @@ licensekit: https://getlicensekit.com
   {% include kankoda/buttons/home.html %}
 
   <h1>Work</h1>
-  
+
   <p>
-    I do freelance work, so don't hesitate to <a href="mailto:{{site.email}}">contact me</a> if you need help with app development, architecture, automation, testing etc. Below are some of the clients and employments that I've had over the years.
+    Here are some companies that I have had the pleasure of working with the last couple of years.
   </p>
+  
+  {% include work-paragraph.html %}
 </article>
 
 {% include kankoda/grids/grid.html items=site.data.work type="icons" %}

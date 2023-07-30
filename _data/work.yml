@@ -30,12 +30,6 @@
   appstore: https://itunes.apple.com/app/bookbeat/id1056652614
   playstore: https://play.google.com/store/apps/details?id=com.bookbeat.android&hl=en&gl=US
   tags:     swift swiftui ios watchos carplay uikit architecture
-
-- name:     Milo Creative
-  years:    2020
-  url:      /work/milo
-  website:  https://www.milocreative.com
-  tags:     swift swiftui keyboard-extension
   
 - name:     Anomaly Software
   years:    2020
