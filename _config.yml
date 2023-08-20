@@ -30,6 +30,9 @@ mastodon_username: danielsaidi@mastodon.social
 twitter_url: https://twitter.com/danielsaidi
 twitter_username: danielsaidi
 
+
+kankoda:              https://kankoda.com
+
 apikit:               https://github.com/danielsaidi/apikit
 deckkit:              https://github.com/danielsaidi/deckkit
 documentkit:          https://github.com/danielsaidi/documentkit

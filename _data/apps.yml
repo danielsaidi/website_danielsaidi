@@ -18,8 +18,9 @@
   url: https://metalemoji.danielsaidi.com
   appStoreUrl: https://itunes.apple.com/app/metal-emoji/id1070228823
 
-- name: Lunchrrrrr
-  url: https://itunes.apple.com/se/app/lunchrrrrr/id1209779063?l=en&mt=8
+- id: lunchrrrrr
+  name: Lunchrrrrr
+  url: https://kankoda.com/apps/lunchrrrrr
   appStoreUrl: https://itunes.apple.com/se/app/lunchrrrrr/id1209779063?l=en&mt=8 
 
 - name: Vinylsamlaren
