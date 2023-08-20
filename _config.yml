@@ -33,8 +33,8 @@ twitter_username: danielsaidi
 apikit:               https://github.com/danielsaidi/apikit
 deckkit:              https://github.com/danielsaidi/deckkit
 documentkit:          https://github.com/danielsaidi/documentkit
-keyboardkit:          https://github.com/danielsaidi/keyboardkit
-licensekit:           https://github.com/danielsaidi/licensekit
+keyboardkit:          https://github.com/KeyboardKit/Keyboardkit
+licensekit:           https://github.com/LicenseKit/LicenseKit
 mockingkit:           https://github.com/danielsaidi/mockingkit
 onboardingkit:        https://github.com/danielsaidi/onboardingkit
 richtextkit:          https://github.com/danielsaidi/richtextkit
@@ -115,6 +115,11 @@ plugins:
 defaults:
   -
     scope:
+      type: "apps"
+    values:
+      layout: "app"
+  -
+    scope:
       type: "pages"
     values:
       hero: ""
@@ -124,11 +129,6 @@ defaults:
     values:
       author: "danielsaidi"
       layout: "post"
-  -
-    scope:
-      type: "apps"
-    values:
-      layout: "app"
   -
     scope:
       type: "bands"

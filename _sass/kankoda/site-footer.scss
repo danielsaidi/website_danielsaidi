@@ -24,6 +24,7 @@
     a {
       font-weight: normal;
       margin-bottom: 5px;
+      min-height: 10px;
     }
 
     a:hover, a:visited:hover {
@@ -37,6 +38,7 @@
 
   @media (max-width: 800px) {
     .row {
+      margin-left: 10px;
       margin-bottom: 0px;
     }
 
