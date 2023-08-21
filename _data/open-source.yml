@@ -30,6 +30,9 @@
 - name: OnboardingKit
   url: https://github.com/danielsaidi/OnboardingKit
 
+- name: PrintingKit
+  url: https://github.com/danielsaidi/PrintingKit
+
 - name: ScrollKit
   url: https://github.com/danielsaidi/ScrollKit
 
