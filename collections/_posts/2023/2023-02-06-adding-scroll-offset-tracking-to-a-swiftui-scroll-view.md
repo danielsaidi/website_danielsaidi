@@ -10,13 +10,12 @@ tweet:  https://twitter.com/danielsaidi/status/1622537484415430656?s=20&t=3qs2gw
 toot:   https://mastodon.social/@danielsaidi/109817236038724013
 
 arden:  https://danielarden.com
-github: https://github.com/danielsaidi/ScrollKit
-source: https://github.com/danielsaidi/ScrollKit/blob/main/Sources/ScrollKit/ScrollViewWithOffset.swift
+source: /blob/main/Sources/ScrollKit/ScrollViewHeader.swift
 ---
 
-The SwiftUI `ScrollView` is currently pretty limited in functionality, and for instance doesn't let us detect the current scroll offset. In this post, let's look at how to add offset tracking to a scroll view, which we'll then use to build a fun thing on top of the offset tracking.
+The SwiftUI `ScrollView` is currently quite limited, and for instance doesn't let us detect the current scroll offset. In this post, let's look at how to add offset tracking, which we'll then use to build fun things.
 
-Big thanks to [Daniel Arden]({{page.arden}}) for providing me with this nice offset tracking and for joining me in the my efforts to build a fun scroll view feature that we'll uncover in the next post.
+{% include kankoda/data/open-source.html name="ScrollKit" %}
 
 
 ## How to track scroll offset
@@ -59,7 +58,9 @@ struct ScrollViewOffsetTracker: View {
 }
 ```
 
-This view just applies a `preference` with the preference key and namespace to a `Color`, then wraps the color in a `GeometryReader` that is used to get the frame of the view. To make sure that this view doesn't conflict with the scroll view content, we also apply a zero height `frame` to the geometry reader.
+This view just applies a `preference` with the preference key and namespace to a `Color`, then wraps the color in a `GeometryReader` that is used to get the frame of the view. 
+
+To make sure that this view doesn't conflict with the `ScrollView` content, we also apply a zero height `frame` to the geometry reader.
 
 For this to work, we also need to add a `coordinateSpace` to the scroll view and listen for preference changes to the `ScrollOffsetPreferenceKey`. We can define this as a `ScrollView` extension:
 
@@ -161,20 +162,22 @@ As you then scroll the content in the scroll view, the `scrollOffset` state prop
 
 ![A screenshot of an app where scroll offset is not zero]({{page.assets}}scroll-scrolled.png){:width="300"}
 
-That's basically it. You now have a `ScrollView` replacement that let's you define an action that provides you with the scroll offset, which you will hopefully use in more exciting ways than to just present it in the navigation view.
+That's basically it. You now have a `ScrollView` replacement that let's you define an action that provides you with the scroll offset, which you can use in more exciting ways than to just present it as above.
 
 
 ## Binding vs action
 
-If you have seen similar code before and wonder why I'm not using a binding instead of the action, I find using a binding confusing when it's not possible to change the value to scroll to a certain offset. Since the binding is thus in fact read-only and writing to it would lead to bugs, I decided use an action.
+If you have seen similar code before and wonder why I'm not using a binding instead of the action, I find using a binding confusing when it's not possible to change the value to scroll to a certain offset. 
 
-If we find a way to scroll to a certain offset, for instance by adding 1 point tall items to the scroll content and using a `ScrollViewReader`, I'd be happy to change this to a binding. Until then, I think the action approach is perfectly although perhaps not as convenient as using a binding.
+Since the binding is thus in fact read-only and writing to it would lead to bugs, I decided use an action instead, and provide it with the scroll offset.
+
+If we'd find a way to scroll to a certain offset, I'd be happy to change this to a binding. Until then, I think the action approach is perfectly fine, although perhaps not as convenient as using a binding.
 
 
 ## Conclusion
 
 `ScrollViewWithOffset` replaces `ScrollView` and lets you track scroll offset by just providing it with an additional `onScroll` action. 
 
-I have added `ScrollViewWithOffset` to my newly released [ScrollKit]({{page.github}}) library. You can find the source code [here]({{page.source}}). If you decide to give it a try, I'd be very interested in hearing what you think.
+I have added `ScrollViewWithOffset` to my newly released [ScrollKit]({{project.url}}) library. You can find the source code [here]({{project.url}}{{page.source}}). If you give it a try, I'd love to hear what you think.
 
-Big thanks to [Daniel Arden]({{page.argen}}) for providing me with this nice offset tracking and for joining me in the my efforts to build a fun scroll view feature that we'll uncover in the next post. Stay tuned!
+Big thanks to [Daniel Arden]({{page.arden}}) for providing me with this nice offset tracking and for joining me in the my efforts to build a fun scroll view feature that we'll uncover in the next post. Stay tuned!

@@ -13,20 +13,22 @@ toot:   https://mastodon.social/@danielsaidi/110021688423151183
 post-offset:    https://danielsaidi.com/blog/2023/02/06/adding-scroll-offset-tracking-to-a-swiftui-scroll-view
 post-stretch:   https://danielsaidi.com/blog/2023/02/06/adding-a-stretchable-header-to-a-swiftui-scroll-view
 post-sticky:   https://danielsaidi.com/blog/2023/02/09/adding-a-sticky-header-to-a-swiftui-scroll-view
-
-github: https://github.com/danielsaidi/ScrollKit
-source: https://github.com/danielsaidi/ScrollKit/blob/main/Sources/ScrollKit/ScrollViewWithStickyHeader.swift
 ---
 
 As we've previously looked at how to implement [offset tracking]({{page.post-offset}}) as well as [stretchable]({{page.post-stretch}}) and [sticky]({{page.post-sticky}}) headers for SwiftUI scroll views, let's look at how to handle status bar tint and visibility.
 
-The previous posts resulted in an open-source library called [ScrollKit]({{page.github}}), which provides a couple of scroll view wrappers that makes it easy to handle things like offset tracking, sticky headers etc.
+{% include kankoda/data/open-source.html name="ScrollKit" %}
+
+
+## Previous work
+
+The previous posts resulted in an open-source library called [ScrollKit]({{project.url}}), which provides a couple of scroll view wrappers that makes it easy to handle things like offset tracking, sticky headers etc.
 
 For instance, the library makes it really easy to implement screens like the Spotify release screen:
 
 ![A Spotify screenshot]({{page.assets-stretch}}spotify-demo.jpg)
 
-Although [ScrollKit]({{page.github}}) makes it easy to implement these sticky headers, one thing that is still a challenge is handling the status bar tint color.
+Although [ScrollKit]({{project.url}}) makes it easy to implement these sticky headers, one thing that is still a challenge is handling the status bar tint color.
 
 Apps like Spotify, that only has a dark mode, can apply a light status bar style globally, but this is not true in apps that uses light mode and only want to apply a light status bar color for some screens.
 
@@ -311,4 +313,4 @@ Although, I'd prefer SwiftUI to *always* honor `.toolbarColorScheme(.dark, for: 
 
 There is currently still som work to be done when pushing another screen to the navigation stack from a sticky header view, at which going back to the sticky header view will show the navigation bar even if the view isn't scrolled. If you have any ideas, please let me know.
 
-I have added the proposed view modifier to my [ScrollKit]({{page.github}}) library. You can find the source code [here]({{page.source}}). If you decide to give it a try, I'd be very interested in hearing what you think.
+I have added the view modifier to my [ScrollKit]({{project.url}}) library. If you give it a try, I'd love to hear what you think.

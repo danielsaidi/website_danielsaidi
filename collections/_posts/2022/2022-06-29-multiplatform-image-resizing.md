@@ -5,11 +5,11 @@ tags:   multi-platform images uikit appkit
 
 icon:   swift
 tweet:  https://twitter.com/danielsaidi/status/1542274485616787456?s=20&t=PkyvVlGvMZnUvLmKC_TMwA
-
-swiftuikit: 
 ---
 
 In this post, let's take a quick look at how to resize images in UIKit and AppKit. The result will work on iOS, macOS, tvOS and watchOS and lets us resize images with the same APIs regardless of platform.
+
+{% include kankoda/data/open-source.html name="SwiftUIKit" %}
 
 Image resizing is pretty straightforward in Swift, so let's look at how to implement it in UIKit and AppKit, then add more functionality that applies to all platforms.
 
@@ -94,4 +94,4 @@ public extension ImageRepresentable {
 
 That's it - you can now use `resized(to:)`, `resized(toWidth:)` and `resized(toHeight:)` with `UIImage` and `NSImage`, to resize images in iOS, macOS, tvOS and watchOS. 
 
-I have added these extension to [SwiftUIKit]({{page.swiftuikit}}). Feel free to try them out and let me know what you think.
+I have added these extension to [SwiftUIKit]({{project.url}}). Feel free to try them out and let me know what you think.

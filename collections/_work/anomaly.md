@@ -3,11 +3,9 @@ name: Anomaly Software
 
 assets: /assets/work/anomaly-
 image:  /assets/work/anomaly-title.jpg
-
-keyboardkit: https://github.com/danielsaidi/KeyboardKit
 ---
 
-Anomaly Software is an Australian-based tech-company that hired me for keyboard-related work and sponsored my [KeyboardKit]({{page.keyboardKit}}) open source project.
+{% include kankoda/data/open-source.html name="KeyboardKit" %}Anomaly Software is an Australian-based tech-company that hired me for keyboard-related work and sponsored the [KeyboardKit]({{project.url}}) project.
 
 ![Anomaly logo]({{page.image}}){:style="width:500px"}
 

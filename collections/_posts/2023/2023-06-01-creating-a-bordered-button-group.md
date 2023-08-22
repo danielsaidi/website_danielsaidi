@@ -8,8 +8,6 @@ assets: /assets/blog/2023/2023-06-01/
 
 tweet:  https://twitter.com/danielsaidi/status/1664403889699934208?s=20
 toot:   https://mastodon.social/@danielsaidi/110471400509944102
-
-swiftuikit: https://github.com/danielsaidi/SwiftUIKit
 ---
 
 The same way SwiftUI buttons can be given a `.bordered` button style to apply a nice, round border, you can use `ControlGroup` to group several buttons together in a bordered group. Let's look at how.

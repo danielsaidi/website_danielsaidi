@@ -20,41 +20,25 @@ copyright_url: https://danielsaidi.com
 
 google_analytics: UA-2575180-1
 
-github_url: https://github.com/danielsaidi
-github_username: danielsaidi
-gumroad_url: https://danielsaidi.gumroad.com
-linkedin_url: http://linkedin.com/in/danielsaidi
+github_url:       https://github.com/danielsaidi
+github_username:  danielsaidi
+gumroad_url:      https://danielsaidi.gumroad.com
+kankoda:          https://kankoda.com
+linkedin_url:     http://linkedin.com/in/danielsaidi
 linkedin_username: danielsaidi
-mastodon_url: https://mastodon.social/@danielsaidi
-mastodon_username: danielsaidi@mastodon.social
-twitter_url: https://twitter.com/danielsaidi
+mastodon_url:     https://mastodon.social/@danielsaidi
+mastodon_username:  danielsaidi@mastodon.social
+twitter_url:      https://twitter.com/danielsaidi
 twitter_username: danielsaidi
-
-
-kankoda:              https://kankoda.com
-
-apikit:               https://github.com/danielsaidi/apikit
-deckkit:              https://github.com/danielsaidi/deckkit
-documentkit:          https://github.com/danielsaidi/documentkit
-keyboardkit:          https://github.com/KeyboardKit/Keyboardkit
-licensekit:           https://github.com/LicenseKit/LicenseKit
-mockingkit:           https://github.com/danielsaidi/mockingkit
-onboardingkit:        https://github.com/danielsaidi/onboardingkit
-richtextkit:          https://github.com/danielsaidi/richtextkit
-scrollkit:            https://github.com/danielsaidi/scrollkit
-storekitplus:         https://github.com/danielsaidi/storekitplus
-swiftkit:             https://github.com/danielsaidi/swiftkit
-swiftuikit:           https://github.com/danielsaidi/swiftuikit
-systemnotification:   https://github.com/danielsaidi/systemnotification
-webviewkit:           https://github.com/danielsaidi/webviewkit
 
 assets: /assets/
 fonts: 
   - Caveat
-header_logo_text: Daniel Saidi
 
 disqus:
     shortname: danielsaidi
+
+header_logo_text: Daniel Saidi
 
 header_pages:
   - pages/work.md

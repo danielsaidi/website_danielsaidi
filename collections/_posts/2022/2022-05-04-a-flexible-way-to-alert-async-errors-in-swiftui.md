@@ -7,17 +7,18 @@ icon:   swiftui
 tweet:  https://twitter.com/danielsaidi/status/1521909311471034373?s=20&t=wF1kbk5Nxm27t6vxQ1OeLQ
 
 alert-post: https://danielsaidi.com/blog/2020/06/07/swiftui-alerts
-swiftuikit:  https://github.com/danielsaidi/SwiftUIKit
 ---
 
 In this post, let's take a look at how to handle async errors in a flexible and scalable way in SwiftUI. We'll cover both completion block- and async/await-based use cases.
 
+{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+
 
 ## TL;DR
 
-In this post, we'll create an observable `AlertContext` that can be passed around in an app to present alerts from anywhere using a single view binding. We'll then create an `ErrorAlertConvertible` protocol that can be implemented by any `Error` that can generate an `Alert`, and an `ErrorAlerter` protocol that provides convenient functionality to any view that has an `AlertContext` instance.
+In this post, we'll create an observable `AlertContext` that can be passed around in an app to present alerts from anywhere, using a single binding. We'll then create an `ErrorAlertConvertible` protocol that can be implemented by any `Error` that can generate an `Alert`, and an `ErrorAlerter` protocol that provides convenient functionality to any view that has an `AlertContext` instance.
 
-Although the post contains a lot of text, the total amount of final code is actually not that much. You can have a look at the already implemented types in [SwiftUIKit]({{page.swiftuikit}}) and use them in your own apps if you want. For those of you who are interested in how it all works, just keep reading.
+Although the post contains a lot of text, the total amount of final code is actually not that much. You can have a look at the already implemented types in [SwiftUIKit]({{project.url}}) and use them in your own apps.
 
 
 
@@ -491,6 +492,6 @@ This is a lot cleaner than the block-based approach, but if your app targets an 
 
 In this post, we created an observable `AlertContext` that can be passed around in an app to present alerts from anywhere using a single view binding. We then created an `ErrorAlertConvertible` protocol that can be implemented by any `Error` that can generate an `Alert`, and an `ErrorAlerter` protocol that provides convenient functionality to any view that has an `AlertContext` instance.
 
-Although the post contains a lot of text, the total amount of final code is actually not that much. You can have a look at the already implemented types in [SwiftUIKit]({{page.swiftuikit}}) and use them in your own apps if you want.
+Although the post contains a lot of text, the total amount of final code is actually not that much. You can have a look at the already implemented types in [SwiftUIKit]({{project.url}}) and use them in your own apps if you want.
 
 I hope this helps and that you find the approach as usable as I do. I'd love to hear your thoughts on this, so don't hesitate to comment or reach out with any thoughts you may have.

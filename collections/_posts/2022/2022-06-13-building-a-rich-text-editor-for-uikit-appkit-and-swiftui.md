@@ -1,7 +1,7 @@
 ---
 title:  Building a rich text editor for UIKit, AppKit and SwiftUI
 date:   2022-06-13 01:00:00 +0000
-tags:   open-source swiftui rich-text multi-platform uikit appkit
+tags:   swiftui open-source rich-text multi-platform uikit appkit
 
 icon:   swiftui
 assets: /assets/blog/2022/2022-06-13/
@@ -14,20 +14,24 @@ oribi-writer:   https://oribi.se/en/apps/oribi-writer/
 richtextkit:    https://github.com/danielsaidi/RichTextKit
 ---
 
-In this article, we'll look at how to build a rich text editor for UIKit, AppKit and SwiftUI. We'll extend native types to extend the foundation support for rich text, create new types to bridge the various platforms and make sure that we have a basic, working foundation that we can expand in future posts.
+In this article, we'll look at how to build a rich text editor for UIKit, AppKit and SwiftUI. We'll extend native types to extend the foundation support for rich text, add new types to bridge the different platforms and make sure that we have a basic, working foundation that we can expand in future posts.
+
+{% include kankoda/data/open-source.html name="RichTextKit" %}
 
 This post was originally published as a guest article at the [Cindori]({{page.article}}) website. It's published here as well, to serve as a baseline for future articles about rich text editing.
 
 
 ## Background
 
-Rich text editing on Apple's platforms is pretty straightforward. Just create a `UITextView` in UIKit (iOS and tvOS) and an `NSTextView` in AppKit (macOS) and use `NSAttributedString`, and you're good to go. The text views will automatically support different fonts, styles, alignments etc. as well as images and other kind of rich content with very little extra work.
+Rich text editing on Apple's platforms is pretty straightforward. Just create a `UITextView` in UIKit and an `NSTextView` in AppKit and use `NSAttributedString`, and they will automatically support fonts, styles, text alignment, etc., as well as image image attachments and other kind of rich content.
 
-Well, you could think that it'd be that easy, but unfortunately it's not. Many basic tasks are actually pretty complicated. Adding multi-platform support to the mix makes things even worse, since UIKit and AppKit handle strings, attributes, attachments etc. differently.
+Unfortunately it's not that easy. Many tasks are actually pretty complicated, and multi-platform support makes things even worse, since UIKit and AppKit handle attributed strings quite differently.
 
-Another complication is SwiftUI, where we have to find a way to embed and bridge the platform-specific views in a way that works on all platforms. We also need some way of letting SwiftUI affect the platform-specific views, and for the platform-specific views and their delegates to update SwiftUI as well.
+Adding SwiftUI to the mix makes it even more complex, since we have to bridge the platform-specific views in a way that works on all platforms. We also need some way to let SwiftUI affect the platform-specific views, and for the views and their delegates to update SwiftUI as well.
 
-All in all, this is pretty complicated, which is why I'm happy to announce that my wonderful client [Oribi]({{page.oribi}}) has given me permission to open-source a multi-platform rich text engine that I created for them as part of building a new version of their text editor [Oribi Writer]({{page.oribi-writer}}). The result is an [open-source library]({{page.richtextkit}}) that you’re able to use in your own projects. Many thanks to [Oribi]({{page.oribi}}) for this!
+All in all, this is quite complicated, which is why I'm happy to announce that my wonderful client [Oribi]({{page.oribi}}) has given me permission to open-source a rich text engine that I created as part of a project for them. The result is an open-source library called [RichTextKit]({{project.url}}) which you’re able to use in your own projects. 
+
+Many thanks to [Oribi]({{page.oribi}}) for letting me open-source this!
 
 
 ## Designing for multi-platform
@@ -590,21 +594,16 @@ There are still tons to do to make attribute and trait management easier, and we
 
 ## Introducing RichTextKit
 
-This post has highlighted some of the complicated APIs that we have to use when working with rich text, how much that behaves differently between platforms and how much that's missing in SwiftUI. I've spent many hours wrestling strange edge cases, and have searched all over the web to find nuggets of useful information in 10+ years old Objective-C posts etc.
+This post has highlighted some of the complicated APIs that we have to use when working with rich text. Much behaves differently between platforms and much is also missing in SwiftUI. I've spent many hours on strange edge cases, and have searched all over to find clues in 10+ years old Objective-C posts etc.
 
-Since I have already implemented all the rich text functionality covered in this post and much more while working for a Swedish company called [Oribi]({{page.oribi}}) while developing a new version of their [Oribi Writer]({{page.oribi-writer}}) rich text editor, we felt that it's such a waste that all developers have to reinvent the same wheel and work around the same limitations every time a new rich text-based app is to be developed.
+Since I implemented all the rich text functionality covered in this post while working for a company called [Oribi]({{page.oribi}}), we both felt that it's such a waste that every developer has to reinvent the same wheel and handle the same limitations every time a new rich text-based app is to be developed.
 
-This is why I'm happy to announce that we'll be making all the rich text functionality that we have already implemented available as an open-source library. The library is called [RichTextKit]({{page.richtextkit}}) and provides you with functionality to make working with rich text a lot easier in UIKit, AppKit and SwiftUI.
+This is why I'm happy to announce that we'll be making all this available as an open-source library! It is called [RichTextKit]({{project.url}}) and makes working with rich text a lot easier in UIKit, AppKit and SwiftUI.
 
-![RichTextKit logo]({{page.assets}}richtextkit.png){:width="650px"}
+![RichTextKit logo](/assets/headers/richtextkit.png)
 
-[RichTextKit]({{page.richtextkit}}) is under development, but already provides the functionality featured in this post, as well as functionality to work with rich text, attributes, styles, traits etc. It even supports images and has a demo app that lets you try out many of its features. If you think rich text is an exciting topic, I'd love to get your eyes on it, to make rich text on Apple's platforms much more fun than it is today.
+[RichTextKit]({{project.url}}) is under development, but already provides the functionality featured in this post, as well as functionality to work with attributes, styles, traits, images, etc. It also has a demo app that lets you test the various features in a lightweight rich text editor.
 
-
-## Conclusion
-
-Although UIKit and AppKit has a bunch of built-in support for rich text, a lot is missing. Also, some things work very differently in UIKit and AppKit, which makes multi-platform a hassle. Finally, SwiftUI requires a bit of tricky coordination between the various layers to get things to work.
-
-I hope that this post has made some things clearer and that you found the examples interesting. You can find the source code in the [RichTextKit]({{page.richtextkit}}) library, which I will evolve over time.
+If you think rich text is exciting, I'd love for you to try it out and give me your feedback. Together, we can make rich text on Apple's platforms much more fun than it is today.
 
 Thanks for reading!

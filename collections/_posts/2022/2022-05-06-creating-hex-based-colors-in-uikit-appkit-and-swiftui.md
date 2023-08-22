@@ -5,11 +5,11 @@ tags:   swiftui uikit appkit colors multi-platform
 
 icon:   swift
 tweet:  https://twitter.com/danielsaidi/status/1522656182288228363?s=20&t=XrGntucoal6gYN7TbY2PvA
-
-swiftuikit:  https://github.com/danielsaidi/SwiftUIKit
 ---
 
 In this post, let's take a quick look at how to we can extend the UIKit, AppKit and SwiftUI colors with hex-based initializers that accept strings (e.g. `"#abcdef"`) and numeric values (e.g. `0xabcdef`).
+
+{% include kankoda/data/open-source.html name="SwiftUIKit" %}
 
 Although you can use asset catalogs to define colors for your apps and frameworks, there may come a time when you have to create colors from hex codes, for instance when fetching colors from a web api.
 
@@ -138,4 +138,4 @@ The initializers just creates a `ColorRepresentable` value, then return a `Color
 
 Being able to create colors from hex codes is a nice thing to have in place, for instance if you persist or receive raw hex strings or integers. Just keep in mind that supporting features like light and dark mode with programatically created colors can be messy. In many cases, color assets are more convenient.
 
-If you're interested in the source code, you can find it in the [SwiftUIKit]({{page.swiftuikit}}) library. Don't hesitate to comment or reach out with any thoughts you may have. I'd love to hear your thoughts on this.
+If you're interested in the source code, you can find it in the [SwiftUIKit]({{project.url}}) library. Don't hesitate to comment or reach out with any thoughts you may have. I'd love to hear your thoughts on this.

@@ -4,27 +4,26 @@ date:  2020-10-16 12:00:00 +0100
 tags:  swift
 icon:  swift
 
-swiftkit:    https://github.com/danielsaidi/SwiftKit
-swiftuikit:  https://github.com/danielsaidi/SwiftUIKit
-
 control-flow: https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html
 ---
 
 In this post, we'll look at various ways to improve readability and writeability of Swift code by introducing extensions to Swift's native types.
 
-
-## TLDR;
-
-If you find this post too long, I have added most of the extensions in this post to [SwiftKit]({{page.swiftkit}}) and [SwiftUIKit]({{page.swiftuikit}}). I have excluded UIKit-specific code, since I focus on SwiftUI and don't have UIKit code in these libraries.
+{% include kankoda/data/open-source.html name="SwiftKit" %}{% assign swiftkit = project %}
+{% include kankoda/data/open-source.html name="SwiftUIKit" %}{% assign swiftuikit = project %}
 
 
 ## Background
 
-There will always be parts of a language that you may think are lacking or don't fit your personal coding style. Some things are just strange (e.g. why does UIKit only have an `isHidden` view property, but no calculated `isVisible`) while some may be specific to your own needs.
+There will always be parts of any programming language that you may think are lacking or don't fit your personal coding style. 
 
-Swift aims to be very focused, which means that it will intentionally omit parts that you may think should be there, which may explain missing properties like `isVisible`. You can easily create such properties yourself with extensions, but doing so can be repetetive and tiresome. I have therefore started gathering reusable extensions in the libraries mentioned above, to make my code more straightforward.
+Some things are just strange (for instnace, why does SwiftUI has a `disabled` view modifier, but not an inverted `enabled` one?) while some may be specific to your own needs.
 
-I will split this post into different sections for specific focus areas. If you have suggestions or comments, don't hesitate to discuss in the comment section or send me PRs.
+Swift aims to be very focused, which means that it will intentionally omit parts that you may think should be there. You can easily create such properties yourself with extensions, but doing so can be repetetive. 
+
+I have therefore started gathering reusable extensions in open-source libraries, to make my code more straightforward. I will go through some of them here, and will split this post into specific focus areas. 
+
+If you have suggestions or comments, don't hesitate to discuss in the comment section or send me PRs.
 
 
 ## Inverse semantics
@@ -187,4 +186,4 @@ Below is a list of semantics that I use in my projects:
 
 ## Source code
 
-I have added most of the extensions in this post to [SwiftKit]({{page.swiftkit}}) and [SwiftUIKit]({{page.swiftuikit}}). Feel free to try them out and let me know what you think.
+I have added most of the extensions in this post to [SwiftKit]({{swiftkit.url}}) and [SwiftUIKit]({{swiftuikit.url}}). Feel free to try them out and let me know what you think.

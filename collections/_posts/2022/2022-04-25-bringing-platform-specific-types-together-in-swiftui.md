@@ -6,11 +6,11 @@ tags:   swiftui multi-platform
 icon:   swiftui
 assets: /assets/blog/2022/2022-04-25/
 tweet:  https://twitter.com/danielsaidi/status/1518493789517717505?s=20&t=wF1kbk5Nxm27t6vxQ1OeLQ
-
-swiftuikit: https://github.com/danielsaidi/SwiftUIKit
 ---
 
 SwiftUI's amazing multi-platform support makes it easy to develop apps for iOS, macOS, tvOS and watchOS. But how do you handle types that differ between platforms? Let's take a look.
+
+{% include kankoda/data/open-source.html name="SwiftUIKit" %}
 
 Consider a SwiftUI app that lists images in a stack or grid, where tapping an image should open up a share sheet that can be used to share the image. 
 
@@ -149,4 +149,4 @@ Since we defined `jpegData` for `NSImage` and `UIImage` already has an identical
 
 SwiftUI multi-platform apps work amazingly well, but you may have to put work into bridging underlying types. For more complex situations and larger systems, consider using protocols to define things further.
 
-You can find the types and extensions in this post in the [SwiftUIKit]({{page.swiftuikit}}) library. Feel free to try them out and let me know what you think.
+You can find the types and extensions in this post in the [SwiftUIKit]({{project.url}}) library. Feel free to try them out and let me know what you think.

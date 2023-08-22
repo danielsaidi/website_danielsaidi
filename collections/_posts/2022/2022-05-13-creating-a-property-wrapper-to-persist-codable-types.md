@@ -4,11 +4,11 @@ date:   2022-05-13 10:00:00 +0000
 tags:   swiftui codable property-wrappers
 
 icon:   swiftui
-
-swiftuikit: https://github.com/danielsaidi/SwiftUIKit
 ---
 
 In this post, we'll take a quick look at how to create a property wrapper that can be used with `Codable`, that automatically persists its value in `UserDefaults` and updates SwiftUI when its value changes.
+
+{% include kankoda/data/open-source.html name="SwiftUIKit" %}
 
 SwiftUI provides us with two great property wrappers for persisting data for the entire app or for the current scene - `@AppStorage` and `@SceneStorage`:
 
@@ -30,11 +30,11 @@ struct MyView: View {
 }
 ```
 
-If you run this code, you'll see how tapping the button updates the values, which automatically updates the view. Restarting the app will restore `myInt`, which is persisted for the app, but reset `myDouble`, which is only persisted for the current scene.
+If you run this code, you'll see how tapping the button updates the values, which automatically updates the view. Restarting the app restores `myInt`, which is persisted for the app, but will reset `myDouble`, since it's only persisted for the current scene.
 
-These wrappers are easy to use, supports optionals and automatically update your view, which is great. However, they don't (yet) support `Codable`, which may limit you if you want to persist more complex data. You then have to implement persistency alongside the property and sync changes between them.
+These wrappers are easy to use, support optionals and automatically update your view. However, they don't (yet) support `Codable`, which may limit you if you want to persist more complex data.
 
-Instead of doing this, we can define a new property wrapper that supports `Codable`, persists data in `UserDefaults` and updates SwiftUI whenever its value changes:
+We can define a new property wrapper that supports `Codable`, persists data in `UserDefaults` and updates SwiftUI whenever its value changes:
 
 ```swift
 @propertyWrapper
@@ -80,7 +80,7 @@ private extension Persisted {
 }
 ```
 
-This `Persisted` property wrapper implements `DynamicProperty` to let it play well with SwiftUI. It takes a custom persistency key, a custom `UserDefaults` instance that defaults to `.standard` and a default value to apply when no value is persisted.
+This property wrapper implements `DynamicProperty` and takes a custom persistency key, a custom `UserDefaults` instance and a default value to apply when no value is persisted.
 
 The property wrapper has a private `@State` property, which will trigger updates whenever it changes. It's initialized with either a previously persisted value or the provided default value.
 
@@ -124,6 +124,6 @@ struct ContentView_Previews: PreviewProvider {
 
 ## Conclusion
 
-SwiftUI's `@AppStorage` and `@SceneStorage` are handly property wrappers for persisting data for the entire app or a specific scene. However, their inability to handle `Codable` types may be limiting. If so, the `Persisted` property wrapper that we implemented in this post can help.
+SwiftUI's `@AppStorage` and `@SceneStorage` are handly property wrappers for persisting data for the entire app or a specific scene. However, their inability to handle `Codable` types may be limiting. 
 
-You can find the wrapper in my [SwiftUIKit]({{page.swiftuikit}}) library. Feel free to try it out and let me know what you think.
+If so, the `Persisted` property wrapper that we implemented in this post can help. You can find it in the [SwiftUIKit]({{project.url}}) library. Feel free to try it out and let me know what you think.

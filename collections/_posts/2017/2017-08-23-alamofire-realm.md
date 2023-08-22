@@ -4,11 +4,8 @@ date:  2017-08-23 10:00:00 +0100
 tags:  swift realm
 icon:  swift
 
-api:    http://danielsaidi.com/demo_Alamofire_AlamofireObjectMapper_Realm/api
 cocoapods: http://cocoapods.org/
-dip:    http://github.com/AliSoftware/Dip
-github: http://github.com/danielsaidi/demo_Alamofire_AlamofireObjectMapper_Realm
-video:  http://www.youtube.com/watch?v=LuKehlKoN7o&lc=z22qu35a4xawiriehacdp435fnpjgmq2f54mjmyhi2tw03c010c.1502618893412377
+video:     http://www.youtube.com/watch?v=LuKehlKoN7o&lc=z22qu35a4xawiriehacdp435fnpjgmq2f54mjmyhi2tw03c010c.1502618893412377
 
 new:    http://danielsaidi.com/blog/2018/12/27/alamofire-objectmapper
 ---

@@ -5,14 +5,11 @@ tags:   swiftui rich-text open-source
 
 icon:   swiftui
 assets: /assets/blog/2023/2023-06-02/
-
-richtextkit: https://github.com/danielsaidi/RichTextKit
-release: https://github.com/danielsaidi/RichTextKit/releases/tag/0.6.0
 ---
 
-After a long time away, I finally had some time to revisit RichTextKit and add a couple of new features, like indentation support and grouped controls.
+{% include kankoda/data/open-source.html name="RichTextKit" version="0.6.0" %}After a long time away from the project, I finally had some time to revisit [RichTextKit]({{project.url}}) and add some new features, like indentation support and grouped controls.
 
-RichTextKit is a fun project that aims to simplify adding rich text editing support to iOS, macOS, tvOS and watchOS. However, since I don't work with rich text editing on a daily basis, I get little time to work on it.
+[RichTextKit]({{project.url}}) aims to make rich text editing easier in SwiftUI and UIKit, on iOS, macOS, tvOS and watchOS. However, since I don't work with rich text apps on a daily basis, I get little time to work on it.
 
 Thanks to a client project, I've had the opportunity to revisit the project, and am happy to release a new version that adds some new features from the community.
 
@@ -22,8 +19,8 @@ I have also redesigned the format sheet on iOS and the format sidebar on macOS, 
 
 ![Sheet with grouped buttons]({{page.assets}}format-sheet.jpg){:width="450px"}
 
-And this is what it looks like on macOS:
+...and this is what it looks like on macOS:
 
 ![Sidebar with grouped buttons]({{page.assets}}format-sidebar.jpg){:width="450px"}
 
-Other than that, there are a bunch of tweaks and bug fixes here and there. This can all be found in the 0.6 release, For more information, see the [project repository]({{page.richtextkit}}) and the [release notes]({{page.release}}).
+Other than that, there are a bunch of tweaks and bug fixes here and there. This can all be found in the 0.6 release, For more information, visit the [project]({{project.url}}) and the [release notes]({{project-version}}).

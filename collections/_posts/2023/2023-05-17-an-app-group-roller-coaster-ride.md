@@ -8,17 +8,16 @@ assets: /assets/blog/2023/2023-05-17/
 
 tweet:  https://twitter.com/danielsaidi/status/1658808366657937409?s=20
 toot:   https://mastodon.social/@danielsaidi/110383970932692857
-
-keyboardkit:    https://keyboardkit.com
-oribiwriter:    https://oribi.se/en/apps/oribi-writer/
 ---
 
-I've been struggling with a very random bug when using an App Group to sync data between an app and its keyboard extension. The reason turned out to be quite a nice combination of human error and Xcode being Xcode. Let's jump on the App Group roller coaster for a fun ride - enjoy!
+I've been struggling with a very random bug when using an App Group to sync data between an app and its keyboard extension. The reason turned out to be a horrible combination of human error and Xcode.
+
+{% include kankoda/data/open-source.html name="KeyboardKit" version="0.7.0" %}
 
 
 ## Background
 
-A client of mine is using [KeyboardKit Pro]({{page.keyboardkit}}) to add dictation to their keyboard. Since a keyboard extension can't access the microphone, it must open the main app and perform dictation there.
+A client of mine is using [KeyboardKit Pro]({{project.pro}}) to add dictation to their keyboard. Since a keyboard extension can't access the microphone, it must open the main app and perform dictation there.
 
 The keyboard uses a deep link to open the main app, which then starts dictation, writes the dictated text into a shared data container, then pops back to the keyboard, which sends the text to the document.
 

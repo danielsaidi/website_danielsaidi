@@ -11,12 +11,16 @@ toot:   https://mastodon.social/@danielsaidi/109818724244063609
 
 post-offset:    https://danielsaidi.com/blog/2023/02/06/adding-scroll-offset-tracking-to-a-swiftui-scroll-view
 
-github: https://github.com/danielsaidi/ScrollKit
-github: https://github.com/danielsaidi/ScrollKit
-source: https://github.com/danielsaidi/ScrollKit/blob/main/Sources/ScrollKit/ScrollViewHeader.swift
+arden:  https://danielarden.com
+source: /blob/main/Sources/ScrollKit/ScrollViewHeader.swift
 ---
 
 Many iOS apps have screens where the header view stretches out when you pull down the screen. It's a commonly used and loved component, so it's strange that it's not natively available in UIKit or SwiftUI. In this post, let’s look at how to implement such a header view in SwiftUI.
+
+{% include kankoda/data/open-source.html name="ScrollKit" %}
+
+
+## Example
 
 If you are unsure of what kind of view I mean, consider this nice album screen from the Spotify iOS app:
 
@@ -275,9 +279,11 @@ Although this is already very nice, there are some things you need to consider w
 
 When you are using this kind of stretchable header together with a native SwiftUI `NavigationView`, there are a few things that you should consider.
 
-First of all, you should probably not use `.navigationBarTitleDisplayMode(.large)`, since it will add a large title to the middle of the header. You will probably want to add that title as a custom view within the header and fade over to the inline title when the header scrolls away.
+First of all, you should not use `.navigationBarTitleDisplayMode(.large)`, since it will add a large title to the header. You can instead add a custom view to the header and cross fade to the inline title when the header scrolls outside of the screen.
 
-You should also consider using `toolbarBackground(.hidden)` or a UIKit workaround on iOS versions before iOS 16, to make the navigation bar transparent while the header is visible. The Spotify app will actually make the header stick to the top when it reaches the size of the navigation bar. I will show you how to build this in an upcoming post.
+You should also consider using `toolbarBackground(.hidden)` or a UIKit workaround on iOS versions before iOS 16, to make the navigation bar transparent while the header is visible. 
+
+The Spotify app will actually make the header stick to the top when it reaches the size of the navigation bar. I will show you how to build this in an upcoming post.
 
 Finally, you should also make sure to set up the status bar and navigation bar title to play well with the header. To help with this, you can use the [scroll offset]({{page.post-offset}}) to determine how to style things for the header.
 
@@ -286,6 +292,6 @@ Finally, you should also make sure to set up the status bar and navigation bar t
 
 The `ScrollViewHeader` presented in this post lets you add stretchable headers to your scroll views by just adding your content to this header component.
 
-I have added this view to my newly released [ScrollKit]({{page.github}}) library. You can find the source code [here]({{page.source}}). If you decide to give it a try, I'd be very interested in hearing what you think.
+I have added this view to my newly released [ScrollKit]({{project.url}}) library. You can find the source code [here]({{project.url}}{{page.source}}). If you give it a try, I'd love to hear what you think.
 
 Big thanks to [Daniel Arden]({{page.arden}}) for joining me in my efforts to extend the native SwiftUI `ScrollView` with these great features.

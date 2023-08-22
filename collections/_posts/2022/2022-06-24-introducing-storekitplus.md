@@ -5,11 +5,9 @@ tags:   open-source storekit iap subscriptions
 
 image: /assets/headers/storekitplus.png
 tweet: https://twitter.com/danielsaidi/status/1541295027208556544?s=20&t=KLgrRJR_DDdJ70DjpNTB5Q
-
-storekitplus: https://github.com/danielsaidi/StoreKitPlus
 ---
 
-In this post, let's take a look at a new library that I just released. [StoreKitPlus]({{page.storekitplus}}) adds extra functionality for working with StoreKit 2, like extensions, observable state, services, etc. and aims to make using StoreKit much easier, especially in SwiftUI-based applications.
+{% include kankoda/data/open-source.html name="StoreKitPlus" %}In this post, let's take a look at [StoreKitPlus]({{project.url}}), which adds extra functionality for working with StoreKit 2 and aims to make it much easier to use StoreKit in SwiftUI.
 
 ![StoreKitPlus logotype]({{page.image}})
 
@@ -160,5 +158,5 @@ Just make sure that your local product types use the same IDs as the real produc
 
 As you can see, using the StoreKitPlus library is very easy and just adds a bunch of convenience utilities on top of StoreKit 2. I will add more functionality when I see the need, or when other developers request more functionality. Until then, the library will be kept intentionally tiny.
 
-If you want to git StoreKitPlus a try, you can test it [here]({{page.storekitplus}}). I'd love to hear your thoughts on this, so don't hesitate to comment, leave feedback etc.
+If you want to git StoreKitPlus a try, you can test it [here]({{project.url}}). I'd love to hear your thoughts on this, so don't hesitate to comment, leave feedback etc.
 

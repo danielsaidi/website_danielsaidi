@@ -8,13 +8,12 @@ icon:   swiftui
 tweet: https://twitter.com/danielsaidi/status/1592988560642428928
 
 konstantin: https://twitter.com/kzyryanov
-
-keyboardkit: https://keyboardkit.com
-github: https://github.com/danielsaidi/SwiftUIKit
-source: https://github.com/danielsaidi/SwiftUIKit/blob/master/Sources/SwiftUIKit/Gestures/ScrollViewGestureButton.swift
+source: /blob/master/Sources/SwiftUIKit/Gestures/ScrollViewGestureButton.swift
 ---
 
-Using complex gestures in a SwiftUI `ScrollView` is complicated, since they block scroll view gestures in a way that causes scrolling to stop working. I've looked into this, and found a way to use a button style to handle gestures in a way that doesn't block the scrolling.
+SwiftUI gestures are complicated, since they can block `ScrollView` gestures and cause scrolling to stop working. I've found a way to implement rich view gestures in a way that doesn't block the scrolling.
+
+{% include kankoda/data/open-source.html name="SwiftUIKit" version="0.7.0" %}
 
 
 ## Post updates
@@ -24,7 +23,7 @@ Using complex gestures in a SwiftUI `ScrollView` is complicated, since they bloc
 
 ## The problem
 
-The reason for me to tackle this problem, was that I ran into problems in a project where I need complex gestures on views that are nested in a `ScrollView`. The gestures conflict with the scroll view gestures, which cause scrolling to stop working and the gestures not being detected.
+I ran into this problem in a project where I need to apply complex gestures to views in a `ScrollView`. These gestures conflict with the scroll view, which causes scrolling to stop working.
 
 To explain, let's say you have a `ScrollView` with a `LazyHStack`, to which you add a bunch of views:
 
@@ -87,9 +86,9 @@ With this code, the `onChange` and `onEnded` functions will trigger as expected,
 
 ## Why does this happen?
 
-Scrolling stops working because the long press and drag gesture modifiers steals the gestures from the scroll view, in a way that doesn't happen when you apply a tap gesture modifier.
+Scrolling stops working because the long press and drag gesture modifiers block the scroll view in a way that doesn't happen when you apply a tap gesture modifier.
 
-I don't know why tap gestures work while long presses and drags don't, but I guess it has something to do with that taps just have to detect a press and release, while the others need to detect gestures over time, in a way that maybe conflicts with the scroll gestures.
+I guess this has something to do with that taps just have to detect a press and release, while the others need to detect gestures over time, in a way that maybe conflicts with the scroll gestures.
 
 
 ## Some non-working solutions
@@ -118,7 +117,7 @@ listItem
 
 The reason why `gesture` works and `simultaneousGesture` doesn't, is because `gesture` schedules itself after any prior gestures, while `simultaneousGesture` schedules itself together with them.
 
-In other words, `gesture` triggers *after* `onTapGesture`, which means that it doesn't interfere with the scrolling. This is why scrolling still works. However, since `simultaneousGesture` triggers immediately, it's interfering with the scrolling. This is why scrolling stops working.
+In other words, `gesture` triggers *after* `onTapGesture` and therefore doesn't interfere with the scroll view, while, `simultaneousGesture` triggers immediately and therefore interfers with the scroll view.
 
 This means that the `onTapGesture` approach requires a delay. If we want to use immediate gestures, such as detecting drags and presses, this approach is not viable.
 
@@ -127,11 +126,13 @@ You may find other delay-based solutions, some of which are pretty complicated. 
 
 ## Finding a workaround
 
-While `UIKit` has very granular gesture detection, `SwiftUI` is more limited. We can still do much of the same things, but with fewer tools. For instance, you can use a `DragGesture` with a `0` distance to detect `press` gestures. To detect `releases`, we can listen for the drag gesture to end.
+While `UIKit` has very granular gesture detection, `SwiftUI` is more limited. We can still do much of the same things, but with much fewer tools. 
 
-However, since long presses and drag gestures don't work in a `ScrollView`, the challenge is to find a way to detect some of these gestures in a way that doesn't mess with the scrolling.
+For instance, you can use a `DragGesture` with a `0` distance to detect a `press` gesture, then listen for the drag gesture to end to detect a `release`.
 
-After pondering this for a while and trying many non-working solutions, me and [Konstantin Zyryanov]({{page.konstantin}}) did realize that we have a way to detect that a view is being pressed - using a `ButtonStyle`.
+However, since long presses and drag gestures don't work in `ScrollView`, we must find a way to detect some of these gestures in a way that doesn't mess with the scrolling.
+
+After pondering this for a while and trying many non-working solutions, me and [Konstantin Zyryanov]({{page.konstantin}}) did realize that we have another way to detect that a view is being pressed - using a `ButtonStyle`.
 
 For those of you who are unfamiliar with SwiftUI button styles, they let you change the style of a button depending on its `role` and `isPressed` state. For instance, this style changes the opacity of its `label`:
 
@@ -145,7 +146,7 @@ struct MyButtonStyle: ButtonStyle {
 }
 ```
 
-As most of you who have worked with SwiftUI probably know, button styles don't interfere with scrolling. That would have made the entire style approach unusable (much like not being able to use gestures in a scroll view). Perhaps this is the hack we've been looking for? 
+Since button styles don't interfere with scrolling (that would have made the entire approach unusable...much like not being able to use gestures in a scroll view), perhaps this is the hack we've been looking for? 
 
 Perhaps we can use a button style to work around the scroll view limitations and use it to detect presses and releases, without having to use a drag gesture? Let's find out!
 
@@ -415,17 +416,14 @@ struct ScrollViewGestureButton<Label: View>: View {
 
 That's it! The button just has to wrap the provided label, trigger the provided `releaseAction` and apply the newly created style to take care of the remaining gestures.
 
-
-## Conclusion
-
-If you try this out, you'll see that it actually works. You can press, relase, double tap, long press etc. and scrolling still works. All made possible by the fact that button styles can detect presses without blocking the scroll view gestures.
+With this approach, you can press, relase, double tap, long press etc. and scrolling will still work. All this is made possible by the fact that button styles can detect presses without blocking the scroll view.
 
 
 ## Going further
 
-While the above works well and is probably enough for most needs, it's actually not enough if you need to detect drag gestures. For instance, my [KeyboardKit]({{page.keyboardkit}}) library needs buttons to be able to handle a wide variety of gestures and transition to dragging when a button presents a callout with secondary actions.
+While the above solution works well, it's not enough if you need to detect drag gestures. I have therefore improved it to also handle drag gestures. which was much more complicated than I first expected. 
 
-I therefore decided to improve the solution above to also handle drag gestures. This turned out to be way more compolicated than I could first expect. For instance, we can't apply the drag gesture directly to the `Button`, but must instead apply it to the button content view:
+For instance, we can't apply the drag gesture to a `Button`, but must apply it to the button content view:
 
 ```swift
 Button(action: releaseAction) {
@@ -436,17 +434,17 @@ Button(action: releaseAction) {
 .gesture(DragGesture(...))  // This will not work!
 ```
 
-However, adding a `DragGesture` to the view means that it will start to conflict with the button style. For instance, quickly tapping the button will only trigger the button action and not the style. This means that we must handle double taps in both the button and the style. Also, turns out that the drag gesture will once again block scrolling, as we discussed earlier. We must therefore add a tap gesture before it to force a delay onto the drag gesture as we discussed earlier, but this introduces even more complexities since we now have a tap gesture, a drag gesture and a button style that must all play together.
+However, adding a `DragGesture` to the view means that it will start to conflict with the button style. For instance, quickly tapping the button will only trigger the button action and not the style. 
+
+This means that we must handle double taps in both the button and the style. Also, since this new drag gesture will once again block scrolling, we must add a tap gesture before it to force a delay. This adds even more complexities since a tap gesture, a drag gesture and a button style must now work together.
 
 Adding drag gestures turned out to open a can of worms.
 
-Since the different parts of the code must handle the same functionality in different cases, I also had to make the code more complex to avoid code duplication. The simple solution above became a lot more complicated when adding drag gestures to the mix.
+Since the different parts of the code must handle the same functionality in different cases, I had to make the code more complex to avoid duplication. It works great, but became more complex than I expected.
 
 
 ## Conclusion
 
-`ScrollViewGestureButton` lets you handle multiple gestures with a single button. You can detect presses, relases outside and inside, long presses, double taps, trigger repeating actions etc. all with a single `DragGesture`.
+`ScrollViewGestureButton` lets you apply multiple gestures to a single button. You can detect presses, releases outside and inside, long presses, double taps, etc. with a single `DragGesture`.
 
-I have added `ScrollViewGestureButton` to my [SwiftUIKit]({{page.github}}) library. You can find the source code [here]({{page.source}}). If you decide to give it a try, I'd be very interested in hearing what you think.
-
-Happy button mashing!
+I have added `ScrollViewGestureButton` to my [SwiftUIKit]({{project.url}}) library. You can find the source code [here]({{project.url}}{{page.source}}). If you decide to give it a try, I'd be very interested in hearing what you think.

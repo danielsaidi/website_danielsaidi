@@ -6,11 +6,11 @@ tags:   swiftui image-renderer
 icon:   swiftui
 assets: /assets/blog/2022/2022-06-20/
 tweet:  https://twitter.com/danielsaidi/status/1539211313267806208?s=20&t=SN3bYVnuIDihKECT4Vqfsg
-
-swiftuikit: https://github.com/danielsaidi/SwiftUIKit
 ---
 
-SwiftUI 4 introduces a new `ImageRenderer` that can be used to render any SwiftUI view as an image in iOS 16.0, macOS 13.0, tvOS 16.0 and watchOS 9.0. Let's take a quick look at how it works.
+SwiftUI 4 introduces a new `ImageRenderer` that can be used to render any SwiftUI view as an image in iOS 16, macOS 13, tvOS 16 and watchOS 9. Let's take a quick look at how it works.
+
+{% include kankoda/data/open-source.html name="SwiftUIKit" %}
 
 
 ## Using the ImageRenderer
@@ -169,7 +169,9 @@ public extension ImageRenderer {
 
 The first initializer lets us provide the image renderer with a custom scale, while the second initializer lets us omit the scale altogether and use the screen resolution on iOS, macOS and tvOS.
 
-Since these two initializers allow us to specify a scale without modifying the renderer, we no longer have to perform the rendering operation within a main actor annotated extension. This means that we can put all the rendering code back into the function that is triggered by the button:
+Since these two initializers allow us to specify a scale without modifying the renderer, we no longer have to perform the rendering operation within a main actor annotated extension. 
+
+This means that we can put all the rendering code back into the function that is triggered by the button:
 
 ```swift
 extension ContentView {
@@ -227,4 +229,4 @@ With this in place, we can now use the same code to generate an image, regardles
 
 The new SwiftUI 4 `ImageRenderer` does a great job of rendering snapshots of any SwiftUI views. It's available for iOS 16.0, macOS 13.0, tvOS 16.0 and watchOS 9.0 and can be tested in Xcode 14 beta. 
 
-I'm currently struggling with how to best use async functionality in SwiftUI. I have therefore added a few `ImageRenderer` extensions that simplify things. You can find them in my [SwiftUIKit]({{page.swiftuikit}}) library. Feel free to try it out and let me know what you think.
+I'm currently struggling with how to best use async functionality in SwiftUI. I have therefore added a few `ImageRenderer` extensions to [SwiftUIKit]({{project.url}}). Feel free to try it out and let me know what you think.

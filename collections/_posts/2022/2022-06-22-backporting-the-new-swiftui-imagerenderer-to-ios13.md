@@ -10,10 +10,11 @@ tweet:  https://twitter.com/danielsaidi/status/1539875509814935552?s=20&t=eoAA2u
 article: http://danielsaidi.com/blog/2022/06/20/using-the-swiftui-imagerenderer
 matt: https://twitter.com/mattie
 matt-article: https://www.chimehq.com/blog/swift-and-old-sdks
-swiftuikit: https://github.com/danielsaidi/SwiftUIKit
 ---
 
-SwiftUI 4 introduces a new `ImageRenderer` that can be used to render any SwiftUI view as an image in iOS 16.0, macOS 13.0, tvOS 16.0 and watchOS 9.0. Let's look at how to backport it to iOS 13.
+SwiftUI 4 introduces a new `ImageRenderer` that can be used to render any SwiftUI view as an image in iOS 16, macOS 13, tvOS 16 and watchOS 9. Let's look at how to backport it to iOS 13.
+
+{% include kankoda/data/open-source.html name="SwiftUIKit" %}
 
 
 ## Background
@@ -63,7 +64,9 @@ When backporting `ImageRenderer` to iOS 13, we first need to make sure that we o
 
 However, there doesn't seem to be a convenient way to make a type unavailable for a certain upper os version. `if #unavailable(iOS 16)` check doesn't work, since it causes a `"Statements are not allowed at the top level"` warning for types, and there's no `@unavailable` attribute.
 
-To work around this, [Matt Massicotte]({{page.matt}}) has written a great [post]({{page.matt-article}}), in which he suggests using a `compiler` check instead, which lets us check the version of the Swift compiler. Since the native `ImageRenderer` is available in SwiftUI 4 and Xcode 14, we can make our own renderer unavailable in Swift 5.7 and later.
+To work around this, [Matt Massicotte]({{page.matt}}) has written a great [post]({{page.matt-article}}), in which he suggests using a `compiler` check instead, which lets us check the version of the Swift compiler. 
+
+Since the native `ImageRenderer` is available in SwiftUI 4 and Xcode 14, we can make our own renderer unavailable in Swift 5.7 and later.
 
 ```swift
 #if os(iOS) && compiler(<5.7)
@@ -100,7 +103,9 @@ public class ImageRenderer<Content: View> {
 }
 ```
 
-This initializer is a bit different than the native renderer initializer. Since we'll use the extension that we saw earlier, we have to provide an explicit size when we create the renderer. We also add an optional scale parameter for convenience, to avoid having to specify it. Unlike the native renderer, we'll use the screen resolution instead of 1.
+This initializer is a bit different than the native renderer initializer. Since we'll use the extension that we saw earlier, we have to provide an explicit size when we create the renderer. 
+
+We also add an optional scale parameter for convenience, to avoid having to specify it. Unlike the native renderer, we'll use the screen resolution instead of 1.
 
 We can now copy the code from the extension to implement a `uiImage` property:
 
@@ -160,8 +165,8 @@ However, note that the backported renderer is only available in iOS. It's not av
 
 ## Conclusion
 
-The SwiftUI 4 `ImageRenderer` does a great job of rendering snapshots, but since it's only available for iOS 16.0, macOS 13.0, tvOS 16.0 and watchOS 9.0, it may take some time before you can start using it.
+The SwiftUI 4 `ImageRenderer` does a great job of rendering snapshots, but since it's only available for iOS 16, macOS 13, tvOS 16 and watchOS 9, it may take some time before you can start using it.
 
-To provide a similar solution for older iOS versions, we can backport a renderer that behaves almost as a native renderer. This lets us use a backported renderer for now, and replace it with a native one once the app targets iOS 16 or later.
+To provide a similar solution for older versions, we can backport a renderer that behaves almost as the native renderer. This lets us use a backported version for now and replace it with a native one later.
 
-You can find this backported renderer in my [SwiftUIKit]({{page.swiftuikit}}) library. Feel free to try it out and let me know what you think.
+You can find a backported renderer in [SwiftUIKit]({{project.url}}). Feel free to try it out and let me know what you think.

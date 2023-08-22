@@ -13,19 +13,26 @@ toot:   https://mastodon.social/@danielsaidi/109835843154685679
 post-offset:    https://danielsaidi.com/blog/2023/02/06/adding-scroll-offset-tracking-to-a-swiftui-scroll-view
 post-stretch:   https://danielsaidi.com/blog/2023/02/06/adding-a-stretchable-header-to-a-swiftui-scroll-view
 
-github: https://github.com/danielsaidi/ScrollKit
-source: https://github.com/danielsaidi/ScrollKit/blob/main/Sources/ScrollKit/ScrollViewWithStickyHeader.swift
+arden:  https://danielarden.com
+source: /blob/main/Sources/ScrollKit/ScrollViewHeader.swift
 ---
 
-As we've previously looked at how to implement [offset tracking]({{page.post-offset}}) and [stretchable headers]({{page.post-stretch}}) for SwiftUI scroll views, let's now combine them to implement a scroll view header that stretches out when you pull down and sticks to the navigation bar as you scroll.
+As we've previously looked at how to implement [offset tracking]({{page.post-offset}}) and [stretchable headers]({{page.post-stretch}}) for SwiftUI scroll views, let's combine them to implement a scroll view header that stretches out when you pull down and sticks to the navigation bar as you scroll.
 
-This is a commonly used and loved kind of component, which strangely enough isn't available as a native UIKit or SwiftUI component. If you're unsure of what kind of view I mean, consider this nice album screen from the Spotify iOS app:
+{% include kankoda/data/open-source.html name="ScrollKit" %}
+
+This is a commonly used and loved kind of component, which strangely enough isn't available as a native UIKit or SwiftUI component. 
+
+
+## Example
+
+If you are unsure of what kind of view I mean, consider this nice album screen from the Spotify iOS app:
 
 ![A Spotify screenshot]({{page.assets-stretch}}spotify-demo.jpg)
 
-As you can see, the header stretches out when you pull it down, instead of leaving a gap at the top, then scrolls away with the rest of the content and sticks to the navigation bar with a nice fade animation. It uses nice fade and parallax effects to make this a truly playful experience, so let's implement it as well.
+As you can see, the header stretches out when you pull it down, instead of leaving a gap at the top, then scrolls away with the rest of the content with a nice fade animation and parallax effect.
 
-To recreate this view, we first need to be detect the scroll offset, then make the header stretch out when it's pulled down, then finally make it stick to the top as it scrolls past the navigation bar. Let's take a look at how to solve these things seprately, then combine them to implement the final result.
+To recreate this, we have to be detect the scroll offset, then make the header stretch out when it's pulled down and stick to the top as it scrolls past the navigation bar.
 
 
 ## How to implement scroll offset tracking
@@ -554,6 +561,6 @@ Some additional details is the `opacity` modifier that causes the cover to fade 
 
 The `ScrollViewWithStickyHeader` in this post lets you create scroll views with sticky headers by just providing a custom header and header height. It will continuously provide you with the scroll offset and the visible header ratio as you scroll, which you can use to create amazing scroll effects. 
 
-I have added this view to my newly released [ScrollKit]({{page.github}}) library. You can find the source code [here]({{page.source}}). If you decide to give it a try, I'd be very interested in hearing what you think.
+I have added this view to my newly released [ScrollKit]({{project.url}}) library. You can find the source code [here]({{project.url}}{{page.source}}). If you give it a try, I'd love to hear what you think.
 
 Big thanks to [Daniel Arden]({{page.arden}}) for joining me in my efforts to extend the native SwiftUI `ScrollView` with these great features.

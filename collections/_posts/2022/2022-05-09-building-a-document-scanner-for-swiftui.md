@@ -6,11 +6,12 @@ tags:   swiftui uikit document-scanner
 icon:   swiftui
 tweet:  https://twitter.com/danielsaidi/status/1523549448458354688?s=20&t=bGaXlye_gZRmIMHzE1lWGw
 
-swiftuikit: https://github.com/danielsaidi/SwiftUIKit
 vision:     https://developer.apple.com/documentation/vision
 ---
 
 In this post, let's take a quick look at how to we can extend SwiftUI with a document scanner, that uses the device camera to scan documents in iOS.
+
+{% include kankoda/data/open-source.html name="SwiftUIKit" %}
 
 To achieve this, we'll use Apple's [Vision]({{page.vision}}) framework to create a `VNDocumentCameraViewController`, then embed it in SwiftUI and listen for any activities that take place in the controller.
 
@@ -148,4 +149,4 @@ Wrapping UIKit views and view controllers in SwiftUI is very easy. Just make sur
 
 This code could also be adjusted to support async/await, but that's a topic for another post. Just let me know if you'd like to see such a post.
 
-If you're interested in the source code, you can find it in my [SwiftUIKit]({{page.swiftuikit}}) library. Don't hesitate to comment or reach out with any thoughts you may have. I'd love to hear your thoughts on this.
+If you're interested in the source code, you can find it in my [SwiftUIKit]({{project.url}}) library. Don't hesitate to comment or reach out with any thoughts you may have. I'd love to hear your thoughts on this.

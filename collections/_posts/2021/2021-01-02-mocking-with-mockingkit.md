@@ -10,20 +10,22 @@ mocking:       https://en.wikipedia.org/wiki/Mock_object
 mockingkit:    https://github.com/danielsaidi/MockingKit
 ---
 
-In this post, I'll demonstrate how to use [MockingKit]({{page.mockingkit}}) to create dynamic mocks of protocols and classes, that let you record and inspect function calls, register conditional returns etc. We can then use this in unit tests and to fake not yet implemented logic.
+{% include kankoda/data/open-source.html name="MockingKit" %}In this post, I'll demonstrate how to use [MockingKit]({{project.url}}) to create dynamic mocks of protocols and classes, that let you record and inspect function calls in your unit tests, register conditional returns, etc.
 
 ![MockingKit]({{page.image}})
 
 
 ## Background
 
-Mocking is a way to create interactive, fake implementations of protocols and classes. It's a great tool when writing unit tests and to fake not yet implemented logic. If you're unfamiliar with [unit testing]({{page.unit-testing}}) or [mocking]({{page.mocking}}), you can read more by following these links.
+[Mocking]({{page.mocking}}) is a way to create interactive, fake implementations of protocols and classes. It's a great tool when writing [unit tests]({{page.unit-testing}}) and to fake not yet implemented logic.
 
-I come from a .NET background and was fortunate to be around when the community was all about unit testing and how to write testable code. As I later started with at iOS and Android development, I found that this was not as much discussed in these communities, and that the mindset around mocking was more about mocking HTTP requests than protocols. The native tools, if any, were also very basic and lacked a lot of the power that I had come to expect from Visual Studio and various .NET test libraries.
+I come from a .NET background and was fortunate to be around when the community was all about unit testing and how to write testable code. As I later became an iOS and Android developer, I found that unit testing was quite uncommon, and that mocking more meant to mock HTTP requests.
 
-As Swift was later introduced, the limited introspection made mocking hard, where the few Swift-based libraries I found were more about generating boilerplate code than interactive mocks. So I made do with manual mocks for years and wrote manual code to register function invokations, tracking parameters, returning fake results etc. 
+The native tools, if any, were also very basic and lacked a lot of the power that I had come to expect from Visual Studio and various .NET test libraries. As Swift was later introduced, its limited introspection made mocking hard, where the few libraries I found were more about generating code than interactive mocks. 
 
-Let's look at this way of mocking, before we see how to implement real, dynamic mocks.
+I made do with manual mocks for years, and wrote a lot of code to register function invokations, return custom function results, unit test in parameters, etc. It was however very tedious, and quite error-prone.
+
+Let's look at this manual mocking approach, before we move on to dynamic mocks.
 
 
 ## Manual mocks
@@ -97,14 +99,12 @@ We can do better.
 
 ## MockingKit
 
-[MockingKit]({{page.mockingkit}}) is a Swift-based mocking library that makes it easy to create dynamic and interactive mocks of protocols and classes. It lets you invoke and inspect function calls, register function results etc.
-
-Let's use MockingKit to be able to use dynamic and interactive mocks, and see how this can help us simplify things when unit testing.
+[MockingKit]({{project.url}}) is a Swift-based mocking library that makes it easy to create dynamic and interactive mocks of protocols and classes. It lets you invoke and inspect function calls, register function results etc.
 
 
 ### Terminology
 
-Before we continue, let's clarify what this means in detail.
+Before we continue, let's clarify what some of these terms means.
 
 `Invokation` is to call a function. In a mock, this `record` the call and saves information about how many times a function has been called, with which arguments, the returned result etc.
 
@@ -114,9 +114,11 @@ Before we continue, let's clarify what this means in detail.
 
 ### Creating a mock
 
-To create a mock with MockingKit, you can inherit the `Mock` class and implement any protocol that you want to mock. If a mock has to inherit another class (e.g. to mock system classes like `UserDefaults`), you can implement the `Mockable` protocol instead.
+To create a mock with MockingKit, you just have to create a class that inherits the `Mock` class and make it implement the protocol you want to mock. 
 
-`Mock` is basically just a `Mockable` implementation that uses itself as mock. All the mock functionality is provided by `Mockable`.
+If your mock must inherit another class (e.g. to mock classes like `UserDefaults`), it can just implement the `Mockable` protocol instead of inheriting `Mock`.
+
+`Mock` is basically just a `Mockable` class that uses itself as mock.
 
 In other words, you can either do this:
 
@@ -142,7 +144,7 @@ The two options are identical except from the `mock` property. You use them in e
 
 ### Invoking function calls
 
-To be able to invoke functions, you need to create a `MockReference` for each function that you want to mock. A mock reference is basically just a function reference that is used for invokation and inspection.
+To invoke functions, you need to create a `MockReference` for each function you want to mock. A mock reference is basically just a function reference that is used for invokation and inspection.
 
 Let's implement the `Printer` protocol from earlier and mock the `print` function:
 
@@ -159,14 +161,14 @@ class MockPrinter: Mock, Printer {
 }
 ```
 
-Note how references must be lazy, since they refer to an instance function. `printRef` now refers to `print` and is invoked whenever `print` is called.
+References must be `lazy` since they refer to an instance function. `printRef` now refers to `print` and is invoked whenever `print` is called.
 
 
 ### Inspecting invokations
 
-As we mentioned before, calling `invoke` records a function call so that you can inspect it later. Since the invokation is done by the mock as its functions are called, you can use the mock as you would use any other implementation of the same protocol.
+As we mentioned before, `invoke` records a function call so you can inspect it later. Since invokation is made by the mock as its functions are called, you can use just it as the protocol is intended to be used.
 
-When inspecting invokations for the various functions in a mock, we have to use the function references instead of the functions themselves.
+When inspecting invokations for the various functions in a mock, we have to use the function references.
 
 Given the `MockPrinter` above, we could inspect it like this:
 
@@ -181,7 +183,7 @@ printer.hasInvoked(printer.printRef, numberOfTimes: 1)  // => true
 printer.hasInvoked(printer.printRef, numberOfTimes: 2)  // => false
 ```
 
-MockingKit has a bunch of handly inspection alternatives, like checking if a function has been invoked or not, how many times, with what arguments, what it returned etc. Since `print` has no return value, this information is not available in this case.
+MockingKit has a bunch of handly inspection alternatives, like checking if a function has been invoked or not, how many times, with what arguments, what it returned, etc.
 
 
 ### Registering return values
@@ -195,7 +197,7 @@ protocol StringConverter {
 }
 ```
 
-A MockingKit mock would look like this:
+A mock could then look like this:
 
 ```swift
 class MockStringConverter: Mock, StringConverter {
@@ -208,11 +210,11 @@ class MockStringConverter: Mock, StringConverter {
 }
 ```
 
-Unlike the void invokation in `MockPrinter`, this `invoke` actually returns a value. Since the function body is a one-liner, you can omit `return`.
+Unlike the void function in `MockPrinter`, this `invoke` actually returns a value. Since the function body is a one-liner, you can omit `return`.
 
-If the return value is optional, it's also optional to register a return value before invoking the function. Calling `invoke` before registering a return value will return `nil`.
+If the return value is optional, it's optional to register a return value before invoking the function. Calling `invoke` before registering a return value will return `nil`.
 
-If the return value is non-optional, you must register a return value before invoking the function. Calling `invoke` before registering a return value will cause a crash. 
+If the return value is non-optional, you *must* register a return value before invoking the function. Calling `invoke` before registering a return value will cause a crash. 
 
 Registering a return value is easy:
 
@@ -230,7 +232,7 @@ Note how we can use the input argument of the function call to determine the ret
 
 ### Multiple function arguments
 
-If a mocked function has multiple arguments, inspection behaves a little different, since arguments are handled as tuples.
+If a mocked function has multiple arguments, inspection behaves a little differently, since arguments are handled as tuples.
 
 Say that we have a protocol that looks like this:
 
@@ -241,7 +243,7 @@ protocol MyProtocol {
 }
 ```
 
-A MockingKit mock would look like this:
+A mock could then look like this:
 
 ```swift
 class MyMock: Mock, MyProtocol {
@@ -302,7 +304,7 @@ class MyMock: Mock, MyProtocol {
 }
 ```
 
-This is actually nice, since it gives you a unique references for each function. It also makes the unit test code easier to write.
+This gives you a unique references for each function, and also makes the unit test code easier to write.
 
 
 ### Properties
@@ -319,4 +321,4 @@ Async functions are just void return functions and its completion blocks are jus
 
 ## Conclusion
 
-[MockingKit]({{page.mockingkit}}) is a tiny library that simplifies working with mocked logic. If you are into unit testing and mocking, I'd love for you to try it out and tell me what you think.
+[MockingKit]({{project.url}}) is a tiny, but powerful library that simplifies working with mocks. If you are into unit testing and mocking, I'd love for you to try it out and tell me what you think.

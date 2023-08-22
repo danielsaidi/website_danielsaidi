@@ -8,8 +8,6 @@ assets: /assets/blog/2022/2022-06-21/
 tweet:  https://twitter.com/danielsaidi/status/1539343541155028993?s=20&t=mIWJ4rucrEUZSxr9gkm6MA
 
 article:    https://danielsaidi.com/blog/2022/06/15/swiftui-4-custom-sheet-sizes
-swiftuikit: https://github.com/danielsaidi/SwiftUIKit
-extension:  https://github.com/danielsaidi/SwiftUIKit/blob/master/Sources/SwiftUIKit/Presentation/Detents/PresentationDetentsViewModifier.swift
 
 edward:     https://twitter.com/edwardsainsbury 
 ericlewis:  https://twitter.com/ericlewis
@@ -19,7 +17,9 @@ tgrapperon: https://twitter.com/tgrapperon
 
 SwiftUI 4 adds a bunch of great features, such as custom sized sheets. However, these sheets will always dim the underlying view, even when they use a smaller size. Let's look at how to fix this.
 
-> Update 2023-05-25: After some discussions and GitHub issues, I have cleaned up the code quite a bit. This post now has the latest version. You can always visit [SwiftUIKit]({{page.swiftuikit}}) for the latest version of the code.
+{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+
+> Update 2023-05-25: After some discussions and GitHub issues, I have cleaned up the code quite a bit. This post now has the latest version. You can always visit [SwiftUIKit]({{project.url}}) for the latest version of the code.
 
 
 ## Background
@@ -273,8 +273,8 @@ We can now use `.presentationDetents(...)` to get undimming support in our iOS 1
 
 ## Conclusion
 
-SwiftUI 4 custom sized sheets are greatamazing, but will unfortunately not let you keep the underlying view undimmed. This post presents a workaround until Apple adds this as a native feature.
+SwiftUI 4 custom sized sheets are great, but will unfortunately not let you keep the underlying view undimmed. This post presents a workaround until Apple adds this as a native feature.
+
+I have the workaround to [SwiftUIKit]({{project.url}}). Feel free to try it out and let me know what you think, and if you find anything that needs fixing.
 
 Big thanks to [kzyryanov]({{page.kzyryanov}}) for notifying me about this, and to [tgrapperon]({{page.tgrapperon}}) and [ericlewis]({{page.ericlewis}}) for your amazing help! You are what makes this Internet thing still being great!
-
-I have added [this extension]({{page.extension}}) to my [SwiftUIKit]({{page.swiftuikit}}) library, which I use for misc SwiftUI utilities. Feel free to try it out and let me know what you think, and if you find anything that needs fixing.

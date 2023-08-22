@@ -1,6 +1,8 @@
 
 - name: KeyboardKit
   url: https://keyboardkit.com
+  app: https://keyboardkit.com/app
+  pro: https://keyboardkit.com/pro
   github: https://github.com/KeyboardKit/KeyboardKit
   github_pro: https://github.com/KeyboardKit/KeyboardKitPro
 

@@ -9,14 +9,15 @@ tweet:  https://twitter.com/danielsaidi/status/1519332230535000067?s=20&t=wF1kbk
 
 docc: https://developer.apple.com/documentation/docc
 fastlane: https://fastlane.tools
-swiftuikit: https://github.com/danielsaidi/SwiftUIKit
 ---
 
 DocC is an amazing tool for writing and generating documentation for Swift-based projects. This post will discuss how to generate multi-platform documentation with DocC, using Terminal scripts and Fastlane.
 
+{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+
 ![DocC icon]({{page.image}})
 
-This post assumes that you are familiar with Swift packages and DocC. If not, you can have a look at [the DocC website]({{page.docc}}) for more information and [SwiftUIKit]({{page.swiftuikit}}) for an example package.
+This post assumes that you are familiar with Swift packages and DocC. If not, you can have a look at [the DocC website]({{page.docc}}) for more information and [SwiftUIKit]({{project.url}}) for an example package.
 
 
 ## The documentation catalog
