@@ -4,11 +4,11 @@ date:   2023-05-26 06:00:00 +0000
 tags:   swiftui document-group
 
 image:  /assets/headers/documentkit.png
-
-documentkit:    https://github.com/danielsaidi/documentkit
 ---
 
 `DocumentGroup`-based apps make it easy to edit documents and store them on device and in the cloud. However, these apps are currently very limited when it comes to customization. Let's look at how we can extend them.
+
+{% include kankoda/data/open-source.html name="DocumentKit" %}
 
 ![DocumentKit logo]({{page.image}})
 
@@ -446,4 +446,4 @@ struct MyApp: App {
 
 Let's keep our fingers crossed that iOS 17 adds many of these features when it launches in a few weeks.
 
-I have added these types and extensions to a new open-source library - [DocumentKit]({{page.documentkit}}). Feel free to try it out and let me know what you think.
+I have added these types and extensions to a new open-source library - [DocumentKit]({{project.url}}). Feel free to try it out and let me know what you think.

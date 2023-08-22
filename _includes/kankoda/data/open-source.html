@@ -1,1 +1,2 @@
 {%- assign project = site.data.open-source | where:"name", include.name | first -%}
+{%- assign project-version = project.url | append: '/releases/tag/' | append: include.version -%}

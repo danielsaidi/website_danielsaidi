@@ -4,11 +4,11 @@ date:   2023-06-12 22:00:00 +0000
 tags:   swiftui open-source
 
 image:  /assets/headers/deckkit.png
-
-release:    https://github.com/danielsaidi/DeckKit/releases/tag/0.7.0
 ---
 
 DeckKit 0.7 is out, with a new shuffle animation that makes shuffling a deck very enjoyable. Let's take a look at what's new in this minor update.
+
+{% include kankoda/data/open-source.html name="DeckKit" version="0.7.0" %}
 
 ![DeckKit logo]({{page.image}})
 
@@ -24,4 +24,4 @@ The shuffle animation lets you customize the max rotation, as well as the max ho
 
 ## Conclusion
 
-Other than this, DeckKit 0.7 also adds a `shuffle` function to the `Deck` type and a convenience initializer to the `DeckView`. For more information, see the [project repository]({{site.deckkit}}) and the [release notes]({{page.release}}).
+Other than this, DeckKit 0.7 also adds a `shuffle` function to the `Deck` type and a convenience initializer to the `DeckView`. For more information, see the [project repository]({{project.url}}) and the [release notes]({{project-version}}).

@@ -1,6 +1,8 @@
 
 - name: KeyboardKit
   url: https://keyboardkit.com
+  github: https://github.com/KeyboardKit/KeyboardKit
+  github_pro: https://github.com/KeyboardKit/KeyboardKitPro
 
 - name: SwiftUIKit
   url: https://github.com/danielsaidi/SwiftUIKit
@@ -23,6 +25,7 @@
 
 - name: LicenseKit
   url: https://getlicensekit.com
+  github: https://github.com/LicenseKit/LicenseKit
 
 - name: MockingKit
   url: https://github.com/danielsaidi/MockingKit
