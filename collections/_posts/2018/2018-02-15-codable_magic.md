@@ -5,20 +5,14 @@ tags:  swift codable
 icon:  swift
 ---
 
-I have finally started replacing all `NSCoding` objects in my code with `Codable`.
-This post covers things that I've learned along the way.
+I have finally started replacing all `NSCoding` objects in my code with the new `Codable` protocol. This article covers things that I've learned along the way.
 
-
-## Disclaimer
-
-The models in this post are fictional representations of a real world domain model
-of mine. If they seem too simple or if there are bugs, it's because the code was
-only written for this post.
+The models in this article are fictional representations of a real world domain model. If they seem too simple or if there are bugs, it's because the code was only written for this post.
 
 
 ## Model
 
-Lets say that our app has `Movie` and `MovieGenre` structs that look like this:
+Lets say that we have `Movie` and `MovieGenre` structs that look like this:
 
 ```swift
 struct Movie {
@@ -29,29 +23,25 @@ struct Movie {
     let genre: MovieGenre
 }
 
-enum MovieGenre: String { case
+enum MovieGenre: String {
     
-    action,
-    drama,
+    case action
+    case drama
     ...
 }
 ```
 
-If these structs are central to our app, we probably want to use them in various
-ways, e.g. serializing and deserializing them. Let's have a look at how we built
-this functionality before, using `NSCoding`:
+We may want to use these structs in various ways, e.g. serializing and deserializing them. Let's compare how this is traditionally done with `NSCoding` and how `Codable` can simplify it.
 
 
 ## NSCoding
 
-Before `Codable`, you would let `Movie` implement `NSCoding`. However, that would
-have required it to be a class   and not a struct:
+With `NSCoding`, you just let the type you want to serialize implement the `NSCoding` protocol. However, this requires the type to be a class and not a struct:
 
 ```swift
 import Foundation
 
 class Movie: NSObject, NSCoding {
-
     
     // MARK: - Initialization
 
@@ -71,22 +61,19 @@ class Movie: NSObject, NSCoding {
         self.genre = genre
     }
     
-    
     // MARK: - Mapping Keys
     
     private let idKey = "id"
     private let nameKey = "name"
     private let releaseDateKey = "releaseDate"
     private let genreKey = "genre"
-    
-    
+
     // MARK: - Properties
     
     let id: Int
     let name: String
     let releaseDate: Date
     let genre: MovieGenre
-    
     
     // MARK: - Public Functions
     
@@ -99,15 +86,14 @@ class Movie: NSObject, NSCoding {
 }
 ```
 
-As you see, we inherit `NSObject` and implement a bunch of encoding/decoding
-logic. This is tedious, especially if you have nested types. Let's take a
-look at how `Codable` can make this a lot leaner.
+In the code above, we inherit `NSObject` and implement our codable logic, which involves a lot of code, strings, etc., This has to be repeated for every codable type, which is tedious and error-prone. 
+
+Let's take a look at how `Codable` can make this a lot leaner and safer.
 
 
 ## Codable
 
-`Codable` doesn't require you to use classes. `Movie` can be a struct and still
-implement `Codable`:
+With `Codable`, you just let the type you want to serialize implement the `Codable` protocol instead. `Codable` doesn't require you to use classes, so our types can keep being structs:
 
 ```swift
 import Foundation
@@ -124,19 +110,13 @@ struct Movie: Codable {
 With the code above, however, the compiler will complain that `Movie` doesn't
 implement `Decodable`.
 
-If you're new to using `Codable`, you can easily end up adding a bunch of code
-to make it conform to `Codable`, for instance:
+If you're new `Codable`, you would perhaps throw code at the problem to make the `Movie` codable:
 
 
 ```swift
 import Foundation
 
 struct Movie: Codable {
-
-
-    // MARK: - Initialization
-
-    // ...more initializers
 
     required init(from decoder: Decoder) throws {
         let values = try decoder.container(keyedBy: CodingKeys.self)
@@ -146,9 +126,6 @@ struct Movie: Codable {
         genre = try values.decode(BookFormat.self, forKey: .genre)
     }
 
-
-    // MARK: - Encoding
-
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(id, forKey: .id)
@@ -157,18 +134,12 @@ struct Movie: Codable {
         try container.encode(genre, forKey: .genre)
     }
 
-
-    // MARK: - Enums
-
     private enum CodingKeys: String, CodingKey { case
         id,
         name,
         releaseDate,
         genre
     }
-
-    
-    // MARK: - Properties
     
     var id: Int
     var name: String
@@ -177,30 +148,21 @@ struct Movie: Codable {
 }
 ```
 
-Keep in mind that this is a simple model, and that your real world models would
-probably contain a lot more properties, nested types etc. Using the approach
-above, the `Codable` approach would end up a lot like the `NSCoding`
-implementation, with the big difference of using enum keys instead of strings.
+This is however not needed! If you look at the error message, the only reason why `Movie` isn't correctly implementing the protocol is because `MovieGenre` isn't.
 
-So clearly, this approach should be used very seldom, if ever, and only when you
-know exactly what you're doing and as a conscious choice. 
-
-Instead, the correct way of fixing the problem is to make the `MovieGenre`  model
-`Codable` as well:
+All we have to do to fix the error is to make `MovieGenre` implement `Codable` too, which in this case is easily done by just adding `Codable` to the type:
 
 ```swift
-enum MovieGenre: String, Codable {
+enum MovieGenre: String, Codable { 
     
+    case action
+    case drama
     ...
 }
-``` 
+```
 
-If you do this, you don't have to add any additional code to `Movie`. Everything
-will work right away! I removed all additional code and my unit tests that cover
-encoding/decoding still worked.
+This is a simple model, but even if your models contain a lot more stuff, and maybe property types that don't conform to `Codable`, this is basically how you do it.
 
+If your model contains non-codable types, you can either change the model or implement the `Codable` protocol for your non-codable types. For instance, a `Color` can extract its RGBA data.
 
-## Conclusion
-
-As long as your entire model is `Codable`, things seem to sort themselves out. I
-love this new approach and can't wait for the Swift community to embrace it.
+Happy encoding!
