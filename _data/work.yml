@@ -1,3 +1,9 @@
+- name:     Kankoda
+  years:    2020 -
+  url:      /work/kankoda
+  website:  https://www.kankoda.com
+  tags:     swift swiftui ios ipados macos tvos watchos
+    
 - name:     Oribi
   years:    2021 -
   url:      /work/oribi
@@ -30,12 +36,6 @@
   appstore: https://itunes.apple.com/app/bookbeat/id1056652614
   playstore: https://play.google.com/store/apps/details?id=com.bookbeat.android&hl=en&gl=US
   tags:     swift swiftui ios watchos carplay uikit architecture
-  
-- name:     Anomaly Software
-  years:    2020
-  url:      /work/anomaly
-  website:  https://www.anomaly.net.au
-  tags:     swift swiftui keyboard-extension
 
 - name:     Voyado
   years:    2015 - 2016

@@ -15,7 +15,7 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
           <p>
             {% include kankoda/buttons/social.html name="twitter" href=site.twitter_url %}
             {% include kankoda/buttons/social.html name="mastodon" href=site.mastodon_url %}
-            {% include kankoda/buttons/social.html name="github" href=site.githuburl %}
+            {% include kankoda/buttons/social.html name="github" href=site.github_url %}
             {% include kankoda/buttons/social.html name="linkedin" href=site.linkedin_url %}
           </p>
         </div>

@@ -31,6 +31,8 @@ mastodon_username:  danielsaidi@mastodon.social
 twitter_url:      https://twitter.com/danielsaidi
 twitter_username: danielsaidi
 
+swiftui:          https://developer.apple.com/xcode/swiftui/
+
 assets: /assets/
 fonts: 
   - Caveat
