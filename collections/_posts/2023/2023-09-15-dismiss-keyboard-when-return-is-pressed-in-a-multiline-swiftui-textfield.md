@@ -13,7 +13,7 @@ While a single line `TextField` will automatically dismiss the keyboard when you
 
 {% include kankoda/data/open-source.html name="SwiftUIKit" %}
 
-In SwiftUI, the `onSubmit` view modifier can be applied to single line text fields, to perform actions when the return key is pressed:
+In SwiftUI, an `onSubmit` view modifier can be applied to a text field. The provided submit action will be performed when the return key is pressed, and will also dismiss the keyboard:
 
 ```swift
 TextField("Enter text", text: $text)
@@ -22,7 +22,7 @@ TextField("Enter text", text: $text)
     }
 ```
 
-This modifier will however not have any effect on multiline text fields:
+The `onSubmit` view modifier will however not have any effect on multiline text fields, since these views will insert new lines instead of submitting the text field:
 
 ```swift
 TextField("Enter text", text: $text, axis: .vertical)
@@ -31,9 +31,7 @@ TextField("Enter text", text: $text, axis: .vertical)
     }
 ```
 
-The reason for this is that multiline text fields will insert new lines into the text when the return key is pressed, instead of "submitting" the text field and dismissing the keyboard.
-
-Perhaps a modifier exists that I don't know about, so please share if you know one. Until then, I made multiline dismissal work with a `FocusState` and an `onChange` modifier:
+Perhaps another multiline-supporting submit modifier exists that I don't know about, so please share if you know one. Until then, I made it work with a `FocusState` and an `onChange` modifier:
 
 ```swift
 struct MyView: View {
@@ -44,25 +42,24 @@ struct MyView: View {
     @FocusState
     var isFocused: Bool
 
-
     var body: some View {
         TextField("Enter text", text: $text, axis: .vertical)
             .focused($isFocused)
-            .onChange(of: item.notes) { newValue in
+            .onChange(of: text) { newValue in
                 guard isNotesFocused else { return }
-                guard newValue.contains("\n", caseSensitive: false) else { return }
+                guard newValue.contains("\n") else { return }
                 isFocused = false
-                item.notes = newValue.replacing("\n", with: "")
+                text = newValue.replacing("\n", with: "")
             }
     }
 }
 ```
 
-The code above applies a `focused` modifier to the text field and an `onChange` modifier that listens for changes to `text`. As soon as a new line is typed, we clean up the text and removes focus from the view.
+The code above applies a `focused` modifier to the text field and an `onChange` modifier that listens for changes to `text`. As soon as a new line is typed, we clean up the text and remove focus from the view.
 
-The return key still says `return`, which may be a confusing, since it may imply that you can press return to insert new lines. You can add a `submitLabel(.done)` modifier to make it say "Done" instead.
+The return key still says `return`, which may be a confusing, since it implies that you can press return to insert new lines. You can add a `submitLabel(.done)` modifier to make it say "Done" instead.
 
-We can move this code to a view modifier to make it easy to reuse this functionality. We can also add an `onSubmit` function to call whenever return is pressed:
+We can move this code to a `ViewModifier` to make it easy to reuse this functionality. We can also add an additional `onSubmit` action that will be called whenever return is pressed:
 
 ```swift
 struct MultilineSubmitViewModifier: ViewModifier {
@@ -101,7 +98,7 @@ struct MultilineSubmitViewModifier: ViewModifier {
 }
 ```
 
-We can also add a view extension to make this even easier to apply:
+We can also add a view extension to make this view modifier even easier to apply to a view:
 
 ```swift
 public extension View {
@@ -109,7 +106,7 @@ public extension View {
     func onMultilineSubmit(
         in text: Binding<String>,
         submitLabel: SubmitLabel = .done,
-        action: @escaping () -> Void = {}
+        action: @escaping () -> Void
     ) -> some View {
         self.modifier(
             MultilineSubmitViewModifier(
@@ -122,22 +119,25 @@ public extension View {
 }
 ```
 
-The only main difference between `onSubmit` and `onMultilineSubmit`, is that `onMultilineSubmit` requires the text binding used by the text field.
+When using this view modifier instead of `onSubmit`, the only change is that you need to pass in the text binding that is used by the text field.
 
-We can add another extension that just applies the resign behavior without an `onSubmit` action:
+We can add another extension that just applies the submit behavior without an action, to get some nice naming for the cases when we just want the keyboard dismissal:
 
 ```swift
-func multilineSubmit(
-    for text: Binding<String>,
-    submitLabel: SubmitLabel = .done
-) -> some View {
-    self.modifier(
-        MultilineSubmitViewModifier(
-            text: text,
-            submitLabel: submitLabel,
-            onSubmit: {}
+public extension View {
+    
+    func multilineSubmitEnabled(
+        for text: Binding<String>,
+        submitLabel: SubmitLabel = .done
+    ) -> some View {
+        self.modifier(
+            MultilineSubmitViewModifier(
+                text: text,
+                submitLabel: submitLabel,
+                action: {}
+            )
         )
-    )
+    }
 }
 ```
 
@@ -158,6 +158,6 @@ struct MyView: View {
 
 ## Conclusion
 
-This may already be in SwiftUI anywhere, but I haven't managed to find it. If you know how to achieve this with plain SwiftUI, please share it here.
+The view modifier in this blog post may already be in SwiftUI anywhere, but if so, I haven't found it yet. If you know how to achieve this with plain SwiftUI, please share it here.
 
-I have added the view modifier and extensions to my [SwiftUIKit]({{project.url}}) library. Feel free to try it out and let me know what you think.
+I have added all this code to my [SwiftUIKit]({{project.url}}) library. Feel free to try it out and let me know what you think.
