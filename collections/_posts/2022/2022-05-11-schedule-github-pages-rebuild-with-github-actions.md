@@ -63,7 +63,7 @@ Turns out that [GitHub Actions]({{page.github-actions}}) is the perfect tool for
 
 By setting up a scheduled GitHub Actions workflow with Curl and a cron job, you can trigger GitHub Pages to rebuild any time you like.
 
-To make this work, first create a `.github` folder in the root, then add a `frameworks` folder to that folder and a `.yml` file that you name after your workflow.
+To make this work, first create a `.github` folder in the root, then add a `workflows` folder to that folder and a `.yml` file that you name after your workflow.
 
 In my case, I added a `republish.yml` file like this:
 
