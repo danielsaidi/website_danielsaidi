@@ -44,19 +44,25 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
       <section class="work">
         {% assign work = site.data.work | slice: 0, 4 %}
         {% include kankoda/grids/title.html title="Work" link="/work" %}
-        {% include kankoda/grids/grid.html items=work link="work" type="icons" %}
+        {% include kankoda/grids/grid.html items=work type="icons" %}
       </section>
       <hr />
       <section class="open-source">
         {% assign open-source = site.data.open-source | slice: 0, 4 %}
         {% include kankoda/grids/title.html title="Open Source" link="/open-source" %}
-        {% include kankoda/grids/grid.html items=open-source link="open-source" type="icons" %}
+        {% include kankoda/grids/grid.html items=open-source type="icons" %}
+      </section>
+      <hr />
+      <section class="products">
+        {% assign products = site.data.products | slice: 0, 4 %}
+        {% include kankoda/grids/title.html title="Products" link="/products" %}
+        {% include kankoda/grids/grid.html items=products type="icons" %}
       </section>
       <hr />
       <section class="apps">
         {% assign apps = site.data.apps | slice: 0, 4 %}
         {% include kankoda/grids/title.html title="Apps" link="/apps" %}
-        {% include kankoda/grids/grid.html items=apps link="apps" type="icons" %}
+        {% include kankoda/grids/grid.html items=apps type="icons" %}
       </section>
     </div>
   </main>

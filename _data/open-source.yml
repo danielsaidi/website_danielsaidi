@@ -25,10 +25,6 @@
 - name: DocumentKit
   url: https://github.com/danielsaidi/DocumentKit
 
-- name: LicenseKit
-  url: https://getlicensekit.com
-  github: https://github.com/LicenseKit/LicenseKit
-
 - name: MockingKit
   url: https://github.com/danielsaidi/MockingKit
 
