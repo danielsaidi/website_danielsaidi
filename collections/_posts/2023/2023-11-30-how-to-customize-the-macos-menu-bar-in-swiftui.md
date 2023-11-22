@@ -5,6 +5,9 @@ tags:   swiftui macos
 
 image:  /assets/blog/headers/231122.jpg
 assets: /assets/blog/2023/1122/
+
+tweet:  https://x.com/danielsaidi/status/1727289933038260289?s=20
+toot:   https://mastodon.social/@danielsaidi/111453994720983239
 ---
 
 In this post, we'll take a look at how we can customize the macOS menu bar for our app, using SwiftUI commands like `CommandMenu` and `CommandGroup`.
