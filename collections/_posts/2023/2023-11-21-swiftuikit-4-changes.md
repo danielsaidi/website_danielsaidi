@@ -6,7 +6,7 @@ tags:   swiftui open-source
 icon:   swiftui
 ---
 
-I am about to create a new 4.0 version of SwiftUIKit - an open-source project where I gather reusable stuff that I use in my own apps. This major bump will be all about removing no longer needed things.
+I am about to create a new major version of SwiftUIKit. This version will remove no longer needed things, bump the deployment targets and merge the library with SwiftKit.
 
 {% include kankoda/data/open-source.html name="SwiftUIKit" %}
 
