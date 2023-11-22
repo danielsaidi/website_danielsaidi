@@ -10,7 +10,7 @@ tweet:  https://x.com/danielsaidi/status/1727289933038260289?s=20
 toot:   https://mastodon.social/@danielsaidi/111453994720983239
 ---
 
-In this post, we'll take a look at how we can customize the macOS menu bar for our app, using SwiftUI commands like `CommandMenu` and `CommandGroup`.
+In this post, we'll take a look at how to customize the macOS menu bar for a SwiftUI app, using SwiftUI tools like `CommandMenu` and `CommandGroup`.
 
 ![Blog header image]({{page.image}})
 
@@ -315,7 +315,6 @@ struct MyAppApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .frame(minWidth: 300, idealWidth: 300, maxWidth: 300, minHeight: 300, idealHeight: 300, maxHeight: 300)
         }
         .commands {
             CommandMenu("World") {
@@ -326,7 +325,6 @@ struct MyAppApp: App {
                 .keyboardShortcut("r", modifiers: [.command, .shift])
             }
         }
-        .windowResizability(.contentSize)
     }
 }
 ```
