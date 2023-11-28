@@ -5,7 +5,7 @@ date:   2023-11-08 06:00:00 +0000
 tweet:  https://x.com/danielsaidi/status/1722257925920686498?s=20
 toot:   https://mastodon.social/@danielsaidi/111375375467850186
 
-image:  /assets/headers/blog/2023-11-08.jpg
+image:  /assets/blog/headers/231108.jpg
 ---
 
 My last month has been all about wrapping up and releasing a brand new major version of KeyboardKit. It's been a very fun project...that unfortunately has failed to deliver on all the work that went into it.
