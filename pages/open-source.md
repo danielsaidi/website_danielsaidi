@@ -1,10 +1,10 @@
 ---
 layout: default
 title: Open Source
-permalink: /open-source/
+permalink: /opensource
 
 redirect_from: 
-  - /opensource
+  - /open-source
 ---
 
 <article>

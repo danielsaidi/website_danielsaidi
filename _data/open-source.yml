@@ -9,9 +9,6 @@
 - name: SwiftUIKit
   url: https://github.com/danielsaidi/SwiftUIKit
 
-- name: SwiftKit
-  url: https://github.com/danielsaidi/SwiftKit
-
 - name: RichTextKit
   url: https://github.com/danielsaidi/RichTextKit
 

@@ -25,7 +25,7 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
             platforms like iOS, macOS, tvOS and watchOS and tech like Swift and SwiftUI.
           </p>
           <p>
-            I make <a href="apps">apps</a>, <a href="products">products</a> and manage several <a href="open-source">open-source</a> projects. I also <a href="blog">blog</a>, <a href="{{site.twitter_url}}">tweet</a> and <a href="{{site.mastodon_url}}">toot</a> and give occasional <a href="talks">talks & workshops</a>.
+            I make <a href="apps">apps</a>, <a href="products">products</a> and manage several <a href="opensource">open-source</a> projects. I also <a href="blog">blog</a>, <a href="{{site.twitter_url}}">tweet</a> and <a href="{{site.mastodon_url}}">toot</a> and give occasional <a href="talks">talks & workshops</a>.
           </p>
         </div>
       </section>
@@ -47,10 +47,10 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
         {% include kankoda/grids/grid.html items=work type="icons" %}
       </section>
       <hr />
-      <section class="open-source">
-        {% assign open-source = site.data.open-source | slice: 0, 4 %}
-        {% include kankoda/grids/title.html title="Open Source" link="/open-source" %}
-        {% include kankoda/grids/grid.html items=open-source type="icons" %}
+      <section class="opensource">
+        {% assign projects = site.data.open-source | slice: 0, 4 %}
+        {% include kankoda/grids/title.html title="Open Source" link="/opensource" %}
+        {% include kankoda/grids/grid.html items=projects type="icons" %}
       </section>
       <hr />
       <section class="products">

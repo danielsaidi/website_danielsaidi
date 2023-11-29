@@ -45,7 +45,7 @@ header_logo_text: Daniel Saidi
 header_pages:
   - pages/work.md
   - pages/apps.md
-  - pages/open-source.md
+  - pages/opensource.md
   - pages/blog.md
 
 footer_sitemap:
@@ -53,7 +53,7 @@ footer_sitemap:
   - pages/blog.md
   - pages/work.md
   - pages/apps.md
-  - pages/open-source.md
+  - pages/opensource.md
   - pages/talks.md
 
 footer_extra_title: Music
