@@ -11,26 +11,71 @@ tweet:  https://x.com/danielsaidi/status/1729767139966402628?s=20
 toot:   https://mastodon.social/@danielsaidi/111492701147385921
 ---
 
-In this post, we'll take a look at how to customize the macOS about panel for a SwiftUI app, to let us show custom content.
+In this post, we'll take a look at how we can customize the macOS About Panel to show custom content, using project settings, bundle files, and SwiftUI.
 
 ![Blog header image]({{page.image}})
 
-If we create a brand new SwiftUI app in Xcode and run it, the main menu has an "About..." menu item that opens an "about panel" that has information about the app:
+As an example, let's create a brand new SwiftUI app project and call it "MyApp". When running the app, the main system menu will by default have an "About..." item that opens the app's about panel:
 
 ![The default about panel]({{page.assets}}/default.png)
 
 This panel will by default show the app icon, project name, build number and version number. If we add an app icon to our app, it will automatically appear, without any code needed. Pretty nice, right?
 
-Since the project is called "MyApp", this is also the default display name for the app. Let's change this to "My App" in Project Settings to see what happens:
-
-![The default about panel shows project name, not display name]({{page.assets}}/name.png)
-
-Hmmmm, that's strange. The top-level menu item and the about panel still says "MyApp", but the menu button now says "About My App". Seems like only the menu button honors the display name.
-
-While there may be ways to fix this with the standard build configuration, let's take it as a reason to look at how we can customize the About Panel to show custom content.
+There are however things that we may want to adjust. The app should perhaps be displayed as "My App", and we may also want to display some additional information, copyright, etc.
 
 
-## How to customize the macOS about panel
+## How to customize the app display name
+
+Since the project is called "MyApp", this also becomes the default display name for the app. Let's change this to "My App" in Project Settings to see what happens.
+
+We can either do this under the "Info" tab:
+
+![A screenshot of how to change display name in Info]({{page.assets}}/displayname-1.png)
+
+On in Build Settings:
+
+![A screenshot of how to change display name in Info]({{page.assets}}/displayname-2.png)
+
+If we re-run the app with this new display name, you'll see how the main menu and about panel still says "MyApp", but the menu item that opens the about panel says "About My App". 
+
+![A screenshot of how to change display name in Build Settings]({{page.assets}}/name.png)
+
+So, seems like the main menu and about panel use the project name and ignores the display name. 
+
+While there may be ways to fix this with standard settings, let's take it as a reason to look at how we can customize the About Panel to show custom content, both without and with code.
+
+
+## How to customize the about panel without code
+
+Although I haven't found a way to change the app name in the about panel without code, there are some things that you *can* change with plain build settings and files.
+
+### Copyright
+
+Any copyright information that you define under Build Settings automatically appear in the about panel:
+
+![A screenshot of how to change copyright information]({{page.assets}}/copyright.png)
+
+If you add this, the about panel will show the information like this:
+
+![A screenshot of how copyright is presented in the about panel]({{page.assets}}/copyright-panel.png)
+
+### Credits
+
+You can also provide custom credits (credits to [@troz](@troz@mastodon.social) and [@casecollection](@casecollection@moth.social) for letting me know) for the app, by adding a `credits.rtf` or `credits.html` file to your app. 
+
+Here, we add an RTF file with some rich text content:
+
+![A screenshot of how to add an RTF file]({{page.assets}}/credits-rtf.png)
+
+If you add this, the about panel will show the information like this:
+
+![A screenshot of how credits are presented in the about panel]({{page.assets}}/credits-rtf-panel.png)
+
+However, if you want the credits to contain dynamic content, you need to define this with code, where you have complete freedom to inject any variables into the text.
+
+
+
+## How to customize the about panel with code
 
 To customize the About Panel, we will use the same techniques as we looked at in [the previous post]({{page.article}}) on how to customize the main menu commands of an app.
 
@@ -154,7 +199,7 @@ If we run the app again, we now have custom credits with a custom style in place
 
 ![Custom credits]({{page.assets}}/credits.png)
 
-To simplify this mote, we can create a custom `AboutPanelCommand` that can be reused in many apps:
+To simplify this more, we can create a custom `AboutPanelCommand` that can be reused in many apps:
 
 ```swift
 public struct AboutPanelCommand: Commands {
