@@ -61,7 +61,7 @@ If you add this, the about panel will show the information like this:
 
 ### Credits
 
-You can also provide custom credits (credits to [@troz](@troz@mastodon.social) and [@casecollection](@casecollection@moth.social) for letting me know) for the app, by adding a `credits.rtf` or `credits.html` file to your app. 
+You can also provide custom credits (credits to [@troz](https://mastodon.social/@troz) and [@casecollection](https://moth.social/@casecollection) for letting me know) for the app, by adding a `credits.rtf` or `credits.html` file to your app. 
 
 Here, we add an RTF file with some rich text content:
 
