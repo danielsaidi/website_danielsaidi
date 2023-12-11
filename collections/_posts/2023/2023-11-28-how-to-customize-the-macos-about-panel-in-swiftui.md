@@ -40,9 +40,6 @@ In short, we need to replace the current about button with a custom one that cal
 @main
 struct MyAppApp: App {
     
-    @FocusedValue(\.world)
-    var world: World?
-    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -79,9 +76,6 @@ Instead, you can set it like this:
 @main
 struct MyAppApp: App {
     
-    @FocusedValue(\.world)
-    var world: World?
-    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -114,9 +108,6 @@ Yikes, I don't like that indentation arrow! Let's specify options in another way
 ```swift
 @main
 struct MyAppApp: App {
-    
-    @FocusedValue(\.world)
-    var world: World?
     
     var body: some Scene {
         WindowGroup {
@@ -211,6 +202,13 @@ public struct AboutPanelCommand: Commands {
         }
     }
 }
+
+public extension Bundle {
+    
+    var displayName: String {
+        infoDictionary?["CFBundleDisplayName"] as? String ?? "-"
+    }
+}
 ```
 
 This lets us reduce the amount of code in our app to the following:
@@ -218,9 +216,6 @@ This lets us reduce the amount of code in our app to the following:
 ```swift
 @main
 struct MyAppApp: App {
-    
-    @FocusedValue(\.world)
-    var world: World?
     
     var body: some Scene {
         WindowGroup {
