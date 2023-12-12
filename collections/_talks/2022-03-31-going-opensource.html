@@ -1,0 +1,308 @@
+---
+title: Going Open-Source
+date: 2022-03-31
+location: MalagaMobile
+location_url: https://www.meetup.com/malagamobile/
+
+abstract: |
+  I gave this talk at MalagaMobile in March 2022, and later at
+  Copenhagen Cocoa, on my experiences of working on many 
+  open-source projects, how to get started and how to manage
+  closed-source projects.
+
+conference-abstract: |
+  Some of the best software in the world is created in the open, maintained by people who join in their effort to solve problems and share their work with the world. Open-source software comes in all shapes and sizes, from operating systems like Linux and Android, programming languages like Swift and crucial tools like cURL, to tiny hobby projects only used by a handful of people.
+
+  Regardless of your ambitions, the first steps on your open-source journey can be scary. How do you start? Where do you put the code? How are people going to add it to their projects? And what about pull requests? Don't worry, this talk has you covered!
+  
+  In this talk, we'll look at how to get started with open-source, when a good opportunity to do so may be and things you should consider when doing so. We’ll look at how to set up a new package with the Swift Package Manager, write documentation in DocC, automate things with Fastlane etc. We will also discuss how having an open-source oriented mindset can help you out in other situations as well, such as when maintaining software shared between teams in an organization. 
+  
+  The talk will focus on Swift, Xcode and GitHub, but most topics are universal.
+---
+
+{% capture assets %}{{ "assets/talks/220326/" | relative_url }}{% endcapture %}
+
+<section data-markdown class="title-page">
+  # Going Open-Source
+  Daniel Saidi · [@danielsaidi]({{site.twitter_url}})
+</section>
+
+<section data-markdown>
+  # In this talk
+  
+  Open-source
+  
+  Private libraries
+  
+  Closed-source
+  
+  Live coding
+  
+  Discussions
+</section>
+
+<section data-markdown>
+  # About me
+  
+  Web/js since 1995
+  
+  MSc in Media Technology
+  
+  C/C++, Python at school
+  
+  .NET, web, api at work
+  
+  iOS since 2011
+</section>
+
+<section>
+
+  <section data-markdown class="transparent-image">
+    # First public project
+    ![Wigbi logo]({{assets}}wigbi-logo.png "Wigbi Logo")
+  </section>
+  
+  <section data-markdown>
+    # Wigbi
+    
+    Tool for ASP (Active Server Pages), later PHP
+    
+    Code generation
+    
+    PHP to JavaScript (AJAX)
+    
+    Flash plugin
+    
+    CMS
+  </section>
+  
+  <section data-markdown data-background="https://media0.giphy.com/media/1Qdp4trljSkY8/giphy.gif?cid=ecf05e47ijoy5q1r9x83rr5vzwzz4m1gl5h0ncymlrvtxipa&rid=giphy.gif&ct=g">
+  </section>
+  
+  <section data-markdown>
+    # Learnings
+    
+    Wasn't *really* open-source
+    
+    Built for public use
+    
+    Commercial product
+    
+    Commercial failure
+    
+    Obfuscation, documentation
+    
+    Semver, configuration, releases etc.
+  </section>
+</section>
+
+<section data-markdown data-background="http://www.reactiongifs.com/r/2012/09/throwing-money-away.gif">
+  # Commercial Failure
+  ## Story Time
+</section>
+
+<section data-markdown>
+  # Today
+  
+  Open-source is everywhere
+  
+  GitHub, GitLab, BitBucket etc.
+  
+  SPM, Gradle, NPM etc.
+  
+  Markdown, Doxygen, DocC etc.
+  
+  XCFrameworks for closed-source
+</section>
+
+<section data-markdown>
+  # Some of my projects
+  
+  (not to promote, bear with me)
+  
+  UI libs like [Sheeeeeeeeet](https://github.com/danielsaidi/Sheeeeeeeeet) and [SystemNotification](https://github.com/danielsaidi/SystemNotification)
+  
+  Mono-repos like [SwiftKit](https://github.com/danielsaidi/SwiftKit) and [SwiftUIKit](https://github.com/danielsaidi/SwiftUIKit)
+  
+  Test tools like [MockingKit](https://github.com/danielsaidi/MockingKit)
+  
+  Commercial ones like [KeyboardKit](https://github.com/KeyboardKit/KeyboardKit)
+</section>
+
+<section data-markdown>
+  # Project updates
+  
+  New features or improvements
+  
+  Bug fixes
+  
+  User feedback
+  
+  Pull requests
+  
+  External changes (e.g. iOS, Swift)
+</section>
+
+<section data-markdown>
+  # My work structure
+  
+  App-specific code in app target
+  
+  App-agnostic code in a framework
+  
+  App-specific framework in app target
+  
+  No external dependencies in the framework
+  
+  Unit test the framework, not the app
+</section>
+
+<section data-markdown>
+  # App to Open-Source
+  
+  Convert framework to local package
+  
+  Convert local package to open-source
+  
+  Documentation with DocC
+  
+  Automate build process with Fastlane
+  
+  Demo app, code examples etc.
+</section>
+
+<section data-markdown>
+  ## App-specific frameworks 
+  
+  Separate domain from app
+  
+  Reusability between targets
+  
+  More focus, less distraction
+  
+  Faster to compile
+  
+  Easier to test
+</section>
+
+<section data-markdown>
+  # Local packages
+  
+  Cleaner separation betwen app and library
+  
+  Reusability across apps
+  
+  Increased modularity
+  
+  Easier to combine packages
+  
+  Good preparation for open-source
+</section>
+
+<section data-markdown>
+  # Why Open-Source?
+  
+  **Better code** - since it's public
+  
+  **Communication** - what does it do?
+  
+  **Planning** - what to release, when, how?
+  
+  **Collaboration** - working with others
+  
+  **Sharing** - giving back to the community
+</section>
+
+<section data-markdown>
+  ## Why NOT open-source?
+  
+  Time consuming
+  
+  Intellectual property
+  
+  Work secrets
+  
+  High volatility
+  
+  You can still work in an open-source way
+</section>
+
+<section data-markdown>
+  # Private Projects
+  
+  Private repo or server
+  
+  Accessed with SSH instead of HTTPS
+  
+  SSH gives granular access control
+  
+  Still "open-source" when used
+  
+  Perfect for e.g. company projects
+</section>
+
+<section data-markdown>
+  # Closed-Source
+  
+  Public repo
+  
+  Pre-compiled binary, e.g. XCFramework
+  
+  Can be protected with a license
+  
+  Can use documentation, issues etc.
+  
+  Perfect for commercial projects
+</section>
+
+<section data-markdown>
+  # Good Practices
+  
+  System design, access control etc.
+  
+  Only expose the essential
+  
+  Abstractions and loose coupling
+  
+  Test, test, test
+  
+  Automate, automate, automate
+</section>
+
+<section data-markdown>
+  # License
+  
+  Very important!
+  
+  Code without license is NOT open-source
+  
+  Without license, the author has all rights
+  
+  MIT is common, very allowing
+  
+  Others, like BSD, CPL, GPL etc.
+</section>
+
+<section data-markdown>
+  # Conclusion
+  
+  Open-source can be very rewarding
+  
+  Can also be very demanding
+  
+  Set clear expectations on yourself
+  
+  Communicate your ambitions and intent
+  
+  Have fun!
+</section>
+
+<section data-markdown>
+  # Live Coding
+</section>
+
+<section data-markdown>
+  # Thank you!
+  ## Questions?
+  Daniel Saidi · [@danielsaidi]({{site.twitter_url}})
+</section>

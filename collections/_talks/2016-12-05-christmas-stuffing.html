@@ -1,0 +1,258 @@
+---
+title: Christmas Stuffing
+date: 2016-12-05
+location: CocoaHeads Sthlm
+location_url: https://www.meetup.com/CocoaHeads-Stockholm/
+
+abstract: |
+
+  This talk was a traditional Swedish Christmas Korvstoppning (Sausage 
+  Stuffing), which is a Swedish term for cramming a lot of knowledge
+  into a short time span. In this quick lightning talk, we went through
+  10 iOS productivity boosters in 10 minutes.
+---
+
+<section data-markdown class="title-page">
+  # Christmas Stuffing
+  ## CocoaHeads Stockholm
+  ### December 2016
+  
+  Daniel Saidi · [@danielsaidi]({{site.twitter_url}})
+</section>
+
+
+<section data-markdown class="image-section" data-background="https://media.giphy.com/media/249Brogwk4NFK/giphy.gif">
+  # Korvstoppning
+  ## Sausage Stuffing
+  ### a.k.a. Cramming
+</section>
+
+<section data-markdown class="image-section" data-background="https://media.giphy.com/media/LXP19BrVaOOgE/giphy.gif">
+  # Let's go
+</section>
+
+<section>
+  <section data-markdown>
+    # 1
+    ## Localized Strings
+  </section>
+
+  <section data-markdown>
+    ## Not only for localized apps
+    ### Gather all your texts in one place
+  </section>
+
+  <section data-markdown class="image-section" data-background="https://i.ytimg.com/vi/SgBfdXWxTDM/maxresdefault.jpg">
+    # Important
+    ### Know the language you localize in
+  </section>
+
+  <section data-markdown>
+    # SwiftGen Demo
+  </section>
+</section>
+
+
+<section>
+  <section data-markdown>
+    # 2
+    ## Image Assets
+  </section>
+
+  <section data-markdown>
+    # Demo 
+    ### SwiftGen
+  </section>
+</section>
+
+
+<section>
+  <section data-markdown>
+    # 3
+    ## Fonts
+  </section>
+
+  <section data-markdown>
+    # Important
+    ### Remember to add the fonts in your Info.plist
+  </section>
+
+  <section data-markdown>
+    # Demo 
+    ### SwiftGen
+  </section>
+</section>
+
+
+<section>
+  <section data-markdown>
+    # 4
+    ## Storyboards
+  </section>
+
+  <section data-markdown class="image-section" data-background="https://www.webgeoservices.com/wp-content/uploads/2018/08/Communiquez.jpg">
+    # Navigation-Driven Development
+  </section>
+
+  <section data-markdown class="image-section" data-background="https://media.defense.gov/2022/Sep/16/2003079050/-1/-1/0/220910-F-XP529-002.JPG">
+    # One wrong turn..
+  </section>
+
+  <section data-markdown>
+    # Demo 
+    ### SwiftGen
+  </section>
+</section>
+
+
+<section>
+  <section data-markdown>
+    # Recap
+    ## Strings, images, fonts, segues
+    ### SwiftGen can help a lot
+  </section>
+</section>
+
+
+<section>
+  <section data-markdown>
+    # 5
+    ## Dependency Injection
+  </section>
+
+  <section data-markdown>
+    # Live Coding
+  </section>
+
+  <section data-markdown>
+    # Demo 
+    ## Dip, Swinject
+  </section>
+</section>
+
+
+<section>
+  <section data-markdown class="image-section" data-background="https://media.giphy.com/media/DOHNfmZ0yT3OM/giphy.gif">
+    # 6
+    ## The Final Dependency
+  </section>
+
+  <section data-markdown>
+    ### A lot of talk about dependencies
+
+    ### The same goes for your IoC
+
+    ### Don't make it a global dependency
+  </section>
+
+  <section data-markdown class="image-section" data-background="http://s2.quickmeme.com/img/57/578226e4cdb681e648db8cdc0bfe3a53d6b93232ded2d9f9eb375d2927c28cd6.jpg">
+  </section>
+
+  <section data-markdown>
+    # Demo
+  </section>
+</section>
+
+
+<section>
+  <section data-markdown>
+    # 7
+    ## git
+  </section>
+
+  <section data-markdown>
+    # Use it
+  </section>
+
+  <section data-markdown>
+    # That's it
+  </section>
+
+  <section data-markdown>
+    # Demo
+    ## Private git repo on shared server
+  </section>
+</section>
+
+
+<section>
+  <section data-markdown>
+    # 8
+    ## Xcode Snippets
+  </section>
+
+  <section data-markdown>
+    # Demo 
+  </section>
+</section>
+
+
+<section>
+  <section data-markdown>
+    # 9
+    ## Async Helper
+  </section>
+
+  <section data-markdown>
+    ## Hint: it's not this
+
+    ```
+dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+dispatch_async(queue, ^{
+  // SYNCHRONOUS network request
+  // Data processing
+  dispatch_async(dispatch_get_main_queue(), ^{
+    // UI update
+  });
+});
+    ```
+  </section>
+
+  <section data-markdown>
+    ## It's not even this
+
+    ```
+DispatchQueue.main.async {
+  ...
+}
+    ```
+  </section>
+
+  <section data-markdown>
+    ## It is:
+
+    ```
+{ asyncStuff() } ~> { mainThreadStuff() } *
+    ```
+
+    \* http://ijoshsmith.com/2014/07/05/custom-threading-operator-in-swift/
+  </section>
+
+  <section data-markdown>
+    # Demo 
+  </section>
+</section>
+
+
+<section>
+  <section data-markdown>
+    # 10
+    ## CocoaPods Acknowledgement 
+  </section>
+
+  <section data-markdown class="image-section" data-background="https://media.giphy.com/media/itDBteCsTFSVO/giphy.gif">
+    # Be this guy
+    ## Celebrate your dependencies
+  </section>
+
+  <section data-markdown>
+    # Demo 
+  </section>
+</section>
+
+
+<section data-markdown>
+  # Thank you!
+  
+  Daniel Saidi · [@danielsaidi]({{site.twitter_url}})
+</section>

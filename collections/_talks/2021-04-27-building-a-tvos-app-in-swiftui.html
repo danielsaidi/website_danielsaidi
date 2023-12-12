@@ -1,0 +1,94 @@
+---
+title: Building a tvOS app with SwiftUI
+date: 2021-04-27
+location: try! Swift World
+location_url: https://www.tryswift.co
+
+post: https://danielsaidi.com/blog/2020/12/09/building-a-tvos-app-in-swiftui
+
+abstract: |
+  I gave this workshop at the try! Swift World online conference in 2021, 
+  on how to build a video streaming app for tvOS, using SwiftUI and Combine.
+
+conference-abstract: |
+  In this workshop, we will look at how to build a video streaming app for tvOS, using SwiftUI and Combine. We will create an app that lists movies in shelves and grids and a movie detail page that lets us watch a trailer and mark the movie as a favorite. We will look at current SwiftUI performance problems on tvOS and how to work around them.
+
+  If time permits, we will use the general tools that we create to create a quick app for iOS as well. We will use SwiftUI 2, so make sure to have the latest version of Xcode if you want to code along.
+---
+
+{% capture assets %}{{ "assets/talks/210427/" | relative_url }}{% endcapture %}
+
+<section data-markdown class="title-page transparent-image">
+  ## Building a tvOS app
+  ### with SwiftUI
+
+  ![Title]({{assets}}title_500.png "Title")
+
+  Daniel Saidi · [@danielsaidi]({{site.twitter_url}})
+</section>
+
+<section data-markdown>
+  # In this workshop
+  
+  Build a tvOS app in SwiftUI
+  
+  Get movies from an API
+  
+  List movies & movie details
+  
+  Watch movies
+  
+  Add and remove favorites
+</section>
+
+<section data-markdown>
+  # API
+  
+  OMDb - http://omdbapi.com
+  
+  Very easy to integrate with
+  
+  But lacks important information
+  
+  Therefore, a pretty basic app
+  
+  Simplicity to focus on SwiftUI
+</section>
+
+<section data-markdown>
+  # App Screens
+  
+  Discover - List movies by year
+  
+  Favorites - List favorite movies
+  
+  Search - Free text search
+  
+  Movie - Movie details + actions
+  
+  Movie Player - Streams any video url
+</section>
+
+<section data-markdown>
+  # SwiftUI + tvOS Limitations
+  
+  Various glitches, e.g. text field
+  
+  Styling, e.g. buttons and text fields
+  
+  Missing components, e.g. search field
+  
+  Focus engine behavior
+  
+  Bad performance in stacks and grids
+</section>
+
+<section data-markdown>
+  # Live Coding
+</section>
+
+<section data-markdown>
+  # Thank you!
+  ## Questions?
+  Daniel Saidi · [@danielsaidi]({{site.twitter_url}})
+</section>

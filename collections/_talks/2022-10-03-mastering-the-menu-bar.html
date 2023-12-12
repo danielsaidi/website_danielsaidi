@@ -1,0 +1,63 @@
+---
+title: Mastering the macOS Menu Bar
+date: 2023-12-12
+location: CocoaHeads Stockholm
+location_url: https://www.meetup.com/cocoaheads-stockholm/
+
+abstract: |  
+  I gave this talk at CocoaHeads Sthlm in December 2022, on how to
+  customize the macOS menu bar and about panel with SwiftUI, and how
+  to use focus state to control where actions are performed.
+---
+
+{% capture assets %}{{ "assets/talks/231212/" | relative_url }}{% endcapture %}
+
+<section data-markdown class="title-page">
+  # Mastering the macOS Menu Bar
+  Daniel Saidi · [@danielsaidi]({{site.twitter_url}})
+</section>
+
+<section data-markdown class="title-page">
+  # *Understanding* the macOS Menu Bar
+  Daniel Saidi · [@danielsaidi]({{site.twitter_url}})
+</section>
+
+<section data-markdown>
+  # In this talk
+  * Customize the macOS Menu Bar
+  * Menu Bar
+  * About Panel
+  * Settings Screen 
+  * Window Management
+</section>
+
+<section data-markdown>
+  # Go from this
+  ![Default Menu Bar]({{assets}}menubar-default.png)
+</section>
+
+<section data-markdown>
+  # To this
+  ![Default Menu Bar]({{assets}}menubar-custom.png)
+</section>
+
+<section data-markdown>
+  # Live Coding
+</section>
+
+<section data-markdown>
+  # Conclusion
+  * Build Settings and Assets take you a bit
+  * Code takes you further
+  * Use **CommandMenu** to add top-level menus
+  * Use **CommandGroup** to add/replace menu items
+  * Use **NSApplication** to customize about panel
+  * Use **Settings** to add a Settings screen
+  * Use **FocusedValues** for multi-window state
+</section>
+
+<section data-markdown>
+  # Thank you!
+  ## Questions?
+  Daniel Saidi · [@danielsaidi]({{site.twitter_url}})
+</section>

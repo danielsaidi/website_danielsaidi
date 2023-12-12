@@ -7,15 +7,12 @@
 
 h2 + p { margin-top: 60px !important; }
 
-@import url(../../lib/font/source-sans-pro/source-sans-pro.css);
-
 
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
 
 body {
-  background: #004080;
   background-color: #004080; 
   color: #fff;
 }
@@ -27,7 +24,7 @@ img {
 
 .reveal {
   font-size: 38px;
-  font-family: "Source Sans Pro", Helvetica, sans-serif;
+  font-family: sans-serif !important;
 }
 
 .reveal ul {
@@ -42,8 +39,17 @@ img {
   margin-top: 0.5em;
 }
 
-h1, h2, h3, h4, li, p {
+h1, h2, h3, h4 {
   text-shadow: 2px 5px 8px #0004 !important;
+}
+
+h1 + p, h2 + p {
+  margin-top: 40px !important;
+}
+
+p, li {
+  font-size: 1.2em !important;
+  text-shadow: 2px 3px 5px #0008 !important;
 }
 
 a, a:hover, a:visited {
@@ -51,7 +57,7 @@ a, a:hover, a:visited {
 }
 
 .title-page p {
-  transform: translate(0px, 290px);
+  transform: translate(0px, 250px);
 }
 
 .title-page h3 + p {

@@ -2,30 +2,32 @@
 
 <article>
   <h2>{{ talk.title | escape }}</h2>
+
   <div class="post-header">
-    {% include kankoda/blog/post-date.html date=talk.date %}
-    
     <ul class="horizontal post-info">
       <li>
-        
-      </li><li>
         {%- if talk.location_url -%}
         <a href="{{ talk.location_url }}">{{ talk.location }}</a>
         {%- else -%}
         {{ talk.location }}
         {%- endif -%}
-      </li><li class="links">
-        <a href="{{ talk.url }}">Presentation</a>
-        {%- if talk.video -%}
-        <a href="{{ talk.video }}">Video</a>
-        {%- endif -%}
-        {%- if talk.post -%}
-        <a href="{{ talk.post }}">Blog Post</a>
-        {%- endif -%}
-        {%- if talk.code -%}
-        <a href="{{ talk.code }}">Code</a>
-        {%- endif -%}
       </li>
+
+      {%- if talk.has_presentation == 0 -%}
+      {%- else -%}
+      <li>·</li>
+      <li><a href="{{ talk.url }}" target="_blank">Presentation</a></li>
+      {%- endif -%}
+      
+      {%- if talk.video -%}
+      <li>·</li>
+      <li><a href="{{ talk.video }}">Video</a></li>
+      {%- endif -%}
+
+      {%- if talk.post -%}
+      <li>·</li>
+      <li><a href="{{ talk.post }}">Article</a></li>
+      {%- endif -%}
     </ul>
   </div>
 
