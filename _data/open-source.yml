@@ -16,6 +16,9 @@
 - name: ApiKit
   url: https://github.com/danielsaidi/ApiKit
 
+- name: BadgeIcon
+  url: https://github.com/danielsaidi/BadgeIcon
+
 - name: DeckKit
   url: https://github.com/danielsaidi/DeckKit
 
@@ -30,6 +33,9 @@
 
 - name: PrintingKit
   url: https://github.com/danielsaidi/PrintingKit
+
+- name: QuickSearch
+  url: https://github.com/danielsaidi/QuickSearch
 
 - name: ScrollKit
   url: https://github.com/danielsaidi/ScrollKit
