@@ -4,9 +4,12 @@ date:   2023-12-20 06:00:00 +0000
 tags:   swiftui macos ios
 
 image:  /assets/blog/headers/231220.jpg
+
+toot:   https://mastodon.social/@danielsaidi/111612228156955705
+tweet:  https://x.com/danielsaidi/status/1737416857823461669?s=20
 ---
 
-In this post, we'll take a look at how we can let users type on the keyboard to perform a search with the `.searchable` view modifier, without first having to tap/click the text field to give it focus.
+In this post, we’ll take a look at how to search with `.searchable` by just typing on the keyboard without first having to tap/click on the text field to give it focus.
 
 {% include kankoda/data/open-source.html name="QuickSearch" %}
 
