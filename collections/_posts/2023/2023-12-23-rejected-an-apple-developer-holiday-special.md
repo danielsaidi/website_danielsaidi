@@ -6,8 +6,8 @@ tags:   swiftui macos ios
 image:  /assets/blog/231223/header.jpg
 assets: /assets/blog/231223/
 
-toot:   https://mastodon.social/@danielsaidi/111612228156955705
-tweet:  https://x.com/danielsaidi/status/1737416857823461669?s=20
+toot:   https://mastodon.social/@danielsaidi/111628377914513976
+tweet:  https://x.com/danielsaidi/status/1738449452921229663?s=20
 ---
 
 This is a short Christmas story on the frequent frustrations of being a developer on the Apple stack. But perhaps this time they're actually correct? Happy holidays everyone!
