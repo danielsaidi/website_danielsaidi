@@ -3,7 +3,7 @@ title: Closure-based gesture recognizers
 date:  2018-01-30 09:00:00 +0100
 tags:  swift gestures
 
-image: /assets/blog/180130/header.png
+image: /assets/blog/2018/180130/header.png
 
 post:  https://medium.com/@sdrzn/adding-gesture-recognizers-with-closures-instead-of-selectors-9fb3e09a8f0b
 ---

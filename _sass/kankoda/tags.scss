@@ -26,6 +26,11 @@
   border: solid 1px #aaa;
 }
 
+.tag.guest-article {
+  color: black !important;
+  background-color: white;
+}
+
 .tag.swift {
   background-color: $swift-color;
   border: solid 1px $swift-color;

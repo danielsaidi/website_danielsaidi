@@ -3,8 +3,8 @@ title:  Mimicking the iOS system notification in SwiftUI
 date:   2023-01-17 08:00:00 +0000
 tags:   swiftui open-source
 
-image:  /assets/headers/systemnotification.png
 assets: /assets/blog/2023/230117/
+image:  /assets/headers/systemnotification.png
 gif:    https://github.com/danielsaidi/SystemNotification/raw/master/Resources/Demo.gif
 
 tweet:  https://twitter.com/danielsaidi/status/1615347586059182080?s=20&t=3L_johIenQTCGsF9VPNjiw

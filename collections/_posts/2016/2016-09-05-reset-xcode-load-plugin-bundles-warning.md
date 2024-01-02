@@ -4,7 +4,7 @@ date:  2016-09-05 17:42:00 +0100
 tags:  xcode
 icon:  swift
 
-assets: /assets/blog/160905/
+assets: /assets/blog/2016/160905/
 ---
 
 Today, I accidentally clicked "Skip Bundles" instead of "Load Bundles" when I started
