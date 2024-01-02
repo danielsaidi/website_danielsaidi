@@ -2,7 +2,7 @@
 title: Remove Android Activity Title and Icon
 date:  2013-08-05 09:39:00 +0100
 tags:  android
-image: /assets/blog/2013/2013-08-05-android.png
+image: /assets/blog/2013/130805/header.png
 ---
 
 My getting-to-know-and-to-love Android journey continues, and has now come to

@@ -2,7 +2,7 @@
 title: Generate a game board map from a bitmap
 date:  2010-02-21 12:00:00 +0100
 tags:  archive
-image: /assets/blog/2010/02-21-1.png
+image: /assets/blog/2010/100221-1.png
 ---
 
 I'm currently developing an adventure board game in XNA, where players can play
@@ -25,7 +25,7 @@ mission map. But first, some relevant side information.
 
 Players and computer controlled enemies can move sideways, but not diagonally:
 
-![Board movement example 1](/assets/blog/2010/02-21-1.png)
+![Board movement example 1](/assets/blog/2010/100221-1.png)
 
 Factors that limit whether or not a game piece can move from one tile to another
 (tile A to tile B) are:
@@ -73,7 +73,7 @@ targets, board items etc.
 
 Consider the following example bitmap:
 
-![Bitmap Example](/assets/blog/2010/02-21-2.png)
+![Bitmap Example](/assets/blog/2010/100221-2.png)
 
 When the mission is initialized, it goes through the following steps:
 
@@ -254,7 +254,7 @@ In the image below, I display the room index as well. As you can see, the `None`
 and `NonWalkable` tiles are given a room index of -1, while all other tiles are
 separated into room 1-4.
 
-![Mission map](/assets/blog/2010/02-21-3.png)
+![Mission map](/assets/blog/2010/100221-3.png)
 
 This approach makes it really easy to create a different map for another mission
 or edit the map above.

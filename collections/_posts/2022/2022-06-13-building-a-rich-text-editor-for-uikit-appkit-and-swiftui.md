@@ -4,7 +4,7 @@ date:   2022-06-13 01:00:00 +0000
 tags:   swiftui open-source rich-text multi-platform uikit appkit
 
 icon:   swiftui
-assets: /assets/blog/2022/2022-06-13/
+assets: /assets/blog/2022/220613/
 
 tweet:  https://twitter.com/danielsaidi/status/1532836356900237313?s=20&t=lkHbVZyPQE3MIG6dA8bw0g
 

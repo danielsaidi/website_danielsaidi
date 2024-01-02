@@ -3,7 +3,9 @@ title: Scaling mobile at Spotify
 date:  2013-11-06 12:59:00 +0100
 categories: conferences
 tags:  conference
-image: /assets/blog/2013/2013-11-06-spotify.jpg
+
+assets: /assets/blog/2013/131106/
+image:  /assets/blog/2013/131106/spotify.jpg
 ---
 
 This is a sum-up of a talk I attended at Øredev 2013, where Mattias Björnheden 

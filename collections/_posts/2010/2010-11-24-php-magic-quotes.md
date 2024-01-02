@@ -12,7 +12,7 @@ I was happy...until the world exploded.
 I then developed a new web site for a company about a month ago, and just noticed
 that when posting HTML via AJAX in production, all line feeds turns into `u000a`:
 
-![Magic quotes](/assets/blog/2010/11-24.png "Magic quotes in action")
+![Magic quotes](/assets/blog/2010/101124.png "Magic quotes in action")
 
 This only happened on their production server, not anywhere else. Then, yesterday,
 it started appeared on one of my production servers as well. 

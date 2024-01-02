@@ -41,7 +41,7 @@ During the setup, the bat script sometimes couldn't get NDepend to launch. If th
 code was unchanged, NDepend just wouldn't start. The solution was however simple.
 Under `Tools / Options / Anaysis`, you can tell NDepend to always run a full analysis:
 
-![NDepend](/assets/blog/2011/2011-10-05-2.png "NDepend")
+![NDepend](/assets/blog/2011/111005-2.png "NDepend")
 
 In most cases the default setting is correct, since it will run a full analysis
 at least once per day. However, in this case, I decided to keep the “Always Run

@@ -2,14 +2,15 @@
 title: Natural Scrolling in Windows 8
 date:  2012-11-29 23:03:00 +0100
 tags:  archive
-icon:  avatar
+
+image:  /assets/blog/2012/121129.jpg
 ---
 
 In OS X Lion, Apple introduced `natural scrolling`. It means that when you scroll,
 the scrollable content will move around like it was a sheet of paper you pressed
 and dragged around with your finger. 
 
-![Apple Mouse](/assets/blog/2012/2012-11-29-mouse.jpg)
+![Apple Mouse]({{page.image}})
 
 If you haven't tried natural scrolling yourself, you may think that this is how 
 you have scrolled all along. However, the traditional way of scrolling is

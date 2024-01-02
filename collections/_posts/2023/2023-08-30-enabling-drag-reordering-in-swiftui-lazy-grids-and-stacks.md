@@ -4,7 +4,7 @@ date:   2023-08-30 07:00:00 +0000
 tags:   swiftui
 
 icon:   swiftui
-assets: /assets/blog/2023/2023-08-30/
+assets: /assets/blog/2023/230830/
 
 post:   https://stackoverflow.com/questions/62606907/swiftui-using-ondrag-and-ondrop-to-reorder-items-within-one-single-lazygrid
 user:   https://stackoverflow.com/users/6898849/ramzesenok

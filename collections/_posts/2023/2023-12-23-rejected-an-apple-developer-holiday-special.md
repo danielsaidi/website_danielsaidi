@@ -3,8 +3,8 @@ title:  Rejected - An Apple Developer Holiday Special
 date:   2023-12-22 06:00:00 +0000
 tags:   swiftui macos ios
 
-image:  /assets/blog/231223/header.jpg
-assets: /assets/blog/231223/
+image:  /assets/blog/2023/231223/header.jpg
+assets: /assets/blog/2023/231223/
 
 toot:   https://mastodon.social/@danielsaidi/111628377914513976
 tweet:  https://x.com/danielsaidi/status/1738449452921229663?s=20

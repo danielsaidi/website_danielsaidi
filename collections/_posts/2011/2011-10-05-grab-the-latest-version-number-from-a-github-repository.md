@@ -71,6 +71,6 @@ $(document).ready(function() {
 That's is! When the page loads, th script loads all available repository tags,
 iterates over them and grab the highest tag name. The result is rather nice:
 
-![Cloney screenshot](/assets/blog/2011/2011-10-05.png "A version number is now displayed within the download button")
+![Cloney screenshot](/assets/blog/2011/111005-1.png "A version number is now displayed within the download button")
 
 Hope this helps!

@@ -2,7 +2,9 @@
 title: Run Lint in Android Studio
 date:  2013-07-31 14:29:00 +0100
 tags:  android lint
-image: /assets/blog/2013/2013-08-05-android.png
+
+assets: /assets/blog/2013/130731/
+image: /assets/blog/2013/130731/header.png
 
 linting: https://en.wikipedia.org/wiki/Lint_(software)
 ---
@@ -25,7 +27,7 @@ and which to skip.
 
 For my test, I just chose to analyze everything and ended up with this nice summary:
 
-![Android Lint Summary](/assets/blog/2013/2013-07-31-lint.png)
+![Android Lint Summary]({{page.assets}}lint.png)
 
 When you browse through the report, you'll notice that many warnings can just be
 ignored, such as spelling (which catches a lot of "typos" in strings). The project 

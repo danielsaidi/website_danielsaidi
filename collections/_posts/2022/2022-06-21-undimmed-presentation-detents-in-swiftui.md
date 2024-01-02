@@ -4,7 +4,8 @@ date:   2022-06-21 08:00:00 +0000
 tags:   swiftui sheet presentation-detents
 
 icon:   swiftui
-assets: /assets/blog/2022/2022-06-21/
+assets: /assets/blog/2022/220621/
+
 tweet:  https://twitter.com/danielsaidi/status/1539343541155028993?s=20&t=mIWJ4rucrEUZSxr9gkm6MA
 
 article:    https://danielsaidi.com/blog/2022/06/15/swiftui-4-custom-sheet-sizes

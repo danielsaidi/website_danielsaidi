@@ -2,7 +2,10 @@
 title: CLGeocoder fails silently
 date:  2012-08-08 20:48:00 +0100
 tags:  ios geo
+
 icon:  swift
+assets: /assets/blog/2012/120808
+image:  /assets/blog/2012/120808.png
 ---
 
 I'm currently developing a location-based app for iPad and iPhone, that will allow
@@ -10,7 +13,7 @@ users to store locations and use custom icons and colors for the pins.
 
 This is how it currently looks:
 
-<img src="/assets/blog/2012/2012-08-08-app.png" width="250" alt="App Screenshot" />
+<img src="{{page.image}}" width="250" alt="App Screenshot" />
 
 In the app, you can pin your location, pin any place by pressing the map or search
 for an address, which uses `CLGeocoder` to find a coordinate for an address.

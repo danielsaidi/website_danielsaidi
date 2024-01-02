@@ -3,8 +3,8 @@ title:  Building a WebView for iOS and macOS in SwiftUI
 date:   2022-04-24 08:00:00 +0100
 tags:   swiftui webview multi-platform uikit appkit
 
-assets: /assets/blog/2022/2022-04-24/
-image:  /assets/blog/2022/2022-04-24/image.jpg
+assets: /assets/blog/2022/220424/
+image:  /assets/blog/2022/220424/image.jpg
 ---
 
 SwiftUI currently has no WebView, which means that we have to create it for ourselves. Let's see how we can easily build a multi-platform web view for iOS, iPadOS and macOS.

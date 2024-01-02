@@ -3,7 +3,8 @@ title: Anna Beatrice Scott - tekhnasthai
 date:  2013-11-06 12:47:00 +0100
 categories: conferences
 tags:  conference
-image: /assets/blog/2013/oredev.jpg
+
+image:  /assets/blog/2013/131111/oredev.jpg
 ---
 
 This is a sum-up of a talk I attended at Øredev 2013. This year, I will create a 

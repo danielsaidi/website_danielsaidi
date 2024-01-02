@@ -3,7 +3,8 @@ title: A Swift Playgrounds Evening
 date:  2017-11-10 20:20:00 +0100
 tags:  swift ios
 
-image: /assets/blog/2017/2017-11-10.jpg
+assets: /assets/blog/2017/171110/
+image: /assets/blog/2017/171110/header.jpg
 ---
 
 Tonight, I finally sat down with my oldest daughter Cornelia, to play with Swift
@@ -38,7 +39,7 @@ Swift Playgrounds walks you through these issues in a fun manner.
 However, the most fun we had all evening, was when Swift Playgrounds ran into a
 bug and started to execute our correct instructions in a very strange way.
 
-[![Play Video](/assets/blog/2017/2017-11-10_play.jpg)](
+[![Play Video]({{page.assets}}play.jpg)](
 https://twitter.com/twitter/statuses/929037234661199872
 )
 

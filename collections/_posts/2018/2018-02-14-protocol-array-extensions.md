@@ -2,7 +2,8 @@
 title: Protocol array extensions not working
 date:  2018-02-14 08:00:00 +0100
 tags:  swift protocols extensions
-image: /assets/blog/2018/2018-02-14.png
+
+image: /assets/blog/2018/180214/header.png
 ---
 
 In a project that I'm currently working on, I want to redesign how we extend 

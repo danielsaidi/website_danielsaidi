@@ -3,7 +3,7 @@ title:  Quick Search with SwiftUI Searchable
 date:   2023-12-20 06:00:00 +0000
 tags:   swiftui macos ios
 
-image:  /assets/blog/headers/231220.jpg
+image:  /assets/blog/2023/231220/header.jpg
 
 toot:   https://mastodon.social/@danielsaidi/111612228156955705
 tweet:  https://x.com/danielsaidi/status/1737416857823461669?s=20

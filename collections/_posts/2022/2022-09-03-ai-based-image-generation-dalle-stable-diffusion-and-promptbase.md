@@ -6,7 +6,7 @@ tags:   ai ml
 icon:   blog
 image:  https://i.imgur.com/06D3jgk.png
 
-assets: /assets/blog/2022/2022-09-03/
+assets: /assets/blog/2022/220903/
 
 jbagley: https://twitter.com/JBagley
 jbagley-tweet: https://twitter.com/JBagley/status/1565764754618159106?s=20&t=0Jsa9dz8EVNZZq3HYicFmg

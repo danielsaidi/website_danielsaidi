@@ -2,7 +2,7 @@
 title: Find the shortest path in a grid in XNA
 date:  2010-02-22 12:00:00 +0100
 tags:  archive
-image: /assets/blog/2010/02-22-1.png
+image: /assets/blog/2010/100222-1.png
 ---
 
 I'm currently playing around with a board game engine in XNA, where players can
@@ -32,7 +32,7 @@ Before we continue with how this is implemented, let’s recap.
 
 The players and computer controlled enemies can move sideways, but not diagonally:
 
-![Board movement example 1](/assets/blog/2010/02-22-1.png)
+![Board movement example 1](/assets/blog/2010/100222-1.png)
 
 Factors that limit whether or not a game piece can move from one tile to another
 (tile A to tile B) are:
@@ -52,7 +52,7 @@ a player or enemy and decide whether or not the character can move to a tile.
 Consider the following map, where a player stands on the green tile and wants to
 move to the red one:
 
-![Board movement example 2](/assets/blog/2010/02-22-2.png)
+![Board movement example 2](/assets/blog/2010/100222-2.png)
 
 In the example above, multiple “shortest paths” exist. As we will see, the method
 I use will find a random path every time and has the following steps:
@@ -241,7 +241,7 @@ into a game board, as is described in a previous post.
 
 This is how my game (for now) displays the tiles. For now, the walls are missing:
 
-![Rendered output](/assets/blog/2010/02-22-3.png)
+![Rendered output](/assets/blog/2010/100222-3.png)
 
 In the image above, all tiles are walkable, to increase the number of “shortest” 
 paths. However, it is not possible to walk to a dark tile from a light one. The
@@ -251,7 +251,7 @@ game, they are light grey.
 When I run my game-to-be, I auto-generate a path between this green and red tile.
 As you can see in these images, the game engine suggests different paths each time:
 
-![Three different paths](/assets/blog/2010/02-22-4.png)
+![Three different paths](/assets/blog/2010/100222-4.png)
 
 The path finding operation is fast and can handle large board games. However, it
 wouldn't be suitable for more complex games, where the world isn't tile-based.

@@ -3,8 +3,8 @@ title:  Schedule GitHub Pages rebuild with GitHub Actions
 date:   2022-05-11 12:00:00 +0000
 tags:   git github
 
-assets: /assets/blog/2022/2022-05-11/
-image:  /assets/blog/2022/2022-05-11/image.jpg
+assets: /assets/blog/2022/220511/
+image:  /assets/blog/2022/220511/image.jpg
 
 github: https://github.com
 github-actions: https://github.com/features/actions
@@ -35,8 +35,8 @@ title:  Schedule your website with GitHub Actions
 date:   2022-05-11 12:00:00 +0000
 tags:   git github
 
-assets: /assets/blog/2022/2022-05-11/
-image:  /assets/blog/2022/2022-05-11/image.jpg
+assets: /assets/blog/2022/220511/
+image:  /assets/blog/2022/220511/image.jpg
 
 github: https://github.com
 github-pages: https://pages.github.com

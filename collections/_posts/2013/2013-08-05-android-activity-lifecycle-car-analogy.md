@@ -2,7 +2,8 @@
 title: Android Activity Lifecycle Car Analogy
 date:  2013-08-05 10:25:00 +0100
 tags:  android
-image: /assets/blog/2013/2013-08-05-android.png
+
+image: /assets/blog/2013/130805/header.png
 ---
 
 In most application frameworks, classes have a certain lifecycle that may be used

@@ -4,7 +4,7 @@ date:   2023-06-01 06:00:00 +0000
 tags:   swiftui
 
 icon:   swiftui
-assets: /assets/blog/2023/2023-06-01/
+assets: /assets/blog/2023/230601/
 
 tweet:  https://twitter.com/danielsaidi/status/1664403889699934208?s=20
 toot:   https://mastodon.social/@danielsaidi/110471400509944102

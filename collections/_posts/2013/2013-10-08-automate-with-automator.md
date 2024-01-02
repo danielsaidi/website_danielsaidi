@@ -2,13 +2,15 @@
 title: Automate with Automator
 date:  2013-10-08 19:42:00 +0100
 tags:  macos automation
-image: /assets/blog/2013/2013-10-08-automator.png
+
+assets: /assets/blog/2013/131008/
+image:  /assets/blog/2013/131008/automator.png
 ---
 
 A really useful tool that is never top of mind for me when automating a workflow,
 is the native OS X application Automator.
 
-![Automator icon]({{page.image}})
+![Automator icon]({{page.image}}){:class="plain"}
 
 With Automator, you can create almost anything workflow-related in a convenient
 way. For instance, in an iOS app of mine, I use several screen-sized images to 

@@ -4,7 +4,7 @@ date:  2009-10-07 08:00:00 +0100
 tags:  archive
 icon:  avatar
 
-image: /assets/blog/2009/10-07.png
+image: /assets/blog/2009/091007.png
 ---
 
 I'm using Doxygen to generate a web-based documentation for various .NET projects.

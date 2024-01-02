@@ -3,6 +3,8 @@ title: New legal label in MKMapView
 date:  2013-04-15 21:29:00 +0100
 tags:  ios geo
 icon:  swift
+
+assets: /assets/blog/2013/130415/
 ---
 
 I'm using Google Maps in a couple of iOS apps. Or, at least I was before Apple 
@@ -12,7 +14,7 @@ And Apple Maps adds an annoying little label.
 I have always admired Apple for their wonderful design, but when it comes to the
 new `MKMapView` that is powered by Apple Maps, I find the new legal label annoying:
 
-![Apple Maps In Action](/assets/blog/2013/2013-04-15-map.png)
+![Apple Maps In Action]({{page.assets}}map.png)
 
 Take a look at the lower-left corner. See the nice little round button? Shouldn't
 it be even prettier pushed down even more into the corner? Yeah, I know...I think

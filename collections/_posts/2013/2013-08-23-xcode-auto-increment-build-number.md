@@ -4,13 +4,16 @@ date:  2013-08-23 11:48:00 +0100
 tags:  xcode
 icon:  swift
 
+assets: /assets/blog/2013/130823/
+image: /assets/blog/2013/130823/header.jpg
+
 script: http://stackoverflow.com/questions/9258344/xcode-better-way-of-incrementing-build-number
 ---
 
 When releasing new version of my iOS apps, I used to manually update the build number. However, a better approach is to have Xcode do it automatically.
 Let's take a look at how to do it.
 
-![Counter](/assets/blog/2013/2013-08-23-counter.jpg)
+![Counter]({{page.image}})
 
 When looking for ways to automate bumping the build number in Xcode, I found [this 
 great script]({{page.script}}) that will automatically increment the build number 

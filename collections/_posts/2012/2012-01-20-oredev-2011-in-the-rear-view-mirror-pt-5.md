@@ -3,7 +3,8 @@ title: Øredev 2011 in the rear-view mirror – Part 5
 date:  2012-01-20 12:00:00 +0100
 categories: conferences
 tags:  conference
-icon:  avatar
+
+image:  /assets/blog/2012/120120.png
 ---
 
 This is the fifth part of my sum-up of Øredev 2011. These sum-ups waere supposed
@@ -102,7 +103,7 @@ the chasm”. This means that it's a safe technology to bet on, simce it will be
 How do we know this? Well, this graph illustrates when a technology is “crossing
 the chasm” in relation to how people adapt it:
 
-![The Chasm Graph](/assets/blog/2012/2012-01-20.png "The Chasm Graph")
+![The Chasm Graph]({{page.image}})
 
 Tim thanked Apple for inventing the iPad, since thanks to the iPhone and the iPad,
 Flash and plugins are now out and HTML5 is in.

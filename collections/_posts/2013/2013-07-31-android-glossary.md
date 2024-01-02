@@ -2,7 +2,8 @@
 title: Android Glossary
 date:  2013-07-31 13:29:00 +0100
 tags:  android
-image: /assets/blog/2013/2013-08-05-android.png
+
+image: /assets/blog/2013/130731/header.png
 ---
 
 I'm currently getting started with Android development, which means that I have

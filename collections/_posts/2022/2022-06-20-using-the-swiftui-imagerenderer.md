@@ -4,7 +4,8 @@ date:   2022-06-20 08:00:00 +0000
 tags:   swiftui image-renderer
 
 icon:   swiftui
-assets: /assets/blog/2022/2022-06-20/
+assets: /assets/blog/2022/220620/
+
 tweet:  https://twitter.com/danielsaidi/status/1539211313267806208?s=20&t=SN3bYVnuIDihKECT4Vqfsg
 ---
 

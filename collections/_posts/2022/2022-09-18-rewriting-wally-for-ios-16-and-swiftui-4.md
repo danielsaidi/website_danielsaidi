@@ -3,8 +3,9 @@ title:  Rewriting Wally for iOS 16 and SwiftUI 4
 date:   2022-09-19 00:00:00 +0000
 tags:   apps swiftui spm testing storekit iap subscriptions
 
-image:  /assets/blog/2022/2022-09-19/devices-leather.jpg
-assets: /assets/blog/2022/2022-09-19/
+image:  /assets/blog/2022/220919/devices-leather.jpg
+assets: /assets/blog/2022/220919/
+
 tweet:  https://twitter.com/danielsaidi/status/1571764175050866689?s=20&t=vry4W_e_oLhEFQDusmHHuw
 
 navigation-post: /blog/2022/08/08/getting-started-with-the-SwiftUI-navigation-split-view

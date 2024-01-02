@@ -4,8 +4,8 @@ name: Cineasterna
 image:  /assets/headers/cineasterna.jpg
 url:    https://cineasterna.com
 
-screenshot-1: /assets/blog/2020/2020-12-09/image.jpg
-screenshot-2: /assets/blog/2020/2020-12-25/3-discover-ipad.jpg
+screenshot-1: /assets/blog/2020/201209/image.jpg
+screenshot-2: /assets/blog/2020/201225/3-discover-ipad.jpg
 ---
 
 [Cineasterna]({{page.url}}) is a Swedish streaming video service, where users can loan movies for free with their public library card. The service is available in Sweden, Norway and Finland.

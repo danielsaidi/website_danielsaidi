@@ -3,13 +3,16 @@ title: Hide the default Objective-C initializer
 date:  2013-09-04 04:11:00 +0100
 tags:  ios
 icon:  swift
+
+assets:  /assets/blog/2021/210904/
+image:   /assets/blog/2021/210904/header.png
 ---
 
 Languages like Java and C# let you override and hide the default constructors of
 a class, to ensure that developers can only create valid instances of it. Let's
 take a look at how to do the same in Objective-C.
 
-![Init where are you](/assets/blog/2013/2013-09-04-init.png)
+![Init where are you]({{page.image}})
 
 Hiding the default constructors of a class is particularly useful for constructor 
 injection, to ensure that a class can not be created without providing it with a 

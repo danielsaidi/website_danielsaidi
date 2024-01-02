@@ -3,8 +3,8 @@ title:  How to customize the macOS About Panel in SwiftUI
 date:   2023-11-28 10:00:00 +0000
 tags:   swiftui macos
 
-image:  /assets/blog/headers/231123.jpg
-assets: /assets/blog/2023/1123/
+image:  /assets/blog/2023/231123/header.jpg
+assets: /assets/blog/2023/231123/
 
 article: /blog/2023/11/22/how-to-customize-the-macos-menu-bar-in-swiftui
 tweet:  https://x.com/danielsaidi/status/1729767139966402628?s=20

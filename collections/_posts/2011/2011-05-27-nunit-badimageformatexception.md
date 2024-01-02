@@ -12,7 +12,7 @@ I use NUnit in all my projects. It works amazingly well in all of them. In this
 new project, it worked great at first, then suddenly starting failing with the
 following errors:
 
-![BadImageFormatException](/assets/blog/2011/2011-05-27.png)
+![BadImageFormatException](/assets/blog/2011/110527.png)
 
 I tried to solve this problem for a long time, but eventually gave up and recreated
 the project from scratch, which solved the problem.

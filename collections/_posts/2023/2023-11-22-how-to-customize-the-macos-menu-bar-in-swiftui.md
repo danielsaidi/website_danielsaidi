@@ -3,8 +3,8 @@ title:  How to customize the macOS menu bar in SwiftUI
 date:   2023-11-22 06:00:00 +0000
 tags:   swiftui macos
 
-image:  /assets/blog/headers/231122.jpg
-assets: /assets/blog/2023/1122/
+image:  /assets/blog/2023/231122/header.jpg
+assets: /assets/blog/2023/231122/
 
 tweet:  https://x.com/danielsaidi/status/1727289933038260289?s=20
 toot:   https://mastodon.social/@danielsaidi/111453994720983239

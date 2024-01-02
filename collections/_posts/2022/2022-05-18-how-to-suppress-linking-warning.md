@@ -4,7 +4,7 @@ date:   2022-05-18 10:00:00 +0000
 tags:   xcode spm
 
 icon:   swift
-assets: /assets/blog/2022/2022-05-18/
+assets: /assets/blog/2022/220518/
 
 tweet:  https://twitter.com/danielsaidi/status/1526890018819788805?s=20&t=b2pADt7urhtlz3IJuo66LA
 ---

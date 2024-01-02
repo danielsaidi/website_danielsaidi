@@ -2,8 +2,8 @@
 title:  Building a video streaming app for iOS in SwiftUI
 date:   2020-12-25 07:00:00 +0100
 tags:   apps swiftui ios video
-assets: /assets/blog/2020/2020-12-25/
-image:  /assets/blog/2020/2020-12-25/1-title.jpg
+assets: /assets/blog/2020/201225/
+image:  /assets/blog/2020/201225/1-title.jpg
 
 post-tvos:  /blog/2020/12/09/building-a-tvos-app-in-swiftui
 cineasterna: https://www.cineasterna.com/en/

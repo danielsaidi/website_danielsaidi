@@ -4,8 +4,8 @@ date:   2023-02-09 10:00:00 +0000
 tags:   swiftui scrollview open-source
 
 icon:   swiftui
-assets: /assets/blog/2023/2023-02-09/
-assets-stretch: /assets/blog/2023/2023-02-06/
+assets: /assets/blog/2023/230209/
+assets-stretch: /assets/blog/2023/230206/
 
 tweet:  https://twitter.com/danielsaidi/status/1623804862638039042?s=20&t=J6iHidP-sc9AlxvKVXzKJA
 toot:   https://mastodon.social/@danielsaidi/109835843154685679

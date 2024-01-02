@@ -12,7 +12,7 @@ started with.
 However, QUnit lists *all* tests after a run, not just the failing ones. With
 just a few tests, it looks like this:
 
-![QUnit - Full test report](/assets/blog/2010/06-03-1.png)
+![QUnit - Full test report](/assets/blog/2010/100603-1.png)
 
 As you can see, QUnit lists all executed tests by default, even the ones that
 is successfully executed.
@@ -29,7 +29,7 @@ To fix this, I devided to hack jQuery a bit (applies to jQuery 1.4.2):
 This makes QUnit only append "bad" tests to the list, which makes the result
 look like this:
 
-![QUnit - Compact test result presentation](/assets/blog/2010/06-03-2.png)
+![QUnit - Compact test result presentation](/assets/blog/2010/100603-2.png)
 
 If you know of a built-in way of making QUnit behave like this, please leave 
 a comment below.

@@ -3,7 +3,8 @@ title:  SwiftUI scrolling finally works in tvOS 16
 date:   2022-06-08 01:00:00 +0000
 tags:   swiftui tvos
 
-image:  /assets/blog/headers/apple-tv.jpg
+assets: /assets/blog/2022/220608/
+image:  /assets/blog/2022/220608/apple-tv.jpg
 tweet:  https://twitter.com/danielsaidi/status/1534436700344164352?s=20&t=FH9px9RehnPiSAQmZMizQg
 
 post:   https://danielsaidi.com/blog/2020/12/09/building-a-tvos-app-in-swiftui

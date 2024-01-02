@@ -47,7 +47,7 @@ How can I ensure that this test class only tests the e-mail extensions in this n
 
 Let’s take a look at the `EmailSendingGroupInviteService` class.
 
-![EmailSendingGroupInviteService](/assets/blog/2011/2011-10-08-1.png "EmailSendingGroupInviteService")
+![EmailSendingGroupInviteService](/assets/blog/2011/111008-1.png "EmailSendingGroupInviteService")
 
 The e-mail sending part is not yet developed. 😉 As you can also see, the methods only
 call the base instance.
@@ -57,7 +57,7 @@ call the base instance.
 
 Let’s take a look at the `EmailSendingGroupInviteServiceBehavior` test class.
 
-![EmailSendingGroupInviteServiceBehavior](/assets/blog/2011/2011-10-08-2.png "EmailSendingGroupInviteServiceBehavior")
+![EmailSendingGroupInviteServiceBehavior](/assets/blog/2011/111008-2.png "EmailSendingGroupInviteServiceBehavior")
 
 As you can see, all that I can test is that the base instance is called properly
 and that the base instance result is returned.

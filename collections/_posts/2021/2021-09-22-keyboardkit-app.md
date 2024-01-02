@@ -4,7 +4,7 @@ date:   2021-09-22 07:00:00 +0100
 tags:   apps
 icon:   avatar
 
-assets: /assets/blog/2021/2021-09-22/
+assets: /assets/blog/2021/210922/
 ---
 
 {% include kankoda/data/open-source.html name="KeyboardKit" %}In this post, I'll discuss the development of my new [KeyboardKit app]({{project.app}}) for iOS and iPadOS. I'll go through my original vision, the actual outcome as well as a bunch of findings, problems etc.

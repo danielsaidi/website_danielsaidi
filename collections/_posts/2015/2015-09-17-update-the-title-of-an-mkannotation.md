@@ -3,6 +3,9 @@ title: Update the title of an MKAnnotation
 date:  2015-09-17 22:04:00 +0100
 tags:  swift mapkit geo
 icon:  swift
+
+assets:  /assets/blog/2015/150917/
+image:   /assets/blog/2015/150917/header.png
 ---
 
 I'm building a map app where users can save personalized content and present it 
@@ -12,7 +15,7 @@ is presented and its title.
 When the user taps a pin on the map, the app will reverse geocode its coordinate
 and use it to display the full address in the callout subtitle.
 
-![iOS Simulator Screen](/assets/blog/2015/2015-09-17-simulator.png)
+![iOS Simulator Screen]({{page.image}})
 
 This may seem trivial, but was a hassle. If the geocoding operation takes too long
 and completes after the callout has been shown, the label text is not changed.

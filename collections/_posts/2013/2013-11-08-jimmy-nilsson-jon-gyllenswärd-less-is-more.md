@@ -3,7 +3,8 @@ title: Jimmy Nilsson & Jon Gyllensward - Less is more! When it comes to art and 
 date:  2013-11-08 09:54:00 +0100
 categories: conferences
 tags:  conference
-image: /assets/blog/2013/oredev.jpg
+
+image: /assets/blog/2013/131111/oredev.jpg
 
 video: http://oredev.org/oredev2013/2013/videos.html
 ---

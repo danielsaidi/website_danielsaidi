@@ -3,8 +3,8 @@ title:  SF Symbols 4 variable colors
 date:   2022-06-17 01:00:00 +0000
 tags:   swiftui sf-symbols colors
 
-assets: /assets/blog/2022/2022-06-17/
-image:  /assets/blog/2022/2022-06-17/image.jpg
+assets: /assets/blog/2022/220617/
+image:  /assets/blog/2022/220617/image.jpg
 ---
 
 SF Symbols is an amazing iconography library, that is designed to integrate seamlessly with the various Apple platforms. SF Symbols 4 adds even more features to these symbols, where variable colors will let you communicate values with your symbols. Let's take a look!

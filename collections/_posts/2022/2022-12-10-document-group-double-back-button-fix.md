@@ -4,7 +4,7 @@ date:   2022-12-10 08:00:00 +0000
 tags:   swiftui
 
 icon:   swiftui
-assets: /assets/blog/2022/2022-12-10/
+assets: /assets/blog/2022/221210/
 ---
 
 If you are building `DocumentGroup`-based apps in SwiftUI, you may have noticed that apps that worked fine in Xcode 15 now show two back buttons when being built with Xcode 16.

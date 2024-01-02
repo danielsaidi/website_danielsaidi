@@ -3,7 +3,8 @@ title: Shay Friedman - 30 NuGet packages in 50 minutes
 date:  2013-11-10 09:33:00 +0100
 categories: conferences
 tags:  conference
-image: /assets/blog/2013/oredev.jpg
+
+image: /assets/blog/2013/131111/oredev.jpg
 
 video: http://oredev.org/oredev2013/2013/videos.html
 ---

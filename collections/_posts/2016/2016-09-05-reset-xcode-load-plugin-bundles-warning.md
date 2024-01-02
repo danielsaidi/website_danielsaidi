@@ -3,6 +3,8 @@ title: Reset Xcode load plugin bundles warning
 date:  2016-09-05 17:42:00 +0100
 tags:  xcode
 icon:  swift
+
+assets: /assets/blog/160905/
 ---
 
 Today, I accidentally clicked "Skip Bundles" instead of "Load Bundles" when I started
@@ -12,7 +14,7 @@ launches. How can we fix this?
 Xcode obviously doesn't want you to load custom plugins, since the blue skip button is 
 the default one:
 
-![Xcode Load Plugin Bundles Warning Dialog](/assets/blog/2016/2016-09-05_bundles.png)
+![Xcode Load Plugin Bundles Warning Dialog]({{page.assets}}bundles.png)
 
 If you also made this mistake, you may have noticed that restarting Xcode will not help.
 The plugins will not load and you are never again prompted about whether or not to load

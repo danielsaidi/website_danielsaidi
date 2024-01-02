@@ -3,7 +3,8 @@ title: Denise Jacobs - The Creativity (R)Evolution
 date:  2013-11-10 21:10:00 +0100
 categories: conferences
 tags:  conference
-image: /assets/blog/2013/oredev.jpg
+
+image: /assets/blog/2013/131111/oredev.jpg
 ---
 
 The creativity evangelist Denise Jacobs coaches people in the tech field through

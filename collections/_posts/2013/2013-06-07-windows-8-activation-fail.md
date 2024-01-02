@@ -3,6 +3,8 @@ title: Windows 8 Activation Fail
 date:  2013-06-07 09:32:00 +0100
 tags:  archive
 icon:  avatar-swear
+
+assets: /assets/blog/2013/130607/
 ---
 
 Unlike Apple's outstanding OS X onboarding experience, Microsoft really have to 
@@ -12,23 +14,23 @@ your OS and require them to activate it, the activation must work. Sadly, it doe
 I use an MSDN Windows 8 distribution. When I try to activate it in the (limited) 
 Metro app, I get this:
 
-!["Windows can't activate at the moment" screen.](/assets/blog/2013/2013-06-07-windows-1.png)
+!["Windows can't activate at the moment" screen.]({{page.assets}}windows1.png)
 
 Clicking the Activate button doesn't help, though. If you do, you just get a dead
 progress spinner:
 
-![An activation spinner doing nothing much](/assets/blog/2013/2013-06-07-windows-2.png)
+![An activation spinner doing nothing much]({{page.assets}}windows2.png)
 
 Obviously, this Metro app will not help you out, so let's activate Windows from 
 the Control Panel instead. Open it, search for "activat" and select "Action 
 Center/Windows Activation".
 
-![Control panel activation screen](/assets/blog/2013/2013-06-07-windows-3.png)
+![Control panel activation screen]({{page.assets}}windows3.png)
 
 Sadly, this view is as useless as the Metro app. Click Activate and you're taken 
 to a progress bar dialog, that ends up in...
 
-![0xC004F074 - Windows couldn't be activated](/assets/blog/2013/2013-06-07-windows-4.png)
+![0xC004F074 - Windows couldn't be activated]({{page.assets}}windows4.png)
 
 This is just ridiculous. How can Microsoft fail so completely with such a critical
 part of the onboarding? How can you create a software that you have to activate, 

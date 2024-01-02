@@ -4,7 +4,7 @@ date:   2023-06-02 06:00:00 +0000
 tags:   swiftui rich-text open-source
 
 icon:   swiftui
-assets: /assets/blog/2023/2023-06-02/
+assets: /assets/blog/2023/230602/
 ---
 
 {% include kankoda/data/open-source.html name="RichTextKit" version="0.6.0" %}After a long time away from the project, I finally had some time to revisit [RichTextKit]({{project.url}}) and add some new features, like indentation support and grouped controls.

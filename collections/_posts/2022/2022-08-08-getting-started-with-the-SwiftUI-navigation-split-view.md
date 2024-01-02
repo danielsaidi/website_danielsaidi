@@ -4,7 +4,7 @@ date:   2022-08-08 06:00:00 +0000
 tags:   swiftui
 
 icon:   swiftui
-assets: /assets/blog/2022/2022-08-08/
+assets: /assets/blog/2022/220808/
 ---
 
 SwiftUI 4 adds a new `NavigationSplitView` component that simplifies creating rich sidebar-based experiences on iPad and macOS, while automatically scaling down to a `NavigationStackView` (also new) on iPhone. It's a powerful component that however can be a bit tricky to get started with, so let's take a look at how to use it and some ways to style it.

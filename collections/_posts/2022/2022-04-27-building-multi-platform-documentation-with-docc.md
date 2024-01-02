@@ -3,8 +3,8 @@ title:  Building multi-platform documentation with DocC
 date:   2022-04-27 07:00:00 +0100
 tags:   swift docc multi-platform
 
-image:  /assets/blog/2022/2022-04-27/image.jpg
-assets: /assets/blog/2022/2022-04-27/
+assets: /assets/blog/2022/220427/
+image:  /assets/blog/2022/220427/image.jpg
 tweet:  https://twitter.com/danielsaidi/status/1519332230535000067?s=20&t=wF1kbk5Nxm27t6vxQ1OeLQ
 
 docc: https://developer.apple.com/documentation/docc
