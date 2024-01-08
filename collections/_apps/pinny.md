@@ -1,15 +1,15 @@
 ---
 name: Pinny
 
-assets: /assets/apps/pinny-
-image:  /assets/apps/pinny-title.jpg
+assets: /assets/apps/pinny/
+image:  /assets/apps/pinny/header.jpg
 
 tags: realm
 ---
 
 Pinny was the second native iOS app that I created, as I set out to learn Swift as it was released in 2014. The idea was to let users create personal maps with features that Google Maps didn't provide.
 
-![Pinny logo]({{page.image}}){:style="width:400px"}
+![Pinny logo]({{page.image}})
 
 Pinny lets you store pins on multiple maps and annotate them with custom icons and colors. Users can group pins in maps and categories and toggle what content to display.
 
