@@ -3,6 +3,9 @@ title:  Sunsetting the Goth & Metal Emoji Apps
 date:   2024-01-08 06:00:00 +0000
 tags:   general
 
+tweet:  https://x.com/danielsaidi/status/1744297797447287111?s=20
+toot:   https://mastodon.social/@danielsaidi/111719742304768223
+
 assets: /assets/apps/gothemoji/
 image:  /assets/blog/2024/240108/header.jpg
 metalassets: /assets/apps/metalemoji/
@@ -78,32 +81,36 @@ This eventually led us to remove the custom keyboard and only have the sticker p
 
 After 8 years on the App Store, the apps still make a little money every month. Reviews are however bad, because of the misalign between user expectation and what the apps can deliver.
 
-So sunsetting the apps wasn't a hard decision. I haven't actively worked on the apps for many years, and don't want to make money on what I fundamentally think are subpar user experiences.
+So, sunsetting the apps wasn't a hard decision. I haven't actively worked on them for many years, and do not want to make money on what I fundamentally think is a subpar product.
 
-And since there doesn't seem to be any adjustments to the limited custom keyboard APIs, I think it's time to call it a day.
+I have been waiting to see if some keyboard API updates would allow me to improve the apps, but since there doesn't seem to be any adjustments to the limited APIs, I think it's time to call it a day.
 
-However, even if I now say goodbye to these apps, working on them for a few weeks every now and then actually resulted in my life taking a quite drastic turn.
+I have updated the apps one final time, and will remove them from the App Store in February. Until then, I've made them free, so feel free to download them if you want some goth and metal in your life.
+
+You can download [Goth Emoji]({{page.goth}}) and [Metal Emoji]({{page.metal}}) for free from the App Store.
 
 
 ## Life changes
 
-Being a tech nerd at heart, my frustrations with the limited keyboard APIs triggered something inside me. I just had to explore the field of custom keyboards further.
+Even if I now say goodbye to these apps, working on them for a few weeks every now and then actually did result in my life taking a quite drastic turn.
 
-I started by creating an open-source project, into which I added all the extensions, utilities, etc. that I came up with during my work with the Goth Emoji app. If they could help others, that'd be great.
+You see, being a tech nerd at heart, my frustrations with the limited keyboard APIs triggered something inside me. I just had to explore the field of custom keyboards further.
 
-I then started looking into creating a basic, English keyboard, since the native APIs don't provide any views whatsoever. The first keyboard was written in UIKit and was very limited, but worked.
+I started by creating an open-source project, where I added all the extensions, utils, etc. that I came up with during my work with the Goth Emoji app. If they could help others, that'd be great.
 
-The open-source project evolved over time, and as Apple launched SwiftUI in 2019, everything came together. This had been the missing piece of the puzzle.
+I then started looking at creating a basic, English keyboard view, since the native APIs don't provide any such views. The first keyboard was written in UIKit and was very limited, but worked.
 
-Being able to replace the hard to customize UIKit with the very flexible SwiftUI made it possible for me to create an almost pixel perfect keyboard view, add data-driven UI components and take the SDK further.
+The project evolved over time, and as Apple launched SwiftUI in 2019, everything came together. It was the missing piece of the puzzle.
 
-As [KeyboardKit]({{page.keyboardkit}}) become more and more capable, I started seeing some traction, and in 2020 I finally decided to quit my day job to work on a freelance basis, with a KeyboardKit project being my very first.
+Replacing the hard to customize UIKit with the very flexible SwiftUI made it possible for me to create an almost pixel perfect keyboard view, add data-driven UI components and take the SDK further.
+
+As [KeyboardKit]({{page.keyboardkit}}) become more and more capable, I started seeing some traction, and in 2020 I decided to quit my day job to work on a freelance basis, with a KeyboardKit-related project being my very first.
 
 
-## Conclusion
+## Today
 
-Today, I've been a freelancer for almost 4 years. KeyboardKit is still evolving and I'm still learning new quirks of the many wonderful languages of our world.
+Today, I've been a freelancer for almost 4 years. KeyboardKit is still evolving and supports 60+ languages, and features like autocomplete, dictation, etc. 
 
-KeyboardKit has let me meet so many amazing people and companies from all over the world. I'm so grateful for being able to work on such an complex and exciting project. It's truly a passion project.
+I'm still learning new quirks of the wonderful languages of our world on a weekly basis. I'm so grateful for being able to meet so many amazing people, and to work on such an complex and exciting project. 
 
-And to think that it all started with a small app for letting people pick goth-related, emoji-like stickers.
+It's truly a passion project. And to think it all started with a small app for letting people pick goth-related, emoji-like stickers. Life surely takes you to unexpected places.
