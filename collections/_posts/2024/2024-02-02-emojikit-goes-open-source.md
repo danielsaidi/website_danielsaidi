@@ -5,8 +5,8 @@ tags:   swift open-source
 
 image:  /assets/headers/emojikit.png
 
-tweet:  https://x.com/danielsaidi/status/1747726878868209739?s=20
-toot:   https://mastodon.social/@danielsaidi/111773321977694317
+tweet:  https://x.com/danielsaidi/status/1753360511419175143?s=20
+toot:   https://mastodon.social/@danielsaidi/111861348152490917
 ---
 
 I've decided to open-source my [EmojiKit](https://kankoda.com/emojikit) library, which is currently a closed-source product at my company [Kankoda]({{site.kankoda}}). In this post, I'll discuss why and how it will be done.
