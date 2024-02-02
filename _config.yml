@@ -22,16 +22,14 @@ google_analytics: UA-2575180-1
 
 github_url:       https://github.com/danielsaidi
 github_username:  danielsaidi
-gumroad_url:      https://kankoda.gumroad.com
 kankoda:          https://kankoda.com
 linkedin_url:     http://linkedin.com/in/danielsaidi
 linkedin_username: danielsaidi
 mastodon_url:     https://mastodon.social/@danielsaidi
-mastodon_username:  danielsaidi@mastodon.social
+mastodon_user:    danielsaidi@mastodon.social
+twitch:           https://twitch.com/danielsaidi
 twitter_url:      https://twitter.com/danielsaidi
 twitter_username: danielsaidi
-
-swiftui:          https://developer.apple.com/xcode/swiftui/
 
 assets: /assets/
 fonts: 
