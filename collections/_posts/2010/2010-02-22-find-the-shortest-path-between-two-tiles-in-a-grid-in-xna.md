@@ -1,7 +1,7 @@
 ---
 title: Find the shortest path in a grid in XNA
 date:  2010-02-22 12:00:00 +0100
-tags:  archive
+tags:  dotnet
 image: /assets/blog/2010/100222-1.png
 ---
 

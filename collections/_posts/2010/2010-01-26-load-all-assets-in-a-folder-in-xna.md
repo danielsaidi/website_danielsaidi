@@ -1,7 +1,7 @@
 ---
 title: Load all assets in a folder in XNA
 date:  2010-01-26 12:00:00 +0100
-tags:  archive
+tags:  dotnet
 icon:  dotnet
 ---
 

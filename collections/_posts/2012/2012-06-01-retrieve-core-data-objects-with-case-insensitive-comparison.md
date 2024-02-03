@@ -1,7 +1,7 @@
 ---
 title: Retrive Core Data objects with case-insensitive comparison
 date:  2012-06-01 12:45:00 +0100
-tags:  ios
+tags:  objc
 icon:  swift
 ---
 

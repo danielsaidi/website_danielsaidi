@@ -2,7 +2,7 @@
 title: Oredev 2012 - Day 2
 date:  2012-11-12 21:30:00 +0100
 categories: conferences 
-tags:  conference
+tags:  conferences
 icon:  avatar
 ---
 

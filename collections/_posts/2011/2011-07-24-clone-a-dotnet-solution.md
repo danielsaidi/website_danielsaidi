@@ -19,7 +19,7 @@ solution and all its projects must be renamed as well. The same goes for any oth
 references to the name X.
 
 I have therefore created an application that makes cloning a .NET solution easy.
-It's currently in beta and can be downloaded [here](https://danielsaidi.github.com/Cloney).
+It's currently in beta and can be downloaded [here](https://github.com/danielsaidi/cloney).
 
 With Cloney, you just have to point out a source folder that contains a solution
 you want to clone, as well as a target folder to where you want to clone it. When

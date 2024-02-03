@@ -1,7 +1,7 @@
 ---
 title: Open file with the keyboard in OS X
 date:  2011-06-14 12:00:00 +0100
-tags:  macos
+tags:  archive
 icon:  avatar
 ---
 

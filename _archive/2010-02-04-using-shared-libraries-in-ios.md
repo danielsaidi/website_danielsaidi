@@ -1,7 +1,7 @@
 ---
 title: Using shared libraries in iOS
 date:  2010-02-04 12:00:00 +0100
-tags:  ios xcode
+tags:  archive
 icon:  swift
 ---
 

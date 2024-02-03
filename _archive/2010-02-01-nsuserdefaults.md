@@ -1,7 +1,7 @@
 ---
 title: NSUserDefaults
 date:  2010-02-01 12:00:00 +0100
-tags:  ios
+tags:  archive
 icon:  swift
 ---
 
