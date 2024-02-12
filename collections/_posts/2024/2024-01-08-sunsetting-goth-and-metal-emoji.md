@@ -6,10 +6,10 @@ tags:   general
 tweet:  https://x.com/danielsaidi/status/1744297797447287111?s=20
 toot:   https://mastodon.social/@danielsaidi/111719742304768223
 
-assets: /assets/apps/gothemoji/
-image:  /assets/blog/2024/240108/header.jpg
+image:  /assets/blog/2024/240108/title.jpg
+
+gothassets: /assets/apps/gothemoji/
 metalassets: /assets/apps/metalemoji/
-keyboard-header: /assets/headers/keyboardkit.png
 
 goth:   https://itunes.apple.com/app/goth-emoji/id1070226733
 metal:  https://itunes.apple.com/app/metal-emoji/id1070228823
@@ -26,7 +26,7 @@ I created Goth Emoji with an amazing artist, [Lisen Haglund]({{page.nattskiftet}
 
 We launched Goth Emoji after just two weeks. It was my first stab at building a custom keyboard. Little did I know, this project would later cause a huge pivot in my life.
 
-![Goth Emoji websiste]({{page.assets}}website.jpg)
+![Goth Emoji websiste]({{page.gothassets}}website.jpg)
 
 Goth Emoji launched with a bunch of amazing goth artwork. Users could copy any "emoji" and paste it into any app, using either the app, the sticker pack or the custom keyboard.
 

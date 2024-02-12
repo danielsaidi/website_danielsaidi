@@ -3,7 +3,7 @@ title:  EmojiKit goes open-source
 date:   2024-02-02 06:00:00 +0000
 tags:   swift open-source
 
-image:  /assets/blog/2024/240202/header.jpg
+image:  /assets/blog/2024/240202/title.jpg
 
 tweet:  https://x.com/danielsaidi/status/1753360511419175143?s=20
 toot:   https://mastodon.social/@danielsaidi/111861348152490917
