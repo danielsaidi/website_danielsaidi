@@ -1,5 +1,5 @@
 ---
-title:  How to use ApiKit to model an API and fetch data from it
+title:  How to use ApiKit to integrate with a REST API
 date:   2024-01-17 06:00:00 +0000
 tags:   swift api
 
@@ -10,21 +10,22 @@ toot:   https://mastodon.social/@danielsaidi/111773321977694317
 ---
 
 {% include kankoda/data/open-source.html name="ApiKit" %}
-In this post, we'll take a look at how to use the open-source [{{project.name}}]({{project.url}}) to model a REST-based API and fetch data from it.
+In this post, we'll take a look at how easy it is to use the open-source Swift package [{{project.name}}]({{project.url}}) to integrate with a REST-based API and map its data to local models.
 
-![Header image]({{page.image}})
+![Header image](/assets/headers/apikit.png)
 
-ApiKit builds on the basic concept of environments and routes and provides lightweight types that make it easy to integrate with any REST-based APIs.
+ApiKit builds on a basic concept of environments and routes and provides lightweight types that make it easy to integrate with any REST-based APIs.
 
-ApiKit has lightweight ``ApiEnvironment`` and ``ApiRoute`` protocols that make it easy to model any REST-based API. It also has an ``ApiRequest`` that can define a route and response type, for even easier use.
+ApiKit has ``ApiEnvironment`` and ``ApiRoute`` protocols that make it easy to model an API, and an ``ApiRequest`` that can define a route and a response type for even easier use.
 
-Once you have an environment and routes, you can use a regular `URLSession` or a custom ``ApiClient`` to fetch any route or request from any environment.
+ApiKit can use a regular `URLSession` or a custom ``ApiClient`` to fetch any route and request from any environment. You can define custom data for both routes and environments. 
+
 
 ## API environments
 
-An ``ApiEnvironment`` refers to a specific API version or environment (prod, staging, etc.), and defines a URL as well as global request headers and query parameters.
+An ``ApiEnvironment`` refers to a specific API version or environment (prod, staging, etc.) and defines a URL as well as global request headers and query parameters.
 
-For instance, this is how to model the [Yelp](https://yelp.com) v3 API environment, which requires an API token:
+For instance, this is all it takes to model the [Yelp](https://yelp.com) v3 API, which requires an API token:
 
 ```swift
 import ApiKit
@@ -51,16 +52,16 @@ enum YelpEnvironment: ApiEnvironment {
 }
 ```
 
-The Yelp API requires that all requests send the API token as a custom header. Other APIs may require it to be sent as a query parameter, or have no token requirements at all. 
+The Yelp API requires that all requests send an API token as a custom header. Other APIs may require a token to be sent as a query parameter, or have no such requirements at all. 
 
 ApiKit is flexible and supports many different requirements.
 
 
 ## API routes
 
-An ``ApiRoute`` refers to an endpoint within an API. It defines an HTTP method, an environment-relative path, custom headers, query parameters, post data, etc.
+An ``ApiRoute`` refers to an API endpoint. It defines an HTTP method (GET, POST, etc.), an environment-relative path, query parameters, post data, etc.
 
-For instance, this is a [Yelp](https://yelp.com) v3 API route, which defines how to fetch and search for restaurants:
+For instance, this [Yelp](https://yelp.com) route enum defines how to fetch and search for restaurants:
 
 ```swift
 import ApiKit
@@ -94,12 +95,16 @@ enum YelpRoute: ApiRoute {
 }
 ```
 
-The routes above use associated values to provide item IDs to the path and search parameters as query parameters. Route properties will complete or replace the environment's properties.
+The routes above use associated values to provide IDs to the restaurant path and search parameters as query parameters. 
+
+Since both environments and routes can specify headers, query parameters, etc., a route will complete or replace the environment's parameters.
 
 
 ## API models
 
-We also have to define `Codable` Yelp-specific models to be able to map data from the API. For instance, this is a super lightweight Yelp restaurant model:
+We also have to define `Codable` Yelp-specific models to be able to map data from the API. 
+
+For instance, this is a super lightweight Yelp restaurant model representation:
 
 ```swift
 struct YelpRestaurant: Codable {
@@ -116,27 +121,26 @@ struct YelpRestaurant: Codable {
 }
 ```
 
-The `id` and `name` parameters use the same name as in the API, while `imageUrl` requires mapping.
+The `id` and `name` parameters use the same name as in the API, while `imageUrl` requires a custom mapping definition.
 
 
 ## How to fetch data from an API
 
-We can now fetch data from the Yelp API, using `URLSession` or any custom ``ApiClient``:
+We can now fetch data from the Yelp API, using a `URLSession` or any custom ``ApiClient``:
 
 ```swift
 let client = URLSession.shared
-let environment = YelpEnvironment.v3(apiToken: "TOKEN") 
+let env = YelpEnvironment.v3(apiToken: "TOKEN") 
 let route = YelpRoute.restaurant(id: "abc123") 
-let restaurant: YelpRestaurant = try await client.fetchItem(
-    at: route, in: environment)
+let restaurant: YelpRestaurant = try await client.fetchItem(at: route, in: env)
 ```
 
-The client will fetch the raw data and either return the mapped result, or throw an error.
+This code will fetch data from the API and either return a mapped result or throw an error.
 
 
 ## How to fetch data even easier
 
-We can also define a ``ApiRequest`` to avoid having to define routes and return types every time, and to reduce the risk of using an invalid return type:
+We can also define a ``ApiRequest`` to couple a route to a certain response model:
 
 ```swift
 struct YelpRestaurantRequest: ApiRequest {
@@ -151,21 +155,20 @@ struct YelpRestaurantRequest: ApiRequest {
 }
 ```
 
-We can use `URLSession` or any custom ``ApiClient`` to fetch requests as well:
+We can now fetch data with our request, without having to define a return type and route:
 
 ```swift
 let client = URLSession.shared
-let environment = YelpEnvironment.v3(apiToken: "TOKEN") 
+let env = YelpEnvironment.v3(apiToken: "TOKEN") 
 let request = YelpRestaurantRequest(id: "abc123") 
-let restaurant = try await client.fetch(
-    at: request, in: environment)
+let restaurant = try await client.fetch(request, in: env)
 ```
 
-As you can see, we don't have to define route and return type when we use requests. This however just provides extra convenience and is not required.
+Requests require extra code, but reduce the risk of model and route mismatching.
 
 
 ## Conclusion
 
-[{{project.name}}]({{project.url}}) makes it easy to integrate with any REST-based API. The recently released 0.5 has new features that makes integrations even easier.
+[{{project.name}}]({{project.url}}) makes it easy to integrate with any REST-based API. The environments and routes are easily defined, and the code easy to read and debug.
 
-You can have a look at the built-in integrations and the demo app to give the library a try. I really hope you like it.
+You can have a look at the built-in integrations and the demo app. I really hope you like it.
