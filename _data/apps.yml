@@ -1,19 +1,23 @@
 - name: KeyboardKit
   url: http://keyboardkit.com/app
-  appStoreUrl: http://itunes.apple.com/app/keyboardkit/id1568444977
+  appstore: http://itunes.apple.com/app/keyboardkit/id1568444977
+  
+- name: Emoji Picker
+  url: http://kankoda.com/emojipicker
+  appstore: https://itunes.apple.com/app/emoji-picker/id6472487442
   
 - name: Wally
   url: https://wally.app
-  appStoreUrl: https://itunes.apple.com/app/wally/id516398915
+  appstore: https://itunes.apple.com/app/wally/id516398915
 
 - name: Appamini
   url: http://appamini.com
-  appStoreUrl: https://itunes.apple.com/app/appamini-abc/id581402736
+  appstore: https://itunes.apple.com/app/appamini-abc/id581402736
 
 - name: Lunchrrrrr
   url: https://kankoda.com/apps/lunchrrrrr
-  appStoreUrl: https://itunes.apple.com/se/app/lunchrrrrr/id1209779063?l=en&mt=8 
+  appstore: https://itunes.apple.com/se/app/lunchrrrrr/id1209779063?l=en&mt=8 
 
 - name: Vinylsamlaren
   url: https://itunes.apple.com/us/app/vinylsamlaren/id640253601
-  appStoreUrl: https://itunes.apple.com/us/app/vinylsamlaren/id640253601
+  appstore: https://itunes.apple.com/us/app/vinylsamlaren/id640253601
