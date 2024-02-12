@@ -8,46 +8,65 @@
 
 - name: SwiftUIKit
   url: https://github.com/danielsaidi/SwiftUIKit
+  header: /assets/headers/swiftuikit.png
 
 - name: RichTextKit
   url: https://github.com/danielsaidi/RichTextKit
+  header: /assets/headers/richtextkit.png
 
 
 - name: ApiKit
   url: https://github.com/danielsaidi/ApiKit
+  header: /assets/headers/apikit.png
 
 - name: BadgeIcon
   url: https://github.com/danielsaidi/BadgeIcon
+  header: /assets/headers/badgeicon.png
 
 - name: DeckKit
   url: https://github.com/danielsaidi/DeckKit
+  header: /assets/headers/deckkit.png
 
 - name: DocumentKit
   url: https://github.com/danielsaidi/DocumentKit
+  header: /assets/headers/documentkit.png
+
+- name: EmojiKit
+  url: https://github.com/kankoda/EmojiKit
+  header: /assets/headers/emojikit.png
 
 - name: MockingKit
   url: https://github.com/danielsaidi/MockingKit
+  header: /assets/headers/mockingkit.png
 
 - name: OnboardingKit
   url: https://github.com/danielsaidi/OnboardingKit
+  header: /assets/headers/onboardingkit.png
 
 - name: PrintingKit
   url: https://github.com/danielsaidi/PrintingKit
+  header: /assets/headers/printingkit.png
 
 - name: QuickSearch
   url: https://github.com/danielsaidi/QuickSearch
+  header: /assets/headers/quicksearch.png
 
 - name: ScrollKit
   url: https://github.com/danielsaidi/ScrollKit
+  header: /assets/headers/scrollkit.png
 
 - name: StoreKitPlus
   url: https://github.com/danielsaidi/StoreKitPlus
+  header: /assets/headers/storekitplus.png
 
 - name: SystemNotification
   url: https://github.com/danielsaidi/SystemNotification
+  header: /assets/headers/systemnotification.png
 
 - name: TagKit
   url: https://github.com/danielsaidi/TagKit
+  header: /assets/headers/tagkit.png
 
 - name: WebViewKit
   url: https://github.com/danielsaidi/WebViewKit
+  header: /assets/headers/webviewkit.png

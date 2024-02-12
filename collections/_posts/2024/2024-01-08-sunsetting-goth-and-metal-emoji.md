@@ -22,15 +22,15 @@ After keeping the Goth & Metal Emoji apps alive for 8 years, I'm sunsetting them
 
 ![Header image]({{page.image}})
 
-I created Goth Emoji with an amazing artist friend, [Lisen Haglund]({{page.nattskiftet}}), who had an idea to create a custom keyboard, like the Kim Kardashian's Kimoji app, but filled with Goth-styled artwork.
+I created Goth Emoji with an amazing artist, [Lisen Haglund]({{page.nattskiftet}}), who had an idea to create a custom keyboard, like the Kim Kardashian's Kimoji app, but filled with Goth-styled artwork.
 
-We launched Goth Emoji after just two weeks of development. It was my first stab at building a custom keyboard. Little did I know, this project would later cause a huge pivot in my life.
+We launched Goth Emoji after just two weeks. It was my first stab at building a custom keyboard. Little did I know, this project would later cause a huge pivot in my life.
 
 ![Goth Emoji websiste]({{page.assets}}website.jpg)
 
 Goth Emoji launched with a bunch of amazing goth artwork. Users could copy any "emoji" and paste it into any app, using either the app, the sticker pack or the custom keyboard.
 
-Thanks to Lisen's Instagram following, this launch was the closest I've ever come to anything viral. The app quickly became top 3 in its category across the world, and generated...around $4,000.
+Thanks to Lisen's Instagram following, this was the closest I've ever come to anything viral. The app rushed to top 3 in its category across the world, and generated...around $4,000.
 
 Sure, this was good money for just a few days, but my illusion of how becoming viral on the App Store equalling becoming financially set for life had eventually come to an end.
 
@@ -38,79 +38,77 @@ We quickly followed up Goth Emoji with Metal Emoji, which contained cool, metal-
 
 ![Metal Emoji websiste]({{page.metalassets}}website.jpg)
 
-The two apps shared a common foundation, which made it easy to add new features, fix bugs, etc. but the asset management was still a chore, where new each emoji took some time to prepare.
-
 
 ## Technical challenges
 
-While developing Goth Emoji, the severe limitations in Apple's custom keyboard APIs became painfully apparent, and forced me to be creative.
+The two apps shared a common foundation, which made it easy to add new features, but the asset management was a chore, where new each emoji took a long time to prepare.
 
-You see, custom keyboards basically only gets a reference to the text document, and can do very limited operations with it, like sending text to it, deleting backwards, moving the cursor, etc.
+Furthermore, the severe limitations in Apple's keyboard APIs became painfully apparent.
 
-Furthermore, you don't even get a keyboard view, just a container area where you can put any view you like. Apple don't provide a keyboard view, so you basically have to build everything yourself.
+You see, custom keyboards basically only gets a reference to the text document, and can do limited operations with it, like inserting and deleting text, moving the cursor, etc.
 
-Also, even though you can send text to the app, a seemingly equal like sending an image is *not possible*. Since Goth Emoji was based on images, this was indeed a problem.
+You also don't get a keyboard view, just a container where you can add a custom view. You basically have to build the keyboard view and all its interactions from scratch.
 
-All image-based custom keyboards have the same limitation, and most solve it by copying the image to the pasteboard, then showing a message to ask the user to paste it into the currently active app. 
-
-But...custom keyboards are not allowed to access the pasteboard before the user has enabled a thing called Full Access, which gives access to more features, like the pasteboard, network access, etc.
-
-Users have to go to System Settings to enable Full Access, and when they do, iOS shows a warning that keyboards with Full Access can detect *everything* you type and send it *anywhere*.
-
-All in all, this required a lot more work than I first expected, and the user experience was quite bad. I would have loved to access the last string in the pasteboard without Full Access, but here we are.
-
-Apple also rejected the first version of Goth Emoji, since we just blocked the keyboard if Full Access was disabled. Turns out the App Store Guidelines require that a keyboard works even without Full Access.
-
-To work around this, I made the images just send the accessibility label to the app, like "Daniel sent you a glass of blood". Although being a completely useless replacement, this made the app pass review.
+Also, even though you can insert text, inserting an image is *not possible*. Since Goth Emoji was based on images, this was indeed a problem.
 
 
-## User reception & Learnings
+## How to insert images
 
-All in all, the technical limitations of custom keyboards became quite a problem for the Goth Emoji app. 
+All image-based custom keyboards have the same limitation, and most solve it by copying the image to the pasteboard, then asking the user to paste it into the target app. 
 
-First of all, people HATED having to enable Full Access, and were very suspicious due to the alert. Despite describing this in the App Store description, it resulted in many one star reviews and angry e-mails.
+However, a custom keyboard isn't allowed to access the pasteboard until the user enables something called Full Access, which can only be enabled in System Settings.
 
-Second, people utterly disliked the word "emoji" in the title, since these were images and not real emojis. And they were of course correct.
+Since this gives the keyboard access to the pasteboard, network access, etc. iOS shows a warning that the keyboard will be able to detect *everything* you type and send it *anywhere*.
 
-My ambition had been to make the copy/paste mechanism hidden and automatically trigger the paste, but I couldn't find a way to do this. People expected a seemless experience. I did too.
+Turns out that users neither like to copy/paste images from a keyboard, nor get a warning that makes them think that the keyboard will read everything they type.
 
-This eventually led us to remove the custom keyboard and only have the sticker pack, and to let people copy emojis from the main app. But reviews were still bad, even if people loved the artwork.
+
+## User reception
+
+All in all, the technical limitations became quite a problem for the Goth Emoji app. People HATED to enable Full Access, and were very suspicious due to the alert. 
+
+Despite describing this in the App Store description, the Full Access limitation resulted in many one star reviews and angry e-mails.
+
+People also hated that we used the word "emoji" in the title, when in fact the content that the app provided were images and not real emojis.
+
+As a technical person, I understand the nature (and limitations) of emojis and unicode, but of course this is not common knowledge. People were right in being disappointed.
+
+While my initial ambition was to make a copy automatically trigger a paste, I couldn't find a way to do this. People expected a seemless experience. I did too.
+
+This eventually led us to remove the custom keyboard and only keep the sticker pack and let people copy emojis from the main app. People loved the artwork, but reviews were bad.
 
 
 ## Sunsetting the apps
 
-After 8 years on the App Store, the apps still make a little money every month. Reviews are however bad, because of the misalign between user expectation and what the apps can deliver.
+After 8 years, the apps still make money every month. Reviews are however bad, because of the misalign between user expectation and what the apps can deliver.
 
-So, sunsetting the apps wasn't a hard decision. I haven't actively worked on them for many years, and do not want to make money on what I fundamentally think is a subpar product.
+I have been waiting for some API updates to allow me to improve the apps, but since there doesn't seem to be any work done on these APIs, I think it's time to call it a day.
 
-I have been waiting to see if some keyboard API updates would allow me to improve the apps, but since there doesn't seem to be any adjustments to the limited APIs, I think it's time to call it a day.
+So, in the end, sunsetting the apps wasn't a hard decision. I don't want to make money on what I think are flawed products, especially when I can't improve them.
 
-I have updated the apps one final time, and will remove them from the App Store in February. Until then, I've made them free, so feel free to download them if you want some goth and metal in your life.
+I have updated the apps a final time and will remove them from the App Store in February. Until then, I've made them free. Go and download them if you want some goth in your life.
 
-You can download [Goth Emoji]({{page.goth}}) and [Metal Emoji]({{page.metal}}) for free from the App Store.
+You can download [Goth Emoji]({{page.goth}}) and [Metal Emoji]({{page.metal}}) from the App Store until February.
 
 
 ## Life changes
 
-Even if I now say goodbye to these apps, working on them for a few weeks every now and then actually did result in my life taking a quite drastic turn.
+Even if I now say goodbye to these apps, they actually made my life take a drastic turn.
 
-You see, being a tech nerd at heart, my frustrations with the limited keyboard APIs triggered something inside me. I just had to explore the field of custom keyboards further.
+You see, my frustrations with the limited keyboard APIs triggered something inside me, and made me explore the field of custom keyboards further.
 
-I started by creating an open-source project, where I added all the extensions, utils, etc. that I came up with during my work with the Goth Emoji app. If they could help others, that'd be great.
+I started by creating an open-source project where I added all the tools that I came up with during my work with the Goth Emoji app. If they could help others, that'd be great.
 
-I then started looking at creating a basic, English keyboard view, since the native APIs don't provide any such views. The first keyboard was written in UIKit and was very limited, but worked.
+I then started looking at creating a basic English keyboard view, since the native APIs don't provide any views. The first view was written in UIKit and was very limited, but worked well.
 
-The project evolved over time, and as Apple launched SwiftUI in 2019, everything came together. It was the missing piece of the puzzle.
+Theis project evolved over time, and as Apple introduced SwiftUI in 2019, everything came together. It was the missing piece of the puzzle.
 
-Replacing the hard to customize UIKit with the very flexible SwiftUI made it possible for me to create an almost pixel perfect keyboard view, add data-driven UI components and take the SDK further.
+Replacing UIKit with the more flexible SwiftUI made it possible for me to create a near pixel perfect keyboard view, add data-driven UI components and take the SDK further.
 
-As [KeyboardKit]({{page.keyboardkit}}) become more and more capable, I started seeing some traction, and in 2020 I decided to quit my day job to work on a freelance basis, with a KeyboardKit-related project being my very first.
+As [KeyboardKit]({{page.keyboardkit}}) become more capable, I started getting traction and eventually decided to release KeyboardKit Pro as a commercial add-on to the open-source foundation.
 
+This eventually generated enough work, to in 2020 allowed me to quit my job to work on a freelance basis, with a KeyboardKit-related project being my very first.
 
-## Today
+Today, I've been a freelancer for almost 4 years. KeyboardKit is still evolving and supports 60+ languages, and features like autocomplete, dictation, etc.
 
-Today, I've been a freelancer for almost 4 years. KeyboardKit is still evolving and supports 60+ languages, and features like autocomplete, dictation, etc. 
-
-I'm still learning new quirks of the wonderful languages of our world on a weekly basis. I'm so grateful for being able to meet so many amazing people, and to work on such an complex and exciting project. 
-
-It's truly a passion project. And to think it all started with a small app for letting people pick goth-related, emoji-like stickers. Life surely takes you to unexpected places.
+KeyboardKit is truly a passion project. And to think it all started with a small app for letting people pick goth-related stickers. Life surely takes you to unexpected places.

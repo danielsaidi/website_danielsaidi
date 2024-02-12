@@ -3,24 +3,35 @@ title:  EmojiKit goes open-source
 date:   2024-02-02 06:00:00 +0000
 tags:   swift open-source
 
-image:  /assets/headers/emojikit.png
+image:  /assets/blog/2024/240202/header.jpg
 
 tweet:  https://x.com/danielsaidi/status/1753360511419175143?s=20
 toot:   https://mastodon.social/@danielsaidi/111861348152490917
 ---
 
+{% include kankoda/data/open-source.html name="EmojiKit" %}
 I've decided to open-source my [EmojiKit](https://kankoda.com/emojikit) library, which is currently a closed-source product at my company [Kankoda]({{site.kankoda}}). In this post, I'll discuss why and how it will be done.
 
-![Header image]({{page.image}})
+![Header image]({{project.header}})
 
-I've decided to open-source the EmojiKit foundation, with all its models, categories, localization, skin tones, version information, search capabilities etc. I'll leave out custom assets, pickers and keyboards, since they have IP value to my company products, but the rest will be open.
+I've decided to open-source the library foundation, with its models and many features, like categories, skin tone support, version information, search capabilities, localization, etc. 
 
-EmojiKit evolved as part of the [KeyboardKit](https://keyboardkit.com) project. After a few years, as it had become quite capable, I decided to make it into it's own product, and inline it into KeyboardKit. 
+I'll leave out some parts that have IP value to my products, but the rest will be opened up.
 
-However, extracting the emoji features into a commercial SDK enforced some considerations into how KeyboardKit could use them, since the parts that were put under a commercial plan could not be free in KeyboardKit. This worked out well, but I think the library design suffered a bit, where many features became throwing in order fail if they were accessed without first registering a valid license key.
 
-After having this in effect for a couple of months, I still struggle with motivating having the foundation as a 3 tier commercial product. The cuts feel quite artificial, and since I have no customers yet, the decision to open-source everything feels like the right move.
+## Background
 
-The new open-source SDK will be hosted under [my personal GitHub account]({{site.github_url}}) instead of under [Kankoda]({{site.kankoda}})'s. I will move the code to the new repository piece by piece, in a series of live video streams and blog posts. If you're excited about emojis and want to join this project, just reply here or to the tweet or toot, and I'll let you know when I get started working on it. 
+EmojiKit evolved as part of [KeyboardKit](https://keyboardkit.com). As it become quite capable, I decided to make it into a separate product and inline it into KeyboardKit. 
 
-I'm excited about this change, since I love working on open-source projects with other developers. I hope that this in time will make EmojiKit an even better SDK for all of us.
+However, extracting it into a commercial SDK put restrictions into how KeyboardKit could use it, since the commercial parts could no longer be free in KeyboardKit. 
+
+This worked well, but I think the library design suffered a bit, where many features became throwing to accomodate to the requirement of first registering a valid license key.
+
+I've also struggled a bit with motivating a 3 tier license model. The cuts feel artificial, so the decision to open-source everything feels like the right move.
+
+
+## How it will be done
+
+The new open-source SDK will still be hosted under [Kankoda]({{site.kankoda}})'s GitHub account. I will move the code to a new repository in a series of live video streams and blog posts. 
+
+I'm excited about this change and hope that it will make EmojiKit even better for all of us.

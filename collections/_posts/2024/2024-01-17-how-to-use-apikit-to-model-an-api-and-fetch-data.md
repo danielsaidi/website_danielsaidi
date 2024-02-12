@@ -12,7 +12,7 @@ toot:   https://mastodon.social/@danielsaidi/111773321977694317
 {% include kankoda/data/open-source.html name="ApiKit" %}
 In this post, we'll take a look at how easy it is to use the open-source Swift package [{{project.name}}]({{project.url}}) to integrate with a REST-based API and map its data to local models.
 
-![Header image](/assets/headers/apikit.png)
+![Header image]({{project.header}})
 
 ApiKit builds on a basic concept of environments and routes and provides lightweight types that make it easy to integrate with any REST-based APIs.
 
