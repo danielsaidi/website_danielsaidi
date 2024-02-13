@@ -6,22 +6,22 @@ tags:   swiftui document-group
 image:  /assets/headers/documentkit.png
 ---
 
-`DocumentGroup`-based apps make it easy to edit documents and store them on device and in the cloud. However, these apps are currently very limited when it comes to customization. Let's look at how we can extend them.
+`DocumentGroup`-based apps make it easy to edit documents and store them on device and in the cloud. However, they are limited when it comes to customization. Let's extend them!
 
 {% include kankoda/data/open-source.html name="DocumentKit" %}
 
 ![DocumentKit logo]({{page.image}})
 
-Document-based SwiftUI apps use a `DocumentGroup` scene, into which you can load any custom views to edit various document types. They're an easy and powerful way to create apps that can edit any kind of documents and store them on the user's device and in the cloud.
+`DocumentGroup`-based apps use a `DocumentGroup` scene, into which you can load custom views to edit various document types. They're an easy and powerful way to create apps that can edit any kind of documents and store them on the user's device and in the cloud.
 
-However, document apps are currently very limited when it comes to customizations. For instance, you can't add custom toolbar items to the document browser, and since a `DocumentGroup` (unlike regular SwiftUI apps) doesn't have a view until you open a document, you can't programmatically present views from the document browser, such as initial onboarding experiences, welcome screens etc.
+However, document apps are currently very limited when it comes to customizations. For instance, you can't add toolbar items to the document browser, and since a `DocumentGroup` (unlike a `WindowGroup`) doesn't have a view until you open a document, you can't present views from the document browser, such as an initial onboarding screen.
 
-To fix this for iOS, we currently have to drill down and use the underlying UIKit types. Let's add a couple of types and extensions to get a SwiftUI approach to handle things like onboarding and customization.
+To fix this, we have to use underlying UIKit and AppKit types. Let's add a couple of custom types and extensions to get a SwiftUI-based approach for onboarding and customizations.
 
 
 ## Inspecting the document group
 
-Let's start with creating a `DocumentGroupInspector` protocol, that lets us inspect the document group:
+Let's start with creating a `DocumentGroupInspector` that can inspect a document group:
 
 ```swift
 public protocol DocumentGroupInspector {}
@@ -63,9 +63,9 @@ private extension DocumentGroupInspector {
 }
 ```
 
-As you can see, we resolve the current `keyWindow` and use it to fetch a `rootViewController` and try to cast it to a `documentBrowser`. With this in place, we can also provide a way to dismiss documents.
+In this code, we resolve the current `keyWindow` to fetch a `rootViewController` that we then try to cast to a `documentBrowser`. With this, we can also setup a way to dismiss documents.
 
-All we have to do now, is to add the protocol to any type, to let it access the document browser:
+All we have to do now, is to make any type implement the protocol to access the browser:
 
 ```swift
 struct MyView: View, DocumentGroupInspector {
@@ -91,13 +91,13 @@ struct MyButton: View, DocumentGroupInspector {
 }
 ```
 
-Let's also make `DocumentGroup` implement the protocol, for some functionality that we soon will add:
+Let's make `DocumentGroup` implement the protocol as well, for some functionality that we soon will add:
 
 ```swift
 extension DocumentGroup: DocumentGroupInspector {}
 ```
 
-> **Important:** Note that the `DocumentGroup` must have been presented for this to work. The internal functionality adds a security delay whenever needed, to ensure that the browser is available.
+Note that the `DocumentGroup` must have been presented for this to work. The internal code adds a security delay whenever needed, to ensure that the browser is available.
 
 
 
@@ -140,7 +140,7 @@ struct MyModalView: DocumentGroupModal {
 }
 ```
 
-We can then present the view as a sheet, full screen cover, or using any UIKit modal presentation style:
+We can then present the view as a sheet, full screen cover, or use any presentation style:
 
 ```swift
 MyModalView()
@@ -149,11 +149,11 @@ MyModalView()
     // .presentAsDocumentGroupModal(.overCurrentContext)
 ```
 
-This means that any view can now be programmatically presented as a modal from a `DocumentGroup`.
+This means that any views can now be presented as modal views from a `DocumentGroup`.
 
-However, as you may know, SwiftUI makes heavy use of view modifiers, which often return `some View`. This means that if we apply a to a `DocumentGroupModal`, it's no longer of the same type, which means that the extensions will no longer be available.
+As you may know, SwiftUI makes heavy use of view modifiers and `some View`. This means that if we apply it to a `DocumentGroupModal`, it's no longer the same type, which means that the extensions will no longer be available.
 
-To solve this, we can add an internal `DocumentGroupInspector` and make the presentation extensions apply to all views instead:
+To solve this, we can add an internal `DocumentGroupInspector` and make these extensions apply to all views instead:
 
 ```swift
 public protocol DocumentGroupModal: View, DocumentGroupInspector  {
@@ -191,13 +191,13 @@ public extension View {
 }
 ```
 
-This may defeat the purpose of having the `DocumentGroupModal` protocol, but I think it brings clarity to the library. The intended use is still to implement it, but you can now modify a modal and still be able to use these extensions.
+This may defeat the purpose of the `DocumentGroupModal` protocol, but I think it brings clarity to the library. The intended use is still to implement it, but you can now modify a modal and still be able to use these extensions.
 
 
 
 ## How to present an initial onboarding screen
 
-We can now use `DocumentGroupModal` to easily open an app onboarding whenever a `DocumentGroup`-based app is launched.
+We can now use `DocumentGroupModal` to easily open an onboarding when a `DocumentGroup` app is launched for the first time.
 
 Let's start with implementing a couple of onboarding-specific `DocumentGroup` extensions:
 
@@ -258,7 +258,7 @@ private extension DocumentGroup {
 }
 ```
 
-As you can see, the extensions let us present any `DocumentGroupModal` view as an onboarding sheet or cover, with support for a custom onboarding ID, as well as a customizable store and delay.
+Here, the extensions let us present any `DocumentGroupModal` view as an onboarding sheet or cover, with support for a custom onboarding ID, store and delay.
 
 For this to compile, we also have to add some `UserDefaults` extensions:
 
@@ -291,7 +291,7 @@ public extension UserDefaults {
 
 ```
 
-All we have to do now is add `onboardingSheet` or `onboardingFullScreenCover` to `DocumentGroup`:
+All we have to do is add `onboardingSheet` or `onboardingFullScreenCover` to `DocumentGroup`:
 
 ```swift
 @main
@@ -307,18 +307,18 @@ struct MyApp: App {
 }
 ```
 
-This will present the onboarding view *once*, after which it will not be shown again. If you want to present different onboarding views with the same modifier, you can provide a unique `id` for each onboarding.
+This will present the onboarding view *once*, after which it won't be shown again. To present different onboardings with the same modifier, you can provide a unique `id` for each.
 
 If you want to programmatically get and set the presentation state of a certain onboarding, you can use the `UserDefaults` extensions directly.
 
 
 ## How to customize the document browser
 
-Since we have the `DocumentGroupInspector` protocol and let `DocumentGroup` implement it to get its underlying document browser, we can finally add extensions to modify the browser.
+Since we have the `DocumentGroupInspector` protocol and make `DocumentGroup` implement it, we can finally add extensions to modify the browser.
 
-Since `DocumentGroup` is a scene and the app must return that scene for the app to build, each modifier must return the `DocumentGroup` itself.
+Since `DocumentGroup` is a scene and the app must return such a scene for the app to build, each modifier must return the `DocumentGroup` itself.
 
-Let's first add an action-based function that can be used to modify the underlying document browser:
+Let's first add an action-based function that can be used to modify the underlying browser:
 
 ```swift
 public extension DocumentGroup {
@@ -342,7 +342,7 @@ public extension DocumentGroup {
 }
 ```
 
-We can now use this extension to add more extensions that play well with SwiftUI. For instance, we can add these functions to modify properties of the browser:
+We can use this extension to add more extensions that play well with SwiftUI. For instance, we can add these functions to modify properties of the browser:
 
 ```swift
 public extension DocumentGroup {
@@ -361,7 +361,7 @@ public extension DocumentGroup {
 }
 ```
 
-We can also add this type as a convenience type to custom bar button items, to avoid having to use UIKit types in our SwiftUI code:
+We can also add this convenience type to custom bar button items, to avoid having to use UIKit types in our SwiftUI code:
 
 ```swift
 public class DocumentGroupToolbarItem {
@@ -398,7 +398,7 @@ public class DocumentGroupToolbarItem {
 }
 ```
 
-We can then add this extension to let us add leading and trailing navigation bar button items:
+We can add this extension to let us add leading and trailing navigation bar button items:
 
 ```swift
 public extension DocumentGroup {
@@ -422,7 +422,7 @@ You can apply these modifiers directly to `DocumentGroup`. Since they return the
 
 ## Conclusion
 
-With the various types and extensions in place, we can now present modal sheets and covers from the document group, from anywhere in our code. We can also present onboarding screens and modify the underlying document browser with a few simple modifiers:
+With the types and extensions in place, we can now present modal sheets and covers from the document group, from anywhere in our code. We can also present onboarding screens and modify the underlying document browser with a few simple modifiers:
 
 ```swift
 struct MyApp: App {
@@ -444,6 +444,6 @@ struct MyApp: App {
 }
 ```
 
-Let's keep our fingers crossed that iOS 17 adds many of these features when it launches in a few weeks.
+Let's keep our fingers crossed that iOS 17 adds many of these features when it launches in a few weeks. Native code beats these custom hacks.
 
 I have added these types and extensions to a new open-source library - [DocumentKit]({{project.url}}). Feel free to try it out and let me know what you think.

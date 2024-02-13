@@ -6,7 +6,7 @@ tags:   git
 icon:   git
 ---
 
-If you like me use semver (semantic versioning) and have projects with a gazillion version tags, it's nice to be able sort the tags in various ways. Let's see how to sort Git tags like a pro.
+If you like me use semantic versioning and have projects with a gazillion version tags, it's nice to be able sort the tags in various ways. Let's see how to sort Git tags like a pro.
 
 If you type `git tag` to list all tags, you will notice that the default sort order is alphabetic, which messes up higher version segments:
 

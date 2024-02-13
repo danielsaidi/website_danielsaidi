@@ -15,36 +15,36 @@ post-stretch:   https://danielsaidi.com/blog/2023/02/06/adding-a-stretchable-hea
 post-sticky:   https://danielsaidi.com/blog/2023/02/09/adding-a-sticky-header-to-a-swiftui-scroll-view
 ---
 
-As we've previously looked at how to implement [offset tracking]({{page.post-offset}}) as well as [stretchable]({{page.post-stretch}}) and [sticky]({{page.post-sticky}}) headers for SwiftUI scroll views, let's look at how to handle status bar tint and visibility.
+As we've previously looked at how to implement [offset tracking]({{page.post-offset}}) and [stretchable]({{page.post-stretch}}) and [sticky]({{page.post-sticky}}) headers for SwiftUI scroll views, let's look at how to handle status bar tint and visibility.
 
 {% include kankoda/data/open-source.html name="ScrollKit" %}
 
 
 ## Previous work
 
-The previous posts resulted in an open-source library called [ScrollKit]({{project.url}}), which provides a couple of scroll view wrappers that makes it easy to handle things like offset tracking, sticky headers etc.
+The previous posts resulted in an open-source library called [ScrollKit]({{project.url}}), which provides scroll view wrappers that makes it easy to handle things like offset tracking, sticky headers etc.
 
-For instance, the library makes it really easy to implement screens like the Spotify release screen:
+For instance, it makes it really easy to implement screens like the Spotify release screen:
 
 ![A Spotify screenshot]({{page.assets-stretch}}spotify-demo.jpg)
 
 Although [ScrollKit]({{project.url}}) makes it easy to implement these sticky headers, one thing that is still a challenge is handling the status bar tint color.
 
-Apps like Spotify, that only has a dark mode, can apply a light status bar style globally, but this is not true in apps that uses light mode and only want to apply a light status bar color for some screens.
+Dark apps like Spotify can apply a light status bar style globally, but this is not true in apps that uses light mode and only want to apply a light status bar color for some screens.
 
-Consider this app, which starts with a basic `List` that navigates to different demos. It uses the default status bar tint color, which means using dark text in light mode and light text in dark mode:
+Consider an app that starts with a basic `List` that navigates to different demos. It uses the default status bar color, which means dark text in light mode and light text in dark mode:
 
 ![A standard SwiftUI list in light mode]({{page.assets}}list.png){:width="350px"}
 
-If we tap the image link, we're taken to a screen with a prominent image header that stretches out when pulled down and collapses and sticks to the top when the list is scrolled:
+If we tap the image link, we're taken to a screen with a prominent image header that stretches out when pulled down and collapses to stick to the top when the list is scrolled:
 
 ![A SwiftUI screen with a stretchy image header]({{page.assets}}image-header.jpg){:width="650px"}
 
-This screen uses `.toolbarColorScheme(.dark, for: .navigationBar)` to make the navigation and status bar text light. It also uses `.toolbarBackground(.hidden)` to hide the navigation bar, since it has a sticky header that should replace the navigation view.
+The screen uses `.toolbarColorScheme(.dark, for: .navigationBar)` to make the status and navigation bar text light. It also uses `.toolbarBackground(.hidden)` to hide the nav bar, since it has a sticky header that should replace the navigation view.
 
-However, as you can see in the center image, the nav and status bar have dark text when the scroll view is pulled down. In fact, that's the default style that is applied before you scroll down, since the dark color scheme is only applied when the navigation bar fades in as you scroll.
+However, as you can see in the center image, the nav and status bar have dark text when the view is pulled down. In fact, it's the default style that is applied before you scroll down, since the dark color scheme is only applied when the navigation bar fades in as you scroll.
 
-This is a big problem, since we always want this screen to use light text in the nav and status bar. Since I haven't found a way around this, I instead looked into hiding the status bar, like the App Store does:
+This is a big problem, since we want this screen to use light text in the nav and status bar. Since I haven't found a way around this, I instead looked into hiding the status bar, like the App Store does:
 
 ![A SwiftUI screen with a stretchy image header]({{page.assets}}appstore.jpg){:width="350px"}
 
@@ -91,7 +91,7 @@ struct ContentView: View {
 }
 ```
 
-It turns out that the `NavigationStack` requires the `.statusBarHidden` modifier to be applied to the stack itself, which means that we have to use shared state to hide the from the child view:
+Turns out that a `NavigationStack` requires the `.statusBarHidden` modifier to be applied to the stack itself. This means that we have to use shared state to hide it from the child view:
 
 
 ```swift
@@ -116,9 +116,9 @@ struct ContentView: View {
 }
 ```
 
-If you now navigate to the child view, the status bar fades out nicely, since we're using `withAnimation`. However(!), if you then tap or swipe to go back, you'll notice that the status bar is still hidden, since this code never updates the state when going back to the root view.
+If we now navigate, the status bar fades out nicely, since we use `withAnimation`. However, if you then tap or swipe to go back, you'll notice that the status bar is still hidden, since this code never updates the state when going back to the root view.
 
-Given how inconsistent `.onAppear` and `.onDisappear` are, using this shared state approach is quite a broken experience compared how we with the `NavigationView` can just apply the modifier to any child view. With shared state, we must make sure to set it properly when navigating, which is a hassle.
+Given how inconsistent `.onAppear` and `.onDisappear` are, this shared state approach is quite a broken experience compared how we with the `NavigationView` can just apply the modifier to any child view. With shared state, we must make sure to set it properly when navigating, which is a hassle.
 
 While I'm sure the `NavigationStack` behavior is a bug, we must play with the cards we've been dealt. I therefore started looking into if there is a way to streamline this experience using shared state in a more controlled way. If you do know another way to solve this with a `NavigationStack`, please let me know.
 
@@ -186,7 +186,7 @@ public extension View {
 }
 ```
 
-We then just have to create a `@StateObject` and apply it to a view with `.statusBarVisibile(_)`:
+We just have to create a `@StateObject` and apply it to a view with `.statusBarVisibile(_)`:
 
 ```swift
 struct ContentView: View {
@@ -203,7 +203,7 @@ struct ContentView: View {
 }
 ```
 
-This will apply `.statusBar(hidden:)` to the view and inject the instance into the view hierarchy using an `.environmentObject(_)` view modifier.
+This will apply `.statusBar(hidden:)` to the view and inject the state into the view hierarchy using an `.environmentObject(_)` view modifier.
 
 This class also has a couple of utility function to update the visibility based on an offset. You may notice that I use pretty random numbers (-3 for scrolling and 2 for pulling), but these are the values that I found gave the best result. For instance, using -2 will show the status bar while it's still using dark text.
 

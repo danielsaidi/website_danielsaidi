@@ -1,20 +1,24 @@
 ---
-title:  Store Codable types in AppStorage
+title:  How to store Codable types in AppStorage
 date:   2023-08-23 06:00:00 +0000
 tags:   swiftui
 
 icon:   swiftui
+image:  /assets/blog/2023/230823/title.jpg
 
 post:   https://nilcoalescing.com/blog/SaveCustomCodableTypesInAppStorageOrSceneStorage/
 ---
 
-SwiftUI keeps evolving, but there are still some things that we have to write custom code for. Today, let's see how we can extend `Codable` to make it possible to persist it in `AppStorage` and `SceneStorage`.
+SwiftUI keeps evolving, but there are still some missing things. Today, let's see how we can extend `Codable` to make it possible to persist it in `AppStorage` and `SceneStorage`.
 
 {% include kankoda/data/open-source.html name="SwiftUIKit" version="3.6.0" %}
 
-The inspiration to the `StorageCodable` protocol presented in this post came from [this article]({{page.post}}), where Natalia Panferova uses the same approach to extend all codable `Arrays` and `Dictionaries`.
+The inspiration to the `StorageCodable` protocol in this post came from [this article]({{page.post}}), where Natalia uses the same approach to extend all codable `Arrays` and `Dictionaries`.
 
-Let's say that you have the following codable `User` struct:
+
+## The basic problem
+
+Let's say that you have a `Codable` `User` struct:
 
 ```swift
 struct User: Codable {
@@ -24,7 +28,7 @@ struct User: Codable {
 }
 ```
 
-Although you this type can automatically be encoded and decoded in various ways, it can't be persisted in `AppStorage` or `SceneStorage`. This means that you can't do this:
+Although this type can automatically be encoded and decoded in various ways, it can't be persisted in `AppStorage` or `SceneStorage`. This means that you can't do this:
 
 ```swift
 struct MyView: View {
@@ -38,12 +42,12 @@ struct MyView: View {
 }
 ```
 
-Let's see how we can use `RawRepresentable` to make this possible.
+One way that we can make this work, is to take a look at the `RawRepresentable` protocol.
 
 
 ## The inspiration to this solution
 
-In her [article]({{page.post}}), Natalia uses the `RawRepresentable` support that was added in iOS 15, by making arrays and dictionaries that contain `Codable` types implement the protocol:
+In her [article]({{page.post}}), Natalia makes arrays and dictionaries that contain `Codable` types implement the `RawRepresentable` protocol with these array and dictionary extensions:
 
 ```swift
 extension Array: RawRepresentable where Element: Codable {
@@ -85,7 +89,7 @@ extension Dictionary: RawRepresentable where Key: Codable, Value: Codable {
 }
 ```
 
-This makes it possible to use codable arrays and dictionaries with `AppStorage` and `SceneStorage`:
+This makes it possible to use arrays and dictionaries with `AppStorage` and `SceneStorage`:
 
 ```swift
 struct MyView: View {
@@ -113,12 +117,12 @@ struct MyView: View {
 }
 ```
 
-This will make SwiftUI complain that it doesn't understand what you're trying to do, since there is no `AppStorage` implementation that takes a `Codable` type, while there is one for `RawRepresentable`.
+This will make SwiftUI complain, since there's no `AppStorage` support for a single `Codable`.
 
 
-## How to make Codable support AppStorage and SceneStorage
+## How to make Codable support AppStorage & SceneStorage
 
-Since [Natalia's approach]({{page.post}}) is based on `Codable`, we could fix this by extending `Codable` like this:
+Since [Natalia's approach]({{page.post}}) is based on `Codable`, we could fix this by extending `Codable`:
 
 ```swift
 extension Codable: RawRepresentable {
@@ -141,7 +145,7 @@ extension Codable: RawRepresentable {
 }
 ```
 
-However, not all `Codable` types may prefer to use JSON, I've added a separate protocol for this:
+However, since not all `Codable` types may prefer JSON, I created a separate protocol that extends `Codable` and implements `RawRepresentable` with the JSON code from above:
 
 ```swift
 public protocol StorageCodable: Codable, RawRepresentable {}
@@ -190,13 +194,13 @@ struct MyView: View {
 }
 ```
 
-One important thing to keep in mind with this approach, is that JSON encoding may affect the encoded values. For instance, JSON encoding a dynamic `Color` value to a raw data representation, could remove any light and dark mode support from the color when it's decoded.
+One important thing to keep in mind, is that JSON coding may affect values. For instance, JSON encoding a dynamic `Color` to raw data will remove light & dark mode support.
 
 
 ## Conclusion
 
-SwiftUI is becoming more and more capable, but we still have to write custom code for some things, such as making `Codable` work with SwiftUI's persistency stores. 
+SwiftUI is becoming more capable every year, but we still have to write custom code for some things, such as making `Codable` work with SwiftUI's persistency stores. 
 
-The `StorageCodable` protocol that was presented in this post makes it possible to persist any type in `AppStorage` and `SceneStorage`, using JSON for encoding and decoding. 
+The `StorageCodable` protocol in this post makes it possible to persist codable types with `AppStorage` and `SceneStorage`, using JSON for encoding and decoding. 
 
-`StorageCodable` is available in the brand new [SwiftUIKit 3.6]({{project-version}}) release. I hope that you find it useful.
+`StorageCodable` is available in my [SwiftUIKit]({{project-version}}) open-source project. I hope that you like it.

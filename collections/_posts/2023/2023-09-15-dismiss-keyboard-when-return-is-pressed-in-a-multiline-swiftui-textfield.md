@@ -13,7 +13,7 @@ While a single line `TextField` will automatically dismiss the keyboard when you
 
 {% include kankoda/data/open-source.html name="SwiftUIKit" %}
 
-In SwiftUI, an `onSubmit` view modifier can be applied to a text field. The provided submit action will be performed when the return key is pressed, and will also dismiss the keyboard:
+In SwiftUI, an `onSubmit` view modifier can be applied to a text field. The submit action will be performed when the return key is pressed, and will also dismiss the keyboard:
 
 ```swift
 TextField("Enter text", text: $text)
@@ -31,7 +31,7 @@ TextField("Enter text", text: $text, axis: .vertical)
     }
 ```
 
-Perhaps another multiline-supporting submit modifier exists that I don't know about, so please share if you know one. Until then, I made it work with a `FocusState` and an `onChange` modifier:
+If another multiline-supporting submit modifier that I don't know about exists, please share. Until then, I made it work with a `FocusState` and an `onChange` modifier:
 
 ```swift
 struct MyView: View {
@@ -55,9 +55,9 @@ struct MyView: View {
 }
 ```
 
-The code above applies a `focused` modifier to the text field and an `onChange` modifier that listens for changes to `text`. As soon as a new line is typed, we clean up the text and remove focus from the view.
+This code applies a `focused` modifier to the text field and an `onChange` modifier that listens for changes to `text`. If a new line is typed, we clean up the text and remove focus.
 
-The return key still says `return`, which may be a confusing, since it implies that you can press return to insert new lines. You can add a `submitLabel(.done)` modifier to make it say "Done" instead.
+The return key still says `return`, which may be confusing since it implies that you can tap return to add new lines. You can add a `submitLabel(.done)` modifier to make it say "Done".
 
 We can move this code to a `ViewModifier` to make it easy to reuse this functionality. We can also add an additional `onSubmit` action that will be called whenever return is pressed:
 
@@ -98,7 +98,7 @@ struct MultilineSubmitViewModifier: ViewModifier {
 }
 ```
 
-We can also add a view extension to make this view modifier even easier to apply to a view:
+We can also add a view extension to make this view modifier even easier to apply:
 
 ```swift
 public extension View {
@@ -119,7 +119,7 @@ public extension View {
 }
 ```
 
-When using this view modifier instead of `onSubmit`, the only change is that you need to pass in the text binding that is used by the text field.
+The only change from `.onSubmit` is that you must pass in the text field's `text` binding.
 
 We can add another extension that just applies the submit behavior without an action, to get some nice naming for the cases when we just want the keyboard dismissal:
 
@@ -158,6 +158,6 @@ struct MyView: View {
 
 ## Conclusion
 
-The view modifier in this blog post may already be in SwiftUI anywhere, but if so, I haven't found it yet. If you know how to achieve this with plain SwiftUI, please share it here.
+The view modifier in this blog post may already be in SwiftUI anywhere, but if so, I haven't found it yet. If you know how to achieve this with plain SwiftUI, please share.
 
-I have added all this code to my [SwiftUIKit]({{project.url}}) library. Feel free to try it out and let me know what you think.
+I have added these view modifiers to my [{{project.name}}]({{project.url}}) library. Feel free to give it a try and let me know what you think.

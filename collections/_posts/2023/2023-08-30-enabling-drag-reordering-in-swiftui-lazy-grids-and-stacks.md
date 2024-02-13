@@ -5,6 +5,7 @@ tags:   swiftui
 
 icon:   swiftui
 assets: /assets/blog/2023/230830/
+image:  /assets/blog/2023/230830/title.jpg
 
 post:   https://stackoverflow.com/questions/62606907/swiftui-using-ondrag-and-ondrop-to-reorder-items-within-one-single-lazygrid
 user:   https://stackoverflow.com/users/6898849/ramzesenok
@@ -13,33 +14,33 @@ tweet:  https://twitter.com/danielsaidi/status/1696880164578148570
 toot:   https://mastodon.social/@danielsaidi/110978849170429158
 ---
 
-While SwiftUI's `List` component allows users to drag to reorder items within the list, the `LazyVGrid`, `LazyHGrid`, `LazyVStack` and `LazyHStack` components currently lack this functionality. Let's take a look at how to implement it from scratch.
+While SwiftUI's `List` supports drag to reorder, the `LazyVGrid`, `LazyHGrid`, `LazyVStack` and `LazyHStack` components lack this functionality. Let's see how to implement it from scratch.
 
-The solution in this post comes from [this post]({{page.post}}), and builds upon the amazing work of [ramzesenok]({{page.user}}). I've just componentified it a bit and added the possibility to provide a custom preview.
+The solution in this post builds upon [this amazing post]({{page.post}}) by [ramzesenok]({{page.user}}). I've modularized it a bit and added the possibility to provide a custom preview.
 
 
 ## What to expect
 
-To give you an idea of what to expect, it will let us add drag reordering to `LazyVGrid` and `LazyHGrid`:
+To give you an idea of what to expect, we will implement something that will let us add drag reordering to a `LazyVGrid` and `LazyHGrid`:
 
 ![A demo of a grid with drag to reordering]({{page.assets}}demo-grid.gif)
 
-as well as to `LazyVStack` and `LazyHStack`, using the exact same component and configuration:
+as well as to `LazyVStack` and `LazyHStack`, using the same component and configuration:
 
 ![A demo of a grid with drag to reordering]({{page.assets}}demo-stack.gif)
 
-We will be able to use any content views for the list items, and will be able to customize the preview as well. The solution will also handle ending the drag gesture outside of the list. 
+We will be able to use any content views for the list items and customize the preview. The solution will also handle ending the drag gesture outside of the list. 
 
 
 ## Building the component
 
-Before we start building, we need to specify the capabilities that a reorderable item needs to have. Let's call it `Reorderable` and require it to be both `Identifiable` and `Equatable`:
+Before we start building, we need to specify the capabilities that a reorderable item needs. Let's call it `Reorderable` and require it to be both `Identifiable` and `Equatable`:
 
 ```swift
 public typealias Reorderable = Identifiable & Equatable
 ```
 
-In this example, let's use a very basic model for our list items, that just has a numeric identifier:
+In this post, let's use a very basic model for our list items, that just has a numeric identifier:
 
 ```swift
 struct GridData: Identifiable, Equatable {
@@ -47,7 +48,7 @@ struct GridData: Identifiable, Equatable {
 }
 ```
 
-Since we want to be able to use this new component in all kind of lazy collection views, let's create it as a replacement to the regular `ForEach` view. Let's call it `ReorderableForEach`:
+Since we want to be able to use this component in all kind of collection views, let's create it as a replacement to the regular `ForEach` view. Let's call it `ReorderableForEach`:
 
 ```swift
 public struct ReorderableForEach<Item: Reorderable, Content: View, Preview: View>: View {
@@ -56,7 +57,7 @@ public struct ReorderableForEach<Item: Reorderable, Content: View, Preview: View
 }
 ```
 
-We want the view to take a binding to the collection `items` (so that we can change the order), a binding of the currently `active` item (so that we can control it), a `content` view builder for the list items, an optional `preview` view builder to customize the drag preview and a `moveAction` to perform the move:
+We want the view to take a binding to the collection `items` so we can change the order, a binding to the `active` item so we can edit it, a `content` view builder for the list items, a `preview` builder to customize the drag preview and a `moveAction` to perform the move:
 
 ```swift
 public struct ReorderableForEach<Item: Reorderable, Content: View, Preview: View>: View {
@@ -155,11 +156,11 @@ public struct ReorderableForEach<Item: Reorderable, Content: View, Preview: View
 }
 ```
 
-In the code above, we use a plain `ForEach` to iterate over the items, then render a `contentView` for each item, with an `onDrag` modifier applied to let us drag the items.
+In this code, we use a plain `ForEach` to iterate over the items, then render a `contentView` for each item, with an `onDrag` modifier applied to let us drag the items.
 
 The drag modifier differs a bit depending on if we want to use a custom preview or not. We thus perform an if check and render the same content view with two different modifiers.
 
-As you can see in the `contentView` builder, we change the `opacity` when the item becomes active. We also apply an `onDrop` modifier with a custom delegate that looks like this:
+In the `contentView` builder, we change the `opacity` when an item is active. We also apply an `onDrop` modifier with a custom delegate that looks like this:
 
 ```swift
 struct ReorderableDragRelocateDelegate<Item: Reorderable>: DropDelegate {

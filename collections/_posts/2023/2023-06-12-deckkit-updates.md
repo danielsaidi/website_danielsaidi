@@ -6,22 +6,19 @@ tags:   swiftui open-source
 image:  /assets/headers/deckkit.png
 ---
 
-DeckKit 0.7 is out, with a new shuffle animation that makes shuffling a deck very enjoyable. Let's take a look at what's new in this minor update.
+DeckKit 0.7 is out, with new shuffle support that makes shuffling a deck enjoyable. Let's take a look at what's new in this minor update.
 
 {% include kankoda/data/open-source.html name="DeckKit" version="0.7.0" %}
 
 ![DeckKit logo]({{page.image}})
 
+DeckKit 0.7 has a new `DeckShuffleAnimation` that can be used to shuffle a deck of cards with a nice shuffle animation.
 
-## New shuffle animation
+All you have to do is to create a `@StateObject` in the view with the `DeckView` and bind the animation to the deck view with the new `.withDeckShuffleAnimation()` view modifier, then call `shuffle` to shuffle the deck with a nice shuffle animation.
 
-DeckKit 0.7 has a new `DeckShuffleAnimation` that can be used to shuffle a deck of cards with a nice physical shuffle animation.
-
-All you have to do to use this animation is to create a `@StateObject` in the view with the `DeckView`, then bind the animation to the deck item views using the `withDeckShuffleAnimation` view modifier, then call `shuffle` to shuffle the deck with a nice shuffle animation.
-
-The shuffle animation lets you customize the max rotation, as well as the max horizontal and vertical offset. You can also specify how many shuffles you want to make each time you call the function.
+The shuffle animation lets you customize the max rotation, as well as the max horizontal and vertical offset. You can also specify how many shuffles you want.
 
 
 ## Conclusion
 
-Other than this, DeckKit 0.7 also adds a `shuffle` function to the `Deck` type and a convenience initializer to the `DeckView`. For more information, see the [project repository]({{project.url}}) and the [release notes]({{project-version}}).
+Other than this, DeckKit 0.7 adds a `shuffle` function to the `Deck` type and a convenience init to the `DeckView`. For more information, see the [project repository]({{project.url}}) and [release notes]({{project-version}}).

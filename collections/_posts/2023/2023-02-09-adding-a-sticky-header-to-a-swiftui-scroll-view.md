@@ -17,7 +17,7 @@ arden:  https://danielarden.com
 source: /blob/main/Sources/ScrollKit/ScrollViewHeader.swift
 ---
 
-As we've previously looked at how to implement [offset tracking]({{page.post-offset}}) and [stretchable headers]({{page.post-stretch}}) for SwiftUI scroll views, let's combine them to implement a scroll view header that stretches out when you pull down and sticks to the navigation bar as you scroll.
+As we've previously looked at how to implement [offset tracking]({{page.post-offset}}) and [stretchable headers]({{page.post-stretch}}) for SwiftUI scroll views, let's combine them to implement a scroll view header that stretches as you pull down and sticks to the navigation bar as you scroll.
 
 {% include kankoda/data/open-source.html name="ScrollKit" %}
 
