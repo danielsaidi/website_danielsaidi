@@ -5,8 +5,8 @@ tags:   ios keyboard
 
 image:  /assets/blog/2024/240213/title.jpg
 
-tweet:  https://x.com/danielsaidi/status/1753360511419175143?s=20
-toot:   https://mastodon.social/@danielsaidi/111861348152490917
+tweet:  https://x.com/danielsaidi/status/1757393769593274774?s=20
+toot:   https://mastodon.social/@danielsaidi/111924367408233262
 ---
 
 {% include kankoda/data/open-source.html name="KeyboardKit" %}
@@ -42,6 +42,13 @@ Since `se` is both the Swedish top domain, as well as the Swedish locale identif
 I therefore tried changing the prefix from `se.` to `de.` (German) as well as `da.` and `dk.` (Denmark), but the keyboard worked perfectly for all these cases.
 
 So far, I've only seen this problem with apps that have a bundle ID that starts with `se.`. 
+
+
+## Affected platforms
+
+As I investigated this problem, I noticed it on devices that used iOS 17.2. Upgrading to iOS 17.3.1 didn't solve it. I haven't tested on iOS 17.1, but will try to find such a device.
+
+The problem hasn't appeared for me on iOS 15, nor on iOS 17.0. I'm currently updating an iOS 17.0 device to 17.3.1 to see if it starts appearing then.
 
 
 ## Conclusion
