@@ -21,11 +21,10 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
         </div>
         <div>
           <p>
-            I'm a <a href="work">freelance</a> software engineer who specializes in app and product development, with focus on Apple
-            platforms like iOS, macOS, tvOS and watchOS and tech like Swift and SwiftUI.
+            I'm a <a href="work">freelance</a> engineer who specializes in app & product development, with focus on Apple platforms like iOS, macOS, tvOS & watchOS and tech like Swift & SwiftUI.
           </p>
           <p>
-            I make <a href="apps">apps</a>, <a href="products">products</a> and manage several <a href="opensource">open-source</a> projects. I also <a href="blog">blog</a>, <a href="{{site.twitter_url}}">tweet</a> and <a href="{{site.mastodon_url}}">toot</a> and give occasional <a href="talks">talks & workshops</a>.
+            I make <a href="apps">apps</a>, <a href="products">products</a> and manage several <a href="opensource">open-source</a> projects. I <a href="blog">blog</a>, <a href="{{site.twitter_url}}">tweet</a> and <a href="{{site.mastodon_url}}">toot</a> and give occasional <a href="talks">talks & workshops</a>.
           </p>
         </div>
       </section>
