@@ -6,8 +6,8 @@ tags:   swift
 image:  /assets/blog/2024/240218/title.jpg
 image-show: 0
 
-tweet:  https://x.com/danielsaidi/status/1757393769593274774?s=20
-toot:   https://mastodon.social/@danielsaidi/111924367408233262
+tweet:  https://x.com/danielsaidi/status/1759312051640414643?s=20
+toot:   https://mastodon.social/@danielsaidi/111954340675664871
 ---
 
 {% include kankoda/data/open-source.html name="RichTextKit" %}
