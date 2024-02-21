@@ -6,6 +6,8 @@ tags:   swiftui swift multi-platform
 image:  /assets/blog/2022/220425/title.jpg
 image-show: 0
 
+redirect_from: /blog/2022/04/25/bringing-platform-specific-types-together-in-swiftui
+
 tweet:  https://x.com/danielsaidi/status/1760314704335876445?s=20
 toot:   https://mastodon.social/@danielsaidi/111970012516609641
 ---
