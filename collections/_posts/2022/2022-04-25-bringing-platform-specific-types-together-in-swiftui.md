@@ -1,124 +1,141 @@
 ---
-title:  Bringing platform-specific types together in SwiftUI
+title:  How to bridge platform-specific types in Swift & SwiftUI
 date:   2022-04-25 07:00:00 +0100
-tags:   swiftui multi-platform
+tags:   swiftui swift multi-platform
 
-icon:   swiftui
-assets: /assets/blog/2022/2022-04-25/
+image:  /assets/blog/2022/220425/title.jpg
+image-show: 0
+
 tweet:  https://twitter.com/danielsaidi/status/1518493789517717505?s=20&t=wF1kbk5Nxm27t6vxQ1OeLQ
 ---
 
-SwiftUI's amazing multi-platform support makes it easy to develop apps for iOS, macOS, tvOS and watchOS. But how do you handle types that differ between platforms? Let's take a look.
+SwiftUI's multi-platform support makes it easy to develop apps for iOS, macOS, tvOS and watchOS. But how do you handle types that differ between platforms? Let's take a look.
 
 {% include kankoda/data/open-source.html name="SwiftUIKit" %}
 
-Consider a SwiftUI app that lists images in a stack or grid, where tapping an image should open up a share sheet that can be used to share the image. 
 
-If list items over the network, the item type could look something like this:
+## Problem description
+
+Lets say that we fetch the following list item over a REST-based API, with the intention to list it in a multi-platform SwiftUI app:
 
 ```swift
-struct ImageItem: Codable {
+struct ListItem: Codable {
 
-    let created: Date
     let title: String
+    let created: Date
     let imageData: Data
 }
 ```
 
-This is a platform-agnostic type, since there are no platform-specific parts. However, to do anything with the image, we need to convert it to `UIImage` for UIKit, `NSImage` for AppKit and `Image` for SwiftUI.
+The type itself is platform-agnostic, but to do anything with the image, we need to convert it to `UIImage` for UIKit, `NSImage` for AppKit and `Image` for SwiftUI.
 
-For convenience, lets add an `image` property that maps the `imageData` to an image. Since we may want to use it for more than just showing it in the app, let's not make it a SwiftUI `Image`.
+Let's take a look at how we can provide a displayable image in a platform-agnostic way.
 
-For UIKit, we could do it like this:
+
+## UIKit & AppKit
+
+To support UIKit and AppKit, we can add an `image` extension to `ListItem` that maps the `imageData` value to either a `UIImage` or an `NSImage`:
 
 ```swift
-extension ImageItem {
+import SwiftUI
 
-    var image: UIImage {
-        UIImage(data: imageData)
+#if canImport(UIKit)
+extension ListItem {
+
+    var image: UIImage? {
+        .init(data: imageData)
     }
 }
-```
+#elseif canImport(AppKit)
+extension ListItem {
 
-For AppKit, it would look almost identical, but using `NSImage` instead of `UIImage`:
-
-```swift
-extension ImageItem {
-
-    var image: NSImage {
-        NSImage(data: imageData)
+    var image: NSImage? {
+        .init(data: imageData)
     }
 }
-```
-
-While we could wrap these extensions in `#if os(iOS)` and `#if os(macOS)`, we may have to work with images in more places and should therefore look for a more platform-agnostic way to do so. 
-
-To handle these situations, I prefer to create a platform-agnostic typealias, for instance:
-
-```swift
-#if os(macOS)
-import Cocoa
-
-public typealias ImageResource = NSImage
-#endif
-
-#if os(iOS) || os(tvOS) || os(watchOS)
-import UIKit
-
-public typealias ImageResource = UIImage
 #endif
 ```
 
-Since both `UIImage` and `NSImage` has a `data` initializer, we can now rewrite the `image` property:
+To avoid having to use `#if` checks everywhere in the code, I actually first prefer to define a platform-agnostic image typealias like this:
 
 ```swift
-extension ImageItem {
+import SwiftUI
 
-    var image: ImageResource {
-        ImageResource(data: imageData)
+#if canImport(UIKit)
+public typealias ImageRepresentable = UIImage
+#elseif canImport(AppKit)
+public typealias ImageRepresentable = NSImage
+#endif
+```
+
+Since both `UIImage` and `NSImage` have a `data`-based initializer, this `ImageRepresentable` typealias now lets us rewrite the `image` property like this:
+
+```swift
+extension ListItem {
+
+    var nativeImage: ImageRepresentable {
+        ImageRepresentable(data: imageData)
     }
 }
 ```
 
-We could also extend SwiftUI `Image` to make it easier to initialize it with this new type:
+We can then add any new capabilities that we need to `UIImage` and `NSImage`, to have a platform-agnostic image type that works in the same way across all platforms.
+
+
+## SwiftUI
+
+To support SwiftUI, we can extend `Image` to make it easier to initialize it with this new type:
 
 ```swift
+import SwiftUI
+
 extension Image {
     
-    init(_ imageResource: ImageResource) {
-        #if os(iOS) || os(watchOS) || os(tvOS)
-        self.init(uiImage: imageResource)
-        #elseif os(macOS)
-        self.init(nsImage: imageResource)
+    init(_ image: ImageRepresentable) {
+        #if canImport(UIKit)
+        self.init(uiImage: image)
+        #elseif canImport(Cocoa)
+        self.init(nsImage: image)
         #endif
     }
 }
 ```
 
-This lets us display the `image` of an `ImageItem` in SwiftUI like this:
+We can now extend `ListItem` with a SwiftUI `image` without having to do any `#if` checks:
 
 ```swift
-Image(item.image)
+extension ListItem {
+
+    var image: Image { 
+        .init(nativeImage) 
+    }
+}
 ```
 
-We could extend `ImageItem` further and add an `imageView` extension, but I think you get the point.
 
-This is all easy when the underlying types share the same api:s, but how about when they don't? For instance `UIImage` has a `jpegData(compressionQuality:)` function that `NSImage` lacks.
+## Extending the platform-agnostic image type
 
-To fix this, we can just fill in the gaps by implementing the missing functionality that we need. We could for instance implement `jpegData` for `NSImage` by first defining a `cgImage` property:
+This was easy to achieve, since `UIImage` and `NSImage` both had a `Data`-based initializer, but how about when they don't share the same APIs?
+
+For instance, consider how `UIImage` has a `jpegData(compressionQuality:)` function that `NSImage` lacks. We can then fill in the gaps by implementing missing functionality. 
+
+We can implement `jpegData` for `NSImage` by first defining a `cgImage` property:
 
 ```swift
+#if canImport(Cocoa)
 extension NSImage {
     
     var cgImage: CGImage? {
         cgImage(forProposedRect: nil, context: nil, hints: nil)
     }
 }
+#endif
 ```
 
-then use it to define a `jpegData` function:
+We can then use this function to define a `jpegData` function:
 
 ```swift
+#if canImport(Cocoa)
 extension NSImage {
  
     func jpegData(compressionQuality: CGFloat) -> Data? {
@@ -127,26 +144,18 @@ extension NSImage {
         return bitmap.representation(using: .jpeg, properties: [.compressionFactor: compressionQuality])
     }
 }
+#endif
 ```
 
-One drawback with this approach is that the UIImage and NSImage implementations will be defined at various places, where UIImage defines this within UIKit and you defined it in a custom extension. 
-
-In this case, I think the `jpegData` extension is fine, since it's a convenience that is always true for an `NSImage`. For other cases, consider extending the `ImageResource` typealias instead, for instance:
+Since both `UIImage` and `NSImage` now have a `jpegData` function with the same signature, you can extend `ImageRepresentable` by building upon the shared functionality:
 
 ```swift
-extension ImageResource {
+extension ImageRepresentable {
 
-    func compressedForSharing() -> ImageResource? {
+    func compressedForSharing() -> Self? {
         jpegData(compressionQuality: 0.7)
     }
 }
 ```
 
-Since we defined `jpegData` for `NSImage` and `UIImage` already has an identical function in `UIKit`, `ImageResource` can use it without any `#if os(...)` switches.
-
-
-## Conclusion
-
-SwiftUI multi-platform apps work amazingly well, but you may have to put work into bridging underlying types. For more complex situations and larger systems, consider using protocols to define things further.
-
-You can find the types and extensions in this post in the [SwiftUIKit]({{project.url}}) library. Feel free to try them out and let me know what you think.
+Since both types define the same API, we don't need to add any `#if` checks. This keeps the rest of our source code clean and less error-prone.
