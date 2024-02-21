@@ -6,7 +6,8 @@ tags:   swiftui swift multi-platform
 image:  /assets/blog/2022/220425/title.jpg
 image-show: 0
 
-tweet:  https://twitter.com/danielsaidi/status/1518493789517717505?s=20&t=wF1kbk5Nxm27t6vxQ1OeLQ
+tweet:  https://x.com/danielsaidi/status/1760314704335876445?s=20
+toot:   https://mastodon.social/@danielsaidi/111970012516609641
 ---
 
 SwiftUI's multi-platform support makes it easy to develop apps for iOS, macOS, tvOS and watchOS. But how do you handle types that differ between platforms? Let's take a look.
