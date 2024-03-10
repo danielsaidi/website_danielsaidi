@@ -7,8 +7,8 @@ layout: default
 
 <article>
     {%- assign anchor-name = page.name | slugify -%}
-    {%- assign href = "/apps#" | append: anchor-name -%}
-    {% include kankoda/buttons/back.html title="Apps" href=href %}
+    {%- assign url= "/apps#" | append: anchor-name -%}
+    {% include kankoda/buttons/back.html url=url title="Apps" %}
     
     <h1>{{ app.name | escape }}</h1>
   

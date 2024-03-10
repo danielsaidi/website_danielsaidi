@@ -8,8 +8,8 @@ layout: default
 <article class="paper">
 
   {%- assign work-name = work.name | slugify -%}  
-  {%- assign href = "/work#" | append: work-name -%}
-  {% include kankoda/buttons/back.html title="Work" href=href %}
+  {%- assign url = "/work#" | append: work-name -%}
+  {% include kankoda/buttons/back.html url=url title="Work" %}
 
   <h1>
     {{ work.name | escape }}

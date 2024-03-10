@@ -13,8 +13,8 @@ layout: default
 
 <article class="paper">
   <section>
-    {%- assign href = "/music#" | append: band-name -%}
-    {% include kankoda/buttons/back.html title="Music" href=href %}
+    {%- assign url = "/music#" | append: band-name -%}
+    {% include kankoda/buttons/back.html url=url title="Music" %}
 
     <h1>
       {{ info.name | escape }}
