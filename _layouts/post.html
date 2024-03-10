@@ -10,31 +10,33 @@ layout: default
     {{ page.title | escape }}
   </h1>
 
+  {% include kankoda/blog/post-header.html post=page follow=1 %}
+
   {%- if page.image-show == 1 -%}
   <img src="{{ page.image }}" alt="{{ page.title }}" class="u-photo" itemprop="image" />
+  <br />
   {%- endif -%}
 
-  {% include kankoda/blog/post-header.html post=page %}
   <div class="e-content" itemprop="articleBody">
     {{ content }}
   </div>
 
-  {%- if page.tweet -%}
-  <h2>Discussion</h2>
+  <h2>Discussions</h2>
 
+  <p>
+    Please share any ideas, feedback or comments you may have 
     {%- if site.disqus.shortname -%}
-    <p>
-      If you found this post interesting and would like to share 
-      your thoughts, ideas, feedback etc. please comment in the
-      Disqus section below or reply to {% include kankoda/blog/post-discussion-links.html %}.
-    </p>
-    {%- else -%}
-    <p>
-      If you found this post interesting and would like to share 
-      your thoughts, ideas, feedback etc. please reply to {% include kankoda/blog/post-discussion-links.html %}.
-    </p>
+    &nbsp;in the Disqus section below, or
     {%- endif -%}
-  {%- endif -%}
+    &nbsp;by replying 
+    {% include kankoda/blog/post-discussion-links.html %}.
+  </p>
+
+  <h2>Follow for more</h2>
+
+  <p>
+    If you found this interesting, follow the <a href="{{site.twitter_url}}">Twitter</a> and <a href="{{site.mastodon_url}}">Mastodon</a> accounts for more content like this, and to be notified when new content is published.
+  </p>
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
