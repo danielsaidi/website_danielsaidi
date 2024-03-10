@@ -9,8 +9,8 @@ image-show: 0
 
 inspiration: https://maxxfrazer.medium.com/deploying-docc-with-github-actions-218c5ca6cad5
 
-tweet:  https://x.com/danielsaidi/status/1759312051640414643?s=20
-toot:   https://mastodon.social/@danielsaidi/111954340675664871
+tweet:  https://x.com/danielsaidi/status/1766754008260104649?s=20
+toot:   https://mastodon.social/@danielsaidi/112070621419993035
 ---
 
 In this post, let's see how we can use GitHub Actions to automate building the DocC of a Swift Package with GitHub Actions.
