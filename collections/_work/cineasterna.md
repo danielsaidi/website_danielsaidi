@@ -8,24 +8,24 @@ screenshot-1: /assets/blog/2020/201209/image.jpg
 screenshot-2: /assets/blog/2020/201225/3-discover-ipad.jpg
 ---
 
-[Cineasterna]({{page.url}}) is a Swedish streaming video service, where users can loan movies for free with their public library card. The service is available in Sweden, Norway and Finland.
+[Cineasterna]({{page.url}}) is a streaming video service that lets users watch movies for free with a public library card. The service is available in Sweden, Norway & Finland.
 
 {%- assign band = site.data.bands[id] -%}
 
 ![Cineasterna logo]({{page.image}})
 
-I've been a Cineasterna user for many years, and approached the company behind Cineasterna in 2020, due to their lack of native apps for iOS and tvOS.
+After being a Cineasterna user for many years, I approached them in 2020, due to the lack of a native app for iOS and tvOS.
 
-After a demo of what [SwiftUI]({{site.swiftui}}) (which had released just a year prior) was capable of, Cineasterna trusted my company [Kankoda]({{site.kankoda}}) with developing an app for tvOS and the Apple TV.
+After showing a [SwiftUI]({{site.swiftui}}) demo, Cineasterna trusted me with developing a first app for tvOS:
 
 ![Screenshot from the Cineasterna iPad app]({{page.screenshot-1}})
 
-Once the tvOS app was out and proven to work well, we could reuse much of the functionality and views to develop a mobile version for iOS and iPadOS.
+Once the tvOS app was out, we could reuse much of the code and views to build a version of the app for iOS & iPadOS:
 
 ![Screenshot from the Cineasterna iPad app]({{page.screenshot-2}})
 
-The app lets users browse movies in shelves and grids and explore the total movie stock through filters and search. Users can manage their favorites, switch libraries and loan/watch any movie they like.
+The app lets users browse movies in shelves & grids and through filters & search. Users can manage their favorites, switch libraries and watch any movies they like for free.
 
-The app syncs data between devices and remembers movie position (locally only) when a user resumes a previous watch. The iOS app for iPhone and iPad also supports AirPlay and Chromecast.
+The app syncs data between devices and remembers movie position to let users resume a previous watch. The iOS app also supports AirPlay & Chromecast.
 
-Since the release of these apps, Cineasterna has trusted Kankoda with developing an Android app as well. This app is developed by the amazing [Studio Violet](https://studioviolet.io) with Kankoda as project lead.
+Since these apps, Cineasterna has trusted my company with developing an Android app as well. This app is developed by the [Studio Violet](https://studioviolet.io) with me as project lead.
