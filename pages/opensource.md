@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Open Source
+title: Open-Source
 permalink: /opensource
 
 redirect_from: 

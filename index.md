@@ -24,13 +24,13 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
             I'm a <a href="work">freelance</a> engineer who specializes in app & product development, with focus on Apple platforms like iOS, macOS, tvOS & watchOS and tech like Swift & SwiftUI.
           </p>
           <p>
-            I make <a href="apps">apps</a>, <a href="products">products</a> and manage several <a href="opensource">open-source</a> projects. I <a href="blog">blog</a>, <a href="{{site.twitter_url}}">tweet</a> and <a href="{{site.mastodon_url}}">toot</a> and give occasional <a href="talks">talks & workshops</a>.
+            I love building <a href="apps">apps</a> & <a href="opensource">open-source</a> tools. I <a href="blog">blog</a>, <a href="{{site.twitter_url}}">tweet</a>, <a href="{{site.mastodon_url}}">toot</a> and give occasional <a href="talks">talks</a>.
           </p>
         </div>
       </section>
       <hr />
-      <section class="blog">
-        {% include kankoda/titles/section.html title="Latest posts" link="/blog" %}
+      <section>
+        {% include kankoda/titles/section.html title="Latest Posts" link="/blog" %}
         <div class="grid blog list">
           {% for post in site.posts limit:2 %}
               <div>
@@ -40,28 +40,22 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
         </div>
       </section>
       <hr />
-      <section class="work">
-        {% assign work = site.data.work | slice: 0, 4 %}
-        {% include kankoda/grids/title.html title="Work" link="/work" %}
-        {% include kankoda/grids/grid.html items=work type="icons" %}
-      </section>
-      <hr />
       <section class="opensource">
         {% assign projects = site.data.open-source | slice: 0, 4 %}
         {% include kankoda/grids/title.html title="Open Source" link="/opensource" %}
         {% include kankoda/grids/grid.html items=projects type="icons" %}
       </section>
-      <hr />
-      <section class="products">
-        {% assign products = site.data.products | slice: 0, 4 %}
-        {% include kankoda/grids/title.html title="Products" link="/products" %}
-        {% include kankoda/grids/grid.html items=products type="icons" %}
-      </section>
-      <hr />
+      
       <section class="apps">
         {% assign apps = site.data.apps | slice: 0, 4 %}
         {% include kankoda/grids/title.html title="Apps" link="/apps" %}
         {% include kankoda/grids/grid.html items=apps type="icons" %}
+      </section>
+      
+      <section class="work">
+        {% assign work = site.data.work | slice: 0, 4 %}
+        {% include kankoda/grids/title.html title="Work" link="/work" %}
+        {% include kankoda/grids/grid.html items=work type="icons" %}
       </section>
     </div>
   </main>

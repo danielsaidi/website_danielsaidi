@@ -30,6 +30,11 @@
     }
   }
 
+  section + section {
+
+    margin-top: 60px;
+  }
+
   section.strikethrough-sections {
 
     p {

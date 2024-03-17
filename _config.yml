@@ -41,7 +41,6 @@ disqus:
 header_logo_text: Daniel Saidi
 
 header_pages:
-  - pages/work.md
   - pages/apps.md
   - pages/opensource.md
   - pages/blog.md

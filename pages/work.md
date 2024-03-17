@@ -13,7 +13,7 @@ licensekit: https://getlicensekit.com
   <h1>Work</h1>
 
   <p>
-    Here are some companies that I have had the pleasure of working with the last couple of years.
+    Here are some companies that I have had the pleasure of working with over the years.
   </p>
   
   {% include work-paragraph.html %}
