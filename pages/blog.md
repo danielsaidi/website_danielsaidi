@@ -16,6 +16,8 @@ permalink: /blog/
   </div>
   <a name="tag-item-list"></a>
 
-  {% include kankoda/blog/post-list.html posts=site.posts %}
+  {% assign posts = site.posts %}
+  {% assign posts2 = site.posts | where: 'image', '' %}
+  {% include kankoda/blog/post-list.html posts=posts %}
   {% include kankoda/tags/scripts.html %}
 </div>

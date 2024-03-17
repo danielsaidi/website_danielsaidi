@@ -4,8 +4,7 @@ date:   2024-03-10 06:00:00 +0000
 tags:   swift
 
 image:  /assets/blog/2024/240310/title.jpg
-assets:  /assets/blog/2024/240310/
-image-show: 0
+assets: /assets/blog/2024/240310/
 
 inspiration: https://maxxfrazer.medium.com/deploying-docc-with-github-actions-218c5ca6cad5
 
