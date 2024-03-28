@@ -28,7 +28,11 @@ img.icon {
   border-radius: 23%;
 }
 
-img.plain {
+img.plain, img.screenshot {
   border-radius: 0px;
   box-shadow: none !important;
+}
+
+img.screenshot {
+  margin-bottom: 30px !important;
 }

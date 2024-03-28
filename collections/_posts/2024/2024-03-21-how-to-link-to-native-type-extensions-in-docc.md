@@ -8,8 +8,8 @@ assets: /assets/blog/2024/240321/
 
 article:  /blog/2024/03/10/automating-docc-for-a-swift-package-with-github-actions
 
-tweet:  https://x.com/danielsaidi/status/1766754008260104649?s=20
-toot:   https://mastodon.social/@danielsaidi/112070621419993035
+tweet:  https://x.com/danielsaidi/status/1770708080885477395
+toot:   https://mastodon.social/@danielsaidi/112132403260601545
 ---
 
 In this post, we'll take a look at how we can use Xcode 15's improved 15 DocC capabilities to link to native type extensions, which lets us provide even better documentation.
