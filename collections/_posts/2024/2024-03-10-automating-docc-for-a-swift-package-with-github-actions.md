@@ -1,5 +1,5 @@
 ---
-title:  Automating DocC for a Swift Package with GitHub Actions
+title:  How to automate DocC for a Swift Package with GitHub Actions
 date:   2024-03-10 06:00:00 +0000
 tags:   swift
 
@@ -12,7 +12,7 @@ tweet:  https://x.com/danielsaidi/status/1766754008260104649?s=20
 toot:   https://mastodon.social/@danielsaidi/112070621419993035
 ---
 
-In this post, let's see how we can use GitHub Actions to automate building the DocC of a Swift Package with GitHub Actions.
+In this post, let's see how we can use GitHub Actions to automate building & publishing the DocC documentation for a Swift Package, each time we push to a specific branch.
 
 ![GitHub Actions Logo]({{page.assets}}header.jpg)
 
@@ -25,11 +25,11 @@ I used to have DocC generation as part of my standard [open-source](/opensource)
 
 Every time a new version was successfully created, I would then take the generated docs and move them to another folder that pushed to the `gh-pages` branch.
 
-This has been quite painful (and error-prone), since it made the release process consist of several manual steps instead of just having to trigger a single script.
+Since the web docs become pretty huge (some are around 300MB), I also used `git amend` to only get a single commit for the `gh-pages` branch.
 
-Since I have almost 20 [open-source projects](/opensource), the amount of time I had to put on this step added up over time.
+This has been tedious and error-prone, since each release has consisted of many manual steps, instead of one. Since I have many [projects](/opensource), the amount of manual work addded up.
 
-This is why I was very happy to see that GitHub launched a beta that lets you use GitHub Actions and workflows to publish new pages. Let's see how it works.
+I was therefore very happy to see that GitHub now lets you use GitHub Actions to publish new pages every time you push new changes. Let's see how it works.
 
 
 ## GitHub Settings
@@ -68,13 +68,12 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: {% raw %}${{ steps.deployment.outputs.page_url }}{% endraw %}
     runs-on: macos-13
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - id: pages
-        name: Setup Pages
+        uses: actions/checkout@v4
+      - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Select Xcode 15.1
         uses: maxim-lobanov/setup-xcode@v1
@@ -107,7 +106,9 @@ The job sets up the environment, specifies that is should run on macOS 13 (I cou
 
 The DocC build step currently only builds for iOS, but you can add more `xcodebuild` rows to include more platforms. It adds a redirect to the root folder, then deploys the `doc` folder.
 
-Compared to the older posts that helped me get this in place, I've updated the required actions to the latest versions.
+The DocC build step also write a JavaScript redirect into the root `index.html`, to redirect to the generated documentation. Without this, the root page would just show a blank page.
+
+Compared to older posts that helped me get this in place, I've updated the required actions to the latest versions.
 
 
 ## Build Runner Workflow
@@ -150,12 +151,16 @@ jobs:
         run: xcodebuild test -scheme $SCHEME -derivedDataPath .build -destination 'platform=iOS Simulator,name=iPhone 15,OS=17.2' -enableCodeCoverage YES;
 ```
 
+As you can see, this file has individual build steps for iOS, macOS, tvOS, watchOS and visionOS. It will make sure that the package builds for all supported platforms.
+
+If your package only supports one or a few platforms, make sure to adjust the build steps to only include the platforms that your package supports.
+
 I will expand this to run unit tests on all platforms as well, but it's a bit tricky to determine which device to run them on.
 
 
-## Fastlane Version Bump lane
+## Fastlane Version Bump Script
 
-With the DocC and build runner workflows in place, I still need to have a build and test runner in the version bump script, to avoid faulty versions.
+With the DocC and build runner workflows in place, we still need a build and test runner in the version bump script, to avoid faulty versions.
 
 This is the new Fastlane file that I will use in all my open-source projects. It's basically just defining a version bump script (lane) that uses other lanes to ensure that the code is legit.
 
@@ -176,6 +181,14 @@ platform :ios do
   lane :build do |options|
     platform = options[:platform]
     sh("cd .. && xcodebuild -scheme " + name + " -derivedDataPath .build -destination 'generic/platform=" + platform + "';")
+  end
+  
+  lane :build_all do
+    build(platform: "iOS")
+    build(platform: "OS X")
+    build(platform: "tvOS")
+    build(platform: "watchOS")
+    build(platform: "xrOS")
   end
 
 
@@ -205,20 +218,16 @@ platform :ios do
     ensure_git_status_clean
     ensure_git_branch(branch: main_branch)
     swiftlint(strict: true)
-    build(platform: "iOS")
-    build(platform: "OS X")
-    build(platform: "tvOS")
-    build(platform: "watchOS")
-    build(platform: "xrOS")
+    build_all
     test_ios
   end
 
 end
 ```
 
-The file defines a `build` lane that can build the package on any platform, as well as an iOS test lane.
+It defines a `build` lane that build the package for any platform, as well as an iOS test lane.
 
-The `version` lane calls `version_validate` to ensure that the git repo status is clean, that it's on the correct branch, that `swiftlint` passes, then builds all platforms and tests iOS.
+The `version` lane calls `version_validate` to check that the git repo status is clean, that it's on the correct branch, and that `swiftlint` passes, then calls `build_all` and tests iOS.
 
 
 ## Conclusion
