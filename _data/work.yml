@@ -2,20 +2,19 @@
   years:    2020 -
   url:      /work/kankoda
   website:  https://www.kankoda.com
-  tags:     swift swiftui ios ipados macos tvos watchos
+  tags:     swift swiftui spm ios ipados macos tvos watchos
     
-- name:     Oribi
-  years:    2021 -
-  url:      /work/oribi
-  website:  https://www.oribi.se/en/ 
-  tags:     swift swiftui ios macos closed-source keyboard-extension
+- name:     Compileit
+  years:    2024
+  url:      /work/compileit
+  website:  https://compileit.com
+  tags:     swift swiftui spm watchos
 
-- name:     Cineasterna
-  years:    2020 -
-  url:      /work/cineasterna
-  website:  https://cineasterna.com
-  appstore: https://apps.apple.com/se/app/cineasterna/id1446065399
-  tags:     swift swiftui ios tvos video streaming
+- name:     Mods
+  years:    2024
+  url:      /work/mods
+  website:  https://www.mods.se
+  tags:     swift swiftui spm ios
 
 - name:     Qapital
   years:    2022 - 2023
@@ -29,13 +28,26 @@
   website:  https://bambuser.com
   tags:     swift swiftui ios closed-source video streaming
 
+- name:     Oribi
+  years:    2021 - 2024
+  url:      /work/oribi
+  website:  https://www.oribi.se/en/ 
+  tags:     swift swiftui spm ios macos closed-source keyboard-extension
+
+- name:     Cineasterna
+  years:    2020 -
+  url:      /work/cineasterna
+  website:  https://cineasterna.com
+  appstore: https://apps.apple.com/se/app/cineasterna/id1446065399
+  tags:     swift swiftui ios tvos video streaming airplay chromecast
+
 - name:     BookBeat
   years:    2016 - 2020
   url:      /work/bookbeat
   website:  https://bookbeat.com
   appstore: https://itunes.apple.com/app/bookbeat/id1056652614
   playstore: https://play.google.com/store/apps/details?id=com.bookbeat.android&hl=en&gl=US
-  tags:     swift swiftui ios watchos carplay uikit architecture
+  tags:     swift swiftui ios watchos carplay uikit accessibility
 
 - name:     Voyado
   years:    2015 - 2016

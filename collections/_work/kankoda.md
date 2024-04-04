@@ -4,7 +4,7 @@ name: Kankoda
 image:  /assets/headers/kankoda.jpg
 ---
 
-[Kankoda]({{site.kankoda}}) is my own software agency, in Stockholm, Sweden, that builds apps & SDKs for iOS, iPadOS, macOS, tvOS & watchOS.
+[Kankoda]({{site.kankoda}}) is my software agency, in Stockholm, Sweden, that builds apps & SDKs for iOS, iPadOS, macOS, tvOS & watchOS.
 
 {% include kankoda/data/open-source.html name="KeyboardKit" %}
 

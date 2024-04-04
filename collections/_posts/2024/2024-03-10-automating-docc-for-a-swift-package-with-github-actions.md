@@ -232,7 +232,7 @@ The `version` lane calls `version_validate` to check that the git repo status is
 
 ## Conclusion
 
-With these new GitHub Actions workflows, I save a lot of time on not having to manually handle the DocC generation. Every new push to `main` does this for me.
+With these new GitHub workflows, I save a lot of time and a on not having to manually handle the DocC generation. Every new push to `main` does this for me.
 
 I also get continuous build and test checks with the `build` workflow, that builds and tests the platform on every new push to `main`.
 

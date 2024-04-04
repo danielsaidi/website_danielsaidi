@@ -14,16 +14,16 @@ Oribi develops powerful spelling aids & language support for the digital and phy
 
 ![Oribi logo]({{page.image}})
 
-Oribi reached out to me regarding my [KeyboardKit]({{project.url}}) project, and asked me to develop a custom keyboard app that makes use of their amazing technology.
+Oribi reached out regarding [KeyboardKit]({{project.url}}), and asked me to create a custom keyboard app powered by their amazing language technology.
 
-The first product I developed for Oribi was [oKeyboard]({{page.okeyboard}}), which is a custom keyboard for iOS & iPadOS that adds Oribi's autocomplete, spellchecking & text-to-speech to a keyboard.
+The first product I developed for Oribi was [oKeyboard]({{page.okeyboard}}), which is a custom keyboard for iOS & iPadOS that adds Oribi's autocomplete, spellchecking & text-to-speech:
 
 ![oKeyboard]({{page.assets}}okeyboard.png){:class="plain" width="550"}
 
-As part of the oKeyboard project, I also structured Oribi's tools into separate libraries, which makes it easy to combine and use them in any app that use Oribi technologies.
+As part of this project, I structured Oribi's tools into separate libraries, which makes it easy to combine and use them in any app that use Oribi technologies.
 
-After oKeyboard, I rebuilt Oribi Writer from scratch, to a document-based SwiftUI app, that runs on iOS, iPadOS and macOS:
+After oKeyboard, I rebuilt their Oribi Writer app from scratch, to a multi-platform, document-based app that runs on iOS, iPadOS and macOS:
 
 ![Oribi Writer]({{page.assets}}oribiwriter.png){:class="plain"}
 
-Thanks to Oribi, I could focus on improving KeyboardKit as part of making oKeyboard.
+Thanks to Oribi, I was able to improve KeyboardKit a lot, as part of making oKeyboard. It was a true pleasure to work with them for so many years.

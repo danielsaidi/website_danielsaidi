@@ -1,22 +1,20 @@
 ---
 name: Tradera
 
-assets: /assets/work/
-image:  /assets/work/tradera-title.png
+image:  /assets/headers/tradera.png
 
+ebay:   https://ebay.com
 paypal: https://paypal.com
 ---
 
-Tradera is a Swedish classified marketplace, previously owned by eBay and PayPal, that lets user bid on auction items and buy fixed-prices.
+Tradera is a Swedish classified marketplace, previously owned by [eBay]({{page.ebay}}) & [PayPay]({{page.paypal}}), where people can bid on auction items and buy fixed-prices.
 
 ![Tradera logo]({{page.image}})
 
-I joined Tradera as a backend developer, but became responsible for bringing the mobile apps for iOS and Android back in-house, from an external agency and to build new ones.
+I joined Tradera as a backend developer, then became responsible for bringing the iOS & Android apps back from an external agency, then build new ones.
 
-The goal with the new apps for iOS & Android, was to create hybrid apps that could reuse as much as possible from the new, responsive web.
+The goal with the new app versions was to create hybrid apps that could reuse as much as possible from the new, responsive web.
 
-To solve this, I created a hybrid framework for both platforms, that adjusted the web to run as an app within a native framework, all powered by a bidirectional configuration engine.
+To solve this, I created a hybrid framework for both platforms, that ran in native apps with a bidirectional configuration engine, to let the web configure the app and vice versa.
 
-This engine made it possible for the apps to display content from the web, excluding some parts that were explicitly excluded by the configuration engine. 
-
-The apps also got support for local reminders and push notifications, as well as other native features like deep links.
+The apps also had native features, like local reminders, push notifications and deep links.
