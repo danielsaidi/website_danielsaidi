@@ -1,7 +1,7 @@
 ---
 title:  How to automate DocC for a Swift Package with GitHub Actions
 date:   2024-03-10 06:00:00 +0000
-tags:   swift
+tags:   swift docc
 
 image:  /assets/blog/2024/240310/title.jpg
 assets: /assets/blog/2024/240310/

@@ -1,7 +1,7 @@
 ---
-title:  How to create a custom label style that only tints the label icon
+title:  How to create a custom label style that only tints the icon
 date:   2024-04-04 04:00:00 +0000
-tags:   swift spm
+tags:   swift swiftui
 
 assets: /assets/blog/2024/240404/
 image:  /assets/blog/2024/240404/title.jpg

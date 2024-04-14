@@ -35,6 +35,10 @@
   url: https://github.com/kankoda/EmojiKit
   header: /assets/headers/emojikit.png
 
+- name: EnvironmentKit
+  url: https://github.com/danielsaidi/EnvironmentKit
+  header: /assets/headers/environmentkit.png
+
 - name: MockingKit
   url: https://github.com/danielsaidi/MockingKit
   header: /assets/headers/mockingkit.png

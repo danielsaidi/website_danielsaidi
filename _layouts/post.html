@@ -21,8 +21,7 @@ layout: default
     {{ content }}
   </div>
 
-  <h2>Discussions</h2>
-
+  <h2>Discussions & More</h2>
   <p>
     Please share any ideas, feedback or comments you may have 
     {%- if site.disqus.shortname -%}
@@ -31,11 +30,13 @@ layout: default
     &nbsp;by replying 
     {% include kankoda/blog/post-discussion-links.html %}.
   </p>
-
-  <h2>Follow for more</h2>
+  
+  <p>
+    If you found this text interesting, make sure to follow me on <a href="{{site.twitter_url}}">Twitter</a> and <a href="{{site.mastodon_url}}">Mastodon</a> for more content like this, and to be notified when new content is published.
+  </p>
 
   <p>
-    If you found this interesting, follow the <a href="{{site.twitter_url}}">Twitter</a> and <a href="{{site.mastodon_url}}">Mastodon</a> accounts for more content like this, and to be notified when new content is published.
+    If you like & want to support my work, please consider sponsoring me on <a href="{{site.github_sponsors}}">GitHub Sponsors</a>.
   </p>
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>

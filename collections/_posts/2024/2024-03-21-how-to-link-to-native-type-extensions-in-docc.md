@@ -1,7 +1,7 @@
 ---
 title:  How to link to native type extensions in DocC
 date:   2024-03-21 04:00:00 +0000
-tags:   swift
+tags:   swift docc
 
 image:  /assets/blog/2024/240321/title.jpg
 assets: /assets/blog/2024/240321/
