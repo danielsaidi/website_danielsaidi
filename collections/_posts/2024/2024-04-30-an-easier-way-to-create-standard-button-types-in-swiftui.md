@@ -40,13 +40,13 @@ I started with setting up an enum that can be used to define standard button typ
 public extension Button {
     
     enum StandardType: String, CaseIterable, Identifiable {
-        case add, addFavorite, addToFavorites,
+        case add, addFavorite,
              cancel, call, copy,
              delete, deselect, done, 
              edit, email,
              ok, 
              paste,
-             removeFavorite, removeFromFavorites, 
+             removeFavorite, 
              select, share
     }
 }
@@ -59,16 +59,14 @@ public extension Button.StandardType {
     
     var id: String{ rawValue }
     
-    var image: Image? {
-        guard let imageName else { return nil }
-        return .symbol(imageName)
+    var image: Image {
+        .symbol(imageName)
     }
     
-    var imageName: String? {
+    var imageName: String {
         switch self {
         case .add: "plus"
         case .addFavorite: "star.circle"
-        case .addToFavorites: "star.circle"
         case .cancel: "xmark"
         case .call: "phone"
         case .copy: "doc.on.doc"
@@ -80,7 +78,6 @@ public extension Button.StandardType {
         case .ok: "checkmark"
         case .paste: "clipboard"
         case .removeFavorite: "star.circle.fill"
-        case .removeFromFavorites: "star.circle.fill"
         case .select: "checkmark.circle"
         case .share: "square.and.arrow.up"
         }
@@ -166,13 +163,17 @@ Since the title is a `LocalizedStringKey`, custom title keys will automatically 
 
 There are some things to consider with this approach, since the `Button` initializer approach means that we can't apply use view modifiers within it.
 
-Or rather, we *can* apply any modifiers we want to the label, text or image, but it will require changes the generic constraint in a way that I have yet to figure out.
+Or rather, we *can* apply modifiers to the label, text or image, but that requires changes the generic constraint, in a way that I have yet to figure out.
 
-So, there are some things that are tricky at the moment. They're not massive problems by any mean, but it would be nice to have them fixed.
+So, there are some things that are tricky to fix at the moment. They're not massive by any means, but it would be nice to have them fixed.
 
-First, SwiftUI will not tint `destructive` button icons in a `List`. It works for toolbars and the navigation bar, so it's strange. For now, fix it by applying a `foregroundStyle` to the button.
+First, SwiftUI will not tint `destructive` button icons in a `List` in Xcode 15.4. This works in 15.2, so I wonder if it's a simulator or SwiftUI bug. It also works in toolbars and the navbar. 
 
-Second, since each standard button type defines an icon, both an icon and a title are used by default. Use `.labelStyle(.titleOnly)` and `.labelStyle(.iconOnly)` to adjust if needed.
+For now, fix it by applying a `foregroundStyle` to the button, but this shouldn't be needed.
+
+Second, since each type defines an icon, both an icon and a title are used by default. Use `.labelStyle(.titleOnly)` and `.labelStyle(.iconOnly)` to adjust the label if needed.
+
+I would have loved to have a label display config in the `Button` initializer, but since I don't know how to describe the generic constraint, I currently use the label style approach.
 
 
 ## Conclusion
