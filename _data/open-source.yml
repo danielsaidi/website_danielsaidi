@@ -14,7 +14,6 @@
   url: https://github.com/danielsaidi/RichTextKit
   header: /assets/headers/richtextkit.png
 
-
 - name: ApiKit
   url: https://github.com/danielsaidi/ApiKit
   header: /assets/headers/apikit.png
@@ -32,7 +31,7 @@
   header: /assets/headers/documentkit.png
 
 - name: EmojiKit
-  url: https://github.com/kankoda/EmojiKit
+  url: https://github.com/danielsaidi/EmojiKit
   header: /assets/headers/emojikit.png
 
 - name: EnvironmentKit

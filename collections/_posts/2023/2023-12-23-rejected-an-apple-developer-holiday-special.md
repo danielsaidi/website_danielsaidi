@@ -19,7 +19,7 @@ I've spent time on a new app, with a goal to learn many new SwiftUI features and
 
 ![EmojiPicker on macOS]({{page.assets}}emojipicker-macos.jpg)
 
-I started looking into emojis when building the [KeyboardKit](https://keyboardkit.com) emoji keyboard. Over time, the emoji features grew quite capable, which led me to create a separate SDK - [EmojiKit](https://kankoda.com/emojikit).
+I started looking into emojis when building the [KeyboardKit](https://keyboardkit.com) emoji keyboard. Over time, the emoji features grew quite capable, which led me to create a separate SDK - [EmojiKit](https://github.com/danielsaidi/emojikit).
 
 When building SDKs, I want to eat my own dog food, so I started building an app that uses the SDK, to ensure that it works and that the design makes sense.
 

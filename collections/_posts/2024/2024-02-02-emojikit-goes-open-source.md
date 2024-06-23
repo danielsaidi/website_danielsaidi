@@ -10,7 +10,7 @@ toot:   https://mastodon.social/@danielsaidi/111861348152490917
 ---
 
 {% include kankoda/data/open-source.html name="EmojiKit" %}
-I've decided to open-source my [EmojiKit](https://kankoda.com/emojikit) library, which is currently a closed-source product at my company [Kankoda]({{site.kankoda}}). In this post, I'll discuss why and how it will be done.
+I've decided to open-source my [EmojiKit](https://github.com/danielsaidi/emojikit) library. In this post, I'll discuss why and how it will be done.
 
 ![Header image]({{project.header}})
 
