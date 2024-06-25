@@ -3,7 +3,9 @@ title:  SwiftUIKit Updates
 date:   2023-06-12 06:00:00 +0000
 tags:   swiftui open-source
 
+assets: /assets/blog/23/0612/
 image:  /assets/headers/swiftuikit.png
+image-show: 0
 
 release:    https://github.com/danielsaidi/SwiftUIKit/releases/tag/3.3.0
 ---

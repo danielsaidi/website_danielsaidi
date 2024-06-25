@@ -3,7 +3,9 @@ title:  Deep Dish Swift - Day 1
 date:   2023-04-30 06:00:00 +0000
 tags:   conference
 
+assets: /assets/blog/23/0430/
 image:  /assets/headers/deepdish.png
+image-show: 0
 
 tweet:  https://twitter.com/danielsaidi/status/1652745283548205057?s=20
 toot:   https://mastodon.social/@danielsaidi/110289234989608560
@@ -15,7 +17,7 @@ emmanuel: https://twitter.com/emcro
 ariel:  https://twitter.com/arielmichaeli
 ---
 
-2023 flew by and Deep Dish Swift suddenly happened! This is a summary of the first indie dev focused day. Since the talks are not recorded, reach out to the speakers and invite them to your conference to get more people to hear the great stories they have to tell.
+2023 flew by and Deep Dish Swift suddenly happened! This is a summary of the first indie dev day. The talks are not recorded, so invite the speakers to your conference.
 
 ![DeepDish Swift logo]({{page.image}})
 

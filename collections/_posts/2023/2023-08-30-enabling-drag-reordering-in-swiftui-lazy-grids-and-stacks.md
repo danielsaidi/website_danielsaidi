@@ -1,11 +1,11 @@
 ---
-title:  Enabling drag reordering in SwiftUI lazy grids and stacks
+title:  Enabling drag reordering in lazy SwiftUI grids and stacks
 date:   2023-08-30 07:00:00 +0000
 tags:   swiftui
 
-icon:   swiftui
-assets: /assets/blog/2023/230830/
-image:  /assets/blog/2023/230830/title.jpg
+assets: /assets/blog/23/0830/
+image:  /assets/blog/23/0830.jpg
+image-show: 0
 
 post:   https://stackoverflow.com/questions/62606907/swiftui-using-ondrag-and-ondrop-to-reorder-items-within-one-single-lazygrid
 user:   https://stackoverflow.com/users/6898849/ramzesenok
@@ -14,18 +14,18 @@ tweet:  https://twitter.com/danielsaidi/status/1696880164578148570
 toot:   https://mastodon.social/@danielsaidi/110978849170429158
 ---
 
-While SwiftUI's `List` supports drag to reorder, the `LazyVGrid`, `LazyHGrid`, `LazyVStack` and `LazyHStack` components lack this functionality. Let's see how to implement it from scratch.
+While the SwiftUI `List` supports drag to reordering, `LazyVGrid`, `LazyHGrid`, `LazyVStack` & `LazyHStack` lack this functionality. Let's implement this functionality from scratch.
 
-The solution in this post builds upon [this amazing post]({{page.post}}) by [ramzesenok]({{page.user}}). I've modularized it a bit and added the possibility to provide a custom preview.
+This solution in this post builds upon [this amazing post]({{page.post}}) by [ramzesenok]({{page.user}}). I've modularized it a bit and added the possibility to provide a custom preview.
 
 
 ## What to expect
 
-To give you an idea of what to expect, we will implement something that will let us add drag reordering to a `LazyVGrid` and `LazyHGrid`:
+To give you an idea of what to expect, this will let us enable drag reordering in `LazyVGrid` and `LazyHGrid`:
 
 ![A demo of a grid with drag to reordering]({{page.assets}}demo-grid.gif)
 
-as well as to `LazyVStack` and `LazyHStack`, using the same component and configuration:
+as well as in `LazyVStack` and `LazyHStack`, using the same component and configuration:
 
 ![A demo of a grid with drag to reordering]({{page.assets}}demo-stack.gif)
 

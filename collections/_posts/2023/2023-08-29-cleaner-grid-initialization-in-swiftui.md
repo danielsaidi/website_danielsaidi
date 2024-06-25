@@ -1,11 +1,11 @@
 ---
 title:  Cleaner grid initialization in SwiftUI
-date:   2023-08-30 06:00:00 +0000
+date:   2023-08-29 06:00:00 +0000
 tags:   swiftui
 
-icon:   swiftui
-assets: /assets/blog/2023/230829/
-image:  /assets/blog/2023/230829/title.jpg
+assets: /assets/blog/23/0829/
+image:  /assets/blog/23/0829.jpg
+image-show: 0
 
 tweet:  https://twitter.com/danielsaidi/status/1696851725477351689?s=20
 toot:   https://mastodon.social/@danielsaidi/110978398679088671

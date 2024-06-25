@@ -1,9 +1,11 @@
 ---
-title:  Group and sort Swift collections like a pro
+title:  Group and sort collections in Swift like a pro
 date:   2023-04-01 06:00:00 +0000
 tags:   swift
 
-icon:   swift
+assets: /assets/blog/23/0401/
+image:  /assets/blog/23/0401.jpg
+image-show: 0
 
 tweet:  https://twitter.com/danielsaidi/status/1642412403542433792?s=20
 toot:   https://mastodon.social/@danielsaidi/110127782998293315

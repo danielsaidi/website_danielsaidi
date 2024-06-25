@@ -3,7 +3,10 @@ title:  Sort git tags like a pro
 date:   2023-03-26 06:00:00 +0000
 tags:   git
 
-icon:   git
+assets: /assets/blog/23/0326/
+image:  /assets/blog/23/0326.jpg
+image-show: 0
+
 ---
 
 If you like me use semantic versioning and have projects with a gazillion version tags, it's nice to be able sort the tags in various ways. Let's see how to sort Git tags like a pro.

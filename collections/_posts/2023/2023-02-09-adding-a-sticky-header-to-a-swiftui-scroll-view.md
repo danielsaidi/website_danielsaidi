@@ -1,11 +1,13 @@
 ---
-title:  Adding a stretchable and sticky header to a SwiftUI ScrollView
+title:  Adding a stretchable & sticky header to a SwiftUI ScrollView
 date:   2023-02-09 10:00:00 +0000
 tags:   swiftui scrollview open-source
 
-icon:   swiftui
-assets: /assets/blog/2023/230209/
-assets-stretch: /assets/blog/2023/230206/
+assets: /assets/blog/23/0209/
+image:  /assets/blog/23/0209.jpg
+image-show: 0
+
+assets-stretch: /assets/blog/23/0206/
 
 tweet:  https://twitter.com/danielsaidi/status/1623804862638039042?s=20&t=J6iHidP-sc9AlxvKVXzKJA
 toot:   https://mastodon.social/@danielsaidi/109835843154685679
@@ -17,41 +19,45 @@ arden:  https://danielarden.com
 source: /blob/main/Sources/ScrollKit/ScrollViewHeader.swift
 ---
 
-As we've previously looked at how to implement [offset tracking]({{page.post-offset}}) and [stretchable headers]({{page.post-stretch}}) for SwiftUI scroll views, let's combine them to implement a scroll view header that stretches as you pull down and sticks to the navigation bar as you scroll.
+As we've previously looked at how to implement [offset tracking]({{page.post-offset}}) and [stretchable headers]({{page.post-stretch}}) for SwiftUI scroll views, let's combine them to implement a stretchy, sticky scroll view header.
 
 {% include kankoda/data/open-source.html name="ScrollKit" %}
-
-This is a commonly used and loved kind of component, which strangely enough isn't available as a native UIKit or SwiftUI component. 
 
 
 ## Example
 
-If you are unsure of what kind of view I mean, consider this nice album screen from the Spotify iOS app:
+If you are unsure of what kind of view I mean, consider this nice Spotify album screen:
 
 ![A Spotify screenshot]({{page.assets-stretch}}spotify-demo.jpg)
 
-As you can see, the header stretches out when you pull it down, instead of leaving a gap at the top, then scrolls away with the rest of the content with a nice fade animation and parallax effect.
+The header stretches out when you pull it down, instead of leaving a gap at the top, then scrolls away with the rest of the content with a nice fade animation and parallax effect.
+
+This is a commonly used and loved kind of component, which strangely isn't available as a native UIKit or SwiftUI component. 
 
 To recreate this, we have to be detect the scroll offset, then make the header stretch out when it's pulled down and stick to the top as it scrolls past the navigation bar.
 
 
 ## How to implement scroll offset tracking
 
-We need to detect the scroll offset to be able to stick the header to the top and adjust certain parts of it as it scrolls. For instance, Spotify scales and fades out the cover and fades in the screen title.
+We need to detect the scroll offset to be able to stick the header to the top and adjust it as it scrolls. For instance, Spotify scales and fades out the cover and fades in the screen title.
 
-As we saw in [this blog post]({{page.post-offset}}), we can detect scroll offset by using a `preference key` and a `coordinate namespace`. By adding a tiny layer on top of a native `ScrollView`, the post's `ScrollViewWithOffset` will continuously provide us with an updated scroll offset as its content scrolls.
+As we saw [here]({{page.post-offset}}), we can detect it by using a `preference key` and a `coordinate namespace`. By adding a tiny layer on top of a native `ScrollView`, the post's `ScrollViewWithOffset` will continuously provide us with an updated scroll offset as its content scrolls.
 
 
 ## How to implement a stretchable scroll view header
 
 We need to find a way to make the scroll view header stretch out when we pull it down. It would also be nice to make the cover scale up when we do, as the Spotify app does.
 
-As we saw in [this blog post]({{page.post-stretch}}), it's actually pretty easy to implement this kind of scroll view header. It uses a `GeometryReader` to read the frame and applies a `frame` and `offset` to the header's content to make it stretch out downwards. We can use the post's `ScrollViewHeader` with the `ScrollViewWithOffset` to get both offset tracking and a strechable header.
+As we saw [here]({{page.post-stretch}}), it's actually pretty easy to implement this kind of header by using a plain `GeometryReader` to read the frame, then applying a `frame` & `offset` to the header content to make it stretch out downwards. 
+
+We can use the post's `ScrollViewHeader` with the `ScrollViewWithOffset` to get both offset tracking and a strechable header.
 
 
 ## How to make the scroll view header sticky
 
-We can build upon the `ScrollViewWithOffset` and `ScrollViewHeader` and add a little more code to make the header sticky. Let's start with creating a new `ScrollViewWithStickyHeader` view that wraps a `ScrollViewWithOffset` and stores the scroll offset for future use:
+We can build upon the `ScrollViewWithOffset` and `ScrollViewHeader` and add a little more code to make the header sticky. 
+
+Let's create a new `ScrollViewWithStickyHeader` view that wraps a `ScrollViewWithOffset` view and stores the provided scroll offset for future use:
 
 ```swift
 public struct ScrollViewWithStickyHeader<Content: View>: View {
@@ -101,7 +107,7 @@ private extension ScrollViewWithStickyHeader {
 }
 ```
 
-In the code above, we currently just duplicate most of the `ScrollViewWithOffset` properties and pass them into the wrapped scroll view. We will however make changes to this as we go along.
+Here, we just duplicate most of the `ScrollViewWithOffset` properties and pass them into the wrapped scroll view. We will however make changes to this as we go along.
 
 We will for instance need the navigation bar height to detect when the header is scrolled past it. We can get this by wrapping the scroll view in a `GeometryReader` and read its top `safeAreaInsets`:
 
@@ -125,7 +131,7 @@ private extension ScrollViewWithStickyHeader {
 
 We now have the `scrollOffset` and `navigationBarHeight`. Let's now add a custom header builder and header height to the view.
 
-To support a custom header view, we must add a generic `Header` condition. We can then add `init` parameters and view properies to inject a `header` view builder and a `headerHeight`:
+To support a custom header view, we must add a generic `Header` condition. We can add `init` parameters and view properies to inject a `header` view builder and a `headerHeight`:
 
 ```swift
 public struct ScrollViewWithStickyHeader<Header: View, Content: View>: View {
@@ -160,7 +166,7 @@ public struct ScrollViewWithStickyHeader<Header: View, Content: View>: View {
 }
 ```
 
-We can then adjust the `scrollView` so that it adds the `header` topmost in a `VStack` with `0` spacing:
+We can now adjust the `scrollView` to add the `header` topmost in a `VStack` with 0 spacing:
 
 ```swift
 var scrollHeader: some View {
@@ -181,11 +187,13 @@ var scrollView: some View {
 }
 ```
 
-If we would stop coding now, we would already have a pretty nice scroll view with a stretchy header. This header would however scroll away with the content. If you consider the Spotify screen we saw above, it would currently look like this:
+If we'd stop now, we would have a pretty nice scroll view with a stretchy header. It would however scroll away with the content, which is not what a user may expect. 
+
+If you consider the Spotify screen we saw above, that screen would currently look like this:
 
 ![A screenshot the header is scrolled past the navbar]({{page.assets}}no-header.png)
 
-To make the header stick to the top, we must detect when it has scrolled past the navigation bar. We can calculate this using the `navigationBarHeight` and `headerHeight`:
+To make the header stick to the top, we must detect when it has scrolled past the navbar. We can calculate this using the `navigationBarHeight` and `headerHeight`:
 
 ```swift
 private var headerVisibleRatio: CGFloat {
@@ -193,11 +201,15 @@ private var headerVisibleRatio: CGFloat {
 }
 ```
 
-Since the header view is added topmost in the scroll view and `scrollOffset.y` decreases as we scroll, we just have to add the offset to the `headerHeight` to get how many points that are still "visible". If we divide this with the `headerHeight` and limit it to zero, we get a visibility ratio that starts at `1` (all of the header is visible), then decrease down to `0` as the header is scrolled under the navigation bar. As a fun bonus, the value becomes greater than `1` when you pull down. This can be used for pull down effects.
+Since the header view is added topmost in the scroll view and `scrollOffset.y` decreases as we scroll, we can add the offset to the `headerHeight` to get the number of visible points.
 
-The header is considered visible as long as it has not been fully covered by the navigation bar, even if the bar is transparent and you can see through it. When the header becomes fully hidden, we should detach it from the scroll view to avoid it from scrolling further.
+If we divide this with the `headerHeight` and limit it to zero, we get a visibility ratio that starts at `1` (the header is visible), then decrease to `0` as the header is scrolled past the navbar. 
 
-We can however not remove the header without affecting the position of the rest of the content...but we actually don't need to. We can just add a second header view when `headerVisibleRatio` becomes `0`:
+As a fun bonus, the value becomes greater than `1` when you pull down. This can be used for cool pull down effects.
+
+The header is considered visible as long as it's not fully covered by the navbar. When it becomes fully hidden, we should detach it from the scroll view to not scroll it further.
+
+We can not remove the header without affecting the position of the rest of the content, but we actually don't need to. We can just add a second header when the visible ratio is 0:
 
 ```swift
 public struct ScrollViewWithStickyHeader<Header: View, Content: View>: View {
@@ -285,7 +297,7 @@ This makes the navigation bar transparent, which means that the additional heade
 
 ![A screenshot of a sticky header]({{page.assets}}sticky-header.jpg)
 
-You may also notice that the navigation bar title uses a different font. This is because the screen replaces the default title with a custom one that fades in as the header is scrolled away:
+You may also notice that the navbar title uses a different font. This is because the screen replaces the default title with a custom one that fades in as the header is scrolled away:
 
 ```swift
 scrollView
@@ -302,9 +314,15 @@ And that's basically all you need to create a sticky header. This is how the scr
 
 ![Screenshot of how the screen looks when being pulled and scrolled]({{page.assets}}result.jpg)
 
-If you look closely, you can see that the cover is scaled up when we pull down, since we get more vertical space for the header content. We've also applied a fun little tilt effect that causes the cover to rotate around the x axis as the visible ration grows above `1`. Finally, you can see that the cover has a parallax effect that cause it to be overlapped by the scrollable content.
+If you look closely, you can see that the cover scales up when we pull down, since we get more vertical space for the header content. 
 
-Hooray - we now have a fully functional sticky header! However, to make it easier to adjust the screen content when we scroll, we should make this view provide us with more information in the scroll action. Let's modify the `ScrollAction` typealias to also include the header visible ratio:
+We've also applied a fun little tilt effect that causes the cover to rotate around the x axis as the visible ration grows above `1`. 
+
+Finally, you can see that the cover has a parallax effect that cause it to be overlapped by the scrollable content.
+
+Hooray - we have a fully functional sticky header! However, to make it easier to adjust the content when we scroll, we should make it provide more information to the scroll action. 
+
+Let's modify the `ScrollAction` typealias to also include the header visible ratio:
 
 ```swift
 public typealias ScrollAction = (
@@ -329,7 +347,7 @@ Ok, that's about it! Let's take a look at the final scroll view code, then wrap 
 
 ## Final code
 
-Although this post became rather long, the `ScrollViewWithStickyHeader` code is actually just this:
+Although this post became long, the `ScrollViewWithStickyHeader` code is actually just this:
 
 ```swift
 public struct ScrollViewWithStickyHeader<Header: View, Content: View>: View {
@@ -444,7 +462,7 @@ private extension View {
 }
 ```
 
-Note that the `toolbarBackground` modifier is only available in iOS 16 and later, so if you target iOS 15 and before, you'd have to use other ways to make it transparent. One way is to use appearance proxies.
+Note that `.toolbarBackground` is only available in iOS 16 and later, so if you target iOS 15 and before, you'd have to use other ways to make it transparent.
 
 
 
@@ -470,7 +488,7 @@ var cover: some View {
 }
 ```
 
-We make the cover square by giving it an aspect ratio of `1`. The `fit` content mode makes it stay within the available space, which means that it will automatically grow as we pull down and give it more space. It will then keep growing until it the horizontal padding kicks in.
+We make the cover square by giving it an aspect ratio of `1`. The `fit` content mode makes it stay within its available space, and makes it automatically grow as we pull down.
 
 To implement the tilt effect, we just have to use the `headerVisibleRatio`. Greater than `1` means we are pulling down, at which we can apply a `rotation3DEffect` around the x-axis. 
 
@@ -516,7 +534,7 @@ Next, let's look at how to implement the parallax effect that cause the cover to
 
 ## How to implement the parallax effect
 
-The parallax effect is very similar to the tilt effect. We just have to check that the `headerVisibleRatio` is less than `1` which means that we are scrolling, then apply an x `offset`.
+The parallax effect is similar to the tilt. We just have to check that the `headerVisibleRatio` is less than `1` which means that we are scrolling, then apply an x `offset`.
 
 We determine the offset like this:
 
@@ -559,8 +577,10 @@ Some additional details is the `opacity` modifier that causes the cover to fade 
 
 ## Conclusion
 
-The `ScrollViewWithStickyHeader` in this post lets you create scroll views with sticky headers by just providing a custom header and header height. It will continuously provide you with the scroll offset and the visible header ratio as you scroll, which you can use to create amazing scroll effects. 
+The `ScrollViewWithStickyHeader` in this post lets you create sticky scroll view headers by just providing a custom header and a header height. 
+
+The scroll view will continuously provide you with the scroll offset and visible header ratio as you scroll, which you can use to create amazing scroll effects. 
 
 I have added this view to my newly released [ScrollKit]({{project.url}}) library. You can find the source code [here]({{project.url}}{{page.source}}). If you give it a try, I'd love to hear what you think.
 
-Big thanks to [Daniel Arden]({{page.arden}}) for joining me in my efforts to extend the native SwiftUI `ScrollView` with these great features.
+Big thanks to [Daniel Arden]({{page.arden}}) for joining my efforts to extend the native SwiftUI `ScrollView` with these great features.

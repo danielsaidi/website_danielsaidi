@@ -3,7 +3,9 @@ title:  Deep Dish Swift - Day 2
 date:   2023-05-01 06:00:00 +0000
 tags:   conference
 
+assets: /assets/blog/23/0501/
 image:  /assets/headers/deepdish.png
+image-show: 0
 
 tweet:  https://twitter.com/danielsaidi/status/1653050316990865408?s=20
 toot:   https://mastodon.social/@danielsaidi/110294174890325755
@@ -16,7 +18,7 @@ marc:       https://twitter.com/digimarktech
 vui:        https://twitter.com/sunfishgurl
 ---
 
-Deep Dish Swift Day 1 was one afternoon filled with amazing talks and getting the chance to meet many people from the community, ending with a deep dish at Giordano's. Let's get Day 2 going.
+Deep Dish Swift Day 1 was one afternoon filled with amazing talks and getting the chance to meet many people from the community. Let's get Day 2 going.
 
 ![DeepDish Swift logo]({{page.image}})
 

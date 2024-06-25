@@ -3,7 +3,9 @@ title:  SwiftUI Prefers Semantics
 date:   2023-06-15 06:00:00 +0000
 tags:   swiftui open-source
 
-icon:   swiftui
+assets: /assets/blog/23/0615/
+image:  /assets/blog/23/0615.jpg
+image-show: 0
 
 post:   https://danielsaidi.com/blog/2020/12/25/building-a-video-streaming-app-for-ios-in-swiftui
 
@@ -11,7 +13,10 @@ tweet:  https://twitter.com/danielsaidi/status/1669295119881707520?s=20
 toot:   https://mastodon.social/@danielsaidi/110547826734443253
 ---
 
-SwiftUI get amazing updates every year. If you however have to support old OS versions, you may be unable to use the new tools, or jump through hoops to make it work. 
+SwiftUI get amazing updates every year. If you however have to support old OS versions, you may be unable to use the new tools, or jump through hoops to make it work.
+
+
+## How to semantically enable features with clean code
 
 In this post, let’s look at a semantic approach to use new, non-critical features in apps that target old OS versions. We'll use [a video player app]({{page.post}}) I built a few years ago as an example. 
 

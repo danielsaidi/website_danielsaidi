@@ -3,7 +3,9 @@ title:  Vision Pro - so many questions
 date:   2023-06-05 06:00:00 +0000
 tags:   general
 
+assets: /assets/blog/23/0605/
 image:  /assets/headers/vision-pro.webp
+image-show: 0
 
 tweet:  https://twitter.com/danielsaidi/status/1665871186822144002?s=20
 toot:   https://mastodon.social/@danielsaidi/110494327182363788

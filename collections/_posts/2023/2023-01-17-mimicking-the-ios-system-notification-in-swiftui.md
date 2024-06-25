@@ -3,8 +3,10 @@ title:  Mimicking the iOS system notification in SwiftUI
 date:   2023-01-17 08:00:00 +0000
 tags:   swiftui open-source
 
-assets: /assets/blog/2023/230117/
+assets: /assets/blog/23/0117/
 image:  /assets/headers/systemnotification.png
+image-show: 0
+
 gif:    https://github.com/danielsaidi/SystemNotification/raw/master/Resources/Demo.gif
 
 tweet:  https://twitter.com/danielsaidi/status/1615347586059182080?s=20&t=3L_johIenQTCGsF9VPNjiw
@@ -17,18 +19,18 @@ tweet:  https://twitter.com/danielsaidi/status/1615347586059182080?s=20&t=3L_joh
 
 ## What is SystemNotification?
 
-[SystemNotificaton]({{project.url}}) is a `SwiftUI` library that lets you mimic the native iOS system notification, which for instance is presented when you toggle silent mode on and off, connect your AirPods etc.
+[SystemNotificaton]({{project.url}}) is a `SwiftUI` SDK that lets you mimic the native iOS system notification, which is presented when you toggle silent mode on & off, connect your AirPods, etc.
 
 ![An animated gif that shows SystemNotification in action]({{page.gif}}){:width="200"}
 
 This makes it possible to create notifications that behave almost like the native ones, which means that your app-specific notifications or hints can look right at home in iOS.
 
-SystemNotification supports `iOS 14`, `macOS 11`, `tvOS 14` and `watchOS 7`, which means that you can use the same notification engine, and even the same notifications, on all platforms.
+The SDK supports `iOS`, `macOS`, `tvOS`, `watchOS`, and `VisionOS`, which means that you can use the same notification engine on all platforms.
 
 
 ## Getting started
 
-You must first add [SystemNotificaton]({{project.url}}) to your project, preferably using the Swift Package Manager. You can then apply a system notification just like you apply a `sheet`, `alert` and `fullScreenModal`:
+You must first add [SystemNotificaton]({{project.url}}) to your project with the Swift Package Manager. You can then apply `.systemNotification` just like you apply `.sheet`, `.alert` & `.fullScreenModal`:
 
 ```swift
 import SystemNotification
@@ -47,7 +49,7 @@ You can use both state- and context and message-based notifications, use pre-def
 
 ## State-based notifications
 
-State-based notifications work just like state-based `sheet`, `alert` and `fullScreenModal` modifiers. Just provide the `systemNotification` modifier with an `isActive` binding and the view to present:
+State-based notifications work just like state-based sheets, alerts and modals. Just provide the `.systemNotification` modifier with an `isActive` binding and the view to present:
 
 ```swift
 struct MyView: View {
@@ -60,7 +62,8 @@ struct MyView: View {
             Button("Show") { isActive = true }
             Button("Hide") { isActive = false }
             Button("Toggle") { isActive.toggle() }
-        }.systemNotification(
+        }
+        .systemNotification(
             isActive: $isActive,
             content: notificationView
         )
@@ -73,12 +76,12 @@ struct MyView: View {
 }
 ```
 
-State-based notifications are easy to use, but if you plan on presenting many different notifications, the context-based approach is more versatile.
+State-based notifications are easy to use, but context-based ones are much more versatile.
 
 
 ## Context-based notifications
 
-Context-based notifications work similar to `sheet`, `alert` and `fullScreenModal`, but the modifier uses an observable `SystemNotificationContext` instead of state:
+Context-based notifications work similar to `sheet`, `alert` and `fullScreenModal`, but uses an observable `SystemNotificationContext` instead of state:
 
 ```swift
 struct MyView: View {
@@ -112,18 +115,20 @@ struct MyView: View {
 }
 ```
 
-The context-based approach lets you use the same context with a single view modifier. You can then use the context to present notifications from anywhere in your app.
+The context-based approach lets you use a single context and modifier to present different notifications from anywhere in your app.
 
-You can for instance apply a context-based notification to a root `TabView` or `NavigationView`, which ensures that the notification is presented correctlu regardless or where it's triggered.
+You can apply a context-based notification to a root `TabView` or `NavigationView` to ensure that it's presented above all other content, regardless or where it's triggered.
 
-Note that sheets and full screen covers require a new modifier, but you can still use the same context. Also consider the platform when picking a proper notification. For instance, iPad sheets are presented as square modals in the center of the screen, so a system notification may not be the best solution there.
+Sheets and full screen covers require a new modifier, but you can use the same context. Also consider the platform when picking a proper notification approach.
 
-Context-based notifications are very versatile and a great choice if you want to present many different notifications with a single modifier.
+For instance, iPad sheets are presented as square modals in the center of the screen, so a system notification may not be the best solution there.
+
+Context-based notifications are versatile and a great choice if you want to present many different notifications with a single modifier.
 
 
 ## Message-based notifications
 
-Message-based notifications aim to mimic the iOS system notification look and behavior, with a leading tinted icon, a title and a message. To mimic this notification, just use a `SystemNotificationMessage`:
+Message-based notifications mimic the native iOS look and feel, with a leading tinted icon, a title and a message. To mimic this notification, just use a `SystemNotificationMessage`:
 
 ```swift
 struct MyView: View {
@@ -150,7 +155,7 @@ struct MyView: View {
 }
 ```
 
-The `style` parameter lets you modify the message style, like the colors, spacings etc. However, this only styles the message itself, not the notification. For that, we can use a `SystemNotificationStyle`.
+The `style` parameter lets you modify the message style, colors, spacings etc. However, this only styles the message, not the notification. For that, use a `SystemNotificationStyle`.
 
 
 ## How to style a system notification
@@ -224,9 +229,9 @@ This configuration is applied for as long as the notification is presented, then
 
 ## Putting things together
 
-To wrap things up, let's create a view that presents a system notification that looks like the iOS system notification, but has a green background color, white content and stays on the screen a little longer.
+To wrap things up, let's present a system notification that looks like a iOS notification, but has a green background color, white content and stays longer on the screen.
 
-All you need to do is to create a context, then present it with a custom configuration and style:
+All you need to do is to create a context and present it with a custom config and style:
 
 ```swift
 struct Preview: View {
@@ -270,7 +275,7 @@ struct Preview: View {
 }
 ```
 
-When we present this, you can see that the notification is presented over the `NavigationView`, with some padding to the dynamic island:
+When we present this, the notification is presented over the `NavigationView` with some additional padding to the dynamic island:
 
 ![Notification above the navigation bar]({{page.assets}}above-nav.png)
 
@@ -290,17 +295,14 @@ To verify that the notification is also presented over the `TabView`, we can adj
 }
 ```
 
-When we present this, you can see that the notification is presented over the `TabView` as well:
+When we present this, the notification is presented over the `TabView` as well:
 
 ![Notification above the navigation bar]({{page.assets}}above-tab.png)
 
-As a bonus, you can use the same context from all these tabs. The notification will be presented above the `TabView`, which means that it will not disappear when you change tab.
+As a bonus, you can use the same context in all tabs. The notification will be presented above the `TabView`, which means that it will not disappear when you change tab.
 
 
 
 ## Conclusion
 
-The [SystemNotificaton]({{project.url}}) library can be used to mimic the iOS system notification on `iOS`, `macOS`, `tvOS` and `watchOS`, which makes it versatile. If you decide to give it a try, I'd be very interested in hearing what you think.
-
-
-
+The [SystemNotificaton]({{project.url}}) library can be used to mimic iOS system notifications on all major Apple platforms. If you give it a try, I'd be very interested in hearing what you think.

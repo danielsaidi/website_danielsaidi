@@ -3,7 +3,9 @@ title:  Implementing Quick Search with SwiftUI Searchable
 date:   2023-12-20 06:00:00 +0000
 tags:   swiftui macos ios
 
-image:  /assets/blog/2023/231220/title.jpg
+assets: /assets/blog/23/1220/
+image:  /assets/blog/23/1220.jpg
+image-show: 0
 
 toot:   https://mastodon.social/@danielsaidi/111612228156955705
 tweet:  https://x.com/danielsaidi/status/1737416857823461669?s=20
@@ -12,6 +14,16 @@ tweet:  https://x.com/danielsaidi/status/1737416857823461669?s=20
 In this post, we’ll take a look at how to search with the `.searchable` API, by just typing on the keyboard without first having to tap/click on the text field.
 
 {% include kankoda/data/open-source.html name="QuickSearch" %}
+
+
+## Update: 2024-06-14
+
+At WWDC24, Apple revealed that the `.searchable` search field will get focus support. This will most likely make this code and the linked [SDK]({{project.url}}) in this post obsolete.
+
+I will however keep this information here as a reference, for those of you who can't target iOS 18 yet.
+
+
+## Background
 
 The `.searchable` view modifier is a convenient way to add a search text field to a screen. However, unlike regular text fields, it doesn't let you use `FocusState` to control its focus.
 

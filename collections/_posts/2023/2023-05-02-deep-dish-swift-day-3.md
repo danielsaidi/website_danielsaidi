@@ -3,10 +3,12 @@ title:  Deep Dish Swift - Day 3
 date:   2023-05-02 06:00:00 +0000
 tags:   conference
 
+assets: /assets/blog/23/0502/
 image:  /assets/headers/deepdish.png
+image-show: 0
 
-tweet:  
-toot:   
+tweet:  https://twitter.com/danielsaidi/status/1653050316990865408?s=20
+toot:   https://mastodon.social/@danielsaidi/110294174890325755
 
 tunde:  https://twitter.com/tundsdev
 ellen:  https://twitter.com/designatednerd
@@ -17,7 +19,9 @@ simon:  https://twitter.com/simonbs
 ben:    https://twitter.com/benproothi
 ---
 
-Deep Dish Swift flew by and suggendly, the third and final day was here...way to soon. I'm impressed by the scale of this first edition of Deep Dish Swift, and really hope there will be a second installment next year. Let's see what Day 3 had in store.
+Deep Dish Swift flew by and suddenly, the third and final day was here...way to soon. I'm impressed by the scale of this first edition, and hope there will be a second one next year. 
+
+Let's see what Day 3 had in store.
 
 ![DeepDish Swift logo]({{page.image}})
 
