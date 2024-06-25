@@ -3,8 +3,9 @@ title:  Unleashing Creativity in Coding - How Adobe Express Empowers Programmers
 date:   2024-01-02 08:00:00 +0000
 tags:   guest-article
 
-assets: /assets/blog/2024/240102/
-image:  /assets/blog/2024/240102/title.jpg
+assets: /assets/blog/24/0102/
+image:  /assets/blog/24/0102.jpg
+image-show: 0
 
 adobe:      https://adobe.com
 express:    https://www.adobe.com/express/create

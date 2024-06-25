@@ -10,10 +10,9 @@ toot:   https://mastodon.social/@danielsaidi/111628377914513976
 tweet:  https://x.com/danielsaidi/status/1738449452921229663?s=20
 ---
 
-{% include kankoda/data/app.html name="Emoji Picker" %}
 This is a short Christmas story on the many frustrations of being a developer in the Apple ecosystem. But this time they may be correct. Happy holidays everyone!
 
-![Blog header image]({{page.image}})
+{% include kankoda/data/app.html name="Emoji Picker" %}
 
 I've spent time on a new app, with a goal to learn many new SwiftUI features and make an accessible and easy to use app, that solves a single problem. Say hello to [{{app.name}}]({{app.url}}).
 

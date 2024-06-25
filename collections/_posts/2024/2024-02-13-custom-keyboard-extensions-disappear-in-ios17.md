@@ -1,18 +1,23 @@
 ---
-title:  Custom keyboards disappear in iOS 17
+title:  Custom Keyboard Extensions disappear in iOS 17.2 and later
 date:   2024-02-13 06:00:00 +0000
 tags:   ios keyboard
 
-image:  /assets/blog/2024/240213/title.jpg
+assets: /assets/blog/24/0213/
+image:  /assets/blog/24/0213.jpg
+image-show: 0
 
 tweet:  https://x.com/danielsaidi/status/1757393769593274774?s=20
 toot:   https://mastodon.social/@danielsaidi/111924367408233262
 ---
 
 {% include kankoda/data/open-source.html name="KeyboardKit" %}
-Some [{{project.name}}]({{project.url}}) users have reported that their custom keyboard extensions disappear in iOS 17. This article discusses some concerning findings after investigating this problem.
+Some [{{project.name}}]({{project.url}}) users have reported that their keyboard extensions have disappeared in iOS 17.2. This article discusses some concerns after investigating the problem.
 
-When this happens, the keyboard no longer shows up in System Settings or the keyboard switcher that appears when you press the 🌐 key in the keyboard.
+
+## THe problem
+
+When this problem happens, the keyboard extension no longer shows up in Settings or the keyboard switcher, which appears when you press the 🌐 key in the keyboard.
 
 
 ## Bundle ID

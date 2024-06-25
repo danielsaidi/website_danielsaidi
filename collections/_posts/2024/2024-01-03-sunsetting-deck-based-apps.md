@@ -1,10 +1,11 @@
 ---
-title:  Sunsetting the Pickup, Prank & Quote Deck Apps
+title:  Sunsetting the Pickup Deck, Prank Deck & Quote Deck Apps
 date:   2024-01-03 08:00:00 +0000
-tags:   general
+tags:   general apps sunset
 
 assets: /assets/apps/deckorama/
-image:  /assets/blog/2024/240103/title.jpg
+image:  /assets/blog/24/0103.jpg
+image-show: 0
 
 pickup: https://apps.apple.com/us/app/pickup-deck/id581674449
 prank:  https://apps.apple.com/us/app/prank-deck/id568717911

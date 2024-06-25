@@ -3,7 +3,9 @@ title:  How to use ApiKit to integrate with a REST API
 date:   2024-01-17 06:00:00 +0000
 tags:   swift api
 
-image:  /assets/blog/2024/240117/title.jpg
+assets: /assets/blog/24/0117/
+image:  /assets/blog/24/0117.jpg
+image-show: 0
 
 tweet:  https://x.com/danielsaidi/status/1747726878868209739?s=20
 toot:   https://mastodon.social/@danielsaidi/111773321977694317

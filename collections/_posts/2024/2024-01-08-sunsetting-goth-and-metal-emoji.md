@@ -1,12 +1,11 @@
 ---
 title:  Sunsetting the Goth & Metal Emoji Apps
 date:   2024-01-08 06:00:00 +0000
-tags:   general
+tags:   general apps sunset
 
-tweet:  https://x.com/danielsaidi/status/1744297797447287111?s=20
-toot:   https://mastodon.social/@danielsaidi/111719742304768223
-
-image:  /assets/blog/2024/240108/title.jpg
+assets: /assets/blog/24/0108/
+image:  /assets/blog/24/0108.jpg
+image-show: 0
 
 gothassets: /assets/apps/gothemoji/
 metalassets: /assets/apps/metalemoji/
@@ -16,6 +15,9 @@ metal:  https://itunes.apple.com/app/metal-emoji/id1070228823
 
 keyboardkit:    https://keyboardkit.com
 nattskiftet:    https://www.instagram.com/nattskiftet/
+
+tweet:  https://x.com/danielsaidi/status/1744297797447287111?s=20
+toot:   https://mastodon.social/@danielsaidi/111719742304768223
 ---
 
 After keeping the Goth & Metal Emoji apps alive for 8 years, I'm sunsetting them together with some other apps, to allow me to focus on fewer things.
