@@ -3,6 +3,8 @@ layout: default
 title: Open-Source
 permalink: /opensource
 
+image-show: 1
+
 redirect_from: 
   - /open-source
 ---

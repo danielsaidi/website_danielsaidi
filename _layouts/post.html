@@ -12,11 +12,6 @@ layout: default
 
   {% include kankoda/blog/post-header.html post=page follow=1 %}
 
-  {%- if page.image-show == 1 -%}
-  <img src="{{ page.image }}" alt="{{ page.title }}" class="u-photo" itemprop="image" />
-  <br />
-  {%- endif -%}
-
   <div class="e-content" itemprop="articleBody">
     {{ content }}
   </div>

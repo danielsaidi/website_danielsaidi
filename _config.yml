@@ -110,6 +110,7 @@ defaults:
       type: "pages"
     values:
       hero: ""
+      image: "/assets/headers/website.jpg"
   -
     scope:
       type: "posts"

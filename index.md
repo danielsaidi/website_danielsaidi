@@ -2,6 +2,9 @@
 layout: plain
 title: Home
 
+image: /assets/headers/website.jpg
+image-show: 1
+
 bookbeat: http://www.bookbeat.com/
 stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/data=!3m1!4b1!4m5!3m4!1s0x465f763119640bcb:0xa80d27d3679d7766!8m2!3d59.3293235!4d18.0685808
 ---
