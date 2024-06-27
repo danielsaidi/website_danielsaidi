@@ -10,6 +10,11 @@ layout: plain
   {% include kankoda/heros/hero.html hero=hero hero-title=hero-title hero-description=hero-description %}
   
   <div class="wrapper">
+    {%- if page.image-show == 1 -%}
+    <img src="{{ page.image }}" alt="{{ page.title }}" class="u-photo" itemprop="image" />
+    <br />
+    {%- endif -%}
+
     {{ content }}
   </div>
 </main>

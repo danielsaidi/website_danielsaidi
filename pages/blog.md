@@ -2,6 +2,9 @@
 layout: default
 title: Blog
 permalink: /blog/
+
+image:  /assets/blog/header.jpg
+image-show: 0
 ---
 
 {% include kankoda/buttons/home.html %}
