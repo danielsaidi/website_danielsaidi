@@ -10,11 +10,11 @@ In this post, we'll take a quick look at how to slugify a string in Swift, which
 
 {% include kankoda/data/open-source.html name="TagKit" %}
 
-One such use-case that I've had myself, was when I created an app where users could apply custom tags to items. It allowed free typing, then converted the string to a valid tag once the user tapped return. 
+I had this need when I created an app where users could apply custom tags to items. It allowed free typing, then converted the string to a valid tag once the user tapped return. 
 
 For instance, entering `Vacation Plans`, would generate a `vacation-plans` tag. We then used this tag to group items, make it easier to index and search for tags etc.
 
-Another situation where it's common to slugify strings is when you want to create valid urls. You can for instance see this in action by inspecting the url of this post, where the date is slugified.
+Another situation where it's common to slugify strings is to create valid urls. You can for instance see this in action by inspecting the url of this post, where the date is slugified.
 
 To slugify a string, we can split the string based on a custom set of allowed characters, then join the split components using a custom separator:
 
@@ -33,7 +33,9 @@ public extension String {
 }
 ```
 
-The extension above lower-cases the entire string, then separates it into characters using the provided character set, then filters out any empty components, then finally joins the remaining ones.
+This code lower-cases the string, separates it into characters using the provided character set, filters out any empty components, then finally joins the remaining ones.
+
+This provides you with a nice default slug format, that can be customized when needed.
 
 
 ## Conclusion

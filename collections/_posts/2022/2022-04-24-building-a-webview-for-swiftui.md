@@ -3,26 +3,26 @@ title:  Building a WebView for iOS and macOS in SwiftUI
 date:   2022-04-24 08:00:00 +0100
 tags:   swiftui webview multi-platform uikit appkit
 
-assets: /assets/blog/2022/220424/
-image:  /assets/blog/2022/220424/image.jpg
+assets: /assets/blog/22/0424/
+image:  /assets/blog/22/0424/image.jpg
 ---
 
-SwiftUI currently has no WebView, which means that we have to create it for ourselves. Let's see how we can easily build a multi-platform web view for iOS, iPadOS and macOS.
+Since SwiftUI currently has no WebView, we have to create one ourselves. Let's see how easy it is to build a multi-platform web view for iOS, iPadOS & macOS.
 
 {% include kankoda/data/open-source.html name="SystemNotification" %}
 
 ![Web view preview]({{page.assets}}title.png){:class="plain"}
 
-If you've worked with SwiftUI before, you probably already know that the way to currently do this is to create a `UIViewRepresentable` for UIKit and an `NSViewRepresentable` for AppKit.
+One way to achieve this is to wrap native, platform-specific views in `UIViewRepresentable` for UIKit and an `NSViewRepresentable` for AppKit.
 
-Question is, which native view do we want our representable to wrap? We have a few options, of which we'll try out two: `WKWebView` and `SFSafariViewController`.
+The big question is then, which view do we want our representable to wrap? We have two native web browser components to consider: `WKWebView` and `SFSafariViewController`.
 
 
 ## WKWebView
 
-`WebKit` provides us with an `WKWebView` view, which supports both iOS and macOS. For our web view to support both iOS and macOS, we need to handle both UIKit and AppKit.
+`WebKit` provides us with an `WKWebView`, which is a powerful web browser component that supports both iOS & macOS.
 
-First, let's define a typealias for the view representable type, to make the rest of the code cleaner:
+To wrap this view, we need to handle both UIKit and AppKit. We can do this by defining a typealias for the view representable type, to make the rest of the code cleaner:
 
 ```swift
 #if os(iOS)
@@ -32,22 +32,14 @@ typealias WebViewRepresentable = NSViewRepresentable
 #endif
 ```
 
-If the view is added to a target or package that supports more platforms than iOS and macOS, we need to wrap it in an os check:
-
-```swift
-#if os(iOS) || os(macOS)
-....
-#endif
-```
-
-Ok, we're ready to start. First import the required frameworks. We need both `SwiftUI` and `WebKit`:
+We can now begin. First import the required frameworks. We need `SwiftUI` and `WebKit`:
 
 ```swift
 import SwiftUI
 import WebKit
 ```
 
-We can then define our view. Let's call it `WebView` and have it implement our `ViewRepresentable`:
+We can then define our view. Let's call it `WebView` and let it implement `ViewRepresentable`:
 
 ```swift
 public struct WebView: WebViewRepresentable {
@@ -55,7 +47,7 @@ public struct WebView: WebViewRepresentable {
 }
 ```
 
-Let's add two initializers - one that just takes a non-optional `URL` and one that takes an optional `URL` and a `WKWebView` configuration block:
+Add two initializers - one that takes a non-optional `URL` and one that takes an optional `URL` and a `WKWebView` configuration block:
 
 ```swift
 public init(url: URL) {
@@ -74,9 +66,9 @@ private let url: URL?
 private let configuration: (WKWebView) -> Void
 ```
 
-We can now create a web view that just loads a url or one that configures itself with a configuration (to setup delegates etc.), then loads the url if we provide it with one.
+We can now create a web view that loads a url or configures itself with a configuration (to setup delegates etc.), then loads the url if we provide it with one.
 
-This gives us full flexibility - either a simple, url-based setup or a more complex, configurable one.
+This gives us full flexibility - either a simple, url-based setup or a more configurable one.
 
 For iOS, we have to implement `makeUIView` and `updateUIView`:
 
@@ -102,7 +94,7 @@ public func updateNSView(_ view: WKWebView, context: Context) {}
 #endif
 ```
 
-Since both platforms will setup `WKWebView` in the same way, we can have a single function for this:
+Since both platforms setup `WKWebView` in the same way, we can define a single function:
 
 ```swift
 private extension WebView {
@@ -121,16 +113,16 @@ private extension WebView {
 }
 ```
 
-And that's it! We now have a `WebView` that can be used on both iOS and macOS.
+That's it! We now have a `WebView` that can be used on both iOS and macOS.
 
 Let's take a look at the slightly different `SFSafariViewController`.
 
 
 ## SFSafariViewController
 
-`SFSafariViewController` is defined in `SafariServices`. It can display a navigation bar topmost and a toolbar bottommost, with navigation, reload, etc. It only supports iOS.
+`SFSafariViewController` is defined in `SafariServices`. It displays a navigation bar topmost and a toolbar bottommost, with action buttons for navigation, reload, etc.
 
-To use the controller in a target or package that supports more platforms, we must use an OS check:
+`SFSafariViewController` only supports iOS, so we must use an OS check when using it:
 
 ```swift
 #if os(iOS)
@@ -138,7 +130,7 @@ To use the controller in a target or package that supports more platforms, we mu
 #endif
 ```
 
-We're ready to start. First import the required frameworks. We need `SwiftUI` and `SafariServices`:
+Let's start. First import the required frameworks. We need `SwiftUI` and `SafariServices`:
 
 ```swift
 import SwiftUI
@@ -184,11 +176,13 @@ public func makeUIViewController(context: Context) -> SFSafariViewController {
 public func updateUIViewController(_ safariViewController: SFSafariViewController, context: Context) {}
 ```
 
-The configuration is used to crete the view and the view configuration to configure the created view. We now have a `SafariWebView` that can be used on iOS and iPadOS.
+The configuration is used to craete the view and the view configuration is used to configure the created view.
+
+That's it! We now have a `SafariWebView` that can be used on iOS and iPadOS.
 
 
 ## Conclusion
 
-You've seen two ways to create a web view for SwiftUI. I wouldn't be surprised if Apple adds such a view at this year's WWDC, but until they do, I hope that this helps.
+You've seen two ways to create a web view for SwiftUI. I wouldn't be surprised if Apple will add such a view at this year's WWDC. Until they do, I hope that this helps.
 
-I have added the source code and a demo app to a tiny library called [WebViewKit]({{project.url}}). Feel free to check it out and let me know what you think.
+I have added the source code and a demo app to a tiny SDK called [WebViewKit]({{project.url}}). Feel free to check it out and let me know what you think.

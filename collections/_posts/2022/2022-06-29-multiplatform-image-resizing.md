@@ -7,7 +7,7 @@ icon:   swift
 tweet:  https://twitter.com/danielsaidi/status/1542274485616787456?s=20&t=PkyvVlGvMZnUvLmKC_TMwA
 ---
 
-In this post, let's take a quick look at how to resize images in UIKit and AppKit. The result will work on iOS, macOS, tvOS and watchOS and lets us resize images with the same APIs regardless of platform.
+In this post, let's take a look at how to resize images in UIKit & AppKit. The result will work on iOS, macOS, tvOS & watchOS and lets us use the the same APIs on all platforms.
 
 {% include kankoda/data/open-source.html name="SwiftUIKit" %}
 
@@ -53,9 +53,9 @@ public extension NSImage {
 #endif
 ```
 
-Since both `UIImage` and `NSImage` now have the same API for resizing images to a certain size, we can extend both types with more resizing functionality that use this underlying functionality.
+Since `UIImage` & `NSImage` now have the same API for resizing images to a certain size, we can extend both types with more resizing functionality that use this underlying functionality.
 
-Let's first define a platform agnostic image typealias, which you may have seen in previous posts:
+Let's first define a platform-agnostic image typealias, to have a single name for the image:
 
 ```swift
 #if canImport(AppKit)
@@ -71,7 +71,7 @@ public typealias ImageRepresentable = UIImage
 #endif
 ```
 
-This let's us use `ImageRepresentable` to handle both `UIImage` and `NSImage`. Let's use this to add ways to resize images to a certain width and height, using the resizing function we defined earlier:
+This lets us use `ImageRepresentable` to handle both `UIImage` & `NSImage`. Let's use it to add ways to resize images in more ways, using the resizing function we defined earlier:
 
 ```swift
 public extension ImageRepresentable {
@@ -92,6 +92,6 @@ public extension ImageRepresentable {
 }
 ```
 
-That's it - you can now use `resized(to:)`, `resized(toWidth:)` and `resized(toHeight:)` with `UIImage` and `NSImage`, to resize images in iOS, macOS, tvOS and watchOS. 
+That's it - you can now use `resized(to:)`, `resized(toWidth:)` & `resized(toHeight:)` with `UIImage` & `NSImage`, to resize images on all platforms.
 
 I have added these extension to [SwiftUIKit]({{project.url}}). Feel free to try them out and let me know what you think.

@@ -4,18 +4,18 @@ date:   2022-06-27 08:00:00 +0000
 tags:   swiftui quick-look
 
 icon:   swiftui
-assets: /assets/blog/2022/220627/
+assets: /assets/blog/22/0627/
 
 tweet:  https://twitter.com/danielsaidi/status/1541363945465942016?s=20&t=pHrBeDbqn-sQh8qvy0pmCg
 ---
 
-SwiftUI is growing with every new release, but there are still old treasures to be found in various Apple frameworks, that aren't part of the core SwiftUI library. One example is `MapView` in MapKit, another is the amazing `quickLookPreview` view modifier in the QuickLook framework. Let's take a quick look.
+SwiftUI is growing with every release, but there are still old treasures to be found in various frameworks, that aren't part of core SwiftUI. Let's take a quick look at `QuickLook`!
 
-SwiftUI support for QuickLook is a feature that I hadn't heard anything about, until I stumbled upon it by chance. With it, you can let users preview any previewable content at a certain URL, such as PDF files, images etc.
+I didn't know about SwiftUI's support for QuickLook, and stumbled upon it by chance. You can use it to preview any previewable URL content, such as PDFs, images etc.
 
-To use QuickLook with SwiftUI, you must first import the QuickLook framework. You can then apply the `quickLookPreview` view modifier and bind it to a mutable URL.
+To use QuickLook with SwiftUI, you must first import the `QuickLook` framework. You can then apply the `.quickLookPreview` view modifier and bind it to a URL.
 
-To see it in action, consider that we have a multi-platform SwiftUI app for iOS and macOS, that has an embedded image called `meadow.jpg`. Our `ContentView` looks like this:
+Consider that we have a multi-platform SwiftUI app for iOS & macOS, that has an bundle image called `meadow.jpg`. This is how easy it is to enable quick look preview:
 
 ```swift
 import SwiftUI
@@ -29,19 +29,20 @@ struct ContentView: View {
     var body: some View {
         Button("Preview") {
             url = Bundle.main.url(forResource: "meadow", withExtension: "jpg")
-        }.quickLookPreview($url)
+        }
+        .quickLookPreview($url)
     }
 }
 ```
 
-That's actually all there is to it. Setting the `url` property will make the `quickLookPreview` view modifier present the previewable content at the provided url, in a way that suits the platform.
+Setting the `url` property will make the `.quickLookPreview` modifier present the content at the provided url in a preview, in a way that suits the platform.
 
-If we run this app in iOS, tapping the button presents the image in a full screen cover:
+In iOS, the button presents the image in a full screen cover:
 
 ![A screenshot of using QuickLook in iOS]({{page.assets}}ios.png){:class="plain" width="450px"}
 
-If we then run the same app on macOS, tapping the button presents the image in a nice modal:
+If we run the same app on macOS, tapping the button presents the image in a nice modal:
 
 ![A screenshot of using QuickLook in iOS]({{page.assets}}macos.png){:class="plain" width="650px"}
 
-Note that using QuickLook in SwiftUI is only available in iOS and macOS, not tvOS or watchOS.
+QuickLook is only available in iOS & macOS, not tvOS & watchOS. You can use `#if os(iOS)` and `#if os(macOS)` to conditionally enable it in multi-platform apps and SDKs.

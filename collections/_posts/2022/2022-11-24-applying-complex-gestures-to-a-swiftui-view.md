@@ -3,8 +3,6 @@ title:  Applying complex gestures to a SwiftUI view
 date:   2022-11-24 08:00:00 +0000
 tags:   swiftui open-source gestures
 
-icon:   swiftui
-
 tweet:  https://twitter.com/danielsaidi/status/1596179247336681473
 toot:   https://mastodon.social/@danielsaidi/109405390884591414
 
@@ -15,9 +13,12 @@ timer: https://github.com/danielsaidi/SwiftUIKit/blob/master/Sources/SwiftUIKit/
 button: https://github.com/danielsaidi/SwiftUIKit/blob/master/Sources/SwiftUIKit/Gestures/GestureButton.swift
 ---
 
-As we saw in [last week's post]({{page.post}}), complex gestures in a SwiftUI `ScrollView` is complicated, since they can block the scrolling. However, if we don't have a scroll view, things become a lot easier. Let's take a look at a version of the button that we created last week, that uses a single gesture.
+As we saw in [last week's post]({{page.post}}), gestures in a `ScrollView` are complicated, since they can block the scrolling. Without a scroll view, things become a lot easier. Let's take a look.
 
-If we don't have to consider the complexities that scroll views bring, we can focus on handling different gestures in the cleanest way possible. For my needs, I need to be able to handle the following gestures:
+
+## Less complexity
+
+If we don't have to consider the scroll view complexities, we can focus on handling estures in the cleanest way possible. For my needs, I need to handle the following gestures:
 
 * Presses
 * Releases (inside and outside)
@@ -32,9 +33,9 @@ If we don't have to consider the complexities that scroll views bring, we can fo
 As you will see, we will be able to detect all these gestures by using a single drag gesture. Let's start with creating a view to which we can apply all these gestures.
 
 
-### Creating a gesture button
+## Creating a ScrollView-incompatible gesture button
 
-Let's start with creating a `GestureButton` that we will use to implement all the gesture what we need:
+Let's start with creating a `GestureButton` that we will use to implement all these gestures:
 
 ```swift
 public struct GestureButton<Label: View>: View {
@@ -119,20 +120,20 @@ public struct GestureButton<Label: View>: View {
 
 Wow, that's a pretty huge initializer. Feel free to group the parameters if you see fit, but I've chosen to keep it like this for simplicity. Let's take a look at the parameters.
 
-The initializer lets us provide an `isPressed` binding, in case we want to observe the pressed state. Note that we set it to a `isPressedBinding` property and have a second `isPressed` state property that we'll use within the view, to avoid problems if a `.constant` binding is provided.
+The initializer lets us provide an `isPressed` binding to observe the pressed state. Note that we set it to an `isPressedBinding` property and have a second `isPressed` state that we use to avoid problems if a `.constant` binding is provided.
 
-We can also provide a bunch of actions and action-specific configurations, which lets define which action to trigger when a certain  gesture is detected and comfigur e.g. the time it takes for a press to count as a long press. This will let us handle `press`, `release inside`, `release outside`, `long press`, `double tap`, `repeats` (press and hold), `drag start`, `drag`, `drag end` and `gesture end`. We also define a couple of `Date` states for some of the gestures that will need to track time in different ways.
+We can provide a bunch of actions and configurations to handle `press`, `release inside`, `release outside`, `long press`, `double tap`, `repeats` (press and hold), `drag start`, `drag`, `drag end` and `gesture end` in a clean way.
 
-In the body, we display the `label` builder result, which takes `isPressed` as input, then makes it sync `isPressed` changes to `isPressedBinding`. We also add accessibility traits to inform the system that this is a button. Now, let's proceed with adding a drag gesture to the button.
+In the body, we display the `label` builder result. It takes `isPressed` as input, then makes it sync `isPressed` changes to `isPressedBinding`. We also add accessibility traits to tell the system that this is a button.
 
 
 ## Adding a drag gesture to the button
 
-To be able to detect whether or not a press is released inside or outside of the button bounds, we will have to use a `GeometryReader` that will wrap the view to which the gestures are applied. 
+To detect whether a press is released inside or outside of the button's bounds, we use a `GeometryReader` that will wrap the view to which the gestures are applied.
 
-However, if we would wrap the label itself within a geometry reader, the button would become greedy, since the geometry reader is greedy. This would cause the button to float within a view that takes up all the available space, which is something that we absolutely don't want.
+However, applying the `GeometryReader` to the button label would make the button greedy, which would cause it to float within a view that takes up all the available space. 
 
-To avoid this, we can keep the button view as is, and instead add the geometry reader as an `overlay`, then apply the drag gesture to a view within the reader. 
+To avoid this, we can keep the button view as is, and instead add the geometry reader as an `overlay`, then apply the drag gesture to a view within the reader.
 
 Let's start with defining this `gestureView`:
 
@@ -158,7 +159,7 @@ var body: some View {
 }
 ```
 
-We can now replace the empty view with a view with gestures. Since we want the underlying view to still show, let's just use `Color.clear` and specify a `.contentShape` to it to make it detect taps, then add a `DragGesture` to it:
+We can now replace the empty view with a view with gestures. Let's use `Color.clear` and specify a `.contentShape` to it to make it detect taps, then add a `DragGesture` to it:
 
 ```swift
 var gestureView: some View {
@@ -177,7 +178,7 @@ With the gesture in place, we can now start to implement the various actions tha
 
 ## Implementing gesture actions
 
-As you can see, the drag gesture has an `onChanged` and an `onEnded` event, but no `onStarted`. This means that we'll have to use `onChanged` to handle both when the gesture starts and when it changes.
+The drag gesture has an `onChanged` and an `onEnded` event, but no `onStarted`. This means that we have to use `onChanged` to handle both when a gesture starts and when it changes.
 
 Let's define two functions for trying to handle presses and releases:
 
@@ -213,7 +214,7 @@ var gestureView: some View {
 }
 ```
 
-As you can see, `onChanged` will try to handle a press whenever the drag gesture starts, but it should only be triggered once, as well as call the `dragAction`. `onEnded` will only try to handle the release.
+`onChanged` will try to handle a press whenever the drag gesture starts, but it should only be triggered once and also call the `dragAction`. `onEnded` will only try to handle the release.
 
 
 ## Handling presses
@@ -231,9 +232,9 @@ func tryHandlePress(_ value: DragGesture.Value) {
 }
 ```
 
-Since we should only handle presses once, we abort if `isPressed` is `true`. If not, we set it to `true`, call the `pressAction` and the `dragStart`, after we try to trigger the long press and repeat actions.
+Since we should only handle presses once, we abort if `isPressed` is `true`. If not, we set it to `true`, call `pressAction` & `dragStart`, after triggering the long press and repeat actions.
 
-We now call `pressAction`, `dragStartAction` and `dragAction` at the correct places. Let's now look at how to trigger a long press.
+We now call `pressAction`, `dragStartAction` & `dragAction` at the correct places. Let's look at how to trigger a long press.
 
 
 ## How to trigger a long press
@@ -253,14 +254,16 @@ func tryTriggerLongPressAfterDelay() {
 }
 ```
 
-We first check that we have a `longPressAction`, otherwise we abort the operation. If we have one, we take the current date and set the `longPressDate` to it. We then use the `longPressDelay` to trigger an async operation, in which we check if `longPressDate` is still the same as. If so, the gesture is still active, which means that we should trigger the `longPressAction`.
+We first check that we have a `longPressAction`, otherwise we abort the operation. If we have one, we take the current date and set the `longPressDate` to it. 
+
+We then use `longPressDelay` to trigger an async operation that check if `longPressDate` is still the same. If so, the gesture is still active, and should trigger the `longPressAction`.
 
 
 ## How to trigger a repeating action
 
-With the long press taken care of, let's look at how to handle repeats, which are actions that trigger on a regular basis for as long as you keep the button pressed.
+With the long press taken care of, let's look at how to handle repeats, which are the actions that trigger on a regular basis for as long as you keep the button pressed.
 
-To handle the repeats, we will use a component called [RepatGestureTimer]({{page.timer}}), which is a simple class that starts calling an action with a certain interval when it's started, then stops when it's stopped. Tap the link to see the source code, if you're interested in the implementation.
+To handle the repeats, we will use a [RepatGestureTimer]({{page.timer}}), which is a simple class that starts calling an action with a certain interval when it's started, then stops when it's stopped.
 
 Trying to trigger a repeating action involve the following operations:
 
@@ -277,7 +280,7 @@ func tryTriggerRepeatAfterDelay() {
 }
 ```
 
-Just like with long presses, we check that we have a `repeatAction`, otherwise we abort the operation. If we have one, we trigger a delay with the `repeatDate` and `repeatDelay` and start the `repeatTimer` if the gesture is still active after the delay.
+Just like with long presses, we check that we have a `repeatAction`, otherwise we abort the operation. If we have one, we trigger a delay and start the `repeatTimer` if the gesture is still active after the delay.
 
 That's all we need to do when we press the button. Let's now look how to handle when the drag gesture eventually ends.
 
@@ -304,7 +307,9 @@ func tryHandleRelease(_ value: DragGesture.Value, in geo: GeometryProxy) {
 }
 ```
 
-Since we should only handle releases once, we abort if `isPressed` is `false`. If not, we set it to `false`, then reset the `longPressDate` and `repeatDate` and stop the `repeatTimer`. We then update the `releaseDate` according to if the release counts as a double tap or not, call the proper release action depending on the end location and wrap it all up by calling `dragEndAction` and `endAction`.
+Since we should only handle releases once, we abort if `isPressed` is `false`. If not, we set it to `false`, then reset the `longPressDate` and `repeatDate` and stop the `repeatTimer`. 
+
+We then update `releaseDate` according to if the release counts as a double tap or not, call the proper release action based on the end location then call `dragEndAction` & `endAction`.
 
 
 ## How to trigger a double tap
@@ -320,12 +325,14 @@ func tryTriggerDoubleTap() -> Bool {
 }
 ```
 
-We use the `releaseDate` that we update in `tryHandleRelease` to see how long time that has passed since the last release. The release counts as a double tap if the time is less than the `doubleTapTimeout` configuration. If the release is a double tap, we call the `doubleTapAction` then return the result, which will update the `releaseDate` depending on if the gesture was a double tap or not.
+We use the `releaseDate` that we update in `tryHandleRelease` to check how long time that has passed since the last release. 
+
+The release counts as a double tap if the time is less than the `doubleTapTimeout`. If so, we call the `doubleTapAction` and return the result, which updates the `releaseDate` accordingly.
 
 
 ## How to trigger the correct release action
 
-Triggering the correct release action involves using the `GeometryProxy` to check if the drag gesture was released inside or outside of the view's bounds. To do this, we can use this extension:
+Triggering the correct release action involves using the `GeometryProxy` to check if a gesture was released inside or outside of the view's bounds. To do this, we can use this extension:
 
 ```swift
 private extension GeometryProxy {
@@ -340,13 +347,11 @@ private extension GeometryProxy {
 }
 ```
 
-And that's it! If the release is done within the view bounds, we call `releaseInsideAction` otherwise we call `releaseOutsideAction`. With this in place, our gesture button is done. Let's wrap up!
+And that's it! If the release is done within the view, we call `releaseInsideAction` otherwise we call `releaseOutsideAction`. With this in place, our gesture button is done.
 
 
 ## Conclusion
 
-`GestureButton` lets you handle multiple gestures with a single button. You can detect presses, relases outside and inside, long presses, double taps, trigger repeating actions etc. all with a single `DragGesture`.
+`GestureButton` lets you handle multiple gestures with a single button. You can detect many different type of gestures, using a single `DragGesture`.
 
 I have added `GestureButton` to my [SwiftUIKit]({{page.github}}) library. You can find the source code [here]({{page.button}}). If you decide to give it a try, I'd be very interested in hearing what you think.
-
-Happy button mashing!

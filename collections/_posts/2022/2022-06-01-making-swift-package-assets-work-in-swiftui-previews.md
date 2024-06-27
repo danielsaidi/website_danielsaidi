@@ -11,12 +11,12 @@ swiftgen:   https://github.com/SwiftGen/SwiftGen
 ---
 
 
-In this post, we'll take a look at how we can get colors, images and other assets that are defined in Swift packages to work in external SwiftUI previews, such as in an app.
+In this post, we'll take a look at how we can get colors, images and other assets that are defined in Swift packages to work in external SwiftUI previews.
 
 
 ## Background
 
-Swift packages make it very easy to share assets, such as colors and images, as well as files, e.g. fonts. Just add resources to a package folder and specify the folder in the package definition file:
+Swift packages make it easy to share assets, such as colors, images, files,fonts, etc. Just add resources to a package folder and specify the folder in the package definition file:
 
 ```swift
 // swift-tools-version: 5.6
@@ -43,11 +43,11 @@ let package = Package(
 )
 ```
 
-When you define resources for a package, the package will generate a `.module` bundle that you can use to access any embedded assets and resources. Tools like [SwiftGen]({{page.swiftgen}}) also use this bundle to access resources from the package.
+When you add resources to a package, it will generate a `.module` bundle that you can use to access any embedded assets and resources. Tools like [SwiftGen]({{page.swiftgen}}) also use this bundle to access resources from the package.
 
-However, while this works great within the package, SwiftUI is currently not able to use the `.module` bundle in external previews. Any previews that refer to external package assets in any way will crash.
+While this works great within the package, SwiftUI is currently not able to use the `.module` bundle in external previews. Trying to access module assets will cause a preview to crash.
 
-This bug is discussed in great detail [here]({{page.article1}}) and [here]({{page.article2}}), where [Skyler_S](https://developer.apple.com/forums/profile/Skyler_S) and [Jeremy Gale](https://hashnode.com/@jgale) proposes creating a custom bundle that adds additional ways to resolve a bundle when it's being used in a SwiftUI preview.
+This bug is discussed in [here]({{page.article1}}) and [here]({{page.article2}}), where [Skyler_S](https://developer.apple.com/forums/profile/Skyler_S) and [Jeremy Gale](https://hashnode.com/@jgale) shows how you can creat a custom bundle to resolve a bundle differently in a SwiftUI preview.
 
 
 ## Creating a custom bundle
@@ -61,7 +61,7 @@ extension Bundle {
 }
 ```
 
-We then have to define the package name. The pattern used to be `LocalPackages_<ModuleName>` for iOS, but the new format is:
+We then have to define the package name. The pattern was `LocalPackages_<ModuleName>` for iOS, but the new format is:
 
 ```swift 
 extension Bundle {
@@ -70,7 +70,7 @@ extension Bundle {
 }
 ```
 
-This can however change in new Xcode versions, so make sure to test it when a new version of Xcode is released. If it stops working, you can print out the path like this and look for the bundle name:
+This can change in new Xcode versions, so make sure to test it when a new Xcode version is released. If it stops working, you can print out the path and look for the bundle name:
 
 ```swift
 Bundle(for: BundleFinder.self)
@@ -79,9 +79,9 @@ Bundle(for: BundleFinder.self)
     .deletingLastPathComponent()
 ```
 
-Also note that the name pattern above may be different for macOS, but you should then just be able to add an `#if os(macOS)` check and return another value.
+The name pattern above can be different for macOS, but you should then just be able to add an `#if os(macOS)` check and return another value.
 
-We can now define a custom bundle that will look for the bundle in more places than `.module` does:
+We can now define a custom bundle that looks for a bundle in more places than `.module`:
 
 ```swift
 public static let myPackage: Bundle = {
@@ -116,12 +116,12 @@ public static let myPackage: Bundle = {
 }()
 ```
 
-With this new bundle in place, you can now use the `.myPackage` bundle instead of `.module` to make external previews work. If they start crashing again, you can use the technique above to find out why.
+With this new bundle, you can now use `.myPackage` instead of `.module` to make external previews work. If they start crashing, you can use the techniques above to find out why.
 
 
 ## Using our custom bundle in SwiftGen
 
-If you use [SwiftGen]({{page.swiftgen}}) to generate code from your assets and resource files, you should tell it to use the custom bundle as well, by adjusting the `swiftgen.yml` file so that it defines a `bundle`:
+If you use [SwiftGen]({{page.swiftgen}}) to generate code from your assets and resource files, you should tell it to use the custom bundle, by adjusting the `swiftgen.yml` file so that it defines a `bundle`:
 
 ```
 // swiftgen.yml
@@ -152,6 +152,6 @@ If you run `swiftgen`, the generated code should now use `.myPackage` instead of
 
 ## Conclusion
 
-Adding assets to Swift packages is very easy and convenient, but SwiftUI currently have some bugs that make using them problematic. If you have these problems, I hope that this post was helpful. 
+Adding assets to Swift packages is easy and convenient, but SwiftUI currently have some bugs that make them problematic. If you have these problems, I hope this post was helpful.
 
 Let's hope that the Swift package team is aware of this problem and that the upcoming changes at this year's WWDC will finally provide a fix for it and make this post obsolete.

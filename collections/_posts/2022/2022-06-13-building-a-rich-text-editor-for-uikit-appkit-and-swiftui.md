@@ -4,7 +4,7 @@ date:   2022-06-13 01:00:00 +0000
 tags:   swiftui open-source rich-text multi-platform uikit appkit
 
 icon:   swiftui
-assets: /assets/blog/2022/220613/
+assets: /assets/blog/22/0613/
 
 tweet:  https://twitter.com/danielsaidi/status/1532836356900237313?s=20&t=lkHbVZyPQE3MIG6dA8bw0g
 
@@ -14,7 +14,7 @@ oribi-writer:   https://oribi.se/en/apps/oribi-writer/
 richtextkit:    https://github.com/danielsaidi/RichTextKit
 ---
 
-In this article, we'll look at how to build a rich text editor for UIKit, AppKit and SwiftUI. We'll extend native types to extend the foundation support for rich text, add new types to bridge the different platforms and make sure that we have a basic, working foundation that we can expand in future posts.
+In this article, we'll look at how to extend the rich text support in UIKit, AppKit & SwiftUI by extending native types, adding new types to bridge the different platforms, etc.
 
 {% include kankoda/data/open-source.html name="RichTextKit" %}
 
@@ -23,24 +23,24 @@ This post was originally published as a guest article at the [Cindori]({{page.ar
 
 ## Background
 
-Rich text editing on Apple's platforms is pretty straightforward. Just create a `UITextView` in UIKit and an `NSTextView` in AppKit and use `NSAttributedString`, and they will automatically support fonts, styles, text alignment, etc., as well as image image attachments and other kind of rich content.
+Rich text editing on Apple's platforms is pretty straightforward. Just use a `UITextView` in UIKit, an `NSTextView` in AppKit, and use `NSAttributedString`, and they will automatically support fonts, styles, text alignment, image attachments, etc.
 
-Unfortunately it's not that easy. Many tasks are actually pretty complicated, and multi-platform support makes things even worse, since UIKit and AppKit handle attributed strings quite differently.
+No, unfortunately it's not that easy. Many things are very complicated, and multi-platform support makes things worse, since UIKit & AppKit handle many things quite differently.
 
-Adding SwiftUI to the mix makes it even more complex, since we have to bridge the platform-specific views in a way that works on all platforms. We also need some way to let SwiftUI affect the platform-specific views, and for the views and their delegates to update SwiftUI as well.
+Adding SwiftUI to the mix makes it even more complex, since we have to bridge platform-specific views in a way that works on all platforms. We also need some way to let SwiftUI affect the platform-specific views, and for the views to update SwiftUI as well.
 
-All in all, this is quite complicated, which is why I'm happy to announce that my wonderful client [Oribi]({{page.oribi}}) has given me permission to open-source a rich text engine that I created as part of a project for them. The result is an open-source library called [RichTextKit]({{project.url}}) which you’re able to use in your own projects. 
+All in all, this is quite complicated, which is why I'm happy to announce that my wonderful client [Oribi]({{page.oribi}}) has given me permission to open-source a rich text engine that I have created as part of a project for them.
 
-Many thanks to [Oribi]({{page.oribi}}) for letting me open-source this!
+The result is an open-source library called [RichTextKit]({{project.url}}) which you’re able to use in your own projects. Many thanks to [Oribi]({{page.oribi}}) for letting me open-source this!
 
 
 ## Designing for multi-platform
 
-When building a multi-platform rich text engine that should also support SwiftUI, I was careful to design the foundation as platform-agnostic as possible. Designing for the unknown is often a vain task, but here I just designed it in a way that I thought would made sense for both UIKit and AppKit.
+When building a multi-platform rich text engine that also supports SwiftUI, I was careful to design the foundation as platform-agnostic as possible. Designing for the unknown is often a vain task, so I just designed it in a way that I thought would made sense for all cases.
 
-Long story short, I made a few assumptions that didn't hold true when I started developing the macOS version. For instance, I assumed that `UITextView` and `NSTextView` scrolls in the same way (spoiler alert - they don't). However, having a platform-agnostic foundation made such adjustments manageable.
+Long story short, many assumptions didn't hold true when I started developing the macOS version. For instance, I assumed that `UITextView` and `NSTextView` scrolls in the same way (they don't). However, having a solid foundation made such adjustments manageable.
 
-One example is how to set up these views. We use `UITextView` in UIKit and `NSTextView` in AppKit, but since we'll have to override some parts and add more rich text-specific functionality later, let's create a new `RichTextView` view for both platforms:
+One example is how to set up these views. We use `UITextView` in UIKit and `NSTextView` in AppKit, but since we have to override things and add rich text-specific functionality, we can create a custom `RichTextView` view for both platforms:
 
 ```swift
 #if os(iOS) || os(tvOS)
@@ -58,11 +58,13 @@ public class RichTextView: NSTextView {}
 #endif
 ```
 
-As you can see, we can only implement this view for `macOS`, `iOS` and `tvOS`, since `UITextView` is not available on `watchOS`. 
+We can only add this to `macOS`, `iOS` & `tvOS`, since `UITextView` is not available in `watchOS`. 
 
-Furthermore, the `UITextView` and `NSTextView` APIs differ quite a bit. For instance, to get and set the attributed string, `UITextView` has an `attributedText` property, while `NSTextView` has an `attributedString()` function to get the string and an optional `textStorage` property to change it.
+Furthermore, the `UITextView` and `NSTextView` APIs differ a lot. For instance, to get and set the attributed string, `UITextView` has an `attributedText` property, while `NSTextView` has an `attributedString()` function to get the string and a `textStorage` property to change it.
 
-To bridge these platform differences, we can extend the views with additional properties, to get the same APIs. I personally prefer to use protocols to enforce that this is done correctly. For these views, let's add a `RichTextViewRepresentable` protocol:
+To bridge these platform differences, we can extend the views with additional properties, to get the same APIs. I prefer to use protocols to enforce that this is done correctly.
+
+For these views, let's add a `RichTextViewRepresentable` protocol:
 
 ```swift
 public protocol RichTextViewRepresentable {
@@ -71,7 +73,7 @@ public protocol RichTextViewRepresentable {
 }
 ```
 
-We can now make both text views implement this protocol by adding an `attributedString` to them:
+Both text views can now implement this protocol by adding an `attributedString` to them:
 
 ```swift
 #if os(iOS) || os(tvOS)
@@ -103,7 +105,7 @@ public extension RichTextView {
 
 Using protocols to communicate bridging between platforms is a nice way to make our code cleaner in a controlled way and remove the need for `#if` checks within the library.
 
-To design SwiftUI for multi-platform use, we can also add a `ViewRepresentable` typealias that makes platform-specific views in SwiftUI easier to define within the library.
+To design SwiftUI for multi-platform use, we can also add a `ViewRepresentable` typealias that makes platform-specific views easier to define in the library.
 
 ```swift
 #if os(iOS) || os(tvOS)
@@ -119,12 +121,12 @@ typealias ViewRepresentable = NSViewRepresentable
 #endif
 ```
 
-This will make the SwiftUI rich text editor that we'll create next cleaner, since it can now implement the `ViewRepresentable` protocol without having to care about the platform differences.
+This will make the rich text editor that we'll create next cleaner, since it can implement the `ViewRepresentable` protocol without having to care about the platform differences.
 
 
 ## Creating a rich text editor for SwiftUI
 
-To use these new text views in SwiftUI, we can create a `RichTextEditor` view that wraps either of the two views depending on which platform we're on:
+To use these new, platform-specific text views in SwiftUI, we can create a `RichTextEditor` view that wraps either of the two views depending on which platform we're on:
 
 ```swift
 #if os(iOS) || os(macOS) || os(tvOS)
@@ -170,26 +172,26 @@ public struct RichTextEditor: ViewRepresentable {
 #endif
 ```
 
-To create a rich text editor, we have to provide it with an `NSAttributedString` binding. This could be any custom string or content that comes from e.g. a document in a document-based app. The editor will display the rich text that we provide it with, and will be able to edit it as well.
+To create a rich text editor, we have to provide it with an `NSAttributedString` binding. This can be any custom string that comes from e.g. a document in a document-based app. The editor will be able to display and edit the rich text that we provide.
 
-The code above shows one of my first AppKit learnings as I started porting the editor to macOS. As you can see, iOS and tvOS just use the `RichTextView` that we created earlier. I first tried doing the same for macOS, just to find that the editor didn't scroll.
+The code above shows one of my first AppKit learnings, as I started porting it to macOS. While iOS and tvOS just use the `RichTextView` that we created earlier, the macOS version didn't scroll when using the same approach.
 
-Turns out that in AppKit, you must create a scroll view from the text view type that you want to use, cast its `documentView` to get a text view, then use the `scrollView` to get the scrollable behavior that we get by default in iOS. We'll need the text view later, so let's also add a `textView` property.
+In AppKit, you must create a scroll view from the text view type that you want to use, cast its `documentView` to get a text view, then use the `scrollView` to get the scrollable behavior. We must therefore add a `textView` property to the protocol, since it may not be the view.
 
-We're now ready to take the SwiftUI text editor for a test ride! If we create a SwiftUI test app with a rich text binding and add a `TextEditor` to its content view, you'll find that you can provide the editor with any rich text and type in the editor to edit the text.
+We're now ready to take the text editor for a test ride! Let's create a test app with a plain text binding and add a `TextEditor` to its content view...
 
-However, there's something missing. If you edit text in the editor, then print the value of the text binding, or add a `Text` view that shows the text, you'll notice that typing in the text field doesn't update the text.
+...and notice that something's missing. If you edit the text in the editor, then print the text, or add a `Text` view that shows it, you'll notice that typing in the text field doesn't update it.
 
 ![A screenshow of how changes are not synced from the text view back to the state binding]({{page.assets}}changes-not-synced.jpg){:width="650px"}
 
-In the image above, I have typed in the text field, but the `Text` view still shows the original text. This is because we never write back any changes in the rich text editor to the text binding. Let's fix that next.
+In the image above, I have typed in the text field, but the `Text` view still shows the original text. This is because we never write back any changes to the text binding. Let's fix that.
 
 
 ## Syncing changes
 
 To listen for changes in the text editor and sync them back to the text binding, we need to implement text view delegation. However, since `TextEditor` is a struct, it can't be used as the text view delegate.
 
-We can solve this by adding a `coordinator` to the rich text editor and use it as delegate. Let's create a `RichTextCoordinator` and use it to coordinate changes between SwiftUI and the underlying views.
+We can solve this by adding a `coordinator` to the editor and use it as the delegate. Let's create a `RichTextCoordinator` and use it to coordinate changes between SwiftUI and the underlying views.
 
 ```swift
 #if os(iOS) || os(macOS) || os(tvOS)
@@ -216,7 +218,7 @@ open class RichTextCoordinator: NSObject {
 
 The coordinator is given a text binding and a `RichTextView` and will sync changes between both. We can also remove setting the `attributedString` in the editor, since the coordinator handles this for us.
 
-To be able to set the coordinator as the text view delegate, we first have to make it implement both the `UITextViewDelegate` and the `NSTextViewDelegate` protocol.
+To set the coordinator as the text view delegate, we first have to let it implement both the `UITextViewDelegate` and the `NSTextViewDelegate` protocol.
 
 ```swift
 #if os(iOS) || os(tvOS)
@@ -231,7 +233,7 @@ extension RichTextCoordinator: NSTextViewDelegate {}
 #endif
 ```
 
-We can then set the coordinator as the text view delegate in the `RichTextCoordinator` initializer:
+We can now set the coordinator as the text view delegate in the `RichTextCoordinator` init:
 
 ```swift
 open class RichTextCoordinator: NSObject {
@@ -250,7 +252,7 @@ open class RichTextCoordinator: NSObject {
 }
 ```
 
-For the coordinator to actually do anything, we need to implement a few delegate functions. Before we do, let's first add a way to sync the text binding with the text view:
+For the coordinator to actually do anything, we must implement a few delegate functions. Before we do, let's first add a way to sync the text binding with the text view:
 
 ```swift
 private extension RichTextEditorCoordinator {
@@ -299,9 +301,9 @@ open class RichTextCoordinator: NSObject {
 }
 ```
 
-With this code, the coordinator will sync changes back to the text binding. Still, if we run the test app, the original text still doesn't update. This is because we haven't put the coordinator to use yet.
+The coordinator will now sync changes back to the text binding. Still, if we run the test app, the text still doesn't update. This is because we haven't put the coordinator to use yet.
 
-We can fix this by making the rich text editor setup a `RichTextCoordinator` in `makeCoordinator`:
+We can fix this by making the editor setup a `RichTextCoordinator` in `makeCoordinator`:
 
 ```swift
 public struct RichTextEditor: ViewRepresentable {
@@ -316,20 +318,20 @@ public struct RichTextEditor: ViewRepresentable {
 }
 ```
 
-If we run the test app again, you'll see that the text is now updated when we type in the rich text editor. This is because our coordinator listens for changes in the text field and updates the text binding for us.
+If we run the app again, you'll see that the text is now updated when we type in the editor. This is because the coordinator listens to the text field and updates the text binding for us.
 
-However, tapping the button to change the text still doesn't update the rich text editor. This is something we have to leave for later, since updating the editor is quite tricky, if we want things like the text position to behave correctly whenever the text changes.
-
-Instead, let's look at how to change text style and let us toggle bold, italic and underline for the current position or selection in our rich text editor.
+Let's now look at how to change text style and let us toggle bold, italic and underline for the current position or selection in our rich text editor.
 
 
 ## Working with text styles
 
-To support text styling, we have to find a way to get and set if the text is bold, italic, underlined etc. This isn't as straightforward as you may think. Bold and italic are symbolic font traits, while underline is a text attribute, which means that we have to handle styles in different ways. UIKit and AppKit then adds even more differences to the mix, which complicates things further.
+To support text styles, we have to find a way to get & set bold, italic, underlined, etc. This isn't as straightforward as it seems. Bold & italic are symbolic font traits, while underline is a text attribute. This means that we have to handle different styles in different ways. 
 
-To get attribute information for the attributed string, we can use `attributes(at:effectiveRange:)`. However, ranges and strings are a dangerous combo, since invalid ranges will cause the code to crash.
+UIKit & AppKit adds even more differences to the mix, which complicates things further.
 
-Therefore, let's add a `safeRange` function to `NSAtrributedString`, to shield us from invalid ranges:
+We can use `attributes(at:effectiveRange:)` to get text attributes from an attributed string. However, ranges are dangerous, since using invalid ranges will cause the code to crash.
+
+Therefore, let's add a `safeRange` to `NSAtrributedString`, to shield us from invalid ranges:
 
 ```swift
 public extension NSAttributedString {
@@ -342,7 +344,7 @@ public extension NSAttributedString {
 }
 ```
 
-We can now add `NSAtrributedString` extensions that get a single or all attributes at a certain range:
+We can now add `NSAtrributedString` extensions to fetch attributes at a certain range:
 
 ```swift
 public extension NSAttributedString {
@@ -359,7 +361,7 @@ public extension NSAttributedString {
 }
 ```
 
-To actually change attributes for a certain range, we can create another extension. Note that we need to extend `NSMutableAttributedString` instead of `NSAttributedString`:
+Let's add another extension for setting attributes at a certain range. Note that we need to extend `NSMutableAttributedString` instead of `NSAttributedString`:
 
 ```swift
 public extension NSMutableAttributedString {
@@ -378,16 +380,16 @@ public extension NSMutableAttributedString {
 }
 ```
 
-Phew, that's a mouthful. Still, these extensions will now help us get and set text attributes like `.font`, `.underlineStyle` etc. and will make it easier to create a clean api. 
+Phew, that's a mouthful. Still, these extensions will now help us get and set text attributes like `.font`, `.underlineStyle` etc. using a clean api. 
 
-Still, traits like `bold` and `italic` can't be retrieved and set directly with attributes. Instead, we have to use fonts. Going through this would make the post very long, so let's use the extensions above for now, although they are intended to be used internally in the library, rather than by developers. Let's add more convenience utils later.
+Traits like `bold` and `italic` can however not be handled with attributes. Instead, we have to use fonts. Going through this would make the post very long, so let's use the extensions above for now, although they are intended to be used internally in the library.
 
 
 ## Changing text styles
 
-If we were to use UIKit and AppKit, the `TextView` and its attributed string would already be able to get and set attributes, which means that we could for instance toggle underline, change font etc.
+If we use UIKit & AppKit, the `TextView` and its attributed string is already able to get and set attributes, which means that we could for instance toggle underline, change font etc.
 
-In SwiftUI, however, we have to find a way to observe the current state of the text view, like we did when we synced text view changes back to the text binding. However, we then had a text binding to sync with. For things like traits, attributes etc. we need to find a way to manage that state in an observable way.
+In SwiftUI, however, we have to find a way to observe the current state of the text view, like we did when we synced text view changes back to the text binding. For traits & attributes, we need to find a way to manage that state in an observable way.
 
 We can solve this by introducing a new, observable class that we can use to keep track of the current state of the text view. Let's call it `RichTextContext`.
 
@@ -440,7 +442,7 @@ open class RichTextCoordinator: NSObject {
 }
 ```
 
-We can now add observable information to the context, for instance if the text is underlined or not:
+We can now add observable properties to the context, for instance if the text is underlined:
 
 ```swift
 public class RichTextContext: ObservableObject {
@@ -475,15 +477,15 @@ private extension RichTextCoordinator {
 }
 ```
 
-As you can see, the code is still rough even though we added a `textAttributes(at:)` function to the text view. This is why we should add more extensions later, to make these operations easier.
+The code is still rough even though we added a `textAttributes(at:)` function to the text view. This is why we should add more extensions later, to make these operations easier.
 
-You can now add a `@StateObject private var context = RichTextContext()` to the test app and pass it into the `RichTextEditor`. When you move the text input cursor, the coordinator will sync the underline information with the context, which you can then use as you wish in SwiftUI.
+You can now add a `@StateObject private var context = RichTextContext()` to the test app and pass it into the `RichTextEditor`. When you move the cursor, the coordinator will sync the underline information with the context, which you can then use as you wish in SwiftUI.
 
-However, we currently have no way to make the rich text underlined from SwiftUI. We have the required functionality, but no way to trigger it from SwiftUI. Since SwiftUI views are structs, we also have no view reference that a button could use. We have to find another way.
+However, we currently have no way to make the rich text underlined from SwiftUI. We have the required functionality, but no way to trigger it. Since SwiftUI views are structs, we have no view reference that a button could use. We have to find another way.
 
-Turns out that we've actually just added a way to solve this - the context. If we could somehow observe context changes, we could fix so that just changing the context's `isUnderlined` could tell something with access to the text view to act on that change. Turns out we have this thing as well - the coordinator.
+Turns out that we actually just added a way to solve this - the context. If we can somehow observe context changes, we could fix so that changing the context's `isUnderlined` would tell something with access to the text view to act on that change. 
 
-The coordinator could use `Combine` to observe the context, then apply the correct changes directly to the native text view, which in turn would update the text binding. 
+Turns out we have this thing as well - the coordinator! The coordinator could use `Combine` to observe the context, then apply changes directly to the native text view, which in turn would update the text binding. 
 
 Let's first add a way for the coordinator to store context observables:
 
@@ -539,11 +541,11 @@ private extension RichTextEditorCoordinator {
 }
 ```
 
-As you can see, we have to duplicate the `isUnderlined` logic from earlier. This is a clear indication (and the content for another post) that we should find a way to simplify this logic further.
+Since we had to duplicate the `isUnderlined` logic from earlier. This is an indication (and the content for another post) that we should find a way to simplify this logic further.
 
-However, let's leave it like this for now, and instead discuss how we can set this new attribute. We can't change the text view's `attributedString` since it's not mutable, so we have to find another way.
+Let's leave it for now, and instead discuss how to set this new attribute. We can't change the text view's `attributedString` since it's not mutable, so we must find another way.
 
-Turns out that `UIKit` has a non-optional `textStorage`, while `NSKit` has an optional property with the same name. Let's use these to add a `mutableAttributedString` to the text views:
+Turns out that `UIKit` has a non-optional `textStorage`, while `NSKit` has an optional one. Let's use these to add a `mutableAttributedString` to the text views:
 
 ```swift
 public protocol RichTextViewRepresentable {
@@ -578,32 +580,34 @@ private extension RichTextEditorCoordinator {
 }
 ```
 
-And with that, we're done (for now)! The coordinator will write to the context whenever the text view's text or position changes, and will observe and sync changes in the context with the text view.
+With that, we're done (for now)! The coordinator will write to the context whenever the text view's text or position changes, and will sync any context changes bck to the text view.
 
 
 ## Trying it out
 
-We can now add a button to our test app and have it highlight when the rich text context indicates that the current text is underlined. We can also tap the button to toggle the underlined style:
+We can now add a button to our test app and have it highlight when the rich text context indicates that the current text is underlined. We can also tap the button to toggle a style:
 
 ![Two iOS devices showing underline support]({{page.assets}}underline-ios.jpg){:width="650px"}
 
 ![Two macOS windows showing underline support]({{page.assets}}underline-macos.jpg){:width="650px"}
 
-There are still tons to do to make attribute and trait management easier, and we haven't even started looking at more advanced features like image support. However, we now have a solid, multi-platform foundation that we can expand further.
+There are still tons to do to make attribute and trait management easier, and we haven't even started looking at more advanced features like image support.
+
+However, we now have a solid, multi-platform foundation that we can expand further, so feel free to chip in if you want to extend it with more features.
 
 
 ## Introducing RichTextKit
 
-This post has highlighted some of the complicated APIs that we have to use when working with rich text. Much behaves differently between platforms and much is also missing in SwiftUI. I've spent many hours on strange edge cases, and have searched all over to find clues in 10+ years old Objective-C posts etc.
+This post has highlighted some of the complicated APIs that we have to use when working with rich text. Much behaves differently between platforms and much is missing in SwiftUI. 
 
-Since I implemented all the rich text functionality covered in this post while working for a company called [Oribi]({{page.oribi}}), we both felt that it's such a waste that every developer has to reinvent the same wheel and handle the same limitations every time a new rich text-based app is to be developed.
+I've spent many hours on strange edge cases, and have searched all over to find clues in 10+ years old Objective-C posts etc. It's gone ok, but not great.
 
-This is why I'm happy to announce that we'll be making all this available as an open-source library! It is called [RichTextKit]({{project.url}}) and makes working with rich text a lot easier in UIKit, AppKit and SwiftUI.
+Since I implemented all the rich text functionality in this post while working for a company called [Oribi]({{page.oribi}}), we both felt that it's a waste that every developer has to reinvent the wheel and handle the same limitations every time a new rich text-based app is to be developed.
+
+I'm therefore happy to announce that we'll be making all this available as an open-source library! It is called [RichTextKit]({{project.url}}) and makes working with rich text a lot easier.
 
 ![RichTextKit logo](/assets/headers/richtextkit.png)
 
-[RichTextKit]({{project.url}}) is under development, but already provides the functionality featured in this post, as well as functionality to work with attributes, styles, traits, images, etc. It also has a demo app that lets you test the various features in a lightweight rich text editor.
+[RichTextKit]({{project.url}}) is under development, but already has the functionality in this post, as well as functionality to work with attributes, styles, traits, images, etc. It also has a demo app.
 
-If you think rich text is exciting, I'd love for you to try it out and give me your feedback. Together, we can make rich text on Apple's platforms much more fun than it is today.
-
-Thanks for reading!
+If you think rich text is exciting, I'd love for you to try it out and give me feedback. Together, we can make rich text on Apple's platforms much more fun than it is today.

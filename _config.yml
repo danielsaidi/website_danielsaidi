@@ -114,7 +114,7 @@ defaults:
     scope:
       type: "posts"
     values:
-      image: ""
+      image: "/assets/blog/header.jpg"
       author: "danielsaidi"
       layout: "post"
   -

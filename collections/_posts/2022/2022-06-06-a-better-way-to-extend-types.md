@@ -8,23 +8,27 @@ icon:   swift
 tweet:  https://twitter.com/danielsaidi/status/1534121018716999681?s=20&t=HuAkOPV9JSNSw7eWgtmaVQ
 ---
 
-In this post, we'll take a quick look at a better way to extend types in Swift, to make the extensions more versatile and discoverable.
+In this post, let's take a look at a better way to extend types in Swift, to make extensions more versatile and discoverable.
 
 
 ## Background
 
-Extensions are convenient and common ways to extend types in Swift. In Swift, extensions are even the core of various coding styles, for instance to separate public and private members, encapsulate protocol implementations etc.
+Type extensions is a convenient and common way to extend types in Swift. Extensions are even the core of some coding styles, for instance to separate public and private members, encapsulate protocol implementations etc.
 
-However, while extensions are convenient, they also risk bloating types with too much functionality and provide functionality that should be defined somewhere else, specified by a protocol, implemented in an abstract manner etc. Furthermore, extensions are also not included in generated DocC documentation, which may cause large part of an open-source library to not show up in the generated documentation.
+However, while extensions are convenient, they can bloat types with too much functionality and provide functionality that should be defined somewhere else, specified by a protocol, implemented in an abstract manner etc.
+
+Furthermore, extensions are also not included in generated DocC documentation (update 2023: it is now, in Xcode 15), which may cause large part of an open-source library to not show up in the generated documentation.
 
 There's no hard line when using an extension is "correct" or "wrong". Just keep an eye on your code and be aware of if you base too much of your logic in plain type extensions.
 
 
 ## Defining extensions with protocols
 
-One way to make extensions more versatile and increase their discoverability, is to define a protocol that defines the functionality, then make suitable types implement the protocol with an extension. This makes it possible for more types to implement the same protocol and get access to the extension, and will also cause the extension to show up in the DocC documentation, since it is defined by the protocol instead of as a plain extension.
+One way to make extensions more versatile and increase their discoverability, is to define a protocol that defines the functionality, then make suitable types implement the protocol.
 
-As an example, consider a situation where we want to get images from the pasteboard in both UIKit and AppKit. While `UIPasteboard` has properties for `image` and `images`, `NSPasteboard` has no such properties. If we want both types to have the same image properties, we could extend `NSPasteboard`:
+This makes it possible for more types to implement the same protocol and get access to the extension, and will also cause the extension to show up in the DocC documentation (no longer needed with Xcode 15 supporting DocC for extensions).
+
+As an example, say that we want to get images from the pasteboard in UIKit & AppKit. While `UIPasteboard` has properties for `image` and `images`, `NSPasteboard` has no such properties. If we want the types to have the same properties, we can extend `NSPasteboard`:
 
 ```swift
 public extension NSPasteboard {
@@ -39,9 +43,7 @@ public extension NSPasteboard {
 }
 ```
 
-However, if we now put this extension in a library that uses DocC to generate documentation, this nice extension wouldn't show up, since DocC omits extensions to native types. Our dear developers would only get to know about its existence by typing in Xcode and hope that the autocomplete gods pick it up.
-
-We can improve this by adding a protocol that defines the same functionality:
+We can however improve this by adding a protocol that defines the same functionality:
 
 ```swift
 public protocol PasteboardImageReader {
@@ -68,25 +70,9 @@ extension NSPasteboard: PasteboardImageReader {}
 #endif
 ```
 
-Unlike the extension, the protocol *will* show up in the DocC documentation, which will show that there is a way to get images from a pasteboard. However, it would not show that both pasteboards implement the protocol, since they are native types and not defined in the library. You should therefore mention this in the protocol documentation, for instance:
+Unlike just extending `NSPasteboard`, the protocol provides a clean API, and can also be implemented by more types, be mocked in unit tests, etc.
 
-```swift
-/**
- This protocol can be implemented any types that can provide
- images from the pasteboard.
-
- The protocol is implemented by the UIKit `UIPasteboard`, as
- well as the AppKit `NSPasteboard`.
- */
-public protocol PasteboardImageReader {
-
-    ...
-}
-```
-
-This improves discoverability a whole lot, since developers can now browse the documentation to find out which types that implement this protocol, as well as what the protocol can do.
-
-Since we now have a protocol that defines the functionality, we can extend it further with more functions, for instance to get whether or not the pasteboard has any images.
+Since we now have a protocol that defines the functionality, we can extend it further with more functions, for instance to check if the pasteboard has any images.
 
 ```swift
 public extension PasteboardImageReader {
@@ -98,9 +84,7 @@ public extension PasteboardImageReader {
 }
 ```
 
-Another great benefit with this approach, is that any type can implement this protocol and get access to the additional functionality. In this case, it's not much, but when you work with multi-platform codebases, this can be a great way to reduce the amount of code you have to write for each type.
-
-But that's a discussion for another post.
+Another benefit with this, is that any type can implement this protocol and get access to the additional functionality, which can reduce the amount of code you have to write.
 
 
 ## Conclusion

@@ -1,12 +1,12 @@
 ---
-title:  How to detect SwiftUI preview mode
+title:  Detecting SwiftUI's preview mode
 date:   2022-05-27 01:00:00 +0000
 tags:   swiftui
 
 icon:   swiftui
 ---
 
-In this post, we'll take a quick look at how to determine if code is running as a SwiftUI preview or not.
+In this article, we'll take a look at how to determine if code is running in a SwiftUI preview, which may be nice if you need to disable certain things, like network calls.
 
 {% include kankoda/data/open-source.html name="SwiftUIKit" %}
 
@@ -21,7 +21,7 @@ public extension ProcessInfo {
 }
 ```
 
-You shouldn't misuse this information, but if you have a preview problem that you need to work around, this property may be a good last resort.
+You shouldn't misuse this information, but if you have a preview problem that you need to work around, it may be a good alternative.
 
 
 ## How to make the code testable and easier to use
@@ -41,16 +41,7 @@ You can then let `ProcessInfo` implement it:
 extension ProcessInfo: SwiftPreviewInspector {}
 ```
 
-then create a standard implementation that uses `ProcessInfo`:
-
-```swift
-class StandardSwiftPreviewInspector: SwiftPreviewInspector {
-
-    public var isSwiftUIPreview: Bool {
-        ProcessInfo.processInfo.isSwiftUIPreview
-    }
-}
-```
+You can now use `ProcessInfo` as the inspector in your app, to avoid relying on it directly.
 
 ## Conclusion
 

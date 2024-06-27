@@ -4,7 +4,7 @@ date:   2022-06-21 08:00:00 +0000
 tags:   swiftui sheet presentation-detents
 
 icon:   swiftui
-assets: /assets/blog/2022/220621/
+assets: /assets/blog/22/0621/
 
 tweet:  https://twitter.com/danielsaidi/status/1539343541155028993?s=20&t=mIWJ4rucrEUZSxr9gkm6MA
 
@@ -16,7 +16,7 @@ kzyryanov:  https://twitter.com/kzyryanov
 tgrapperon: https://twitter.com/tgrapperon
 ---
 
-SwiftUI 4 adds a bunch of great features, such as custom sized sheets. However, these sheets will always dim the underlying view, even when they use a smaller size. Let's look at how to fix this.
+SwiftUI 4 adds a bunch of great features, such as custom sized sheets. However, sheets will always dim the underlying view, even in smaller sizes. Let's fix that.
 
 {% include kankoda/data/open-source.html name="SwiftUIKit" %}
 
@@ -27,16 +27,16 @@ SwiftUI 4 adds a bunch of great features, such as custom sized sheets. However, 
 
 I [recently wrote]({{page.article}}) about how you can use the new `presentationDetents` view modifier to set up sheets with custom sizes in SwiftUI 4.
 
-Even though this is great, it always dims the underlying when a sheet is presented. This means that we can't build an apps like Apple Maps, where a sheet is always presented over an always interactable map:
+Even though this is great, the sheet always dims the underlying view. This means that we can't build an apps like Apple Maps, where a sheet is presented over an interactable map:
 
 ![A SwiftUI map app without and with a small sheet overlay]({{page.assets}}/maps.jpg){:style="width:650px"}
 
-In the images above, the map becomes disabled when the sheet is presented with this new modifier, and will hide the sheet when you tap on it. We thus need a way to keep the underlying view undimmed.
+In the images above, the map becomes disabled when the sheet is presented, and will hide the sheet when you tap on it. We need a way to keep the underlying view undimmed.
 
 
 ## Undimming the underlying view in UIKit
 
-In UIKit, custom sheet sizes were introduced in iOS 15, with a `largestUndimmedDetentIdentifier` property that lets you specify for which detents the underlying view should be undimmed and enabled.
+Custom UIKit sheet sizes were added in iOS 15, with a `largestUndimmedDetentIdentifier` property that lets you specify for which detents the underlying view should be undimmed.
 
 For instance, if you want the underlying view to be enabled up to and including a `.medium` sheet size, you can add this code to your sheet presentation controller:
 
@@ -49,17 +49,17 @@ This feature is not available in SwiftUI at the moment, but we can add support f
 
 ## Undimming the underlying view in SwiftUI
 
-When I went to Twitter to cry about these missing capabilities, I quickly got a response from [tgrapperon]({{page.tgrapperon}}) who suggested using a `UIHostingController` to affect the sheet presentation controller.
+When I went to Twitter to cry about these missing capabilities, I quickly got a response from [tgrapperon]({{page.tgrapperon}}) who suggested using a `UIHostingController` to affect the sheet controller.
 
 So, I did just that. I want the workaround to be as close to the current APIs as possible, to make it easy to replace when the feature is added in a future version of SwiftUI.
 
-The native SwiftUI extension that is used to set custom sheet sizes is called `presentationDetents`:
+The native SwiftUI modifier used for custom sheet sizes is called `presentationDetents`:
 
 ```swift
 myView.presentationDetents([.medium, .large])
 ```
 
-I decided to call my view modifier `presentationDetents` as well, but also added a `largestUndimmed` parameter to support undimming and an optional `selection` binding:
+I decided to call my modifier `presentationDetents` as well, and added a `largestUndimmed` parameter to support undimming and an optional `selection` binding:
 
 ```swift
 extension View {
@@ -127,7 +127,7 @@ extension UISheetPresentationController.Detent.Identifier {
 }
 ```
 
-Let's also add a reference extension that makes it easy to create a SwiftUI `PresentationDetent` set:
+Let's also add a reference extension that makes it easy to map this to a SwiftUI native set:
 
 ```swift
 extension Collection where Element == PresentationDetentReference {
@@ -138,14 +138,14 @@ extension Collection where Element == PresentationDetentReference {
 }
 ```
 
-With this in place, we can now handle presentation detents in UIKit and SwiftUI with just a single type.
+With this, we can handle presentation detents in UIKit and SwiftUI with just a single type.
 
 
 ## Controlling SwiftUI undimming with UIKit
 
 To add undimming support to SwiftUI, we can create a `UIViewControllerRepresentable` that wraps a `UIViewController` that we can use to manipulate the underlying views.
 
-Let's first create a view controller to set the largest undimmed detent of the shet presentation controller and tweak the tint adjustment mode, to avoid a bug where undimmed sheets still look dimmed:
+Let's first create a `UndimmedDetentViewController` to set the largest undimmed detent of the sheet presentation controller and fix a bug where undimmed sheets still look dimmed:
 
 ```swift
 private class UndimmedDetentViewController: UIViewController {
@@ -169,7 +169,7 @@ private class UndimmedDetentViewController: UIViewController {
 }
 ```
 
-We can now wrap the controller in a `UIViewControllerRepresentable` to make it available to SwiftUI:
+We can wrap the controller in a `UIViewControllerRepresentable` to use it in SwiftUI:
 
 ```swift
 private struct UndimmedDetentView: UIViewControllerRepresentable {
@@ -198,7 +198,7 @@ If we now add this view to a SwiftUI view hierarchy, it will adjust the underlyi
 
 ## Undimming the underlying view in SwiftUI
 
-With all these new things in place, we can now create a view modifier that lets us provide presentation detents together with a largest undimmed detent value:
+We can now create a view modifier that lets us provide presentation detents together with a largest undimmed detent value:
 
 ```swift
 public struct PresentationDetentsViewModifier: ViewModifier {
@@ -246,7 +246,7 @@ The view modifier adds the `UndimmedDetentView` we defined earlier as a backgrou
 
 We also have to add the `largestUndimmed` detent to the `presentationDetents` collection, to ensure that it's in that collection. If not, the undimming will not work.
 
-We can now create a `presentationDetents` view extension as a shorthand to this new view modifier:
+We can also create a `presentationDetents` view modifier shorthand to this view modifier:
 
 ```swift
 public extension View {
@@ -274,7 +274,7 @@ We can now use `.presentationDetents(...)` to get undimming support in our iOS 1
 
 ## Conclusion
 
-SwiftUI 4 custom sized sheets are great, but will unfortunately not let you keep the underlying view undimmed. This post presents a workaround until Apple adds this as a native feature.
+SwiftUI 4 custom sized sheets are great, but will not yet let you keep the underlying view undimmed. This post presents a workaround until Apple adds this as a native feature.
 
 I have the workaround to [SwiftUIKit]({{project.url}}). Feel free to try it out and let me know what you think, and if you find anything that needs fixing.
 

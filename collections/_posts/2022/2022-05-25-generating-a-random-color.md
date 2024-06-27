@@ -6,13 +6,13 @@ tags:   swiftui colors
 icon:   swiftui
 ---
 
-In this post, we'll take a quick look at how to generate a random color in SwiftUI, using the nice random api:s provided in Swift.
+In this post, we'll take a look at how to generate a random color in SwiftUI, using the nice random APIs that are now included in Swift.
 
 {% include kankoda/data/open-source.html name="SwiftUIKit" %}
 
-In Objective-C, random values involved a lot of `arc4random_uniform` code, which doesn't read well. You could use these global functions to generate random values, colors etc., often with a lot of code.
+In Objective-C, random values involved a lot of `arc4random_uniform` code, which doesn't read well. You could use these global functions to generate random values, colors etc.
 
-As Swift introduced `random` APIs for various numeric values, these things became way less complicated. However, some types like `Color`, still don't have built-in random support.
+As Swift now ships with `random` APIs for various numeric values, these things became way easier. However, some types like `Color`, still don't have built-in random support.
 
 We can add this support to `Color` quite easily, by using the `Double` random capabilities and the rgb `Color` initializer that was added in iOS 14.
 
@@ -30,9 +30,7 @@ public extension Color {
 }
 ```
 
-This lets you generate a random color and lets you specify whether you want a random opacity or not. 
-
-You can use random colors for various features, as a background color to make view debugging easier etc. since it makes it easy to see which views redraw.
+This lets you generate a random color, with or without random opacity. You can use this for various features, make view debugging easier etc.
 
 
 ## Conclusion

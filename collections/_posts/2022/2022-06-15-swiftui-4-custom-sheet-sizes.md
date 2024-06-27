@@ -10,19 +10,21 @@ article: https://danielsaidi.com/blog/2022/06/21/undimmed-presentation-detents-i
 bottomsheet: https://github.com/danielsaidi/BottomSheet
 ---
 
-WWDC'22 introduced a bunch of amazing additions to SwiftUI, many of which will render many 3rd party libraries obsolete. One such addition is SwiftUI's upcoming support for custom sheet sizes.
+WWDC'22 introduced many amazing additions to SwiftUI, of which many will render many 3rd party libraries obsolete. One such is SwiftUI's new support for custom sheet sizes.
 
 
 ## Background
 
-Until now, SwiftUI sheets have only supported a single, large size, where the parent view is pushed back and the sheet takes over most of the screen. When UIKit added support for custom sheet sizes last year, it wasn't added to SwiftUI.
+Until now, SwiftUI sheets have only supported a single, large size, where the parent view is pushed back and the sheet takes over most of the screen.
 
-As such, custom sheets has been a popular problem for the community to solve, which is why we have a bunch of open-source projects for this, my own [BottomSheet]({{page.bottomsheet}}) library included. Many of these libraries will however no longer be needed when SwiftUI gets support for custom sheet sizes in SwiftUI 4 and iOS 16.
+When UIKit added support for custom sheet sizes last year, it wasn't added to SwiftUI. As such, custom sheets has been a popular problem for the community to solve.
+
+We have a bunch of open-source projects for this, my own [BottomSheet]({{page.bottomsheet}}) included. Many of these will however no longer be needed when SwiftUI gets support for custom sheet sizes.
 
 
 ## Defining custom sheet sizes
 
-In SwiftUI 4 and iOS 16, you'll be able to use the new `.presentationDetents` modifier to define a set of sizes that a view should support when it's being presented as a sheet:
+In SwiftUI 4 and iOS 16, you'll be able to use the new `.presentationDetents` view modifier to define a set of sheet sizes that a view should support:
 
 ```swift
 struct MyView: View {
@@ -37,18 +39,21 @@ struct MyView: View {
                         .height(100),   // 100 points
                         .fraction(0.2), // 20% of the available height
                         .medium,        // Takes up about half the screen
-                        .large])        // The previously default sheet size
+                        .large]         // The previous default size
+                    )
                     .edgesIgnoringSafeArea(.all)
             }
     }
 }
 ```
 
-This is easy to use and works very well. The view will get a drag handle that the user can pull to move a sheet between its available sizes. The animation is very smooth and the feature satisfying to use.
+This is easy to use and works very well. The view gets a drag handle that move the sheet between its available sizes. The animation is very smooth and the feature satisfying to use.
 
-If you define a single sheet size, the drag handle will disappear and the sheet become non-dismissable. The sheet will bounce in a playful manner when you drag it, but it will not resize to other sizes and can't be dismissed by swiping down the sheet. This is perfect for onboarding guides and mandatory dialogs.
+If you define a single size, the handle disappears and the sheet become non-dismissable. The sheet will bounce in a delightful way when you drag it, but will not resize to other sizes.
 
-Note that these detents don't apply to iPad, where the sheet will still be presented as a centered window.
+Single-sized sheets also can't be dismissed by swiping down the sheet. This is perfect for onboarding guides and mandatory dialogs.
+
+Note that this don't apply to iPad, where the sheet is still presented as a centered window.
 
 
 ## Hiding the drag handle
@@ -72,14 +77,14 @@ struct MyView: View {
 }
 ```
 
-The sheet will still be draggable between sizes, but the handle will be hidden. I guess this can be useful if you want to create a custom handle that looks or behaves differently than the standard one.
+The sheet will still be resizeable, but the handle will be hidden. I guess this can be useful if you want to create a custom handle that looks different than the standard one.
 
 
 ## Undimming the underlying view
 
-In UIKit, you can define the largest undimmed presentation detent. This can be used to create always on sheets that don't dim the underlying view, such as the Apple Maps overlay sheet.
+In UIKit, you can define the largest undimmed presentation detent. This can be used to create static sheets that don't dim the underlying view, such as in Apple Maps.
 
-In SwiftUI, this is not yet possible with the native api:s. I have therefore written [an article]({{page.article}}) that describes how you can do this in SwiftUI as well, so please check it out if you need this.
+In SwiftUI, this is not yet possible with the native api:s. I have therefore written [an article]({{page.article}}) that describes how you can do this in SwiftUI as well.
 
 
 ## Disabling interactive dismissal
@@ -103,15 +108,11 @@ struct MyView: View {
 }
 ```
 
-The sheet will still be draggable between sizes, but you will not be able to dismiss it by swiping it down.
+The sheet will still be draggable between sizes, but will not dismiss when you swipe down.
 
 
 ## Conclusion
 
-The new sheet abilities in SwiftUI 4 and iOS 16 look great and open up for a bunch of new experiences, like onboarding guides, mandatory input modals etc. I can't wait to use them in my apps.
+The new sheet abilities in SwiftUI 4 & iOS 16 look great and open up for new experiences, like onboarding guides, mandatory input modals etc. I can't wait to use it in my apps.
 
-With all these great additions, there's no need for me to keep working on [BottomSheet]({{page.bottomsheet}}), which is why I've created an `xcode-14` branch in which I'll add information about that the library is being deprecated. I will merge this to the main branch when Xcode 14 is released, after which I'll archive the project. It will still be around, though, for people who use it.
-
-I'm however torn on deprecating types in the library, since people may still have to use it for a few more years, until they can upgrade their apps to target iOS 16. Deprecating types in the library would mean that people could be left with annoying deprecation warnings that they can't act on. On the other hand, they will still be able to use older versions of the library, plus I will not create any new versions with these deprecations, so people can just stick to the last released version.
-
-If you have any great insights regarding this, I'd love to hear them.
+With these great additions, there's no need for me to keep working on [BottomSheet]({{page.bottomsheet}}). I will archive it and keep it around for a few years, then remove it.

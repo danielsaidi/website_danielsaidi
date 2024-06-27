@@ -7,20 +7,20 @@ image: /assets/headers/storekitplus.png
 tweet: https://twitter.com/danielsaidi/status/1541295027208556544?s=20&t=KLgrRJR_DDdJ70DjpNTB5Q
 ---
 
-{% include kankoda/data/open-source.html name="StoreKitPlus" %}In this post, let's take a look at [StoreKitPlus]({{project.url}}), which adds extra functionality for working with StoreKit 2 and aims to make it much easier to use StoreKit in SwiftUI.
+{% include kankoda/data/open-source.html name="StoreKitPlus" %}In this post, let's take a look at [{{project.name}}]({{project.url}}), which adds extra functionality for working with StoreKit 2 to make it easier to use StoreKit in SwiftUI.
 
 ![StoreKitPlus logotype]({{page.image}})
 
 
 ## Background
 
-StoreKit 2 is a huge improvement compared to the old StoreKit APIs. Gone are the many notifications, transaction states etc. that you had to listen for. The new APIs are very simple to use and behave great.
+StoreKit 2 is a huge improvement to StoreKit 1. Gone are many notifications, transaction states etc. that you had to handle. The new APIs are very simple to use and behave great.
 
-However, I have found some things missing when using this new framework. One thing is an easy way to observe store-specific state, so that store state can drive the UI in a SwiftUI application. Other things are the possibility to mock the StoreKit integration, persisting product and purchase information and to set up a local representation of the real StoreKit products etc.
+However, I have found some things missing, like an easy way to observe store-specific state and let it drive SwiftUI updates, the possibility to mock the StoreKit integration, persisting product & purchase information, setting up local product representations, etc.
 
-As such, I've created a tiny layer on top of StoreKit 2. It adds observable state, an abstract store service protocol, a concrete store service implementation as well as protocols for validating transactions and specifying local product representations. StoreKitPlus is easy to start using and can be extended with your own, custom logic, should you need to. 
+As such, I've created [{{project.name}}]({{project.url}}) as a tiny layer on top of StoreKit 2. It adds observable state, an abstract store service protocol, a concrete store service implementation as well as protocols for validating transactions and specifying local product representations. 
 
-Let's take a look at what it contains.
+StoreKitPlus is easy to start using and can be extended with custom logic, if you need to. Let's take a look at what it contains.
 
 
 ## Getting products
@@ -32,14 +32,14 @@ let productIds = ["com.your-app.productid"]
 let products = try await Product.products(for: productIds)
 ```
 
-However, if you need to do this in an abstract way, for instance if you need to mock the functionality in a unit test suite, extend the core functionality, etc., you can use the `StoreService` protocol, which has a `getProducts()` function:
+However, if you need to do this in an abstract way, e.g. to mock the functionality in a test, extend the core functionality, etc., StoreKitPlus's `StoreService` has a `getProducts()`:
 
 ```swift
 let productIds = ["com.your-app.productid"]
 let products = try await service.getProducts()
 ```
 
-The `StandardStoreService` implementation communicates directly with StoreKit and syncs the result to a provided, observable `StoreContext`. Read more on this context further down.
+The `StandardStoreService` implementation communicates directly with StoreKit and syncs the result to an observable `StoreContext`. Read more on this context further down.
 
 
 
@@ -58,27 +58,27 @@ switch result {
 return result
 ```
 
-However, if you need to do this in an abstract way, as described above, the `StoreService` protocol has a `purchase(_:)` function:
+If you need to do this in an abstract way, `StoreService` has a `purchase(_:)` function:
 
 ```swift
 let result = try await service.purchase(product)
 ```
 
-If you use the `StandardStoreService` implementation, it communicates directly with StoreKit and syncs the result to a provided, observable `StoreContext`.
+Just like with getting products, `StandardStoreService` communicates directly with StoreKit and syncs the result to a provided, observable `StoreContext`.
 
 
 
 ## Restoring purchases
 
-To restore purchase with StoreKit 2, you can use the `Transaction.latest(for:)` api and then verify each transaction to see that it's purchased, not expired and not revoked.
+To restore purchase with StoreKit 2, you can use the `Transaction.latest(for:)` api and verify each transaction to see that it's purchased, not expired and not revoked.
 
-This involves a bunch of steps, which makes the operation pretty complicated. To simplify, you can use the `StoreService` `restorePurchases()` function:
+This involves a bunch of steps, which makes it pretty complicated. To simplify, you can use the `StoreService`'s `restorePurchases()` function:
 
 ```swift
 try await service.restorePurchases()
 ```
 
-If you use the `StandardStoreService` implementation, it communicates directly with StoreKit and syncs the result to a provided, observable `StoreContext`.
+Just like before, `StandardStoreService` communicates directly with StoreKit and syncs the result to a provided, observable `StoreContext`.
 
 
 
@@ -86,19 +86,21 @@ If you use the `StandardStoreService` implementation, it communicates directly w
 
 To perform a full product and purchase information sync with StoreKit 2, you can fetch all products and transactions from StoreKit, then set your local state to reflect this information.
 
-This involves a bunch of steps, which makes the operation pretty complicated. To simplify, you can use the `StoreService` `syncStoreData()` function:
+This involves a bunch of steps, which makes it pretty complicated. To simplify, you can use the `StoreService` `syncStoreData()` function:
 
 ```swift
 try await service.syncStoreData()
 ```
 
-If you use the `StandardStoreService` implementation, it communicates directly with StoreKit and syncs the result to a provided, observable `StoreContext`.
+Just like before, `StandardStoreService` communicates directly with StoreKit and syncs the result to a provided, observable `StoreContext`.
 
 
 
 ## Observable state
 
-StoreKitPlus has an observable `StoreContext` that can be used to observe the store-specific state for a certain app.
+StoreKitPlus has an observable `StoreContext` that provides observe state for your app.
+
+You can inject a store context into a store service, to have the service automatically update the context, which drives your UI to automatically update when anything changes:
 
 ```swift
 let productIds = ["com.your-app.productid"]
@@ -109,17 +111,45 @@ let service = StandardStoreService(
 )
 ```
 
-The context lets you keep track of available and purchased products, and will even cache the IDs of the product and purchased products, which lets you use this information even if the app is later offline. 
+The context lets you keep track of available & purchased products, and will cache the IDs of products & purchased products, which can be mapped to local product representations if the app is later offline.
 
-A context instance can be injected when creating a `StandardStoreService` to make the service keep track of changes as the user uses the service to communicate with StoreKit. This means that the context will be automatically kept in sync when the user uses the service in your app.
+To observe a context, your app can just inject the context instance into the view hierarchy:
+
+```swift
+struct MyApp: App {
+
+    var body: some Scene {
+        WindowGroup {
+            ContentView()
+                .environmentObject(context)
+        }
+    }
+}
+```
+
+Any view can then resolve it to update whenever anything in the context changes:
+
+```swift
+struct MyView: View {
+
+    @EnvironmentObject
+    private var context: StoreContext
+
+    var body: some View {
+        ...
+    }
+}
+```
+
+The context will now be automatically kept in sync when the user uses the service in your app, which will automatically update the UI in the app.
 
 
 
 ## Local products
 
-If you want to be able to provide a local representation of your StoreKit product collection, you can use the `ProductRepresentable` protocol.
+You can use the `ProductRepresentable` protocol to provide a local representation of your StoreKit product collection, 
 
-The protocol is just an easy way to provide identifiable product types, that can be matched with the real product IDs, for instance:
+This protocol is an easy way to provide product representations that can be matched with your real products, for instance:
 
 ```swift
 enum MyProduct: CaseIterable, String, ProductRepresentable {
@@ -150,13 +180,13 @@ let context = StoreContext()
 let purchased = products.purchased(in: context)
 ```
 
-Just make sure that your local product types use the same IDs as the real products. Also note that some operations require that you provide a real StoreKit `Product`. 
+While communication with the StoreKit APIs requires real products, this lets you display a product collection and its purchase state while the app is offline.
 
 
 
 ## Conclusion
 
-As you can see, using the StoreKitPlus library is very easy and just adds a bunch of convenience utilities on top of StoreKit 2. I will add more functionality when I see the need, or when other developers request more functionality. Until then, the library will be kept intentionally tiny.
+StoreKitPlus is easy to use and adds a bunch of convenience utilities on top of StoreKit 2. I will add more functionality if I see the need, otherwise it will be kept intentionally tiny.
 
-If you want to git StoreKitPlus a try, you can test it [here]({{project.url}}). I'd love to hear your thoughts on this, so don't hesitate to comment, leave feedback etc.
+If you want to git StoreKitPlus a try, you can test it [here]({{project.url}}). I'd love to hear your thoughts on it, so don't hesitate to comment, leave feedback etc.
 

@@ -3,15 +3,15 @@ title:  Linking DocC to package named types
 date:   2022-05-02 07:00:00 +0100
 tags:   swift spm docc
 
-assets: /assets/blog/2022/220502/
-image:  /assets/blog/2022/220502/image.jpg
+assets: /assets/blog/22/0502/
+image:  /assets/blog/22/0502/image.jpg
 
 tweet:  https://twitter.com/danielsaidi/status/1521200257002094592?s=20&t=wF1kbk5Nxm27t6vxQ1OeLQ
 
 lib:    https://github.com/danielsaidi/BottomSheet
 ---
 
-In this post, let's take a quick look at how to link DocC to types that have the same name as the target they belong to.
+In this post, let's take a look at how to link DocC to types that have the same name as the target they belong to.
 
 ![DocC icon]({{page.image}})
 
@@ -55,4 +55,4 @@ To explicitly link to a type instead of a target, just add the target's name bef
 - ``BottomSheetStyle``
 ```
 
-Addint this prefix will make DocC link correctly to the type instead of the target. However, since it's easy to forget and you may link quite a lot to a type with the same name as the target (since it's probably the main type), you may want to avoid naming your types after the target.
+Adding this prefix will make DocC link correctly to the type instead of the target. However, since it's easy to forget, you may want to avoid naming your types after the target.

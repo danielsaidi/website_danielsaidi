@@ -13,7 +13,7 @@ marco-discussion: https://twitter.com/MarcoEidinger/status/1554992426846064640?s
 skeuomorphism: https://en.wikipedia.org/wiki/Skeuomorph
 ---
 
-SwiftUI 3 added the `searchable` view modifier, which makes it possible to add a search field to any view. In this post, let's take a look at how to make this (and any other) modifier conditional.
+SwiftUI 3 adds a `searchable` view modifier that makes it possible to add a search field to any view. In this post, let's take a look at how to make it (and other modifiers) conditional.
 
 {% include kankoda/data/open-source.html name="SwiftUIKit" %}
 
@@ -27,24 +27,23 @@ struct MyView: View {
 
     List {
         ...
-    }.searchable(text: $searchQuery, prompt: "Search")
+    }
+    .searchable(text: $searchQuery, prompt: "Search")
 }
 ```
 
-This will place a search bar above the list on iPhone and as a trailing navigation toolbar item on iPad, if you have a navigation bar. The standard modifier behavior is meant to fit each platform.
+This places a search bar above the list on iPhone and as a trailing navigation toolbar item on iPad. The standard modifier behavior is meant to fit each platform.
 
 
 ## Making searchable conditional
 
-In an app that I'm working on, I want a [skeuomorphic]({{page.skeuomorphism}}) user experience, which means that I want as little UI as possible. However, having a search bar can really help people find their content.
+In an app that I'm working on, I want a [skeuomorphic]({{page.skeuomorphism}}) user experience, which means that I want as little UI as possible. However, a search bar can really help people to find content.
 
-To take both the skeuomorphism as well as the potential search needs into consideration, I chose to make the search field optional, so that users with a lot of content can enable the search field.
+To take both the skeuomorphism as well as the potential search needs into consideration, I made the search field optional, so users with a lot of content can enable the search field, while the default behavior is to have search disabled.
 
 To fix this, I decided to implement a conditional `searchable` modifier, that takes a boolean condition and either returns the plain view or a searchable variant, based on the condition.
 
-This is by no means a sophisticated solution (I actually considered not writing this blog post), but it's an approach that I often return to and one that perhaps can inspire you.
-
-The extension is very basic:
+This is by no means a sophisticated solution (I actually considered not writing this post), but it's an approach that I often return to and one that perhaps can inspire you.
 
 ```swift
 @available(iOS 15.0, macOS 12.0, tvOS 15.0, watchOS 8.0, *)
@@ -75,14 +74,12 @@ I have added this extension to [SwiftUIKit]({{project.url}}). Feel free to try i
 
 ## Important about conditional views
 
-As [Marco Eidinger]({{page.marco}}) points out on [Twitter]({{page.marco-discussion}}), conditional views must not be misused. Changing the condition will recreate the part of the hierarchy that is wrapped by the if/else clause, which will lead to animations breaking and other potential problems. 
+As [Marco Eidinger]({{page.marco}}) points out on [Twitter]({{page.marco-discussion}}), conditional views must not be misused. Changing the condition will recreate view hierarchy, which will lead to animations breaking and other potential problems. 
 
-However, I think that this is something to be aware of and use when it makes sense, rather than to have a hard rule to never use conditional views. 
+However, I think that this is something to be aware of, but still use it it makes sense, rather than having a hard rule of never using conditional views. 
 
-In my case, the fact that users can toggle searchability on and off, will regadless involve either applying the `searchable` modifier or not, which means that a conditional view is inevitable.
+In my case, the fact that users can toggle searchability on and off, will regadlessly involve applying the `searchable` modifier or not, which means that a conditional view is inevitable.
 
 A better approach would perhaps be if the `searchable` modifier had a hidden `placement` option. This would have let you change the behavior of the modifier instead of omitting it.
 
-Just be careful and only use conditional modifiers them when you know the effect they will have and when it fits your use case.
-
-Thanks Marco for pointing this out!
+Just be careful and only use conditional modifiers them when you know the effect they will have and when it fits your use case. Thanks Marco for pointing this out!

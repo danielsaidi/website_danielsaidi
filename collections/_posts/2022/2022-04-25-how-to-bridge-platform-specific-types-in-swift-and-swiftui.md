@@ -3,7 +3,7 @@ title:  How to bridge platform-specific types in Swift & SwiftUI
 date:   2022-04-25 07:00:00 +0100
 tags:   swiftui swift multi-platform
 
-image:  /assets/blog/2022/220425/title.jpg
+image:  /assets/blog/22/0425/title.jpg
 image-show: 0
 
 redirect_from: /blog/2022/04/25/bringing-platform-specific-types-together-in-swiftui
@@ -12,7 +12,7 @@ tweet:  https://x.com/danielsaidi/status/1760314704335876445?s=20
 toot:   https://mastodon.social/@danielsaidi/111970012516609641
 ---
 
-SwiftUI's multi-platform support makes it easy to develop apps for iOS, macOS, tvOS and watchOS. But how do you handle types that differ between platforms? Let's take a look.
+SwiftUI's multi-platform support makes it easy to develop apps for all platforms, but how do you handle types that differ between platforms? Let's take a look.
 
 {% include kankoda/data/open-source.html name="SwiftUIKit" %}
 
