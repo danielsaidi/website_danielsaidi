@@ -4,8 +4,8 @@ date:  2013-09-04 04:11:00 +0100
 tags:  ios
 icon:  swift
 
-assets:  /assets/blog/2021/210904/
-image:   /assets/blog/2021/210904/header.png
+assets:  /assets/blog/21/0904/
+image:   /assets/blog/21/0904/header.png
 ---
 
 Languages like Java and C# let you override and hide the default constructors of

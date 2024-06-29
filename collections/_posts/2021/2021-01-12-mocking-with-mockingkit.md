@@ -3,15 +3,16 @@ title:  Mocking with MockingKit
 date:   2021-01-12 07:00:00 +0100
 tags:   open-source swift testing mocking
 
-assets: /assets/blog/2021/210112/
-image:  /assets/blog/2021/210112/title.png
+assets: /assets/blog/21/0112/
+image:  /assets/blog/21/0112.jpg
+image-show: 0
 
 unit-testing:  https://en.wikipedia.org/wiki/Unit_testing
 mocking:       https://en.wikipedia.org/wiki/Mock_object
 mockingkit:    https://github.com/danielsaidi/MockingKit
 ---
 
-{% include kankoda/data/open-source.html name="MockingKit" %}In this post, I'll demonstrate how to use [MockingKit]({{project.url}}) to create dynamic mocks of protocols and classes, that let you record and inspect function calls in your unit tests, register conditional returns, etc.
+{% include kankoda/data/open-source.html name="MockingKit" %}In this post, I'll demonstrate how to use [MockingKit]({{project.url}}) to mock protocols and classes, that let you record and inspect function calls in your unit tests, register conditional returns, etc.
 
 ![MockingKit]({{page.image}})
 
@@ -20,13 +21,11 @@ mockingkit:    https://github.com/danielsaidi/MockingKit
 
 [Mocking]({{page.mocking}}) is a way to create interactive, fake implementations of protocols and classes. It's a great tool when writing [unit tests]({{page.unit-testing}}) and to fake not yet implemented logic.
 
-I come from a .NET background and was fortunate to be around when the community was all about unit testing and how to write testable code. As I later became an iOS and Android developer, I found that unit testing was quite uncommon, and that mocking more meant to mock HTTP requests.
+I come from .NET and was fortunate to be around when the discource was all about testing and how to write testable code. As I later became an iOS & Android developer, I found unit testing uncommon, and that mocking often referred to mocking HTTP requests than using mock implementations of protocols (or interfaces as they are called in .NET).
 
-The native tools, if any, were also very basic and lacked a lot of the power that I had come to expect from Visual Studio and various .NET test libraries. As Swift was later introduced, its limited introspection made mocking hard, where the few libraries I found were more about generating code than interactive mocks. 
+The native test tools provided by Apple were also very basic compared to what I had come to expect from Visual Studio. As Swift was later introduced in 2014, its limited introspection made mocking even harder. The few approaches I found to handle this were more about generating code than creating interactive mocks that you could manipulate and inspect.
 
-I made do with manual mocks for years, and wrote a lot of code to register function invokations, return custom function results, unit test in parameters, etc. It was however very tedious, and quite error-prone.
-
-Let's look at this manual mocking approach, before we move on to dynamic mocks.
+I made do with manual mocks for years, and wrote a lot of code to register function calls, return custom results, test parameters, etc. It was very tedious, and quite error-prone. Due to this, I started looking into creating a library for true, dynamic mocking. But before we look at that, let's first look at the manual mocking approach.
 
 
 ## Manual mocks
@@ -100,52 +99,46 @@ We can do better.
 
 ## MockingKit
 
-[MockingKit]({{project.url}}) is a Swift-based mocking library that makes it easy to create dynamic and interactive mocks of protocols and classes. It lets you invoke and inspect function calls, register function results etc.
+To avoid having to create manual mocks like above, I created [MockingKit]({{project.url}}), which is a Swift-based library that makes it easy to create dynamic and interactive mocks of protocols and classes. It lets you invoke and inspect function calls, register function results, etc.
 
 
 ### Terminology
 
 Before we continue, let's clarify what some of these terms means.
 
-`Invokation` is to call a function. In a mock, this `record` the call and saves information about how many times a function has been called, with which arguments, the returned result etc.
-
-`Inspection` is to look at recorded invokation information and use it e.g. in a unit test. For instance, we can verify that a function has been triggered only  once, with a certain argument.
-
-`Registration` is to pre-register a dynamic return value for a function, based on the arguments with which the function is called.
+* `Invokation` - Calling a function. In a mock, this `record` the call and saves information about how many times a function was called, with which arguments, the result, etc.
+* `Inspection` - Inspecting the recorded invokations of a function. For instance, we can verify that a function has been triggered only  once, with a certain argument, etc.
+* `Registration` - To pre-register a dynamic return value for any function, based on the arguments with which the function is called.
 
 ### Creating a mock
 
-To create a mock with MockingKit, you just have to create a class that inherits the `Mock` class and make it implement the protocol you want to mock. 
+To create a mock with MockingKit, you can create a class that inherits the `Mock` base class and make it implement the protocol you want to mock.
 
-If your mock must inherit another class (e.g. to mock classes like `UserDefaults`), it can just implement the `Mockable` protocol instead of inheriting `Mock`.
+If a mock must inherit another class (e.g. to mock classes like `UserDefaults`), you can just implement the `Mockable` protocol instead of inheriting `Mock`.
 
 `Mock` is basically just a `Mockable` class that uses itself as mock.
 
 In other words, you can either do this:
 
 ```swift
-import MockingKit
-
 class MockStringValidator: Mock, StringValidator {}
 ```
 
 or this:
 
 ```swift
-import MockingKit
-
 class MockUserDefaults: UserDefaults, Mockable {
 
     let mock = Mock()
 }
 ```
 
-The two options are identical except from the `mock` property. You use them in exactly the same way.
+The two options are identical except from the `mock` property. You can then use your mock type in exactly the same way as any other mock.
 
 
 ### Invoking function calls
 
-To invoke functions, you need to create a `MockReference` for each function you want to mock. A mock reference is basically just a function reference that is used for invokation and inspection.
+To use function invokation, you need to create a `MockReference` for each function you want to mock. This is basically just a function reference that is used for invokation & inspection.
 
 Let's implement the `Printer` protocol from earlier and mock the `print` function:
 
@@ -167,9 +160,9 @@ References must be `lazy` since they refer to an instance function. `printRef` n
 
 ### Inspecting invokations
 
-As we mentioned before, `invoke` records a function call so you can inspect it later. Since invokation is made by the mock as its functions are called, you can use just it as the protocol is intended to be used.
+As we mentioned before, `invoke` records a function call so you can inspect it later. This is automatically performed by the mock, so you can use just it as it's intended to be used.
 
-When inspecting invokations for the various functions in a mock, we have to use the function references.
+We then use function references to inspect invokations for the various functions in a mock.
 
 Given the `MockPrinter` above, we could inspect it like this:
 
@@ -184,12 +177,14 @@ printer.hasInvoked(printer.printRef, numberOfTimes: 1)  // => true
 printer.hasInvoked(printer.printRef, numberOfTimes: 2)  // => false
 ```
 
-MockingKit has a bunch of handly inspection alternatives, like checking if a function has been invoked or not, how many times, with what arguments, what it returned, etc.
+MockingKit has a bunch of handly inspection alternatives, like checking if a function has been invoked, how many times, with what arguments, what it returned, etc.
 
 
 ### Registering return values
 
-Say that we have a protocol that has a function that returns a value:
+MockingKit lets you register custom return values for any mocked function. This lets you easily configure the mock to return any value you want.
+
+For instance, say that a protocol has a function that returns a value:
 
 ```swift
 protocol StringConverter {
@@ -198,7 +193,7 @@ protocol StringConverter {
 }
 ```
 
-A mock could then look like this:
+A MockingKit mock of this protocol could look something like this:
 
 ```swift
 class MockStringConverter: Mock, StringConverter {
@@ -206,18 +201,18 @@ class MockStringConverter: Mock, StringConverter {
     lazy var convertRef = MockReference(convert)
 
     func convert(_ text: String) -> String {
-        invoke(convertRef, args: (text))
+        return invoke(convertRef, args: (text))
     }
 }
 ```
 
-Unlike the void function in `MockPrinter`, this `invoke` actually returns a value. Since the function body is a one-liner, you can omit `return`.
+Unlike the void function in `MockPrinter`, this `invoke` returns a value. Since the function is a one-liner, you can omit `return`.
 
-If the return value is optional, it's optional to register a return value before invoking the function. Calling `invoke` before registering a return value will return `nil`.
+If the return value is optional, it's also optional to register a result value before invoking the function. Calling `invoke` before registering an optional result value will simply return `nil`.
 
-If the return value is non-optional, you *must* register a return value before invoking the function. Calling `invoke` before registering a return value will cause a crash. 
+However, if the return value is non-optional, you *must* register a result before invoking the function. Calling `invoke` before registering a result will result in a crash. 
 
-Registering a return value is easy:
+Registering a custom result for any mocked function is very easy:
 
 ```swift
 let mock = MockConverter()
@@ -228,7 +223,7 @@ converter.registerResult(for: mock.convertRef) { String($0.reversed()) }
 let result = mock.convert("banana") // => "ananab"
 ```
 
-Note how we can use the input argument of the function call to determine the returned result. This gives function registration a lot of power in MockingKit.
+Note how we can use the input argument to adjust the result. This gives mocked functions a lot of power in MockingKit.
 
 
 ### Multiple function arguments
@@ -257,7 +252,7 @@ class MyMock: Mock, MyProtocol {
 }
 ```
 
-Since function arguments are handled as tuples, you now use tuple positions to inspect arguments:
+Since the function arguments are tuples, you use tuple positions to inspect arguments:
 
 ```swift
 let mock = MyMock()
@@ -272,12 +267,14 @@ mock.hasInvoked(mock.doStuffRef, numberOfTimes: 1)      // => true
 mock.hasInvoked(mock.doStuffRef, numberOfTimes: 2)      // => false
 ```
 
-There is no upper-limit to the number of function arguments you can use in a mocked function.
+There's no upper-limit to the number of arguments you can use in a mocked function.
 
 
 ### Multiple functions with the same name
 
-If your mock has multiple methods with the same name:
+If a type has multiple methods with the same name, your must explicitly specify the function signature when creating references.
+
+For instance, consider this protocol and its mock implementation:
 
 ```swift
 protocol MyProtocol {
@@ -285,18 +282,14 @@ protocol MyProtocol {
     func doStuff(with int: Int) -> Bool
     func doStuff(with int: Int, string: String) -> String
 }
-```
 
-your must explicitly specify the function signature when creating references:
-
-```swift
 class MyMock: Mock, MyProtocol {
 
     lazy var doStuffWithIntRef = MockReference(doStuff as (Int) -> Bool)
     lazy var doStuffWithIntAndStringRef = MockReference(doStuff as (Int, String) -> String)
 
     func doStuff(with int: Int) -> Bool {
-        invoke(doStuffWithInt, args: (int))
+        invoke(doStuffWithIntRef, args: (int))
     }
 
     func doStuff(with int: Int, string: String) -> String {
@@ -305,12 +298,12 @@ class MyMock: Mock, MyProtocol {
 }
 ```
 
-This gives you a unique references for each function, and also makes the unit test code easier to write.
+This gives you a unique reference for each function, which also makes the unit test code easier to read and write.
 
 
 ### Properties
 
-In MockingKit, properties can't be mocked with function references, since the function reference model requires a function. To fake the value of a mock property, just set the properties of the mock right away. 
+Properties can't be mocked with function references, since a function reference requires a function. To customize mock property, just set the properties of the mock right away. 
 
 If you however for some reason want to inspect how a property is called, modified etc., you can invoke custom references to private functions in the getter and/or setter.
 
