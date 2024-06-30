@@ -10,9 +10,9 @@ For years, I've been struggling with combining generics and protocols in Swift. 
 
 ## The problem with generic protocols
 
-I use protocols extensively and have had the need for generic protocols many times. However, I have most often run into problems that have ended up with applying a non-generic approach.
+I use protocols extensively and often have a need for generic protocols. However, I often run into problems that have ended up with applying a non-generic approach.
 
-For instance, when I built a set of generic persistency stores, I started with describing the various types stores as generic protocols with associated types, for instance:
+For instance, when I built a set of generic stores, I started with describing the various types stores as generic protocols with associated types:
 
 ```swift
 protocol ObjectStore {
@@ -29,11 +29,11 @@ protocol SingleObjectStore: ObjectStore {
 }
 ```
 
-The real stores are a bit different, but let's keep it simple here. With these protocols in place, I then implemented them, using `typealias` to specify the associated types.
+The real stores are a bit different, but let's keep it simple. With these protocols in place, I then created implemenations that used `typealias` to specify the associated types.
 
 Everything went great. I was really happy about finally being able to replace all old stores with these generic ones. So I tried to do just that, by creating a store property in my app.
 
-If you want to create an `ObjectStore` instance, you specify it just as you would with any other type:
+If you want to create an `ObjectStore`, you specify it just as you would with any other type:
 
 ```swift
 var store: ObjectStore
@@ -60,14 +60,14 @@ So, how do you fix this? My solution has always been to turn to non-generic prot
 
 ## Type erasure
 
-Type erasure means using concrete types to wrap generic protocols. However, I never got it to work, mostly because it just seems like a way to work around Swift's shortcomings. It never struck me as a clean solution, so I just avoided it.
+Type erasure means using concrete types to wrap generic protocols. However, I never got it to work, mostly because it seems like a way to work around Swift's type system.
 
-This time, however, I was determined to make it work, and actually managed to do so. Let's see how, using simplified versions of the protocols I built.
+This time, however, I was determined to make things work, and actually managed to do so. Let's see how, using simplified versions of the protocols I built.
 
 
 ## A working example
 
-Let's go back to our stores, where the single object store is intended to store a single objects:
+Let's go back to our stores, where `SingleObjectStore` is intended to store a single object:
 
 ```swift
 protocol ObjectStore {
@@ -115,7 +115,7 @@ class CodableSingleObjectStore<ObjectType: Codable>: SingleObjectStore {
 }
 ```
 
-If we'd like to create a concrete instance of this type, we just have to do this:
+To create a concrete instance of this type, we just have to do this:
 
 ```swift
 var store: CodableSingleObjectStore<MyType>
@@ -131,9 +131,11 @@ var store: SingleObjectStore
 store = CodableSingleObjectStore<MyType>(storageKey: "key")
 ```
 
-We *could* use `CodableSingleObjectStore` and be done, but dependencies to conrete types is not a good thing to have in your code. At the same time, we can't have dependencies to the abstract protocol, due to reasons already discussed...so how do we do this?
+We *could* use `CodableSingleObjectStore`, but dependencies to conrete types is not a good thing to have in your code.
 
-This is where type erasure comes in. With it, we create a concrete type that wraps an abstract one and uses its functionality, then use that wrapper everywhere instead of the protocol. This means that we still have dependencies to a concrete type, but that type can be "filled" with anything.
+At the same time, we can't have dependencies to the abstract protocol, due to the reasons already discussed...so how do we do this?
+
+This is where type erasure comes in, where we can let concrete types wrap abstract ones, then use the wrappers everywhere instead of the protocol.
 
 The Swift naming convention for these type erasured types is to prefix the class name with `AnyX`, so we'd be creating a type erasured single object store like this:
 
@@ -164,7 +166,7 @@ class AnySingleObjectStore<ObjectType>: SingleObjectStore {
 }
 ```
 
-If we'd like to create an instance of this type, using the codable store we created earlier, we can do this:
+To create instances of this type, using the codable store we created earlier, we can do this:
 
 ```swift
 var store: AnySingleObjectStore<MyType>
@@ -172,11 +174,11 @@ var store: AnySingleObjectStore<MyType>
 store = AnySingleObjectStore(CodableSingleObjectStore<MyType>(storageKey: "key"))
 ```
 
-The `AnySingleObjectStore` object type will be used to ensure that we don't inject a store with a different object type, which means that we can be sure that we store the correct type in our store.
+The `AnySingleObjectStore` object type is used to ensure that we don't inject a store with a different type, which means that we can be sure that we store the correct type in our store.
 
 
 ## Conclusion
 
-Type erasure is still a bit nasty, but this approach gets the job done. If you have ideas on how to get rid of the closures in `AnySingleObjectStore` and keep an instance to the store, I'd love to hear them.
+Type erasure is still nasty, but this approach gets the job done. If you have ideas on how to get rid of the closures in `AnySingleObjectStore`, I'd love to hear them.
 
-These generic constraints will hopefully change in future versions of Swift, so that type erasure is either implicitly implemented by the compiler, or removed altogether.
+The generic constraints will hopefully change in a future Swift version, so that type erasure is either implicitly implemented by the compiler, or removed altogether.
