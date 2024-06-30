@@ -5,9 +5,9 @@ tags:  swift codable
 icon:  swift
 ---
 
-I have finally started replacing all `NSCoding` objects in my code with the new `Codable` protocol. This article covers things that I've learned along the way.
+I have finally started replacing `NSCoding` types in my code with the new `Codable` protocol. This article covers things that I've learned along the way.
 
-The models in this article are fictional representations of a real world domain model. If they seem too simple or if there are bugs, it's because the code was only written for this post.
+The models in this article are fictional representations of a real world domain model. If they seem too simple, it's because they were only written for this post.
 
 
 ## Model
@@ -31,12 +31,12 @@ enum MovieGenre: String {
 }
 ```
 
-We may want to use these structs in various ways, e.g. serializing and deserializing them. Let's compare how this is traditionally done with `NSCoding` and how `Codable` can simplify it.
+We may want to use these structs in various ways, e.g. to serialize and deserialize them. Let's compare how to do this with `NSCoding` and how `Codable` can simplify it.
 
 
 ## NSCoding
 
-With `NSCoding`, you just let the type you want to serialize implement the `NSCoding` protocol. However, this requires the type to be a class and not a struct:
+With `NSCoding`, you just let the type you want to serialize implement the `NSCoding` protocol. This requires the type to be a class and not a struct:
 
 ```swift
 import Foundation
@@ -86,14 +86,14 @@ class Movie: NSObject, NSCoding {
 }
 ```
 
-In the code above, we inherit `NSObject` and implement our codable logic, which involves a lot of code, strings, etc., This has to be repeated for every codable type, which is tedious and error-prone. 
+Here, we inherit `NSObject` and implement our codable logic, which involves a lot of code. This has to be repeated for every type, which is tedious and error-prone. 
 
-Let's take a look at how `Codable` can make this a lot leaner and safer.
+Let's take a look at how `Codable` can make this a lot cleaner and safer, by removing the need to type a lot of custom code.
 
 
 ## Codable
 
-With `Codable`, you just let the type you want to serialize implement the `Codable` protocol instead. `Codable` doesn't require you to use classes, so our types can keep being structs:
+With `Codable`, you just let the type you want to serialize implement the `Codable` protocol. `Codable` doesn't require you to use classes, so our types can be structs:
 
 ```swift
 import Foundation
@@ -107,10 +107,9 @@ struct Movie: Codable {
 }
 ```
 
-With the code above, however, the compiler will complain that `Movie` doesn't
-implement `Decodable`.
+With the code above, the compiler will complain that `Movie` doesn't implement `Decodable`.
 
-If you're new `Codable`, you would perhaps throw code at the problem to make the `Movie` codable:
+If you're new `Codable`, you would perhaps throw code at the problem to make it codable:
 
 
 ```swift
@@ -148,7 +147,7 @@ struct Movie: Codable {
 }
 ```
 
-This is however not needed! If you look at the error message, the only reason why `Movie` isn't correctly implementing the protocol is because `MovieGenre` isn't.
+This is however not needed! If you look at the error message, the only reason why `Movie` isn't correctly implementing the protocol is because the `MovieGenre` type is not.
 
 All we have to do to fix the error is to make `MovieGenre` implement `Codable` too, which in this case is easily done by just adding `Codable` to the type:
 
@@ -161,8 +160,8 @@ enum MovieGenre: String, Codable {
 }
 ```
 
-This is a simple model, but even if your models contain a lot more stuff, and maybe property types that don't conform to `Codable`, this is basically how you do it.
+This is a simple model, but this is often the case for more complex types as well. If a model contains non-codable types, try adding the protocol to these types too. 
 
-If your model contains non-codable types, you can either change the model or implement the `Codable` protocol for your non-codable types. For instance, a `Color` can extract its RGBA data.
+A type may have non-codable types that require custom code. For instance, SwiftUI `Color` doesn't implement this protocol, so if you have a type that contains it, you can either store more basic data like the hex code, of handle colors in a custom way.
 
 Happy encoding!

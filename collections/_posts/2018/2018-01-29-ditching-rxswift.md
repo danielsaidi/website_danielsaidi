@@ -5,45 +5,45 @@ tags:  swift
 icon:  swift
 ---
 
-After hearing so many good things about RxSwift, I decided to use it in an app of mine. However, after struggling with it for months, I still haven't found a nice setup and have now decided to ditch it. 
+After hearing many good things about RxSwift, I decided to use it in an app. However, after struggling with it for months, I haven't found a nice setup and have now decided to ditch it. 
 
-I think my old code is much better (more readable, less complex, less error-prone etc.) and will use this post to motivate my decision and post before and after samples to illustrate how ditching RxSwift made my app better and more fun to work with.
+I think my old code is much better (more readable, less complex, less error-prone etc.) and will use this post to motivate my decision and will post before and after samples to illustrate how ditching RxSwift made my app better and more fun to work with.
 
 
 ## About the app
 
-The app is a pretty small map-based app, where users can save custom geo data. I use `Realm` for data persistency, which means that the data layer is synchronous. Still, the service design is asynchronous, to make the app flexible.
+The app is a map-based app, where users can save custom geo data. I use `Realm` for data persistency, which means the data layer is synchronous while the system is asynchronous.
 
-Since all services are potentially asynchronous, I thought this was a great use case for RxSwift. I also decided to use rx for data binding and for gestures as well, using `RxCocoa` and `RxGestures`. In this post, I'll call them RxSwift to simplify things. They are, however, separate libraries.
-
-As I begun adding RxSwift to my app, I quickly ran into some initial problems.
+Since all services are asynchronous, I thought this was a great use case for RxSwift. I also decided to use rx for data binding and for gestures, using `RxCocoa` and `RxGestures`. In this post, I'll call them RxSwift to simplify things. They are, however, separate libraries.
 
 
 ## Official Documentation
 
-My first problems was the official RxSwift documentation, which I think goes too deep into the semantics and terminology from start, without a good initial onboarding and understandable examples. I later found great blogs that explain the concepts better, but think the official docs could be drastically improved.
+As I begun adding RxSwift, I quickly ran into some initial problems with the documentation.
+
+I think the official RxSwift documentation goes too deep into its semantics and terminology from start, without a good onboarding and understandable examples. I found great blogs that explain the concepts better, but think the official docs could be drastically improved.
 
 For nice posts about RxSwift as well as reactive programming in general, check out [Ray Wenderlich's](https://www.raywenderlich.com/138547/getting-started-with-rxswift-and-rxcocoa) and [Adam Borek's](adamborek.com/) posts.
 
 
 ## Dispose bag
 
-Being no stranger to reactive programming, I still think RxSwift requires some strange setup. The `dispose bag` concept was such a thing, where you have to use a dispose bag to manage how observables are disposed.
+Being no stranger to reactive programming, I still think RxSwift requires a strange setup. The `dispose bag` concept was one such thing, where you have to use a dispose bag to manage how observables are disposed.
 
-In the app, I had huge problems when using single a bag for service observables, data bindings and gesture binding. Knowing when to manually dispose this bag was a nightmare, since some observables should be disposed when a screen disappeared, some when data was reloaded, some never etc. I never found a nice setup for this and never found any good examples that fit my requirements.
+I had huge problems when using single a bag for service observables, data bindings and gesture binding. Knowing when to manually dispose this bag was a nightmare, since some observables should be disposed when a screen disappeared, some when data is reloaded, some never, etc. I never found a nice setup for this and never found any good examples.
 
-Furthermore, Adam Borek has many great posts where he illustrates how easy it is to introduce memory leaks by using a dispose bag incorrectly and how observables will stop broadcasting if one update fails. Most of these examples are difficult to catch at a glance, which means that it's easy to accidentally add serious and hard-found bugs to your app if you use RxSwift without knowing exactly what you're doing.
+Furthermore, Adam Borek has many great examples where he illustrates how easy it is to introduce memory leaks by using a dispose bag incorrectly and how observables will stop broadcasting if one update fails. Most are difficult to catch at a glance, which means that it's easy to accidentally add serious and hard-found bugs to your app if you use RxSwift.
 
 
 ## Wrapping up my concerns
 
-My overall impression after all this is that RxSwift makes it very easy to add bugs and memory leaks to your apps, and requires you to handle built-in problems by introducing complex setups. You have to know exactly how to use a dispose bag (see Adam's post about why table view cells are tricky), or else your app will become a mess. So in order to succeed with RxSwift, you will have to go all in. So will the rest of your team.
+My overall impression is that RxSwift makes it very easy to add bugs and memory leaks to your apps, and requires you to handle problems by introducing complex setups. You have to know exactly how to use a dispose bag (see Adam's post about why table view cells are tricky), or else your app will become a mess. In order to succeed with RxSwift, you must go all in. So will the rest of your team.
 
-This makes adding RxSwift a big decision, since everyone is forced to adopt a reactive programming style. If you compare it with e.g. `AwaitKit`, I think the latter adds a great util set to your app without forcing you to change your overall programming style. RxSwift, however, requires serious commitment.
+This makes using RxSwift a BIG decision, since everyone will be forced to adopt a reactive programming style. If you compare this with e.g. `AwaitKit`, I think `AwaitKit` adds a great set of utilities to your code, without forcing you to change your overall programming style. RxSwift, however, requires serious commitment.
 
-Furthermore, I think that RxSwift throws a too extensive toolbox at you, which binds you hard to the library. Besides the observables, singles and completables, you'll soon face `drivers` and other ux-specific components.
+Furthermore, I think RxSwift throws a too extensive toolbox at you, which binds you to the library. Besides the observables, singles and completables, you'll soon face `drivers` and other ux-specific components.
 
-I think you should ask yourself if you think that RxSwift brings you good value for all this complexity. I personally think the answer is `no`.
+I think you should ask yourself if you think that RxSwift brings you good value for all this complexity. I personally think the answer is no.
 
 
 ## Replacing RxSwift with vanilla UIKit
@@ -190,7 +190,7 @@ fileprivate extension CreateMapAlert {
 }
 ```
 
-Instead of adding a returned observable to a dispose bags, presenting this alert only involves passing in a completion block, like this:
+Instead of adding an observable to a dispose bags, presenting alerts only involve passing in a completion block, like this:
 
 ```swift
 func addMap() {
@@ -200,7 +200,7 @@ func addMap() {
 }
 ```
 
-I think this is a much more readable and straightforward approach, which also is a lot less error-prone.
+I think this is MUCH more readable and straightforward, as well as a lot less error-prone.
 
 
 ### Example 2: Tap Gesture
@@ -230,12 +230,12 @@ func setupAddButton() {
 }
 ```
 
-I don't like selectors at all, but I think the UIKit code is a lot better. I would prefer action blocks, though.
+I don't like selectors, but think the UIKit code is a lot better. I'd prefer action blocks, though.
 
 
 ### Example 3: Long Press Gesture
 
-I usually prefer to setup outlets in `didSet`, instead of calling setup functions in `viewDidLoad`. However, with RxSwift, setting up a long press gesture is rather nasty, which made me set it up like this:
+I prefer to setup outlets in `didSet`, instead of doing setup in `viewDidLoad`. However, with RxSwift, setting up a long press gesture is rather nasty, which made me set it up like this:
 
 ```swift
 override func viewDidLoad() {
@@ -259,7 +259,7 @@ func setupMapViewLongPress(for view: MKMapView) {
 }
 ```
 
-If we'd add the rx code to the `didSet` block, I think the property would become too big. With UIKit, however, I think this is not the case:
+If we'd add rx code to the `didSet` block, I think the property would become too big. With UIKit, however, I think this is not the case:
 
 ```swift
 @IBOutlet weak var mapView: ComboMapView? {
@@ -283,7 +283,7 @@ By not using RxSwift, we also remove several indentation levels. Not too bad.
 
 ### Example 4: UITextView delegate
 
-Now, this is a bit tricky. I hate having to implement `UITextViewDelegate` to be able to handle what happens in a `UITextView`. However, consider this rx code:
+This is a bit tricky. I hate implementing `UITextViewDelegate` to handle what happens in a `UITextView`. However, consider this rx code:
 
 ```swift
 override func viewDidLoad() {
@@ -316,23 +316,23 @@ I think the above is horrible, especially compared to the UIKit alternative:
 
 ```swift
 @IBOutlet weak var commentTextView: UITextView? {
-	didSet { commentTextView?.delegate = self }
+    didSet { commentTextView?.delegate = self }
 }
 
 func textViewDidBeginEditing(_ textView: UITextView) {
-	setupDoneButton(for: textView)
-	textView.setupPlaceholderBeforeEditing()
+    setupDoneButton(for: textView)
+    textView.setupPlaceholderBeforeEditing()
 }
 
 func textViewDidEndEditing(_ textView: UITextView) {
-	endEditing(for: textView)
-	textView.setupPlaceholderAfterEditing(text: L10n.enterComment.string)
+    endEditing(for: textView)
+    textView.setupPlaceholderAfterEditing(text: L10n.enterComment.string)
 }
 ```
 
-So, delegates are horrible, but in my opinion, RxSwift is even worse.
+So, while I think delegates are horrible, RxSwift (in my humble opinion) is even worse.
 
 
 ## Conclusion
 
-These are just my five cents. Maybe I've misunderstood everything about RxSwift. I would love comments and discussions in the comment field below.
+These are just my five cents. Maybe I've misunderstood everything about RxSwift. If so, I would love comments and discussions in the comment field below.

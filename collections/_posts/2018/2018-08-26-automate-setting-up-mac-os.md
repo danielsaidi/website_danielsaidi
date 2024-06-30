@@ -9,54 +9,40 @@ redirect_from:
   - /blog/2018/08/26/automate-your-macbook-setup/
 ---
 
-In this post, I'll describe how to automate setting up a new Mac with a
-terminal script that will install system software and applications, configure
-the computer etc. This lets you setup a new Mac in minutes.
+In this post, I'll describe how to automate setting up a new Mac with a terminal script that will install system software and applications, configure the computer etc. in mere minutes.
 
 
 ## Why automate?
 
-I (and many with me) prefer to automate as many tasks as possible, to reduce the
-amount of repetitive manual work, reduce the risk of human error and to increase
-the overall reliability of a certain process. 
+I prefer to automate as many tasks as possible, to reduce the amount of repetitive manual work, reduce the risk of human error and to increase the overall reliability of a process. 
 
-For good developers, this involves unit testing, continuous integration, release 
-management etc. while for testers it can involve automated UI testing etc.
+For developers, this involves unit testing, continuous integration, release management etc. while for testers it can involve automated UI testing etc.
 
-However, one thing that I haven't automated until recently, is to setup a brand
-new Mac for development, which is time consuming and just not fun. It's tedious
-to remember all the tools and applications that you need. Without automation, it
-can easily take a day, with you filling out gaps for weeks.
+However, one thing that I haven't automated until recently, is to set up a brand new Mac, which is time consuming and just not fun. It's tedious to remember all the tools and apps. 
 
-With automation, however, you can setup a new Mac in minutes, making the time it
-takes time linear to the speed of your Internet connection.
+Without automation, this can easily take a day, and you will then fill out the gaps for weeks. With automation, you can set up a new Mac in minutes.
 
 
 ## Tools on which I base my script
 
-Before I show you the script that I have put together to solve this problem, let
-me go through some tools that I base the script on. They are great and will
-simplify your life, so make sure to check them out.
+Before I show you the script I have put together, let
+me go through some tools that I base it on. They are great and will simplify your life, so make sure to check them out.
 
-* [Homebrew](https://brew.sh) is a package manager (one of several) for macOS.
-It makes it super easy to install new system tools on your Mac.
+* [Homebrew](https://brew.sh) is a package and dependency manager (one of several) for macOS.
 * [Homebrew Cask](https://github.com/Homebrew/homebrew-cask) is a brew extension
-that lets you install Mac applications directly from the Terminal.
+that lets you install Mac apps with Homebrew.
 * [Brew Bundle](https://github.com/Homebrew/homebrew-bundle) is a brew extension
-that lets you manage brew and cask packages with a `Brewfile`.
+that lets you define brew packages with a `Brewfile`.
 * [Gem](https://rubygems.org/pages/download) is a package manager for Ruby-based
 software, e.g. Fastlane.
-* [NPM](https://www.npmjs.com) is a package manager for web-development software.
-I also use it for hybrid apps.
+* [NPM](https://www.npmjs.com) is a package manager for web-related software. I also use it for hybrid apps.
 
-My script will first install these tools, then install everything else using the
-tools as well as other scripts.
+My script will first install these tools, then install everything else using the tools and scripts.
 
 
 ## Creating the script
 
-Let's create the main system script. It will be modular, to make it easy to adjust
-over time when needed.
+Let's first create the main system script. It's modular, to make it easy to adjust it over time.
 
 First, create a file called `setup.sh` and add the following code to it:
 
@@ -89,11 +75,9 @@ while true; do
 done
 ```
 
-This prints a "main menu" with various options. As you can see, I have split it 
-into several modules, with an `all` option that installs everything.
+This prints a "main menu" with various options. As you can see, I have split it  into several modules, with an `all` option that installs everything.
 
-The script above lacks the `process_options` function that it refers to. Add the
-following code snippet above `while true`:
+The script lacks the `process_options` function that it refers to. Add this above `while true`:
 
 
 ```bash
@@ -134,10 +118,7 @@ process_option() {
 }
 ```
 
-Here, each option just calls another script in the `scripts` folder or runs a
-terminal command, where each external file is very simple. The `Brewfile`
-contains brew and cask dependencies, the `Gemfile` gem dependencies and the script
-files commands that you could type manually in the terminal.
+Each option calls another script in the `scripts` folder or runs a Terminal command. Each external file is simple. The `Brewfile` contains brew and cask dependencies, the `Gemfile` gem dependencies and the script files commands that you could also type manually.
 
 Have a look at some examples from each file:
 
@@ -239,12 +220,9 @@ If I run the `all` option, it will take care of the following:
 * Installing npm packages (Ionic, Gulp, TypeScript etc.)
 * Setting up SSH (create a key, add to ssh-agent, copy to pasteboard)
 
-Doing this manually would take me a couple of hours every time. Now, it finishes
-in a matter of minutes.
+Doing this manually would take a couple of hours. Now, it finishes in a matter of minutes.
 
 
 ## Download
 
-I have a GitHub repo that you can fork and tweak to fit your needs. You can find
-it [here](https://github.com/danielsaidi/osx). Hopefully, it will save you a lot
-of time, as it have for me.
+I have a GitHub repo that you can fork and tweak to fit your needs. You can find it [here](https://github.com/danielsaidi/osx).

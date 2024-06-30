@@ -5,8 +5,7 @@ tags:  swift testing
 icon:  swift
 ---
 
-In this post, I will show how to reduce the amount of code you have to type when
-testing enums, by using the new `CaseIterable` protocol.
+In this post, I will show how to reduce the amount of code you have to type when testing enums, by using the new `CaseIterable` protocol.
 
 
 ## Testing non-iterable enums
@@ -37,8 +36,7 @@ extension Notification.Name {
 
 ## Separate tests for each enum case
 
-To test this enum, we could write a lot of code to test all enum cases, for
-instance (in the code below, I use Quick and Nimble):
+To test this enum, we could write a lot of code to test all enum cases, for instance (in the code below, I use Quick and Nimble):
 
 ```swift
 import Quick
@@ -91,8 +89,7 @@ class UserNotificationsTests: QuickSpec {
 }
 ```
 
-However, this code would still be a pain to maintain. Each new case would require
-you to add more code, with the additional risk of copy/paste bugs etc. 
+However, this code would still be a pain to maintain. Each new case would require you to add more code, with the additional risk of copy/paste bugs etc. 
 
 
 ## Iterate over a fixed array
@@ -132,16 +129,12 @@ class UserNotificationsTests: QuickSpec {
 }
 ```
 
-However, this would still require you to remember to add new cases to the
-array. It's tedious...and completely unnecessary, since we now have the
-brand new `CaseIterable` to help us out.
+However, this still requires you to remember to add new cases to the array. It's tedious...and unnecessary, since we now have the brand new `CaseIterable` to help us out.
 
 
 ## Using CaseIterable
 
-`CaseIterable` is a Swift 4.2 protocol that adds an `allCases` property to enums
-that implement it. With it, we can reduce the amount of code we have to write in
-our tests.
+`CaseIterable` is a Swift 4.2 protocol that adds an `allCases` property to every enum that implements it. With this, we can reduce the amount of code we have to write in our tests.
 
 First, make `UserNotification` implement `CaseIterable` like this:
 
@@ -185,14 +178,12 @@ class UserNotificationsTests: QuickSpec {
 }
 ```
 
-Another benefit is that you don't have to remember to write new tests every time
-you add a new case.
+Another benefit is that you don't have to remember to write new tests when you add a new cases to this enum.
 
 
 ## Internally iterable enums
 
-If your enum is public, but you only want to use the `CaseIterable` capabilities
-within your library and tests, you can make the implementation internal:
+If your enum is public, but you only want to use the `CaseIterable` capabilities within your library and tests, you can make the implementation internal:
 
 
 ```swift
@@ -217,15 +208,11 @@ class UserNotificationsTests: QuickSpec {
 }
 ```
 
-This means that you can benefit from `CaseIterable` capabilities in your library
-and tests, without having to expose them outside these boundaries. You can also
-add the `CaseIterable` extension to the test bundle instead of the public project.
+This means that you can benefit from `CaseIterable` capabilities in your library and tests, without having to expose them outside these boundaries. You can also add `CaseIterable` extensions to the test bundle instead of the public project.
 
 
 ## Conclusion
 
-`CaseIterable` makes it really easy to test your enums, for instance to verify 
-that certain properties or functions behave correctly for all cases.
+`CaseIterable` makes it easy to test your enums, for instance to verify that some properties or functions behave correctly for all cases.
 
-Note that not all enums can implement `CaseIterable`. If your enum cases have
-parameters, you can't, since there are an infinite amount of potential cases.
+Not all enums can implement `CaseIterable` automatically. If an enum case has associated values, you must implement it manually, since there's an infinite amount of potential cases.
