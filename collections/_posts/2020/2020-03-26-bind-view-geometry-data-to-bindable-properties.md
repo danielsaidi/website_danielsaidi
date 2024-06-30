@@ -7,31 +7,31 @@ icon:  swiftui
 source: /Sources/SwiftUIKit/Extensions
 ---
 
-SwiftUI is great for building declarative user interfaces. However, it's still young and lacks many common things. In this post, we'll look at a way to read geometry information from any view in a view hierarchy.
+SwiftUI is a great UI framework. However, it's still young and may lack things you need. In this post, we'll look at a way to read geometry information from any view.
 
 {% include kankoda/data/open-source.html name="SwiftUIKit" %}
 
 
 ## GeometryReader
 
-If you need to fetch geometric information about of your view hierarchy, `GeometryReader` can be used to wrap any view and provide geometric information via a `GeometryProxy`. 
-
-You can use it like this:
+`GeometryReader` can wrap any view and provide geometric data via its `GeometryProxy`:
 
 ```swift
-GeometryReader { geoProxy in
-    Text("\(geoProxy.size.height)")
+GeometryReader { proxy in
+    Text("\(proxy.size.height)")
 }
 ```
 
-But beware! `GeometryReader` is greedy and will expand to take up as much space as it can. If you use the code above in your app, the height will not be that of the text, but of the available space.
+But beware, `GeometryReader` is greedy and expands to take up as much space as it can! The code above does not return the text height, but the height of the available space.
 
-`GeometryReader` is a great tool, but it comes with many quirks. Until you understand it, it can mess up your view hierarchy. Instead, let's use it to create powerful extensions.
+Until you understand `GeometryReader`, it can mess up your view hierarchy. Instead, let's create an extension that lets us use it in a safer way.
 
 
-## Extensions
+## View Extension
 
-Let's create a `View` extension that binds any geometric value to a `CGFloat`-based property. When we're done, we should be able to do this:
+Let's create a `View` extension that binds any geometric value to a `CGFloat`-based property.
+
+When we're done, we should be able to do this:
 
 ```swift
 @State private var bodyHeight: CGFloat = 0
@@ -52,9 +52,9 @@ var body: some View {
 }
 ```
 
-Since `Color` is greedy, it will take up as much space as it can, and therefore cause the `ZStack` to expand as well. We can therefore bind the `body` properties to any of these views with the same result. 
+`Color` is greedy and takes up as much space as it can, which will also affect the `ZStack`. We can therefore use `bindGeometry` on either the color or the stack, with the same result. 
 
-`Text`, on the other hand, is not greedy. The text bindings will therefore get the size of the text itself.
+`Text`, on the other hand, is not greedy. The binding will therefore get the size of the text.
 
 
 ## Implementation
@@ -62,15 +62,12 @@ Since `Color` is greedy, it will take up as much space as it can, and therefore 
 The implementation of this extension it pretty straightforward:
 
 ```swift
-public extension View {
+extension View {
     
-    /**
-     Bind any `CGFloat` value within a `GeometryProxy` value
-     to an external binding.
-     */
     func bindGeometry(
         to binding: Binding<CGFloat>,
-        reader: @escaping (GeometryProxy) -> CGFloat) -> some View {
+        reader: @escaping (GeometryProxy) -> CGFloat
+    ) -> some View {
         self.background(GeometryBinding(reader: reader))
             .onPreferenceChange(GeometryPreference.self) {
                 binding.wrappedValue = $0
@@ -104,16 +101,16 @@ private struct GeometryPreference: PreferenceKey {
 }
 ```
 
-`bindGeometry` takes a `binding` and a `reader` function that takes a `GeometryProxy` and returns a `CGFloat`. It then creates a `GeometryBinding` using the `reader`, adds it to the calling view, then binds an `onPreferenceChanged` to the provided `binding`.
+The `bindGeometry` takes a `binding` and a `reader` function that takes a `GeometryProxy` and returns a `CGFloat`. It then creates a `GeometryBinding` with the `reader`, adds it to the calling view, then binds an `onPreferenceChanged` to the provided `binding`.
 
-`GeometryBinding` is just a view creator that creates a `GeometryReader` and binds a `preference` modifier to the provided `reader`.
+`GeometryBinding` is a view builder that creates a `GeometryReader` and binds a `preference` modifier to the provided `reader`.
 
 With this in place, we can now bind any `CGFloat` property of the `GeometryProxy` to any bindable property, e.g. `@State` or the properties of an `@ObservedObject`.
 
 
 ## Cleaning things up
 
-While the extension is convenient, its block-based syntax makes the view hierarchy pretty ugly:
+While the extension is convenient, its block-based syntax makes the view hierarchy ugly:
 
 ```swift
 var body: some View {
@@ -129,20 +126,11 @@ var body: some View {
 }
 ```
 
-I therefore prefer to use it to create cleaner, more specific extensions, rather than using it as is. For instance, we can use it to create an extension that reads the safe area inset of any `Edge`:
+I prefer to use cleaner, more specific extensions, rather than using it as is. For instance, we can use it to create an extension that reads the safe area inset of any `Edge`:
 
 ```swift
-public extension View {
+extension View {
     
-    /**
-     Bind the safe area insets of a certain edge and bind it
-     to the provided binding parameter.
-     
-     This modifier is very useful when you want a view to be
-     able to ignore safe areas, but its embedded views honor
-     the previously ignored safe areas. Just use the binding
-     to set the edge padding of the view you want to inset.
-     */
     func bindSafeAreaInset(
         of edge: Edge,
         to binding: Binding<CGFloat>) -> some View {
@@ -178,9 +166,9 @@ to the much cleaner and easier to read:
 .bindSafeAreaInset(of: .top, to: $topInset)
 ```
 
-This is just a matter of taste. I like the cleaner syntax, but the original extension is really all you need.
+This is however just a matter of taste. I like the cleaner syntax, but the original extension is really all you need.
 
 
 ## Code
 
-I have added these extensions to my [SwiftUIKit]({{project.url}}) library. You can find the source code [here]({{project.url}}{{page.source}}). If you decide to give it a try, I'd be very interested in hearing what you think.
+I have added these extensions to my [SwiftUIKit]({{project.url}}) library. You can find the source code [here]({{project.url}}{{page.source}}).

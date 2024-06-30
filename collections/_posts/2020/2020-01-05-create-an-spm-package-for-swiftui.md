@@ -1,27 +1,25 @@
 ---
-title: Create an SPM Package for SwiftUI
+title: Creating an SPM Package for SwiftUI
 date:  2020-01-05 12:00:00 +0100
 tags:  swiftui spm
 icon:  swiftui
 ---
 
-In this post, we'll create a package for the Swift Package Manager. The result will be a package that adds more gestures to SwiftUI. 
-
-At the end of this post, we'll have a fully functional package, but it will lack some features that an open-source project should have, such as support for CocoaPods, Carthage, Fastlane, Bitrise etc.
+In this post, we'll create a package for the Swift Package Manager. The result will be a package that adds more gestures to SwiftUI.
 
 
 ## Background
 
-I have [several open source projects][GitHub] and was very excited when Apple last WWDC announced that SPM was coming to iOS. [CocoaPods][CocoaPods] and [Carthage][Carthage] are great dependency managers, but have problems that SPM has the potential to solve, since it's integrated into Xcode.
+I have [several open source projects][GitHub] and was excited when Apple last WWDC announced that SPM was coming to iOS. [CocoaPods][CocoaPods] and [Carthage][Carthage] are great dependency managers, but have problems that SPM can solve since it's integrated into Xcode.
 
-As this is written, SPM is young and has some childhood problems. As your package evolves and you add a demo project, support for 3rd party dependency managers, CI integrations etc. you may run into some problems.
+SPM is young and has some childhood problems. As your package evolves and you add a demo project, support for 3rd party dependency managers, CI integrations, etc. SPM may provide you with some unexpected problems.
 
 Therefore, let's focus on the most essential features in this post. Let's save these problems for later, and take them on as we add more features to the package.
 
 
-## Create the package
+## Creating the package
 
-Let's start by creating a Swift package. In the Terminal, create a new folder for the package, navigate to it and create the package within it:
+Let's start by creating a Swift package. In Terminal, create a new folder for the package, navigate to it, then create a new package within it:
 
 ```bash
 mkdir SwiftUIGestures
@@ -50,7 +48,7 @@ Since the package will use SwiftUI, we can only target iOS 13, tvOS 13, watchOS 
 '...' is only available in iOS 13.0 or newer
 ```
 
-However, since the package will use gestures, it's not really applicable for tvOS and macOS either, so let's specify that it can only be used on platforms that support SwiftUI and swipe gestures.
+Since the package will use gestures, it's not really applicable for tvOS and macOS, so let's specify that it can only be used on platforms that support SwiftUI and swipe gestures.
 
 Open `Package.json` and add the following code below `name`:
 
@@ -65,9 +63,9 @@ This tells the package that it can only be used on iOS 13 and later. Save the fi
 
 ## Create a swipe gesture
 
-It's time to start adding functionality to the package. Let's start by creating the class in which all the swipe gesture logic will go - `SwipeGesture`. 
+It's time to start adding functionality to the package. Let's start by creating a class in which all the swipe gesture logic will go - `SwipeGesture`. 
 
-In SwiftUI, we can build this gesture as a view modifier, a function etc. but since we're going use `UISwipeGestureRecognizer`s and `UIView`s, let's build it as a `View` instead, or rather as a `UIViewRepresentable`, which will wrap a `UIView` in a SwiftUI `View`:
+In SwiftUI, we could build this as a view modifier, a function etc. but since we're going use `UISwipeGestureRecognizer` and `UIViewRepresentable`, which will wrap a `UIView` in a `View`:
 
 ```swift
 import SwiftUI
@@ -85,23 +83,14 @@ public struct SwipeGesture: UIViewRepresentable {
 }
 ```
 
-This view should trigger individual actions when it's swiped in different directions. Let's define such an action as a `typealias`:
+Since `SwipeGesture` should support four swipe directions (up, down, left, right), let's create a struct that can contain four distinct actions, with an `Action` typealias:
 
 ```swift
 import Foundation
 
 public extension SwipeGesture {
-    
+
     typealias Action = () -> Void
-}
-```
-
-Since `SwipeGesture` should support four swipe directions (up, down, left, right), let's create a struct that can contain four distinct actions:
-
-```swift
-import Foundation
-
-public extension SwipeGesture {
     
     struct Actions {
         
@@ -109,7 +98,8 @@ public extension SwipeGesture {
             up: @escaping Action = {},
             left: @escaping Action = {},
             right: @escaping Action = {},
-            down: @escaping Action = {}) {
+            down: @escaping Action = {}
+        ) {
             self.up = up
             self.left = left
             self.right = right
@@ -124,7 +114,7 @@ public extension SwipeGesture {
 }
 ```
 
-Now, let's add a `SwipeGesture` initializer that lets people define actions when the gesture is created. Let's also add empty default values to reduce the amount of code people have to write when they only want to use one or some of these actions:
+Let's add an initializer that lets people define actions when creating a `SwipeGesture`, using empty default values to reduce the amount of actions that people must provide:
 
 ```swift
 public struct SwipeGesture: UIViewRepresentable {
@@ -133,8 +123,14 @@ public struct SwipeGesture: UIViewRepresentable {
         up: @escaping Action = {},
         left: @escaping Action = {},
         right: @escaping Action = {},
-        down: @escaping Action = {}) {
-        self.actions = Actions(up: up, left: left, right: right, down: down)
+        down: @escaping Action = {}
+    ) {
+        self.actions = Actions(
+            up: up,
+            left: left,
+            right: right,
+            down: down
+        )
     }
 
     private let actions: Actions
@@ -143,7 +139,7 @@ public struct SwipeGesture: UIViewRepresentable {
 }
 ```
 
-Now, let's create the content of our `SwipeGesture`, which will be a `UIView` with gestures added to it. Let's create it inside `makeUIView`:
+Let's create the content of our `SwipeGesture`, which will be a `UIView` with gestures. Let's create this view inside `makeUIView`:
 
 ```swift
 public func makeUIView(context: Context) -> UIView {
@@ -154,9 +150,9 @@ public func makeUIView(context: Context) -> UIView {
 }
 ```
 
-The view has a clear background and no content, since it should not be considered to be a view per se, but rather a swipe gesture capture area that can be added to any other view.
+The view has a clear background and no content, since it should not be considered a view, but rather a swipe gesture capture area that can be added to any other view.
 
-It's time to add gestures. Since we have a `UIView`, we can do it by calling `addGestureRecognizer` on the view. There's only one problem. `addGestureRecognizer` requires a target and a selector, and since `SwipeGesture` is a struct, we can't use it as target or in the selector.
+It's time to add gestures. Since we have a `UIView`, we can use `addGestureRecognizer`, but it requires a target and selector. Since `SwipeGesture` is a struct, we can't use it as a target.
 
 To fix this, let's define a `Coordinator` inside `SwipeGesture` and return it in `makeCoordinator`:
 
@@ -183,9 +179,9 @@ public extension SwipeGesture {
 }
 ```
 
-The coordinator takes a swipe gesture and defines selector-compatible functions that call actions on this gesture. Returning it in `makeCoordinator` makes the `context` get a `coordinator` of the this type.
+Returning this coordinator in `makeCoordinator` causes the `makeUIView` `context` to get a `coordinator` of this type. This lets us set the target and selectors with this coordinator.
 
-We can now use this coordinator as target and selector when we add gestures to the view. Let's first create a `UIView` extension that simplifies adding gestures to the view:
+Before we proceed, let's add a `UIView` extension that simplifies adding gestures to a view:
 
 ```swift
 extension UIView {
@@ -193,7 +189,8 @@ extension UIView {
     func addSwipeGesture(
         _ direction: UISwipeGestureRecognizer.Direction, 
         target: Any?, 
-        action: Selector) {
+        action: Selector
+    ) {
         let swipe = UISwipeGestureRecognizer(target: target, action: action)
         swipe.direction = direction
         addGestureRecognizer(swipe)
@@ -236,7 +233,9 @@ Color.red
 )
 ```
 
-However, this is not very nice compared to SwiftUI's `onTapGesture` and `onLongPressGesture`. Let's create such a modifier for this gesture as well:
+However, this is not nice compared to SwiftUI's `onTapGesture` and `onLongPressGesture`.
+
+Let's create a similar view modifier for this gesture as well:
 
 ```swift
 import SwiftUI
@@ -247,14 +246,15 @@ extension View {
         up: @escaping SwipeGesture.Action = {},
         left: @escaping SwipeGesture.Action = {},
         right: @escaping SwipeGesture.Action = {},
-        down: @escaping SwipeGesture.Action = {}) -> some View {
+        down: @escaping SwipeGesture.Action = {}
+    ) -> some View {
         let gesture = SwipeGesture(up: up, left: left, right: right, down: down)
         return overlay(gesture)
     }
 }
 ```
 
-In the code above, we create a `View` extension that creates a `GestureView` and adds it as an overlay to the view. You can now add a `SwipeGesture` to any `View` like this:
+With this code, we can now add a `SwipeGesture` to any `View` like this:
 
 ```swift
 Color.red
@@ -267,12 +267,14 @@ Color.red
 )
 ```
 
-That's it! We now have a fully functional swipe gesture view. However, we won't be able to try it out until we have a demo project. Until then, let's do something even more fun - unit testing.
+We now have a fully functional swipe gesture view. Before we try it out in a demo app, let's do something even more fun - unit testing!
 
 
 ## Add unit tests
 
-I use [Quick][Quick] and [Nimble][Nimble] for unit testing in most of my projects, but let's reduce the complexity of this post by using `XCTests`. Let's add a tiny test that tests the `UIView+Gestures` extension we defined earlier:
+I use [Quick][Quick] & [Nimble][Nimble] for unit testing in most of my projects, but let's reduce the complexity of this post by using `XCTests`. 
+
+Let's add a tiny test that tests the `UIView+Gestures` extension we defined earlier:
 
 ```swift
 import UIKit
@@ -315,31 +317,28 @@ private class TestClass: NSObject {
 
 We need the `@testable import` since the extension is internal and can only be accessed within the library, as well as in testable imports.
 
-Now press `Cmd+U` to launch the test runner. It should run without problems and all tests should pass. As a good tester, you know that you always need more tests, but that's for another time.
+Press `Cmd+U` to launch the test runner. It should run without problems and all tests pass.
 
 
-## Publish the package
+## Publishing the package
 
-The last part now is to publish the package. This can easily be as much work as creating the package, since you should put effort into:
+The last part is to publish the package. This can easily involve as much work as creating the package, since you should put effort into:
 
-* `A great name` that communicates what the package is all about.
-* `A great readme` that explains the package, how it's used etc.
-* `A stunning logo` to...well, you don't have to, but it's fun.
-* `A basic demo app` to make it easy for users to give your package a try.
-* `Documentation` to make it easy for people to learn how to use your package.
+* `A great name` that communicates what it's all about.
+* `A great readme` that explains what it does, how it's used etc.
+* `A stunning logo` to...well, you don't have to, but it's pretty fun.
+* `A basic demo app` to make it easy for users to test your package.
 
 For now, though, just push it up to GitHub so that we can try it our in a real Xcode project. You can then add it with SPM, using the branch name, since we don't have a version yet.
 
-As soon as you create a version tag, e.g. `0.1`, you can ask SPM to use versions instead of branch names. This gives you additional capabilities to define version ranges to auto-bump to.
 
+## Adding the package to a new app
 
-## Add the package to a new app
-
-Let's create a new iOS app and see if the package works. Create a SwiftUI project and navigate to the SPM dependency manager under `Project/Swift Packages`.
+Let's create a new iOS app test the package. Create a SwiftUI project and navigate to the SPM Dependency Manager under `Project/Swift Packages`.
 
 Add a new dependency and enter the url to your repo. If you haven't created a repo of your own, you can use this url instead: `https://github.com/danielsaidi/SwiftUIKit`.
 
-After Xcode has synced SPM dependencies, you can now `import` the library and use it in your app:
+After Xcode has synced dependencies, you can `import` the library and use it in your app:
 
 ```swift
 import YourPackageName // or SwiftUIKit if you use my library
@@ -356,20 +355,14 @@ Color.red
 )
 ```
 
-If you run the project and swipe the red part of the screen, you should now get a printout of the direction you swiped. This means that everything worked well and that the package works.
+If you run the project and swipe the red part of the screen, you should get a printout of the direction you swiped. This means that everything worked well and that the package works.
 
 Congratulations - you have just created your first SPM Package! 🥳
 
 
 ## Going further
 
-You now have a working SPM package, but it still lacks a bunch of features, like the things I mentioned in the earlier list, as well as:
-
-* Fastlane support
-* Carthage support
-* CocoaPods support
-* Bitrise integration
-* Terminal support for automated tasks
+You now have a working SPM package, but it still lacks a bunch of features, like the things I mentioned earlier list, as well as other useful workflow utilities.
 
 You can have a look at [my various projects][GitHub] to see how I generally handle this.
 

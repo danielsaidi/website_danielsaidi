@@ -1,11 +1,13 @@
 ---
-title: Case-sensitive String contains checks
+title: Case-sensitive String contains checks in Swift
 date:  2020-06-04 12:00:00 +0100
 tags:  swift extensions
 icon:  swift
 
-lib:    https://github.com/danielsaidi/SwiftKit
-source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Extensions/String
+redirect_from: /blog/2020/06/04/string-contains
+
+lib:    https://github.com/danielsaidi/SwiftUIKit
+source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Extensions/String
 ---
 
 In this post, we'll look at how to check if a string contains another string. We'll then create an extension that allows for easier case-insensitive checks.
@@ -13,7 +15,7 @@ In this post, we'll look at how to check if a string contains another string. We
 
 ## The basics
 
-Checking if a string contains another string is easy, using `contains`:
+We can use `contains` to check if a string contains another string:
 
 ```swift
 let string = "This string contains text"
@@ -27,13 +29,15 @@ let string = "This string contains text"
 string.contains("Contains") // => false
 ```
 
-To allow for case-insensitive contains checks, you could lower-case both strings:
+To allow for case-insensitive contains checks, you can lower-case both strings:
 
 ```swift
 string.lowercased().contains("Contains".lowercased()) // => true
 ```
 
-However, this is not performant, since you create two new strings to perform this check. You could use `range` instead, and provide it with a `.caseInsensitive` option:
+This is however not performant, since you create two new strings to perform this check. 
+
+You could use `range` instead, and provide it with a `.caseInsensitive` option:
 
 ```swift
 string.range(of: "Contains", options: .caseInsensitive) != nil // => true
@@ -69,6 +73,6 @@ string.contains("Contains", caseSensitive: false) // => true
 I think that this is a lot cleaner, and for case-sensitive checks a lot more readable.
 
 
-## Source code
+## Source Code
 
-I have added this extension to my [SwiftKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think!
+I have added this extension to my [SwiftUIKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think!

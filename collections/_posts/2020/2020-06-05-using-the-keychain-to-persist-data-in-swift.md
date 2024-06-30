@@ -1,32 +1,32 @@
 ---
-title: Using the iOS keychain to persist data
+title: Using the keychain to persist data in Swift
 date:  2020-06-05 10:00:00 +0100
 tags:  swift keychain
 icon:  swift
 
-lib:    https://github.com/danielsaidi/SwiftKit
-source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Keychain
+redirect_from: /blog/2020/06/05/keychain-access
+
+lib:    https://github.com/danielsaidi/SwiftUIKit
+source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Keychain
 
 repo:   https://github.com/jrendel/SwiftKeychainWrapper
 ---
 
-In this post, we'll look at how to read from and write to the keychain on iOS devices. We'll look at a great library for this and how we can make it more abstract.
+In this post, we'll look at how to read from and write to the keychain on Apple devices. We'll look at a great library for this and how we can make it more abstract.
 
 
 ## The basics
 
-The device keychain can be used to small amounts of data outside of our applications. This lets data stick around even if users reinstall our application. The data can also be backed up and restored by encrypted backups.
+The device keychain can be used to store small amounts of data outside of an app, so that it stays around even if the app is deleted. The data can also be backed up and restored by encrypted backups. It's very convenient, but should not be misused!
 
-However, working with the keychain is not very convenient. Therefore, the [SwiftKeychainWrapper]({{page.repo}}) project is nice, since it lets us use the keychain like `UserDefaults`.
+Working with the keychain is however (perhaps intentionally) not very convenient. The API feels old, requires casting between types, and doesn't feel Swifty. [SwiftKeychainWrapper]({{page.repo}}) is therefore a nice tool for this, since it lets us use the device keychain like `UserDefaults`. 
 
-This project is well written, but not maintained. To not depend on an outdated repository and avoid external dependencies, I have added the source code to my [SwiftKit]({{page.lib}}) library and migrated it to the latest Swift version. You can find the source code [here]({{page.source}}).
-
-Although you shouldn't overuse the keychain, it can be a lifesaver in certain situations, where data must be around even if the application is deleted. Just be careful with how you use it.
+The project is however not maintained anymore. To avoid depending on outdated code and external dependencies, I have added it to my [SwiftUIKit]({{page.lib}}) library and migrated it to the latest Swift version. You can find the source code [here]({{page.source}}).
 
 
 ## Making it abstract
 
-To avoid having to depend on the library's `KeychainWrapper`, I have created a couple of protocols that lets us better control how the keychain is used.
+To avoid having to depend on the library's `KeychainWrapper`, I have created some protocols that let us better control how the keychain is used.
 
 To read from the keychain, I use a `KeychainReader` protocol:
 
@@ -46,7 +46,7 @@ public protocol KeychainReader: AnyObject {
 }
 ```
 
-and to write to the keychain, I use a `KeychainWriter` protocol:
+To write to the keychain, I use a `KeychainWriter` protocol:
 
 ```swift
 public protocol KeychainWriter: AnyObject {
@@ -80,13 +80,13 @@ public protocol KeychainWriter: AnyObject {
 }
 ```
 
-I then have a `KeychainService` that implements these protocols (like how `Codable` implements `Encodable` and `Decodable`):
+I then have a `KeychainService` that implements both protocols (compare with how `Codable` implements both `Encodable` and `Decodable`):
 
 ```swift
 public protocol KeychainService: KeychainReader, KeychainWriter {}
 ```
 
-I then have a standard `KeychainService` implementation that just wraps the `KeychainWrapper`:
+I then have a standard `KeychainService` implementation that wraps the `KeychainWrapper`:
 
 ```swift
 public class StandardKeychainService: KeychainService {
@@ -192,6 +192,6 @@ extension StandardKeychainService: KeychainWriter {
 Wrapping a wrapper may seem a bit too much, but it's to separate the protocols from the keychain and allow the wrapper to change without having to change the public protocols.
 
 
-## Source code
+## Source Code
 
-I have added these extensions to my [SwiftKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think!
+I have added these extensions to my [SwiftUIKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think!

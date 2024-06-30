@@ -1,8 +1,10 @@
 ---
-title: How to use view controller delegation in SwiftUI
+title: View controller delegation in SwiftUI
 date:  2020-01-31 12:00:00 +0100
 tags:  swiftui uikit
 icon:  swiftui
+
+redirect_from: /blog/2020/01/31/present-delegating-view-controllers-in-swiftui
 ---
 
 Presenting UIKit view controllers in SwiftUI is simple, but things become more complicated when they communicate through delegation. In this post, we'll look at a way to solve this.
@@ -10,9 +12,11 @@ Presenting UIKit view controllers in SwiftUI is simple, but things become more c
 
 ## UIViewControllerRepresentable
 
-Since SwiftUI is still young, there are many situations where you may have to use native UIKit views or view controllers, e.g. to compose e-mails, share data etc. You may also have your own view controllers that you want to reuse in SwiftUI.
+Since SwiftUI is still young, there are many situations where you may have to use native UIKit views or view controllers, e.g. to compose e-mails, share data etc.
 
-Presenting a UIKit view controller in SwiftUI is trivial. For instance, presenting a share sheet just requires you to create a `UIViewControllerRepresentable` that wraps the sheet:
+You may also have your own view controllers that you want to reuse in SwiftUI, until you have had a chance to migrate them to SwiftUI.
+
+Presenting a UIKit view controller in SwiftUI is easy. For instance, presenting a share sheet just requires you to create a `UIViewControllerRepresentable` that wraps the sheet:
 
 ```swift
 struct ShareSheet: UIViewControllerRepresentable {
@@ -24,20 +28,26 @@ struct ShareSheet: UIViewControllerRepresentable {
         _ error: Error?) -> Void
       
     let activityItems: [Any]
-    let applicationActivities: [UIActivity]? = nil
-    let excludedActivityTypes: [UIActivity.ActivityType]? = nil
-    let callback: Callback? = nil
+    let applicationActivities: [UIActivity]?
+    let excludedActivityTypes: [UIActivity.ActivityType]?
+    let callback: Callback?
       
-    func makeUIViewController(context: Context) -> UIActivityViewController {
+    func makeUIViewController(
+        context: Context
+    ) -> UIActivityViewController {
         let controller = UIActivityViewController(
             activityItems: activityItems,
-            applicationActivities: applicationActivities)
+            applicationActivities: applicationActivities
+        )
         controller.excludedActivityTypes = excludedActivityTypes
         controller.completionWithItemsHandler = callback
         return controller
     }
       
-    func updateUIViewController(_ uiViewController: UIActivityViewController, context: Context) {
+    func updateUIViewController(
+        _ uiViewController: UIActivityViewController, 
+        context: Context
+    ) {
         // Nothing to see here, carry on
     }
 }
@@ -51,14 +61,14 @@ You can then present the share sheet as a SwiftUI `sheet`:
 ...
 ```
 
-This will present the share sheet in a modal and let you share any data you like. You can also specify application activities, excluded activity types and a callback, although it's not needed.
+This will present the sheet in a modal to share any data you like. You can also specify optional application activities, excluded activity types and callbacks.
 
 
 ## View controllers with delegation
 
-Things become a little more complicated if a view controller communicates back using a delegate. Since SwiftUI views are structs, they can't be used as delegates. We need something more.
+Things become a little more complicated if a view controller communicates back using a delegate, since SwiftUI views are structs that can't be used as delegates.
 
-One solution is to use a `coordinator`, which you can create and return as a nested class in your view:
+One solution is to use a `coordinator`, which you can create and return as a nested class:
 
 ```swift
 struct MyView: View {
@@ -71,13 +81,13 @@ struct MyView: View {
 }
 ```
 
-Although the view is a struct and can be recreated whenever SwiftUI tells it to, the coordinator will be kept as a single instance, and can therefore be used as a delegate. 
+Although the view is a struct and can be recreated whenever needed, the coordinator will be kept as a single instance, and can therefore be used as a delegate. 
 
-If the delegating view controller is used in many places, you can reuse and compose coordinators to avoid duplicating code. This is however unusual.
+If a delegating view controller is used in many places, you can compose coordinators to avoid duplicating code. This is however unusual.
 
-Another approach is to have a delegate class for each view controller wrapper that supports delegation. 
+Another approach is to have a delegate class for each view controller that uses delegation. 
 
-Say that we want to use a Vision-based document camera. The `VNDocumentCameraViewController` communicates events using a `VNDocumentCameraViewControllerDelegate`, so you must provide it with such a delegate to know what's going on.
+For instance, say that we want to use the Vision-based `VNDocumentCameraViewController`, which communicates events to a `VNDocumentCameraViewControllerDelegate`.
 
 First, let's wrap the view controller in a `UIViewControllerRepresentable`:
 
@@ -100,7 +110,7 @@ struct DocumentCamera: UIViewControllerRepresentable {
 }
 ```
 
-The camera can now be presented as long as it's given a delegate. If your view has a coordinator that implements `VNDocumentCameraViewControllerDelegate`, you can just provide that coordinator when you create a `DocumentCamera`.
+If your view has a coordinator that implements `VNDocumentCameraViewControllerDelegate`, you can just provide that coordinator when you create a `DocumentCamera`.
 
 We can also implement a `DocumentCamera` delegate that use action blocks to communicate delegate events back to the view:
 
@@ -137,7 +147,7 @@ extension DocumentCamera {
 }
 ```
 
-This approach lets you bind the delegate events to actions directly within the view. A view can now just present the document camera with this delegate and provide its own actions, like this:
+This approach lets you bind the delegate events to actions directly within the view. A view can now present the camera with this delegate and provide its own actions, like this:
 
 ```swift
 ...

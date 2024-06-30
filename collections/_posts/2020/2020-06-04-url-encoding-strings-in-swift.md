@@ -1,11 +1,13 @@
 ---
-title: Url encode strings
+title: URL-encoding strings in Swift
 date:  2020-06-04 20:00:00 +0100
 tags:  swift url-encode
 icon:  swift
 
-lib:    https://github.com/danielsaidi/SwiftKit
-source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Extensions/String
+redirect_from: /blog/2020/06/04/string-urlencode
+
+lib:    https://github.com/danielsaidi/SwiftUIKit
+source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Extensions/String
 ---
 
 In this post, we'll look at how to url encode strings. We'll then create an extension that let's us do this easier and with less code.
@@ -13,7 +15,7 @@ In this post, we'll look at how to url encode strings. We'll then create an exte
 
 ## The basics
 
-As far as I know, Swift has no great, native way to url encode strings. We can come a bit on our way by using `addingPercentEncoding`:
+As far as I know, Swift has no great native way to url encode strings. We can come a bit on our way by using `addingPercentEncoding`:
 
 ```swift
 let string = "Hello, world & beyond!"
@@ -21,7 +23,7 @@ string.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
 // => "Hello,%20world%20&%20beyond!"
 ```
 
-However, this will not perform a complete encoding. If the string contains `&` for instance, that character will remain unchanged and mess up things if the string should be used as query parameters.
+However, this will not perform a complete encoding. If a string contains `&` for instance, it remains unchanged and mess up things if the string should be used as query parameters.
 
 To solve this, we need to replace all `&` with their url encoded form, `%26`:
 
@@ -55,9 +57,11 @@ string.urlEncoded()
 // => "Hello,%20world%20%26%20beyond!"
 ```
 
-I think this is a lot cleaner. It's also less error-prone, since we don't repeat the same logic over and over in our codebase. Also, if we realize that another character is also not properly handled, we just have to change this single extension.
+I think this is a lot cleaner. It's also less error-prone, since we don't repeat the same logic over and over in our codebase. 
+
+Also, if we need to handle another character, we just have to change this single extension.
 
 
-## Source code
+## Source Code
 
-I have added this extension to my [SwiftKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think!
+I have added this extension to my [SwiftUIKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think!

@@ -1,35 +1,42 @@
 ---
-title: Modify dates in Swift
+title: Modifying dates in Swift
 date:  2020-05-27 22:00:00 +0100
 tags:  swift dates extensions
 icon:  swift
 
-lib:    https://github.com/danielsaidi/SwiftKit
-source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Date
+redirect_from: /blog/2020/05/27/modify-dates
+
+lib:    https://github.com/danielsaidi/SwiftUIKit
+source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Date
 ---
 
-In this post, we'll extend `Date` with functions that let us add and remove seconds, minutes, hours and days to a date.
+In this post, we'll look at how to modify dates in Swift. We'll also extend `Date` with ways to modify dates with clean, readable code.
 
 
 ## The basics
 
 Date manipulation is a common task in many apps. For instance, we may want to know the date five hours from now, to schedule an operation, refresh or remove data etc.
 
-`Date` has an easy way to do this. `addingTimeInterval` lets you add a `TimeInterval` (which is a typealias for `Double`) to any date and returns the resulting date.
+`Date` has an `addingTimeInterval(...)` function that can add and remove a `TimeInterval` (a typealias for `Double` seconds) to any date and returns the resulting date.
 
 For instance, this adds an hour to the current date:
 
 ```swift
-let date = Date()
-date.addingTimeInterval(3600)
+Date().addingTimeInterval(3600)
+```
+
+and this removes an hour from the current date:
+
+```swift
+Date().addingTimeInterval(-3600)
 ```
 
 However, I find `addingTimeInterval` cumbersome to use when you want more fine-grained control or use larger units than seconds. Also, the code isn't that readable.
 
 
-## More readable extensions
+## Date extensions
 
-We can use `addingTimeInterval` in a set of extension functions, to create more readable functions for manipulating dates:
+We can use the function above in a set of `Date` extensions, to get more readable code:
 
 ```swift
 public extension Date {
@@ -71,7 +78,7 @@ public extension Date {
 }
 ```
 
-If you now want to modify a certain date, you can do so with more readable code and also chain multiple operations together:
+You can now modify dates with cleaner code and also chain multiple operations together:
 
 ```swift
 let date = Date()
@@ -83,6 +90,6 @@ let date = Date()
 I think this is much more readable than the time interval-based function.
 
 
-## Source code
+## Source Code
 
-I have added these extensions to my [SwiftKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think!
+I have added these extensions to my [SwiftUIKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think!

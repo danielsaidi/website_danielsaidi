@@ -7,7 +7,7 @@ icon:   swift
 assets: /assets/blog/2022/2022-04-29/
 tweet:  https://twitter.com/danielsaidi/status/1520032656007737345?s=20&t=wF1kbk5Nxm27t6vxQ1OeLQ
 
-lib:    https://github.com/danielsaidi/SwiftKit
+lib:    https://github.com/danielsaidi/SwiftUIKit
 post:   https://danielsaidi.com/blog/2020/04/27/local-biometric-authentication
 ---
 
@@ -59,6 +59,6 @@ I think this is a lot cleaner, and easier to use in other async functions. The a
 I'm happy that Apple made it so easy, since it will take time to add support for async/await everywhere. This gives us easy ways to use completion-based functions with async/await.
 
 
-## Source code
+## Source Code
 
-I have added this extension to my [SwiftKit]({{page.lib}}) library. Feel free to try it out and let me know what you think!
+I have added this extension to my [SwiftUIKit]({{page.lib}}) library. Feel free to try it out and let me know what you think!

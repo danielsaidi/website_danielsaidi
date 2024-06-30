@@ -1,11 +1,13 @@
 ---
-title: Delay and chain operations with DispatchQueue
+title: Delay and chain Swift operations with DispatchQueue
 date:  2020-06-03 12:00:00 +0100
 tags:  swift async-await
 icon:  swift
 
-lib:    https://github.com/danielsaidi/SwiftKit
-source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Extensions
+redirect_from: /blog/2020/06/03/dispatch-queue
+
+lib:    https://github.com/danielsaidi/SwiftUIKit
+source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Extensions
 ---
 
 In this post, we'll look at how `DispatchQueue` can be used to delay and chain operations. We'll also extend it with convenient functions that simplify these tasks.
@@ -13,19 +15,18 @@ In this post, we'll look at how `DispatchQueue` can be used to delay and chain o
 
 ## Delaying operations
 
-Delaying operations with `DispatchQueue` is very easy, using `asyncAfter`:
+We can easily delaying operations with `DispatchQueue` by using the `asyncAfter` function:
 
 ```swift
-let queue = DispatchQueue.main
 let delay = DispatchTimeInterval.milliseconds(50)
-queue.asyncAfter(deadline: .now() + delay) {
+DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
     print("I was delayed 50 milliseconds")
 }
 ```
 
-However, I think the `deadline` function is not that convenient to use, since you have to add `.now()` to your "deadline". It's probably correct from how the queue operates, but using it is not that nice.
+However, I think the `deadline` is not that convenient, since you have to add `.now()` to it. It's probably correct from how a queue works, but it's not that nice to use.
 
-Let's create an extension that makes delaying operations easier:
+We can create an extension that makes delaying operations easier:
 
 ```swift
 public extension DispatchQueue {
@@ -49,7 +50,7 @@ queue.asyncAfter(.seconds(1)) {
 }
 ```
 
-I think this is much cleaner, although I'd prefer the function to be called `performAfter(...)` instead. However, I chose this name to harmonize with the existing apis.
+I think this is much cleaner, although I'd prefer the function to be called `performAfter(...)`. I however chose this name to harmonize with the existing APIs.
 
 
 ## Chaining operations
@@ -118,6 +119,6 @@ queue.async(execute: { return "Hello"}) {
 As with the delay operations, I'd have preferred to use `perform` instead of `async` and will perhaps over time make the functions more compact, but for now I've chosen to conform to the existing apis.
 
 
-## Source code
+## Source Code
 
-I have added these extensions to my [SwiftKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think!
+I have added these extensions to my [SwiftUIKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think!

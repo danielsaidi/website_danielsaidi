@@ -1,11 +1,13 @@
 ---
-title: Base64 encode and decode strings
+title: Base64 encode and decode strings in Swift
 date:  2020-06-04 08:00:00 +0100
 tags:  swift extensions
 icon:  swift
 
-lib:    https://github.com/danielsaidi/SwiftKit
-source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/Extensions/String
+redirect_from: /blog/2020/06/04/string-base64
+
+lib:    https://github.com/danielsaidi/SwiftUIKit
+source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Extensions/String
 ---
 
 In this post, we'll discuss how to Base64 encode and decode strings in Swift. We'll also create a couple of extensions to make this easier to use and more readable.
@@ -13,28 +15,28 @@ In this post, we'll discuss how to Base64 encode and decode strings in Swift. We
 
 ## The basics
 
-Base64-encoding strings in Swift is very easy. You just have to convert the string to data, then encode that data with `base64EncodedString()`:
+You can use `base64EncodedString()` to Base64-encode a `String`'s data value in Swift:
 
 ```swift
 let string = "Let's encode this string"
 let encoded = string.data(using: .utf8)?.base64EncodedString()
 ```
 
-To decode a Base64 encoded string, you just have to convert it to data, then create a string from the decoded data:
+To decode a Base64 encoded string, convert it to data, then create a string from the data:
 
 ```swift
 guard let data = Data(base64Encoded: self) else { return nil }
 return String(data: data, encoding: .utf8)
 ```
 
-Note that both encoding and decoding can fail, which means that they return optional strings. 
+Both encoding and decoding can fail, which means that they both return optional strings. 
 
 
 ## Extending String
 
-Although the above operations are very easy and straightforward, I prefer to use more convenient and readable extensions, to avoid having to write the same code over and over.
+Although the above operations are straightforward, I prefer to use more convenient and readable extensions, to avoid having to write the same code over and over.
 
-To Base64 encode and devode strings, I just wrap the logic in a `String` extension:
+To Base64 encode and decode strings, I just wrap the logic in a `String` extension:
 
 ```swift
 extension String {
@@ -61,6 +63,6 @@ let decoded = encoded?.base64Decoded()
 I think that this is a lot cleaner. Since the decode logic requires a `guard`, you also save one line each time and avoid having to use control flow where you may not want it.
 
 
-## Source code
+## Source Code
 
-I have added these extensions to my [SwiftKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think!
+I have added these extensions to my [SwiftUIKit]({{page.lib}}) library. You can find the source code [here]({{page.source}}). Feel free to try it out and let me know what you think!
