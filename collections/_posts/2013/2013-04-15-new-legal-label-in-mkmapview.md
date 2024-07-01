@@ -4,26 +4,18 @@ date:  2013-04-15 21:29:00 +0100
 tags:  ios geo
 icon:  swift
 
-assets: /assets/blog/2013/130415/
+assets: /assets/blog/13/0415/
 ---
 
-I'm using Google Maps in a couple of iOS apps. Or, at least I was before Apple 
-replaced Google Maps with their own engine. So, now I guess I use Apple Maps.
-And Apple Maps adds an annoying little label.
+I used Google Maps in some of iOS apps, until Apple launched their own map engine. So, now I use Apple Maps. And it adds an annoying little label. Damn.
 
-I have always admired Apple for their wonderful design, but when it comes to the
-new `MKMapView` that is powered by Apple Maps, I find the new legal label annoying:
+I have always admired Apple for their great design, but when it comes to `MKMapView`, which is powered by Apple Maps, I find the new legal label annoying:
 
 ![Apple Maps In Action]({{page.assets}}map.png)
 
-Take a look at the lower-left corner. See the nice little round button? Shouldn't
-it be even prettier pushed down even more into the corner? Yeah, I know...I think
-so too. However, that area is occupied by a legal label that Apple for some reason
-have decided to include.
+See the round button in the lower-left corner? Shouldn't it be even prettier being even more in the corner? Yeah, I think so too. However, that corner is occupied by a legal label that for some reason is added to the view.
 
-I haven't found a way to remove this label with the native `MKMapView` methods, but
-managed to find a way to programmatically move it to the bottom-right corner instead, 
-using a custom category:
+I haven't found a way to remove it with the native `MKMapView` methods, but managed to find a way to programmatically move it to the bottom-right corner instead, using a category:
 
 
 ```objc
@@ -90,5 +82,4 @@ typedef enum {
 @end
 ```
 
-I have used this in an app that got approved, so I guess you can all just use it
-without being concerned that you do something you're not allowed to do.
+I used this and was approved, so I guess you can all just use it without being concerned that you do something you're not allowed to do.

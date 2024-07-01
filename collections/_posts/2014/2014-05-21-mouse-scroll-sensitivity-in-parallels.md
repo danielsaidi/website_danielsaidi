@@ -5,14 +5,8 @@ tags:  archive
 icon:  avatar
 ---
 
-I use Parallels Desktop to run Windows from a dedicated OS X partition. It works
-great overall, but one thing that I have had problems with, is that the mouse scroll
-sensitivity is too sensitive in Windows. Let's see how to fix this in Parallels.
+I use Parallels Desktop to run Windows from a dedicated OS X partition. It works great, but I have had problems with the mouse scroll being too sensitive. Let's see how to fix it.
 
-The solution was to open the `Virtual Machine > Configure > Mouse & Keyboard`
-configuration window and uncheck `Enable smooth scrolling`. Unchecking this 
-solved my problems, but I'm not sure if it has unexpected side-effects that will
-show up later.
+The solution is to open the `Virtual Machine > Configure > Mouse & Keyboard` window and uncheck `Enable smooth scrolling`. I haven't noticed any side-effects so far, so it seems to be working. Scrolling is now working as expected. 
 
-I haven't noticed any side-effects so far, though. If you have the same problems,
-it may be worth giving this solution a try. 
+If you have the same problems with scrolling in Parallels Desktop, it may be worth trying.

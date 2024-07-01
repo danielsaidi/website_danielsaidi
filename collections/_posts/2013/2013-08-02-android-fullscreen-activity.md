@@ -2,20 +2,14 @@
 title: Android Fullscreen Activity
 date:  2013-08-02 09:14:00 +0100
 tags:  android
-image: /assets/blog/2013/2013-08-05-android.png
+image: /assets/blog/13/android.png
 ---
 
-The best way for me to get my act together when learning new things, is to write
-about it as early as possible. This way, I can return to my earlier posts and
-verify that I knew nothing once, and that I hopefully have learned a few thing
-along the way. Today, I thought that I should honor this strategy, by publishing
-a simple base class that can be used for fullscreen Android activities.
+The best way for me to learn, is to write about it. This way, I can return to earlier posts and see that I knew nothing once, and that I have learned a few things. Today, I will honor that strategy by publishing a simple class that can be used for fullscreen Android activities.
 
 ![Image of an Android teacher]({{page.image}})
 
-In this class, I have basically just stripped and refactored the boilerplate code
-you get when creating a fullscreen activity, then exposed simple methods that you
-can call from the subclass.
+In this class, I have just stripped and refactored the boilerplate code you get when creating a fullscreen activity, then exposed simple methods that you can call from the subclass.
 
 ```java
 import android.annotation.TargetApi;
@@ -36,7 +30,6 @@ not using an action bar, since it will be partially hidden. A
 setContentViewWithoutTitleBar method is available, and can be
 used instead of setContentView.
 */
-
 public class FullscreenActivity extends Activity {
 
     private static final boolean FULLSCREEN_AUTO = true;
@@ -126,6 +119,4 @@ public class FullscreenActivity extends Activity {
 }
 ```
 
-This is completely different from any iOS code that I've previously written. 
-I used to write and teach Java at the university, but I'm really torn on it.
-However, I have to say that it's way nicer than Objective-C.
+This is different from any iOS code I've previously written. I used to write and teach Java at the university, but I'm really torn on it. However, it's still way nicer than Objective-C.
