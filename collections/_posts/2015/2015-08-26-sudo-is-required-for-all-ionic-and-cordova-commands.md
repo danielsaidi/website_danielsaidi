@@ -5,20 +5,15 @@ tags:  archive
 icon:  javascript
 ---
 
-I'm currently building my very first app with Ionic Framework. So far, Ionic is
-fast to setup and performs well, but I just ran into a problem that forces me to
-use `sudo` for all Ionic and Cordova commands.
+I'm currently building my first Ionic Framework app. It's fast to setup and performs well, but I ran into a problem that forces me to use `sudo` for all Ionic & Cordova commands.
 
-This problem only occur at work. The development setup works great at home. I
-understand that some global installation configurations require `sudo`, but at
-work I also have to use sudo for commands like:
+This problem only occurs at work, not at home. I understand that some global commands require `sudo`, but at work I also have to use sudo for commands like:
 
 * `ionic platform add android`
 * `ionic build ios`
 * `ionic run android`
 
-If I don't use sudo, Ionic isn't able to remove assets in the platform folders.
-Also, I can't open the project in Xcode, due to missing permissions.
+If I don't use sudo, Ionic isn't able to remove assets in the platform folders. I can also not open the project in Xcode, due to missing permissions.
 
 I finally found a terminal command that fixes these problems whenever they happen:
 
@@ -26,5 +21,4 @@ I finally found a terminal command that fixes these problems whenever they happe
 sudo chown -R $(whoami) ~/<path to your project folder>
 ```
 
-Run it once, and you will no longer have to use sudo when executing the Ionic and
-Cordova commands. You will also be able to open the Xcode project without warnings.
+Run it, and you will no longer have to use sudo when running Ionic & Cordova commands. You will also be able to open the Xcode project without warnings.

@@ -5,22 +5,15 @@ tags:  swift uikit
 icon:  swift
 ---
 
-In an iOS project that I'm currently working on, I load images asynchronously into an
-`UIImageView`. Although the images are properly fetched, they are pixelated once they 
-are added to the image view.
+In an iOS project that I'm working on, I load images asynchronously into an `UIImageView`. Although images are properly fetched, they're pixelated when they're added to the view.
 
-The setup that I use, is that I first add a placeholder image from the bundle to the
-image view as the image fetch starts, to indicate that the image hasn's been downloaded 
-yet. The placeholder is a PDF asset, which is loaded as @2x or @3x depending on the
-device. It looks very sharp on all devices.
+I first add a placeholder image from the bundle to the image view as the image fetch starts, to indicate that the image hasn's been downloaded yet. The placeholder is a PDF, which is loaded as @2x or @3x depending on the device. It looks very sharp on all devices.
 
 Turns out that when the asynchronously loaded image is loaded into the image view, it
-will have a scale that differs from the placeholder image, since the async image has a
+will use a scale that differs from the placeholder, since the async image has a
 @1x scale. As a result, the image becomes pixelated.
 
-If I skip applying the placeholder image before beginning to download the image,
-the downloaded image looks perfect. The solution is to generate a new image from the
-loaded one, using the proper scale. This is how you do it (broken down in small steps):
+If I skip applying the placeholder image before beginning to download the image, the async image looks great. The solution is to generate a new image from the loaded one, using the proper scale. This is how you do it (broken down in small steps):
 
 ```swift
 guard let image = loadedImage else { return }
