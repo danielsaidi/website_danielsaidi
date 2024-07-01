@@ -1,35 +1,20 @@
 ---
-title: Automate with Automator
+title: Automating with Automator
 date:  2013-10-08 19:42:00 +0100
 tags:  macos automation
 
-assets: /assets/blog/2013/131008/
-image:  /assets/blog/2013/131008/automator.png
+assets: /assets/blog/13/1008/
+image:  /assets/blog/13/1008.png
 ---
 
-A really useful tool that is never top of mind for me when automating a workflow,
-is the native OS X application Automator.
+A useful tool that is never top of mind for me when automating a workflow, is the native OS X (today macOS) Automator app.
 
 ![Automator icon]({{page.image}}){:class="plain"}
 
-With Automator, you can create almost anything workflow-related in a convenient
-way. For instance, in an iOS app of mine, I use several screen-sized images to 
-make up a background in layers. Since the app is universal, I need one image for 
-old non-retina iPhones, one for old retina iPhones, one for new retina iPhones, 
-one for non-retina iPads and one for retina iPads etc. That means five images per
-layer. A background view with ten layers means scaling and cropping fifty times.
+Automator lets you create workflows in a convenient way. For instance, I use it to do batch image resizing of many, MANY images in a game that I'm currently building.
 
-Instead of doing this manually, I created an Automator workflow that takes all my
-retina iPad screens, then resizes and crops it to the four remaining sizes. The
-entire workflow completes in less than one minute, instead of me havng to do this
-repetitive task manually and much, MUCH slower.
+Instead of doing it manually, I created an Automator workflow that takes all my retina iPad images and resizes and crops them to four target sizes. The entire workflow completes in less than a minute, instead of me having to do it manually, over and over again.
 
-One thing that Automator doesn't support out of the box, though, is to crop an
-image in other ways than around the center. For this, I found a nice add-on that
-is called `Proper Cropper`. It let's you crop in more ways than around the center,
-which is just what I need, but turned out to only supports PC.
+One thing that Automator doesn't support out of the box, is to crop an image in other ways than around the center. For this, I found a nice add-on called `Proper Cropper`. It let's you crop in more ways than around the center, which is just what I need.
 
-Instead, the `ImageMagick` add-on seems to be a god fit for the Mac. It lets me
-run it as a shell script in my workflow, which takes some weight of the
-non-developer drag-and-drop guilt I so often feel when using Automator. I now
-use this add-on to great extent and it works great.
+It however turned out to only support PC, so I used the `ImageMagick` instead. It lets me run it as a shell script in my workflow, which takes some weight of the non-developer drag-and-drop guilt I so often feel when using Automator. I now use this add-on and it works great.
