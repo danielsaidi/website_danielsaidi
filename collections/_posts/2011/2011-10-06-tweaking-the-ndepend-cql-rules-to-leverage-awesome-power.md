@@ -5,19 +5,13 @@ tags:  archive
 icon:  dotnet
 ---
 
-After learning on how to automate and schedule NDepend to run for several .NET
-solutions at once and starting to use NDepend more regularly, the power of CQL
-has grown on me.
+After learning how to automate and schedule NDepend to run for several solutions at once and starting to use NDepend more regularly, the power of CQL has grown on me.
 
-For instance, one big problem that I have wrestled with at work is that the code
-contains static fields for non-static-should-be fields. In a web context, that's
-a big no-no for user-specific state.
+For instance, one problem that I have wrestled is when code contains static fields for fields that should not be static, which in a web context is a big no-no.
 
-Prior to CQL, I used to search for "static" in the entire .NET solution, then go
-through the search result. It was exhausting and a non-viable approach.
+Prior to CQL, I used to search for `static` in the entire solution, then go through the search result. It was exhausting and a non-viable approach.
 
-As I yesterday dug into the standard CQL rules, to get a better understanding of
-the NDepend analysis tools, I noticed the following standard CQL:
+As I dug into the CQL rules, to get a better understanding of the NDepend analysis tools, I noticed the following standard CQL rule:
 
 	// <Name>Static fields should be prefixed with a 's_'</Name>
 	WARN IF Count > 0 IN SELECT FIELDS WHERE 
@@ -46,8 +40,7 @@ This rule is just awesome! I just had to edit the CQL to
 	// Don't hesitate to customize the regex of 
 	// NameLike to your preference.
 
-and voilá: NDepend will now automatically find all static fields in the solution
-and ignore NDepend's default naming conventions.
+and voilá, NDepend will now automatically find all static fields in the solution and ignore the default naming conventions.
 
 Since this got me going, I also went ahead to modify the following rule
 
@@ -74,6 +67,6 @@ to instead require that fields are camel cased:
 	 !IsSpecialName AND 
 	 !IsEventDelegateObject
 
-These two small changes to the original setup proved to be insanely helpful.
-Another great thing is that when you edit the queries in `VisualNDepend`, you 
-get an immediate, visual feedback to how the rule applies to the entire solution.
+These two small changes to the original setup proved to be an insanely helpful time-saver.
+
+Another great thing is that if you edit the queries in `VisualNDepend`, you  get an immediate, visual feedback to how the rule applies to the entire solution.

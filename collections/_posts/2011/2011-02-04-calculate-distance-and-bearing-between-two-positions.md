@@ -5,108 +5,99 @@ tags:  archive
 icon:  dotnet
 ---
 
-I'm currently building a gps-based web application that lets mobile devices post
-their positions to the app, which then replies with nearby items of interest. To
-do this this, the backend has to be able to calculate the distance between two geo
-coordinates. Here's how to to do this in C#.
+I'm building a GPS-based web application that lets mobile devices post their position, then replies with nearby points of interest (POIs) like restaurants, bars, etc.
 
-I read up on the topic, but couldn't find or create a nice C# implementation. That
-is, until I stumbled upon [this post](http://myxaab.wordpress.com/2010/09/02/calculate-distance-bearing-between-geolocation/). However, it uses one big class
-and an enum. Being a [SOLID](https://en.wikipedia.org/wiki/SOLID) kind of guy, I
-felt like breaking it up into smaller parts and introduce some of interfaces.
+To achieve this this, the backend must be able to calculate a distance between the device coordinate and the coordinates of each place in the database. 
+
+I couldn't find or code a nice C# implementation, until I stumbled upon [this post](http://myxaab.wordpress.com/2010/09/02/calculate-distance-bearing-between-geolocation/). However, it uses one big class and an enum. Being a [SOLID](https://en.wikipedia.org/wiki/SOLID) kind of this post therefore breaks up the original implementation into interfaces and small classes.
 
 
 ## Step 1 - Break the code up into smaller classes
 
-I first extracted the angle/radian conversion logic into a tiny `AngleConverter`
-class. Since this logic never changes, this could be a static class:
+I first extracted the angle/radian conversion logic into a tiny `AngleConverter` class. Since this logic never changes, it can be a concrete class:
 
 ```csharp
-public class AngleConverter
+class AngleConverter
 {
-   public double ConvertDegreesToRadians(double angle)
+   double ConvertDegreesToRadians(double angle)
    {
       return Math.PI * angle / 180.0;
    }	
 
-   public double ConvertRadiansToDegrees(double angle)
+   double ConvertRadiansToDegrees(double angle)
    {
       return 180.0 * angle / Math.PI;
    }
 }
 ```
 
-I also created a `DistanceConverter` class for converting distances. This could
-also be static, since the implementation should never change:
+I also created a `DistanceConverter` for converting distances. This can also be a concrete class since the implementation should never change:
 
 ```csharp
-public class DistanceConverter
+class DistanceConverter
 {
-    public double ConvertMilesToKilometers(double miles)
+    double ConvertMilesToKilometers(double miles)
     {
        return miles * 1.609344;
     }	
 
-    public double ConvertKilometersToMiles(double kilometers)
+    double ConvertKilometersToMiles(double kilometers)
     {
        return kilometers * 0.621371192;
     }
 }
 ```
 
-Next, I extracted the `DistanceType` enum into a separate file...
+Next, I implemented a `DistanceType` enum, to allow for multiple distance types.
 
 ```csharp
-public enum DistanceType
+enum DistanceType
 {
     Miles = 0,
     Kilometers = 1
 }
 ```
 
-then created a `Position` class (could be struct), that only has a `Latitude`
-and a `Longitude` property:
+I then created a `Position` class (could be struct), that has a `Latitude` and a `Longitude`:
 
 ```csharp
-public class Position
+class Position
 {
-    public Position(double latitude, double longitude)
+    Position(double latitude, double longitude)
     {
        Latitude = latitude;
        Longitude = longitude;
     }
 	 
-    public double Latitude { get; set; }
-    public double Longitude { get; set; }
+    double Latitude { get; set; }
+    double Longitude { get; set; }
 }
 ```
 
 
 ## Step 2 - Define interfaces
 
-With all these small classes, the previously big class only contains calculation
-methods, which now can use `Position` instead of a latitude/longitude tuple.
+With these small classes in place, the previously big distance calculator class only contains calculation methods, which now can use a `Position` instead of a latitude/longitude tuple.
 
-Before adjusting the class, let's define interfaces that it should implement (to
-make it possible to switch out any implementation later, if needed):
+Before adjusting it, let's define some interfaces that it should implement to make it possible to switch out any implementation later, if needed:
 
 ```csharp
-public interface IBearingCalculator
+interface IBearingCalculator
 {
     double CalculateBearing(Position position1, Position position2);
 }
 
-public interface IDistanceCalculator
+interface IDistanceCalculator
 {
     double CalculateDistance(Position position1, Position position2, DistanceType distanceType1);
 }
 
-public interface IRhumbBearingCalculator
+interface IRhumbBearingCalculator
 {
     double CalculateRhumbBearing(Position position1, Position position2);
 }
 
-public interface IRhumbDistanceCalculator
+interface IRhumbDistanceCalculator
 {
     double CalculateRhumbDistance(Position position1, Position position2, DistanceType distanceType);
 }
@@ -115,23 +106,22 @@ public interface IRhumbDistanceCalculator
 
 ## Step 3 - Implement the interfaces
 
-With all these small bits and pieces in place, the class can be set to implement
-the interfaces as such:
+With all this in place, the class can be set to implement the interfaces as such:
 
 ```csharp
-public class PositionHandler : IBearingCalculator, IDistanceCalculator, IRhumbBearingCalculator, IRhumbDistanceCalculator
+class PositionHandler : IBearingCalculator, IDistanceCalculator, IRhumbBearingCalculator, IRhumbDistanceCalculator
 {
     private readonly AngleConverter angleConverter;
 
-    public PositionHandler()
+    PositionHandler()
     {
         angleConverter = new AngleConverter();
     }
 
-    public static double EarthRadiusInKilometers { get { return 6367.0; } }
-    public static double EarthRadiusInMiles { get { return 3956.0; } }
+    static double EarthRadiusInKilometers { get { return 6367.0; } }
+    static double EarthRadiusInMiles { get { return 3956.0; } }
 
-    public double CalculateBearing(Position position1, Position position2)
+    double CalculateBearing(Position position1, Position position2)
     {
         var lat1 = angleConverter.ConvertDegreesToRadians(position1.Latitude);
         var lat2 = angleConverter.ConvertDegreesToRadians(position2.Latitude);
@@ -146,7 +136,7 @@ public class PositionHandler : IBearingCalculator, IDistanceCalculator, IRhumbBe
         return (angleConverter.ConvertRadiansToDegrees(brng) + 360) % 360;
     }
 
-    public double CalculateDistance(Position position1, Position position2, DistanceType distanceType)
+    double CalculateDistance(Position position1, Position position2, DistanceType distanceType)
     {
         var R = (distanceType == DistanceType.Miles) ? EarthRadiusInMiles : EarthRadiusInKilometers;
         var dLat = angleConverter.ConvertDegreesToRadians(position2.Latitude) - angleConverter.ConvertDegreesToRadians(position1.Latitude);
@@ -158,7 +148,7 @@ public class PositionHandler : IBearingCalculator, IDistanceCalculator, IRhumbBe
         return Math.Round(distance, 2);
     }
 
-    public double CalculateRhumbBearing(Position position1, Position position2)
+    double CalculateRhumbBearing(Position position1, Position position2)
     {
         var lat1 = angleConverter.ConvertDegreesToRadians(position1.Latitude);
         var lat2 = angleConverter.ConvertDegreesToRadians(position2.Latitude);
@@ -171,7 +161,7 @@ public class PositionHandler : IBearingCalculator, IDistanceCalculator, IRhumbBe
         return (angleConverter.ConvertRadiansToDegrees(brng) + 360) % 360;
     }
 
-    public double CalculateRhumbDistance(Position position1, Position position2, DistanceType distanceType)
+    double CalculateRhumbDistance(Position position1, Position position2, DistanceType distanceType)
     {
         var R = (distanceType == DistanceType.Miles) ? EarthRadiusInMiles : EarthRadiusInKilometers;
         var lat1 = angleConverter.ConvertDegreesToRadians(position1.Latitude);
@@ -194,6 +184,3 @@ public class PositionHandler : IBearingCalculator, IDistanceCalculator, IRhumbBe
 ...and that's it! You can now calculate the distance and bearing between two coordinates.
 
 A big thanks to wowi, who posted the original implementation!
-
-
-

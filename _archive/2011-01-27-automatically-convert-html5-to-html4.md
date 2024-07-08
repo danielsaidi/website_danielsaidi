@@ -42,11 +42,11 @@ We tested this approach by applying it in the Render event of a web form master
 page. It worked like a charm. When browsing the web site with Firefox, Chrome
 etc. we got the original HTML5:
 
-![Firefox and Chrome gets HTML5](/assets/blog/2011/110127-1.png)
+![Firefox and Chrome gets HTML5](/assets/blog/11/0127-1.png)
 
 However, in Internet Explorer 8, we get a converted HTML4 version:
 
-![Internet Explorer 8 gets HTML4](/assets/blog/2011/110127-2.png)
+![Internet Explorer 8 gets HTML4](/assets/blog/11/0127-2.png)
 
 But wait a minute! Applying this in the Render event of the master page? That is,
 really bad, isn't it? Yes, you are right. As I wrote, we were just trying it out.

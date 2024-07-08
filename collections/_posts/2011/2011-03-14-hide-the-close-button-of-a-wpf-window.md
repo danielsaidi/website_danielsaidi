@@ -5,18 +5,11 @@ tags:  archive
 icon:  dotnet
 ---
 
-In a WPF application that I'm currently working on, I have to hide the close
-button of a progress window to prevent users from closing it manually. Turns out
-that it's complicated, but perfectly doable.
+I want to hide the close button of a WPF progress window, to prevent users from closing it manually. It was complicated to achieve, but perfectly doable.
 
-In the application, we want to be able to prevent the progress window from being
-closed by  users, and instead close it once its related operation has finished.
-However,  there doesn't seem to be a property or function for removing or disabling
-the close button. At least I haven't found one.
+While I could not find a property or function that removes or disables the close button, you can fix it with some obscure DLL hacking :)
 
-You can however fix this yourself, with some obscure DLL hacking :)
-
-First of all, define two constanst and two methods:
+First, define two constanst and two methods:
 
 ```csharp
 private const int GWL_STYLE = -16;
@@ -58,6 +51,5 @@ public static class WindowExtensions
 }
 ```
 
-If you know a more convenient way to hide the close button (perhaps I just didn't
-find the correct property/method), reach out to me and I'll add it to the post.
+If you know a more convenient way to hide the close button (perhaps I just didn't find the correct property/method), reach out to me and I'll add it to the post.
 

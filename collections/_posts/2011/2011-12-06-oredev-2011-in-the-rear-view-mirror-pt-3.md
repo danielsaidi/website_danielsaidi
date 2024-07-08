@@ -13,69 +13,40 @@ Sweden.
 
 ## Dan North – Embracing Uncertainty - the Hardest Pattern of All
 
-If there's one session I really regret not attending, it's this one. Everyone I
-spoke to were blown away by Dan North's keynote about how we humans strive to
-avoid uncertainty, even when it would be better to be uncertain than certain.
+If there's one talk I regret not attending, it's this one. Everyone I spoke to were blown away by this keynote on how we strive to avoid uncertainty, even when it's the better alternative.
 
-The quotes “Fear leads to risk, risk leads to process, process leads to hate and
-suffering and Gantt charts” and "We would rather be wrong than be uncertain" and
-the way Dan reasons about how faith becomes religion, makes this the top session
-that will keep me waiting for the Øredev videos.
+Quotes like “Fear leads to risk, risk leads to processes, processes leads to hate, suffering and Gantt charts” and "We are rather wrong than be uncertain" and the way Dan reasons about how faith becomes religion, are just amazing. I can't wait for the video.
 
-For a better summary of this session, [visit Daniel Lee's excellent blog](https://danlimerick.wordpress.com/2011/11/10/redev-2011-day-2-rollercoaster-ride/).
+For a better summary of this session, [visit Daniel Lee's excellent blog](https://danlimerick.wordpress.com/11//10/redev-2011-day-2-rollercoaster-ride/).
 
 
 
 ## Greg Young – How to not apply CQRS
 
-I just love Greg. After this session, I stormed out of the room and bursted out 
-I think it's SO cool that he is the Henry Rollins of software engineering", on
-which a complete stranger turned around, equally happy, and shouted "I KNOW!". A
-minute or so later, I happen to overhear a conversation, where one guy says "Wow,
-Greg looks JUST like Phil Anselmo".
+I love Greg. After this talk, I stormed out of the room and bursted out that "he is the Henry Rollins of software engineering", to which a stranger turned around, equally happy, and replied "I KNOW!". Later, I overheard a conversation, where a guy says "Wow, Greg looks JUST like Phil Anselmo". Rock star quality.
 
-Greg is the personification of those metal vocalists I always wanted to be or at
-least be friend with. It lets me embed myself in a thick layer of ignorance that
-lets me ignore that I am a developer at a developer converence. All this despite
-the fact that he wears Five Finger Shoes. Quite an achievement.
-
-But hey, what did he talk about, I hear you ask. Well, he talked about how a good
-way to fail with CQRS is to apply CQRS everywhere in a monolithic system. 
+But *what did he talk about* I hear you ask. Well, he talked about how a good way to fail with CQRS is to apply it *everywhere* in a monolithic system. 
 
 > CQRS is not a top level architecture. It requires a bounded context.
 
-So applying CQRS in a non-core context, without a bounded context, is an almost
-fail-proof way to fail. With CQRS applied everywhere, nothing can change.
+So applying CQRS without a bounded context is an almost fail-proof way to fail. When you apply CQRS everywhere, nothing can change.
 
-Greg then talked about CQRS and DDD and the dangers of imaginary domain experts.
-Who can be considered to be a domain expert? The consultant who have worked with
-a system for a while, who maybe even answer to another consultant? Or the
-employee who have worked with the domain for a several years, but lack coding skills?
+Greg talked about CQRS & DDD and the dangers of imaginary domain experts. Who can be considered to be a domain expert? A consultant who have worked with a system for a while, or an employee who have worked with the domain for years, but lacks coding skills?
 
-This is really important, since CQRS is business-centric. CQRS and DDD doesn't
-work without domain expertise. The result will become like playing the telephone
-game and translating Shakespeare with Google Translate. BA:s are really good at
-asking the right questions, but they are not domain experts.
+This is really important, since CQRS is *business-centric*. CQRS and DDD only works with domain expertise. It will otherwise be like playing the telephone game and using Google Translate to translate Shakespeare. BAs are really good at asking the right questions, but they are not domain experts.
 
-As an exercise, Greg talked about Programming as Analysis, which I'd like to try.
-The point is that you are supposed to build a system for a domain that you don't
-know anything about. Timebox your access to the domain expert to two hours. In two
-hours, you have to find out everything you need to build your system. The entire
-system. Sure, you will fail, but, in doing so, you'll come up with a bunch of new
-questions. So you throw everything away. Then do it all again. Two hours. Build
-the entire system. Then again. Then again.
+As an exercise, Greg talked about Programming as Analysis, which I'd like to try. The point is to build a system for a domain that you don't know anything about. Timebox your access to the domain expert to two hours. In two hours, you have to find out everything you need.
 
-Greg concluded his talk with pointing out that the most certain way to fail with
-CQRS is to lear CQRS by building a CQRS framework. Instead, you should focus on
-the business values of applying CQRS. Greg finished his talk with calling frameworks
-"crack for architects" and stating that frameworks are evil.
+You will fail, of course. But in doing so, you'll come up with a bunch of new questions. So you throw everything away. Then do it all again. Two hours. Then do it again. Then again.
+
+Greg concluded his talk with pointing out that the most certain way to fail with CQRS is to learn it by building a CQRS framework. Instead, you should focus on the business values of applying CQRS. Greg finished his talk with calling frameworks "crack for architects" and stating that they are evil.
 
 A great session!
 
 
 ## Rickard Öberg – Event Sourcing explained
 
-Rickard talked Event Sourcing and started with describing a common architecture:
+Rickard talked about Event Sourcing and started with describing a common architecture:
 
 	Client <- Service facade <- Domain <- Storage
 
@@ -83,11 +54,9 @@ and how with Event Sourcing, things look a bit different:
 
 	Client <- Service facade <- Domain (Commands -> Events) <- Event storage
 
-Here, we don't store state, but events. This is a huge difference. By storing
-events, we can replay all events that has affected an entity during its lifetime
-and can build it up from scratch to its current state.
+With Event Sourcing, we don't store state, but events. This is a huge difference. By storing events, we can replay all events that has affected an entity during its lifetime and can build it up from scratch to its current state.
 
-In order to avoid heavy build-up operations, we can use stored snapshots:
+To avoid heavy build-up operations, we can use stored snapshots:
 
 - Event (latest)
 - Event
@@ -97,27 +66,14 @@ In order to avoid heavy build-up operations, we can use stored snapshots:
 - Event
 - Event (oldest)
 
-With snapshots, we build up our objects by starting with the lastest event in the
-stack. As long as the item isn't a snapshot, we keep it for later. Once we reach
-a snapshot, we grab it and apply all events that we have kept. This way, we don't 
-have to replay the entire life of the entity, just a part of it.
+With snapshots, we start with the lastest event in the stack. As long as it's not a snapshot, we keep it for later. Once we reach a snapshot, we grab it and apply all stored events to it in order. This way, we don't have to replay its entire life, just a part of it.
 
-Rickard then went on to talk a bit about his event sourcing framework. Obviously
-suffering after Greg's recent framework burstout, Rickard had the balls to still
-insist that his framework was really good and that he likes to use it. Tough crowd :)
+Rickard then talked a bit about his event sourcing framework. Clearly suffering after Greg's framework burstout, Rickard had the balls to still insist that his framework was really good and that he likes to use it.
 
-Event sourcing makes report generation trivial, since you never loose data. If I
-add 5000 to my bank account then withdraw 3000, and the system doesn't store any
-events, all I know is that I now have 2000 more than when I started. Sure, maybe
-the system writes transactional details to the log, but with event sourcing, the
-event store becomes the log.
+Event sourcing makes report generation trivial, since you never loose data. If you add $500 to a bank account then withdraw $300, and the system doesn't store events, all we know is that we now have $200 more than when we started. Maybe the system writes transactional details to the log, but with event sourcing, the event store *becomes* the log.
 
-Due to its log-like nature, event sourcing simplifies debugging. Who did what and
-when? With event sourcing, nothing gets thrown away. The events is what makes the
-entities look the way they do. If an event accidentally is not saved, that is bad,
-sure, but that is another problem for another discussion. My entity does not know
-about it, since it does not exist.
+Due to its log-like nature, event sourcing simplifies debugging. Nothing gets thrown away. The events are what make the entities look the way they do. If an event is accidentally not saved, that's bad, but that is another problem for another discussion.
 
-Event sourcing continues to interest me. Maybe one day, I will get to use it?
+Event sourcing continues to interest me. Maybe one day, I will use it?
 
 

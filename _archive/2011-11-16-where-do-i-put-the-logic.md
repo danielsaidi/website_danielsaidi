@@ -35,7 +35,7 @@ talk to anything else.
 
 The architecture can be illustrated like this:
 
-![A simplified view of the architecture](/assets/blog/2011/111116.png "A simplified view of the architecture.")
+![A simplified view of the architecture](/assets/blog/11/1116.png "A simplified view of the architecture.")
 
 It's a clean architecture, but leaves me with some problems regarding where to put 
 certain functionality.

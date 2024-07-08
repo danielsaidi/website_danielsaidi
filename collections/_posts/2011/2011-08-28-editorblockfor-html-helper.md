@@ -5,15 +5,11 @@ tags:  archive
 icon:  dotnet
 ---
 
-In ASP.NET MVC, Microsoft has done a nice job with creating various HTML helpers
-that can be used in a form, e.g. `LabelFor`, `EditorFor`, `ValidationMessageFor`.
-Let's see how we can make our own.
+In ASP.NET MVC, Microsoft has created various HTML helpers that can be used in a form, e.g. `LabelFor`, `EditorFor`, `ValidationMessageFor`. Let's see how to create a custom one.
 
-In my opinion, despite these nice helpers, the HTML markup still tend to become
-tedious and repetitive. 
+Despite these nice helpers, I still find the HTML markup to become tedious and repetitive. 
 
-For instance, this HTML generates a form that can be used to create groups in a
-web application:
+For instance, this generates a form that can be used to create groups in a web application:
 
 ```html
 @using (Html.BeginForm())
@@ -42,12 +38,11 @@ web application:
 }
 ```
 
-That's quite a lot of code for handling two single properties. Furthermore, the
-two editor blocks look rather similar.
+That's quite a lot of code for handling two single properties. The two editor blocks also look rather similar, and could use some reuse.
 
-To improve, we can create a small HTML helper extension that can generate an
-editor block as above, with a label, and editor and a validation message. With it,
-the form becomes a lot shorter and cleaner:
+To improve, we can create a small HTML helper that generates an editor block as above, with a label, and editor and a validation message. 
+
+With it, the form becomes a lot shorter and cleaner:
 
 ```html
 @using (Html.BeginForm())

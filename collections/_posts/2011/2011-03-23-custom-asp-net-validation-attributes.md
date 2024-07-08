@@ -5,9 +5,7 @@ tags:  archive
 icon:  dotnet
 ---
 
-ASP.NET validation attributes is a great way of making it easy to validate C#
-properties in different ways, client and server side. Let's look at how we can
-create our own validation attributes.
+ASP.NET validation attributes is a great way to validate C# properties in different ways, both client & server side. Let's look at how we can create our own validation attributes.
 
 I use custom validation attributes all the time, for instance to validate:
 
@@ -16,21 +14,19 @@ I use custom validation attributes all the time, for instance to validate:
 - Social security numbers
 - URLs
 
-These examples could to some extent be validated with regular expressions, but
-some may require deeper validation than just looking at string format.
+These could to some extent be validated with regular expressions, but some may require a deeper level of validation than just looking at string format.
 
-With custom validation attributes, we can both perform basic regex validation
-client-side and go deeper server-side whenever needed. 
+Custom validation attributes can perform basic regex validation client-side, then perform a more thorough validation server-side if needed. 
 
 Let's look at some examples:
 
 ```csharp
-public class EmailAddressAttribute : RegularExpressionAttribute
+class EmailAddressAttribute : RegularExpressionAttribute
 {
-    public EmailAddressAttribute()
+    EmailAddressAttribute()
         : base(@"^[a-zA-Z][\w\.-]*[a-zA-Z0-9]@[a-zA-Z0-9][\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]$") { }    
 
-    public override bool IsValid(object value)
+    override bool IsValid(object value)
     {
         if (value == null || value.ToString().IsNullOrEmpty())
             return false;
@@ -38,12 +34,12 @@ public class EmailAddressAttribute : RegularExpressionAttribute
     }
 }    
 
-public class SwedishPostalCodeAttribute : RegularExpressionAttribute
+class SwedishPostalCodeAttribute : RegularExpressionAttribute
 {
-    public SwedishPostalCodeAttribute(bool optionalSpace = false)
+    SwedishPostalCodeAttribute(bool optionalSpace = false)
         : base(optionalSpace ? "^\\d{3}\\ ?\\d{2}$" : "^\\d{5}$") { }    
 
-    public override bool IsValid(object value)
+    override bool IsValid(object value)
     {
         if (value == null || value.ToString().IsNullOrEmpty())
             return false;
@@ -51,12 +47,12 @@ public class SwedishPostalCodeAttribute : RegularExpressionAttribute
     }
 }    
 
-public class SwedishSsnAttribute : RegularExpressionAttribute
+class SwedishSsnAttribute : RegularExpressionAttribute
 {
-    public SwedishSsnAttribute()
+    SwedishSsnAttribute()
         : base("^\\d{6}-?\\d{4}$") { }    
 
-    public override bool IsValid(object value)
+    override bool IsValid(object value)
     {
         if (value == null || value.ToString().IsNullOrEmpty())
             return false;    
@@ -79,12 +75,12 @@ public class SwedishSsnAttribute : RegularExpressionAttribute
     }
 }    
 
-public class UrlAttribute : RegularExpressionAttribute
+class UrlAttribute : RegularExpressionAttribute
 {
-    public UrlAttribute()
+    UrlAttribute()
         : base(@"^(http|ftp|https):\/\/[\w\-_]+(\.[\w\-_]+)+([\w\-\.,@?^=%&amp;amp;:/~\+#]*[\w\-\@?^=%&amp;amp;/~\+#])?") { }    
 
-    public override bool IsValid(object value)
+    override bool IsValid(object value)
     {
         if (value == null || value.ToString().IsNullOrEmpty())
             return false;
@@ -93,15 +89,8 @@ public class UrlAttribute : RegularExpressionAttribute
 }
 ```
 
-As you can see, the e-mail, postal code and url attributes only use a regular
-expression as well as a null/empty condition, while the social security number
-attribute does a bit more.
+As you can see, the e-mail, postal code and url attributes only use a regular expression as well as null/empty conditions, while the social security number attribute does a bit more.
 
-What is great with this approach, is that `RegularExpressionAttribute` can be
-validated client-side. A second validation will then take place server-side,
-when the user posts a form with an ssn.
+With this approach, `RegularExpressionAttribute` can be validated client-side and a second validation can then take place server-side, when the user posts the form.
 
-This makes it possible to gather regex and further validation in one place. If
-you need to use the regex separately, it can be accessed with the `Pattern` property
-of the validation attribute. 
-
+This makes it possible to gather all validation in one place. If you need to use the regex as a separate value, it can be accessed with the `Pattern` property of the validation attribute.

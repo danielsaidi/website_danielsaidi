@@ -5,22 +5,17 @@ tags:  macos
 icon:  avatar
 ---
 
-I have started to boot up Windows directly from my BootCamp partition on my iMac
-instead of running it under VMWare Fusion. This way, I don't have to share
-resources with the OS X partition, which is nice for gaming, programming etc. There
-are however some rough edges.
+I have started to boot Windows directly from a BootCamp partition on my iMac instead of running it with VMWare Fusion. This way, I don't share resources with the OS X partition.
 
-This works really well, but can sometimes be a bit frustrating. For instance,
-running Windows on an iMac, using an Apple bluetooth keyboard isn't all that nice.
+This is nice for gaming, programming etc., since the Windows partition gets access to all system resources. There are however some rough edges.
 
-For instance, I had to take a screen dump. Without OS X keyboard shortcut.
-Without a PC print screen button. How do you do that? I was at a total loss. The
-`Shift+Fn+F11` combination didn't work for me, since I had this option enabled:
+For instance, using an Apple bluetooth keyboard in Windows isn't all that nice. I had to take a screen dump. Without OS X keyboard shortcut. Without a print screen button. How? 
 
-![Boot Camp Control Panel](/assets/blog/2011/110707.png)
+I was at a loss. The `Shift+Fn+F11` combination didn't work, since I had this option enabled:
 
-With this option enabled, neither Shift+Fn+F11 or Shift+F11 work. What did work, 
-however, was:
+![Boot Camp Control Panel](/assets/blog/11/0707.png)
+
+With this option enabled, neither `Shift+Fn+F11` or `Shift+F11` work. What did work, was:
 
 - Uncheck the checkbox above.
 - Press Shift+Fn+F11.
