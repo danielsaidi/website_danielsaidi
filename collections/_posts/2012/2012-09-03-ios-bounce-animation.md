@@ -1,22 +1,16 @@
 ---
 title: iOS Bounce Animation
 date:  2012-09-03 17:44:00 +0100
-tags:  objc
+tags:  archive animations
 icon:  swift
 ---
 
-I have an app with a main menu, where users can swipe horizontally through a set
-of icons that take the user to certain parts of the app. When an icon is tapped, 
-it bounces, plays a sound and takes the user to that particular part of the app.
-Let's see how the bounce animation was made.
+I have an app where tapping various icons bounces the icon, plays a sound and takes the user to another part of the app. Let's see how the bounce animation was made.
 
-After trying out many different animations, I fell in love with a nice and clean
-bounce animation that does its job without being too obvious. Unfortunately, the
-link to the original implementation is now dead.
+After trying out different approaches, I fell in love with a nice and clean
+bounce animation that does its job without being too obvious.
 
-I modified the code by creating a `UIView` category for the animation, and added a
-bounce factor so the effect can be used in various situations. I should probably
-do the same for the repeat count as well.
+I implemented the animation as a `UIView` category, with a bounce factor so the effect can be used in different situations. I should probably do the same for the repeat count as well.
 
 Here's the code for the category:
 

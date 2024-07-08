@@ -1,19 +1,14 @@
 ---
 title: JSON in iOS
 date:  2012-07-04 21:25:00 +0100
-tags:  objc
+tags:  archive
 icon:  swift
 redirect_from:  /blog/mobile/2012/07/04/json-in-ios
 ---
 
-I'm currently creating an iOS app that will share data using JSON. Working with
-JSON is trivial in iOS 5, since there's now a great, native JSON serializer and
-deserializer. 
+Working with JSON is easy in iOS 5, since there's now a great, native JSON serializer and deserializer that handles everything for you. 
 
-Using these classes works well, but I find it tedious to write the code for
-creating and parsing JSON data over and over again. To make my code cleaner
-and get loose coupling to the native classes, I decided to define a JSON
-serializer/deserializer protocol and implement it using the native classes.
+These classes work well, but I find it tedious to write code for creating and parsing JSON data over and over again. To make my code cleaner and get loose coupling to the native classes, I have defined a JSON serializer/deserializer protocol and implement it using the native classes.
 
 I first created this simple protocol
 

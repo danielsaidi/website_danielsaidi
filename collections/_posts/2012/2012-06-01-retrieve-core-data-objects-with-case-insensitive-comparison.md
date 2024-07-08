@@ -17,13 +17,20 @@ There is probably some case-sensitive sorting issue showing its ugly face, right
 This is the code I used to sort the data:
 
 ```objc
-NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] 
+    initWithKey:@"name" 
+    ascending:YES
+];
 ```
 
 The solution was to add selector to the sort, like this:
 
 ```objc
-NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES selector:@selector(caseInsensitiveCompare:)];
+NSSortDescriptor *sortDescriptor = [[NSSortDescriptor alloc] 
+    initWithKey:@"name" 
+    ascending:YES 
+    selector:@selector(caseInsensitiveCompare:)
+];
 ```
 
 And voilá - the list will now look like this:
