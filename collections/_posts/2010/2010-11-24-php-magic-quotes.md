@@ -5,33 +5,25 @@ tags:  php
 icon:  php
 ---
 
-About a year ago, I had problems when sending data to a php page, using AJAX. To
-be able to unpack the data, I had to use `stripslashes`. Since it seemed to work, 
-I was happy...until the world exploded.
+I've had problems when sending data to a PHP page, using AJAX. To unpack the data, I had to use `stripslashes`. It seemed to work, and I was happy, until the world exploded.
 
-I then developed a new web site for a company about a month ago, and just noticed
-that when posting HTML via AJAX in production, all line feeds turns into `u000a`:
+I then developed a new site for a company, and just noticed that when posting HTML via AJAX in production, all line feeds turns into `u000a`:
 
-![Magic quotes](/assets/blog/2010/101124.png "Magic quotes in action")
+![Magic quotes](/assets/blog/10/1124.png "Magic quotes in action")
 
-This only happened on their production server, not anywhere else. Then, yesterday,
-it started appeared on one of my production servers as well. 
+This only happened in production, not anywhere else. Then, yesterday, it started appeared on one of my production servers as well. 
 
-I first didn't understand what happened, but realized that it must have something
-to do with the server's php version or configuration. I had a chat with a friend
-and came up with the solution.
+I didn't understand what happened, but realized that it must have something to do with the server configuration. I had a chat with a friend and found the solution.
 
 Magic quotes.
 
-The purpose of magic quotes is to protect web sites from script injections, but
-since it didn't work all that well, the feature is now deprecated. What it does
-is wrapping everything in escape slashes, which is why I had to use `stripslashes`
-when sending data with AJAX.
+Magic quotes was meant to protect web sites from script injections, but since it didn't work that well, that feature is now deprecated. So it's not available everywhere.
 
-However, when magic quotes are disabled, stripping slashes will instead destroy
-the escaped line break, which gives the result that can be seen in the image above.
+What magic quotes does is wrapping everything in escape slashes, which is why I had to use `stripslashes` when sending data with AJAX.
 
-So, I am now disabling magic quotes for all sites, using this `.htaccess` line:
+However, when magic quotes is disabled, stripping slashes instead destroys the escaped line break, which gives the result that can be seen in the image above.
+
+To ensure that magic quotes is disabled everywhere, you can add this to `.htaccess`:
 
 ```
 php_flag magic_quotes_gpc off

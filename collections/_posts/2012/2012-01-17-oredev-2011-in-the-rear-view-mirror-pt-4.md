@@ -74,4 +74,4 @@ And finally, some final words of wisdom:
 - Bad applications will not behave better in the cloud.
 - Support and operations are not automatically automised.
 
-This was an amazing one hour session. It even had more - I've excluded the Azure  parts.
+This was an amazing one hour session. It even had more - I've excluded the Azure parts.

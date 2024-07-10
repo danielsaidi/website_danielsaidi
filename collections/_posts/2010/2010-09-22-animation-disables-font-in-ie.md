@@ -5,15 +5,11 @@ tags:  javascript
 icon:  javascript
 ---
 
-Yesterday, I built a simple demo page to demonstrate how easy it is to get
-[fonts.com Web Fonts](https://www.fonts.com/web-fonts) up and running. However, 
-as I did, I noticed that Internet Explorer disables custom fonts during animations.
+As I built a simple site to show how easy it is to get [fonts.com Web Fonts](https://www.fonts.com/web-fonts) up and running, I noticed that Internet Explorer disables custom fonts during animations.
 
-As the animation starts, Internet Explorer started disabling the fonts, falling
-back to the original fonts.
+As the animation starts, Internet Explorer disables the fonts and resets to the original fonts.
 
-However, it turns out that it wasn't a limitation in Internet Explorer, but rather
-a bug in the animation code.
+After some investigation, it turns out that it wasn't a limitation in Internet Explorer, but a bug in the animation code.
 
 Turns out that this button code's trailing comma made Internet Explorer fail:
 
@@ -27,4 +23,4 @@ Removing the comma fixes the font disabling bug:
 <button onclick="$('.comic').animate({fontSize: '3em' });">Click me!</button>
 ```
 
-Thanks for not any exceptions at all, IE!
+Thanks for never showing any exceptions at all ever, IE!

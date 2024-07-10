@@ -5,16 +5,13 @@ tags:  dotnet
 icon:  dotnet
 ---
 
-I've been trying to find out how to get the name of the current controller
-and action in ASP.NET MVC. If you're curious on how to do it, do read on.
+I have been trying get the name of the current controller and action in ASP.NET MVC, and have found a nice way to do so. Let's see how to do this.
 
-Although it's not that nicely implemented in the framework, you can easily
-find this info by inspecting the `ValueProvider` like this:
+Although it's not that nicely implemented in the framework, you can easily find this info by inspecting the `ValueProvider` like this:
 
 ```csharp
 string controllername = ValueProvider.GetValue("controller").RawValue.ToString();
 string actionname = ValueProvider.GetValue("action").RawValue.ToString();
 ```
 
-It's not type safe and may change in future versions of ASP.NET MVC, but
-it works for now. Just keep an eye out for future changes.
+It's not type safe and may change in future versions of ASP.NET MVC, but it works for now. Just keep an eye out for future changes.

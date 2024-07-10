@@ -5,20 +5,15 @@ tags:  javascript testing
 icon:  javascript
 ---
 
-I am using QUnit as TDD framework for my JavaScript development. It’s not as
-nice as NUnit is for .NET or SimpleTest for PHP, but it’s really easy to get
-started with.
+I'm using QUnit as test framework for my JavaScript development. It’s not as nice as NUnit is for .NET or SimpleTest for PHP, but it’s easy to get started with.
 
-However, QUnit lists *all* tests after a run, not just the failing ones. With
-just a few tests, it looks like this:
+However, QUnit lists *all* tests, not just failing ones. With just a few tests, that looks like this:
 
-![QUnit - Full test report](/assets/blog/2010/100603-1.png)
+![QUnit - Full test report](/assets/blog/10/0603-1.png)
 
-As you can see, QUnit lists all executed tests by default, even the ones that
-is successfully executed.
+QUnit lists all executed tests by default, even the ones that are successfully executed.
 
-This report only includes 14 tests. Imagine having a hundred tests - it
-would become unmanagable. I'd prefer to only see failing tests by default.
+This report only includes 14 tests. Imagine having a hundred tests - it would become unmanagable. I'd prefer to only see failing tests by default.
 
 To fix this, I devided to hack jQuery a bit (applies to jQuery 1.4.2):
 
@@ -26,10 +21,8 @@ To fix this, I devided to hack jQuery a bit (applies to jQuery 1.4.2):
 * Find the block that begins with `var li = document.createElement("li");`.
 * Wrap the entire block in `if (bad) { ... }`.
 
-This makes QUnit only append "bad" tests to the list, which makes the result
-look like this:
+This makes QUnit only append "bad" tests to the list, which makes the result look like this:
 
-![QUnit - Compact test result presentation](/assets/blog/2010/100603-2.png)
+![QUnit - Compact test result presentation](/assets/blog/10/0603-2.png)
 
-If you know of a built-in way of making QUnit behave like this, please leave 
-a comment below.
+If you know of a built-in way to make QUnit behave like this, leave a comment below.

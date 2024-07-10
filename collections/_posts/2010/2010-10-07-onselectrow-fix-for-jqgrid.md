@@ -5,13 +5,9 @@ tags:  javascript
 icon:  javascript
 ---
 
-I love the [jqGrid jQuery plugin](http://www.trirand.com/blog/). If you haven't
-tried it, I think you should. However, the `onSelectRow` event doesn't work that
-well. Let's fix it.
+I love the [jqGrid jQuery plugin](http://www.trirand.com/blog/). If you haven't tried it, you should. However, `onSelectRow` doesn't work that well. Let's fix it.
 
-When you look at online demos that describe how to edit a grid row, you may have
-noticed that after editing a row, you must select a new one before you can edit
-the first one again.
+When you look at online demos that describe how to edit a grid row, you may have noticed that after editing a row, you must select a new one before you can edit the first one again.
 
 To fix this, I replaced the original `onSelectRow` implementation:
 
