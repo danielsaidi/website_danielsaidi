@@ -1,65 +1,46 @@
 ---
 title: Generate HTML documentation from C# comments
 date:  2009-05-25 11:01:00 +0100
-tags:  archive
+tags:  documentation
 icon:  dotnet
 ---
 
-When developing .NET applications, XML comments is a good way of documenting the
-code. These comments can then be used to generate HTML documentation. Let's have
-a look at how to do this.
+In .NET and C#, XML comments is a good way of documenting the code. These comments can then be used to generate HTML documentation. Let's have a look at how.
 
-If you are not familiar with documenting your C# code with XML comments, have a
-look at [this page](http://en.wikipedia.org/wiki/C_Sharp_(programming_language)#XML_documentation_system).
+XML comments lets you document your code in a way that makes it possible to generate a complete documentation from it, using many different output formats.
 
-Basically, XML comments lets you document your code in a way that makes it possible
-to generate documentation for your types and their properties, attributes, methods
-etc. XML comments are also automatically parsed by Visual Studio to provide tools
-like IntelliSense and code completion.
+XML comments are also automatically used by Visual Studio to power utils like IntelliSense and code completion.
 
-Other ways of documenting your code is to use plain text files (classic readmes),
-wikis etc. as well as common inline comments. However, if you want to be able to
-generate documentation from your .NET source code, XML comments is the way to.
+Another benefit with coupling your documentation with your source code, is that it's always up to date, unlike text files or wikis which can become stale as the code evolves.
 
 This is how you do it.
 
 
 ## Generate an XML file from your XML comments
 
-If you have documented your code with XML comments, Visual Studio can export the
-documentation to a separate .xml file when you build your project. This is enabled 
-under `Project/Properties/Build`.
+If you have documented your code, Visual Studio can export documentation to a separate .xml file when you build your project. This is enabled  under `Project/Properties/Build`.
 
-If you enable `.xml file extraction`, Visual Studio will generate an .xml file each
-time you build your project. This file can then be parsed by various software to
-generate help files, documentation etc.
+If you enable `.xml file extraction`, Visual Studio will generate an .xml file each time you build your project. This file can then be parsed to generate help files, documentation, etc.
 
-However, if you want to publish your documentation, .xml files only takes you so far.
-A better option is then to generate HTML documentation and host it on a web site.
+If you want to publish your documentation online, you can generate HTML documentation instead of XML. You can then host the documentation on any website.
 
 
 ## Generate HTML documentation from XML comments
 
-Previous versions of Visual Studio had built-in support for generating HTML-based
-documentation from C# code. However, I think Visual Studio 2003 was the last version
-to have it. We need an alternative.
+Previous versions of Visual Studio had built-in support for generating HTML documentation from C# code. However, I think Visual Studio 2003 was the last version to have it.
 
-After looking for a .NET version of [phpDoc](http://www.phpdoc.org) and
-[JavaDoc](http://www.google.se/url?q=http://java.sun.com/j2se/javadoc), I found
-[Doxygen](http://www.stack.nl/~dimitri/doxygen/). After giving it a try, I found
-this walkthrough to work well:
+After looking for a .NET version of [phpDoc](http://www.phpdoc.org) and [JavaDoc](http://www.google.se/url?q=http://java.sun.com/j2se/javadoc), I found [Doxygen](http://www.stack.nl/~dimitri/doxygen/). After giving it a try, I found this walkthrough to work well:
 
 
 ## Configure Doxygen
 
-To get started, download, install and start [Doxygen](http://www.stack.nl/~dimitri/doxygen/),
-then configure it like this:
+To get started, download, install and start [Doxygen](http://www.stack.nl/~dimitri/doxygen/), then configure it like this:
 
 *Wizard/Project*
 * Enter *project name* and *version* - this will be used as page title
 * Point out the *source code root folder*, which is where your source code is
 * Check *Scan recursively* to make sure that all namespace folders are parsed
-* Pick a *documentation destination folder*, which is where your HTML documentation will end up
+* Pick a *documentation destination folder*, where your HTML documentation will end up
 
 *Wizard/Mode*
 * Instead of "Documented Entities", select "All Entities".
@@ -84,7 +65,6 @@ then configure it like this:
 * Click "Run doxygen" to generate the HTML documentation. 
 * When it's done, view the result by clicking "Show HTML output". 
 
-When the HTML documentation is built, you can just upload it to wherever you want
-it to be available. If you're happy with the outcome, save the config for future use.
+When the HTML documentation is built, you can just upload it to wherever you want it to be available. If you're happy with the outcome, save the config for future use.
 
 Hope this helps!

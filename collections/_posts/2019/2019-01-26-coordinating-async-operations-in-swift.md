@@ -1,7 +1,7 @@
 ---
 title: Coordinating async operations in Swift
 date:  2019-01-26 21:00:00 +0100
-tags:  swift async-await
+tags:  swift async
 icon:  swift
 
 redirect_from: /blog/2019/01/26/async-operations

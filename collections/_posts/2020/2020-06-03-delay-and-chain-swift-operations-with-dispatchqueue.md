@@ -1,7 +1,7 @@
 ---
 title: Delay and chain Swift operations with DispatchQueue
 date:  2020-06-03 12:00:00 +0100
-tags:  swift async-await
+tags:  swift async
 icon:  swift
 
 redirect_from: /blog/2020/06/03/dispatch-queue

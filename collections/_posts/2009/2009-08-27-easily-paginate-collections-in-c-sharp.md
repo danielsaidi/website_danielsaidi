@@ -5,27 +5,31 @@ tags:  archive
 icon:  dotnet
 ---
 
-This post looks at how to easily paginate collections in C#, which can be easily
-achieved with two very basic extensions.
+In this post, we'll create two extensions that lets us easily paginate any collection in C#.
 
 When paginating a collection in C#, I find the following extensions useful:
 
 ```csharp
-public static IEnumerable<TSource> Paginate<TSource>(this IEnumerable<TSource> source, int? page, int pageSize)
-{
+public static IEnumerable<TSource> Paginate<TSource>(
+    this IEnumerable<TSource> source, 
+    int? page, 
+    int pageSize
+) {
     return source.Skip((page ?? 0) * pageSize).Take(pageSize);
 }
 ```
 
 ```csharp
-public static IQueryable<TSource> Paginate<TSource>(this IQueryable<TSource> source, int? page, int pageSize)
-{
+public static IQueryable<TSource> Paginate<TSource>(
+    this IQueryable<TSource> source, 
+    int? page,
+    int pageSize
+) {
     return source.Skip((page ?? 0) * pageSize).Take(pageSize);
 }
 ```
 
-By adding them to an extension class within a certain namespace, all `IQueryable`
-and `IEnumerable` instances will automatically receives this functionality:
+With this, all `IQueryable` and `IEnumerable` instances automatically gets this functionality:
 
 ```csharp
 List<string> strings = new List<string> { "a","b","c","d","e","f" };

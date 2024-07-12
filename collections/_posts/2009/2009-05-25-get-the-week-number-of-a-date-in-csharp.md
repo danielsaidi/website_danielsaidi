@@ -8,22 +8,16 @@ nextra: https://github.com/danielsaidi/nextra
 ---
 
 
-This post was written in 2009. Although the core logic hasn't changed since then, 
-the implementation has. For the lastest implementation, check out [NExtra]({{page.nextra}}) on GitHub.
+This post was written in 2009. Although the logic hasn't changed since, the implementation has. For the lastest implementation, check out [NExtra]({{page.nextra}}) on GitHub.
 
 
 ## Background
 
-When working with the `DateTime` class, it's not that straightforward to calculate
-the week number for a certain date. This post will present an easier approach than
-using `Globalization`.
+When working with `DateTime`, it's not that straightforward to calculate the week number for a certain date. This post will present an easier approach than using `Globalization`.
 
-Note that this only works if the first weekday is Monday, the first week of a year 
-is the one that includes the first Thursday and the last week of a year is the one
-that precedes the first week of the next year.
+Note that this only works if the first weekday is Monday, the first week of a year is the one that includes the first Thursday and the last week of a year precedes the first week of the next year.
 
-I found the original version of the function at Simen Sandelien's website. The site
-has disappeared since then, and since I have modified the code, I chose to publish it.
+I found the original version of the function at Simen Sandelien's personal website. The site has disappeared since then, and since I have modified the code, I chose to publish it.
 
 
 ```csharp
@@ -99,10 +93,7 @@ public static int GetWeekNumber(this DateTime date)
 }
 ```
 
-
-With this in place, getting the first and last date for a certain
-date's week is easy:
-
+With this in place, getting the first and last date for a certain date's week is easy:
 
 ```csharp
 /// <summary>
@@ -130,9 +121,7 @@ public static DateTime GetFirstDateOfWeek(this DateTime date)
 }
 ```
 
-
 and
-
 
 ```csharp
 /// <summary>
@@ -160,9 +149,4 @@ public static DateTime GetLastDateOfWeek(this DateTime date)
 }
 ```
 
-
-I hope that this helps anyone having problem with retrieving the week number. If
-you want the latest version, check out [NExtra]({{page.nextra}}) on GitHub.
-
-
-
+I hope that this helps anyone having problem with retrieving the week number. If you want the latest version, check out [NExtra]({{page.nextra}}) on GitHub.

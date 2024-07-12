@@ -5,9 +5,7 @@ tags:  archive
 icon:  dotnet
 ---
 
-I have finally started creating my first web site with ASP.NET MVC. After looking
-through the nice start examples, I noticed that .css files were manually included
-in the master page. Let's have a look at how to use ASP.NET themes instead.
+I'm building a web site with ASP.NET MVC. After looking at the nice examples, I noticed that CSS files were manually included in the master page. Let's use themes instead.
 
 
 ## Create a themes
@@ -22,31 +20,26 @@ To create a custom theme, simply do the following:
 The theme can then be applied in two ways:
 
 * As the default theme - add `Theme="Default"` to the `pages` tag in `web.config`.
-* As a page-specific theme - add `Theme="Default"` to the `Page` tag in the themed `.aspx` files.
+* As a page-specific theme - add `Theme="Default"` to the `Page` tag in the `.aspx` files.
 
-The theme will now be automatically applied, which means that skin and style files
-will be loaded and applied to the page based on the applied theme.
+The theme will now be automatically applied, which means that skin and style files will be loaded and applied to the page based on the applied theme.
 
-I prefer the default theme approach, and apply themes only to the pages that are
-to use another theme. This makes it easier to switch the design of an entire app
-by changing a single config parameter.
+I prefer the default approach, and only apply explicit themes to pages that use a different theme. This makes it easier to switch the entire design with a single config parameter.
 
 
 ## Create a theme of the template css files
 
-To convert the template application's css files to a theme, I created a Default
-theme and moved `Content/Site.css` to the Default theme folder. 
+To convert the demo app's css files to a theme, I created a Default theme and then moved the `Content/Site.css` file to the Default theme folder. 
 
-I then modified the web.config file to use the theme and removed the manually
-applied .css file from the master page.
+I then modified `web.config` to use the theme and removed the manually applied `.css` file from the master page.
 
-When I then tried to run the page, it crashed with this info:
+When I then tried to run the page, it crashed with this error:
 
 `Using themed css files requires a header control on the page. (e.g. <head runat="server" />).`
 
-It turned out that the `Default.aspx` file in the project root was blank and only
-used to redirect the user. To make the application use the theme, I simply added
-this dummy code to the page:
+Turns out that the `Default.aspx` file in the project root was blank and only used to redirect the user.
+
+To make the application use the theme, I simply added this dummy code to the page:
 
 ```html
 <html>
@@ -54,5 +47,4 @@ this dummy code to the page:
 </html>
 ```
 
-This will never be displayed and doesn't disturb the app in any way, but makes
-the default theme work.
+This is not displayed and doesn't affect the app in any way, but applies the default theme.

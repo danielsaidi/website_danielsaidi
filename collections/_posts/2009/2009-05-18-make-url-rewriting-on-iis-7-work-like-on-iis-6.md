@@ -7,12 +7,9 @@ icon:  dotnet
 article: http://www.improve.dk/blog/2006/12/11/making-url-rewriting-on-iis7-work-like-iis6
 ---
 
-I've had a lot of problems with getting URL rewriting to work with Windows Vista
-and IIS 7. Compared to IIS 6, virtual paths in IIS 7 don't allow extensions like
-.js, .css, which is problematic if you have shared files in virtual paths.
+I've had a lot of problems with getting URL rewriting to work with Windows Vista and IIS 7. Compared to IIS 6, virtual paths in IIS 7 don't allow extensions like .js, .css, by default. 
 
-This problem is discussed in [this excellent article]({{page.article}}). Although
-it may seem long, it has fixes that only takes a minute or so to get in place:
+This is problematic if you have shared files in virtual paths, which is discussed [here]({{page.article}}). It may seem long, but has fixes that only takes a minute or so to get in place:
 
 * Check out `web.config` (non-exclusive) if you have it under version control.
 * Open IIS and select the correct application pool (or create one if needed).
@@ -26,10 +23,4 @@ it may seem long, it has fixes that only takes a minute or so to get in place:
 
 After this, your web application will, hopefully, behave correctly.
 
-Make sure that you have a dedicated application pool for the web application when
-you perform these changes, otherwise they will affect the default application pool,
-which is not recommended.
-
-Note that you shouldn't check in any changes that are made to web.config, since it
-will add IIS 7 specific parameters. If the file changes, simply reset the changes and
-repeat the commands above.
+Make sure to have a dedicated application pool for the web app when you perform these changes, otherwise they will affect the default application pool, which is not recommended.
