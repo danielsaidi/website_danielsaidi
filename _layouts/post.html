@@ -16,23 +16,24 @@ layout: default
     {{ content }}
   </div>
 
-  <h2>Discussions & More</h2>
-  <p>
-    Please share any ideas, feedback or comments you may have 
-    {%- if site.disqus.shortname -%}
-    &nbsp;in the Disqus section below, or
-    {%- endif -%}
-    &nbsp;by replying 
-    {% include kankoda/blog/post-discussion-links.html %}
-  </p>
-  
-  <p>
-    If you found this text interesting, make sure to follow me on <a href="{{site.twitter_url}}">Twitter</a> and <a href="{{site.mastodon_url}}">Mastodon</a> for more content like this, and to be notified when new content is published.
-  </p>
+  {%- if page.tweet -%}
+    <h2>Discussions & More</h2>
 
-  <p>
-    If you like & want to support my work, please consider sponsoring me on <a href="{{site.github_sponsors}}">GitHub Sponsors</a>.
-  </p>
+    {%- if site.disqus.shortname -%}
+    <p>
+      If you found this interesting and would like to share your thoughts, please comment in the
+      Disqus section below or reply to {% include kankoda/blog/post-discussion-links.html %}.
+    </p>
+    {%- else -%}
+    <p>
+      If you found this interesting, please share your thoughts by repling to 
+      {% include kankoda/blog/post-discussion-links.html %}.
+    </p>
+    {%- endif -%}
+    <p>
+      Follow on <a href="{{site.twitter_url}}">Twitter</a> and <a href="{{site.mastodon_url}}">Mastodon</a> to be notified when new content & articles are published.
+    </p>
+  {%- endif -%}
 
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
