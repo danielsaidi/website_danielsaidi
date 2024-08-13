@@ -2,7 +2,6 @@
 title: PHP magic quotes
 date:  2010-11-24 12:00:00 +0100
 tags:  php
-icon:  php
 ---
 
 I've had problems when sending data to a PHP page, using AJAX. To unpack the data, I had to use `stripslashes`. It seemed to work, and I was happy, until the world exploded.

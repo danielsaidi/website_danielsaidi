@@ -2,7 +2,6 @@
 title: Bundle JavaScript and CSS files with full file paths
 date:  2010-08-19 12:00:00 +0100
 tags:  archive
-icon:  php
 
 post: http://rakaz.nl/2006/12/make-your-pages-load-faster-by-combining-and-compressing-javascript-and-css-files.html
 ---

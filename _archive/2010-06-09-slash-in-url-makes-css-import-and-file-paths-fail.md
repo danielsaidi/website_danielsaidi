@@ -2,7 +2,6 @@
 title: / in URL query makes CSS @import and file paths fail
 date:  2010-06-09 12:00:00 +0100
 tags:  archive
-icon:  php
 ---
 
 I am currently implementing css file bundling with virtual paths in php and am

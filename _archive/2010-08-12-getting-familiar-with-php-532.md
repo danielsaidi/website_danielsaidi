@@ -2,7 +2,6 @@
 title: Getting familiar with PHP 5.3.2
 date:  2010-08-12 12:00:00 +0100
 tags:  archive
-icon:  php
 ---
 
 Since I'm just pretending to be a PHP developer, I only just now started to use

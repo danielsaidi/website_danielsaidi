@@ -2,7 +2,6 @@
 title: WampServer URL rewriting problem
 date:  2011-03-09 12:00:00 +0100
 tags:  archive
-icon:  php
 ---
 
 I have a hobby project that works great on MAMP, but that doesn't run so good on
