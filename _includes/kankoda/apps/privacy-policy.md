@@ -1,12 +1,13 @@
-# Privacy Policy
+# {{include.app-name}} Privacy Policy
 
-This is the privacy policy for the {{include.app-name}} app for iOS (hereby referred to as "the app").
+This is the privacy policy for the [{{include.product.info.name}}]({{include.product.info.url}}) app (hereby referred to as "the app").
 
-Whenever this policy mentions "personal data", it refers to data that directly or indirectly may be used to identify you as an individual. 
 
-Whenever this policy mentions "anonymous data", it refers to data that can't be used to identify you as an individual.
+## Definitions
 
-This policy may be updated when new features are added to the app. Whenever that happens, it will be mentioned it in the release notes.
+Whenever this privacy policy mentions "personal data", it refers to data that can be used to identify you as an individual, either directly or indirectly.
+
+Whenever this privacy policy mentions "anonymous data", it refers to any data that can't be used to identify you as an individual.
 
 
 ## Overview
@@ -16,8 +17,8 @@ In short, this policy states the following:
  * The app may collect anonymous data.
  * The app does not collect any personal data.
  * The app does not sell any collected data to third parties.
- * The app will only access personal data that you enter into the app.
- * The app will only share personal data that you actively share from the app.
+ * The app will only access personal data that you enter into it.
+ * The app will only share personal data that you actively share from it.
  
 For more details on this, please see the remainder of the document.
 
@@ -29,23 +30,25 @@ The app does not collect any personal data. The app may collect anonymous usage 
 
 ## How data is stored
 
-The app only stores data on your local device and personal cloud. You can export your data to files as a manual operation, provided that the app lets you create data.
+The app only stores data on your local device and personal cloud. 
+
+You can export your data to files as a manual operation. The app doesn't take any responsibility for how you handle any data that you export from the app.
 
 
 ## How data is shared
 
-The may app share anonymous usage data with analytics tools, as described above. You can share your data to others as a manual operation, provided that the app lets you create data.
+The app may share anonymous usage data with analytics tools, as described above.
+
+You can share your data to others as a manual operation. The app doesn't take any responsibility for how you handle any data that you share from the app.
 
 
 ## How data is used
 
-Anonymous usage data is used to improve the app and detect problems.
+Anonymous usage data is used to improve the app and detect problems. The app does not sell any collected data to third parties.
 
-The app will open your default e-mail application when you choose to send suggestions, feedback or error reports.
-
-E-mails are deleted when they are no longer needed, e.g. when a question has been answered or a feature request has been implemented.
+The app will open your default e-mail application when you choose to send suggestions, feedback or error reports. These e-mails are deleted when they are no longer needed.
 
 
 ## Means of communication
 
-Any changes to this privacy policy will be communicated in the release notes, when releasing a new version of the app.
+Any significant changes to this policy will be communicated in the release notes, when releasing a new version of the app.
