@@ -1,7 +1,7 @@
 ---
 title:  Custom sheet sizes in SwiftUI
 date:   2022-06-15 01:00:00 +0000
-tags:   swiftui sheet presentation-detents
+tags:   swiftui
 
 icon:   swiftui
 tweet:  https://twitter.com/danielsaidi/status/1537032522365812736?s=20&t=6cXx2n4Jpm6UDJR8dxPZNg
