@@ -2,7 +2,6 @@
 title: Moving ViewState to the bottom of the page
 date:  2010-11-29 12:00:00 +0100
 tags:  dotnet
-icon:  dotnet
 
 post: http://www.dotnetspider.com/resources/786-Move-ViewState-e-bottom-e-page.aspx
 ---

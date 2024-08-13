@@ -2,7 +2,6 @@
 title: Running Facebook authentication on localhost
 date:  2011-04-04 12:00:00 +0100
 tags:  archive
-icon:  dotnet
 ---
 
 I have started building an ASP.NET MVC3 site that uses the Facebook API to create and authorize users. It's easy to setup, but running it on localhost requires some configuration.

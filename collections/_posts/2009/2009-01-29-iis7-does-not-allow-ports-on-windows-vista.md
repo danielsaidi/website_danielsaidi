@@ -2,7 +2,6 @@
 title: IIS 7 does not allow ports on Windows Vista
 date:  2009-01-29 08:28:00 +0100
 tags:  archive
-icon:  dotnet
 
 link: http://bvencel.blogspot.com/2008/05/aspnet-development-server-problems.html
 ---

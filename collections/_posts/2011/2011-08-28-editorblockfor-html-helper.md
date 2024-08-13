@@ -2,7 +2,6 @@
 title: EditorBlockFor HTML helper
 date:  2011-08-28 12:00:00 +0100
 tags:  archive
-icon:  dotnet
 ---
 
 In ASP.NET MVC, Microsoft has created various HTML helpers that can be used in a form, e.g. `LabelFor`, `EditorFor`, `ValidationMessageFor`. Let's see how to create a custom one.

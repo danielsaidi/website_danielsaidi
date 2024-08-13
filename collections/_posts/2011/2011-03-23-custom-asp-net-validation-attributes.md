@@ -2,7 +2,6 @@
 title: Custom ASP.NET validation attributes
 date:  2011-03-23 12:00:00 +0100
 tags:  archive
-icon:  dotnet
 ---
 
 ASP.NET validation attributes is a great way to validate C# properties in different ways, both client & server side. Let's look at how we can create our own validation attributes.

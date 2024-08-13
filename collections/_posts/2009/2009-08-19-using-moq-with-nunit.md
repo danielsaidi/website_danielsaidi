@@ -2,7 +2,6 @@
 title: Using Moq with NUnit
 date:  2009-08-19 13:28:00 +0100
 tags:  testing
-icon:  dotnet
 ---
 
 As I continue to work with unit tests, I have noticed that some of my development patterns have started to change...for the better.

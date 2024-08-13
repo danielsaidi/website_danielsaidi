@@ -2,7 +2,6 @@
 title: Adding Spark to ASP.NET MVC 2
 date:  2011-01-13 12:00:00 +0100
 tags:  archive
-icon:  dotnet
 ---
 
 I finally got some time to look at the Spark View Engine. Since the Razor View Engine will be shipped with ASP.NET MVC 3, I decided to give it a try.

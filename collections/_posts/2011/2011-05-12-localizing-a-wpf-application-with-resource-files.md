@@ -2,7 +2,6 @@
 title: Localizing a WPF application with resource files
 date:  2011-05-12 12:00:00 +0100
 tags:  archive
-icon:  dotnet
 ---
 
 This post shows how to localize a WPF application that consists of a main app and several DLL projects that provides the app with general user controls, model classes etc.

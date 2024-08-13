@@ -2,7 +2,6 @@
 title: Entity Framework Code First with auto migrations on AppHarbor...and more
 date:  2013-02-25 10:55:00 +0100
 tags:  archive
-icon:  dotnet
 ---
 
 I'm building an iOS app that has an ASP.NET MVC 4 backend that uses Entity Framework Code First with auto migrations and runs on App Harbor. We also have a site that is used to present more information. This is how we put it all together.

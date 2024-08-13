@@ -2,7 +2,6 @@
 title: NUnit BadImageFormatException
 date:  2011-05-27 12:00:00 +0100
 tags:  archive
-icon:  dotnet
 ---
 
 In a project of mine, NUnit suddenly started to warn that something's wrong with

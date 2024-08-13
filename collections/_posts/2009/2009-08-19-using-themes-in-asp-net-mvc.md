@@ -2,7 +2,6 @@
 title: Using themes in ASP.NET MVC
 date:  2009-08-19 05:38:00 +0100
 tags:  archive
-icon:  dotnet
 ---
 
 I'm building a web site with ASP.NET MVC. After looking at the nice examples, I noticed that CSS files were manually included in the master page. Let's use themes instead.

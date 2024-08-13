@@ -2,7 +2,6 @@
 title: Flush the Visual Studio Template Cache
 date:  2011-01-14 12:00:00 +0100
 tags:  archive
-icon:  dotnet
 ---
 
 I recently created a project template that uses the Spark view engine

@@ -1,8 +1,7 @@
 ---
 title: A* implementation for XNA
 date:  2010-02-16 12:00:00 +0100
-tags:  archive
-icon:  dotnet
+tags:  gamedev
 ---
 
 I have recently been playing around with the XNA game framework that can

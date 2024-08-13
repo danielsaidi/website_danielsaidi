@@ -2,7 +2,6 @@
 title: Use Phantom/Boo to build, test and publish to NuGet and GitHub
 date:  2012-02-22 12:00:00 +0100
 tags:  archive
-icon:  dotnet
 ---
 
 When building open-source, each release involves unit tests, bundling, zipping & uploading to GitHub & NuGet, creating new git tags, etc. Automated build scrips to the rescue!

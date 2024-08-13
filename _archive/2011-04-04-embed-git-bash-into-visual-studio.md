@@ -2,7 +2,6 @@
 title: Embed Git Bash into Visual Studio
 date:  2011-04-04 12:00:00 +0100
 tags:  archive
-icon:  dotnet
 
 post:  http://coderjournal.com/2011/03/adding-git-command-line-to-visual-studio
 ---

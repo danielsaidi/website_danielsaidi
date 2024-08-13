@@ -2,7 +2,6 @@
 title: Load all assets in a folder in XNA
 date:  2010-01-26 12:00:00 +0100
 tags:  gamedev dotnet
-icon:  dotnet
 ---
 
 I have started looking at XNA and working on a small game. This post show how to load all assets in a folder, which is convenient for small games with not that many resources.

@@ -2,7 +2,6 @@
 title: Where do I put the logic?
 date:  2011-11-16 12:00:00 +0100
 tags:  archive
-icon:  dotnet
 ---
 
 I could use some advice regarding a project that I'm currently working on, where

@@ -2,7 +2,6 @@
 title: Getting the name of the current controller and action in ASP.NET MVC
 date:  2010-08-15 12:00:00 +0100
 tags:  dotnet
-icon:  dotnet
 ---
 
 I have been trying get the name of the current controller and action in ASP.NET MVC, and have found a nice way to do so. Let's see how to do this.
