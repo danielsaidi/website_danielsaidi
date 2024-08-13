@@ -2,7 +2,7 @@
 title: Denise Jacobs - The Creativity (R)Evolution
 date:  2013-11-10 21:10:00 +0100
 categories: conferences
-tags:  conferences
+tags:  conferencess
 
 image: /assets/blog/13/oredev.jpg
 ---

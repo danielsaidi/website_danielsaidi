@@ -2,7 +2,7 @@
 title: Woody Zuill - Mob Programming, A Whole Team Approach
 date:  2013-11-08 03:56:00 +0100
 categories: conferences
-tags:  conferences
+tags:  conferencess
 
 assets: /assets/blog/13/1108/
 image:  /assets/blog/13/1108/woody1.jpg
