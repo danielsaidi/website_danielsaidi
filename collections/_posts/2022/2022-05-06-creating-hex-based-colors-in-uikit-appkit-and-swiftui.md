@@ -1,7 +1,7 @@
 ---
 title:  Creating hex-based colors in UIKit, AppKit and SwiftUI
 date:   2022-05-06 12:00:00 +0000
-tags:   swiftui uikit appkit colors multi-platform
+tags:   swiftui colors multi-platform
 
 icon:   swift
 

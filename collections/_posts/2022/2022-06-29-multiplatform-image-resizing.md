@@ -1,7 +1,7 @@
 ---
 title:  Multi-platform image resizing
 date:   2022-06-29 09:00:00 +0000
-tags:   multi-platform images uikit appkit
+tags:   swift multi-platform images
 
 icon:   swift
 tweet:  https://twitter.com/danielsaidi/status/1542274485616787456?s=20&t=PkyvVlGvMZnUvLmKC_TMwA

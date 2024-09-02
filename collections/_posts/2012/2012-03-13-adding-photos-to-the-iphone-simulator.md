@@ -1,7 +1,7 @@
 ---
 title: Adding photos to the iPhone simulator
 date:  2012-03-13 12:00:00 +0100
-tags:  archive ios
+tags:  ios
 
 image: /assets/blog/12/0313-4.png
 assets: /assets/blog/12/0313-

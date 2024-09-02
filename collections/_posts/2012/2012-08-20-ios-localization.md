@@ -1,7 +1,7 @@
 ---
 title: Localization in Objective-C
 date:  2012-08-20 22:17:00 +0100
-tags:  archive localization
+tags:  localization
 icon:  swift
 ---
 
