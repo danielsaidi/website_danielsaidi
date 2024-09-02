@@ -2,7 +2,6 @@
 title: Automatically convert HTML5 to HTML4
 date:  2011-01-27 12:00:00 +0100
 tags:  archive
-icon:  html
 ---
 
 I love HTML5, although it will take time for many browsers to support HTML5. 

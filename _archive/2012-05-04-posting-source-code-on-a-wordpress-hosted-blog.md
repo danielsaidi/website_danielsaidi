@@ -1,8 +1,7 @@
 ---
 title: Posting source code on a WordPress hosted blog
 date:  2012-05-04 12:00:00 +0100
-tags:  general
-icon:  avatar
+tags:  archive
 ---
 
 At the time of writing, this code-oriented blog was hosted on Wordpress. Since I

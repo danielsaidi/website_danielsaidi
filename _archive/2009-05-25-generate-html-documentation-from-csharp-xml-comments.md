@@ -1,7 +1,7 @@
 ---
 title: Generate HTML documentation from C# comments
 date:  2009-05-25 11:01:00 +0100
-tags:  documentation
+tags:  archive
 ---
 
 In .NET and C#, XML comments is a good way of documenting the code. These comments can then be used to generate HTML documentation. Let's have a look at how.

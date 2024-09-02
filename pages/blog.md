@@ -20,7 +20,6 @@ image-show: 0
   <a name="tag-item-list"></a>
 
   {% assign posts = site.posts %}
-  {% assign posts2 = site.posts | where: 'image', '' %}
   {% include kankoda/blog/post-list.html posts=posts %}
   {% include kankoda/tags/scripts.html %}
 </div>
