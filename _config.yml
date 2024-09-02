@@ -49,6 +49,7 @@ header_pages:
 footer_sitemap:
   - index.md
   - pages/blog.md
+  - pages/blog-archive.md
   - pages/work.md
   - pages/apps.md
   - pages/opensource.md
@@ -79,6 +80,9 @@ collections:
   posts:
     output: true
     permalink: /blog/:categories/:year/:month/:day/:title
+  posts-archive:
+    output: true
+    permalink: /blog/archive/:categories/:year/:month/:day/:title
   privacy-policies:
     output: true
     permalink: /privacy/:title/
@@ -114,6 +118,13 @@ defaults:
   -
     scope:
       type: "posts"
+    values:
+      image: "/assets/blog/header.jpg"
+      author: "danielsaidi"
+      layout: "post"
+  -
+    scope:
+      type: "posts-archive"
     values:
       image: "/assets/blog/header.jpg"
       author: "danielsaidi"
