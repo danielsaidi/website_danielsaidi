@@ -1,7 +1,7 @@
 ---
 title:  Sunsetting the Goth & Metal Emoji Apps
 date:   2024-01-08 06:00:00 +0000
-tags:   general apps sunset
+tags:   general apps
 
 assets: /assets/blog/24/0108/
 image:  /assets/blog/24/0108.jpg

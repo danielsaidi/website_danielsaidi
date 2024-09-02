@@ -1,11 +1,11 @@
 ---
 title:  Creating a property wrapper to persist Codable types
 date:   2022-05-13 10:00:00 +0000
-tags:   swiftui codable property-wrappers
+tags:   swiftui codable
 
 icon:   swiftui
 ---
-
+ 
 In this post, we'll create a property wrapper that can be used with `Codable` to automatically persists it in `UserDefaults` and update SwiftUI when its value changes.
 
 {% include kankoda/data/open-source.html name="SwiftUIKit" %}

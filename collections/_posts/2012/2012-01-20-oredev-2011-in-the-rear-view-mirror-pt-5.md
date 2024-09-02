@@ -2,7 +2,7 @@
 title: Øredev 2011 in the rear-view mirror – Part 5
 date:  2012-01-20 12:00:00 +0100
 categories: conferences
-tags:  conferencess
+tags:  conferences
 
 image:  /assets/blog/12/0120.png
 ---

@@ -1,7 +1,7 @@
 ---
 title:  Deep Dish Swift - Day 2
 date:   2023-05-01 06:00:00 +0000
-tags:   conference
+tags:   conferences
 
 assets: /assets/blog/23/0501/
 image:  /assets/headers/deepdish.png

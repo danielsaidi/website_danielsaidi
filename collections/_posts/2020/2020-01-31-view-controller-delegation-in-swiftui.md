@@ -1,7 +1,7 @@
 ---
 title: View controller delegation in SwiftUI
 date:  2020-01-31 12:00:00 +0100
-tags:  swiftui uikit
+tags:  swiftui
 icon:  swiftui
 
 redirect_from: /blog/2020/01/31/present-delegating-view-controllers-in-swiftui

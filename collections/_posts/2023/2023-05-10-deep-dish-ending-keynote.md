@@ -1,7 +1,7 @@
 ---
 title:  Thoughts on a closing keynote
 date:   3000-05-10 06:00:00 +0000
-tags:   conference
+tags:   conferences
 
 assets: /assets/blog/23/0510/
 image:  /assets/headers/deepdish.png

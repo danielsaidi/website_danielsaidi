@@ -2,7 +2,7 @@
 title: Oredev 2012 - Day 3
 date:  2012-11-13 21:10:00 +0100
 categories: conferences 
-tags:  conferencess
+tags:  conferences
 icon:  avatar
 ---
 

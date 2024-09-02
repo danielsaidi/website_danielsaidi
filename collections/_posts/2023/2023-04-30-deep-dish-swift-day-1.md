@@ -1,7 +1,7 @@
 ---
 title:  Deep Dish Swift - Day 1
 date:   2023-04-30 06:00:00 +0000
-tags:   conference
+tags:   conferences
 
 assets: /assets/blog/23/0430/
 image:  /assets/headers/deepdish.png

@@ -1,7 +1,7 @@
 ---
 title: Adding placeholder support to UITextView
 date:  2017-11-01 00:01:00 +0100
-tags:  swift uikit
+tags:  swift ios
 icon:  swift
 
 redirect_from: /blog/2017/11/01/uitextview-placeholder

@@ -1,7 +1,7 @@
 ---
 title:  AI-based image generation with DALL·E, Stable Diffusion and Promptbase
 date:   2022-09-03 00:00:00 +0000
-tags:   open-ai ai ml
+tags:   ai
 
 icon:   blog
 image:  https://i.imgur.com/06D3jgk.png

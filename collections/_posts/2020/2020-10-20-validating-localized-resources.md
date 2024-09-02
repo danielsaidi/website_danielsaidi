@@ -1,7 +1,7 @@
 ---
 title: Validate Localized Resources
 date:  2020-10-20 14:00:00 +0100
-tags:  swift localization ci
+tags:  swift localization automation
 icon:  swift
 
 redirect_from: /blog/2020/10/20/validate-localized-resources

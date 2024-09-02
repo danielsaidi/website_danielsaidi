@@ -2,7 +2,7 @@
 title: Christian Horsdal - Layers Considered Harmful
 date:  2013-11-07 17:40:00 +0100
 categories: conferences
-tags:  conferencess
+tags:  conferences
 
 image: /assets/blog/13/oredev.jpg
 

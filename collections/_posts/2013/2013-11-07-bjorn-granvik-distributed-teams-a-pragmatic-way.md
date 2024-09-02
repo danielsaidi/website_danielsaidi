@@ -2,7 +2,7 @@
 title: Björn Granvik - Distributed Teams
 date:  2013-11-07 17:56:00 +0100
 categories: conferences
-tags:  conferencess
+tags:  conferences
 
 image: /assets/blog/13/oredev.jpg
 
