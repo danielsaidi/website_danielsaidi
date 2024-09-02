@@ -2,7 +2,6 @@
 title: Windows 8 Activation Fail
 date:  2013-06-07 09:32:00 +0100
 tags:  archive
-icon:  avatar-swear
 
 assets: /assets/blog/13/0607/
 ---

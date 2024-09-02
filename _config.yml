@@ -42,9 +42,10 @@ disqus:
 header_logo_text: Daniel Saidi
 
 header_pages:
-  - pages/apps.md
-  - pages/opensource.md
+  - index.md
   - pages/blog.md
+  - pages/opensource.md
+  - pages/apps.md
 
 footer_sitemap:
   - index.md
