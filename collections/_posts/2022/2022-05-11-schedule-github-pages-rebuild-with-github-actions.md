@@ -1,7 +1,7 @@
 ---
 title:  Schedule GitHub Pages rebuild with GitHub Actions
 date:   2022-05-11 12:00:00 +0000
-tags:   git github
+tags:   git
 
 assets: /assets/blog/22/0511/
 image:  /assets/blog/22/0511/image.jpg
@@ -35,7 +35,7 @@ For this page, the front matter looks like this:
 ---
 title:  Schedule your website with GitHub Actions
 date:   2022-05-11 12:00:00 +0000
-tags:   git github
+tags:   git
 
 assets: /assets/blog/22/0511/
 image:  /assets/blog/22/0511/image.jpg

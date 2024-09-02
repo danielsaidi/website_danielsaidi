@@ -15,6 +15,13 @@ button: https://github.com/danielsaidi/SwiftUIKit/blob/master/Sources/SwiftUIKit
 
 As we saw in [last week's post]({{page.post}}), gestures in a `ScrollView` are complicated, since they can block the scrolling. Without a scroll view, things become a lot easier. Let's take a look.
 
+{% include kankoda/data/open-source.html name="GestureButton" %}
+
+
+## Update 2024-09-02
+
+The new [{{project.name}}]({{project.url}}) open-source project contains many improvements, so check it out for code samples and source-code that is adjusted for the future.
+
 
 ## Less complexity
 

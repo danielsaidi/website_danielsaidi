@@ -1,7 +1,7 @@
 ---
 title: Automate setting up Xcode
 date:  2018-11-05 15:00:00 +0200
-tags:	 automation xcode macos fastlane lint
+tags:	 xcode automation fastlane linting
 icon:  swift
 ---
 

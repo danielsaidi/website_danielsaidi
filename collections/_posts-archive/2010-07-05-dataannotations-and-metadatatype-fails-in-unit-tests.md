@@ -1,7 +1,7 @@
 ---
 title: DataAnnotations and MetadataType fails in unit tests
 date:  2010-07-05 12:00:00 +0100
-tags:  dotnet
+tags:  archive
 ---
 
 This post describes how to fix model validation for ASP.NET MVC 2, when testing a model that uses DataAnnotations and MetadataType to describe for its validation.

@@ -1,7 +1,7 @@
 ---
 title:  Rejected - An Apple Developer Holiday Special
 date:   2023-12-22 06:00:00 +0000
-tags:   swiftui indie
+tags:   swiftui apps
 
 assets: /assets/blog/23/1223/
 image:  /assets/blog/23/1223.jpg

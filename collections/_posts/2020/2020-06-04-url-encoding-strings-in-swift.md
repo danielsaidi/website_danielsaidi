@@ -1,7 +1,7 @@
 ---
 title: URL-encoding strings in Swift
 date:  2020-06-04 20:00:00 +0100
-tags:  swift url-encode
+tags:  swift
 icon:  swift
 
 redirect_from: /blog/2020/06/04/string-urlencode

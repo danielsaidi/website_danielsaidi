@@ -1,7 +1,7 @@
 ---
 title:  Backporting the SwiftUI 4 ImageRenderer to iOS 13
 date:   2022-06-22 08:00:00 +0000
-tags:   swiftui image-renderer
+tags:   swiftui open-source
 
 icon:   swiftui
 assets: /assets/blog/22/0622/

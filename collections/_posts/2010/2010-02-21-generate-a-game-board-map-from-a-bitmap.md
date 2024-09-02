@@ -1,7 +1,7 @@
 ---
 title: Generate a game board map from a bitmap
 date:  2010-02-21 12:00:00 +0100
-tags:  gamedev dotnet
+tags:  gamedev
 image: /assets/blog/10/0221-1.png
 ---
 

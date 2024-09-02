@@ -1,8 +1,7 @@
 ---
 title: Ionic 2 - Build Configuration-Specific Settings
 date:  2016-05-12 12:04:00 +0100
-tags:  archive
-icon:  avatar
+tags:  ios android hybrid-apps
 ---
 
 In an Ionic 2 app that I'm building for iOS and Android, I want to use different application settings for different build configurations. Let's see how this can be achieved in Ionic 2.

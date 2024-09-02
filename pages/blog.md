@@ -12,7 +12,7 @@ image-show: 0
 <h1>Blog</h1>
 
 <div class="paper">
-  {% include kankoda/tags/list.html tags=site.tags firstmost="general,swift,swiftui,guest-article" %}
+  {% include kankoda/tags/list.html tags=site.tags firstmost="general,swift,swiftui" %}
   <div class="tag-list-separator" >
     <a class="tag-list-toggle" href="javascript:toggleTagList()">Show tags</a>
     <hr />

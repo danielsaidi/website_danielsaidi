@@ -1,8 +1,7 @@
 ---
 title: sudo is required for all Ionic and Cordova commands
 date:  2015-08-26 08:00:00 +0100
-tags:  archive
-icon:  javascript
+tags:  ios android hybrid-apps
 ---
 
 I'm currently building my first Ionic Framework app. It's fast to setup and performs well, but I ran into a problem that forces me to use `sudo` for all Ionic & Cordova commands.

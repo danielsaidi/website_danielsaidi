@@ -13,12 +13,16 @@ source: /blob/master/Sources/SwiftUIKit/Gestures/ScrollViewGestureButton.swift
 
 SwiftUI gestures are complicated, since they can block the `ScrollView` gestures. Let's look at a way to implement rich view gestures in a way that doesn't block the scrolling.
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" version="0.7.0" %}
+{% include kankoda/data/open-source.html name="GestureButton" %}
 
 
-## Update 2022-11-20
+## Update 2024-09-02
 
-I have added a "Going further" section that describes how to add support for drag gestures, and a link to a ready to use component that supports detecting and all these gestures.
+The `ScrollViewGestureButton` below stopped working in iOS 18, where the button gestures started blocking the scroll view gestures.
+
+iOS 18 however doesn't need these complex gestures anymore. We only need to change the `GestureButton` to use a simultaneous gesture, and it works right away.
+
+The new [{{project.name}}]({{project.url}}) open-source project contains these improvements, so check it out for code samples and source-code that is adjusted for the future.
 
 
 ## The problem
