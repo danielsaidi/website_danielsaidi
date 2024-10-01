@@ -22,20 +22,20 @@ layout: default
     {%- if site.disqus.shortname -%}
     <p>
       If you found this interesting and would like to share your thoughts, please comment in the
-      Disqus section below or reply to {% include kankoda/blog/post-discussion-links.html %}.
+      Disqus section below or reply to {% include kankoda/blog/discussion-links.html %}.
     </p>
     {%- else -%}
     <p>
       If you found this interesting, please share your thoughts by repling to 
-      {% include kankoda/blog/post-discussion-links.html %}.
+      {% include kankoda/blog/discussion-links.html %}.
     </p>
     {%- endif -%}
     <p>
-      Follow on <a href="{{site.twitter_url}}">Twitter</a> and <a href="{{site.mastodon_url}}">Mastodon</a> to be notified when new content & articles are published.
+      Follow on <a href="{{site.urls.twitter}}">Twitter</a> and <a href="{{site.urls.mastodon}}">Mastodon</a> to be notified when new content & articles are published.
     </p>
   {%- endif -%}
 
-  <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+  <a class="u-url" href="{{page.url | relative_url}}" hidden></a>
 </article>
 
 {% include kankoda/disqus/disqus-card.html %}

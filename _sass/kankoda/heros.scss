@@ -1,28 +1,106 @@
-h1 {
-  margin-top: 40px;
+.hero {
+
+  img {
+    max-height: 350px !important;
+  }
+}
+
+.hero.devices, .home .hero {
+
+  img {
+    max-height: 550px !important;
+  }
 }
 
 .hero {
-  background: 
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0), rgba(0, 0, 0, 0.03)),
-    $site-background;
-  margin-top: -100px;
-  padding-top: 30px;
+  padding-top: 50px;
   text-align: center;
   
   h1 {
-    margin-top: 100px;
+    font-size: 2.5em !important;
+    margin-top: 0px !important;
+  }
+
+  img.icon {
+    margin-bottom: 20px;
+    width: 150px;
+    height: 150px !important;
+  }
+  
+  .image-wrapper {
+    padding: 20px 0;
   }
 
   p { 
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: 600 !important;
+  }
+  
+  .emoji {
+    font-size: 7em;
+    border-radius: 15px;
+    line-height: 1.4em;
+  }
+
+  .wrapper {
+    position: relative;
+    z-index: 1000;
+  }
+  
+  .hero-line {
+    position: relative;
+    height: 0px;
+    z-index: 0;
+
+    .line-content {
+      position: absolute;
+      width: 100%;
+      bottom: 0px;
+
+      .line {
+        height: 100px;
+        background: linear-gradient(to top left, $content-background 0%, $content-background 50%, transparent 50%, transparent 100%) !important;
+      }
+      
+      .line-footer {
+        height: 100px;
+        background: $content-background;
+      }
+    }
   }
 }
 
-.hero-line {
-  height: 100px;
-  background: linear-gradient(to top left, $content-background 0%, $content-background 50%, transparent 50%, transparent 100%) !important;
-  margin-top: -70px;
-  margin-bottom: 30px;
+.hero + main {
+  padding-top: 50px;
+
+  .button-container.navigator {
+    margin-top: 0px !important;
+  }
+}
+
+.hero.paper {
+  
+  hr {
+    margin-bottom: 0 !important;
+  }
+}
+
+@media (max-width: 500px) {
+
+    // Hide open-source on smaller screens
+  .hero {
+    padding-top: 25px;
+
+    .emoji {
+      font-size: 5em !important;
+    }
+
+    .line {
+      height: 50px !important;
+    }
+  }
+
+  .hero + main {
+    padding-top: 25px;
+  }
 }

@@ -1,5 +1,5 @@
 html, body {
-  font-family: sans-serif;
+  font-family: 'Open Sans', sans-serif;
   font-size: 1.1em;
 }
 
@@ -17,7 +17,7 @@ a.back-button, a.back-button:visited {
 
 h1 {
   line-height: 1.2em;
-  font-size: 1.9em !important;
+  font-size: 2em !important;
 }
 
 h1, h2, h3, h4, h5 {
@@ -34,4 +34,8 @@ footer {
 
 .emoji-h2 {
   font-size: 3em !important;
+}
+
+blockquote {
+  font-size: 1.05em;
 }

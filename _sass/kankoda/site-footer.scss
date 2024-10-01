@@ -1,7 +1,8 @@
 .site-footer {
   margin-top: 0px;
   border: 0 !important;
-  background-color: $footer-background;
+  background: linear-gradient($texture-overlay, $texture-overlay), $footer-background;
+
   padding-top: 0px;
   text-align: center;
 
@@ -15,13 +16,13 @@
   }
 
   .column {
-    flex-basis: 25%;
+    flex-basis: 20%;
     
     p {
       font-weight: bold;
     }
 
-    a {
+    a, div {
       font-weight: normal;
       margin-bottom: 5px;
       min-height: 10px;

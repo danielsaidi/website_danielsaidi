@@ -26,7 +26,7 @@ I'm about to release a brand new version of [Wally]({{page.wally}}), which was t
 
 While I have been maintaining Wally for many years now, I really wanted to put time into polishing it this time. I started migrating old code in the beginning of July, then took some summer time off before I resumed work in August.
 
-The work has resulted in a brand new foundation package for all my company apps, new versions of many [open-source projects]({{site.github_url}}), a WallyKit package decoupled from the app, and a multi-platform app written in SwiftUI 4.
+The work has resulted in a brand new foundation package for all my company apps, new versions of many [open-source projects]({{site.urls.github}}), a WallyKit package decoupled from the app, and a multi-platform app written in SwiftUI 4.
 
 
 ## Migrating old code
@@ -43,7 +43,7 @@ For instance, the WallyKit package defines protocols that describe how to store 
 
 I then add Realm-specific stores to the app, since [Realm]({{page.realm}}) is a pretty huge dependency that takes time to fetch and build. In the future, I may add a Realm-specific package as well.
 
-With the local package in place, I began moving code from the framework target, rewriting and improving it as I went along. If some old code fitter better in [my open-source projects]({{site.github_url}}), I moved it there. If it could be reused in my other apps, I moved it to my company package.
+With the local package in place, I began moving code from the framework target, rewriting and improving it as I went along. If some old code fitter better in [my open-source projects]({{site.urls.github}}), I moved it there. If it could be reused in my other apps, I moved it to my company package.
 
 I also replaced [Quick & Nimble]({{page.quick}}) with XCTests to make unit tests as plain as possible, with support for new Swift features like async/await.
 
@@ -234,7 +234,7 @@ I use StoreKit 2 to implement the subscription logic, and use my [StoreKitPlus](
 
 ## Reusing functionality
 
-During my work with the app, I have fixed bugs in and added new features to my various [open-source projects]({{site.github_url}}), as I encountered problems or needed new features. This means that this project has also been a great opportunity to revisit and improve many other projects.
+During my work with the app, I have fixed bugs in and added new features to my various [open-source projects]({{site.urls.github}}), as I encountered problems or needed new features. This means that this project has also been a great opportunity to revisit and improve many other projects.
 
 Furthermore, finally getting around to creating a foundation package for all my apps will make it a lot easier to work on my own apps, and will make sure that they behave more similar, which in turn will make it less problematic for me to work on many apps at once.
 

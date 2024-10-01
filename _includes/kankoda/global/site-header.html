@@ -1,23 +1,26 @@
-<header class="site-header" role="banner">
+<header class="site-header {{ include.class }}" role="banner">
   <div class="wrapper">
-    <p>
-      <a class="logo" href="/">
-        {%- if site.header_image -%}
-        <img src="{{ site.header_image }}" alt="{{site.title}} icon/logo" title="{{site.title}} home page" />
-        {%- elsif site.header_logo_text -%}
-        <span>{{ site.header_logo_text }}</span>
-        {%- endif -%}
-      </a>
-    </p>
-    {%- assign default_paths = site.pages | map: "path" -%}
-    {%- assign page_paths = site.header_pages | default: default_paths -%}
-    <ul class="horizontal">
-      {%- for path in page_paths -%}
-        {%- assign page = site.pages | where: "path", path | first -%}
-        {%- if page.title -%}
-          <li><a href="{{ page.url | relative_url }}">{{ page.title | escape }}</a>&nbsp;</li> 
-        {%- endif -%}
-      {%- endfor -%}
-    </ul>
+    {% if site.header_axis == "vertical" %}
+    <div class="center-content">
+      <p>
+        {% include kankoda/global/site-header-logo.html %}
+      </p>
+      {% include kankoda/global/site-header-links.html %}
+    </div>
+    {% else %}  
+    <div class="row">
+      <div class="column">
+        {% include kankoda/global/site-header-logo.html %}
+      </div>
+      <div class="column">
+        {% include kankoda/global/site-header-links.html %}
+      </div>
+    </div>
+    {% endif %}
   </div>
+  
+  {% if include.class | contains:"paper" %}
+  <hr class="wrapper" />
+  {% endif %}
+
 </header>

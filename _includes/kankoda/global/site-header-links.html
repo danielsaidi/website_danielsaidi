@@ -1,0 +1,16 @@
+{%- assign default_paths = site.pages | map: "path" -%}
+{%- assign page_paths = site.header_pages | default: default_paths -%}
+<ul class="horizontal">
+  {%- for path in page_paths -%}
+    {%- assign item = site.pages | where: "path", path | first -%}
+    {%- if item.title -%}
+    <li>
+      {%- if item.id == "pricing" -%}
+      <a href="{{ item.url | relative_url }}" class="{{ item.id }} sticker scale">{{ item.title | escape }}</a>
+      {%- else -%}
+      <a href="{{ item.url | relative_url }}" class="{{ item.id }}">{{ item.title | escape }}</a>
+      {%- endif -%}
+    </li> 
+    {%- endif -%}
+  {%- endfor -%}
+</ul>

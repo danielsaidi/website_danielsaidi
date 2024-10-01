@@ -37,7 +37,7 @@ I tried adjusting the separator insets, using alignment guides etc., but nothing
 
 ## The solution - using a custom menu style
 
-After some discussions on [Twitter]({{site.twitter_url}}) and [Mastodon]({{site.mastodon_url}}), [@JimmyDev]({{page.jimmy}}) suggested something that actually works - [using a custom menu style]({{page.jimmy-tweet}}).
+After some discussions on [Twitter]({{site.urls.twitter}}) and [Mastodon]({{site.urls.mastodon}}), [@JimmyDev]({{page.jimmy}}) suggested something that actually works - [using a custom menu style]({{page.jimmy-tweet}}).
 
 If we use Jimmy's code from the link above, and move the icon argument from the menu initializer to the style, the separator line now starts below the title, just like the other ones:
 

@@ -1,6 +1,4 @@
-.grid.clients {
-  grid-template-columns: repeat(6, 1fr);
-
+.clients {
   img { 
     object-fit: cover;
     opacity: 0.5;
@@ -11,16 +9,5 @@
   img:hover {
     opacity: 1;
     filter: grayscale(0%);
-  }
-
-  p {
-    display: none;
-  }
-}
-
-@media (max-width: 600px) {
-  
-  .grid.clients {
-    grid-template-columns: repeat(6, 1fr);
   }
 }

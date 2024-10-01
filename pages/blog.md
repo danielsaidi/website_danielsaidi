@@ -19,7 +19,8 @@ image-show: 0
   </div>
   <a name="tag-item-list"></a>
 
-  {% assign posts = site.posts %}
-  {% include kankoda/blog/post-list.html posts=posts %}
+  {% for post in site.posts %}
+    {% include kankoda/blog/list-item.html post=post %}
+  {% endfor %}
   {% include kankoda/tags/scripts.html %}
 </div>

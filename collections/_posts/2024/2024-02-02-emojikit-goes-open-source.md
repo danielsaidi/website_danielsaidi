@@ -33,6 +33,6 @@ I've also struggled a bit with motivating a 3 tier license model. The cuts felt 
 
 ## How it will be done
 
-The SDK will be moved from [Kankoda]({{site.kankoda}})'s GitHub account to my personal GitHub account. I will move the entire repository, then remove the product pages and Gumroad product.
+The SDK will be moved from [Kankoda]({{site.urls.kankoda}})'s GitHub account to my personal GitHub account. I will move the entire repository, then remove the product pages and Gumroad product.
 
 I'm excited about this change and hope that it will make EmojiKit even better for all of us.

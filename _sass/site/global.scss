@@ -1,22 +1,9 @@
-.wrapper {
-  max-width: calc(840px - (30px * 2));
-}
-
-div.back-button {
-  margin-top: 0px !important;
-}
-
 .site-header {
 
-  box-shadow: none !important;
+  hr {
+    background: none !important;
+  }
  
-  .column:nth-of-type(1) {
-    flex-basis: 30%;
-  }
-
-  .column:nth-of-type(2) {
-    flex-basis: 70%;
-  }
 
   .logo {
     font-size: 2em;

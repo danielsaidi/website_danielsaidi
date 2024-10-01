@@ -17,6 +17,6 @@ licensekit: https://getlicensekit.com
   </p>
   
   {% include work-paragraph.html %}
-</article>
 
-{% include kankoda/grids/grid.html items=site.data.work type="icons" %}
+  {% include kankoda/grid/grid.html items=site.data.work type="icons" %}
+</article>

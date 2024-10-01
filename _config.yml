@@ -4,7 +4,6 @@
 # will be accessible in the templates via {{ site.myvariable }}.
 
 title: Daniel Saidi
-email: daniel.saidi@gmail.com
 description: >-
   My name is Daniel Saidi. I'm a freelance software engineer in Stockholm, 
   Sweden, who specializes in mobile product development, with a focus on
@@ -12,7 +11,7 @@ description: >-
   Swift and SwiftUI.
 
 url: https://danielsaidi.com
-rss_url: https://danielsaidi.com/feed.xml
+email: daniel.saidi@gmail.com
 
 copyright_year: 2009-2024
 copyright_owner: Daniel Saidi
@@ -20,25 +19,33 @@ copyright_url: https://danielsaidi.com
 
 google_analytics: UA-2575180-1
 
-github_url:       https://github.com/danielsaidi
 github_username:  danielsaidi
-github_sponsors:  https://github.com/sponsors/danielsaidi
-kankoda:          https://kankoda.com
-linkedin_url:     http://linkedin.com/in/danielsaidi
 linkedin_username: danielsaidi
-mastodon_url:     https://mastodon.social/@danielsaidi
 mastodon_user:    danielsaidi@mastodon.social
-twitch:           https://twitch.com/danielsaidi
-twitter_url:      https://twitter.com/danielsaidi
 twitter_username: danielsaidi
+
+urls:
+  blog:         /blog
+  email:        mailto:daniel.saidi@gmail.com
+  rss:          https://danielsaidi.com/feed.xml
+
+  github:       https://github.com/danielsaidi
+  gh_sponsors:  https://github.com/sponsors/danielsaidi
+  linkedin:     http://linkedin.com/in/danielsaidi
+  mastodon:     https://mastodon.social/@danielsaidi
+  twitter:      https://twitter.com/danielsaidi
+  twitch:       https://twitch.com/danielsaidi
+
+  kankoda:      https://kankoda.com
 
 assets: /assets/
 fonts: 
   - Caveat
 
 disqus:
-    shortname: danielsaidi
+  shortname: danielsaidi
 
+header_axis: vertical
 header_logo_text: Daniel Saidi
 
 header_pages:
@@ -49,7 +56,6 @@ header_pages:
 
 footer_sitemap:
   - index.md
-  - pages/blog.md
   - pages/blog-archive.md
   - pages/work.md
   - pages/apps.md

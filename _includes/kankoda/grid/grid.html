@@ -1,0 +1,33 @@
+{%- assign limit = include.limit | default:1000 -%}
+
+{%- assign type = include.type -%}
+{%- if type == "bands" or type == "photos" or type == "themes" -%}
+{%- assign extension = "jpg" -%}
+{%- else -%}
+{%- assign extension = "png" -%}
+{%- endif -%}
+{%- assign image-folder = include.image-folder -%}
+
+<div class="grid {{type}} {{include.class}}">
+  {% for item in include.items limit:limit %}
+    {%- assign slug = item.name | slugify -%}
+    {%- assign icon = item.icon | default: item.info.icon | default: slug -%}
+    {%- assign image = item.image | default: item.info.image -%}
+    {%- assign title = item.title | default: item.name | default: item.info.name -%}
+    {%- assign url = item.url | default: item.info.url -%}
+    
+    {% if include.ignore and title == include.ignore %}
+      {% continue %}
+    {% else %}
+      {%- if url -%}
+      <a href="{{url}}" name="{{slug}}" title="{{item.name}}" class="scale">
+        {% include kankoda/grid/item.html type=type name=title icon=icon image=image image-class=include.image-class %}
+      </a>  
+      {%- else -%}
+      <div>
+        {% include kankoda/grid/item.html type=type name=title icon=icon image=image image-class=include.image-class image-folder=include.image-folder %}
+      </div>
+      {%- endif -%}
+    {% endif %}
+  {% endfor %}
+</div>

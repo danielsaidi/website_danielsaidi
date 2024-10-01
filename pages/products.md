@@ -16,4 +16,4 @@ permalink: /products
   {% include work-paragraph.html %}
 </article>
 
-{% include kankoda/grids/grid.html items=site.data.products type="icons" %}
+{% include kankoda/grid/grid.html items=site.data.products type="icons" %}

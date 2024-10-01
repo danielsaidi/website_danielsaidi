@@ -20,4 +20,4 @@ redirect_from: /bands/
 </article>
 
 {%- assign bands = site.bands | sort: 'last-updated' | reverse | where:'hidden',false -%}
-{% include kankoda/grids/grid.html items=bands type="bands" %}
+{% include kankoda/grid/grid.html items=bands type="bands" %}

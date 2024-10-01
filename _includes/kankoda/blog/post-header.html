@@ -1,11 +1,15 @@
 {%- assign post = include.post -%}
+{%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+{%- assign tag-limit = include.tag-limit -%}
 
 <div class="post-header">
-  {% include kankoda/blog/post-date.html date=post.date %}
+  <span class="date">
+    {{ post.date | date: date_format }}
+  </span>
   {% if include.follow == 1 %}
-    · Follow on <a href="{{site.twitter_url}}">Twitter</a> and <a href="{{site.mastodon_url}}">Mastodon</a>
+    · Follow on <a href="{{site.urls.twitter}}">Twitter</a> and <a href="{{site.urls.mastodon}}">Mastodon</a>
   {% endif %}
-  <span class="spacer"></span>
-  {% include kankoda/blog/post-tags.html tags=post.tags %}
-
+  <div class="tags">
+    {% include kankoda/blog/tags.html tags=post.tags limit=tag-limit %}
+  </div>
 </div>

@@ -14,6 +14,6 @@ permalink: /apps/
   </p>
 
   {% include work-paragraph.html %}
+  
+  {% include kankoda/grid/grid.html items=site.data.apps type="icons" %}
 </article>
-
-{% include kankoda/grids/grid.html items=site.data.apps type="icons" %}
