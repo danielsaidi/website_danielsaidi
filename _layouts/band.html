@@ -40,7 +40,7 @@ layout: default
       {%- capture name -%}{{photo.file}}_sml.jpg{%- endcapture -%}
       {%- capture alt -%}An image of {{photo.text}}{%- endcapture -%}
       {%- assign src=band-assets | append: name -%}
-      {% include image.html src=src name=name alt=alt title=photo.text %}
+      <img src="{{src}}" alt="{{alt}}" title="{{photo.text}}" />
     {%- endfor -%}
   </section>
 
@@ -58,7 +58,7 @@ layout: default
       {%- capture name -%}{{ album-name}}.jpg{%- endcapture -%}
       {%- capture alt -%}The album cover of {{photo.text}}{%- endcapture -%}
       {%- assign src=band-assets | append: name -%}
-      {% include image.html src=src name=name class="cover" alt=alt title=album.name %}
+      <img src={{src}} class="cover" alt="{{alt}}" title="{{album.name}}" />
     </div>
     <section>
       <h3>
