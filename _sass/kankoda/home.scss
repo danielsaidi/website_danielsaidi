@@ -36,4 +36,8 @@
       margin-top: 20px !important;
     }
   }
+
+  section + section {
+    margin-top: 40px;
+  }
 }

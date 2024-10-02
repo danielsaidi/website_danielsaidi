@@ -11,11 +11,11 @@ toot:   https://mastodon.social/@danielsaidi/111628377914513976
 tweet:  https://x.com/danielsaidi/status/1738449452921229663?s=20
 ---
 
-This is a short Christmas story on the many frustrations of being a developer in the Apple ecosystem. But this time they may be correct. Happy holidays everyone!
+This is a Christmas story on the many frustrations of being a developer in the Apple ecosystem. But this time they may be correct. Happy holidays everyone!
 
 {% include kankoda/data/app.html name="Emoji Picker" %}
 
-I've spent time on a new app, with a goal to learn many new SwiftUI features and make an accessible and easy to use app, that solves a single problem. Say hello to [{{app.name}}]({{app.url}}).
+I've worked on a new app, with a goal to learn many new SwiftUI features and make an accessible and easy to use app, that solves a single problem. Say hello to [{{app.name}}]({{app.url}}).
 
 ![EmojiPicker on macOS]({{page.assets}}emojipicker-macos.jpg)
 
@@ -62,4 +62,4 @@ Happy holidays!
 
 ## Update
 
-Apple eventually approved the app for iOS as well. You can download it from the [macOS and iOS App Store]({{app.appstore}}).
+Apple eventually approved the app for iOS as well. You can download it from the [App Store]({{app.appstore}}) today. I'd love to hear what you think.

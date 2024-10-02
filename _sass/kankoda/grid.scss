@@ -36,12 +36,11 @@ p + .grid {
   }
 }
 
-.grid.icons, .grid.bands, .grid.themes {
+.grid.icons, .grid.centered {
   text-align: center;
 }
 
-.grid.icons, .grid.bands, .grid.features {
-
+.grid.icons, .grid.features {
   grid-column-gap: 40px;
 
   a:hover, a:visited:hover {

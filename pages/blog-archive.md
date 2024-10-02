@@ -12,8 +12,7 @@ image-show: 0
 <h1>{{page.title}}</h1>
 
 <div class="paper">
-  {% assign posts = site.posts-archive %}
-  {% for post in site.posts %}
+  {% for post in site.posts-archive %}
     {% include kankoda/blog/list-item.html post=post %}
   {% endfor %}
 </div>

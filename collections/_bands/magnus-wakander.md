@@ -3,4 +3,4 @@ name: Magnus Wakander
 last-updated: 2020
 ---
 
-After 10 years, me and Magnus have started making music together again. Our two albums together - "Svärta" and the newly released "Soul Bleed" - is out on YouTube, Spotify, Apple Music, Tidal etc.
+After a few years apart, me and Magnus have started making music together again. Our two albums - "Svärta" and "Soul Bleed" - are out on YouTube, Spotify, Apple Music, Tidal etc.
