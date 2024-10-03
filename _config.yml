@@ -26,6 +26,7 @@ twitter_username: danielsaidi
 
 urls:
   blog:         /blog
+  blog-archive: /blog-archive
   email:        mailto:daniel.saidi@gmail.com
   rss:          https://danielsaidi.com/feed.xml
 
@@ -56,7 +57,6 @@ header_pages:
 
 footer_sitemap:
   - index.md
-  - pages/blog-archive.md
   - pages/work.md
   - pages/apps.md
   - pages/opensource.md
@@ -68,8 +68,8 @@ footer_extra:
   - Daniel Saidi|/bands/daniel-saidi/
   - dEEd|/bands/deed/
   - Kollektivet|/bands/kollektivet/
-  - Rakveres|/bands/the-rakveres/
   - sgt. Black|/bands/sgt-black/
+  - The Rakveres|/bands/the-rakveres/
   - Eblis|/bands/eblis/
   - Misfortune|/bands/misfortune/
 

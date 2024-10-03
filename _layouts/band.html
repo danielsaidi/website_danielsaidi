@@ -8,7 +8,6 @@ layout: default
 {%- assign band-assets = site.assets | append: "bands/" | append: band-name | append: "/" -%}
 {%- assign info=band.info -%}
 
-{%- assign albums=band.discography | reverse -%}
 {%- capture lyrics_url -%}/lyrics/{{ page.name | slugify }}/{%- endcapture -%}
 
 <article class="paper">
@@ -30,9 +29,9 @@ layout: default
     {{ content }}
   </section>
 
+  {%- if band.photos -%}
   <hr />
 
-  {%- if band.photos -%}
   <h2>Photos</h2>
   <a name="photos"></a>
   <section class="grid photos">
@@ -43,55 +42,74 @@ layout: default
       <img src="{{src}}" alt="{{alt}}" title="{{photo.text}}" />
     {%- endfor -%}
   </section>
+  {%- endif -%}
+
+  {%- if band.discography -%}
 
   <hr />
-  {%- endif -%}
 
   <h2>Recordings</h2>
   <a name="music"></a>
+  {%- assign albums=band.discography | reverse -%}
   {%- for album in albums -%}
-  {%- if album.hidden -%}{%- else -%}
-  {%- assign album-name = album.name | slugify -%}
-  <a name="{{album-name}}"></a>
-  <section class="grid album">
-    <div class="cover">
-      {%- capture name -%}{{ album-name}}.jpg{%- endcapture -%}
-      {%- capture alt -%}The album cover of {{photo.text}}{%- endcapture -%}
-      {%- assign src=band-assets | append: name -%}
-      <img src={{src}} class="cover" alt="{{alt}}" title="{{album.name}}" />
-    </div>
+    {%- if album.hidden -%}{%- else -%}
+    {%- assign album-name = album.name | slugify -%}
     <section>
-      <h3>
-        {{album.name}}
-      </h3>
-      <div class="post-header">{{album.year}} </div>
-      
-      <ol class="tracks">
-        {%- for track in album.tracks -%}
-        <li>
-          <span class="track-name">
-            <span class="index">{{ forloop.index }}.</span>
-            {{track.name}}
-          </span>
-          <span class="track-links">
-            {%- if track.links.spotify -%}
-            <a href="{{ track.links.spotify }}">Spotify</a><span class="bullet">·</span>
-            {%- endif -%}
-            {%- if track.links.apple -%}
-            <a href="{{ track.links.apple }}">Apple</a><span class="bullet">·</span>
-            {%- endif -%}
-            {%- if track.links.youtube -%}
-            <a href="{{ track.links.youtube }}">YouTube</a><span class="bullet">·</span>
-            {%- endif -%}
-            {%- if track.lyrics == false -%}{%- else -%}
-            <a href="{{ lyrics_url }}{{ album.name | slugify }}/{{ track.name | slugify }}">Lyrics</a>
-            {%- endif -%}
-          </span>
-        </li>
-        {%- endfor -%}
-      </ol> 
+      <div class="grid album">
+        <div class="cover">
+          {%- capture name -%}{{ album-name}}.jpg{%- endcapture -%}
+          {%- capture alt -%}The album cover of {{photo.text}}{%- endcapture -%}
+          {%- assign src=band-assets | append: name -%}
+          <img src={{src}} class="cover" alt="{{alt}}" title="{{album.name}}" />
+        </div>
+        <section>
+          <h3>
+            {{album.name}}
+          </h3>
+          <div class="post-header">
+            {{album.year}} 
+            <span class="track-links">
+              {%- if album.links.spotify -%}
+              <span class="bullet">·</span><a href="{{ album.links.spotify }}">Spotify</a>
+              {%- endif -%}
+              {%- if album.links.apple -%}
+              <span class="bullet">·</span><a href="{{ album.links.apple }}">Apple</a>
+              {%- endif -%}
+              {%- if album.links.youtube -%}
+              <span class="bullet">·</span><a href="{{ album.links.youtube }}">YouTube</a>
+              {%- endif -%}
+            </span>
+          </div>
+          
+          <ol class="tracks">
+            {%- for track in album.tracks -%}
+            <li>
+              <span class="track-name">
+                <span class="index">{{ forloop.index }}.</span>
+                {{track.name}}
+              </span>
+              <span class="track-links">
+                {%- if track.links.spotify -%}
+                <a href="{{ track.links.spotify }}">Spotify</a><span class="bullet">·</span>
+                {%- endif -%}
+                {%- if track.links.apple -%}
+                <a href="{{ track.links.apple }}">Apple</a><span class="bullet">·</span>
+                {%- endif -%}
+                {%- if track.links.youtube -%}
+                <a href="{{ track.links.youtube }}">YouTube</a><span class="bullet">·</span>
+                {%- endif -%}
+                {%- if track.lyrics == false -%}{%- else -%}
+                <a href="{{ lyrics_url }}{{ album.name | slugify }}/{{ track.name | slugify }}">Lyrics</a>
+                {%- endif -%}
+              </span>
+            </li>
+            {%- endfor -%}
+          </ol>
+        </div>
+      </section>
     </section>
-  </section>
-  {%- endif -%}
+    {%- endif -%}
   {%- endfor -%}
+
+  {%- endif -%}
 </article>
