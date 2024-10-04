@@ -66,6 +66,10 @@
   url: https://github.com/danielsaidi/StoreKitPlus
   header: /assets/headers/storekitplus.png
 
+- name: SwiftPackageScripts
+  url: https://github.com/danielsaidi/SwiftPackageScripts
+  header: /assets/headers/swiftpackagescripts.png
+
 - name: SystemNotification
   url: https://github.com/danielsaidi/SystemNotification
   header: /assets/headers/systemnotification.png
