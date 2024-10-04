@@ -1,7 +1,7 @@
 ---
-title:  Automatically Publish DocC to GitHub Pages with GitHub Actions
+title:  Publish DocC to GitHub Pages with GitHub Actions
 date:   2024-03-10 06:00:00 +0000
-tags:   swift docc
+tags:   swift docc ci/cd github
 
 redirect_from: /blog/2024/03/10/automating-docc-for-a-swift-package-with-github-actions
 

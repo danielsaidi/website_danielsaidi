@@ -10,7 +10,7 @@ image-show: 0
 {% include kankoda/data/open-source.html name="SwiftUIKit" %}
 The GestureButton component that used to be part of the [{{project.name}}]({{project.url}}){% include kankoda/data/open-source.html name="GestureButton" %} has now been moved to a new, separate open-source project called [{{project.name}}]({{project.url}}).
 
-![Header image]({{project.header}})
+![Header image]({{page.image}})
 
 GestureButton can trigger gesture-specific actions. You can use it just like a regular SwiftUI `Button` and provide it with custom actions for any gesture you want to handle:
 
