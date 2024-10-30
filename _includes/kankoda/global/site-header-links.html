@@ -5,9 +5,9 @@
     {%- if title -%}
     <li>
       {%- if page.id == "pricing" -%}
-      <a href="{{ item.url | relative_url }}" class="{{ item.id }} sticker scale">{{ title }}</a>
+      <a href="{{ page.url | relative_url }}" class="{{ page.id }} sticker scale">{{ title }}</a>
       {%- else -%}
-      <a href="{{ item.url | relative_url }}" class="{{ item.id }}">{{ title }}</a>
+      <a href="{{ page.url | relative_url }}" class="{{ page.id }}">{{ title }}</a>
       {%- endif -%}
     </li>
     {%- endif -%}

@@ -64,14 +64,7 @@ footer_sitemap:
 
 footer_extra_title: Music
 footer_extra:
-  - Magnus Wakander|/bands/magnus-wakander/
-  - Daniel Saidi|/bands/daniel-saidi/
-  - dEEd|/bands/deed/
-  - Kollektivet|/bands/kollektivet/
-  - sgt. Black|/bands/sgt-black/
-  - The Rakveres|/bands/the-rakveres/
-  - Eblis|/bands/eblis/
-  - Misfortune|/bands/misfortune/
+  - pages/music.md
 
 collections_dir: collections
 

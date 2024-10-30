@@ -12,8 +12,7 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
 
 <div class="home-content paper">
   <main class="page-content" aria-label="Content">
-    <div class="wrapper">
-      <section>
+  <section>
         <img class="avatar" src="/assets/avatar.jpg" alt="Daniel Saidi" />
         <div class="social-buttons">
           <p>
@@ -32,9 +31,7 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
           </p>
         </div>
       </section>
-      
       <hr />
-      
       <section>
         {% include kankoda/titles/section.html title="Latest Posts" link="/blog" %}
         <div class="home blog grid centered">
@@ -45,26 +42,21 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
           {% endfor %}
         </div>
       </section>
-      
       <hr />
-      
       <section class="opensource">
         {% assign projects = site.data.open-source | slice: 0, 4 %}
         {% include kankoda/titles/section.html title="Open Source" link="/opensource" %}
         {% include kankoda/grid/grid.html items=projects type="icons" %}
       </section>
-      
       <section class="apps">
         {% assign apps = site.data.apps | slice: 0, 4 %}
         {% include kankoda/titles/section.html title="Apps" link="/apps" %}
         {% include kankoda/grid/grid.html items=apps type="icons" %}
       </section>
-      
       <section class="work">
         {% assign work = site.data.work | slice: 0, 4 %}
         {% include kankoda/titles/section.html title="Work" link="/work" %}
         {% include kankoda/grid/grid.html items=work type="icons" %}
       </section>
-    </div>
   </main>
 </div>
