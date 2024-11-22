@@ -34,10 +34,6 @@
   url: https://github.com/danielsaidi/EmojiKit
   header: /assets/headers/emojikit.png
 
-- name: EnvironmentKit
-  url: https://github.com/danielsaidi/EnvironmentKit
-  header: /assets/headers/environmentkit.png
-
 - name: GestureButton
   url: https://github.com/danielsaidi/GestureButton
   header: /assets/headers/gesturebutton.png
