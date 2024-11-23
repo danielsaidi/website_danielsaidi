@@ -18,6 +18,10 @@
   url: https://github.com/danielsaidi/ApiKit
   header: /assets/headers/apikit.png
 
+- name: AppIconKit
+  url: https://github.com/danielsaidi/AppIconKit
+  header: /assets/headers/appiconkit.png
+
 - name: BadgeIcon
   url: https://github.com/danielsaidi/BadgeIcon
   header: /assets/headers/badgeicon.png
