@@ -67,10 +67,12 @@
   header: /assets/headers/storekitplus.png
 
 - name: SwiftPackageScripts
+  title: SPM Scripts
   url: https://github.com/danielsaidi/SwiftPackageScripts
   header: /assets/headers/swiftpackagescripts.png
 
 - name: SystemNotification
+  title: SystemNot...
   url: https://github.com/danielsaidi/SystemNotification
   header: /assets/headers/systemnotification.png
 
