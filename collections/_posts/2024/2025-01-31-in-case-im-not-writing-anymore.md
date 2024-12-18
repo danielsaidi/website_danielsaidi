@@ -1,6 +1,6 @@
 ---
 title:  In case I'm not writing anymore
-date:   2024-12-31 08:00:00 +0000
+date:   2025-01-31 08:00:00 +0000
 tags:   general
 
 icon:   blog
