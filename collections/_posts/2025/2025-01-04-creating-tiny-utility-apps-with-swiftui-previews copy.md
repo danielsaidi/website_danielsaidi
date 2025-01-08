@@ -9,8 +9,8 @@ image-show: 0
 
 old:    https://betterprogramming.pub/swiftui-pain-links-in-text-b31319783c9e
 
-toot:   https://mastodon.social/@danielsaidi/113676318098529677
-tweet:  https://x.com/danielsaidi/status/1869518613633540167
+toot:   https://mastodon.social/@danielsaidi/113770773039022380
+tweet:  https://x.com/danielsaidi/status/1875563484081185225
 ---
 
 In this post, we'll take a look at how to create small, lightweight apps that you don't have to install to your physical device, using SwiftUI Previews and Swift Package internal views.
