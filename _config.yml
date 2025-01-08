@@ -43,8 +43,8 @@ assets: /assets/
 fonts: 
   - Caveat
 
-disqus:
-  shortname: danielsaidi
+# disqus:
+#  shortname: danielsaidi
 
 header_axis: vertical
 header_logo_text: Daniel Saidi
