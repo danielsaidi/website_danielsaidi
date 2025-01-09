@@ -15,7 +15,7 @@ layout: default
     {{ work.name | escape }}
   </h1>
 
-  <div class="post-header">
+  <div class="post-info">
     <span class="date">{{work.years}}</span>
     <span class="spacer"></span>
     {%- assign tags = work.tags | downcase | split: " " -%}

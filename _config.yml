@@ -13,12 +13,13 @@ description: >-
 url: https://danielsaidi.com
 email: daniel.saidi@gmail.com
 
-copyright_year: 2009-2024
+copyright_year: 2009-2025
 copyright_owner: Daniel Saidi
 copyright_url: https://danielsaidi.com
 
 google_analytics: UA-2575180-1
 
+bluesky_username: "@danielsaidi.bsky.social"
 github_username:  danielsaidi
 linkedin_username: danielsaidi
 mastodon_user:    danielsaidi@mastodon.social
@@ -30,6 +31,7 @@ urls:
   email:        mailto:daniel.saidi@gmail.com
   rss:          https://danielsaidi.com/feed.xml
 
+  bluesky:      https://bsky.app/profile/danielsaidi.bsky.social
   github:       https://github.com/danielsaidi
   gh_sponsors:  https://github.com/sponsors/danielsaidi
   linkedin:     http://linkedin.com/in/danielsaidi
@@ -42,9 +44,6 @@ urls:
 assets: /assets/
 fonts: 
   - Caveat
-
-# disqus:
-#  shortname: danielsaidi
 
 header_axis: vertical
 header_logo_text: Daniel Saidi

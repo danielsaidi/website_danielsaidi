@@ -16,9 +16,11 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
         <img class="avatar" src="/assets/avatar.jpg" alt="Daniel Saidi" />
         <div class="social-buttons">
           <p>
-            {% include kankoda/buttons/social.html name="twitter" href=site.urls.twitter %}
+            {% include kankoda/buttons/social.html name="bluesky" href=site.urls.bluesky %}
             {% include kankoda/buttons/social.html name="mastodon" href=site.urls.mastodon %}
+            {% include kankoda/buttons/social.html name="twitter" href=site.urls.twitter %}
             {% include kankoda/buttons/social.html name="github" href=site.urls.github %}
+            {% include kankoda/buttons/social.html name="githubsponsors" href=site.urls.gh_sponsors %}
             {% include kankoda/buttons/social.html name="linkedin" href=site.urls.linkedin %}
           </p>
         </div>
@@ -34,7 +36,7 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
       <hr />
       <section>
         {% include kankoda/titles/section.html title="Latest Posts" link="/blog" %}
-        <div class="home blog grid centered">
+        <div class="home blog grid">
           {% for post in site.posts limit:2 %}
           <div>
             {% include kankoda/blog/list-item.html post=posts.first %}

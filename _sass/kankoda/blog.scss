@@ -5,44 +5,20 @@
   }
 }
 
-h2 + .post-header {
-
-  margin-top: -10px;
-}
-
 article.post .grid {
   margin: 40px 0px !important;
 }
 
-.post-header {
+.post-info {
 
-  hr {
-    margin-bottom: 0px;
-  }
   font-size: smaller; 
   font-weight: normal;
   color: $foreground-secondary !important;
   
   .tags {
-    margin: 10px 0;
-
     .tag {
       font-size: smaller; 
       font-weight: normal;
     }
-  }
-}
-
-.list {
-  
-  .post-header {
-    margin-top: -10px;
-  }
-}
-
-.disqus {
-
-  .comments {
-    width: 100% !important;
   }
 }

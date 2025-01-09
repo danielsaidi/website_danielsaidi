@@ -19,7 +19,7 @@ layout: default
       {{ info.name | escape }}
     </h1>
 
-    <div class="post-header">
+    <div class="post-info">
       <span class="date">{{info.year-from}} - {{info.year-to}}</span>
       <span class="spacer"></span>
       {%- assign genres = info.genres | downcase | split: " " -%}
@@ -66,7 +66,7 @@ layout: default
           <h3>
             {{album.name}}
           </h3>
-          <div class="post-header">
+          <div class="post-info">
             {{album.year}} 
             <span class="track-links">
               {%- if album.links.spotify -%}

@@ -1,43 +1,29 @@
 .hero {
-
-  img {
-    max-height: 350px !important;
-  }
-}
-
-.hero.devices, .home .hero {
-
-  img {
-    max-height: 550px !important;
-  }
-}
-
-.hero {
   padding-top: 50px;
   text-align: center;
   
   h1 {
-    font-size: 2.5em !important;
+    font-size: 3.2em !important;
     margin-top: 0px !important;
   }
 
-  img.icon {
+  img.app-icon {
     margin-bottom: 20px;
     width: 150px;
     height: 150px !important;
   }
   
   .image-wrapper {
-    padding: 20px 0;
+    padding: 40px 0;
   }
 
   p { 
-    font-size: 1.1em;
+    font-size: 1.2em;
     font-weight: 600 !important;
   }
   
   .emoji {
-    font-size: 7em;
+    font-size: 10em;
     border-radius: 15px;
     line-height: 1.4em;
   }
@@ -78,6 +64,18 @@
   }
 }
 
+.hero {
+  img {
+    max-height: 400px !important;
+  }
+}
+
+.home .hero, .hero.devices {
+  img {
+    max-height: 800px !important;
+  }
+}
+
 .hero.paper {
   
   hr {
@@ -85,14 +83,30 @@
   }
 }
 
-@media (max-width: 500px) {
+@media (max-width: 850px) {
+  .hero { 
+    h1 {
+      font-size: 2.5em !important;
+    }
 
-    // Hide open-source on smaller screens
+    p { 
+      font-size: 1.1em;
+      font-weight: 600 !important;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+
   .hero {
     padding-top: 25px;
 
+    h1 {
+      font-size: 2em !important;
+    }
+
     .emoji {
-      font-size: 5em !important;
+      font-size: 7em !important;
     }
 
     .line {
