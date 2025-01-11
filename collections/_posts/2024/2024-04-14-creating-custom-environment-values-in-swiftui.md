@@ -1,7 +1,7 @@
 ---
 title:  Creating custom environment values in SwiftUI
 date:   2024-04-14 04:00:00 +0000
-tags:   swift swiftui open-source
+tags:   swiftui open-source
 
 assets: /assets/blog/24/0414/
 image:  /assets/blog/24/0414.jpg
@@ -10,6 +10,7 @@ image-show: 0
 redirect_from: /blog/2024/04/14/create-custom-environment-types-in-swiftui-with-less-code
 
 entry:  https://developer.apple.com/documentation/SwiftUI/Entry()
+post:   http://127.0.0.1:4000/blog/2025/01/08/replacing-environmentkit-with-the-entry-macro
 
 tweet:  https://x.com/danielsaidi/status/1779625421656535282
 toot:   https://mastodon.social/@danielsaidi/112271734083721514
@@ -22,9 +23,11 @@ In this post, I'll describe how to create custom environment values in SwiftUI, 
 
 ## Update: 2024-06-14
 
-At WWDC24, Apple presented a new [Entry]({{page.entry}}) type that will let us define custom environment, transaction, container, and focused values with very little code.
+At WWDC24, Apple presented a new [Entry]({{page.entry}}) macro that lets us define custom environment, focused, container, and transaction values with very little code.
 
-The `Entry` type will make the code and the linked [SDK]({{page.sdk}}) in this post obsolete. I will however keep the information here as a reference, for anyone who not yet targets iOS 18.
+As such, the code in this post is now obsolete. The originally linked SDK has been removed, and its source code added to the end of this post, for future reference, and in case you don't target iOS 18.
+
+You can read more about this in [this blog post]({{page.post}}), where I show how `@Entry` makes things even easier.
 
 
 ## Background
@@ -79,52 +82,43 @@ struct MyViewStyle {
 
 Init injection however becomes complicated in more complex view hierarchies, where you may have to pass in values deep into the view hierarchy.
 
-Instead of init injection, SwiftUI provides a convenient way of injecting environment values into the view environment, then using `@Environment` to access the injected values.
+Instead, SwiftUI provides a convenient way to inject environment values into the view environment, then using `@Environment` to access the injected values. SwiftUI uses this convention extensively, e.g. with the `.buttonStyle` view modifier, as well as for many other styles and values in the framework.
 
-SwiftUI uses this convention extensively, for instance with the `.buttonStyle` view modifier, as well as many, many other styles and configurations that exist in the framework.
-
-Environment injection is MUCH more flexible than init injection, since you can inject values into any part of the view hierarchy.
-
-It's also nice to remove parameters from view initializers, since complex and generic views can end up with complicated init permutations.
+Environment injection is MUCH more flexible than init injection, since you can inject values into any part of the view hierarchy. It's also nice to remove init parameters, since complex and generic views can end up with complicated init permutations.
 
 Let's take a look at how to define custom environment values in the standard, complicated SwiftUI way, then how we can simplify it a bit using the Swift type system. 
 
 
 ## How to define an environment value - the standard way
 
-To define a custom environment value, you must first extend the native `EnvironmentValues` type with a property that can get and set a value of that type.
+To define a custom environment value, you must extend the native `EnvironmentValues` type with a property that can get and set a value of that type. For this to work, you must also define a custom `EnvironmentKey` type with a default value, then make the `EnvironmentValues` property use that type.
 
-For this to work, you must also define a custom `EnvironmentKey` type that returns a default value for your type, then make the `EnvironmentValues` property use that type.
-
-Finally, it's nice to provide a view modifier with the same name as your value type, like how the `ButtonStyle` has a matching `.buttonStyle` view modifier.
+Finally, it's nice to provide a view modifier with the same name as your type, like how `ButtonStyle` has a matching `.buttonStyle` view modifier.
 
 For `MyViewStyle`, the resulting code could look something like this:
 
 ```swift
-extension MyStyle {
-    
-    static var standard = Self()
-}
+struct MyViewStyle: Codable, Sendable { ... }
 
-extension MyStyle {
+extension MyViewStyle {
 
     struct Key: EnvironmentKey {
-        static var defaultValue: MyStyle = .standard
+        static var defaultValue = MyViewStyle()
     }
 }
 
 extension EnvironmentValues {
 
-    var myStyle: MyStyle {
-        get { self[MyStyle.Key.self] }
-        set { self[MyStyle.Key.self] = newValue }
+    var myViewStyle: MyViewStyle {
+        get { self[MyViewStyle.Key.self] }
+        set { self[MyViewStyle.Key.self] = newValue }
     }
 }
 
 extension View {
 
-    func myStyle(_ style: MyStyle) -> some View {
-        environment(\.myStyle, style)
+    func myViewStyle(_ style: MyViewStyle) -> some View {
+        environment(\.myViewStyle, style)
     }
 }
 ```
@@ -143,14 +137,12 @@ struct MyView {
 }
 ```
 
-This is not much code, but imagine having many custom types, and for each you'd have to repeat yourself over and over.
-
-I'd like this to require less code, and have spent some time playing around with plain Swift and protocols to come up with a more streamlined approach. Let's take a look.
+This is not much code, but imagine having to repeat this for many custom types. I'd like less code, and have spent some time playing around with plain Swift and protocols to come up with a more streamlined approach.
 
 
 ## How to define an environment value - an easier way
 
-Instead of the boilerplate code above, I have created and published an open-source library called [EnvironmentKit]({{page.sdk}}), that lets you achieve the same result with this code:
+During my experiment, I managed to reduce the amount of code for each environment value type:
 
 ```swift
 struct MyStyle: EnvironmentValue {  
@@ -173,20 +165,20 @@ extension View {
 }
 ```
 
-While you don't save that many lines of code, you avoid the repetitions of having to refer to the same type many times, defining a keypath, etc. All in all, I find it much cleaner.
+While you don't save a lot of code, you avoid repeating the same boilerplate code for each type. All in all, I find it much cleaner and less error-prone, since it involves fewer references.
 
-Everything is powered by having your type implementing the `EnvironmentValue` protocol, which defines all it needs to resolve keys, keypaths, etc. Let's see how it's implemented.
+This is powered by implementing a custom `EnvironmentValue` protocol, which defines everything we need to automatically resolve keys, keypaths, etc. Let's take a look.
 
 
-## Creating EnvironmentKit
+## Creating the EnvironmentValue protocol
 
-I wanted a core protocol to power the library, and since SwiftUI has an `EnvironmentValues` type, I decided to call it `EnvironmentValue` (this will surely punish me in the future):
+I wanted a protocol to power the library, and since SwiftUI has an `EnvironmentValues` type, I decided to call it `EnvironmentValue`:
 
 ```swift
 protocol EnvironmentValue {}
 ```
 
-To be able to resolve things automatically, the protocol will require its implementing types to provide a parameterless initializer, or default values for all properties:
+To be able to resolve things, the protocol requires implementing types to provide a parameterless initializer, or default values for all properties:
 
 ```swift
 protocol EnvironmentValue {
@@ -195,7 +187,7 @@ protocol EnvironmentValue {
 }
 ```
 
-With this initializer, the protocol can now provide a default value for all implementing types:
+With this initializer, the protocol can now provide a `defaultValue` for all implementing types:
 
 ```swift
 extension EnvironmentValue {
@@ -204,7 +196,7 @@ extension EnvironmentValue {
 }
 ```
 
-We can now automatically provide a key type for every value type, using the default value:
+We can now use `defaultValue` to provide an automatically resolved key type for every value type:
 
 ```swift
 protocol EnvironmentValue {
@@ -220,7 +212,7 @@ struct EnvironmentValueKey<T: EnvironmentValue>: EnvironmentKey {
 }
 ```
 
-We can now extend the native `EnvironmentValues` type with a getter and a setter that uses this key information to get and set values for any `EnvironmentValue`:
+We can then extend the native `EnvironmentValues` type with a getter and a setter that uses this key information to get and set values for any `EnvironmentValue`:
 
 ```swift
 extension EnvironmentValues {
@@ -235,7 +227,7 @@ extension EnvironmentValues {
 }
 ```
 
-This lets us avoid having to use the subscript syntax for every new value type. Instead, we can define custom environment value properties like this:
+This lets us avoid having to use subscripts for every new type. Instead, we can define custom value properties like this:
 
 ```swift
 extension EnvironmentValues {
@@ -261,9 +253,7 @@ protocol EnvironmentValue {
 }
 ```
 
-This means that all a type has to do is to provide a default initializer or a default value for each property, as well as a key path. 
-
-This is how the `MyViewStyle` from above could look:
+This means a type just have to provide a default initializer (or a default value for each property), as well as a key path.  This is how `MyViewStyle` from above would do it:
 
 ```swift
 struct MyViewStyle: EnvironmentValue {
@@ -274,7 +264,7 @@ struct MyViewStyle: EnvironmentValue {
 }
 ```
 
-We can now add an `environment` view modifier that takes an `EnvironmentValue` and uses its type information to figure out which key path to use:
+We can now add an `environment` view modifier that takes an `EnvironmentValue` and uses its type to figure out which key path to use:
 
 ```swift
 extension View {
@@ -287,7 +277,7 @@ extension View {
 }
 ```
 
-This means that we don't have to repeat the key path information when providing a custom `myViewStyle` modifier. Instead, we can just do this:
+This means that we don't have to repeat the key path when providing a `myViewStyle` modifier. We can just do this instead:
 
 ```swift
 extension View {
@@ -298,22 +288,169 @@ extension View {
 }
 ```
 
-We can now apply `.myViewStyle(...)` to any view, then use `@Environment(\.myViewStyle)` to access the injected value in any view. If no value is injected, a default value is returned.
+That's it! We can now apply `.myViewStyle(...)` to any view, then use `@Environment(\.myViewStyle)` to access the injected value from any view, or the default value if no value is injected.
 
 
 
-## Future work
+## Final result
 
-Although the end result lets you create custom environment types with less code, I hoped to be able to use the `EnvironmentValue` to do even more automatically.
+This is the final `EnvironmentValue` result. You can just copy it to use it in your own app:
 
-My initial idea was for the `keyPath` to be automatically resolved by `EnvironmentValues`, by using a generic function that could be use instead of an explicit key path property.
+```swift
+import SwiftUI
 
-However, Swift seems to require an actual property to be able to use it as a keypath in the `.environment` modifier. If we could work around this, we'd need to write even less code.
+/// This protocol can be implemented by any type that should
+/// be used as an environment value.
+///
+/// To implement this protocol, just provide a parameterless
+/// ``init()`` and a ``keyPath`` value that returns a custom
+/// `EnvironmentValues` property:
+///
+/// ```swift
+/// struct MyViewStyle: EnvironmentValue {
+///     static var keyPath: EnvironmentKeyPath { \.myViewStyle }
+/// }
+///
+/// extension EnvironmentValues {
+///     var myViewStyle: MyViewStyle {
+///         get { get() } set { set(newValue) }
+///     }
+/// }
+/// ```
+///
+/// You can now inject custom values into the environment by
+/// using the ``SwiftUI/View/environment(_:)`` modifier that
+/// doesn't require a keypath.
+///
+/// To make things even easier, you can also define a custom
+/// view modifier for your value:
+///
+/// ```swift
+/// extension View {
+///     func myViewStyle(_ style: MyViewStyle) -> some View {
+///         environment(style)
+///     }
+/// }
+/// ```
+///
+/// You can now apply a custom style to any views, like this:
+///
+/// ```swift
+/// MyView()
+///     .myViewStyle(...)
+/// ```
+///
+/// Views can use `@Environment` with the custom key path to
+/// access injected values, like this:
+///
+/// ```swift
+/// struct MyView: View {
+///
+///     @Environment(\.myViewStyle)
+///
+///     var body: some View { ... }
+/// }
+/// ```
+///
+/// If no value has been injected, the default value is used.
+public protocol EnvironmentValue {
+    
+    /// Environment values must provide a default initializer.
+    init()
+    
+    /// The `EnvironmentValue` keypath to use.
+    static var keyPath: EnvironmentPath { get }
 
+    /// This typealias defines an automatically resolved key.
+    typealias EnvironmentKey = EnvironmentValueKey<Self>
+    
+    /// This typealias refers to an environment key path.
+    typealias EnvironmentPath = WritableKeyPath<EnvironmentValues, Self>
+}
+
+public extension EnvironmentValue {
+    
+    /// A default value to use, when no value has been added
+    /// to the the environment.
+    static var defaultValue: Self { .init() }
+    
+    /// The automatic value for the current platform.
+    static var automatic: Self { defaultValue }
+}
+
+/// This type is used by ``EnvironmentValue`` to define keys.
+public struct EnvironmentValueKey<T: EnvironmentValue>: EnvironmentKey {
+    
+    /// A default value to use, when no value has been added
+    /// to the the environment.
+    public static var defaultValue: T { T.defaultValue }
+}
+
+public extension EnvironmentValues {
+    
+    /// Get a certain ``EnvironmentValue``.
+    func get<T: EnvironmentValue>() -> T {
+        self[T.EnvironmentKey.self]
+    }
+    
+    /// Set a certain ``EnvironmentValue``.
+    mutating func set<T: EnvironmentValue>(_ newValue: T) {
+        self[T.EnvironmentKey.self] = newValue
+    }
+}
+
+public extension View {
+
+    /// Inject an ``EnvironmentValue`` into the environment.
+    func environment<T: EnvironmentValue>(
+        _ value: T
+    ) -> some View {
+        environment(T.keyPath, value)
+    }
+}
+
+
+// MARK: - Preview Types
+
+private struct MyView: View {
+    
+    @Environment(\.myViewStyle)
+    private var style
+    
+    var body: some View {
+        style.color
+    }
+}
+
+private struct MyViewStyle: EnvironmentValue {
+    
+    var color: Color = .blue
+    
+    static var keyPath: EnvironmentPath { \.myViewStyle }
+}
+
+private extension EnvironmentValues {
+
+    var myViewStyle: MyViewStyle {
+        get { get() } set { set(newValue) }
+    }
+}
+
+private extension View {
+
+    func myViewStyle(
+        _ style: MyViewStyle = .automatic
+    ) -> some View {
+        environment(style)
+    }
+}
+```
 
 
 ## Conclusion
 
-The `EnvironmentValue` approach lets us define custom environment values with a lot less code. If you think this approach looks interesting, make sure to give [EnvironmentKit]({{page.sdk}}) a try.
+Although the `EnvironmentValue` protocol lets you create custom environment types with less code, I was hoping to make it automate even more things.
 
-However, with the addition of [Entry]({{page.entry}}) in iOS 18, this approach will no longer be required, so only use it if you target older OS versions.
+For instance, I wanted `keyPath` to be resolved by `EnvironmentValues`, by using a generic function and not the explicit key path property. However, Swift seems to require an actual property to be able to use it as a keypath in the `.environment` modifier.
+
+However, with the addition of the [Entry]({{page.entry}}) macro, this approach is longer required. I have removed the GitHub repository, so only use the code above if you target older OS versions.
