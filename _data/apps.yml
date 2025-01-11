@@ -3,7 +3,7 @@
   appstore: http://itunes.apple.com/app/keyboardkit/id1568444977
   
 - name: Emoji Picker
-  url: http://kankoda.com/emojipicker
+  url: http://kankoda.com/apps/emojipicker
   appstore: https://itunes.apple.com/app/emoji-picker/id6472487442
   
 - name: Wally
@@ -11,7 +11,7 @@
   appstore: https://itunes.apple.com/app/wally/id516398915
 
 - name: One Touch Paste
-  url: https://kankoda.com/onetouchpaste/
+  url: http://kankoda.com/apps/onetouchpaste/
   appstore: https://apps.apple.com/se/app/one-touch-paste/id6478205851
 
 - name: Appamini
@@ -23,5 +23,5 @@
   appstore: https://itunes.apple.com/se/app/lunchrrrrr/id1209779063?l=en&mt=8 
 
 - name: Vinylsamlaren
-  url: https://itunes.apple.com/us/app/vinylsamlaren/id640253601
+  url: http://kankoda.com/apps/vinylsamlaren
   appstore: https://itunes.apple.com/us/app/vinylsamlaren/id640253601
