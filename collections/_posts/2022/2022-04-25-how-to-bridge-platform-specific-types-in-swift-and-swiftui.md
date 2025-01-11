@@ -14,7 +14,7 @@ toot:   https://mastodon.social/@danielsaidi/111970012516609641
 
 SwiftUI's multi-platform support makes it easy to develop apps for all platforms, but how do you handle types that differ between platforms? Let's take a look.
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+{% include kankoda/data/open-source name="SwiftUIKit" %}
 
 
 ## Problem description

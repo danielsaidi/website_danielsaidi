@@ -9,7 +9,7 @@ image:  /assets/blog/22/0424/image.jpg
 
 Since SwiftUI currently has no WebView, we have to create one ourselves. Let's see how easy it is to build a multi-platform web view for iOS, iPadOS & macOS.
 
-{% include kankoda/data/open-source.html name="SystemNotification" %}
+{% include kankoda/data/open-source name="SystemNotification" %}
 
 ![Web view preview]({{page.assets}}title.png){:class="plain"}
 

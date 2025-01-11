@@ -11,7 +11,7 @@ tweet:  https://twitter.com/danielsaidi/status/1539211313267806208?s=20&t=SN3bYV
 
 SwiftUI 4 introduces a new `ImageRenderer` that can be used to render any SwiftUI view as an image in iOS 16, macOS 13, tvOS 16 & watchOS 9. Let's take a look at how it works.
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+{% include kankoda/data/open-source name="SwiftUIKit" %}
 
 
 ## Using the ImageRenderer

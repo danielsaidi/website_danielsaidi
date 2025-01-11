@@ -12,7 +12,7 @@ tweet:  https://x.com/danielsaidi/status/1747726878868209739?s=20
 toot:   https://mastodon.social/@danielsaidi/111773321977694317
 ---
 
-{% include kankoda/data/open-source.html name="ApiKit" %}
+{% include kankoda/data/open-source name="ApiKit" %}
 In this post, we'll take a look at how easy it is to use the open-source Swift package [{{project.name}}]({{project.url}}) to integrate with a REST-based API and map its data to local models.
 
 ![Header image]({{project.header}})

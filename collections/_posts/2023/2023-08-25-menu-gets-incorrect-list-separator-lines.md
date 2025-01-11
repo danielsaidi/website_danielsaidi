@@ -20,7 +20,7 @@ If you'ved added a SwiftUI `Menu` with an icon `Label` to a `List`, you may have
 
 Let's find a way to fix this.
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+{% include kankoda/data/open-source name="SwiftUIKit" %}
 
 I noticed this strange behavior in an app of mine, as I moved a couple of menu options into a "Contact Us" `Menu` to clean up the main menu list:
 

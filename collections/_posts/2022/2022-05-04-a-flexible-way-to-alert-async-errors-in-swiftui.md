@@ -11,7 +11,7 @@ alert-post: https://danielsaidi.com/blog/2020/06/07/swiftui-alerts
 
 In this post, let's take a look at how to handle async errors in a flexible and scalable way in SwiftUI. We'll cover both completion block- and async/await-based use cases.
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+{% include kankoda/data/open-source name="SwiftUIKit" %}
 
 
 ## TL;DR

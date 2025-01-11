@@ -12,7 +12,7 @@ gif:    https://github.com/danielsaidi/SystemNotification/raw/master/Resources/D
 tweet:  https://twitter.com/danielsaidi/status/1615347586059182080?s=20&t=3L_johIenQTCGsF9VPNjiw
 ---
 
-{% include kankoda/data/open-source.html name="SystemNotification" %}In this post, I'll show how you can use the [SystemNotificaton]({{project.url}}) open-source library to mimic iOS system notifications in your SwiftUI apps.
+{% include kankoda/data/open-source name="SystemNotification" %}In this post, I'll show how you can use the [SystemNotificaton]({{project.url}}) open-source library to mimic iOS system notifications in your SwiftUI apps.
 
 ![SystemNotification logo]({{page.image}})
 

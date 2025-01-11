@@ -11,7 +11,7 @@ tweet:  https://x.com/danielsaidi/status/1757393769593274774?s=20
 toot:   https://mastodon.social/@danielsaidi/111924367408233262
 ---
 
-{% include kankoda/data/open-source.html name="KeyboardKit" %}
+{% include kankoda/data/open-source name="KeyboardKit" %}
 Some [{{project.name}}]({{project.url}}) users have reported that their keyboard extensions have disappeared in iOS 17.2. This article discusses some concerns after investigating the problem.
 
 

@@ -14,7 +14,7 @@ fastlane: https://fastlane.tools
 
 DocC is an amazing documentation tool for Swift-based projects. This post shows how to generate multi-platform documentation with DocC, using Terminal scripts and Fastlane.
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+{% include kankoda/data/open-source name="SwiftUIKit" %}
 
 ![DocC icon]({{page.image}})
 

@@ -11,7 +11,7 @@ hackingwithswift: https://www.hackingwithswift.com/quick-start/swiftui/how-to-in
 
 In this post, we'll take a look at how to create a custom SwiftUI environment key that lets us get the safe area insets for the current scene.
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+{% include kankoda/data/open-source name="SwiftUIKit" %}
 
 SwiftUI has many great environment values, with more being added over some information isn't available in the convenient way that we may have come to expect.
 

@@ -10,7 +10,7 @@ tweet:  https://twitter.com/danielsaidi/status/1522656182288228363?s=20&t=XrGntu
 
 In this post, let's take a quick look at how to we can extend UIKit, AppKit & SwiftUI colors with hex-based initializers that accept strings (`"#abcdef"`) and numeric values (`0xabcdef`).
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+{% include kankoda/data/open-source name="SwiftUIKit" %}
 
 Although you can use asset catalogs to define colors, there may come a time when you need to create colors from hex codes, for instance when parsing colors from an API.
 

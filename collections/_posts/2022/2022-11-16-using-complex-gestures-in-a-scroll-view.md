@@ -13,7 +13,7 @@ source: /blob/master/Sources/SwiftUIKit/Gestures/ScrollViewGestureButton.swift
 
 SwiftUI gestures are complicated, since they can block the `ScrollView` gestures. Let's look at a way to implement rich view gestures in a way that doesn't block the scrolling.
 
-{% include kankoda/data/open-source.html name="GestureButton" %}
+{% include kankoda/data/open-source name="GestureButton" %}
 
 
 ## Update 2024-09-02

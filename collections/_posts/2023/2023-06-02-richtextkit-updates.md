@@ -8,7 +8,7 @@ image:  /assets/headers/richtextkit.png
 image-show: 0
 ---
 
-{% include kankoda/data/open-source.html name="RichTextKit" version="0.6.0" %}After a long time away from the project, I finally had some time to revisit [RichTextKit]({{project.url}}) and add some new features, like indentation support and grouped controls.
+{% include kankoda/data/open-source name="RichTextKit" version="0.6.0" %}After a long time away from the project, I finally had some time to revisit [RichTextKit]({{project.url}}) and add some new features, like indentation support and grouped controls.
 
 ![SwiftUIKit logo]({{page.image}})
 

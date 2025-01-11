@@ -13,7 +13,7 @@ toot:   https://mastodon.social/@danielsaidi/110383970932692857
 
 I've been struggling with a random bug when using an App Group to sync data between an app and a keyboard extension. The explanation: a combination of human error and Xcode.
 
-{% include kankoda/data/open-source.html name="KeyboardKit" version="0.7.0" %}
+{% include kankoda/data/open-source name="KeyboardKit" version="0.7.0" %}
 
 
 ## Background

@@ -9,8 +9,8 @@ image-show: 0
 
 When building closed-source software, you must protect your source code as well as the binaries themselves. One way to do this is with software licenses. This is why I'm excited to introduce LicenseKit - an SDK that protects your software with commercial licenses.
 
-{% include kankoda/data/open-source.html name="KeyboardKit" %}{% assign keyboardkit = project %}
-{% include kankoda/data/open-source.html name="LicenseKit" %}
+{% include kankoda/data/open-source name="KeyboardKit" %}{% assign keyboardkit = project %}
+{% include kankoda/data/open-source name="LicenseKit" %}
 
 ![LicenseKit logo]({{page.image}})
 

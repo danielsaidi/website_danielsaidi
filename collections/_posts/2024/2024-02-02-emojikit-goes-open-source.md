@@ -14,7 +14,7 @@ tweet:  https://x.com/danielsaidi/status/1753360511419175143?s=20
 toot:   https://mastodon.social/@danielsaidi/111861348152490917
 ---
 
-{% include kankoda/data/open-source.html name="EmojiKit" %}
+{% include kankoda/data/open-source name="EmojiKit" %}
 I've decided to open-source the [EmojiKit]({{project.url}}) SDK and move it from my company [Kankoda]({{page.kankoda}}) to my own GitHub account. In this post, I'll discuss why and how it will be done.
 
 ![Header image]({{project.header}})

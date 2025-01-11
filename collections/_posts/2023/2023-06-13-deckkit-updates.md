@@ -10,7 +10,7 @@ image-show: 0
 
 DeckKit 0.7 is out, with new shuffle support that makes shuffling a deck enjoyable. Let's take a look at what's new in this minor update.
 
-{% include kankoda/data/open-source.html name="DeckKit" version="0.7.0" %}
+{% include kankoda/data/open-source name="DeckKit" version="0.7.0" %}
 
 ![DeckKit logo]({{page.image}})
 

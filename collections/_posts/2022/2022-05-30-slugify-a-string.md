@@ -8,7 +8,7 @@ icon:   swift
 
 In this post, we'll take a quick look at how to slugify a string in Swift, which is nice if you want to generate tags, web urls etc.
 
-{% include kankoda/data/open-source.html name="TagKit" %}
+{% include kankoda/data/open-source name="TagKit" %}
 
 I had this need when I created an app where users could apply custom tags to items. It allowed free typing, then converted the string to a valid tag once the user tapped return. 
 

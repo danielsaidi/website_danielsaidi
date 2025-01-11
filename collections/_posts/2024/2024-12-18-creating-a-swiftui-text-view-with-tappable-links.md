@@ -12,7 +12,7 @@ toot:   https://mastodon.social/@danielsaidi/113676318098529677
 tweet:  https://x.com/danielsaidi/status/1869518613633540167
 ---
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+{% include kankoda/data/open-source name="SwiftUIKit" %}
 In this post, we'll take a look at how to create a SwiftUI `Text` alternative that can mix plain text and tappable links, using the `Text` view's underlying support for Markdown.
 
 <!--![Header image]({{page.image}})-->

@@ -14,7 +14,7 @@ matt-article: https://www.chimehq.com/blog/swift-and-old-sdks
 
 SwiftUI 4 introduces a new `ImageRenderer` that can render any SwiftUI view as an image in iOS 16, macOS 13, tvOS 16 & watchOS 9. Let's look at how to backport it to iOS 13.
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+{% include kankoda/data/open-source name="SwiftUIKit" %}
 
 
 ## Background

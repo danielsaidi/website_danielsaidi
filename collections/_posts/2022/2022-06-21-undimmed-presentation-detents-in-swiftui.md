@@ -18,7 +18,7 @@ tgrapperon: https://twitter.com/tgrapperon
 
 SwiftUI 4 adds a bunch of great features, such as custom sized sheets. However, sheets will always dim the underlying view, even in smaller sizes. Let's fix that.
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+{% include kankoda/data/open-source name="SwiftUIKit" %}
 
 > Update 2023-05-25: After some discussions and GitHub issues, I have cleaned up the code quite a bit. This post now has the latest version. You can always visit [SwiftUIKit]({{project.url}}) for the latest version of the code.
 

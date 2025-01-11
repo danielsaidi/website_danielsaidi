@@ -8,8 +8,8 @@ icon:   swift
 
 In this post, we'll look at how to distribute closed-source products with the Swift Package Manager (SPM). We'll go through project setup, package distribution and some problems.
 
-{% include kankoda/data/product.html name="LicenseKit" %}{% assign licensekit=project %}
-{% include kankoda/data/open-source.html name="KeyboardKit" %}
+{% include kankoda/data/product name="LicenseKit" %}{% assign licensekit=product %}
+{% include kankoda/data/open-source name="KeyboardKit" %}
 
 
 ## Background

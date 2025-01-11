@@ -10,7 +10,7 @@ oribiwriter: https://oribi.se/program/oribi-writer/
 
 Oribi develops powerful spelling aids & language support for the digital and physical world, including word prediction, spell checking, voice synthesizing and more.
 
-{% include kankoda/data/open-source.html name="KeyboardKit" %}
+{% include kankoda/data/open-source name="KeyboardKit" %}
 
 ![Oribi logo]({{page.image}})
 

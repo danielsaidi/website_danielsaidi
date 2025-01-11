@@ -9,7 +9,7 @@ source: /Sources/SwiftUIKit/Extensions
 
 SwiftUI is a great UI framework. However, it's still young and may lack things you need. In this post, we'll look at a way to read geometry information from any view.
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+{% include kankoda/data/open-source name="SwiftUIKit" %}
 
 
 ## GeometryReader

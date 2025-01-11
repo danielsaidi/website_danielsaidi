@@ -8,7 +8,7 @@ icon:   swiftui
 
 In this article, we'll take a look at how to determine if code is running in a SwiftUI preview, which may be nice if you need to disable certain things, like network calls.
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+{% include kankoda/data/open-source name="SwiftUIKit" %}
 
 This information can be fetched from the `ProcessInfo` `environment` dictionary, by checking if the `XCODE_RUNNING_FOR_PREVIEWS` key has the string value `"1"`:
 

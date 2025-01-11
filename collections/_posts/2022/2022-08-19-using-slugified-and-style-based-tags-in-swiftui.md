@@ -11,7 +11,7 @@ demo:   https://github.com/danielsaidi/TagKit/raw/main/Resources/Demo-v2.gif
 slug-post:  https://danielsaidi.com/blog/2022/05/30/slugify-a-string
 ---
 
-{% include kankoda/data/open-source.html name="TagKit" %}
+{% include kankoda/data/open-source name="TagKit" %}
 As I'm rewriting an old app from scratch, I'm adding content tagging to it. For reusability, I've put all tag-specific logic in a new library called [TagKit]({{project.url}}). Let's take a look!
 
 ![TagKit logotype]({{page.image}})

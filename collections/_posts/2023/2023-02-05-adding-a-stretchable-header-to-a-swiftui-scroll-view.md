@@ -18,7 +18,7 @@ source: /blob/main/Sources/ScrollKit/ScrollViewHeader.swift
 
 Many iOS apps have screens where the header view stretches out when you pull down the screen. In this post, let’s look at how to implement such a header view in SwiftUI.
 
-{% include kankoda/data/open-source.html name="ScrollKit" %}
+{% include kankoda/data/open-source name="ScrollKit" %}
 
 
 ## Example

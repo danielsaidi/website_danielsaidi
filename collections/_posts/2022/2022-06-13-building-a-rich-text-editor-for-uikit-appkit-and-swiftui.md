@@ -16,7 +16,7 @@ richtextkit:    https://github.com/danielsaidi/RichTextKit
 
 In this article, we'll look at how to extend the rich text support in UIKit, AppKit & SwiftUI by extending native types, adding new types to bridge the different platforms, etc.
 
-{% include kankoda/data/open-source.html name="RichTextKit" %}
+{% include kankoda/data/open-source name="RichTextKit" %}
 
 This post was originally published as a guest article at the [Cindori]({{page.article}}) website. It's published here as well, to serve as a baseline for future articles about rich text editing.
 

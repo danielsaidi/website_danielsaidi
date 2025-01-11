@@ -7,7 +7,7 @@ image: /assets/headers/storekitplus.png
 tweet: https://twitter.com/danielsaidi/status/1541295027208556544?s=20&t=KLgrRJR_DDdJ70DjpNTB5Q
 ---
 
-{% include kankoda/data/open-source.html name="StoreKitPlus" %}In this post, let's take a look at [{{project.name}}]({{project.url}}), which adds extra functionality for working with StoreKit 2 to make it easier to use StoreKit in SwiftUI.
+{% include kankoda/data/open-source name="StoreKitPlus" %}In this post, let's take a look at [{{project.name}}]({{project.url}}), which adds extra functionality for working with StoreKit 2 to make it easier to use StoreKit in SwiftUI.
 
 ![StoreKitPlus logotype]({{page.image}})
 

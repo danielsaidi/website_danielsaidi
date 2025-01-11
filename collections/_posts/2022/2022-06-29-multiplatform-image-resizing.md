@@ -9,7 +9,7 @@ tweet:  https://twitter.com/danielsaidi/status/1542274485616787456?s=20&t=PkyvVl
 
 In this post, let's take a look at how to resize images in UIKit & AppKit. The result will work on iOS, macOS, tvOS & watchOS and lets us use the the same APIs on all platforms.
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+{% include kankoda/data/open-source name="SwiftUIKit" %}
 
 Image resizing is pretty straightforward in Swift, so let's look at how to implement it in UIKit and AppKit, then add more functionality that applies to all platforms.
 

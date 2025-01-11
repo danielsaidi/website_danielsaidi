@@ -16,7 +16,7 @@ source: /blob/main/Sources/ScrollKit/ScrollViewHeader.swift
 
 The SwiftUI `ScrollView` is currently quite limited in functionality, and will for instance not let us detect the current scroll offset. Let's take s look at how to add offset tracking to it.
 
-{% include kankoda/data/open-source.html name="ScrollKit" %}
+{% include kankoda/data/open-source name="ScrollKit" %}
 
 
 ## How to track scroll offset

@@ -7,8 +7,8 @@ image:  /assets/headers/gesturebutton.png
 image-show: 0
 ---
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}
-The GestureButton component that used to be part of the [{{project.name}}]({{project.url}}){% include kankoda/data/open-source.html name="GestureButton" %} has now been moved to a new, separate open-source project called [{{project.name}}]({{project.url}}).
+{% include kankoda/data/open-source name="SwiftUIKit" %}
+The GestureButton component that used to be part of the [{{project.name}}]({{project.url}}){% include kankoda/data/open-source name="GestureButton" %} has now been moved to a new, separate open-source project called [{{project.name}}]({{project.url}}).
 
 ![Header image]({{page.image}})
 

@@ -13,7 +13,7 @@ tweet:  https://x.com/danielsaidi/status/1737416857823461669?s=20
 
 In this post, we’ll take a look at how to search with the `.searchable` API, by just typing on the keyboard without first having to tap/click on the text field.
 
-{% include kankoda/data/open-source.html name="QuickSearch" %}
+{% include kankoda/data/open-source name="QuickSearch" %}
 
 
 ## Update: 2024-06-14

@@ -21,7 +21,7 @@ source: /blob/main/Sources/ScrollKit/ScrollViewHeader.swift
 
 As we've previously looked at how to implement [offset tracking]({{page.post-offset}}) and [stretchable headers]({{page.post-stretch}}) for SwiftUI scroll views, let's combine them to implement a stretchy, sticky scroll view header.
 
-{% include kankoda/data/open-source.html name="ScrollKit" %}
+{% include kankoda/data/open-source name="ScrollKit" %}
 
 
 ## Example

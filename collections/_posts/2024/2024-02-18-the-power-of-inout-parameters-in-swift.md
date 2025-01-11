@@ -13,7 +13,7 @@ tweet:  https://x.com/danielsaidi/status/1759312051640414643?s=20
 toot:   https://mastodon.social/@danielsaidi/111954340675664871
 ---
 
-{% include kankoda/data/open-source.html name="RichTextKit" %}
+{% include kankoda/data/open-source name="RichTextKit" %}
 In Swift, `inout` parameters can reduce code duplication and the amount of code needed to perform certain tasks. Let's take a look at some examples.
 
 

@@ -9,7 +9,7 @@ control-flow: https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html
 
 In this post, we'll look at various ways to improve readability of Swift code, by introducing a couple of extensions to Swift's native types.
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}{% assign swiftuikit = project %}
+{% include kankoda/data/open-source name="SwiftUIKit" %}{% assign swiftuikit = project %}
 
 
 ## Background

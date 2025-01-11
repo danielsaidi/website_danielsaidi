@@ -10,7 +10,7 @@ image-show: 0
 
 `DocumentGroup`-based apps make it easy to edit documents and store them on device and in the cloud. However, they are limited when it comes to customization. Let's extend them!
 
-{% include kankoda/data/open-source.html name="DocumentKit" %}
+{% include kankoda/data/open-source name="DocumentKit" %}
 
 ![DocumentKit logo]({{page.image}})
 

@@ -15,7 +15,7 @@ skeuomorphism: https://en.wikipedia.org/wiki/Skeuomorph
 
 SwiftUI 3 adds a `searchable` view modifier that makes it possible to add a search field to any view. In this post, let's take a look at how to make it (and other modifiers) conditional.
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+{% include kankoda/data/open-source name="SwiftUIKit" %}
 
 Using the `searchable` view modifier is really easy. You just have to provide it with a `text` binding, a placeholder `prompt` and an optional `placement`:
 

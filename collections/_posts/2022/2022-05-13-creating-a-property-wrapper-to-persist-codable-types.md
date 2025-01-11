@@ -8,7 +8,7 @@ icon:   swiftui
  
 In this post, we'll create a property wrapper that can be used with `Codable` to automatically persists it in `UserDefaults` and update SwiftUI when its value changes.
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+{% include kankoda/data/open-source name="SwiftUIKit" %}
 
 
 ## Background

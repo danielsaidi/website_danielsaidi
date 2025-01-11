@@ -14,7 +14,7 @@ post:   https://nilcoalescing.com/blog/SaveCustomCodableTypesInAppStorageOrScene
 
 SwiftUI keeps evolving, but there are still some missing things. Today, let's see how we can extend `Codable` to make it possible to persist it in `AppStorage` and `SceneStorage`.
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" version="3.6.0" %}
+{% include kankoda/data/open-source name="SwiftUIKit" version="3.6.0" %}
 
 The inspiration to the `StorageCodable` protocol in this post comes from [this article]({{page.post}}), where Natalia uses the same approach to extend all codable `Arrays` and `Dictionaries`.
 

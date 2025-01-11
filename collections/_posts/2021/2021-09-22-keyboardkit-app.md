@@ -7,7 +7,7 @@ icon:   avatar
 assets: /assets/blog/21/0922/
 ---
 
-{% include kankoda/data/open-source.html name="KeyboardKit" %}In this post, I'll discuss my new [KeyboardKit app]({{project.app}}) for iOS & iPadOS. I'll go through my first vision, the actual outcome, as well as a bunch of findings, problems etc.
+{% include kankoda/data/open-source name="KeyboardKit" %}In this post, I'll discuss my new [KeyboardKit app]({{project.app}}) for iOS & iPadOS. I'll go through my first vision, the actual outcome, as well as a bunch of findings, problems etc.
 
 ![A bunch of devices running KeyboardKit]({{page.assets}}devices.png){:class="plain"}
 

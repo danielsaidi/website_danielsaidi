@@ -15,7 +15,7 @@ toot:   https://mastodon.social/@danielsaidi/112360327019668316
 
 In this post, I'll show how to use a simple enum to make it easier to reuse standard button types (add, delete, edit, done, etc.), with support for localization.
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+{% include kankoda/data/open-source name="SwiftUIKit" %}
 
 
 ## Background

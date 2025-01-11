@@ -19,7 +19,7 @@ post-sticky:   https://danielsaidi.com/blog/2023/02/09/adding-a-sticky-header-to
 
 As we've previously looked at how to implement [offset tracking]({{page.post-offset}}) and [stretchable]({{page.post-stretch}}) and [sticky]({{page.post-sticky}}) headers for SwiftUI scroll views, let's look at how to handle status bar tint and visibility.
 
-{% include kankoda/data/open-source.html name="ScrollKit" %}
+{% include kankoda/data/open-source name="ScrollKit" %}
 
 
 ## Previous work

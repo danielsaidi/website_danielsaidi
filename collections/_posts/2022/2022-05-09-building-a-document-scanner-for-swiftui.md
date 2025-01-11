@@ -11,7 +11,7 @@ vision:     https://developer.apple.com/documentation/vision
 
 In this post, let's take a look at how to we can extend SwiftUI with a document scanner that uses the device camera to scan documents in iOS.
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+{% include kankoda/data/open-source name="SwiftUIKit" %}
 
 To do this, we'll use the [Vision]({{page.vision}}) framework to create a `VNDocumentCameraViewController` and embed it in SwiftUI for a seamless developer experience.
 

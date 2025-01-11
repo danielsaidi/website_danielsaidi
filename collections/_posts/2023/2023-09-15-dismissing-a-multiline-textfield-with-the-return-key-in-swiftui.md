@@ -15,7 +15,7 @@ toot:   https://mastodon.social/@danielsaidi/111068728937234328
 
 While a single-line `TextField` will dismiss the keyboard when you press return, the same is not true for a multiline text field. Lets take a look at how to fix this.
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+{% include kankoda/data/open-source name="SwiftUIKit" %}
 
 In SwiftUI, an `onSubmit` modifier can be applied to a text field, to trigger an action when the return key is used to submit the text field and dismiss the keyboard:
 

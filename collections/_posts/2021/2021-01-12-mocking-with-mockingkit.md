@@ -12,7 +12,7 @@ mocking:       https://en.wikipedia.org/wiki/Mock_object
 mockingkit:    https://github.com/danielsaidi/MockingKit
 ---
 
-{% include kankoda/data/open-source.html name="MockingKit" %}In this post, I'll demonstrate how to use [MockingKit]({{project.url}}) to mock protocols and classes, that let you record and inspect function calls in your unit tests, register conditional returns, etc.
+{% include kankoda/data/open-source name="MockingKit" %}In this post, I'll demonstrate how to use [MockingKit]({{project.url}}) to mock protocols and classes, that let you record and inspect function calls in your unit tests, register conditional returns, etc.
 
 ![MockingKit]({{page.image}})
 

@@ -13,7 +13,7 @@ toot:   https://mastodon.social/@danielsaidi/112954669061960259
 
 Let's take a look at the Emoji standard's support for skin tone, gender, and direction variants, and how it may have reached its peak as Apple for the first time has *removed* emojis in iOS 17.4.
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+{% include kankoda/data/open-source name="SwiftUIKit" %}
 
 
 ## The straw that broke the camel's back?

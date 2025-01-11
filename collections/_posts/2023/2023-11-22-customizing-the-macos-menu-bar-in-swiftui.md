@@ -15,7 +15,7 @@ toot:   https://mastodon.social/@danielsaidi/111453994720983239
 
 In this post, we'll take a look at how to customize the macOS menu bar for a SwiftUI app, using SwiftUI tools like `CommandMenu` and `CommandGroup`.
 
-{% include kankoda/data/open-source.html name="SwiftUIKit" %}
+{% include kankoda/data/open-source name="SwiftUIKit" %}
 
 Although SwiftUI helps you start working on new platforms, you will run into many platform-specific concepts and challenges as you build your first few apps on the new platform.
 
