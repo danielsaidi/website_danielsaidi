@@ -26,6 +26,3 @@ This means that your demo app will be excluded, if you don't remove `/*.xcodepro
 This happened to me when I published a new package. It took me a while to realize why people claimed they couldn't find the demo app...which I believe did cost me some stars.
 
 To avoid this problem, use a better .gitignore template, or at least remove `/*.xcodeproj` before you add a project to the package.
-
-
-[SwiftUIBlurView]: https://github.com/danielsaidi/SwiftUIBlurView
