@@ -1,10 +1,14 @@
 name: Republish
 
+# Run at 12:01 pm every day.
 on:
   schedule:
-    - cron: '1 12 * * *'  # Run at 12:01 pm every day.
+    - cron: '1 12 * * *'
+  workflow_dispatch:
+    
+# Define the job and its build steps
 jobs:
-  refresh:
+  trigger_rebuild:
     runs-on: ubuntu-latest
     steps:
       - name: Trigger GitHub pages rebuild
@@ -13,6 +17,7 @@ jobs:
             --url  https://api.github.com/repos/danielsaidi/website_danielsaidi/pages/builds \
             --header "Authorization: Bearer $USER_TOKEN"
         env:
-          # You must create a personal token with repo access as GitHub does
-          # not yet support server-to-server page builds.
+          # You must setup a personal access token with repo
+          # access, since GitHub does not yet support server
+          # to server page builds.
           USER_TOKEN: ${{ secrets.USER_TOKEN }}
