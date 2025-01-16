@@ -1,11 +1,13 @@
 ---
 title:  Replacing EnvironmentKit with the new SwiftUI Entry macro
-date:   2025-01-08 07:00:00 +0000
+date:   2025-01-11 07:00:00 +0000
 tags:   swiftui
 
 assets: /assets/blog/25/0111/
 image:  /assets/blog/25/0111/image.jpg
 image-show: 0
+
+redirect_from: https://danielsaidi.com/blog/2025/01/08/replacing-environmentkit-with-the-entry-macro
 
 post:   /blog/2024/04/14/creating-custom-environment-values-in-swiftui
 majid:  https://swiftwithmajid.com/2024/07/09/introducing-entry-macro-in-swiftui/
