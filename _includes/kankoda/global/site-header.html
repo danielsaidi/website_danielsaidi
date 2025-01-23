@@ -1,4 +1,4 @@
-<header class="site-header {{ include.class }}" role="banner">
+<header class="site-header" role="banner">
   <div class="wrapper">
     {% if site.header_axis == "vertical" %}
     <div class="center-content">
@@ -18,8 +18,4 @@
     </div>
     {% endif %}
   </div>
-  
-  {% if include.class | contains:"paper" %}
-  <hr class="wrapper" />
-  {% endif %}
 </header>
