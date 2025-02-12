@@ -13,7 +13,7 @@ tweet:  https://twitter.com/danielsaidi/status/1623804862638039042?s=20&t=J6iHid
 toot:   https://mastodon.social/@danielsaidi/109835843154685679
 
 post-offset:    https://danielsaidi.com/blog/2023/02/06/adding-scroll-offset-tracking-to-a-swiftui-scroll-view
-post-stretch:   https://danielsaidi.com/blog/2023/02/06/adding-a-stretchable-header-to-a-swiftui-scroll-view
+post-stretch:   https://danielsaidi.com/blog/2023/02/05/adding-a-stretchable-header-to-a-swiftui-scroll-view
 
 arden:  https://danielarden.com
 source: /blob/main/Sources/ScrollKit/ScrollViewHeader.swift
