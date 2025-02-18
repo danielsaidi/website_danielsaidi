@@ -31,13 +31,13 @@ With the wide-spread assumption that the 2016 election was a glitch, most US tec
 
 As the 2024 election proved such assumptions wrong, the masks came off as US Big Tech rushed to hail the return of the king. Sponsoring and endorsing, with their necks bent and mouths shut.
 
-For me, the hardest part has been to see Apple play its part in this travesty. Apple has been deeply flawed in recent years, but what they do now - or rather don't do - is something that I can't accept.
+While I have much to say about Musk and other US Big Tech actors, most has already been said in longer texts elsewhere. I will instead focus on the one that is the most difficult to handle - Apple.
+
+For me, it's been especially hard to see Apple, of all companies, play its part in this travesty. Apple has been flawed in recent years, but what they do now - or rather don't do - is very disturbing.
 
 As Matt Massicotte writes in [his blog post]({{page.mattie}}), "Apple is supporting a regime that is not just destroying democracy in the United States, but is actively working to do so globally."
 
-This is no understatement. Apple *is* supporting a regime that is lashing out against allies, attacking countries like Canada and Denmark while cozying up to Russia.
-
-The way that Apple is actively supporting and passively watching this coup happen is unforgivable.
+This is no understatement. Apple *is* supporting a regime that is lashing out against allies, attacking countries like Canada and Denmark while cozying up to Russia. This demands some consequences.
 
 
 ## What will I do?
@@ -58,8 +58,15 @@ Not going to WWDC would be a hard choice, since it's a rare opportunity to meet 
 
 I will however continue to build open-source tools, and to do my best to support others. I will keep building fun stuff that I want to use and that might benefit others.
 
-I will do my best to honor this as long as Apple remains silent and complicit. Only a genuine apology will do - one that truly acknowledges their silence and accepts its consequences.
+As Marco and David concluded in their [podcast]({{page.radar}}) - our relationship with Apple are changing, but we can still use their amazing products and technology to have fun and help others.
 
-I hope that everyone at Apple and everyone in the US tech scene who still believe in tech as a force for good will make your voices heard and help put an end to this travesty.
+
+## Conclusion
+
+I will do my best to honor these commitments as long as Apple remains silent and complicit. Only a genuine apology will do - one that truly acknowledges their silence and accepts its consequences.
+
+These are sad times, since I and many Europeans with me have always loved US culture, and have felt a connection with our big brother in the West. But that big brother is becoming a bad person.
+
+I hope that everyone at Apple and everyone in the US tech scene who still believe in tech as a force for good will make your voices heard and help put an end to this travesty. Before it's too late.
 
 Love.
