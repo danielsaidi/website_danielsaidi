@@ -1,20 +1,25 @@
 ---
 title:  Customizing the macOS About Panel in SwiftUI
 date:   2023-11-28 10:00:00 +0000
-tags:   swiftui macos
+tags:   swiftui macos menubar
 
 assets: /assets/blog/23/1128/
 image:  /assets/blog/23/1128.jpg
 image-show: 0
 
 redirect_from: /blog/2023/11/28/how-to-customize-the-macos-about-panel-in-swiftui
+related_post: /blog/2023/11/22/customizing-the-macos-menu-bar-in-swiftui
 
-article: /blog/2023/11/22/how-to-customize-the-macos-menu-bar-in-swiftui
 tweet:  https://x.com/danielsaidi/status/1729767139966402628?s=20
 toot:   https://mastodon.social/@danielsaidi/111492701147385921
 ---
 
-In this post, we'll take a look at how we can customize the macOS About Panel in SwiftUI, using project settings, bundle files, and SwiftUI.
+In this post, we'll take a look at how to customize the macOS About Panel in SwiftUI, by using project settings, bundle files, and SwiftUI-specific tools.
+
+For more information about customizing the macOS menu bar, I have also written a post about [how to customize the macOS menu bar in SwiftUI]({{page.related_post}}).
+
+
+## Background
 
 As an example, let's create a brand new SwiftUI app and call it "MyApp". When running the app, the main menu will have a default "About..." item that opens the app's about panel:
 
@@ -22,7 +27,7 @@ As an example, let's create a brand new SwiftUI app and call it "MyApp". When ru
 
 This panel will by default show the app icon, name, build number and version number. If we add an app icon to our app, it will automatically be applied without any code needed.
 
-There are however things that we may want to adjust. For instance, the app name should   be "My App". We may also want to display additional information, like copyright.
+There are however things that we may want to adjust. For instance, the display name should be "My App", not "MyApp". We may also want to display additional information, like copyright.
 
 
 ## How to customize the app display name
@@ -41,9 +46,9 @@ If we run the app with this new display name, the main menu and about panel will
 
 ![A screenshot of how to change display name in Build Settings]({{page.assets}}/name.png)
 
-So, the main menu and about panel use the project name and ignores the display name. 
+So, the main menu and its about panel seem to use the project name and ignore the display name, while the "About My App" menu item seems to use it.
 
-While there may be ways to fix this in settings, let's take it as a reason to look at how we can customize the About Panel to show custom content, with and without code.
+While there may be ways to fix this with settings, let's look at how to customize the About Panel to show custom content, with and without code.
 
 
 ## How to customize the about panel without code
@@ -72,15 +77,15 @@ If you add this, the about panel will show the information like this:
 
 ![A screenshot of how credits are presented in the about panel]({{page.assets}}/credits-rtf-panel.png)
 
-However, if you want the credits to contain dynamic content, you need to define this info with code, where you can inject any variables and data into the text.
+However, if you want the credits to contain dynamic content, you need to define this info with code.
 
 
 
 ## How to customize the about panel with code
 
-To customize the About Panel with code, we'll use the same techniques as we looked at in [the previous post]({{page.article}}) on how to customize the main menu commands of an app.
+To customize the About Panel with code, we'll use the same techniques as we looked at in [this post]({{page.related_post}}), on how to customize the main menu commands of an app.
 
-We must replace the default about button with one that calls an `NSApplication` function called `orderFrontStandardAboutPanel`, that opens an About Panel with custom options:
+We must replace the default about button with one that calls an `NSApplication` function that's called `orderFrontStandardAboutPanel`, which opens an About Panel with custom options:
 
 ```swift
 @main
@@ -104,19 +109,17 @@ struct MyAppApp: App {
 }
 ```
 
-The code above replaces the `.appInfo` menu item with a custom menu item that opens an About Panel that overrides the app name. The result looks like this:
+This code replaces the `.appInfo` menu item with a custom menu item that overrides the app name:
 
 ![A custom about panel]({{page.assets}}/custom.png)
 
-We can use these options to override properties like `applicationInfo`, `applicationName` and `applicationVersion`, as well as `credits` and `version` (build number):
+We can use these options to override `applicationInfo`, `applicationName` and `applicationVersion`, as well as `credits` and `version` (build number):
 
 ![Customization options]({{page.assets}}/intellisense.png)
 
 The version row disappears if you set `applicationVersion` and `version` to empty strings and adjusts itself if you set either value to an empty string.
 
-The `credits` value is presented below the version. Notice that this is an *attributed string*. The app will actually *crash* if you set it to a plain string. 
-
-The code below customizes the about panel's credit text with an attributed string:
+The `credits` value is presented below the version. Notice that this is an *attributed string*. Your app will actually *crash* if you set it to a plain string:
 
 ```swift
 @main
@@ -282,6 +285,6 @@ In the code above, we use the simplified initializer to define credits as plain 
 
 ## Conclusion
 
-I really like SwiftUI's APIs for working with menu commands, but the About Panel stuff is a bit hidden. I hope that they bring a more native approach in a future SwiftUI update.
+While I like SwiftUI's APIs for working with menu commands, the About Panel stuff is a bit hidden. I hope that they bring a more native approach in a future SwiftUI update.
 
-With that, I'd love to see the limitations of the attributed string capabilities. The first to make Doom run in the credits text field (someone made it run in the touch bar) wins a prize.
+I'd also love to see the limitations of the attributed string capabilities. The first to make Doom run in the credits text field (someone made it run in the touch bar) wins a prize.

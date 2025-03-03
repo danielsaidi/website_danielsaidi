@@ -1,27 +1,31 @@
 ---
 title:  Customizing the macOS menu bar in SwiftUI
 date:   2023-11-22 06:00:00 +0000
-tags:   swiftui macos
-
-redirect_from: /blog/2023/11/22/how-to-customize-the-macos-menu-bar-in-swiftui
+tags:   swiftui macos menubar
 
 assets: /assets/blog/23/1122/
 image:  /assets/blog/23/1122.jpg
 image-show: 0
 
+redirect_from: /blog/2023/11/22/how-to-customize-the-macos-menu-bar-in-swiftui
+related_post: /blog/2023/11/28/customizing-the-macos-about-panel-in-swiftui
+
 tweet:  https://x.com/danielsaidi/status/1727289933038260289?s=20
 toot:   https://mastodon.social/@danielsaidi/111453994720983239
 ---
 
-In this post, we'll take a look at how to customize the macOS menu bar for a SwiftUI app, using SwiftUI tools like `CommandMenu` and `CommandGroup`.
+In this post, we'll take a look at how to customize the menu bar of a macOS app, using SwiftUI tools like `CommandMenu` and `CommandGroup`.
+
+For more information about customizing the macOS menu bar, I have also written a post about [how to customize the macOS about panel in SwiftUI]({{page.related_post}}).
 
 {% include kankoda/data/open-source name="SwiftUIKit" %}
 
-Although SwiftUI helps you start working on new platforms, you will run into many platform-specific concepts and challenges as you build your first few apps on the new platform.
 
-One thing that was new to me as I started building apps for macOS, was how to customize the menu bar items for your app. 
+## Background
 
-SwiftUI makes a good job of keeping this simple, with the concept of commands. Let's take a look at how we can add, remove and replace items in the main menu.
+Although SwiftUI makes it easier to build multi-platform apps, you will face many platform-specific challenges for each unique platform. For macOS, one such thing is how to customize the menu bar.
+
+SwiftUI makes a good job of keeping this simple, with the use of commands. Let's take a look at how we can use commands to add, remove and replace items in the main menu.
 
 
 ## How to customize the macOS menu bar
@@ -34,11 +38,11 @@ If we run this app on macOS without customizations, the standard menu will look 
 
 ![The standard macOS main menu]({{page.assets}}/standard-menu.png)
 
-We can easily add more top-level menu items or modify items within the standard menus, by applying a SwiftUI `.commands` modifier to the `WindowGroup`:
+We can easily add more top-level menu items or modify items in the standard menus, by applying a SwiftUI `.commands` modifier to the `WindowGroup`:
 
 ```swift
 @main
-struct MyAppApp: App {
+struct MyApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -50,16 +54,16 @@ struct MyAppApp: App {
 }
 ```
 
-This modifier builds on both iOS and macOS, so you don't have to use `#if os(macOS)` to opt out code for certain platforms.
+This works on both iOS and macOS, so you don't have to use `#if os(macOS)` to only use it on macOS.
 
 
-## How to add app-specific menu items to the menu bar
+## How to add menu items to the menu bar
 
-To add new menu items to the main menu, you just have to add `CommandMenu` items to the `.commands` menu builder:
+To add new menu items to the main menu, just add `CommandMenu` items to the `.commands` modifier:
 
 ```swift
 @main
-struct MyAppApp: App {
+struct MyApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -84,11 +88,11 @@ These custom menu items will be added in order, after the standard `Views` menu 
 
 ![A custom macOS main menu]({{page.assets}}/custom-menu.png)
 
-The content of these menus are regular SwiftUI view builders, which means that you can add anything you want to the command menu:
+The content are regular SwiftUI views, which means that you can add anything you want to a menu:
 
 ```swift
 @main
-struct MyAppApp: App {
+struct MyApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -105,16 +109,16 @@ struct MyAppApp: App {
 }
 ```
 
-However, despite our creative efforts, most views and modifiers will be ignored by the item:
+However, although the code above compiles, the macOS app will only render supported view types:
 
 ![A custom macOS main menu with a smiley]({{page.assets}}/custom-menu-smiley.png)
 
-You can add keyboard shortcuts to an item to make it easy to trigger it from within the app:
+You can add keyboard shortcuts to any menu item to make it easy to trigger it from within the app:
 
 ```swift
 @main
 @main
-struct MyAppApp: App {
+struct MyApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -129,26 +133,22 @@ struct MyAppApp: App {
 }
 ```
 
-The macOS menu bar displays these shortcuts as trailing instructions next to the button:
+The macOS menu bar will then display these shortcuts as trailing instructions next to the button:
 
 ![Keyboard shortcuts]({{page.assets}}/keyboard-shortcut.png)
 
-This is all you have to do to add new top-level menu items to the main menu. Let's take a look at how we can customize the standard menu items.
+This is how you add new top-level menu items to the main menu. Let's take a look at how we can use commands to customize the standard menu items as well.
 
 
-## How to customize the standard menu items
+## How to customize standard menu items
 
-You can add and remove items from the standard menu items by adding `CommandGroup`s to the `.commands` builder.
+You can add and remove items from standard menu items by adding `CommandGroup`s to `.commands`.
 
-Consider the standard `Edit` menu:
-
-![The standard `Edit` menu:]({{page.assets}}/edit-menu.png)
-
-We can customize this menu by adding a couple of `CommandGroup` items to the `commands`:
+We can for instance customize the `Edit` menu by adding new `CommandGroup` items to the `commands`:
 
 ```swift
 @main
-struct MyAppApp: App {
+struct MyApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -175,15 +175,15 @@ struct MyAppApp: App {
 }
 ```
 
-In the code above, we use `after` to add custom menu items after certain standard items. We can use standard SwiftUI views like `Button`, `Divider` and `Menu`:
+Since we used `after: .undoRedo`, the new menu item and sub menu is added after that menu item:
 
 ![A customized `Edit` menu:]({{page.assets}}/edit-menu-custom.png)
 
-You can even replace entire sections by using `replacing` instead of `before` or `after`:
+You can use `before:` to add new items before a certain item, and use `replacing` to replace an item.
 
 ```swift
 @main
-struct MyAppApp: App {
+struct MyApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -202,24 +202,23 @@ struct MyAppApp: App {
 }
 ```
 
-This will completely remove undo/redo from the edit menu:
+This will completely remove the `undo/redo` menu item from the edit menu:
 
 ![A further customized `Edit` menu:]({{page.assets}}/edit-menu-custom-2.png)
 
-Note that the strongly typed items you can use with the command group only specify a couple of types, so you will not get full creative freedom.
+Note that the strongly typed items that SwiftUI provides only specify a couple of types, so you don't get full creative freedom.
 
 
 ## How to handle multiple windows
 
-In multi-window apps, you must be able to identify which of the currently open windows a certain menu command should apply to.
+In multi-window apps, you must be able to identify which window a certain command should affect.
 
-For instance, say that we want our app to be able to set the world's reply within this view:
+For instance, consider that we have an app in which we want to be able to affect some view-specific state with a menu bar command:
 
 ```swift
 struct ContentView: View {
     
-    @State
-    private var worldReply: String?
+    @State var message: String?
     
     var body: some View {
         VStack {
@@ -227,9 +226,9 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world!")
-            if let worldReply {
+            if let message {
                 Divider()
-                Text(worldReply)
+                Text(message)
             }
         }
         .padding()
@@ -237,59 +236,54 @@ struct ContentView: View {
 }
 ```
 
-How can a menu command access this state? The short answer is "it can't". We must find another way to communicate between the menu and the window.
+The problem here is that a menu command can't access this `message` state. We must therefore find another way to communicate between the menu and the window.
 
-Having a global singleton state will not work either, since multiple open windows will then react to changes in the global state:
+Having a global singleton would not work, since multiple windows would then use the same state:
 
 ![Multiple open windows]({{page.assets}}/windows.png)
 
-To fix this, we need to use `focus values` to update observable state when focus moves between various windows and views within our app.
+To fix this, we can use `focus values` to change state instance when focus moves between windows.
 
 
 ## How to implement custom focus values
 
 To support focus, we must create a `FocusedValueKey` and bind it to the menu and the view. 
 
-Let's start with creating a new observable class that will hold our state:
+Let's start with creating a new, observable `MessageState` class to handle view-specific message state:
 
 ```swift
-public class World: ObservableObject {
+public class MessageState: ObservableObject {
     
-    @Published
-    var reply: String?
+    @Published var message: String?
 }
 ```
 
-Let's then create a `FocusedValueKey` for this state:
+Let's then create a `FocusedValueKey` implementation for the `MessageState` type, and extend `FocusedValues` with a property that lets us access this focused value:
 
 ```swift
-public struct WorldFocusedValueKey: FocusedValueKey {
+public struct MessageStateFocusedValueKey: FocusedValueKey {
     
-    public typealias Value = World
+    public typealias Value = MessageState
 }
-```
 
-We can now extend `FocusedValues` with a property that lets us access this focused value:
-
-```swift
 public extension FocusedValues {
     
-    typealias World = WorldFocusedValueKey
+    typealias MessageState = MessageStateFocusedValueKey
     
-    var world: World.Value? {
-        get { self[World.self] }
-        set { self[World.self] = newValue }
+    var messageState: MessageState.Value? {
+        get { self[MessageState.self] }
+        set { self[MessageState.self] = newValue }
     }
 }
 ```
 
-We can now add a `World` class `@StateObject` to our view, and use it instead of the `@State` that we had before, then apply a `.focusedValue` modifier to the entire view:
+We can now add a `MessageState` class `@StateObject` to our view and use it instead of the `@State` we had before, then apply a `.focusedValue` modifier to the entire view:
 
 ```swift
 struct ContentView: View {
     
     @StateObject
-    private var world = World()
+    private var messageState = MessageState()
 
     var body: some View {
         VStack {
@@ -297,25 +291,25 @@ struct ContentView: View {
                 .imageScale(.large)
                 .foregroundStyle(.tint)
             Text("Hello, world!")
-            if let reply = world.reply {
+            if let reply = messageState.message {
                 Divider()
                 Text(reply)
             }
         }
         .padding()
-        .focusedValue(\.world, world)
+        .focusedValue(\.messageState, messageState)
     }
 }
 ```
 
-We can then (well, not really) add a `@FocusedValue` property to the app and use it to trigger a reply action from our command menu:
+We can now add a `@FocusedValue` property to `MyApp` and use it to set a message from the menu bar:
 
 ```swift
 @main
-struct MyAppApp: App {
+struct MyApp: App {
     
-    @FocusedValue(\.world)
-    var world: World?
+    @FocusedValue(\.messageState)
+    var messageState: MessageState?
     
     var body: some Scene {
         WindowGroup {
@@ -324,7 +318,7 @@ struct MyAppApp: App {
         .commands {
             CommandMenu("World") {
                 Button("Reply") {
-                    world?.reply = "Hey!"
+                    messageState?.message = "Hey!"
                 }
                 .disabled(world == nil)
                 .keyboardShortcut("r", modifiers: [.command, .shift])
@@ -334,27 +328,27 @@ struct MyAppApp: App {
 }
 ```
 
-The focused value is optional and `nil` when no view with a matching `.focusedValue` has focus. This means that we can disable the button when it won't do anything.
+The focused value will be `nil` when no view with a matching `.focusedValue` has focus. This makes it possible to disable the button when it wouldn't do anything.
 
-However, there is one last thing to consider. A window only becomes focused when a view within it is focused. Since we just have texts and dividers, the window will not be focused.
-
-This means that our menu button will never be enabled, even when a window is selected:
+However, in macOS, a window only becomes focused when a view within it is focused. Since we just have texts and dividers in our content view, these windows will therefore not be focused by default:
 
 ![Disabled menu command]({{page.assets}}/no-focus.png)
 
-If we add a text field to the view and starts editing it, the menu button becomes enabled:
+As you can see in this screenshot, the "Reply" menu item is disabled since the active window is not *focused*, and therefore doesn't set the focused value properly.
+
+If we were to add a text field to the window, the menu item would become enabled while we edit it:
 
 ![Menu command enabled by text field]({{page.assets}}/focus-with-textfield.png)
 
-Without a focusable view, we can still fix this, by applying `.focusable()` to the entire view:
+We can however enable focus for any view, by applying a `.focusable()` modifier to the entire view:
 
 ![Menu command enabled by code]({{page.assets}}/focus-with-code.png)
 
-Since the focus effect is not needed in this case, since the window becomes focused, we can add a `.focusEffectDisabled()` modifier to the view to hide the blue square:
+Since the blue focus effect is not needed in this case, we can use `.focusEffectDisabled()` to hide it:
 
 ![Menu command enabled by code, without focus effect]({{page.assets}}/focus-without-effect.png)
 
-We can now tap the menu button or use the keyboard shortcut to trigger the action for the selected window:
+We can now tap the menu item or use its keyboard shortcut to set a message for the focused view:
 
 ![A reply being shown in a single window]({{page.assets}}/reply.png)
 

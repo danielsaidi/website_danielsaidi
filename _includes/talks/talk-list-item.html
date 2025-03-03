@@ -13,8 +13,7 @@
         {%- endif -%}
       </li>
 
-      {%- if talk.has_presentation == 0 -%}
-      {%- else -%}
+      {%- if talk.has_presentation == 1 -%}
       <li>·</li>
       <li><a href="{{ talk.url }}" target="_blank">Presentation</a></li>
       {%- endif -%}
