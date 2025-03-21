@@ -9,9 +9,6 @@ image-show: 0
 
 redirect_from: /blog/2025/03/21/wally-a-12-year-journey
 
-toot:   https://mastodon.social/@danielsaidi/113839930204827473
-bsky:   https://bsky.app/profile/danielsaidi.bsky.social/post/3lfv4qlhv7s2b
-
 appstore: https://itunes.apple.com/app/wally/id516398915
 ---
 
