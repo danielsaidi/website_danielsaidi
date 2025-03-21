@@ -19,6 +19,7 @@
 
   .post-info {
     margin-top: -10px;
+    margin-bottom: 15px;
   }
 }
 
@@ -45,9 +46,22 @@
 }
 
 .track-links {
-  .bullet {
-    margin: 10px 10px;
+  a {
+    display: inline-block;
+    margin-right: 10px;
+    width: 20px;
+    height: 20px;
+
+    img {
+      border-radius: 0;
+      box-shadow: none;
+      background-color: transparent;
+    }
   }
+
+  a:hover {
+    transform: scale(1.1);
+  }  
 }
 
 .grid.album + a {

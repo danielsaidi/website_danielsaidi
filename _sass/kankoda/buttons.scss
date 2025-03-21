@@ -15,11 +15,11 @@ a.cta:visited {
   margin: 50px 0;
 }
 
-a.scale {
+a.scale, .tracks-links a {
   text-decoration: none;
 }
 
-a.scale:hover, a:hover .scale {
+a.scale:hover, a:hover .scale, .tracks-links a:hover {
   transform: scale(1.04);
 }
 

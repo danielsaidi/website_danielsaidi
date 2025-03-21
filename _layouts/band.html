@@ -64,19 +64,18 @@ layout: default
         </div>
         <section>
           <h3>
-            {{album.name}}
+            {{album.name}} · {{album.year}}
           </h3>
-          <div class="post-info" style="margin-bottom: 20px !important;">
-            {{album.year}} 
+          <div class="post-info">
             <span class="track-links">
               {%- if album.links.spotify -%}
-              <span class="bullet">·</span><a href="{{ album.links.spotify }}">Spotify</a>
+              <a href="{{ album.links.spotify }}"><img src="/assets/music/spotify-50.png" alt="Spotify" /></a>
               {%- endif -%}
               {%- if album.links.apple -%}
-              <span class="bullet">·</span><a href="{{ album.links.apple }}">Apple</a>
+              <a href="{{ album.links.apple }}"><img src="/assets/music/apple-music-50.png" alt="Apple" /></a>
               {%- endif -%}
               {%- if album.links.youtube -%}
-              <span class="bullet">·</span><a href="{{ album.links.youtube }}">YouTube</a>
+              <a href="{{ album.links.youtube }}"><img src="/assets/music/youtube-50.png" alt="YouTube" /></a>
               {%- endif -%}
             </span>
           </div>
@@ -89,15 +88,6 @@ layout: default
                 {{track.name}}
               </span>
               <span class="track-links">
-                {%- if track.links.spotify -%}
-                <a href="{{ track.links.spotify }}">Spotify</a><span class="bullet">·</span>
-                {%- endif -%}
-                {%- if track.links.apple -%}
-                <a href="{{ track.links.apple }}">Apple</a><span class="bullet">·</span>
-                {%- endif -%}
-                {%- if track.links.youtube -%}
-                <a href="{{ track.links.youtube }}">YouTube</a><span class="bullet">·</span>
-                {%- endif -%}
                 {%- if track.lyrics == false -%}{%- else -%}
                 <a href="{{ lyrics_url }}{{ album.name | slugify }}/{{ track.name | slugify }}">Lyrics</a>
                 {%- endif -%}
