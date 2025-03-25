@@ -53,6 +53,7 @@ header_pages:
   - pages/blog.md
   - pages/opensource.md
   - pages/apps.md
+  - pages/talks.md
 
 footer_sitemap:
   - index.md
