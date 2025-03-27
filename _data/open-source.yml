@@ -19,24 +19,23 @@
 
 - name: ApiKit
   url: https://github.com/danielsaidi/ApiKit
-  icon: /assets/sdks/apikit.png
   header: /assets/sdks/apikit-header.jpg
   temp-item-class: plain
 
 - name: AppIconKit
   url: https://github.com/danielsaidi/AppIconKit
-  header: /assets/headers/appiconkit.png
+  header: /assets/sdks/appiconkit-header.jpg
   temp-item-class: plain
 
 - name: BadgeIcon
   url: https://github.com/danielsaidi/BadgeIcon
-  header: /assets/headers/badgeicon.png
+  header: /assets/sdks/badgeicon-header.jpg
   temp-item-class: plain
 
 - name: DeckKit
   url: https://github.com/danielsaidi/DeckKit
-  header: /assets/headers/deckkit.png
-  temp-item-class: app-icon
+  header: /assets/sdks/deckkit-header.jpg
+  temp-item-class: plain
 
 - name: DocumentKit
   url: https://github.com/danielsaidi/DocumentKit
