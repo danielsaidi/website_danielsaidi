@@ -6,7 +6,7 @@ tags:   swiftui
 redirect_from: /blog/2023/08/23/storagecodable
 
 assets: /assets/blog/23/0823/
-image:  /assets/blog/23/0823.jpg
+image:  /assets/blog/23/0823/image.jpg
 image-show: 0
 
 post:   https://nilcoalescing.com/blog/SaveCustomCodableTypesInAppStorageOrSceneStorage/

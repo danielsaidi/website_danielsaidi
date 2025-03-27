@@ -37,11 +37,6 @@
   header: /assets/sdks/deckkit-header.jpg
   temp-item-class: plain
 
-- name: DocumentKit
-  url: https://github.com/danielsaidi/DocumentKit
-  header: /assets/headers/documentkit.png
-  temp-item-class: app-icon
-
 - name: EmojiKit
   url: https://github.com/danielsaidi/EmojiKit
   header: /assets/headers/emojikit.png

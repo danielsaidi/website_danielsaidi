@@ -4,7 +4,7 @@ date:   2023-08-29 06:00:00 +0000
 tags:   swiftui
 
 assets: /assets/blog/23/0829/
-image:  /assets/blog/23/0829.jpg
+image:  /assets/blog/23/0829/image.jpg
 image-show: 0
 
 tweet:  https://twitter.com/danielsaidi/status/1696851725477351689?s=20

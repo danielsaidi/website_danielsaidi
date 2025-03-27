@@ -4,7 +4,7 @@ date:   2023-05-17 06:00:00 +0000
 tags:   swift swiftui
 
 assets: /assets/blog/23/0517/
-image:  /assets/blog/23/0517.jpg
+image:  /assets/blog/23/0517/image.jpg
 image-show: 0
 
 tweet:  https://twitter.com/danielsaidi/status/1658808366657937409?s=20

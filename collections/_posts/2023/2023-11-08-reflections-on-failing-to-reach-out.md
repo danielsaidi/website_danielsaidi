@@ -4,7 +4,7 @@ date:   2023-11-08 06:00:00 +0000
 tags:   general
 
 assets: /assets/blog/23/1108/
-image:  /assets/blog/23/1108.jpg
+image:  /assets/blog/23/1108/image.jpg
 image-show: 0
 
 tweet:  https://x.com/danielsaidi/status/1722257925920686498?s=20

@@ -4,7 +4,7 @@ date:   2023-11-28 10:00:00 +0000
 tags:   swiftui macos menubar
 
 assets: /assets/blog/23/1128/
-image:  /assets/blog/23/1128.jpg
+image:  /assets/blog/23/1128/image.jpg
 image-show: 0
 
 redirect_from: /blog/2023/11/28/how-to-customize-the-macos-about-panel-in-swiftui

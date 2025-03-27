@@ -4,7 +4,7 @@ date:   2023-02-09 10:00:00 +0000
 tags:   swiftui scrollview open-source
 
 assets: /assets/blog/23/0209/
-image:  /assets/blog/23/0209.jpg
+image:  /assets/blog/23/0209/image.jpg
 image-show: 0
 
 assets-stretch: /assets/blog/23/0206/

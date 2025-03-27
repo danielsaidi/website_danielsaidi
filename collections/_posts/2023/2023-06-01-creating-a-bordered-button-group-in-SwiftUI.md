@@ -4,7 +4,7 @@ date:   2023-06-01 06:00:00 +0000
 tags:   swiftui
 
 assets: /assets/blog/23/0601/
-image:  /assets/blog/23/0601.jpg
+image:  /assets/blog/23/0601/image.jpg
 image-show: 0
 
 redirect_from: /blog/2023/06/01/creating-a-bordered-button-group

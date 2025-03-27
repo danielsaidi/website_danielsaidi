@@ -6,7 +6,7 @@ tags:   swiftui
 redirect_from: /blog/2023/09/15/how-to-dismiss-a-multiline-swiftui-textfield-by-pressing-the-return-key
 
 assets: /assets/blog/23/0915/
-image:  /assets/blog/23/0915.jpg
+image:  /assets/blog/23/0915/image.jpg
 image-show: 0
 
 tweet:  https://x.com/danielsaidi/status/1702632945612100069?s=20

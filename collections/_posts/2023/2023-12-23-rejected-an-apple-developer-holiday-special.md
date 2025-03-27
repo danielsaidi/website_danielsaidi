@@ -4,7 +4,7 @@ date:   2023-12-22 06:00:00 +0000
 tags:   swiftui apps
 
 assets: /assets/blog/23/1223/
-image:  /assets/blog/23/1223.jpg
+image:  /assets/blog/23/1223/image.jpg
 image-show: 0
 
 toot:   https://mastodon.social/@danielsaidi/111628377914513976

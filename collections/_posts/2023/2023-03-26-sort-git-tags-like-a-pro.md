@@ -4,7 +4,7 @@ date:   2023-03-26 06:00:00 +0000
 tags:   git
 
 assets: /assets/blog/23/0326/
-image:  /assets/blog/23/0326.jpg
+image:  /assets/blog/23/0326/image.jpg
 image-show: 0
 
 ---

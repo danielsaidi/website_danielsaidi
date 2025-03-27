@@ -4,7 +4,7 @@ date:   2023-04-01 06:00:00 +0000
 tags:   swift
 
 assets: /assets/blog/23/0401/
-image:  /assets/blog/23/0401.jpg
+image:  /assets/blog/23/0401/image.jpg
 image-show: 0
 
 tweet:  https://twitter.com/danielsaidi/status/1642412403542433792?s=20

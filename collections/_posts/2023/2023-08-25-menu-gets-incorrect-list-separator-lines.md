@@ -6,7 +6,7 @@ tags:   swiftui
 redirect_from: /blog/2023/08/25/menu-gets-incorrect-separator-line-in-lists
 
 assets: /assets/blog/23/0825/
-image:  /assets/blog/23/0825.jpg
+image:  /assets/blog/23/0825/image.jpg
 image-show: 0
 
 tweet:  https://twitter.com/danielsaidi/status/1694985225611137502?s=20

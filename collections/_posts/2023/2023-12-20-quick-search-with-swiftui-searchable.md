@@ -4,7 +4,7 @@ date:   2023-12-20 06:00:00 +0000
 tags:   swiftui macos ios
 
 assets: /assets/blog/23/1220/
-image:  /assets/blog/23/1220.jpg
+image:  /assets/blog/23/1220/image.jpg
 image-show: 0
 
 toot:   https://mastodon.social/@danielsaidi/111612228156955705
