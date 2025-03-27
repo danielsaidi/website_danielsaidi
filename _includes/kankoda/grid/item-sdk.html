@@ -1,0 +1,7 @@
+{%- assign item = include.item -%}
+<div class="centered">
+    <a href="{{item.url}}" title="{{item.name}}">
+        <img src="/assets/sdks/{{item.name | downcase}}.png" alt="{{item.name}} icon" class="{{item.temp-item-class}} scale" />
+    </a>
+    <p>{{item.name}}</p>
+</div>

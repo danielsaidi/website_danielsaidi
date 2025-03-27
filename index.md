@@ -46,9 +46,12 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
       </section>
       <hr />
       <section class="opensource">
-        {% assign projects = site.data.open-source | slice: 0, 4 %}
         {% include kankoda/titles/section.html title="Open Source" link="/opensource" %}
-        {% include kankoda/grid/grid.html items=projects type="icons" %}
+        <div class="grid">
+          {% for item in site.data.open-source limit:4 %}
+            {% include kankoda/grid/item-sdk.html item=item %}
+          {% endfor %}
+        </div>
       </section>
       <section class="apps">
         {% assign apps = site.data.apps | slice: 0, 4 %}

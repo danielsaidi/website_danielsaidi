@@ -20,5 +20,9 @@ redirect_from:
 
   {% include work-paragraph.html %}
 
-  {% include kankoda/grid/grid.html items=site.data.open-source type="icons" %}
+  <div class="grid">
+    {% for item in site.data.open-source %}
+      {% include kankoda/grid/item-sdk.html item=item %}
+    {% endfor %}
+  </div>
 </article>
