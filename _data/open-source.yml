@@ -47,14 +47,19 @@
   header: /assets/sdks/gesturebutton-header.jpg
   temp-item-class: plain
 
+- name: LicenseKit
+  url: https://github.com/kankoda/LicenseKit
+  header: /assets/sdks/licensekit-header.jpg
+  temp-item-class: plain
+
 - name: MockingKit
   url: https://github.com/danielsaidi/MockingKit
-  header: /assets/sdks/mockingkit-header.png
+  header: /assets/sdks/mockingkit-header.jpg
   temp-item-class: plain
 
 - name: OnboardingKit
   url: https://github.com/danielsaidi/OnboardingKit
-  header: /assets/sdks/mockingkit-header.png
+  header: /assets/sdks/mockingkit-header.jpg
   temp-item-class: plain
 
 - name: PrintingKit

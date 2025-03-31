@@ -4,7 +4,7 @@ title: Work
 permalink: /work/
 
 keyboardkit: https://keyboardkit.com
-licensekit: https://getlicensekit.com
+licensekit: https://kankoda.com/licensekit
 ---
 
 <article>
