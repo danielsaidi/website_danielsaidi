@@ -49,13 +49,13 @@
 
 - name: MockingKit
   url: https://github.com/danielsaidi/MockingKit
-  header: /assets/sdks/mockingkit-headers.png
+  header: /assets/sdks/mockingkit-header.png
   temp-item-class: plain
 
 - name: OnboardingKit
   url: https://github.com/danielsaidi/OnboardingKit
-  header: /assets/headers/onboardingkit.png
-  temp-item-class: app-icon
+  header: /assets/sdks/mockingkit-header.png
+  temp-item-class: plain
 
 - name: PrintingKit
   url: https://github.com/danielsaidi/PrintingKit
