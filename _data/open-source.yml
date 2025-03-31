@@ -39,13 +39,13 @@
 
 - name: EmojiKit
   url: https://github.com/danielsaidi/EmojiKit
-  header: /assets/headers/emojikit.png
-  temp-item-class: app-icon
+  header: /assets/sdks/emojikit-header.jpg
+  temp-item-class: plain
 
 - name: GestureButton
   url: https://github.com/danielsaidi/GestureButton
-  header: /assets/headers/gesturebutton.png
-  temp-item-class: app-icon
+  header: /assets/sdks/gesturebutton-header.jpg
+  temp-item-class: plain
 
 - name: MockingKit
   url: https://github.com/danielsaidi/MockingKit
