@@ -49,8 +49,8 @@
 
 - name: MockingKit
   url: https://github.com/danielsaidi/MockingKit
-  header: /assets/headers/mockingkit.png
-  temp-item-class: app-icon
+  header: /assets/sdks/mockingkit-headers.png
+  temp-item-class: plain
 
 - name: OnboardingKit
   url: https://github.com/danielsaidi/OnboardingKit
