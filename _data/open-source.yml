@@ -64,8 +64,8 @@
 
 - name: PrintingKit
   url: https://github.com/danielsaidi/PrintingKit
-  header: /assets/headers/printingkit.png
-  temp-item-class: app-icon
+  header: /assets/sdks/printingkit-header.jpg
+  temp-item-class: plain
 
 - name: QuickSearch
   url: https://github.com/danielsaidi/QuickSearch
