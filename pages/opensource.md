@@ -18,9 +18,5 @@ redirect_from:
     Here are some open-source projects that I have created and currently maintain. For more details, have a look at my <a href="{{ site.urls.github }}">GitHub</a> profile.
   </p>
 
-  <div class="grid">
-    {% for item in site.data.open-source %}
-      {% include kankoda/grid/item-sdk.html item=item %}
-    {% endfor %}
-  </div>
+  {% include kankoda/grid/grid.html items=site.data.open-source type="icons" %}
 </article>

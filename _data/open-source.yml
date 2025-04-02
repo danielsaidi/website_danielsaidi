@@ -5,101 +5,113 @@
   pro: https://keyboardkit.com/pro
   github: https://github.com/KeyboardKit/KeyboardKit
   github_pro: https://github.com/KeyboardKit/KeyboardKitPro
-  temp-item-class: plain
+  image: /assets/sdks/keyboardkit.png
+  image-class: plain
 
 - name: SwiftUIKit
   url: https://github.com/danielsaidi/SwiftUIKit
+  image: /assets/sdks/swiftuikit.png
   header: /assets/headers/swiftuikit.png
-  temp-item-class: app-icon
 
 - name: RichTextKit
   url: https://github.com/danielsaidi/RichTextKit
+  image: /assets/sdks/richtextkit.png
   header: /assets/headers/richtextkit.png
-  temp-item-class: app-icon
 
 - name: ApiKit
   url: https://github.com/danielsaidi/ApiKit
+  image: /assets/sdks/apikit.png
   header: /assets/sdks/apikit-header.jpg
-  temp-item-class: plain
+  image-class: plain
 
 - name: AppIconKit
   url: https://github.com/danielsaidi/AppIconKit
+  image: /assets/sdks/appiconkit.png
   header: /assets/sdks/appiconkit-header.jpg
-  temp-item-class: plain
+  image-class: plain
 
 - name: BadgeIcon
   url: https://github.com/danielsaidi/BadgeIcon
+  image: /assets/sdks/badgeicon.png
   header: /assets/sdks/badgeicon-header.jpg
-  temp-item-class: plain
+  image-class: plain
 
 - name: DeckKit
   url: https://github.com/danielsaidi/DeckKit
+  image: /assets/sdks/deckkit.png
   header: /assets/sdks/deckkit-header.jpg
-  temp-item-class: plain
+  image-class: plain
 
 - name: EmojiKit
   url: https://github.com/danielsaidi/EmojiKit
+  image: /assets/sdks/emojikit.png
   header: /assets/sdks/emojikit-header.jpg
-  temp-item-class: plain
+  image-class: plain
 
 - name: GestureButton
   url: https://github.com/danielsaidi/GestureButton
+  image: /assets/sdks/gesturebutton.png
   header: /assets/sdks/gesturebutton-header.jpg
-  temp-item-class: plain
+  image-class: plain
 
 - name: LicenseKit
   url: https://github.com/kankoda/LicenseKit
+  image: /assets/sdks/licensekit.png
   header: /assets/sdks/licensekit-header.jpg
-  temp-item-class: plain
+  image-class: plain
 
 - name: MockingKit
   url: https://github.com/danielsaidi/MockingKit
+  image: /assets/sdks/mockingkit.png
   header: /assets/sdks/mockingkit-header.jpg
-  temp-item-class: plain
+  image-class: plain
 
 - name: OnboardingKit
   url: https://github.com/danielsaidi/OnboardingKit
+  image: /assets/sdks/mockingkit.png
   header: /assets/sdks/mockingkit-header.jpg
-  temp-item-class: plain
+  image-class: plain
 
 - name: PrintingKit
   url: https://github.com/danielsaidi/PrintingKit
+  image: /assets/sdks/printingkit.png
   header: /assets/sdks/printingkit-header.jpg
-  temp-item-class: plain
+  image-class: plain
 
 - name: QuickSearch
   url: https://github.com/danielsaidi/QuickSearch
-  header: /assets/headers/quicksearch.png
-  temp-item-class: app-icon
+  image: /assets/sdks/quicksearch.png
+  header: /assets/sdks/quicksearch-header.jpg
+  image-class: plain
 
 - name: ScrollKit
   url: https://github.com/danielsaidi/ScrollKit
+  image: /assets/sdks/scrollkit.png
   header: /assets/headers/scrollkit.png
-  temp-item-class: app-icon
 
 - name: StoreKitPlus
   url: https://github.com/danielsaidi/StoreKitPlus
+  image: /assets/sdks/storekitplus.png
   header: /assets/headers/storekitplus.png
-  temp-item-class: app-icon
 
 - name: SwiftPackageScripts
   title: SPM Scripts
   url: https://github.com/danielsaidi/SwiftPackageScripts
+  image: /assets/sdks/swiftpackagescripts.png
   header: /assets/headers/swiftpackagescripts.png
-  temp-item-class: app-icon
 
 - name: SystemNotification
   title: SystemNot...
   url: https://github.com/danielsaidi/SystemNotification
+  image: /assets/sdks/systemnotification.png
   header: /assets/headers/systemnotification.png
-  temp-item-class: app-icon
 
 - name: TagKit
   url: https://github.com/danielsaidi/TagKit
+  image: /assets/sdks/tagkit.png
   header: /assets/headers/tagkit.png
-  temp-item-class: app-icon
 
 - name: WebViewKit
   url: https://github.com/danielsaidi/WebViewKit
+  image: /assets/sdks/webviewkit.png
   header: /assets/headers/webviewkit.png
-  temp-item-class: app-icon

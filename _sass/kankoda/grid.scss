@@ -59,7 +59,7 @@ p + .grid {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .grid.icons { 
+  .grid.col4, .grid.icons { 
     grid-template-columns: repeat(2, 1fr);
   }
   

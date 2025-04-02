@@ -3,7 +3,7 @@ title:  Introducing LicenseKit
 date:   2022-11-09 08:00:00 +0000
 tags:   swift closed-source licenses
 
-image:  /assets/headers/licensekit.png
+image:  /assets/sdks/licensekit-header.jpg
 image-show: 0
 ---
 
