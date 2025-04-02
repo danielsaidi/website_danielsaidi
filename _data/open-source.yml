@@ -11,7 +11,8 @@
 - name: SwiftUIKit
   url: https://github.com/danielsaidi/SwiftUIKit
   image: /assets/sdks/swiftuikit.png
-  header: /assets/headers/swiftuikit.png
+  header: /assets/sdks/swiftuikit-header.jpg
+  image-class: plain
 
 - name: RichTextKit
   url: https://github.com/danielsaidi/RichTextKit
@@ -87,18 +88,21 @@
 - name: ScrollKit
   url: https://github.com/danielsaidi/ScrollKit
   image: /assets/sdks/scrollkit.png
-  header: /assets/headers/scrollkit.png
+  header: /assets/sdks/scrollkit-header.jpg
+  image-class: plain
 
 - name: StoreKitPlus
   url: https://github.com/danielsaidi/StoreKitPlus
   image: /assets/sdks/storekitplus.png
-  header: /assets/headers/storekitplus.png
+  header: /assets/sdks/storekitplus-header.jpg
+  image-class: plain
 
 - name: SwiftPackageScripts
-  title: SPM Scripts
+  title: Swift Package Scripts
   url: https://github.com/danielsaidi/SwiftPackageScripts
   image: /assets/sdks/swiftpackagescripts.png
-  header: /assets/headers/swiftpackagescripts.png
+  header: /assets/sdks/swiftpackagescripts-header.jpg
+  image-class: plain
 
 - name: SystemNotification
   title: SystemNot...
