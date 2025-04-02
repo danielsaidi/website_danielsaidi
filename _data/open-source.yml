@@ -68,8 +68,8 @@
 
 - name: OnboardingKit
   url: https://github.com/danielsaidi/OnboardingKit
-  image: /assets/sdks/mockingkit.png
-  header: /assets/sdks/mockingkit-header.jpg
+  image: /assets/sdks/onboardingkit.png
+  header: /assets/sdks/onboardingkit-header.jpg
   image-class: plain
 
 - name: PrintingKit
