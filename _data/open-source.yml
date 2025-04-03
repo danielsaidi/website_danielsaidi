@@ -6,13 +6,11 @@
   github: https://github.com/KeyboardKit/KeyboardKit
   github_pro: https://github.com/KeyboardKit/KeyboardKitPro
   image: /assets/sdks/keyboardkit.png
-  image-class: plain
 
 - name: SwiftUIKit
   url: https://github.com/danielsaidi/SwiftUIKit
   image: /assets/sdks/swiftuikit.png
   header: /assets/sdks/swiftuikit-header.jpg
-  image-class: plain
 
 - name: RichTextKit
   url: https://github.com/danielsaidi/RichTextKit
@@ -23,101 +21,84 @@
   url: https://github.com/danielsaidi/ApiKit
   image: /assets/sdks/apikit.png
   header: /assets/sdks/apikit-header.jpg
-  image-class: plain
 
 - name: AppIconKit
   url: https://github.com/danielsaidi/AppIconKit
   image: /assets/sdks/appiconkit.png
   header: /assets/sdks/appiconkit-header.jpg
-  image-class: plain
 
 - name: BadgeIcon
   url: https://github.com/danielsaidi/BadgeIcon
   image: /assets/sdks/badgeicon.png
   header: /assets/sdks/badgeicon-header.jpg
-  image-class: plain
 
 - name: DeckKit
   url: https://github.com/danielsaidi/DeckKit
   image: /assets/sdks/deckkit.png
   header: /assets/sdks/deckkit-header.jpg
-  image-class: plain
 
 - name: EmojiKit
   url: https://github.com/danielsaidi/EmojiKit
   image: /assets/sdks/emojikit.png
   header: /assets/sdks/emojikit-header.jpg
-  image-class: plain
 
 - name: GestureButton
   url: https://github.com/danielsaidi/GestureButton
   image: /assets/sdks/gesturebutton.png
   header: /assets/sdks/gesturebutton-header.jpg
-  image-class: plain
 
 - name: LicenseKit
   url: https://github.com/kankoda/LicenseKit
   image: /assets/sdks/licensekit.png
   header: /assets/sdks/licensekit-header.jpg
-  image-class: plain
 
 - name: MockingKit
   url: https://github.com/danielsaidi/MockingKit
   image: /assets/sdks/mockingkit.png
   header: /assets/sdks/mockingkit-header.jpg
-  image-class: plain
 
 - name: OnboardingKit
   url: https://github.com/danielsaidi/OnboardingKit
   image: /assets/sdks/onboardingkit.png
   header: /assets/sdks/onboardingkit-header.jpg
-  image-class: plain
 
 - name: PrintingKit
   url: https://github.com/danielsaidi/PrintingKit
   image: /assets/sdks/printingkit.png
   header: /assets/sdks/printingkit-header.jpg
-  image-class: plain
 
 - name: QuickSearch
   url: https://github.com/danielsaidi/QuickSearch
   image: /assets/sdks/quicksearch.png
   header: /assets/sdks/quicksearch-header.jpg
-  image-class: plain
 
 - name: ScrollKit
   url: https://github.com/danielsaidi/ScrollKit
   image: /assets/sdks/scrollkit.png
   header: /assets/sdks/scrollkit-header.jpg
-  image-class: plain
 
 - name: StoreKitPlus
   url: https://github.com/danielsaidi/StoreKitPlus
   image: /assets/sdks/storekitplus.png
   header: /assets/sdks/storekitplus-header.jpg
-  image-class: plain
 
 - name: SwiftPackageScripts
   title: Swift Package Scripts
   url: https://github.com/danielsaidi/SwiftPackageScripts
   image: /assets/sdks/swiftpackagescripts.png
   header: /assets/sdks/swiftpackagescripts-header.jpg
-  image-class: plain
 
 - name: SystemNotification
   url: https://github.com/danielsaidi/SystemNotification
   image: /assets/sdks/systemnotification.png
   header: /assets/sdks/systemnotification-header.jpg
-  image-class: plain
 
 - name: TagKit
   url: https://github.com/danielsaidi/TagKit
   image: /assets/sdks/tagkit.png
   header: /assets/sdks/tagkit-header.jpg
-  image-class: plain
 
 - name: WebViewKit
   url: https://github.com/danielsaidi/WebViewKit
   image: /assets/sdks/webviewkit.png
   header: /assets/sdks/webviewkit-header.jpg
-  image-class: plain
