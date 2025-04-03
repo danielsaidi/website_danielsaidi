@@ -5,7 +5,8 @@
   pro: https://keyboardkit.com/pro
   github: https://github.com/KeyboardKit/KeyboardKit
   github_pro: https://github.com/KeyboardKit/KeyboardKitPro
-  image: /assets/sdks/keyboardkit.png
+  image: /assets/icons/keyboardkit.png
+  image-class: app-icon
 
 - name: SwiftUIKit
   url: https://github.com/danielsaidi/SwiftUIKit
