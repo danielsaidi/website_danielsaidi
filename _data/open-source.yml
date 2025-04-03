@@ -105,10 +105,10 @@
   image-class: plain
 
 - name: SystemNotification
-  title: SystemNot...
   url: https://github.com/danielsaidi/SystemNotification
   image: /assets/sdks/systemnotification.png
-  header: /assets/headers/systemnotification.png
+  header: /assets/sdks/systemnotification-header.jpg
+  image-class: plain
 
 - name: TagKit
   url: https://github.com/danielsaidi/TagKit
