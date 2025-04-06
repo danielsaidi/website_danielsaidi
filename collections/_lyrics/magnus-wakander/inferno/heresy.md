@@ -1,9 +1,8 @@
 ---
-title:  Heresy of Akhenaton
+title:  Heresy
 band:   Magnus Wakander
 album:  Inferno
 ---
-
 
 The sun his father
 Alone to rule this realm

@@ -1,10 +1,10 @@
 ---
-title:  Blood of Bhaal
+title:  Blood
 band:   Magnus Wakander
 album:  Inferno
 ---
 
-Blood of Bhaal
+Blood of Baal
 
 We open up your veins
 Unleash the crimson stream
@@ -16,9 +16,9 @@ Every breath a plea
 Every scream a way
 To let him in
 
-Through this rite of passage 
-Through your puny pleas 
-Through your pain and grief 
+Through this rite of passage
+Through your puny pleas
+Through your pain and grief
 We let him in
 
 Bleeder of the blood
@@ -59,13 +59,11 @@ Is the soil of his soul
 Your body
 Is now the vessel of a god
 
-
 Blood of Bhaal
-
 
 He ravages your soul
 Fills up your broken mind
-Strengthened your pain 
+Strengthened your pain
 He grows inside
 
 You only have to shatter
@@ -80,7 +78,7 @@ He unfolds
 
 Vessel of Bhaal
 Is all you have to be
-Surrender your flesh 
+Surrender your flesh
 Set him free
 
 Every limb a promise
@@ -93,8 +91,8 @@ You no longer have to kneel
 Serve him as you fade
 Set him free
 
-Through your mouth he speaks 
-Through your lungs he breathes 
+Through your mouth he speaks
+Through your lungs he breathes
 Through your eyes his sees
 Set him free
 

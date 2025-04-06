@@ -1,10 +1,10 @@
 ---
-title:  Pleasures of Asmodeus
+title:  Pleasures
 band:   Magnus Wakander
 album:  Inferno
 ---
 
-In these halls of trust 
+In these halls of trust
 You walk the path of the just
 Forsaking carnal pleasures
 Never giving in to the lust
@@ -29,7 +29,7 @@ The pleasures of Asmodeus - Deny
 The pleasures of Asmodeus - Cry
 The pleasures of Asmodeus - Die
 
-In these halls of broken trust 
+In these halls of broken trust
 You crawl the path of the unjust
 Forsaking your divine calling
 For corrupted carnal lust

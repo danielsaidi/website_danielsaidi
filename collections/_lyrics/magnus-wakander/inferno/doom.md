@@ -1,5 +1,5 @@
 ---
-title:  Doom of Abbadon
+title:  Doom
 band:   Magnus Wakander
 album:  Inferno
 ---

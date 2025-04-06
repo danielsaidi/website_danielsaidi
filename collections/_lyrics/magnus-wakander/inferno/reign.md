@@ -1,5 +1,5 @@
 ---
-title:  Reign of Lucifer
+title:  Reign
 band:   Magnus Wakander
 album:  Inferno
 ---

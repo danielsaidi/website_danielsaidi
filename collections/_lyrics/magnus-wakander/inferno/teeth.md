@@ -1,5 +1,5 @@
 ---
-title:  Teeth of Yhidothrus
+title:  Teeth
 band:   Magnus Wakander
 album:  Inferno
 ---

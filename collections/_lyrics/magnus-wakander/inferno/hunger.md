@@ -1,5 +1,5 @@
 ---
-title:  Hunger of Átahsaia
+title:  Hunger
 band:   Magnus Wakander
 album:  Inferno
 ---

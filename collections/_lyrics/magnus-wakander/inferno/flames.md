@@ -1,5 +1,5 @@
 ---
-title:  Flames of Shaitan
+title:  Flames
 band:   Magnus Wakander
 album:  Inferno
 ---

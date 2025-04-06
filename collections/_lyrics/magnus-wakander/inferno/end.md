@@ -1,5 +1,5 @@
 ---
-title:  End of Me
+title:  End
 band:   Magnus Wakander
 album:  Inferno
 ---

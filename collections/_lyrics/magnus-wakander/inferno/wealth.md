@@ -1,5 +1,5 @@
 ---
-title:  Wealth of Belphegor
+title:  Wealth
 band:   Magnus Wakander
 album:  Inferno
 ---

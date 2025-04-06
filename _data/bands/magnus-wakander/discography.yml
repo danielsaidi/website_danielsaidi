@@ -103,3 +103,20 @@
         apple:   https://music.apple.com/se/album/defleshed-feat-daniel-saidi/1597571312?i=1597571788
         spotify: https://open.spotify.com/track/7jgvGQlUiAY5A04fP7TvbX?si=1a24120f8b7345c5
         youtube: https://www.youtube.com/watch?v=713wYu-vzA4&list=OLAK5uy_kLaxTk0iiw5dRciDXeYpYoILD6y9i3xjw&index=10
+
+- name: Inferno
+  year: 2025
+  tracks:
+    - name: Blood
+    - name: Pleasures
+    - name: Teeth
+    - name: Hunger
+    - name: Doom
+    - name: Sons
+    - name: Reign
+    - name: Flames
+    - name: Wealth
+    - name: Knowledge
+    - name: Heresy
+    - name: Flesh
+    - name: End

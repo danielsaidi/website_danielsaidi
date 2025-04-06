@@ -1,5 +1,5 @@
 ---
-title:  Sons of Belial
+title:  Sons
 band:   Magnus Wakander
 album:  Inferno
 ---

@@ -1,5 +1,5 @@
 ---
-title:  Wisdoms of Paimon
+title:  Knowledge
 band:   Magnus Wakander
 album:  Inferno
 ---
