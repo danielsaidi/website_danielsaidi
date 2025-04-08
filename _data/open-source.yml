@@ -99,10 +99,10 @@
   image: /assets/sdks/tagkit.png
   header: /assets/sdks/tagkit-header.jpg
 
-- name: TextReplacementView
-  url: https://github.com/danielsaidi/TextReplacementView
-  image: /assets/sdks/textreplacementview.png
-  header: /assets/sdks/textreplacementview-header.jpg
+- name: TextReplacements
+  url: https://github.com/danielsaidi/TextReplacements
+  image: /assets/sdks/textreplacements.png
+  header: /assets/sdks/textreplacements-header.jpg
 
 - name: WebViewKit
   url: https://github.com/danielsaidi/WebViewKit
