@@ -34,7 +34,9 @@ p + .grid {
     white-space: nowrap;
     text-align: center;
     box-sizing: border-box;
-    padding: 0 5px; /* Optional: adds some padding */
+  }
+  img + p {
+    margin-top: 15px;
   }
 }
 
