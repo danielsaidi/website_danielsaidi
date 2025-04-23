@@ -13,15 +13,15 @@
   flex-direction: row;
 }
 
+.centered {
+  text-align: center;
+}
+
 .column {
   display: flex;
   flex: 1;
   flex-direction: column;
   text-align: left;
-}
-
-.centered {
-  text-align: center;
 }
 
 section + section {
