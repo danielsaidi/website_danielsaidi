@@ -4,7 +4,7 @@
 
 # {{ product }} Terms & Conditions
 
-Below are the standard {{ product }} Terms & Conditions. A license is valid for one product, defined by the bundle ID that is provided at the time of purchase.
+Below are the standard [{{product}}]({{include.url}}) Terms & Conditions. A license is valid for one product, defined by the bundle ID that is provided at the time of purchase.
 
 The standard license is aimed at indies & small businesses. Reach out for a [custom license]({{ custom-email }}) if you’re an enterprise or a company with $10M+ in annual revenue, or the app has $1M+ in annual revenue.
 

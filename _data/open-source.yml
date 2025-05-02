@@ -47,11 +47,6 @@
   image: /assets/sdks/gesturebutton.png
   header: /assets/sdks/gesturebutton-header.jpg
 
-- name: LicenseKit
-  url: https://github.com/kankoda/LicenseKit
-  image: /assets/sdks/licensekit.png
-  header: /assets/sdks/licensekit-header.jpg
-
 - name: MockingKit
   url: https://github.com/danielsaidi/MockingKit
   image: /assets/sdks/mockingkit.png

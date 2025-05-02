@@ -1,0 +1,18 @@
+
+- name: KeyboardKit
+  url: https://keyboardkit.com
+  app: https://keyboardkit.com/app
+  pro: https://keyboardkit.com/pro
+  github: https://github.com/KeyboardKit/KeyboardKit
+  github_pro: https://github.com/KeyboardKit/KeyboardKitPro
+  image: /assets/icons/keyboardkit.png
+
+- name: LicenseKit
+  url: https://kankoda.com/sdks/licensekit
+  image: /assets/sdks/licensekit.png
+  header: /assets/sdks/licensekit-header.jpg
+
+- name: VietnameseInput
+  url: https://kankoda.com/sdks/vietnameseinput
+  image: /assets/sdks/vietnameseinput.png
+  header: /assets/sdks/vietnameseinput-header.jpg

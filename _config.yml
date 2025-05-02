@@ -27,7 +27,7 @@ twitter_username: danielsaidi
 
 urls:
   blog:         /blog
-  blog-archive: /blog-archive
+  blog-archive: /blog/archive
   email:        mailto:daniel.saidi@gmail.com
   rss:          https://danielsaidi.com/feed.xml
 
@@ -51,14 +51,16 @@ header_logo_text: Daniel Saidi
 header_pages:
   - index.md
   - pages/blog.md
-  - pages/opensource.md
   - pages/apps.md
+  - pages/sdks.md
+  - pages/opensource.md
   - pages/talks.md
 
 footer_sitemap:
   - index.md
   - pages/work.md
   - pages/apps.md
+  - pages/sdks.md
   - pages/opensource.md
   - pages/talks.md
 
