@@ -4,8 +4,6 @@ date:  2019-01-30 21:00:00 +0100
 tags:  swift
 icon:  swift
 
-redirect_from: /blog/2019/01/30/using-structs-like-enums
-
 swift-docs: https://docs.swift.org        
 enums:   https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html
 structs: https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html

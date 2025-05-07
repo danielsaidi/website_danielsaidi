@@ -3,8 +3,6 @@ title: Problems with Quick, Nimble and CocoaPods
 date:  2017-01-31 21:50:00 +0100
 tags:  swift testing
 icon:  swift
-
-redirect_from: /blog/mobile/2017/01/31/problems-with-running-quick-and-nimble-on-code-in-development-cocoapod
 ---
 
 When creating Swift libraries, I use [Quick](https://github.com/Quick/Quick) for tests and [Nimble](https://github.com/Quick/Nimble) for test assertions. They are great tools that speed up writing tests, but don't always play well with CocoaPods.

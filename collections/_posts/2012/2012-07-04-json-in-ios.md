@@ -3,7 +3,6 @@ title: JSON in iOS
 date:  2012-07-04 21:25:00 +0100
 tags:  ios
 icon:  swift
-redirect_from:  /blog/mobile/2012/07/04/json-in-ios
 ---
 
 Working with JSON is easy in iOS 5, since there's now a great, native JSON serializer and deserializer that handles everything for you. 

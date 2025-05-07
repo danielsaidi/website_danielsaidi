@@ -3,8 +3,6 @@ title:  SwiftUI Menu gets incorrect list separator lines
 date:   2023-08-25 06:00:00 +0000
 tags:   swiftui
 
-redirect_from: /blog/2023/08/25/menu-gets-incorrect-separator-line-in-lists
-
 assets: /assets/blog/23/0825/
 image:  /assets/blog/23/0825/image.jpg
 image-show: 0

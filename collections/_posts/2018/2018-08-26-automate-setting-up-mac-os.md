@@ -3,10 +3,6 @@ title: Automate setting up macOS
 date:  2018-08-26 17:28:01 +0200
 tags:	 automation macos
 icon:  avatar
-
-redirect_from: 
-  - /blog/2018/08/26/automate-setting-up-your-macbook/
-  - /blog/2018/08/26/automate-your-macbook-setup/
 ---
 
 In this post, I'll describe how to automate setting up a new Mac with a terminal script that will install system software and applications, configure the computer etc. in mere minutes.

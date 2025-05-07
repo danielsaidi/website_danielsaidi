@@ -3,8 +3,6 @@ title:  Setting up a custom Swift Package file header
 date:   2024-03-28 04:00:00 +0000
 tags:   swift spm
 
-redirect_from: /blog/2024/03/28/how-to-define-a-custom-file-header-for-a-swift-package
-
 assets: /assets/blog/24/0328/
 image:  /assets/blog/24/0328.jpg
 image-show: 0

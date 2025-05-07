@@ -4,8 +4,6 @@ date:  2020-06-07 10:00:00 +0100
 tags:  swiftui
 icon:  swiftui
 
-redirect_from: /blog/2020/06/07/swiftui-alerts
-
 lib:    https://github.com/danielsaidi/SwiftUIKit
 source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Presentation/Alert
 ---

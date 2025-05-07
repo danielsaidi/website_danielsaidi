@@ -7,8 +7,6 @@ image:  /assets/blog/25/0408/header.jpg
 image-show: 0
 assets:  /assets/blog/25/0408/
 
-redirect_from: /blog/2025/04/08/building-a-swiftui-text-view-that-can-customize-the-rendering-of-certain-words
-
 bsky:   https://bsky.app/profile/danielsaidi.bsky.social/post/3lmcsb27je22b
 toot:   https://mastodon.social/@danielsaidi/114303063345595654
 ---

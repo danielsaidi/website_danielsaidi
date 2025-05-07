@@ -7,8 +7,7 @@ assets: /assets/blog/23/1128/
 image:  /assets/blog/23/1128/image.jpg
 image-show: 0
 
-redirect_from: /blog/2023/11/28/how-to-customize-the-macos-about-panel-in-swiftui
-related_post: /blog/2023/11/22/customizing-the-macos-menu-bar-in-swiftui
+post: /blog/2023/11/22/customizing-the-macos-menu-bar-in-swiftui
 
 tweet:  https://x.com/danielsaidi/status/1729767139966402628?s=20
 toot:   https://mastodon.social/@danielsaidi/111492701147385921
@@ -16,7 +15,7 @@ toot:   https://mastodon.social/@danielsaidi/111492701147385921
 
 In this post, we'll take a look at how to customize the macOS About Panel in SwiftUI, by using project settings, bundle files, and SwiftUI-specific tools.
 
-For more information about customizing the macOS menu bar, I have also written a post about [how to customize the macOS menu bar in SwiftUI]({{page.related_post}}).
+For more information about customizing the macOS menu bar, I have also written a post about [how to customize the macOS menu bar in SwiftUI]({{page.post}}).
 
 
 ## Background
@@ -83,7 +82,7 @@ However, if you want the credits to contain dynamic content, you need to define 
 
 ## How to customize the about panel with code
 
-To customize the About Panel with code, we'll use the same techniques as we looked at in [this post]({{page.related_post}}), on how to customize the main menu commands of an app.
+To customize the About Panel with code, we'll use the same techniques as we looked at in [this post]({{page.post}}), on how to customize the main menu commands of an app.
 
 We must replace the default about button with one that calls an `NSApplication` function that's called `orderFrontStandardAboutPanel`, which opens an About Panel with custom options:
 

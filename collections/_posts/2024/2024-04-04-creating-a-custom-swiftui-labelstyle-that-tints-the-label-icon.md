@@ -3,11 +3,8 @@ title:  Creating a custom label style that tints the label icon
 date:   2024-04-04 04:00:00 +0000
 tags:   swift swiftui
 
-redirect_from: /blog/2024/04/04/how-to-create-a-custom-label-style-that-only-tints-the-label-icon
-
 assets: /assets/blog/24/0404/
 image:  /assets/blog/24/0404.jpg
-image-show: 0
 
 tweet:  https://x.com/danielsaidi/status/1775887952947917178
 toot:   https://mastodon.social/@danielsaidi/112213337335862484

@@ -4,8 +4,6 @@ date:  2020-04-28 00:00:00 +0100
 tags:  swift authentication
 icon:  swift
 
-redirect_from: /blog/2020/04/28/local-biometric-authentication
-
 lib:    https://github.com/danielsaidi/SwiftUIKit
 ---
 

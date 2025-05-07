@@ -5,10 +5,8 @@ tags:   swiftui macos menubar
 
 assets: /assets/blog/23/1122/
 image:  /assets/blog/23/1122/image.jpg
-image-show: 0
 
-redirect_from: /blog/2023/11/22/how-to-customize-the-macos-menu-bar-in-swiftui
-related_post: /blog/2023/11/28/customizing-the-macos-about-panel-in-swiftui
+post: /blog/2023/11/28/customizing-the-macos-about-panel-in-swiftui
 
 tweet:  https://x.com/danielsaidi/status/1727289933038260289?s=20
 toot:   https://mastodon.social/@danielsaidi/111453994720983239
@@ -16,7 +14,7 @@ toot:   https://mastodon.social/@danielsaidi/111453994720983239
 
 In this post, we'll take a look at how to customize the menu bar of a macOS app, using SwiftUI tools like `CommandMenu` and `CommandGroup`.
 
-For more information about customizing the macOS menu bar, I have also written a post about [how to customize the macOS about panel in SwiftUI]({{page.related_post}}).
+For more information about customizing the macOS menu bar, I have also written a post about [how to customize the macOS about panel in SwiftUI]({{page.post}}).
 
 {% include kankoda/data/open-source name="SwiftUIKit" %}
 

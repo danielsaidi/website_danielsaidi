@@ -7,8 +7,6 @@ assets: /assets/blog/24/0414/
 image:  /assets/blog/24/0414.jpg
 image-show: 0
 
-redirect_from: /blog/2024/04/14/create-custom-environment-types-in-swiftui-with-less-code
-
 entry:  https://developer.apple.com/documentation/SwiftUI/Entry()
 post:   http://127.0.0.1:4000/blog/2025/01/08/replacing-environmentkit-with-the-entry-macro
 

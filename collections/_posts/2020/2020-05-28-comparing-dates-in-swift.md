@@ -4,8 +4,6 @@ date:  2020-05-28 22:00:00 +0100
 tags:  swift dates extensions
 icon:  swift
 
-redirect_from: /blog/2020/05/28/comparing-dates
-
 lib:    https://github.com/danielsaidi/SwiftUIKit
 source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Date
 ---

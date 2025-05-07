@@ -3,8 +3,6 @@ title: Constrain Swift extensions with protocols
 date:  2019-03-28 21:00:00 +0100
 tags:  swift protocols extensions
 icon:  swift
-
-redirect_from: /blog/2019/03/28/swift-extension-constraints
 ---
 
 I love Swift's type system and its extension model, but you have to use it with care. In this short post, I discuss how to keep your extensions from being exposed everywhere.

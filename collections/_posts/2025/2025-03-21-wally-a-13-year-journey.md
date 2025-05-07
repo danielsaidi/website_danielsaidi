@@ -5,9 +5,6 @@ tags:   apps swiftui
 
 assets: /assets/blog/25/0321/
 image:  /assets/blog/25/0321/image.jpg
-image-show: 0
-
-redirect_from: /blog/2025/03/21/wally-a-12-year-journey
 
 appstore: https://itunes.apple.com/app/wally/id516398915
 ---

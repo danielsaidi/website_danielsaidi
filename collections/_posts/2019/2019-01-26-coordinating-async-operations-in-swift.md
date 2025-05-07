@@ -4,8 +4,6 @@ date:  2019-01-26 21:00:00 +0100
 tags:  swift async
 icon:  swift
 
-redirect_from: /blog/2019/01/26/async-operations
-
 tldr: http://danielsaidi.com/blog/2019/01/29/async-operations-bitesized
 source: https://github.com/danielsaidi/iExtra/tree/master/iExtra/Operations
 demo: https://github.com/danielsaidi/Demo_Async

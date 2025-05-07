@@ -5,9 +5,6 @@ tags:   swiftui
 
 assets: /assets/blog/23/0601/
 image:  /assets/blog/23/0601/image.jpg
-image-show: 0
-
-redirect_from: /blog/2023/06/01/creating-a-bordered-button-group
 
 tweet:  https://twitter.com/danielsaidi/status/1664403889699934208?s=20
 toot:   https://mastodon.social/@danielsaidi/110471400509944102

@@ -1,10 +1,8 @@
 ---
 title: Building a multi-platform app in a protocol-driven way
 date:  2020-02-11 00:00:00 +0100
-tags:  watchos swiftui
+tags:  swiftui watchos
 icon:  swiftui
-
-redirect_from: /blog/2020/02/11/apple-watch
 ---
 
 SwiftUI and Combine makes it easy to build apps for watchOS. In this post, we'll take a look at the work involved in building a watchOS app in SwiftUI.

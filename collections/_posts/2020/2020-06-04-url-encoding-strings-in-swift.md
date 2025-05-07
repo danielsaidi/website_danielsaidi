@@ -4,8 +4,6 @@ date:  2020-06-04 20:00:00 +0100
 tags:  swift
 icon:  swift
 
-redirect_from: /blog/2020/06/04/string-urlencode
-
 lib:    https://github.com/danielsaidi/SwiftUIKit
 source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Extensions/String
 ---

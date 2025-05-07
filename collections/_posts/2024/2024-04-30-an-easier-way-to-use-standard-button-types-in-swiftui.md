@@ -5,9 +5,6 @@ tags:   swift swiftui
 
 assets: /assets/blog/24/0430/
 image:  /assets/blog/24/0430.jpg
-image-show: 0
-
-redirect_from: /blog/2024/04/30/an-easier-way-to-create-standard-button-types-in-swiftui
 
 tweet:  https://x.com/danielsaidi/status/1785295019705835827
 toot:   https://mastodon.social/@danielsaidi/112360327019668316

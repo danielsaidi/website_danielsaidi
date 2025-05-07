@@ -4,8 +4,6 @@ date:  2020-10-28 20:00:00 +0100
 tags:  swiftui
 icon:  swiftui
 
-redirect_from: /blog/2020/10/28/swiftui-full-screen-covers
-
 lib:    https://github.com/danielsaidi/SwiftUIKit
 source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Presentation/FullScreenCover
 ---

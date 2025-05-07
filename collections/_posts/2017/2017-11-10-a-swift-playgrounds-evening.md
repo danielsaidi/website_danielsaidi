@@ -3,8 +3,6 @@ title: A Swift Playgrounds Evening
 date:  2017-11-10 20:20:00 +0100
 tags:  swift ios
 
-redirect_from: /blog/2017/11/10/swift-playgrounds
-
 assets: /assets/blog/17/1110/
 image: /assets/blog/17/1110.jpg
 ---

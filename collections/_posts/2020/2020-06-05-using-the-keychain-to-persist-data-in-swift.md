@@ -4,8 +4,6 @@ date:  2020-06-05 10:00:00 +0100
 tags:  swift keychain
 icon:  swift
 
-redirect_from: /blog/2020/06/05/keychain-access
-
 lib:    https://github.com/danielsaidi/SwiftUIKit
 source: https://github.com/danielsaidi/SwiftUIKit/tree/master/Sources/SwiftUIKit/Keychain
 

@@ -3,11 +3,8 @@ title:  The power of inout parameters in Swift
 date:   2024-02-18 06:00:00 +0000
 tags:   swift
 
-redirect_from: /blog/2024/02/18/the-power-of-inout-parameters
-
 assets: /assets/blog/24/0218/
 image:  /assets/blog/24/0218.jpg
-image-show: 0
 
 tweet:  https://x.com/danielsaidi/status/1759312051640414643?s=20
 toot:   https://mastodon.social/@danielsaidi/111954340675664871

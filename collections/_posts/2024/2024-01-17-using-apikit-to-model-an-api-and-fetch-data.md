@@ -6,8 +6,6 @@ tags:   swift api
 image:  /assets/blog/24/0117.jpg
 image-show: 0
 
-redirect_from: /blog/2024/01/17/how-to-use-apikit-to-model-an-api-and-fetch-data
-
 tweet:  https://x.com/danielsaidi/status/1747726878868209739?s=20
 toot:   https://mastodon.social/@danielsaidi/111773321977694317
 ---

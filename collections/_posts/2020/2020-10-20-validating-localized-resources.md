@@ -4,8 +4,6 @@ date:  2020-10-20 14:00:00 +0100
 tags:  swift localization automation
 icon:  swift
 
-redirect_from: /blog/2020/10/20/validate-localized-resources
-
 fastlane: https://fastlane.tools 
 swiftgen: https://github.com/SwiftGen/SwiftGen
 lokalise: https://lokalise.com

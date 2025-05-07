@@ -4,8 +4,6 @@ date:  2020-05-26 20:00:00 +0100
 tags:  swift ioc dependency-injection
 icon:  swift
 
-redirect_from: /blog/2020/05/26/ioc-basics
-
 lib:    https://github.com/danielsaidi/SwiftKit
 source: https://github.com/danielsaidi/SwiftKit/tree/master/Sources/SwiftKit/IoC
 

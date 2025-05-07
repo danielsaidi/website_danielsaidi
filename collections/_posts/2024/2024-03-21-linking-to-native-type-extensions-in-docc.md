@@ -3,11 +3,8 @@ title:  Linking to native type extensions in DocC
 date:   2024-03-21 04:00:00 +0000
 tags:   swift docc
 
-redirect_from: /blog/2024/03/21/how-to-link-to-native-type-extensions-in-docc
-
 assets: /assets/blog/24/0321/
 image:  /assets/blog/24/0321.jpg
-image-show: 0
 
 article:  /blog/2024/03/10/automating-docc-for-a-swift-package-with-github-actions
 

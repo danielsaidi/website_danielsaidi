@@ -6,8 +6,6 @@ tags:  apps swiftui tvos video
 assets: /assets/blog/20/1209/
 image:  /assets/blog/20/1209.jpg
 
-redirect_from: /blog/2020/12/09/building-a-tvos-app-in-swiftui
-
 cineasterna: https://www.cineasterna.com/en/
 collection-view: https://github.com/defagos/SwiftUICollection
 defagos: https://twitter.com/defagos

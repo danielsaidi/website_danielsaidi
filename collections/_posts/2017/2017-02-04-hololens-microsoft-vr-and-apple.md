@@ -4,8 +4,6 @@ date:  2017-02-04 10:00:00 +0100
 tags:  general vr ar
 icon:  avatar
 
-redirect_from: /blog/general/2017/02/04/hololens-microsoft-vr-and-apple
-
 image: https://www.inexhibit.com/wp-content/uploads/2016/06/Microsoft-Hololens-augmented-reality-headset.jpg
 ---
 
