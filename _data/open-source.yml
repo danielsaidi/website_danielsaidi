@@ -11,99 +11,119 @@
   url: https://github.com/danielsaidi/SwiftUIKit
   image: /assets/sdks/swiftuikit.png
   header: /assets/sdks/swiftuikit-header.jpg
+  library: 1
 
 - name: RichTextKit
   url: https://github.com/danielsaidi/RichTextKit
   image: /assets/sdks/richtextkit.png
   header: /assets/headers/richtextkit.png
+  library: 1
 
 - name: ApiKit
   url: https://github.com/danielsaidi/ApiKit
   image: /assets/sdks/apikit.png
   header: /assets/sdks/apikit-header.jpg
+  library: 1
 
 - name: AppIconKit
   url: https://github.com/danielsaidi/AppIconKit
   image: /assets/sdks/appiconkit.png
   header: /assets/sdks/appiconkit-header.jpg
+  library: 1
 
 - name: BadgeIcon
   url: https://github.com/danielsaidi/BadgeIcon
   image: /assets/sdks/badgeicon.png
   header: /assets/sdks/badgeicon-header.jpg
-
-- name: ButtonKit
-  url: https://github.com/danielsaidi/ButtonKit
-  image: /assets/sdks/buttonKit.png
-  header: /assets/sdks/buttonKit-header.jpg
+  view: 1
 
 - name: DeckKit
   url: https://github.com/danielsaidi/DeckKit
   image: /assets/sdks/deckkit.png
   header: /assets/sdks/deckkit-header.jpg
+  library: 1
 
 - name: EmojiKit
   url: https://github.com/danielsaidi/EmojiKit
   image: /assets/sdks/emojikit.png
   header: /assets/sdks/emojikit-header.jpg
+  library: 1
 
 - name: GestureButton
   url: https://github.com/danielsaidi/GestureButton
   image: /assets/sdks/gesturebutton.png
   header: /assets/sdks/gesturebutton-header.jpg
+  view: 1
 
 - name: MockingKit
   url: https://github.com/danielsaidi/MockingKit
   image: /assets/sdks/mockingkit.png
   header: /assets/sdks/mockingkit-header.jpg
+  library: 1
 
 - name: OnboardingKit
   url: https://github.com/danielsaidi/OnboardingKit
   image: /assets/sdks/onboardingkit.png
   header: /assets/sdks/onboardingkit-header.jpg
+  library: 1
 
 - name: PrintingKit
   url: https://github.com/danielsaidi/PrintingKit
   image: /assets/sdks/printingkit.png
   header: /assets/sdks/printingkit-header.jpg
+  library: 1
 
 - name: QuickSearch
   url: https://github.com/danielsaidi/QuickSearch
   image: /assets/sdks/quicksearch.png
   header: /assets/sdks/quicksearch-header.jpg
+  library: 1
 
 - name: ScrollKit
   url: https://github.com/danielsaidi/ScrollKit
   image: /assets/sdks/scrollkit.png
   header: /assets/sdks/scrollkit-header.jpg
+  library: 1
+
+- name: StandardButtons
+  url: https://github.com/danielsaidi/StandardButtons
+  image: /assets/sdks/standardbuttons.png
+  header: /assets/sdks/standardbuttons-header.jpg
+  view: 1
 
 - name: StoreKitPlus
   url: https://github.com/danielsaidi/StoreKitPlus
   image: /assets/sdks/storekitplus.png
   header: /assets/sdks/storekitplus-header.jpg
+  library: 1
 
 - name: SwiftPackageScripts
   title: Swift Package Scripts
   url: https://github.com/danielsaidi/SwiftPackageScripts
   image: /assets/sdks/swiftpackagescripts.png
   header: /assets/sdks/swiftpackagescripts-header.jpg
+  library: 1
 
 - name: SystemNotification
   url: https://github.com/danielsaidi/SystemNotification
   image: /assets/sdks/systemnotification.png
   header: /assets/sdks/systemnotification-header.jpg
+  view: 1
 
 - name: TagKit
   url: https://github.com/danielsaidi/TagKit
   image: /assets/sdks/tagkit.png
   header: /assets/sdks/tagkit-header.jpg
+  library: 1
 
 - name: TextReplacements
   url: https://github.com/danielsaidi/TextReplacements
   image: /assets/sdks/textreplacements.png
   header: /assets/sdks/textreplacements-header.jpg
+  view: 1
 
 - name: WebViewKit
   url: https://github.com/danielsaidi/WebViewKit
   image: /assets/sdks/webviewkit.png
   header: /assets/sdks/webviewkit-header.jpg
+  library: 1
