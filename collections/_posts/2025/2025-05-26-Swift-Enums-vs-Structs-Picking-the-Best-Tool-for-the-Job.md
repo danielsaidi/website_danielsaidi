@@ -8,8 +8,9 @@ image:  /assets/blog/25/0526/image.jpg
 header: /assets/blog/25/0526/header.jpg
 image-show: 0
 
-bsky: https://bsky.app/profile/danielsaidi.bsky.social/post/3lodlyzxwns2i
-toot: https://mastodon.social/@danielsaidi/114448990814752516
+bsky: https://bsky.app/profile/danielsaidi.bsky.social/post/3lq37rdslqc2y
+toot: https://mastodon.social/@danielsaidi/114574231021749921
+linkedin: https://www.linkedin.com/posts/danielsaidi_swift-enums-vs-structs-picking-the-best-activity-7332750997615804416-sZuF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAABnwcEBLiSBDEydkcyl5DHukvfGrCEKbX0
 ---
 
 When designing state in Swift, choosing between enums and structs can significantly impact your code's flexibility and structure. Let's explore when to use each approach with examples.
