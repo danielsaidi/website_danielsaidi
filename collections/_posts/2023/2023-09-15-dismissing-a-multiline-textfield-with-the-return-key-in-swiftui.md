@@ -1,5 +1,5 @@
 ---
-title:  Dismissing a multiline textfield with the return key in SwiftUI
+title:  Dismissing a multiline text field with the return key in SwiftUI
 date:   2023-09-15 06:00:00 +0000
 tags:   swiftui
 
@@ -23,7 +23,7 @@ TextField("Enter text", text: $text)
     }
 ```
 
-This will however not work with a multiline text field, since it will insert a new line instead of submitting the text field:
+This will however not work with a multiline text field, since the primary return key will insert a new line instead of submitting the text field:
 
 ```swift
 TextField("Enter text", text: $text, axis: .vertical)
@@ -62,7 +62,7 @@ struct MyView: View {
 
 In the code above, we apply a `focused` modifier that binds the text field focused state to a `@State` property, and an `onChange` modifier that listens for changes to the `text` property.
 
-Pressing return will cause a new line (`\n`) to be typed into the text field. This will trigger the `onChange`, which sets `isFocused` to false, then cleans up the text and removes focus.
+Pressing the return key will cause a new line (`\n`) to be typed into the text field. This will trigger the `onChange`, which sets `isFocused` to false, then cleans up the text and removes focus.
 
 Since it would be confusing for the return key to say `return`, when it instead submits, we also apply a `.submitLabel(.done)` modifier to make it say "Done".
 
@@ -86,6 +86,7 @@ struct MultilineSubmitViewModifier: ViewModifier {
     
     @Binding
     private var text: String
+
     private let submitLabel: SubmitLabel
     private let onSubmit: () -> Void
     
@@ -96,7 +97,7 @@ struct MultilineSubmitViewModifier: ViewModifier {
         content
             .focused($isFocused)
             .submitLabel(submitLabel)
-            .onChange(of: text) { newValue in
+            .onChange(of: text) { newValue in   // or oldValue, newValue in iOS 17+
                 guard isFocused else { return }
                 guard newValue.contains("\n") else { return }
                 isFocused = false
@@ -143,7 +144,7 @@ public extension View {
             MultilineSubmitViewModifier(
                 text: text,
                 submitLabel: submitLabel,
-                action: {}
+                onSubmit: {}
             )
         )
     }
@@ -169,6 +170,6 @@ This view modifier can also be applied to a SwiftUI `TextEditor`, to submit it t
 
 ## Conclusion
 
-A view modifier like this one may already exist in SwiftUI, but I haven't found one. If you do know how to achieve this with plain SwiftUI, please share.
+While a view modifier like this one may already exist in SwiftUI, I haven't found one. If you do know how to achieve this with plain SwiftUI, please share.
 
-I've added these view modifiers to [{{project.name}}]({{project.url}}). Give it a try and let me know what you think.
+I've added these view modifiers to my open-source [{{project.name}}]({{project.url}}) package, which contains a bunch of additional SwiftUI features and extensions. Feel free to five it a try and let me know what you think.
