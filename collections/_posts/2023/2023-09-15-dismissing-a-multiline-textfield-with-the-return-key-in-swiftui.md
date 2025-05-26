@@ -6,7 +6,7 @@ tags:   swiftui
 assets: /assets/blog/23/0915/
 image:  /assets/blog/23/0915/image.jpg
 
-tweet:  https://x.com/danielsaidi/status/1702632945612100069?s=20
+bsky:   https://bsky.app/profile/danielsaidi.bsky.social/post/3lq2owvyves2y
 toot:   https://mastodon.social/@danielsaidi/111068728937234328
 ---
 
