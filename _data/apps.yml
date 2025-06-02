@@ -1,27 +1,34 @@
 - name: KeyboardKit
   url: http://keyboardkit.com/app
+  image: /assets/icons/keyboardkit.png
   appstore: http://itunes.apple.com/app/keyboardkit/id1568444977
   
 - name: Emoji Picker
   url: http://kankoda.com/apps/emojipicker
+  image: /assets/icons/emojipicker.png
   appstore: https://itunes.apple.com/app/emoji-picker/id6472487442
   
 - name: Wally
   url: https://wally.app
+  image: /assets/icons/wally.png
   appstore: https://itunes.apple.com/app/wally/id516398915
 
 - name: One Touch Paste
+  image: /assets/icons/otp.png
   url: http://kankoda.com/apps/onetouchpaste/
   appstore: https://apps.apple.com/se/app/one-touch-paste/id6478205851
 
 - name: Appamini
+  image: /assets/icons/appamini.png
   url: http://appamini.com
   appstore: https://itunes.apple.com/app/appamini-abc/id581402736
 
 - name: Lunchrrrrr
+  image: /assets/icons/lunchrrrrr.png
   url: https://kankoda.com/apps/lunchrrrrr
   appstore: https://itunes.apple.com/se/app/lunchrrrrr/id1209779063?l=en&mt=8 
 
 - name: Vinylsamlaren
+  image: /assets/icons/vinylsamlaren.png
   url: http://kankoda.com/apps/vinylsamlaren
   appstore: https://itunes.apple.com/us/app/vinylsamlaren/id640253601
