@@ -6,9 +6,10 @@ tags:   swiftui
 assets: /assets/blog/25/0601/
 image:  /assets/sdks/flipkit-header.jpg
 
-bsky: https://bsky.app/profile/danielsaidi.bsky.social/post/3lq37rdslqc2y
-toot: https://mastodon.social/@danielsaidi/114574231021749921
-linkedin: https://www.linkedin.com/posts/danielsaidi_swift-enums-vs-structs-picking-the-best-activity-7332750997615804416-sZuF?utm_source=share&utm_medium=member_desktop&rcm=ACoAAABnwcEBLiSBDEydkcyl5DHukvfGrCEKbX0
+redirect_from: /blog/2025/06/01/Introducing-FlipKit
+
+bsky: https://bsky.app/profile/danielsaidi.bsky.social/post/3lqmiokcxdk2l
+toot: https://mastodon.social/@danielsaidi/114613135306183949
 ---
 
 {% include kankoda/data/open-source name="FlipKit" %}

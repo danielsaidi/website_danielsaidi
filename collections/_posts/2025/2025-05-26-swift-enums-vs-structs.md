@@ -6,7 +6,8 @@ tags:   swift
 assets: /assets/blog/25/0526/
 image:  /assets/blog/25/0526/image.jpg
 header: /assets/blog/25/0526/header.jpg
-image-show: 0
+
+redirect_from: /blog/2025/05/26/Swift-Enums-vs-Structs-Picking-the-Best-Tool-for-the-Job
 
 bsky: https://bsky.app/profile/danielsaidi.bsky.social/post/3lq37rdslqc2y
 toot: https://mastodon.social/@danielsaidi/114574231021749921

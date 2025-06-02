@@ -105,6 +105,10 @@ plugins:
   - jekyll-feed
   - jekyll-redirect-from
 
+feed:
+  excerpt_only: true
+  posts_limit: 100
+
 defaults:
   -
     scope:
