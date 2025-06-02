@@ -48,6 +48,14 @@ p + .grid {
   grid-template-columns: repeat(3, 1fr);
 }
 
+.grid.col4 { 
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid.col5 { 
+  grid-template-columns: repeat(5, 1fr);
+}
+
 .grid.home {
   grid-column-gap: 40px;
   grid-template-columns: repeat(2, 1fr);
@@ -77,13 +85,13 @@ p + .grid {
     grid-row-gap: 20px;
     grid-template-columns: repeat(1, 1fr);
   }
-
-  .grid.col4, .grid.icons { 
-    grid-template-columns: repeat(2, 1fr);
-  }
   
   .grid.col2, .grid.col3 { 
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .grid.col4, .grid.col5, .grid.icons { 
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
