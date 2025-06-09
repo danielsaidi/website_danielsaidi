@@ -1,7 +1,7 @@
 ---
 title:  "When Tech Giants Bow: Reconsidering My Relationship with US Tech"
 date:   2025-02-17 07:00:00 +0000
-tags:   general
+tags:   general apple
 
 assets: /assets/blog/25/0217/
 image:  /assets/blog/25/0217/image.jpg

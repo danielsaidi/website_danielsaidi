@@ -1,7 +1,7 @@
 ---
 title:  Replacing EnvironmentKit with the new SwiftUI Entry macro
 date:   2025-01-11 07:00:00 +0000
-tags:   swiftui
+tags:   swiftui open-source
 
 assets: /assets/blog/25/0111/
 image:  /assets/blog/25/0111/image.jpg
