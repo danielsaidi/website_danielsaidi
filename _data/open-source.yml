@@ -62,6 +62,11 @@
   image: /assets/sdks/quicksearch.png
   header: /assets/sdks/quicksearch-header.jpg
 
+- name: PageView
+  url: https://github.com/danielsaidi/PageView
+  image: /assets/sdks/pageview.png
+  header: /assets/sdks/pageview-header.jpg
+
 - name: RichTextKit
   url: https://github.com/danielsaidi/RichTextKit
   image: /assets/sdks/richtextkit.png
