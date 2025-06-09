@@ -6,8 +6,8 @@ tags:   swift apple
 assets: /assets/blog/25/0609/
 image:  /assets/blog/25/0609/image.jpg
 
-bsky: https://bsky.app/profile/danielsaidi.bsky.social/post/3lr4ml4oeqk2d
-toot: https://mastodon.social/@danielsaidi/114649443676606699
+bsky: https://bsky.app/profile/danielsaidi.bsky.social/post/3lr5sfscy4227
+toot: https://mastodon.social/@danielsaidi/114652103712648073
 ---
 
 
@@ -25,7 +25,7 @@ Right now, tracking feature availability across Apple platforms feels like juggl
 - watchOS 11
 - visionOS 2
 
-This misalignment creates confusion for developers, who have to do complex availability checks to use features that were released in later OS versions than the app's/package's deployment target:
+This misalignment creates pains for multi-platform developers who have to do complex availability checks to use features that were released in later OS versions than the deployment target:
 
 ```swift
 @available(iOS 18.0, macOS 15.0, tvOS 18.0, watchOS 11.0, visionOS 2.0, *)
@@ -34,7 +34,7 @@ func useLatestPlatformVersionFeature() {
 }
 ```
 
-Notice how we have to memorize which iOS version that corresponds to which macOS version, and hope that we get the mapping right.
+Notice how we have to memorize which iOS version that corresponds to which macOS version, and vice versa for all the platforms that we have to support.
 
 
 ## A Potentially Beautiful Future
@@ -49,12 +49,12 @@ func useLatestPlatformVersionFeature() {
 }
 ```
 
-Imagine the clarity: instead of wondering "Is this iOS 16 feature available on macOS 13 or 14?", we'd simply know that all platforms version 25 and above support the same baseline features.
+Imagine that instead of wondering "Is this iOS 16 feature available on macOS 13 or 14?", we'd simply know that all platforms version 25 and above support the same baseline features.
 
 
 ## Where This Strategy Wouldn't Work
 
-While this OS naming convention is simple and beautiful, it would just work for OS version numbers from this year and forward. For older OS versions, I guess we still need the misaligned checks.
+While this naming convention is simple and wonderful, it would just work for OS versions from this year and forward. For older OS versions, I guess we will still need the misaligned checks.
 
 It will also be interesting to see how they will handle misaligned feature releases in future versions, since we'll need individual checks for features that release different years for different OS versions.
 
@@ -78,6 +78,17 @@ With Apple being Apple, and with naming not being their best skill (remember "Th
 There's namely a rumor that they'll use the *next* year as the version number, instead of the year of release. This would means that features they announce att WWDC this year would belong "OS 26".
 
 I truly hope this is not the case, but I am more than ready to being proven wrong and having to live with a bad taste in my mouth for the rest of my programming career.
+
+
+## What I'm Hoping for 
+
+My hope is that Apple will go with a developer-internal version number that is the same as the year of announcement/release, with a public "fun" name for public marketing.
+
+This would be a great opportunity for Apple to leave the California-themed macOS names behind, and instead find a new concept for the future of their uniform platform strategy.
+
+So perhaps we'll get a unified suite of platform versions that are numbered "OS 25", while Apple can market them as "iOS Aurora", "macOS Aurora", etc. that use a new, cool naming theme.
+
+One can only hope.
 
 
 ## Looking Forward
