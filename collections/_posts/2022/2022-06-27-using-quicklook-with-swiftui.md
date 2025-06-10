@@ -9,13 +9,11 @@ assets: /assets/blog/22/0627/
 tweet:  https://twitter.com/danielsaidi/status/1541363945465942016?s=20&t=pHrBeDbqn-sQh8qvy0pmCg
 ---
 
-SwiftUI is growing with every release, but there are still old treasures to be found in various frameworks, that aren't part of core SwiftUI. Let's take a quick look at `QuickLook`!
+SwiftUI is growing with every release, and new amazing features keep on arriving. Today, let's take a quick look at `QuickLook`!
 
-I didn't know about SwiftUI's support for QuickLook, and stumbled upon it by chance. You can use it to preview any previewable URL content, such as PDFs, images etc.
+In SwiftUI, you can use QuickLook to preview URL-based content, like PDFs, images etc. To use it, just import the `QuickLook` framework, apply a `.quickLookPreview` view modifier and bind it to a URL.
 
-To use QuickLook with SwiftUI, you must first import the `QuickLook` framework. You can then apply the `.quickLookPreview` view modifier and bind it to a URL.
-
-Consider that we have a multi-platform SwiftUI app for iOS & macOS, that has an bundle image called `meadow.jpg`. This is how easy it is to enable quick look preview:
+Consider that we have a SwiftUI app that has an image called `meadow.jpg` in its bundle. This is how easy it is to enable quick look preview:
 
 ```swift
 import SwiftUI
@@ -35,7 +33,7 @@ struct ContentView: View {
 }
 ```
 
-Setting the `url` property will make the `.quickLookPreview` modifier present the content at the provided url in a preview, in a way that suits the platform.
+Setting the `url` property will make the `.quickLookPreview` modifier present the image at the url in a preview, in a way that suits the platform.
 
 In iOS, the button presents the image in a full screen cover:
 

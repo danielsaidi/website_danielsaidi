@@ -67,6 +67,11 @@
   image: /assets/sdks/pageview.png
   header: /assets/sdks/pageview-header.jpg
 
+- name: PickerKit
+  url: https://github.com/danielsaidi/PickerKit
+  image: /assets/sdks/pickerkit.png
+  header: /assets/sdks/pickerkit-header.jpg
+
 - name: RichTextKit
   url: https://github.com/danielsaidi/RichTextKit
   image: /assets/sdks/richtextkit.png

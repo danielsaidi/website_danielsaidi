@@ -7,6 +7,9 @@ assets: /assets/blog/23/0823/
 image:  /assets/blog/23/0823/image.jpg
 
 post:   https://nilcoalescing.com/blog/SaveCustomCodableTypesInAppStorageOrSceneStorage/
+
+bsky:   https://bsky.app/profile/danielsaidi.bsky.social/post/3lrasyvqsh223
+toot:   https://mastodon.social/@danielsaidi/114658887293881071
 ---
 
 SwiftUI keeps evolving, but there are still some missing things. Today, let's see how we can extend `Codable` to make it possible to persist it in `AppStorage` and `SceneStorage`.
