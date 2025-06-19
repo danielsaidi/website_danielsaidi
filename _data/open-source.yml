@@ -77,6 +77,11 @@
   image: /assets/sdks/richtextkit.png
   header: /assets/headers/richtextkit.png
 
+- name: ScanCodes
+  url: https://github.com/danielsaidi/ScanCodes
+  image: /assets/sdks/scancodes.png
+  header: /assets/sdks/scancodes-header.jpg
+
 - name: ScrollKit
   url: https://github.com/danielsaidi/ScrollKit
   image: /assets/sdks/scrollkit.png

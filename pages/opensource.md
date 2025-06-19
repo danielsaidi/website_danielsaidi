@@ -15,7 +15,11 @@ redirect_from:
   <h1>Open Source</h1>
 
   <p>
-    Here are some open-source projects that I have created and maintain. For more details, have a look at my <a href="{{ site.urls.github }}">GitHub</a> profile.
+    Here are some of my open-source projects that I currently maintain. For more details, please have a look at my <a href="{{ site.urls.github }}">GitHub</a> profile.
+  </p>
+
+  <p>
+    Many of these projects could use a proper icon/logo. If you're a designer or posess any design skills, feel free to reach out to contribute with your design prowess for the good of the community.
   </p>
 
   {% assign sdks = site.data.open-source %}
