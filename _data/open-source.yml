@@ -117,3 +117,13 @@
   url: https://github.com/danielsaidi/TextReplacements
   image: /assets/sdks/textreplacements.png
   header: /assets/sdks/textreplacements-header.jpg
+
+- name: WebViewKit
+  url: https://github.com/danielsaidi/WebViewKit
+  image: /assets/sdks/webviewkit.png
+  header: /assets/sdks/webviewkit-header.jpg
+
+- name: VideoKit
+  url: https://github.com/danielsaidi/VideoKit
+  image: /assets/sdks/videokit.png
+  header: /assets/sdks/videokit-header.jpg
