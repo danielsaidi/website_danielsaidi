@@ -1,7 +1,7 @@
 ---
 title:  Adding dependencies to binary Swift packages
 date:   2025-05-02 07:00:00 +0000
-tags:   general
+tags:   spm open-source closed-source
 
 assets: /assets/blog/25/0502/
 image:  /assets/blog/25/0502/image.jpg

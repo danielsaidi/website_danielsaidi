@@ -1,7 +1,7 @@
 ---
 title:  WebView is Finally Coming to SwiftUI
 date:   2025-06-10 09:00:00 +0000
-tags:   swift open-source
+tags:   swiftui open-source
 
 assets: /assets/blog/25/0610/
 image:  /assets/blog/25/0610/image.jpg
@@ -18,7 +18,7 @@ After the 6 years that has passed since SwiftUI was first announced, we finally 
 
 ## WebViewKit
 
-I created [{{project.name}}]({{project.url}}) many years ago, to make it easy to embed web content into any SwiftUI-based app on iOS, macOS, and visionOS:
+I created [{{project.name}}]({{project.url}}) many years ago, to make it easy to embed web content into any SwiftUI-based app, using a custom `WebView` that works all the way back in iOS 14, macOS 11 & visionOS 1:
 
 ```swift
 import SwiftUI
@@ -27,21 +27,19 @@ import WebViewKit
 struct MyView {
 
     var body: some View {
-        WebView(
-            url: URL(string: "https://danielsaidi.com")
-        )
+        WebView("https://danielsaidi.com")
     }
 }
 ```
 
-This view is very flexible and allows you to load URLs and HTML content directly into the initializer. You could also configure the underlying `WKWebView` with a `configuration` and `viewConfiguration`, to for instance set up deeper integrations, navigation observation, etc.
+This `WebView` lets you to load URLs and HTML content, and configure the underlying `WKWebView` with a `configuration` and `viewConfiguration`, to set up deeper integrations, navigation observation, etc.
 
-For the cases where you just don't want to display web content, the `SafariWebView` can be used to show a `SFSafariViewController` that contains a toolbar with navigation controls.
+For cases where you just don't want to display web content, the `SafariWebView` can be used to show a `SFSafariViewController` that contains a toolbar with navigation controls.
 
 
 ## A New, Native WebView
 
-In iOS, macOS, and visionOS 26, there will finally be a new, native `WebView` component, which gives us access to easy ways to get started, and deep ways to go deeper.
+In iOS, macOS, and visionOS 26, there will finally be a native `WebView` that is easy to get started with, and that can be configured for more complex use-cases.
 
 This is how you add a basic `WebView` to just show some web content at a certain URL:
 
@@ -58,9 +56,7 @@ struct MyView {
 }
 ```
 
-If this looks similar to before, it's because this APIs is *exactly* the same as in WebViewKit's `WebView`.
-
-We can make the URL a `@State` property, to make it easy to change which URL that is displayed:
+We convert the URL to a `@State` property, to make it easy to change and inspect the current URL:
 
 ```swift
 import SwiftUI
@@ -177,4 +173,4 @@ let result = jsResult as? [[String : Any]]
 
 ## What This Means for WebViewKit
 
-With these powerful, native features coming to SwiftUI, my [{{project.name}}]({{project.url}}) project is no longer needed. I will freeze it, convert it to a public archive, and remove it sometimes in the future.
+With these native tools coming to SwiftUI, my [{{project.name}}]({{project.url}}) project is no longer needed, except for polyfill porposes. I will keep it alive, but it will most probably not change much in the future.
