@@ -1,5 +1,5 @@
 ---
-title:  How to use VideoKit to add video to your SwiftUI app
+title:  Using VideoKit to add video to your SwiftUI app
 date:   2025-06-19 07:00:00 +0000
 tags:   swiftui open-source
 

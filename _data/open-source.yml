@@ -52,16 +52,6 @@
   image: /assets/sdks/onboardingkit.png
   header: /assets/sdks/onboardingkit-header.jpg
 
-- name: PrintingKit
-  url: https://github.com/danielsaidi/PrintingKit
-  image: /assets/sdks/printingkit.png
-  header: /assets/sdks/printingkit-header.jpg
-
-- name: QuickSearch
-  url: https://github.com/danielsaidi/QuickSearch
-  image: /assets/sdks/quicksearch.png
-  header: /assets/sdks/quicksearch-header.jpg
-
 - name: PageView
   url: https://github.com/danielsaidi/PageView
   image: /assets/sdks/pageview.png
@@ -71,6 +61,21 @@
   url: https://github.com/danielsaidi/PickerKit
   image: /assets/sdks/pickerkit.png
   header: /assets/sdks/pickerkit-header.jpg
+
+- name: PresentationKit
+  url: https://github.com/danielsaidi/PresentationKit
+  image: /assets/sdks/presentationkit.png
+  header: /assets/sdks/presentationkit-header.jpg
+
+- name: PrintingKit
+  url: https://github.com/danielsaidi/PrintingKit
+  image: /assets/sdks/printingkit.png
+  header: /assets/sdks/printingkit-header.jpg
+
+- name: QuickSearch
+  url: https://github.com/danielsaidi/QuickSearch
+  image: /assets/sdks/quicksearch.png
+  header: /assets/sdks/quicksearch-header.jpg
 
 - name: RichTextKit
   url: https://github.com/danielsaidi/RichTextKit

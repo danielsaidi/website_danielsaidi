@@ -15,21 +15,29 @@ keyboardkitpro: https://keyboardkit.com/pro
 licensekit: https://kankoda.com/sdks/licensekit
 vietnameseinput: https://kankoda.com/sdks/vietnameseinput
 vietnameseinput-repo: https://github.com/kankoda/vietnameseinput
+swiftuikit: https://github.com/danielsaidi/SwiftUIKit
 
 bsky: https://bsky.app/profile/danielsaidi.bsky.social/post/3lodlyzxwns2i
 toot: https://mastodon.social/@danielsaidi/114448990814752516
 ---
 
-While regular Swift packages can define dependencies, binary packages can't. But there is a way to make the Swift Package Manager fetch & link dependencies for a binary package. Let's find out how.
+While regular Swift package targets can define dependencies, binary targets can't. But there *is* a way to define dependencies for a binary Swift Package target. It's just a little different. Let's find out how.
 
 ![An image of a coffee shop counter, selling code.]({{page.header}})
 
 
+## Update: 2025-06-23
+
+The post has been updated with a more extensive approach that lets us add both open- and closed-source dependencies to a package.
+
+
 ## TLDR;
 
-If you just want to know how to add a dependency to a binary Swift package, and are not interested in the details, this is a quick summary. The rest of the article provides you with more details.
+If you just want to know how to add dependency to binary Swift Package targets, here's a summary.
 
-To add a dependency to a binary Swift package, you can add it as a second package target, then add that target to your product's `targets` list. This adds a `LicenseKit` dependency to `VietnameseInput`:
+To add dependencies to a binary Swift Package target, you can add your dependencies to a *second*, regular target. The binary target will be able to access these dependencies at runtime.
+
+For instance, this is how my [VietnameseInput]({{page.vietnameseinput}}) defines dependencies to the closed-source [LicenseKit]({{page.licensekit}}) and the open-source [SwiftUIKit]({{page.swiftuikit}}):
 
 ```swift
 // swift-tools-version: 6.0
@@ -38,36 +46,48 @@ import PackageDescription
 
 let package = Package(
     name: "VietnameseInput",
-    platforms: [...],
+    platforms: [
+        .iOS(.v15),
+        .macOS(.v13),
+        .tvOS(.v15),
+        .watchOS(.v8),
+        .visionOS(.v1)
+    ],
     products: [
         .library(
             name: "VietnameseInput",
-            targets: ["VietnameseInput", "LicenseKit"]
+            targets: ["VietnameseInput", "VietnameseInputDependencies"]
         )
+    ],
+    dependencies: [
+        .package(url: "https://github.com/.../LicenseKit.git", .upToNextMajor(from: "1.4.1")),
+        .package(url: "https://github.com/.../SwiftUIKit", .upToNextMajor(from: "5.8.2"))
     ],
     targets: [
         .binaryTarget(
-            name: "LicenseKit",
-            url: "https://github.com/LicenseKit/LicenseKit/.../LicenseKit.zip",
-            checksum: "389a58fc8148215a8f8fed06960aa24ddaba3a5b88e73093f60256ddf947cc1d"
-        ),
-        .binaryTarget(
             name: "VietnameseInput",
             url: "https://github.com/Kankoda/VietnameseInput/.../VietnameseInput.zip",
-            checksum: "794fdce20d26376a93d488fec52c06662a88e698970a6faf6794a5d6536a7a7d"
+            checksum: "9cad9ee0524dc069cbff97d96a89a5a40ca9d4383e9f3491645db0b7c37116e1"
+        ),
+        .target(
+            name: "VietnameseInputDependencies",
+            dependencies: ["LicenseKit", "SwiftUIKit"],
+            path: "Dependencies",
         )
     ]
 )
 ```
 
-The URLs and checksums have been shortened for readability. I have only verified that it works with a dependency that too is a binary package, but it should be doable with a regular package as well.
+Note that you also need to define dependencies for your package's open-source code, as well as for the Xcode project that is used to build the framework.
+
+If you're interested in the background and all specifics, brace yourself and get ready for a deep dive.
 
 
 ## Background
 
-I work on several closed-source SDKs, which all ship as binary Swift packages. I have struggled with how to manage dependencies for them, since binary Swift packages can't define dependencies.
+I work on many closed-source SDKs that ship as binary Swift Package targets. I have struggled with managing dependencies for them, since binary targets can't define dependencies.
 
-Defining a dependency in a regular Swift package is really easy. For instance, this package depends on another package called `EmojiKit`, which is added to the main target:
+Defining dependencies for regular Swift Package targets is easy. For instance, this package depends on another package called `EmojiKit`:
 
 ```swift
 // Package.swift
@@ -103,26 +123,32 @@ let package = Package(
 )
 ```
 
-However, if you use a `.binaryTarget` to distribute closed-source, you'll find that that `.binaryTarget` doesn't have a `dependencies` argument.
+With a regular Swift Package target, you define all dependencies in the `dependencies` section of your package manifest file, then simply add the dependencies to your target.
+
+However, when you use a `.binaryTarget` to distribute a closed-source library, you'll find that binary targets don't have a `dependencies` argument. 
+
+Does this mean that a `.binaryTarget` can't have dependencies? Not quite. But it's a little trickier to get it to work. Let's take a look at how I did this in one of my closed-source libraries.
 
 
 ## How did this affect me?
 
 One of my closed-source SDKs is [KeyboardKit Pro]({{page.keyboardkitpro}}), which is based on the open-source [KeyboardKit]({{page.keyboardkit}}). KeyboardKit is a regular package that can have dependencies, but KeyboardKit Pro is a binary one.
 
-Since binary packages can't define dependencies (that I know of), KeyboardKit Pro can't depend on KeyboardKit. So I have used file sync to add the KeyboardKit source code to KeyboardKit Pro.
+Both KeyboardKit and KeyboardKit Pro needs dependencies, but since KeyboardKit Pro can't have dependencies, this also stops KeyboardKit from having dependencies.
 
-But this solution introduces another problem. Since KeyboardKit Pro can't have dependencies, this also stops KeyboardKit from having any, which means that KeyboardKit also needs to use file sync for its dependencies. This becomes messy and makes builds slow.
+To work around this, I have used file syncing to inline add any dependencies that the two libraries may have. This works, but has some horrible, unwanted side-effects.
 
-Another of my products - [LicenseKit]({{page.licensekit}}) - has the same problem, but in a different way. LicenseKit can be used to let apps and SDKs require a commercial license to be used. But while apps can add it as a package dependency, closed-source SDKs that are shipped as binary Swift packages can't.
+* Adding dependencies as source code means that the library will contain everything, including all internal parts. This grows the library and makes builds slower.
+* Being able to access the internal parts of a dependency makes it possible for the library to use and expose things that shouldn't be used outside of the depencency.
+* Adding dependency source code to a library means that the source code will become part of the library documentation, which means that it too must be documented.
 
-Since LicenseKit mainly targets closed-source SDKs, this posed a serious problem for my product.
+As my various closed-source projects grew in complexity, it became critical for me to find a way to properly handle dependencies for these projects.
 
 
 
 ## Why can't binary packages have dependencies?
 
-To understand the problem, compare this binary Swift package with the regular package above:
+To understand the problem, first compare this binary Swift Package target with the regular package:
 
 ```swift
 // Package.swift
@@ -149,87 +175,34 @@ let package = Package(
 )
 ```
 
-We only have a single `.binaryTarget`, and if you check the `.binaryTarget` signature you'll find that it doesn't let you define a dependency. So what to do?
+Even though we can add dependencies to the package manifest, the `.binaryTarget` builder doesn't let you define a dependency. So what can we do?
 
 
-## How have I managed dependencies so far?
+## The bad file sync approach
 
-To avoid dependencies in my closed-source SDKs, I have used file syncing to sync source files from the library that I want to use.
-
-For instance, since KeyboardKit Pro depends on KeyboardKit but can't specify a dependency, I have used this sync script to file copy KeyboardKit into KeyboardKit Pro:
-
-```shell
-#!/bin/bash
-
-# This script syncs the KeyboardKit dependency
-
-# Variables
-NAME="KeyboardKit"
-NAMEPRO="KeyboardKitPro"
-SOURCE="../src/Sources/$NAME"
-TARGET="Sources/KeyboardKitPro/_Dependencies/$NAME"
-TARGET_DOCC="Sources/KeyboardKitPro/$NAMEPRO.docc"
-
-# Remove
-rm -rf "$TARGET"
-rm -rf "$TARGET_DOCC/Essentials"
-rm -rf "$TARGET_DOCC/Developer"
-rm -rf "$TARGET_DOCC/Features"
-
-# Add dependency and remove documentation
-cp -r "$SOURCE/" "$TARGET/"
-rm -rf "$TARGET/$NAME.docc"
-
-# Add documentation content
-cp -r "$SOURCE/$NAME.docc/Essentials" $TARGET_DOCC
-cp -r "$SOURCE/$NAME.docc/Developer" $TARGET_DOCC
-cp -r "$SOURCE/$NAME.docc/Features" $TARGET_DOCC
-cp -r "$SOURCE/$NAME.docc/Resources" $TARGET_DOCC
-cp Resources/Logo.png "$TARGET_DOCC/Resources"
-
-# Remove other things not used in this library
-rm -rf "$TARGET/_Pro"
-rm -rf "$TARGET/_Keyboard/KeyboardInputViewController+SetupCore.swift"
-rm -rf "$TARGET/App/KeyboardAppView+LicenseRegistrationView.swift"
-rm -rf "$TARGET/Bundle/Bundle+KeyboardKit.swift"
-rm -rf "$TARGET/Emojis/Emoji+KeyboardWrapper.swift"
-
-# Commit the changes
-git add .
-git commit -am "Update $NAME"
-```
-
-This will delete any old files, then sync everything it needs from KeyboardKit that it shall copy. The result is an (almost) complete copy of KeyboardKit:
+To avoid dependencies in my closed-source SDKs, I have used sync scripts to sync source files into my projects. The result is a folder with source code for each dependency, like in KeyboardKit Pro:
 
 ![A screenshot of the copy result]({{page.assets}}sync-script.jpg)
 
-In this case, this is actually what I want, since KeyboardKit Pro is just meant to extend KeyboardKit with more features. But it leads to some tricky challenges.
+While this may be OK for the KeyboardKit dependency, which KeyboardKit Pro extends, it's bad for all other dependencies, like [GestureButton]({{page.gesturebutton}}), [EmojiKit]({{page.emojikit}}), and [LicenseKit]({{page.licensekit}}). 
 
-For instance, KeyboardKit depends on my [GestureButton]({{page.gesturebutton}}) library for its keyboard button gestures. And while KeyboardKit could have pulled it in as a proper Swift package dependency, the fact that KeyboardKit is then copied into KeyboardKit Pro in its turn, makes this impossible. 
-
-This has made me used the file sync approach even in KeyboardKit. It works ok, but isn't as clean as proper Swift package dependencies. It also makes build times slower than they need to be.
-
-All in all, KeyboardKit depends on [GestureButton]({{page.gesturebutton}}) and [EmojiKit]({{page.emojikit}}), while KeyboardKit Pro depends on KeyboardKit and [LicenseKit]({{page.licensekit}}). It's a controlled and stable mess, but has worked for many years now.
+While this is a controlled mess that has worked for many years, I want to find a way to replace these file syncs with proper dependencies.
 
 
 ## Finding a workaround
 
-When I created my latest closed-source SDK - [VietnameseInput]({{page.vietnameseinput}}) - which will be used by KeyboardKit Pro to enable Vietnamese typing, I faced new dependency-related challenges.
+When I created my latest closed-source SDK - [VietnameseInput]({{page.vietnameseinput}}) - I was determined to solve this once and for all. Without any current customers, I will be able to experiment with less risk.
 
-While VietnameseInput is used by KeyboardKit Pro, it's a standalone product that also [LicenseKit]({{page.licensekit}}) to handle licenses. I understand that this may be confusing, so I'll try to sum up why:
+VietnameseInput is a commercial SDK that uses my company's [LicenseKit]({{page.licensekit}}) license software to handle software licenses. Instead of inline copy it, I want to pull it in as a proper dependency.
 
-* KeyboardKit Pro "depends" on LicenseKit by syncing files.
-* By syncing files, LicenseKit's internal code become available.
-* KeyboardKit Pro has custom license code that uses this internal code.
-* When creating this new Vietnamese SDK, I wanted it to use only public license tools.
+My closed-source SDKs all have a *private* source code repository, which has a regular Swift Package target, and a *public* distribution repository, which has a binary Swift Package target.
 
-So I wanted to find a way to make at least VietnameseInput depend on LicenseKit in a way that will preserve LicenseKit's access scope and intended system design.
+So, to handle dependencies for a closed-source package, we must make it work for both the private source code repository, and the public distrbution repository.
 
-To do this, I had to find a way to make VietnameseInput pull in LicenseKit as a proper dependency.
 
-My closed-source SDKs have a **private** source code repository, and a **public** distribution repository. The private repository has a regular Swift package, while the public repository has a binary package.
+## Adding dependencies to the private package
 
-So, while the public VietnameseInput repo has a binary package, the private source code repository has a regular package. So I started with adding the [LicenseKit]({{page.licensekit}}) dependency there:
+Since the private source code repository has a Swift Package with a regular target, adding [LicenseKit]({{page.licensekit}}) to this package is very easy:
 
 ```swift
 // swift-tools-version: 6.0
@@ -264,18 +237,16 @@ let package = Package(
 )
 ```
 
-This worked great! I was able to add proper commercial license support to VietnameseInput with very little effort, using both Gumroad integrations, encrypted license files and source code licenses.
+We just define the LicenseKit dependency in the manifest's `dependencies` section, then add it to the main target. This is just how you would manage dependencies for a regular open-source package.
 
-I then used the private source code to build an XCFramework, and uploaded it to a pre-release on the [VietnameseInput]({{page.vietnameseinput-repo}}) GitHub repository. The URL of this upload will then be added to the public, binary package, together with its computed checksum.
-
-The big question remains: Will the public binary package be able to define a LicenseKit dependency?
+Note that if you use an Xcode project to generate your XCFramework, you must also add the same dependency to your Xcode project. If you don't, the project will not build.
 
 
-## The result
+## Adding dependencies to the public package
 
-It was time to see if the public binary package could pull in LicenseKit as a proper dependency, even though binary targets can't have dependencies.
+Since the public distribution package uses a binary target, adding [LicenseKit]({{page.licensekit}}) to this package is a bit tricker, since a `.binaryTarget` can't define dependencies.
 
-This is how the binary VietnameseInput package looked before adding the dependency:
+While I played around with these limitations, I realized that we can trick the Swift Package Manager to support dependencies by adding a second, regular Swift Package to the package file:
 
 ```swift
 // swift-tools-version: 6.0
@@ -288,68 +259,50 @@ let package = Package(
     products: [
         .library(
             name: "VietnameseInput",
-            targets: ["VietnameseInput"]
+            targets: ["VietnameseInput", "VietnameseInputDependencies"]
+        )
+    ],
+    dependencies: [
+        .package(
+            url: "https://github.com/LicenseKit/LicenseKit.git", 
+            .upToNextMajor(from: "1.4.1")
         )
     ],
     targets: [
         .binaryTarget(
             name: "VietnameseInput",
             url: "https://github.com/Kankoda/VietnameseInput/.../VietnameseInput.zip",
-            checksum: "794fdce20d26376a93d488fec52c06662a88e698970a6faf6794a5d6536a7a7d"
-        )
-    ]
-)
-```
-
-My idea was that if the package could define multiple targets and include them all in the `.library` product, perhaps dynamic linking could take care of the rest?
-
-So, I tried adding a second target and adding it to the library:
-
-```swift
-// swift-tools-version: 6.0
-
-import PackageDescription
-
-let package = Package(
-    name: "VietnameseInput",
-    platforms: [...],
-    products: [
-        .library(
-            name: "VietnameseInput",
-            targets: ["VietnameseInput", "LicenseKit"]
-        )
-    ],
-    targets: [
-        .binaryTarget(
-            name: "LicenseKit",
-            url: "https://github.com/LicenseKit/LicenseKit/.../LicenseKit.zip",
-            checksum: "389a58fc8148215a8f8fed06960aa24ddaba3a5b88e73093f60256ddf947cc1d"
+            checksum: "9cad9ee0524dc069cbff97d96a89a5a40ca9d4383e9f3491645db0b7c37116e1"
         ),
-        .binaryTarget(
-            name: "VietnameseInput",
-            url: "https://github.com/Kankoda/VietnameseInput/.../VietnameseInput.zip",
-            checksum: "794fdce20d26376a93d488fec52c06662a88e698970a6faf6794a5d6536a7a7d"
+        .target(
+            name: "VietnameseInputDependencies",
+            dependencies: ["LicenseKit", "SwiftUIKit"],
+            path: "Dependencies",
         )
     ]
 )
 ```
 
-This actually worked! The public package compiled with no problems, after which I created a proper release and published it to the  [VietnameseInput]({{page.vietnameseinput-repo}}) GitHub repository.
+So instead of having a single `binaryTarget`, we now have a `binaryTarget` as well as a regular `target` that defines the dependencies. We then add both targets to the library product.
 
-I then created a test app and pulled in the VietnameseInput version. It also worked! The app fetched both VietnameseInput and LicenseKit, and did allow me to register its VietnameseInput license key.
+When a user pull sin this package, the binary target will then be able to access the dependencies as well, even if it's the regular target that defines them
+
+
+## Things to consider
+
+While this approach works for both open- and closed-source dependencies, adding an open-source dependency to a closed-source package runs the risk of making the final XCFramework larger.
+
+For instance, adding the open-source [SwiftUI]({{page.swiftui}}) to VietnameseInput caused the final framework zip file to almost *triple* in size - not good! 
+
+From what I understand, this is because the open-source dependencies are statically linked into the framework, which causes the framework to grow in size as a direct result.
+
+To avoid this, we can either create a closed-source version of the open-source binary, or enforce the package to use dynamic linking. I will update this post once I've experimented with this a bit more.
 
 
 ## Conclusion
 
-I'm not sure how this exactly works, but guess that dynamic linking lets VietnameseInput locate and use LicenseKit due to the app's library search paths. If you know more, I'd love to hear about it.
+Using proper dependencies in closed-source packages is a little less straightforward than in regular packages, but it's still doable and will make it a lot easier to manage your packages over time.
 
-This means that I can start using proper dependencies for my closed-source SDKs. This will improve build times and also remove external dependency types from the documentation.
+Using proper dependencies instead of file syncing will improve your library build times and remove any external types from your library's documentation.
 
-
-## Disclaimer
-
-To be clear, I have so far only made this work with a binary Swift package. I'm not sure how I would go about to add a regular `.target` that points to a regular package. If you do, please share.
-
-I have also just tested this in the test app that I mentioned. I can't see why this shouldn't work when publishing the app to the App Store, but maybe there are additional steps required.
-
-I have looked all over for good documentation from Apple or the community, but have had to resort to my own experiments. I'd love to discuss this with anyone who have strugged with this too.
+Adding open-source dependencies to an XCFramework can cause your framework to grow in size, due to static linking. Please leave a comment if you know how to fix this.
