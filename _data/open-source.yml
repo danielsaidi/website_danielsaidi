@@ -37,6 +37,11 @@
   image: /assets/sdks/flipkit.png
   header: /assets/sdks/flipkit-header.jpg
 
+- name: FontKit
+  url: https://github.com/danielsaidi/FontKit
+  image: /assets/sdks/fontkit.png
+  header: /assets/sdks/fontkit-header.jpg
+
 - name: GestureButton
   url: https://github.com/danielsaidi/GestureButton
   image: /assets/sdks/gesturebutton.png
@@ -92,10 +97,10 @@
   image: /assets/sdks/scrollkit.png
   header: /assets/sdks/scrollkit-header.jpg
 
-- name: StandardButtons
-  url: https://github.com/danielsaidi/StandardButtons
-  image: /assets/sdks/standardbuttons.png
-  header: /assets/sdks/standardbuttons-header.jpg
+- name: StandardActions
+  url: https://github.com/danielsaidi/StandardActions
+  image: /assets/sdks/standardactions.png
+  header: /assets/sdks/standardactions-header.jpg
 
 - name: StoreKitPlus
   url: https://github.com/danielsaidi/StoreKitPlus

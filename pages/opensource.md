@@ -19,7 +19,7 @@ redirect_from:
   </p>
 
   <p>
-    Many of these projects could use a proper icon/logo. If you're a designer or posess any design skills, feel free to reach out to contribute with your design prowess for the good of the community.
+    If you're a designer, feel free to reach out to contribute proper icons for the good of the community.
   </p>
 
   {% assign sdks = site.data.open-source %}
