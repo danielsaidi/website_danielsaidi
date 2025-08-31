@@ -1,6 +1,6 @@
 ---
 title:  Creating amazing loading animations with SF Symbols.
-date:   2025-06-19 07:00:00 +0000
+date:   2025-07-24 07:00:00 +0000
 tags:   swiftui
 
 assets: /assets/blog/25/0724/
