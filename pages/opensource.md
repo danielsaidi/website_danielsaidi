@@ -15,7 +15,7 @@ redirect_from:
   <h1>Open Source</h1>
 
   <p>
-    Here are some of my open-source projects that I currently maintain. For more details, please have a look at my <a href="{{ site.urls.github }}">GitHub</a> profile.
+    Here are some open-source projects that I actively maintain. For more details and archived projects, please have a look at my <a href="{{ site.urls.github }}">GitHub</a> profile.
   </p>
 
   <p>
