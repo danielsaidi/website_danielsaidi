@@ -1,9 +1,5 @@
-.tag.swiftui {
-  border: solid 1px $background-overlay;
-}
-
-.tag-list {
-  height: 85px;
+.tag-list.collapsed {
+  height: 125px;
   overflow: hidden;
   border-bottom: solid 1px #0002;
   transition: all 200ms ease-in-out, color 1s ease-out 100ms !important;

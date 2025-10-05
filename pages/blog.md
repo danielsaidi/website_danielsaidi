@@ -15,13 +15,9 @@ image-show: 0
 </div>
 
 <div class="paper">
-  {% include kankoda/tags/tag-list.html tags=site.tags firstmost="general,swift,swiftui" %}
-  <div class="tag-list-separator" >
-    <a class="tag-list-toggle" href="javascript:toggleTagList()">Show tags</a>
-    <hr />
-  </div>
-  <a name="tag-item-list"></a>
-
+  {% include kankoda/tags/tag-list.html tags=site.tags firstmost="general,swift,swiftui" class="collapsed" %}
+  {% include kankoda/tags/tag-list-separator %}
+  
   {% for post in site.posts %}
     {% include kankoda/blog/list-item.html post=post %}
   {% endfor %}

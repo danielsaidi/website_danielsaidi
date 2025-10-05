@@ -41,8 +41,10 @@ function toggleTagList() {
   el.toggleClass("expanded");
   let isExpanded = el.hasClass("expanded");
   if (isExpanded) {
+    el.removeClass("collapsed")
     toggle.text("Hide tags");
   } else {
+    el.addClass("collapsed")
     toggle.text("Show tags");
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
