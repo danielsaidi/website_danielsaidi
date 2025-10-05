@@ -65,10 +65,9 @@ footer:
     - pages/sdks.md
     - pages/opensource.md
     - pages/talks.md
-
-footer_extra_title: Music
-footer_extra:
-  - pages/music.md
+  extra:
+    title: Music
+    url: pages/music.md
 
 collections_dir: collections
 
