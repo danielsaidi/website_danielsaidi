@@ -9,7 +9,10 @@ image-show: 0
 
 {% include kankoda/buttons/home.html %}
 
-<h1>Blog</h1>
+<div class="searchbar-header">
+  <h1>Blog</h1>
+  {% include kankoda/search/searchbar class="discrete-dark" %}
+</div>
 
 <div class="paper">
   {% include kankoda/tags/tag-list.html tags=site.tags firstmost="general,swift,swiftui" %}
