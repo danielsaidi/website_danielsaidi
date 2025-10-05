@@ -1,14 +1,13 @@
-$background: #F5F5F7;
+$background: #fafafc;
 $background-secondary: #e0e0e8;
 $background-tertiary: #d8d8e0;
 
 $foreground: black;
 $foreground-contrast: white;
-$foreground-secondary: #666;
-$foreground-tertiary: #888;
+$foreground-secondary: #333;
+$foreground-tertiary: #666;
 
 $border: #ddd;
-$border-secondary: #ddd;
 $border-tertiary: #ccc;
 
 $button-container-background: $background-tertiary;
@@ -17,15 +16,21 @@ $button-container-foreground: $foreground;
 $button-container-selected-background: white;
 $button-container-selected-foreground: black;
 
-$code-background: #e9e9e9;
+$code-background: #f3f3f366;
 $code-foreground: black;
 $code-border: #ccc;
 
 $code-block-background: #112;
 $code-block-foreground: white;
 
-$cta-background: $foreground;
-$cta-foreground: $foreground-contrast;
+$cta-blue: #0171E3;
+$cta-background: $cta-blue;
+$cta-foreground: white;
+$cta-border: transparent;
+
+$cta-secondary-background: transparent;
+$cta-secondary-foreground: $cta-blue;
+$cta-secondary-border: $cta-blue;
 
 $feature-table-border-color: $border;
 $feature-table-background: white;
@@ -33,6 +38,7 @@ $feature-table-even-row-color: #f7f7f7;
 $feature-table-shadow-color: transparent;
 
 $footer-background: $background-secondary;
+$footer-background-glass: $background;
 
 $link: black;
 $link-hover: #888;

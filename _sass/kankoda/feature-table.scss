@@ -6,8 +6,6 @@
   margin-bottom: 30px;
 
   .grid {
-    background-color: $feature-table-background;
-
     grid-row-gap: 10px;
     grid-column-gap: 5px;
     grid-template-columns: repeat(5, 1fr);
@@ -44,33 +42,36 @@
   }
 
   .table-header {
-    background-color: $background;
-    padding: 6px 0;
+    padding: 6px;
+    border-radius: 10px;
+    margin-bottom: 15px;
 
     .tier {
-      border-radius: 5px;
+      border-radius: 7px;
       display: block;
       text-align: center;
-      background-color: #fff;
+      background-color: rgba(255, 255, 255, 0.6);
       border: solid 1px $feature-table-border-color;
 
       .cta {
         display: block;
+        color: white;
+        background-color: black;
+        padding: 10px 15px;
       }
     }
 
-    .tier.silver, .tier.starter {
-      background-color: #f7f7f7;
-      border: solid 1px $feature-table-border-color;
+    .tier.silver, .tier.starter, .tier.standard {
+      background-color: rgba(100, 100, 100, 0.1);
     }
 
     .tier.gold, .tier.pro, .tier.business {
       border: solid 1px gold;
-      background-color: rgba(255, 215, 0, 0.2);
+      background-color: rgba(255, 215, 0, 0.4);
 
       .cta {
         color: black !important;
-        background-color: gold !important;
+        background-color: gold;
       }
 
       .cta:hover {
@@ -81,12 +82,12 @@
 
     .tier.custom {
       border: solid 1px #334;
-      background-color: #445;
-      color: white !important;
+      background-color: rgba(0, 0, 25, 0.8);
+      color: white;
 
       .cta {
-        color: black !important;
-        background-color: white !important;
+        color: black;
+        background-color: white;
       }
     }
 
@@ -140,6 +141,10 @@
     border: none;
   }
 
+  .even, .even + .grid {   // !!!
+    background-color: $feature-table-background;
+  }
+
   .odd, .odd + .grid {   // !!!
     background-color: $feature-table-even-row-color;
   }
@@ -172,7 +177,7 @@
   }
 }
   
-@media (max-width: 500px) {
+@media (max-width: 600px) {
 
   .feature-table {
 
@@ -188,6 +193,7 @@
 
     .cta {
       font-size: small;
+      min-width: 10px;
     }
   }
 }

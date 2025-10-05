@@ -1,10 +1,9 @@
 {% assign product = include.product %}
 
-[{{product}}]({{include.url}}) has different support levels, based on its license tiers and your needs.
-
 
 ## Support Levels
 
+[{{product}}]({{include.url}}) has different support levels, based on its license tiers and your needs.
 
 ### GitHub Issues
 

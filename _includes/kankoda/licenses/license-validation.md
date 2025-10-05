@@ -2,16 +2,16 @@
 
 ## License Validation
 
-All [{{product}}](/{{include.url}}) subscription licenses, except Yearly Gold, are validated over the Internet. This means that the keyboard extension requires Full Access to perform network calls.
+Lower & Monthly licenses are validated over the Internet. This means that the app must be able to make a network call to validate its {{product}} license.
 
-Higher and Custom licenses, are compiled into the library, and are validated on-device, without the need for Full Access or network calls.
+Higher & Custom licenses are compiled into the SDK binary, and are completely validated on-device.
 
 
 ## License Files
 
-Higher and Custom licenses include a license file that let you update your license file without having to update to the latest version of the SDK.
+Higher & Custom licenses include a license file that let you update your license file without having to update to the latest version of the SDK.
 
 
 ## License Caching
 
-For all licenses that require network-based validation, the SDK will cache successful validation to be able to handle temporary connectivity loss.
+For all licenses that require network-based validation, the SDK will cache all successful validations, and use them to handle any temporary connectivity loss.

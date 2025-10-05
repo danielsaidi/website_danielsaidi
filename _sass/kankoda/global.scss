@@ -21,6 +21,18 @@ a:hover, a:visited:hover {
   color: $link-hover;
 }
 
+blockquote {
+  color: $foreground !important;
+  background: $quote-background;
+  border-left: 10px solid $background;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+}
+
+blockquote p {
+  display: inline;
+}
+
 hr {
   color: red;
 }

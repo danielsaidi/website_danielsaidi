@@ -10,6 +10,12 @@
   font-weight: normal;
 }
 
+.tag.inline {
+  font-size: small;
+  display: inline-block;
+  margin-bottom: -50px;
+}
+
 .tag.small {
   font-size: small; 
 }
@@ -31,7 +37,7 @@
   border: solid 1px #aaa;
 }
 
-.tag.swift, .tag.spm {
+.tag.swift {
   background-color: $tag-swift;
   border: solid 1px $tag-swift;
 }

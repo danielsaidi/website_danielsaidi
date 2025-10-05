@@ -9,7 +9,7 @@
       
       <div class="column">
         <p>Site</p>
-        {% include kankoda/global/site-footer-links.html paths=site.footer_sitemap %}
+        {% include kankoda/global/site-footer-links.html paths=site.footer.sitemap %}
       </div>
 
       <div class="column">
@@ -20,11 +20,11 @@
         {% if site.urls.blog-archive %}
         <a href="{{site.urls.blog-archive}}">Blog Archive</a>
         {% endif %}
-        {% if site.urls.newsletter %}
-        <a href="{{site.urls.newsletter}}">Newsletter</a>
-        {% endif %}
         {% if site.urls.rss %}
         <a href="{{site.urls.rss}}">RSS</a>
+        {% endif %}
+        {% if site.urls.newsletter %}
+        <a href="{{site.urls.newsletter}}">Newsletter</a>
         {% endif %}
       </div>
       
@@ -65,15 +65,9 @@
         <p>Code</p>
         <div>
           <a href="{{site.urls.github}}">GitHub</a>
-          {% if site.urls.github_pro %}
-            <a href="{{site.urls.github_pro}}">(Pro)</a>
-          {% endif %}
         </div>
         <div>
           <a href="{{site.urls.docs}}">Docs</a>
-          {% if site.urls.docs_pro %}
-            <a href="{{site.urls.docs_pro}}">(Pro)</a>
-          {% endif %}
         </div>
         <div>
           <a href="{{site.urls.github}}/issues">Issues</a>
@@ -87,6 +81,7 @@
         <a href="https://keyboardkit.com">KeyboardKit</a>
         <a href="https://kankoda.com/licensekit">LicenseKit</a>
         <a href="https://wally.app">Wally</a>
+        <a href="https://kankoda.com/emojipicker">EmojiPicker</a>
       </div>
 
     </div>

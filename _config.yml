@@ -48,21 +48,23 @@ fonts:
 header_axis: vertical
 header_logo_text: Daniel Saidi
 
-header_pages:
-  - index.md
-  - pages/blog.md
-  - pages/apps.md
-  - pages/sdks.md
-  - pages/opensource.md
-  - pages/talks.md
+header:
+  pages:
+    - index.md
+    - pages/blog.md
+    - pages/apps.md
+    - pages/sdks.md
+    - pages/opensource.md
+    - pages/talks.md
 
-footer_sitemap:
-  - index.md
-  - pages/work.md
-  - pages/apps.md
-  - pages/sdks.md
-  - pages/opensource.md
-  - pages/talks.md
+footer:
+  sitemap:
+    - index.md
+    - pages/work.md
+    - pages/apps.md
+    - pages/sdks.md
+    - pages/opensource.md
+    - pages/talks.md
 
 footer_extra_title: Music
 footer_extra:

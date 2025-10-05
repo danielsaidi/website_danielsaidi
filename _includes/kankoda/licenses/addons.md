@@ -1,9 +1,9 @@
 {% assign product = include.product %}
+{% include kankoda/buttons/back.html title=product url=include.url %}    
 
-[{{product}}]({{include.url}}) has add-ons available to the higher tiers. See the [pricing table]({{include.url}}) for more info.
+## Add-ons
 
-
-Enterprise licenses include additional benefits, like custom billing, custom SLA, software escrow, etc.
+This SDK has add-ons available to the higher tiers. See the [pricing table]({{include.url}}) for more info. Custom and Enterprise licenses include additional benefits, like custom billing & SLA, software escrow, etc.
 
 
 ## Additional Apps & Products
@@ -11,24 +11,24 @@ Enterprise licenses include additional benefits, like custom billing, custom SLA
 Custom licenses can include additional apps & products in a single license, at a significant discount.
 
 
-## Custom Billing
+## Billing
 
 Custom licenses can use custom billing and invoicing methods, customize the billing cadence, etc.
 
 
-## Custom License Expiration
+## License Expiration
 
 Custom licenses can customize the license expiration to provide flexibility when it's time to renew.
-
-
-## Custom Terms
-
-Custom licenses can define custom license terms, to accomodate to business & legal requirements.
 
 
 ## SLA & Dedicated Support
 
 Custom licenses can tailor the SLA and support level to fit your organization's specific needs.
+
+
+## Terms
+
+Custom licenses can define custom license terms, to accomodate to business & legal requirements.
 
 
 ## Software Escrow Services

@@ -1,67 +1,89 @@
 {% assign product = include.product %}
 {% assign product-escaped = include.product | split: " " | join: "%20" %}
-{% assign custom-email = site.urls.email | append: "?subject=" | append: product-escaped | append: "%20-%20Custom%20License%20Request" %}
+{% assign show-title = include.show-title | default: 1 %}
+{% assign kankoda-url = include.company-url | default: "https://kankoda.com" %}
+{% assign privacy-url = include.cprivacy-url | default: "/privacy" %}
+{% assign custom-email = site.urls.email | append: "?subject=" | append: product-escaped | append: "%20-%20Custom%20Plan" %}
 
-# {{ product }} Terms & Conditions
+{% if show-title == 1 %}
+# {{product}} Terms & Conditions
+{% endif %}
 
-Below are the standard [{{product}}]({{include.url}}) Terms & Conditions. A license is valid for one product, defined by the bundle ID that is provided at the time of purchase.
+## Standard Terms & Conditions
 
-The standard license is aimed at indies & small businesses. Reach out for a [custom license]({{ custom-email }}) if you’re an enterprise or a company with $10M+ in annual revenue, or the app has $1M+ in annual revenue.
+These are the Standard Terms & Conditions for the [{{product}} SDK]({{include.url}}) ("the Software"), which is owned and licensed by [Kankoda Sweden AB]({{kankoda-url}}) (“the Licensor").
+
+The standard license is for indies, startups and small businesses. For companies with $10M+ annual revenue or apps with $1M+ annual revenue, please [contact us]({{custom-email}}) for a custom license.
 
 
-## License Information
+## License Activation
+
+Standard licenses that are purchased via a subscription can be used immediately after signup, using the unique license key that is provided with the subscription purchase confirmation.
+
+Licenses that are purchased via invoicing or any other means of payment, will typically be activated within two business days after payment has been received.
 
 
-### License Activation
+## License Validation
 
-Standard licenses that are purchased via [Gumroad]({{ site.urls.gumroad }}) are activated and can be used immediately after purchase, using the unique license key in the license purchase confirmation.
+Standard licenses are validated using network requests. The license validation is designed to handle temporary connectivity loss, but requires regular connectivity for a license to be properly validated.
 
-[Custom licenses]({{ custom-email }}) that are purchased via regular invoicing or other means of payment, are activated in a new version of the product, typically within two business days after payment has been received.
+Yearly Gold/Business/Custom/Enterprise licenses are delivered as encrypted files and are validated on-device, without the need for network-based validation.
 
-### License Validation
 
-Standard licenses are validated using network requests. The SDK can handle temporary connectivity loss, but requires regular connectivity for the license to be properly validated.
+## License Expiration
 
-Yearly Gold & custom licenses are encoded into the binary product and validated on-device, without the need for network-based validation.
+Standard licenses expire when the subscription ends, or when the on-device license or license file expires. This will stop the Software from being used until the license is renewed.
 
-### License Expiration
-
-A license expires when its subscription ends. This will stop the related product from being able to use {{ product }} in both development and production.
-
-Custom licenses can be configured to allow license expiration, which will allow them to be used in already shipped version of an apps, but not in new ones. [Reach out]({{ custom-email }}) if you need a custom license.
-
-### License Adjustments
-
-Your license information can be adjusted in a new version of the software binary, if needed. [Reach out]({{ custom-email }}) if you need to adjust any information in your license.
+Yearly Gold/Business/Custom/Enterprise licenses can customize the license expiration behavior to allow a grace period in already shipped versions of the related product.
 
 
 ## Free Trial
 
-Standard licenses include a free trial with unlimited access to all non-consumption-based features in the selected tier. The trial will automatically convert to a paid plan if it's not cancelled.
+Standard licenses that are purchased via the online store include a free trial with unlimited access to non-consumption based features in the selected tier. 
 
-[Reach out]({{ custom-email }}) if you need a custom license to try out any particular features that are not available in the standard license, before your purchase.
+The trial will automatically convert to a paid plan if it's not cancelled before the trial period ends.
 
 
 ## Refunds
 
-The free trial can be cancelled at any time. No refunds will be approved after the free trial ends. All active license subscriptions can be cancelled at any time, and will last through the remaining term.
+Standard licenses that are purchased via the online store honor the store-specific refund policy (7 days for Gumroad, and 14 days for Paddle).
+
+No refunds will be approved after a license has been activated and encoded into the Software, or delivered as a license file to the licensee.
 
 
 ## Technical Information
 
-{{ product }} targets the current major OS version, and supports two major versions back (one for macOS). Support for older OS versions is only removed in major version bumps.
+The Software targets the current major OS version, and two major versions back (one for macOS). Any support for older OS versions will only be removed in a major version bump.
 
-{{ product }} is built with the latest version of Xcode, but offers on-demand builds for the last major version, up to three months after the latest major version was released. 
+The Software is built with the latest version of Xcode, but offers on-demand builds using the last major version, up to three months after the latest major version was released. 
 
 
 ## Feature Disclaimer
 
-The SDK depends on hardware- and operating system capabilities that are provided by Apple and that can be changed or removed at any time, at Apple’s discretion, in ways that may affect the SDK.
+The Software depends on hardware- and operating system capabilities that are provided by Apple and that can be changed or removed at any time, at Apple’s discretion.
 
 Features that stop working due to, but not limited to, such changes, may be removed at any time, without replacement or compensation, since the required capabilities may no longer be available.
 
 
-## Closed Source License Agreement
+## Data Collection
+
+By using the Software under the Standard License, you grant {{site.copyright_owner}} a right to collect usage data and crash reports from the Software.
+
+The Software reserves the right to adjust its data collection practices in any future update. For a full specification on how the Software may collect data, see the Software's [privacy policy]({{privacy-url}}).
+
+Custom/Enterprise licenses can opt-out of any data collection practices in the license agreement.
+
+
+## Right to Market
+
+By using the Software under the Standard License, you grant {{site.copyright_owner}} a non-exclusive, worldwide, royalty-free right to use your app/company name and logo in our marketing materials, case studies, and promotional content. 
+
+The Right to Market includes the right to identifying you as a customer and describing your general use of the Software.
+
+Custom/Enterprise license customers can opt-out of the right to market in the license agreement.
+
+
+## Closed-Source License Agreement
 
 This license agreement applies to the {{ product }} SDK (hereby referred to as "the Software").
 
