@@ -20,15 +20,24 @@ layout: default
     {{ content }}
   </div>
 
-  {% if page.slides or page.video %}
-  <h2>Media</h2>
+  {% if page.slides %}
+  <h2>Slides</h2>
   <p>
-    {% if page.video %}
-    You can watch a recording of the talk <a href="{{page.video}}">here</a>.
-    {% endif %}
-    {% if page.slides %}
     You can download the presentation slides <a href="{{page.slides}}">here</a>. The slides are exported as a PDF document, with no animations or transitions.
-    {% endif %}
+  </p>
+  {% endif %}
+
+  {% if page.video %}
+  <h2>Recording</h2>
+  <p>
+    You can watch a recording of the talk <a href="{{page.video}}">here</a>.
+  </p>
+  {% endif %}
+
+  {% if page.abstract %}
+  <h2>Abstract</h2>
+  <p>
+    {{page.abstract | markdownify }}
   </p>
   {% endif %}
 
