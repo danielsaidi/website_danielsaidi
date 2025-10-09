@@ -1,6 +1,7 @@
 ---
 title: Coordinating Async Operations
 date: 2019-02-11
+
 location: CocoaHeads Stockholm
 location_url: https://www.meetup.com/CocoaHeads-Stockholm/
 

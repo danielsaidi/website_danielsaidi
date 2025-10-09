@@ -1,8 +1,15 @@
 ---
 title: Get Swifty!
 date: 2020-01-25
+
 location: DevSum
 location_url: https://www.devsum.se
+
+assets: /assets/talks/20/2005-devsum/
+image: /assets/talks/20/2005-devsum/get-swifty.jpg
+images:
+  - get-swifty.jpg
+  - objc.jpg
 
 tags: devsum
 tags-extra: swift swiftui
@@ -10,6 +17,7 @@ tags-extra: swift swiftui
 
 I gave this talk at [{{page.location}}]({{page.location_url}}) 2020, on the Swift programming language, and its syntax and building blocks. We explored the language basics and used it to build an app in UIKit and SwiftUI.
 
+<!--
 {% capture assets %}{{ "assets/talks/200528/" | relative_url }}{% endcapture %}
 
 <section data-markdown data-background="{{assets}}get-swifty.jpg">
@@ -234,3 +242,4 @@ I gave this talk at [{{page.location}}]({{page.location_url}}) 2020, on the Swif
 
 <section data-markdown data-background="https://media.giphy.com/media/upg0i1m4DLe5q/giphy.gif">
 </section>
+-->

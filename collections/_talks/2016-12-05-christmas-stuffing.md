@@ -1,8 +1,13 @@
 ---
 title: Christmas Stuffing - 10 Productivity Boosters in 10 minutes
 date: 2016-12-05
+
 location: CocoaHeads Stockholm
 location_url: https://www.meetup.com/CocoaHeads-Stockholm/
+
+assets: /assets/talks/16/1612-cocoaheads/
+image: /assets/talks/16/1612-cocoaheads/image.jpg
+image-show: 0
 
 tags: cocoaheads 
 tags-extra: general tooling

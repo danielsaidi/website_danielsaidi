@@ -5,6 +5,12 @@ date: 2023-12-12
 location: CocoaHeads Stockholm
 location_url: https://www.meetup.com/cocoaheads-stockholm/
 
+assets: /assets/talks/23/2312-cocoaheads/
+image: /assets/talks/23/2312-cocoaheads/image.jpg
+image-show: 0
+images:
+  - menubar-custom.png
+
 post: /blog/2023/11/22/customizing-the-macos-menu-bar-in-swiftui
 
 tags: cocoaheads

@@ -4,6 +4,10 @@ date: 2017-04-03
 location: CocoaHeads Stockholm
 location_url: https://www.meetup.com/CocoaHeads-Stockholm/
 
+assets: /assets/talks/17/1704-cocoaheads/
+image: /assets/talks/17/1704-cocoaheads/image.jpg
+image-show: 0
+
 video: https://www.youtube.com/watch?v=LuKehlKoN7o
 post: http://danielsaidi.com/blog/2017/08/23/alamofire-realm
 

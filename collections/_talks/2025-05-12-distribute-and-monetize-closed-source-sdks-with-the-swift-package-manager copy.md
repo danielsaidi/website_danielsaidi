@@ -2,14 +2,17 @@
 title: Distribute & Monetize Closed-Source SDKs with the Swift Package Manager
 date: 2025-05-12
 
-image: /assets/talks/25/2505-ioskonf.jpg
-image-show: 0
-
-post: /blog/2025/03/25/im-doing-a-talk-at-ioskonf25
-
 location: iOSKonf25
 location-url: https://www.ioskonf.mk
 
+assets: /assets/talks/25/2505-ioskonf/
+image: /assets/talks/25/2505-ioskonf/image.jpg
+image-show: 0
+images:
+  - group.jpg
+  - trio.jpg
+
+post: /blog/2025/03/25/im-doing-a-talk-at-ioskonf25
 slides: https://github.com/danielsaidi/website_danielsaidi/releases/download/talks/2505-iOSKonf-Slides.pdf
 
 tags: ioskonf slides

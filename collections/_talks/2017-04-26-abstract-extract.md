@@ -1,8 +1,17 @@
 ---
 title: Abstract, Extract
 date: 2017-04-26
+
 location: Lifesum, Stockholm
 location_url: https://lifesum.com/sv/
+
+assets: /assets/talks/17/1704-lifesum/
+image: /assets/talks/17/1704-lifesum/image.jpg
+images:
+  - code-smell.jpg
+  - coupling.jpg
+  - indiana-jones.jpg
+  - rube-goldberg.jpg
 
 tags: devsum 
 tags-extra: general system-architecture

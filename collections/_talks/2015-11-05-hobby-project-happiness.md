@@ -1,8 +1,17 @@
 ---
 title: Hobby Projects Happiness
 date: 2015-11-05
+
 location: Rebla, Stockholm
 location_url: https://rebla.se
+
+assets: /assets/talks/15/1511-rebla/
+image: /assets/talks/15/1511-rebla/image.jpg
+images:
+  - appamini-gang.jpg
+  - cornelia-recording.jpg
+  - lovisa-recording.jpg
+  - map-2.png
 
 tags: rebla 
 tags-extra: open-source
