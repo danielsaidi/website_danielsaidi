@@ -14,11 +14,27 @@ layout: default
     {{ page.title | escape }}
   </h1>
 
-  {% include kankoda/tags/tag-date-title item=page %}
+  {% include kankoda/tags/tag-date-title item=page links=0 %}
 
   <div class="e-content" itemprop="articleBody">
     {{ content }}
   </div>
+
+  {% if page.slides %}
+  <h2>Slides</h2>
+  <p>
+    You can download the presentation slides <a href="{{page.slides}}">here</a>. The slides are exported as a PDF document, with no animations or transitions.
+  </p>
+  {% endif %}
+
+  {% if page.images %}
+  <h2>Media</h2>
+  <div class="grid col2">
+    {% for image in page.images %}
+    <img src="{{page.assets}}{{image}}" />
+    {% endfor %}
+  </div>
+  {% endif %}
 
   <h2>Discussions & More</h2>
   <p>

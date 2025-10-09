@@ -1,7 +1,7 @@
 {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
 {%- assign date = include.item.date -%}
 {%- assign tags = include.item.tags -%}
-{%- assign tag-limit = include.tag-limit -%}
+{%- assign links = include.links | default: 1 -%}
 
 <p class="tag-date-title">
   <span class="date">
@@ -11,6 +11,16 @@
   &nbsp;·&nbsp;
   
   <span class="tags">
-    {% include kankoda/blog/tags.html tags=tags limit=tag-limit %}
+    {%- assign tags = tags -%}
+    {%- if tags -%}
+      {%- for tag in tags -%}
+        {%- assign tag = tag | slugify -%}
+        {% if links == 1 %}
+        <a href="javascript:showTag('{{ tag }}')" class="tag {{ tag }}">{{tag}}</a>
+        {% else %}
+        <span class="tag {{ tag }}">{{tag}}</span>
+        {% endif %}
+      {%- endfor -%}
+    {%- endif -%}
   </span>
 </p>

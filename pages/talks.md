@@ -15,7 +15,7 @@ image-show: 0
 </div>
 
 <div class="paper">
-  {% include kankoda/tags/tag-list-for-collection collection=site.talks %}
+  {% include kankoda/tags/tag-list-for-collection collection=site.talks firstmost="slides" %}
 
   <p></p>
   <p>
