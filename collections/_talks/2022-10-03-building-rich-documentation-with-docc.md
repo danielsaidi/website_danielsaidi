@@ -1,14 +1,20 @@
 ---
-title: Building Rich Documentation with DocC
+title: Building Great Documentation with DocC
 date: 2022-09-30
 location: CocoaHeads Stockholm
 location_url: https://www.meetup.com/cocoaheads-stockholm/
 
-abstract: |  
-  I gave this talk at CocoaHeads Stockholm in October 2022, on how to
-  building rich documentation in DocC, with articles,  tutorials, widgets,
-  etc. and how to automatically publish it to GitHub Pages.
+tags: cocoaheads
+tags-extra: docc documentation
 ---
+
+I gave this talk at [{{page.location}}]({{page.location-url}}) in Oct 2022, on how to build a great documentation experience with DocC.
+
+The talk guides the audience through the DocC documentation tool and how to use it for code documentation, articles, tutorials, etc. 
+
+The talk also shows how to use DocC specific widgets and publish the result to GitHub Pages.
+
+<!--
 
 {% capture assets %}{{ "assets/talks/2022-10-03-cocoaheads-sthlm-docc/" | relative_url }}{% endcapture %}
 
@@ -43,3 +49,5 @@ abstract: |
   ## Questions?
   Daniel Saidi · [@danielsaidi]({{site.urls.twitter}})
 </section>
+
+-->

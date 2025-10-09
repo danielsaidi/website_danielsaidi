@@ -4,12 +4,13 @@ date: 2017-04-26
 location: Lifesum, Stockholm
 location_url: https://lifesum.com/sv/
 
-abstract: |
-  I gave this talk at Lifesum, Stockholm in 2017, on how to take back
-  control over code that has grown unmaintainable, and how common
-  code smells can help you detect code-related problems in time.
+tags: devsum 
+tags-extra: general system-architecture
 ---
 
+I gave this talk at [{{page.location}}]({{page.location_url}}) in 2017, on how to take back control over code that has grown unmaintainable, and how common code smells can help you detect code-related problems in time.
+
+<!--
 {% capture assets %}{{ "assets/talks/170426" | relative_url }}{% endcapture %}
 
 
@@ -407,3 +408,4 @@ abstract: |
   # Thank you!
   Daniel Saidi · [@danielsaidi]({{site.urls.twitter}})
 </section>
+-->

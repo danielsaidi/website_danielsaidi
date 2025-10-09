@@ -7,11 +7,13 @@ location_url: https://www.meetup.com/cocoaheads-stockholm/
 
 post: /blog/2023/11/22/customizing-the-macos-menu-bar-in-swiftui
 
-abstract: |  
-  I gave this talk at CocoaHeads Stockholm in December 2022, on how to
-  customize a great macOS menu bar experience in SwiftUI, and how to use
-  focus state to control the menu state.
+tags: cocoaheads
+tags-extra: swiftui menubar
 ---
+
+I gave this talk at [{{page.location}}]({{page.location-url}}) in December 2022, on how to create a great macOS menu bar experience in SwiftUI, and how to control menu focus with focus state.
+
+<!--
 
 {% capture assets %}{{ "assets/talks/231212/" | relative_url }}{% endcapture %}
 
@@ -64,3 +66,5 @@ abstract: |
   ## Questions?
   Daniel Saidi · [@danielsaidi]({{site.urls.twitter}})
 </section>
+
+-->

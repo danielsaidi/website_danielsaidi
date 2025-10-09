@@ -4,21 +4,30 @@ date: 2022-03-31
 location: MalagaMobile
 location_url: https://www.meetup.com/malagamobile/
 
-abstract: |
-  I gave this talk at MalagaMobile in March 2022, and later at Copenhagen 
-  Cocoa, on my experiences of managing many open- and closed-source projects, 
-  and how to get started with your first project.
-
-conference-abstract: |
-  Some of the best software in the world is created in the open, maintained by people who join in their effort to solve problems and share their work with the world. Open-source software comes in all shapes and sizes, from operating systems like Linux and Android, programming languages like Swift and crucial tools like cURL, to tiny hobby projects only used by a handful of people.
-
-  Regardless of your ambitions, the first steps on your open-source journey can be scary. How do you start? Where do you put the code? How are people going to add it to their projects? And what about pull requests? Don't worry, this talk has you covered!
-  
-  In this talk, we'll look at how to get started with open-source, when a good opportunity to do so may be and things you should consider when doing so. We’ll look at how to set up a new package with the Swift Package Manager, write documentation in DocC, automate things with Fastlane etc. We will also discuss how having an open-source oriented mindset can help you out in other situations as well, such as when maintaining software shared between teams in an organization. 
-  
-  The talk will focus on Swift, Xcode and GitHub, but most topics are universal.
+tags: malaga-mobile
+tags-extra: swift spm open-source docc documentation
 ---
 
+I gave this talk at [{{page.location}}]({{page.location_url}}) in March 2022, and later at Copenhagen  Cocoa, on my experiences of creating open- and closed-source projects, and how to get started with your first project.
+
+
+## Abstract
+
+Some of the best software is created in the open, and maintained by people joined in their effort to solve problems and share their work for the good of the entire world. 
+
+Open-source software comes in many shapes and sizes, from operating systems like Linux to crucial tools like cURL and tiny hobby projects only used by a handful of people.
+
+Regardless of your ambitions, the first steps can be scary. Where and how do you start? How do you publish the code, and how do people use it? And what the heck are pull requests? 
+  
+Don't worry, this talk has you covered! We'll look at how to get started, when a good opportunity to do so may be, and things you should consider when getting started with a new project. 
+
+We’ll look at how to set up a project with the Swift Package Manager, how to write documentation with DocC, and how to automate things. 
+
+The talk focuses on Swift, Xcode and GitHub, but most topics and discussion points are universal.
+
+
+
+<!--
 {% capture assets %}{{ "assets/talks/220326/" | relative_url }}{% endcapture %}
 
 <section data-markdown class="title-page">
@@ -305,3 +314,4 @@ conference-abstract: |
   ## Questions?
   Daniel Saidi · [@danielsaidi]({{site.urls.twitter}})
 </section>
+-->

@@ -4,11 +4,11 @@ date: 2020-01-25
 location: DevSum
 location_url: https://www.devsum.se
 
-abstract: |
-  I gave this talk at Devsum 2020, on the Swift programming language
-  its syntax and building blocks. We explored the basics of the language 
-  and used it to build an app in UIKit and SwiftUI.
+tags: devsum
+tags-extra: swift swiftui
 ---
+
+I gave this talk at [{{page.location}}]({{page.location_url}}) 2020, on the Swift programming language, and its syntax and building blocks. We explored the language basics and used it to build an app in UIKit and SwiftUI.
 
 {% capture assets %}{{ "assets/talks/200528/" | relative_url }}{% endcapture %}
 

@@ -4,13 +4,14 @@ date: 2015-11-05
 location: Rebla, Stockholm
 location_url: https://rebla.se
 
-abstract: |
-  
-  I gave this talk to a Chinese college board that visited Sweden, on
-  some of my hobby projects, including one where my family worked with
-  relatives we've never met in San Francisco.
+tags: rebla 
+tags-extra: open-source
 ---
 
+I gave this talk at [{{page.location}}]({{page.location_url}}), to a Chinese college board that visited Sweden, on how hobby projects have helped shaping my life.
+
+
+<!--
 {% capture assets %}{{ "assets/talks/151105/" | relative_url }}{% endcapture %}
 
 <section data-markdown class="title-page">
@@ -199,3 +200,4 @@ abstract: |
 
   Daniel Saidi · [@danielsaidi]({{site.urls.twitter}})
 </section>
+-->

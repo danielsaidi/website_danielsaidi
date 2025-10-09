@@ -4,11 +4,13 @@ date: 2021-04-06
 location: try! Swift World
 location_url: https://www.tryswift.co
 
-abstract: |
-  I gave this workshop at try! Swift World in 2021, on how to distribute 
-  closed-source software with the Swift Package Manager.
+tags: try-swift
+tags-extra: swift spm closed-source
 ---
 
+I gave this workshop at [{{page.location}}]({{page.location_url}}) in 2021, on how to distribute closed-source software with the Swift Package Manager.
+
+<!--
 {% capture assets %}{{ "assets/talks/210426/" | relative_url }}{% endcapture %}
 
 <section data-markdown class="title-page transparent-image">
@@ -116,3 +118,5 @@ abstract: |
   ## Questions?
   Daniel Saidi · [@danielsaidi]({{site.urls.twitter}})
 </section>
+
+-->

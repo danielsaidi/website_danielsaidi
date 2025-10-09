@@ -1,0 +1,33 @@
+---
+layout: default
+---
+
+<article class="blog post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  
+  {% include kankoda/buttons/back.html url="/talks" title="Talks" %}
+
+  {% assign url_bluesky = page.bsky | default: site.urls.bluesky %}  
+  {% assign url_mastodon = page.toot | default: site.urls.mastodon %}  
+  {% assign url_twitter = page.tweet | default: site.urls.twitter %}  
+  
+  <h1>
+    {{ page.title | escape }}
+  </h1>
+
+  {% include kankoda/tags/tag-date-title item=page %}
+
+  <div class="e-content" itemprop="articleBody">
+    {{ content }}
+  </div>
+
+  <h2>Discussions & More</h2>
+  <p>
+    If you think this talk sounds interesting and want to book me for a conference or company event, please reach out on
+    <a href="{{url_bluesky}}">Bluesky</a> or
+    <a href="{{url_mastodon}}">Mastodon</a>, or send me an <a href="{{site.urls.email}}">e-mail</a>.
+  </p>
+
+  <a class="u-url" href="{{page.url | relative_url}}" hidden></a>
+</article>
+
+{% include kankoda/tags/tag-scripts.html %}

@@ -1,0 +1,12 @@
+---
+title: Hybrid Apps - The Whys and Hows
+date: 2014-12-01
+has_presentation: 0
+location: CocoaHeads Stockholm
+location_url: https://www.meetup.com/CocoaHeads-Stockholm/
+
+tags: cocoaheads
+---
+
+
+I gave this talk at CocoaHeads Stockholm in 2014, on how Apple's vision of 3rd party iOS apps went from Safari-based web apps to the native apps we have today, and when hybrid apps make sense.

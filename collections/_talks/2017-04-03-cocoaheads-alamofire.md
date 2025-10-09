@@ -7,13 +7,13 @@ location_url: https://www.meetup.com/CocoaHeads-Stockholm/
 video: https://www.youtube.com/watch?v=LuKehlKoN7o
 post: http://danielsaidi.com/blog/2017/08/23/alamofire-realm
 
-abstract: |
-  
-  I gave this talk at CocoaHeads Stockholm in 2017, on how to use
-  Alamofire to fetch data from an external API, map it to a local
-  model, adapt outgoing requests,  retry failing requests, etc.
+tags: cocoaheads 
+tags-extra: apis networking
 ---
 
+I gave this talk at [{{page.location}}]({{page.location_url}}) in 2017, on how to use Alamofire to fetch data from an external API, map it to a local model, adapt outgoing requests,  retry failing requests, etc.
+
+<!--
 <section data-markdown class="title-page">
   # Alamofire
   ### A ❤️ story
@@ -141,3 +141,4 @@ abstract: |
   ### Questions?
   Daniel Saidi · [@danielsaidi]({{site.urls.twitter}})
 </section>
+-->

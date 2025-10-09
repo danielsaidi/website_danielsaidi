@@ -6,12 +6,13 @@ location_url: https://www.meetup.com/CocoaHeads-Stockholm/
 
 post: http://danielsaidi.com/blog/2019/01/26/async-operations
 
-abstract: |
-  I gave this talk at CocoaHeads Stockholm in 2019, on how to use protocols to 
-  coordinate concurrent and serial operations. We created a fully tested solution 
-  that is easy to use and understand.
+tags: cocoaheads
+tags-extra: swift
 ---
 
+I gave this talk at [{{page.location}}]({{page.location_url}}) in 2019, on how to use protocols to coordinate concurrent and serial operations. We created a fully tested solution that is easy to use and understand.
+
+<!--
 <section data-markdown class="title-page">
   ## Coordinating Async Operations
   Daniel Saidi · [@danielsaidi]({{site.urls.twitter}})
@@ -167,3 +168,4 @@ abstract: |
   ## Questions?
   Daniel Saidi · [@danielsaidi]({{site.urls.twitter}})
 </section>
+-->

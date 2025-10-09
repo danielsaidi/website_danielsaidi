@@ -4,12 +4,13 @@ date: 2016-12-05
 location: CocoaHeads Stockholm
 location_url: https://www.meetup.com/CocoaHeads-Stockholm/
 
-abstract: |
-  This talk at CocoaHeads Stockholm in 2016, was a traditional Swedish
-  Korvstoppning (Sausage Stuffing), which is a Swedish term for cramming
-  a lot(!) of knowledge into a short 10 minute talk.
+tags: cocoaheads 
+tags-extra: general tooling
 ---
 
+This talk at [{{page.location}}]({{page.location_url}}) in 2016, was a traditional Swedish Korvstoppning (Sausage Stuffing), which is a Swedish term for cramming tons of knowledge into a short 10 minute talk.
+
+<!--
 <section data-markdown class="title-page">
   # Christmas Stuffing
   ## CocoaHeads Stockholm
@@ -254,3 +255,5 @@ DispatchQueue.main.async {
   
   Daniel Saidi · [@danielsaidi]({{site.urls.twitter}})
 </section>
+
+-->

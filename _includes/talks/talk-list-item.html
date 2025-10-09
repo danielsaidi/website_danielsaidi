@@ -7,10 +7,7 @@
     </a>
   </h2>
   <p>
-    {{ talk.excerpt | remove: '<p>' | remove: '</p>' }}
+    {{ talk.excerpt }}
   </p>
   {% include kankoda/tags/tag-date-title item=talk %}
-  <p>
-    {{ talk.abstract | remove: '<p>' | remove: '</p>' }}
-  </p>
 </article>

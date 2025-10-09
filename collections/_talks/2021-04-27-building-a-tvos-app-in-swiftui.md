@@ -1,21 +1,25 @@
 ---
 title: Building a tvOS app with SwiftUI
 date: 2021-04-27
-location: try! Swift World
+location: try Swift World
 location_url: https://www.tryswift.co
 
 post: https://danielsaidi.com/blog/2020/12/09/building-a-tvos-app-in-swiftui
 
-abstract: |
-  I gave this workshop at try! Swift World in 2021, on how to build a
-  video streaming app for tvOS with SwiftUI, including designing grids 
-  & shelves, implementing pagination, etc.
-
-conference-abstract: |
-  In this workshop, we will look at how to build a video streaming app for tvOS, using SwiftUI and Combine. We will create an app that lists movies in shelves and grids and a movie detail page that lets us watch a trailer and mark the movie as a favorite. We will look at current SwiftUI performance problems on tvOS and how to work around them.
-
-  If time permits, we will use the general tools that we create to create a quick app for iOS as well. We will use SwiftUI 2, so make sure to have the latest version of Xcode if you want to code along.
+tags: try-swift
+tags-extra: swiftui tvos
 ---
+
+I gave this workshop at [{{page.location}}]({{page.location_url}}) in 2021, on how to build a video streaming app for tvOS with SwiftUI, including designing grids & shelves, implementing pagination, etc.
+
+
+## Abstract
+
+In this workshop, we'll look at how to build a video streaming app for tvOS with SwiftUI. We'll create an app that lists movies in shelves & grids and a movie screen that lets us watch the movie.
+
+We'll also look at common features like trailer support, marking the movie as a favorite, and look at current SwiftUI performance problems on tvOS and how to work around them.
+
+<!--
 
 {% capture assets %}{{ "assets/talks/210427/" | relative_url }}{% endcapture %}
 
@@ -93,3 +97,5 @@ conference-abstract: |
   ## Questions?
   Daniel Saidi · [@danielsaidi]({{site.urls.twitter}})
 </section>
+
+-->
