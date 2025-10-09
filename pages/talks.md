@@ -2,20 +2,30 @@
 layout: default
 title: Talks
 permalink: /talks/
+
+image:  /assets/blog/talks.jpg
+image-show: 1
 ---
 
-<article>
-  {% include kankoda/buttons/home.html %}
+{% include kankoda/buttons/home.html %}
 
-  <h1>Talks & Workshops</h1>
+<div class="searchbar-header">
+  <h1>Talks</h1>
+  {% include kankoda/search/searchbar class="discrete-dark" placeholder="Search talks..." %}
+</div>
+
+<div class="paper">
+  {% include kankoda/tags/tag-list.html tags=site.tags firstmost="general,swift,swiftui" class="collapsed" %}
+  {% include kankoda/tags/tag-list-toggle %}
+
   <p>
-    Here is a list of some talks and workshops that I have given at conferences, meetups, events etc. I enjoy it, but am not actively reaching out, sending in papers etc. It happens when it happens.
+    Here's a list of talks and workshops that I have given at various conferences, meetups, and events. It happens when it happens.
   </p>
-</article>
-
-<div class="talk list">
+  
+  <a name="tag-item-list"></a>
   {%- assign talks = site.talks | sort: 'date' | reverse -%}
   {% for talk in talks %}
-  {% include talks/talk-list-item.html talk=talk %}
+    {% include talks/talk-list-item.html talk=talk %}
   {% endfor %}
+  {% include kankoda/tags/tag-scripts.html %}
 </div>

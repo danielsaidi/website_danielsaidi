@@ -125,16 +125,16 @@ defaults:
     scope:
       type: "posts"
     values:
-      image: "/assets/blog/header.jpg"
-      author: "danielsaidi"
       layout: "post"
+      author: "danielsaidi"
+      image: "/assets/blog/header.jpg"
   -
     scope:
       type: "posts-archive"
     values:
-      image: "/assets/blog/header.jpg"
-      author: "danielsaidi"
       layout: "post"
+      author: "danielsaidi"
+      image: "/assets/blog/header.jpg"
   -
     scope:
       type: "bands"
@@ -150,8 +150,9 @@ defaults:
     scope:
       type: "talks"
     values:
+      layout: "page"
       author: "danielsaidi"
-      layout: "presentation"
+      image: "/assets/blog/header.jpg"
   -
     scope:
       type: "privacy-policies"

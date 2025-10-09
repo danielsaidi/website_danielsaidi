@@ -1,35 +1,15 @@
 {%- assign talk=include.talk -%}
 
-<article>
-  <h2>{{ talk.title | escape }}</h2>
-
-  <div class="post-info">
-    <ul class="horizontal post-info">
-      <li>
-        {%- if talk.location_url -%}
-        <a href="{{ talk.location_url }}">{{ talk.location }}</a>
-        {%- else -%}
-        {{ talk.location }}
-        {%- endif -%}
-      </li>
-
-      {%- if talk.has_presentation == 1 -%}
-      <li>·</li>
-      <li><a href="{{ talk.url }}" target="_blank">Presentation</a></li>
-      {%- endif -%}
-      
-      {%- if talk.video -%}
-      <li>·</li>
-      <li><a href="{{ talk.video }}">Video</a></li>
-      {%- endif -%}
-
-      {%- if talk.post -%}
-      <li>·</li>
-      <li><a href="{{ talk.post }}">Article</a></li>
-      {%- endif -%}
-    </ul>
-  </div>
-
+<article class="tag-item {% include kankoda/tags/tag-classes.html tags=talk.tags %}">
+  <h2>
+    <a href="{{ talk.url }}">
+      {{ talk.title | escape }}
+    </a>
+  </h2>
+  <p>
+    {{ talk.excerpt | remove: '<p>' | remove: '</p>' }}
+  </p>
+  {% include kankoda/tags/tag-date-title item=talk %}
   <p>
     {{ talk.abstract | remove: '<p>' | remove: '</p>' }}
   </p>

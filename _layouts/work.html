@@ -15,14 +15,18 @@ layout: default
     {{ work.name | escape }}
   </h1>
 
-  <div class="post-info">
+  <div class="tag-date-title">
     <span class="date">{{work.years}}</span>
     <span class="spacer"></span>
     {%- assign tags = work.tags | downcase | split: " " -%}
-    {% include tags/work-tags.html tags=tags %}
+    {% for tag in tags %}
+    <span class="tag">
+      {{tag}}
+    </span>
+    {% endfor %}
   </div>
   
-  {{ content }}
+  <p>{{ content }}</p>
 
   <hr />
 

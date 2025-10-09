@@ -19,14 +19,20 @@ layout: default
       {{ info.name | escape }}
     </h1>
 
-    <div class="post-info">
+    <div class="tag-date-title">
       <span class="date">{{info.year-from}} - {{info.year-to}}</span>
-      <span class="spacer"></span>
+      <span class="spacer">&nbsp;</span>
       {%- assign genres = info.genres | downcase | split: " " -%}
-      {% include tags/band-genres.html genres=genres %}
+      {% for tag in genres %}
+      <span class="tag">
+        {{tag}}
+      </span>
+      {% endfor %}
     </div>
 
-    {{ content }}
+    <p>
+      {{ content }}
+    </p>
   </section>
 
   {%- if band.photos -%}
@@ -66,7 +72,7 @@ layout: default
           <h3>
             {{album.name}} · {{album.year}}
           </h3>
-          <div class="post-info">
+          <div class="tag-list">
             <span class="track-links">
               {%- if album.links.spotify -%}
               <a href="{{ album.links.spotify }}"><img src="/assets/music/spotify-50.png" alt="Spotify" /></a>
