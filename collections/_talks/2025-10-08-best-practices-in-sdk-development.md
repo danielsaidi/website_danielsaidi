@@ -8,7 +8,7 @@ images:
   - stage.jpg
 
 location: Swift Leeds
-location-url: https://www.ioskonf.mk
+location-url: https://www.swiftleeds.co.uk
 
 slides: https://github.com/danielsaidi/website_danielsaidi/releases/download/talks/2510-SwiftLeeds-Slides.pdf
 
