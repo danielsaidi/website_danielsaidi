@@ -18,6 +18,7 @@ image-show: 0
   {% include kankoda/tags/tag-list.html tags=site.tags firstmost="general,swift,swiftui" class="collapsed" %}
   {% include kankoda/tags/tag-list-toggle %}
   
+  <a name="tag-item-list"></a>
   {% for post in site.posts %}
     {% include kankoda/blog/list-item.html post=post %}
   {% endfor %}

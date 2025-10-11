@@ -1,12 +1,12 @@
 {% comment %}
-  This snippet iterates over all talks in the 'talks' collection,
-  extracts tags from the space-separated tags string,
-  and creates a sorted list of unique tags.
+  This snippet iterates over all talks in the include collection,
+  extracts tags from the space-separated tags string, and creates
+  a sorted list of unique tags.
 {% endcomment %}
 
 {% assign all_tags = "" | split: "" %}
 
-{% comment %} Iterate over all talks and collect tags {% endcomment %}
+{% comment %} Iterate over all items and collect tags {% endcomment %}
 {% for item in include.collection %}
   {% if item.tags %}
     {% comment %} Split the tags string by spaces {% endcomment %}
