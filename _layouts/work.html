@@ -9,7 +9,7 @@ layout: default
 
   {%- assign work-name = work.name | slugify -%}  
   {%- assign url = "/work#" | append: work-name -%}
-  {% include kankoda/buttons/back.html url=url title="Work" %}
+  {% include kankoda/buttons/back url=url title="Work" %}
 
   <h1>
     {{ work.name | escape }}

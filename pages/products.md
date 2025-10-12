@@ -5,7 +5,7 @@ permalink: /products
 ---
 
 <article>
-  {% include kankoda/buttons/home.html %}
+  {% include kankoda/buttons/home %}
 
   <h1>Products</h1>
 
@@ -16,4 +16,4 @@ permalink: /products
   {% include work-paragraph.html %}
 </article>
 
-{% include kankoda/grid/grid.html items=site.data.products type="icons" %}
+{% include kankoda/grids/grid items=site.data.products type="icons" %}

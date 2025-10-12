@@ -8,7 +8,7 @@ licensekit: https://kankoda.com/licensekit
 ---
 
 <article>
-  {% include kankoda/buttons/home.html %}
+  {% include kankoda/buttons/home %}
 
   <h1>Work</h1>
 
@@ -18,5 +18,5 @@ licensekit: https://kankoda.com/licensekit
   
   {% include work-paragraph.html %}
 
-  {% include kankoda/grid/grid.html items=site.data.work type="icons" %}
+  {% include kankoda/grids/grid items=site.data.work type="icons" %}
 </article>

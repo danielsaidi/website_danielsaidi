@@ -7,12 +7,12 @@ image:  /assets/blog/header.jpg
 image-show: 0
 ---
 
-{% include kankoda/buttons/home.html %}
+{% include kankoda/buttons/home %}
 
 <h1>{{page.title}}</h1>
 
 <div class="paper">
   {% for post in site.posts-archive %}
-    {% include kankoda/blog/list-item.html post=post %}
+    {% include kankoda/blog/list-item post=post %}
   {% endfor %}
 </div>

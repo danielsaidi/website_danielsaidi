@@ -1,6 +1,6 @@
 {%- assign talk=include.talk -%}
 
-<article class="tag-item {% include kankoda/tags/tag-classes.html tags=talk.tags %}">
+<article class="tag-item {% include kankoda/tags/classes tags=talk.tags %}">
   <h2>
     <a href="{{ talk.url }}">
       {{ talk.title | escape }}
@@ -9,5 +9,5 @@
   <p>
     {{ talk.excerpt }}
   </p>
-  {% include kankoda/tags/tag-date-title item=talk %}
+  {% include kankoda/tags/date-title item=talk %}
 </article>

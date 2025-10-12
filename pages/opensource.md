@@ -10,7 +10,7 @@ redirect_from:
 ---
 
 <article>
-  {% include kankoda/buttons/home.html %}
+  {% include kankoda/buttons/home %}
 
   <h1>Open Source</h1>
 
@@ -23,5 +23,5 @@ redirect_from:
   </p>
 
   {% assign sdks = site.data.open-source %}
-  {% include kankoda/grid/grid.html items=sdks type="icons" %}
+  {% include kankoda/grids/grid items=sdks type="icons" %}
 </article>

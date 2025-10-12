@@ -5,7 +5,7 @@ permalink: /music/
 ---
 
 <article>
-  {% include kankoda/buttons/home.html %}
+  {% include kankoda/buttons/home %}
 
   <h1>Music</h1>
   
@@ -19,7 +19,7 @@ permalink: /music/
       {%- assign slug = band.name | slugify -%}
       {%- assign image = "/assets/bands/" | append: slug | append: ".jpg" -%}
       <a href="{{band.url}}" name="{{slug}}" title="{{band.name}}" class="scale">
-        {% include kankoda/grid/item.html title=band.name name=band.name image=image type="bands" %}
+        {% include kankoda/grids/grid-item title=band.name name=band.name image=image type="bands" %}
       </a>
     {% endfor %}
   </div>

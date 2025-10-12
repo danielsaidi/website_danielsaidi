@@ -16,12 +16,12 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
         <img class="avatar" src="/assets/avatar.jpg" alt="Daniel Saidi" />
         <div class="social-buttons">
           <p>
-            {% include kankoda/buttons/social.html name="bluesky" href=site.urls.bluesky %}
-            {% include kankoda/buttons/social.html name="mastodon" href=site.urls.mastodon %}
-            {% include kankoda/buttons/social.html name="twitter" href=site.urls.twitter %}
-            {% include kankoda/buttons/social.html name="github" href=site.urls.github %}
-            {% include kankoda/buttons/social.html name="githubsponsors" href=site.urls.gh_sponsors %}
-            {% include kankoda/buttons/social.html name="linkedin" href=site.urls.linkedin %}
+            {% include kankoda/buttons/social name="bluesky" href=site.urls.bluesky %}
+            {% include kankoda/buttons/social name="mastodon" href=site.urls.mastodon %}
+            {% include kankoda/buttons/social name="twitter" href=site.urls.twitter %}
+            {% include kankoda/buttons/social name="github" href=site.urls.github %}
+            {% include kankoda/buttons/social name="githubsponsors" href=site.urls.gh_sponsors %}
+            {% include kankoda/buttons/social name="linkedin" href=site.urls.linkedin %}
           </p>
         </div>
         <div>
@@ -35,27 +35,27 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
       </section>
       <hr />
       <section>
-        {% include kankoda/titles/section.html title="Latest Posts" link="/blog" %}
+        {% include kankoda/titles/section title="Latest Posts" link="/blog" %}
         <div class="home blog grid">
           {% for post in site.posts limit:2 %}
           <div>
-            {% include kankoda/blog/list-item.html post=posts.first %}
+            {% include kankoda/blog/list-item post=posts.first %}
           </div>
           {% endfor %}
         </div>
       </section>
       <hr />
       <section class="opensource">
-        {% include kankoda/titles/section.html title="Open Source" link="/opensource" %}
-        {% include kankoda/grid/grid.html items=site.data.open-source type="icons" class="open-source" limit=4 %}
+        {% include kankoda/titles/section title="Open Source" link="/opensource" %}
+        {% include kankoda/grids/grid items=site.data.open-source type="icons" class="open-source" limit=4 %}
       </section>
       <section class="apps">
-        {% include kankoda/titles/section.html title="Apps" link="/apps" %}
-        {% include kankoda/grid/grid.html items=site.data.apps type="icons" limit=4 %}
+        {% include kankoda/titles/section title="Apps" link="/apps" %}
+        {% include kankoda/grids/grid items=site.data.apps type="icons" limit=4 %}
       </section>
       <section class="work">
-        {% include kankoda/titles/section.html title="Work" link="/work" %}
-        {% include kankoda/grid/grid.html items=site.data.work type="icons" limit=4 %}
+        {% include kankoda/titles/section title="Work" link="/work" %}
+        {% include kankoda/grids/grid items=site.data.work type="icons" limit=4 %}
       </section>
   </main>
 </div>

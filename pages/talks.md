@@ -7,7 +7,7 @@ image:  /assets/headers/talks.jpg
 image-show: 0
 ---
 
-{% include kankoda/buttons/home.html %}
+{% include kankoda/buttons/home %}
 
 <div class="searchbar-header">
   <h1>Talks</h1>
@@ -15,7 +15,7 @@ image-show: 0
 </div>
 
 <div class="paper">
-  {% include kankoda/tags/tag-list-for-collection collection=site.talks firstmost="slides" %}
+  {% include kankoda/tags/collection-tag-list collection=site.talks firstmost="slides" %}
 
   <p></p>
   <p>
@@ -25,7 +25,7 @@ image-show: 0
   <a name="tag-item-list"></a>
   {%- assign talks = site.talks | sort: 'date' | reverse -%}
   {% for talk in talks %}
-    {% include talks/talk-list-item.html talk=talk %}
+    {% include talks/list-item talk=talk %}
   {% endfor %}
-  {% include kankoda/tags/tag-scripts.html %}
+  {% include kankoda/tags/scripts %}
 </div>
