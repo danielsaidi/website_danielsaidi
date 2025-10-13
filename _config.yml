@@ -74,10 +74,10 @@ collections_dir: collections
 collections:
   apps:
     output: true
-    permalink: /apps/:name/
+    permalink: /apps/:name
   bands:
     output: true
-    permalink: /bands/:name/
+    permalink: /bands/:name
   lyrics:
     output: true
   posts:
@@ -88,13 +88,13 @@ collections:
     permalink: /blog/archive/:categories/:year/:month/:day/:title
   privacy-policies:
     output: true
-    permalink: /privacy/:title/
+    permalink: /privacy/:title
   talks:
     output: true
     permalink: /talks/:categories/:year/:month/:day/:title
   work:
     output: true
-    permalink: /work/:name/
+    permalink: /work/:name
 
 baseurl: ""
 theme: minima
