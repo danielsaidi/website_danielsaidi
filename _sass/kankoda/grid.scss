@@ -73,12 +73,11 @@ p + .grid {
 
 .grid.image-item {
   grid-template-columns: 2fr 2fr;
-  gap: 3rem;
   align-items: end;
 
   div {
     text-align: left;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     h3 { 
       font-size: 1.2em;
       margin-bottom: 0px;
@@ -110,18 +109,23 @@ p + .grid {
   .grid.col2, .grid.col3 { 
     grid-template-columns: repeat(1, 1fr);
   }
-
-  .grid.image-item {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 0rem;
-    img { order: 1; }
-    div { order: 2; }
-  }
 }
 
 @media (max-width: 800px) {
   
   .grid.col3 { 
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .grid.image-item {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0rem;
+    img { 
+      order: 1; 
+    }
+    div { 
+      order: 2; 
+      margin-top: 25px;
+    }
   }
 }

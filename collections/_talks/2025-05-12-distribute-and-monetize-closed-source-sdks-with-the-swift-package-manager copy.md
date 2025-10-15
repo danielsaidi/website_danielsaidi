@@ -6,7 +6,7 @@ location: iOSKonf25
 location-url: https://www.ioskonf.mk
 
 assets: /assets/talks/25/2505-ioskonf/
-image: /assets/talks/25/2505-ioskonf/image.jpg
+image: /assets/talks/25/2505-ioskonf/slides.jpg
 image-show: 0
 images:
   - group.jpg
@@ -14,8 +14,10 @@ images:
 
 post: /blog/2025/03/25/im-doing-a-talk-at-ioskonf25
 slides: https://github.com/danielsaidi/website_danielsaidi/releases/download/talks/2505-iOSKonf-Slides.pdf
+slides-screenshot: 1
+video: https://www.youtube.com/watch?v=x8waZVY42fI&list=PLVKQDFwOy1XZXhFOdWfXKdjCz4r_LBeto&index=7
 
-tags: ioskonf slides
+tags: ioskonf slides video
 tags-extra: swift spm
 ---
 

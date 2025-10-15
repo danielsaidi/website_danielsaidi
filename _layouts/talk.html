@@ -25,15 +25,27 @@ layout: default
   <p>
     You can download the presentation slides <a href="{{page.slides}}">here</a>. The slides are exported as a PDF document, with no animations or transitions.
   </p>
+    {% if page.slides-screenshot == 1 %}
+    <div class="grid col2">
+      <a href="{{page.video}}">
+        <img src="{{page.assets}}slides.jpg" class="slide-up" />
+      </a>
+    </div>
+    {% endif %}
   {% endif %}
 
   {% if page.video %}
   <h2>Recording</h2>
   <p>
-    You can watch a recording of the talk <a href="{{page.video}}">here</a>.
+    The talk was recorded live, and even though I cringe at hearing my own voice and watching how I behave on stage, you can watch it <a href="{{page.video}}">here</a>.
   </p>
+  <div class="grid col2">
+    <a href="{{page.video}}">
+      <img src="{{page.assets}}video.jpg" class="slide-up" />
+    </a>
+  </div>
   {% endif %}
-
+  
   {% if page.abstract %}
   <h2>Abstract</h2>
   <p>
@@ -43,7 +55,10 @@ layout: default
 
   {% if page.images %}
   <h2>Images</h2>
-  <div class="grid col2">
+  <p>
+    I'm terribly bad at taking pictures while traveling, so if you do have any nice pictures of us together, feel free to <a href="{{page.urls.email}}">send them my way</a>. Help an old selfie-incompatible guy out.
+  </p>
+  <div class="grid col2 slide-up">
     {% for image in page.images %}
     <img src="{{page.assets}}{{image}}" />
     {% endfor %}
