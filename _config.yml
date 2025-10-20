@@ -25,6 +25,10 @@ linkedin_username: danielsaidi
 mastodon_user:    danielsaidi@mastodon.social
 twitter_username: danielsaidi
 
+assets: /assets/
+fonts: 
+  - Caveat
+
 urls:
   blog:         /blog
   blog-archive: /blog/archive
@@ -41,9 +45,8 @@ urls:
 
   kankoda:      https://kankoda.com
 
-assets: /assets/
-fonts: 
-  - Caveat
+google-analytics:
+  measurement-id: G-LBCPC2V32B
 
 header_axis: vertical
 header_logo_text: Daniel Saidi
