@@ -186,8 +186,11 @@ public struct UserRegistrationForm: View, Localized {
                 .foregroundStyle(textFieldColor(for: \.passwordConfirm))
         }
         Section {
-            Toggle("Form.SubscribeToNewsletter", isOn: $formData.subscribeToNewsletter)
-                .font(.footnote)
+            Toggle(
+                "Form.SubscribeToNewsletter", 
+                isOn: $formData.subscribeToNewsletter
+            )
+            .font(.footnote)
         }
     }
 }
@@ -212,7 +215,7 @@ We can gather all the logic in a single function by using the form data key path
 private extension UserRegistrationForm {
 
     func textField(
-        _ title: Localization.Key,
+        _ title: LocalizedStringKey,
         _ keypath: StringPath,
         _ type: UITextContentType
     ) -> some View {
@@ -232,13 +235,16 @@ public struct UserRegistrationForm: View, Localized {
 
     public var body: some View {
         Section(translate(.user)) {
-            textField(.e_mail, \.email, .emailAddress)
-            textField(.password, \.password, .newPassword)
-            textField(.password, \.passwordConfirm, .newPassword)
+            textField("Form.Email", \.email, .emailAddress)
+            textField("Form.Password", \.password, .newPassword)
+            textField("Form.PasswordConfirm", \.passwordConfirm, .newPassword)
         }
         Section {
-            Toggle("Form.SubscribeToNewsletter", isOn: $formData.subscribeToNewsletter)
-                .font(.footnote)
+            Toggle(
+                "Form.SubscribeToNewsletter", 
+                isOn: $formData.subscribeToNewsletter
+            )
+            .font(.footnote)
         }
     }
 }
@@ -296,13 +302,13 @@ private extension UserRegistrationForm {
 
     func textField(
         _ title: Localization.Key,
-        _ keypath: StringPath,
+        _ keyPath: StringPath,
         _ type: UITextContentType
     ) -> some View {
-        TextField(translate(title), text: $formData[dynamicMember: keypath])
+        TextField(translate(title), text: $formData[dynamicMember: keyPath])
             .textContentType(type)
             .onSubmit(formData.validate)
-            .foregroundStyle(textFieldColor(for: \.userName))
+            .foregroundStyle(textFieldColor(for: keyPath))
     }
 
     func textFieldColor(

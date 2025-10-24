@@ -118,7 +118,6 @@ feed:
 defaults:
   - values: 
       author: "Daniel Saidi"
-
   -
     scope:
       type: "apps"

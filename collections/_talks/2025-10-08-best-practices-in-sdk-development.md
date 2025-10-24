@@ -6,11 +6,13 @@ assets: /assets/talks/25/2510-swiftleeds/
 image: /assets/talks/25/2510-swiftleeds/image.jpg
 images:
   - stage.jpg
+  - party.jpg
 
 location: Swift Leeds
 location-url: https://www.swiftleeds.co.uk
 
 slides: https://github.com/danielsaidi/website_danielsaidi/releases/download/talks/2510-SwiftLeeds-Slides.pdf
+slides-screenshot: 1
 
 tags: swiftleeds slides
 tags-extra: swift spm
