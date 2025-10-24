@@ -116,6 +116,9 @@ feed:
   posts_limit: 100
 
 defaults:
+  - values: 
+      author: "Daniel Saidi"
+
   -
     scope:
       type: "apps"
@@ -131,14 +134,12 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "danielsaidi"
       image: "/assets/blog/header.jpg"
   -
     scope:
       type: "posts-archive"
     values:
       layout: "post"
-      author: "danielsaidi"
       image: "/assets/blog/header.jpg"
   -
     scope:
@@ -156,7 +157,6 @@ defaults:
       type: "talks"
     values:
       layout: "talk"
-      author: "danielsaidi"
       image: "/assets/blog/header.jpg"
   -
     scope:
