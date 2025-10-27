@@ -3,7 +3,7 @@ title: Best Practices in SDK Development
 date: 2025-10-08
 
 assets: /assets/talks/25/2510-swiftleeds/
-image: /assets/talks/25/2510-swiftleeds/image.jpg
+image: /assets/talks/25/2510-swiftleeds/slides.jpg
 images:
   - stage.jpg
   - party.jpg
