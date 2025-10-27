@@ -13,8 +13,9 @@ location-url: https://www.swiftleeds.co.uk
 
 slides: https://github.com/danielsaidi/website_danielsaidi/releases/download/talks/2510-SwiftLeeds-Slides.pdf
 slides-screenshot: 1
+video: https://www.youtube.com/watch?v=D7NuxbnY1K0&list=PL-wmxEeX64YTpDbpfszWMV76oZZO3wxZH&index=14
 
-tags: swiftleeds slides
+tags: swiftleeds slides video
 tags-extra: swift spm
 
 abstract: |  

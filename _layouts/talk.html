@@ -20,12 +20,12 @@ layout: default
     {{ content }}
   </div>
 
-  <div class="grid col2">
+  <div class="grid col2" style="grid-column-gap: 40px; margin-top: 0px !important;">
     {% if page.slides %}
     <div>
       <h2>Slides</h2>
       <p>
-        You can download the slides as PDF <a href="{{page.slides}}">here</a>.
+        You can download the presentation slides <a href="{{page.slides}}">here</a>.
       </p>
       {% if page.slides-screenshot == 1 %}
       <a href="{{page.slides}}">
@@ -39,7 +39,7 @@ layout: default
     <div>
       <h2>Video</h2>
       <p>
-        The talk was recorded. You can watch it <a href="{{page.video}}">here</a>.
+        You can watch a recording of the talk <a href="{{page.video}}">here</a>.
       </p>
       <a href="{{page.video}}">
         <img src="{{page.assets}}video.jpg" class="slide-up" />
