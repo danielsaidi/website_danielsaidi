@@ -37,6 +37,17 @@
   border: solid 1px black;
 }
 
+.tag.conferences {
+  color: white !important;
+  background-color: darkgreen;
+  border: solid 1px darkgreen;
+}
+
+.tag.sdks {
+  background-color: maroon;
+  border: solid 1px maroon;
+}
+
 .tag.swift {
   background-color: $tag-swift;
   border: solid 1px $tag-swift;

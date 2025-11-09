@@ -1,7 +1,7 @@
 ---
 title:  Using complex gestures in a SwiftUI ScrollView
 date:   2022-11-16 08:00:00 +0000
-tags:   swiftui open-source gestures
+tags:   swiftui gestures
 
 icon:   swiftui
 

@@ -1,7 +1,7 @@
 ---
 title:  EmojiKit goes open-source
 date:   2024-02-02 06:00:00 +0000
-tags:   swift open-source
+tags:   swift sdks
 
 assets: /assets/blog/24/0202/
 image:  /assets/blog/24/0202.jpg

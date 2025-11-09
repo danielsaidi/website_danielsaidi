@@ -1,7 +1,7 @@
 ---
 title:  WebView is Finally Coming to SwiftUI
 date:   2025-06-10 09:00:00 +0000
-tags:   swiftui open-source
+tags:   swiftui sdks
 
 assets: /assets/blog/25/0610/
 image:  /assets/blog/25/0610/image.jpg

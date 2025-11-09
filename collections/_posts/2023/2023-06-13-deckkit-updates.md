@@ -1,8 +1,7 @@
 ---
 title:  DeckKit Updates
 date:   2023-06-13 08:00:00 +0000
-tags:   swiftui open-source
-
+tags:   swiftui sdks
 assets: /assets/blog/23/0613/
 image:  /assets/sdks/deckkit-header.jpg
 image-show: 0

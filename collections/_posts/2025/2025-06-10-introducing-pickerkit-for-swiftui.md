@@ -1,8 +1,7 @@
 ---
 title:  Introducing PickerKit for SwiftUI
 date:   2025-06-10 07:00:00 +0000
-tags:   swiftui open-source
-
+tags:   swiftui sdks
 assets: /assets/blog/25/0610/
 # image:  /assets/blog/25/0610/image.jpg
 image:  /assets/sdks/pickerkit-header.jpg

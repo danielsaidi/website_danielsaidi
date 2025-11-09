@@ -1,7 +1,7 @@
 ---
 title:  RichTextKit updates
 date:   2023-06-02 06:00:00 +0000
-tags:   swiftui rich-text open-source
+tags:   swiftui sdks rich-text
 
 assets: /assets/blog/23/0602/
 image:  /assets/headers/richtextkit.png

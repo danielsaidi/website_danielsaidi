@@ -1,7 +1,7 @@
 ---
 title:  I'm doing a talk at iOSKonf25
 date:   2025-03-25 07:00:00 +0000
-tags:   conferences talks spm
+tags:   conferences sdks spm
 
 image:  /assets/headers/conferences/ioskonf25.png
 

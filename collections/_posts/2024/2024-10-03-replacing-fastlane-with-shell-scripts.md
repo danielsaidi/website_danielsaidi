@@ -1,7 +1,7 @@
 ---
 title:  Replacing Fastlane with Shell scripts
 date:   2024-10-03 06:00:00 +0000
-tags:   ci/cd github
+tags:   automation github
 
 image:  /assets/blog/24/1003.jpg
 image-show: 0

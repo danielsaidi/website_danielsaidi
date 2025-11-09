@@ -1,7 +1,7 @@
 ---
 title:  Applying complex gestures to a SwiftUI view
 date:   2022-11-24 08:00:00 +0000
-tags:   swiftui open-source gestures
+tags:   swiftui gestures
 
 tweet:  https://twitter.com/danielsaidi/status/1596179247336681473
 toot:   https://mastodon.social/@danielsaidi/109405390884591414
