@@ -83,9 +83,9 @@ In the workflow below, we'll assume that the required build scripts are in the `
 
 ## Step 4 - Setting up the GitHub Actions workflow
 
-To set up the GitHub Actions workflow that will be used to build our distribution binaries, create a `.github/workflows` folder in the project root and add a `binaries.yml` file to it.
+To set up the GitHub Actions workflow that will be used to build our distribution binaries, create a `.github/workflows` folder in the project root and add a `xcframework-binaries.yml` file to it.
 
-Since the [GitHub article]({{page.github-article}}) doesn't include the build script used to generate the required binaries, the workflow below contains everything you need, provided that you use [SwiftPackageScripts]({{page.scripts}}).
+Since the [GitHub article]({{page.github-article}}) doesn't include the build script used to generate the required binaries, the workflow will use [SwiftPackageScripts]({{page.scripts}})'s `framework.sh` script.
 
 First, add this to the workflow file to give it a name, specify that we will trigger it manually, and that it should run on macOS 15. We also specify the framework name as a variable.
 
@@ -104,10 +104,12 @@ jobs:
   build:
     runs-on: macos-15 # macos-latest
     env:
-      FRAMEWORK_NAME: VietnameseInput
+      FRAMEWORK_NAME: MyPackageName
 ```
 
-Let's now add a build step that checks out the code, and one that uses the repository secrets that we registered earlier to set up the distribution certificate:
+When this was written, `macos-latest` didn't have tvOS, watchOS, or visionOS runtimes. We therefore tell the workflow to run on `macos-15`. When you read this `macos-latest` will most likely work.
+
+Let's now add a build step that checks out the code, and one that uses the repository secrets to set up the distribution certificate and add it to the keychain:
 
 ```yml
     steps:
@@ -138,68 +140,69 @@ Let's now add a build step that checks out the code, and one that uses the repos
           security list-keychain -d user -s $KEYCHAIN_PATH
 ```
 
-With the distribution certificate added to the keychain, we can now create the XCFramework binary. 
+With the distribution certificate added to the keychain, we can now create the XCFramework binary.
 
-Here, we specify the Xcode version, then validate the project and generate the distribution binaries:
+Let's start. by setting up Xcode. Just like with macOS, we had to define `16.4` since the `latest-stable` didn't work when this was written. You will likely be able to use `latest-stable`:
 
 ```yml
       - name: Set up Xcode
         uses: maxim-lobanov/setup-xcode@v1
         with:
           xcode-version: 16.4 # latest-stable doesn't currently work
-
-      - name: Validate Project
-        run: ./scripts/validate_release.sh --swiftlint 0
-
-      - name: Generate distribution binaries
-        run: ./scripts/framework.sh -p iOS --dsyms 1
 ```
 
-Since the validation script is called without an explicit `--platform`, the project will be validated for all platforms. We also disable `swiftlint`, since GitHub doesn't have that tool as a Terminal script.
-
-The `framework` script is called with an explicit ``--platform/-p`` argument, to make it generate an iOS-explicit binary. We also pass in ``--dsyms 1`` to generate dSYMs for the framework.
-
-We finally upload the generated XCFrameworks and dSYMs zip files, then calculate and upload the checksum that is needed by the Swift Package Manager:
+We can now call `validate_release.sh` to ensure that we're on the main branch, that the code builds, and that all unit tests pass. We also disable SwiftLint, since it's not available as a command line tool:
 
 ```yml
-      - name: Upload XCFramework zip
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ env.FRAMEWORK_NAME }}
-          path: .build/${{ env.FRAMEWORK_NAME }}.zip
-          if-no-files-found: error
-
-      - name: Upload dSYMs zip
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ env.FRAMEWORK_NAME }}-dSYMs
-          path: .build/${{ env.FRAMEWORK_NAME }}-dSYMs.zip
-          if-no-files-found: error
-
-      - name: Compute Checksum
-        run: |
-          CHECKSUM=$(swift package compute-checksum .build/${{ env.FRAMEWORK_NAME }}.zip)
-          echo "${{ env.FRAMEWORK_NAME }}.zip checksum: \`$CHECKSUM\`" >> $GITHUB_STEP_SUMMARY
-          echo "$CHECKSUM" > checksum.txt
-
-      - name: Upload checksum
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ env.FRAMEWORK_NAME }}-checksum
-          path: checksum.txt
+      - name: Validate Project
+        run: ./scripts/validate_release.sh --swiftlint 0
 ```
 
-We can now push the workflow to GitHub and run it from the `Actions` tab. The workflow was set up to require manual builds, but you can use `on:` to define automated triggers.
+We can then call `framework.sh` to generate the XCFramework binaries. We can pass in `-p/--platform iOS` to only build for iOS (up to you), `-dsyms 1` to generate dSYMS and `--zip 0` to skip the zip steps:
 
-If the workflow finishes successfully, it outputs the generated checksum and lists all generated files:
+
+```yml
+      - name: Generate distribution binaries
+        run: ./scripts/framework.sh -p iOS --dsyms 1 --zip 0
+```
+
+We can skip the zip step since the XCFramework and dSYMs will be zipped when they are uploaded.
+
+Once the artifacts are built, we can upload the XCFramework and dSYMs with these last two steps:
+
+```yml
+      - name: Upload XCFramework
+        uses: actions/upload-artifact@v4
+        with:
+          name: {% raw %}${{ env.FRAMEWORK_NAME }}{% endraw %}
+          path: {% raw %}.build/${{ env.FRAMEWORK_NAME }}.xcframework{% endraw %}
+          if-no-files-found: error
+
+      - name: Upload dSYMs
+        uses: actions/upload-artifact@v4
+        with:
+          name: {% raw %}${{ env.FRAMEWORK_NAME }}-dSYMs{% endraw %}
+          path: .build/dSYMs
+          if-no-files-found: error
+```
+
+That's it! We are finally ready to push this workflow file to GitHub and try it out to see that it works.
+
+
+## Step 5 - Running the GitHub Actions workflow
+
+We can now push the workflow to GitHub and run it from the `Actions` tab. The workflow was set up with a manual trigger, but you can use `on:` to define automated triggers.
+
+When the workflow finishes, it outputs the XCFramework and dSYMs zip files with their checksums:
 
 ![A screenshot of the GitHub result screen]({{page.assets}}github-result.jpg)
 
-You should download the binary artifact files and publish them somewhere else, since they are only available for a limited time. 
+You can download the zip files and upload them somewhere public, then use them to create a new version of your SDK. Your users can download the dSYMs to get symbolicated crash logs.
 
-I have a separate binary repository for each project, where I create a release tag for each release and uploads the binary files there before creating the Swift package release.
 
 
 ## Conclusion
 
-GitHub Actions makes it easy to automate your binary distribution file generation. Since I find the workflow file format a bit confusing, I hope you found this article helpful.
+GitHub Actions lets you automate the binary distribution file build process for a closed-source Swift package, and [SwiftPackageScripts]({{page.scripts}}) has a workflows and scripts to get up and running in no time. 
+
+I personally find the GitHub Actions workflow format a bit confusing, so I hope you find this helpful.
