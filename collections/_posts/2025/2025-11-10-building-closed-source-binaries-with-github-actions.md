@@ -174,7 +174,7 @@ Once the artifacts are built, we can upload the XCFramework and dSYMs with these
       - name: Upload XCFramework
         uses: actions/upload-artifact@v4
         with:
-          name: {% raw %}${{ env.FRAMEWORK_NAME }}{% endraw %}
+          name: {% raw %}${{ env.FRAMEWORK_NAME }}.xcframework{% endraw %}
           path: {% raw %}.build/${{ env.FRAMEWORK_NAME }}.xcframework{% endraw %}
           if-no-files-found: error
 
