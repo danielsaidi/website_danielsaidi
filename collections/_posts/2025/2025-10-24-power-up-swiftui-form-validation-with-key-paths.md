@@ -1,7 +1,7 @@
 ---
 title:  Power-Up SwiftUI Form Validation with Key Paths
 date:   2025-10-24 06:00:00 +0000
-tags:   swiftui swift keypaths
+tags:   swift swiftui keypaths
 
 assets: /assets/blog/25/1024/
 image:  /assets/blog/25/1024/image.jpg
