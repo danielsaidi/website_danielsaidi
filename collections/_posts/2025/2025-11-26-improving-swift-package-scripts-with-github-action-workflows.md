@@ -10,7 +10,7 @@ image-show: 0
 sdk: https://github.com/danielsaidi/swiftpackagescripts
 
 bsky: https://bsky.app/profile/danielsaidi.bsky.social/post/3m57ish4b6c2g
-toot: https://mastodon.social/@danielsaidi/115520617853324518
+toot: https://mastodon.social/@danielsaidi/115618153465658559
 linkedin: https://www.linkedin.com/posts/danielsaidi_building-closed-source-binaries-with-github-activity-7393319947101159424-iylF
 ---
 
