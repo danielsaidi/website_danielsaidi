@@ -2,16 +2,16 @@
 title: Best Practices in SDK Development
 date: 2025-10-08
 
-assets: /assets/talks/25/2510-swiftleeds/
-image: /assets/talks/25/2510-swiftleeds/slides.jpg
+assets: /assets/talks/25/1008-swiftleeds/
+image: /assets/talks/25/1008-swiftleeds/slides.jpg
 images:
   - stage.jpg
   - party.jpg
 
-location: Swift Leeds
+location: Swift Leeds 2025
 location-url: https://www.swiftleeds.co.uk
 
-slides: https://github.com/danielsaidi/website_danielsaidi/releases/download/talks/2510-SwiftLeeds-Slides.pdf
+slides: https://github.com/danielsaidi/website_danielsaidi/releases/download/talks/251008-SwiftLeeds-Slides.pdf
 slides-screenshot: 1
 video: https://www.youtube.com/watch?v=D7NuxbnY1K0&list=PL-wmxEeX64YTpDbpfszWMV76oZZO3wxZH&index=14
 
@@ -26,4 +26,4 @@ abstract: |
   Whether you're maintaining an existing SDK or planning a new one, you'll walk away with insights to create SDKs that developers trust and enjoy using.
 ---
 
-I gave this talk at [{{page.location}}]({{page.location-url}}) in October 2025, on best practices in SDK development, and how to create a great developer experience, both for your users and yourself.
+I gave this talk at [{{page.location}}]({{page.location-url}}), on best practices in SDK development, and how to create a great developer experience, both for your users and yourself.
