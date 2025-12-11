@@ -12,6 +12,11 @@
   image: /assets/sdks/licensekit.png
   header: /assets/sdks/licensekit-header.jpg
 
+- name: MediaKit
+  url: https://kankoda.com/sdks/mediakit
+  image: /assets/sdks/mediakit.png
+  header: /assets/sdks/mediakit-header.jpg
+
 - name: VietnameseInput
   url: https://kankoda.com/sdks/vietnameseinput
   image: /assets/sdks/vietnameseinput.png

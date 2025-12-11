@@ -1,11 +1,3 @@
-h2 {
-  .tag {
-    font-size: small;
-    vertical-align: middle;
-    margin-right: 20px;
-  }
-}
-
 .tag, .tag:visited {
   display: inline-block;
   margin-right: 5px;
@@ -39,27 +31,10 @@ h2 {
   border: solid 1px #ddaa00;
 }
 
-.tag.new {
-  color: white !important;
-  background-color: darkorange;
-  border: solid 1px darkorange;
-}
-
-.tag.releases, .tag.slides, .tag.video {
+.tag.releases, .tag.slides {
   color: black !important;
   background-color: white;
   border: solid 1px black;
-}
-
-.tag.conferences {
-  color: white !important;
-  background-color: darkgreen;
-  border: solid 1px darkgreen;
-}
-
-.tag.sdks {
-  background-color: maroon;
-  border: solid 1px maroon;
 }
 
 .tag.swift {

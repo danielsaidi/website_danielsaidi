@@ -47,7 +47,11 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
       <hr />
       <section class="opensource">
         {% include kankoda/titles/section title="Open Source" link="/opensource" %}
-        {% include kankoda/grids/grid items=site.data.open-source type="icons" class="open-source" limit=4 %}
+        {% include kankoda/grids/grid items=site.data.open-source type="icons" class="liquid-glass" limit=4 %}
+      </section>
+      <section class="sdks">
+        {% include kankoda/titles/section title="SDKs" link="/apps" %}
+        {% include kankoda/grids/grid items=site.data.sdks type="icons" limit=4 %}
       </section>
       <section class="apps">
         {% include kankoda/titles/section title="Apps" link="/apps" %}
