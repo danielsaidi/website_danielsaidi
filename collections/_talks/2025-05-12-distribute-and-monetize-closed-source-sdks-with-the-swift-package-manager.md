@@ -12,12 +12,11 @@ images:
   - group.jpg
   - trio.jpg
 
-slides: https://github.com/danielsaidi/website_danielsaidi/releases/download/talks/250512-iOSKonf-Slides.pdf
+slides: https://github.com/danielsaidi/website_danielsaidi/releases/download/talks-2025/250512-iOSKonf-Slides.zip
 slides-screenshot: 1
 video: https://www.youtube.com/watch?v=x8waZVY42fI&list=PLVKQDFwOy1XZXhFOdWfXKdjCz4r_LBeto&index=7
 
-tags: ioskonf slides video
-tags-extra: swift spm
+tags: ioskonf slides video swift spm sdks
 ---
 
 I gave this talk at [{{page.location}}]({{page.location-url}}), in Skopje, North Macedonia, in May 2025. on how to set up, distribute, and monetize a closed-source SDK with the Swift Package Manager.

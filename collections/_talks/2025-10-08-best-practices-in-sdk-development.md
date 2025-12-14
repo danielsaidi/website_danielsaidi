@@ -11,12 +11,11 @@ images:
 location: Swift Leeds 2025
 location-url: https://www.swiftleeds.co.uk
 
-slides: https://github.com/danielsaidi/website_danielsaidi/releases/download/talks/251008-SwiftLeeds-Slides.pdf
+slides: https://github.com/danielsaidi/website_danielsaidi/releases/download/talks-2025/251008-SwiftLeeds-Slides.zip
 slides-screenshot: 1
 video: https://www.youtube.com/watch?v=D7NuxbnY1K0&list=PL-wmxEeX64YTpDbpfszWMV76oZZO3wxZH&index=14
 
-tags: swiftleeds slides video
-tags-extra: swift spm
+tags: swiftleeds slides video swift spm sdks
 
 abstract: |  
   Modern software increasingly relies on open-source and commercial, closed-source libraries, yet creating a maintainable, developer-friendly SDK remains a challenge.

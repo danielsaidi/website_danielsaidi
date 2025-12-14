@@ -11,12 +11,11 @@ images:
 location: BuildStuff 2025
 location-url: https://buildstuff.events
 
-slides: https://github.com/danielsaidi/website_danielsaidi/releases/download/talks/251205-Build-Stuff.zip
+slides: https://github.com/danielsaidi/website_danielsaidi/releases/download/talks-2025/251205-Build-Stuff.zip
 slides-screenshot: 1
 # video: https://www.youtube.com/watch?v=D7NuxbnY1K0&list=PL-wmxEeX64YTpDbpfszWMV76oZZO3wxZH&index=14
 
-tags: buildstuff slides
-tags-extra: swift spm
+tags: buildstuff slides swift spm sdks
 
 leeds: /talks/2025/10/08/best-practices-in-sdk-development
 

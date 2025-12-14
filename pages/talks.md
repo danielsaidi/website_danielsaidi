@@ -19,7 +19,7 @@ image-show: 0
 
   <p></p>
   <p>
-    Here's a list of talks and workshops that I have given at various conferences, meetups, and events. It happens when it happens.
+    Here's a list of talks and workshops that I have given at various conferences, meetups, and events.
   </p>
   
   <a name="tag-item-list"></a>
