@@ -3,17 +3,21 @@ title: Best Practices in SDK Development
 date: 2025-12-05
 
 assets: /assets/talks/25/1205-buildstuff/
-image: /assets/talks/25/1205-buildstuff/slides.jpg
+image: /assets/talks/25/1205-buildstuff/image.jpg
 images:
   - stage.jpg
+  - daniel-stage.jpg
+  - jave-melgars.jpg
   - richard-campbell.jpg
+  - alex-konig.jpg
+  - vladas-dirzys.jpg
 
 location: BuildStuff 2025
 location-url: https://buildstuff.events
 
 slides: https://github.com/danielsaidi/website_danielsaidi/releases/download/talks-2025/251205-Build-Stuff.zip
 slides-screenshot: 1
-# video: https://www.youtube.com/watch?v=D7NuxbnY1K0&list=PL-wmxEeX64YTpDbpfszWMV76oZZO3wxZH&index=14
+video: https://www.dropbox.com/scl/fo/nymargxdg6du7xasekhke/AKo9OoacRBXV7ZVhdayHoxw?dl=0&e=2&preview=Zeta1+1.2+Daniel+Saidi+-+Best+Practices+in+SDK+Development+-+Building+a+Great+Developer+Experience.mp4&rlkey=rw7m77ti3194cawjgnfwjs9sr&st=mmlqjc4b
 
 tags: buildstuff slides swift spm sdks
 
