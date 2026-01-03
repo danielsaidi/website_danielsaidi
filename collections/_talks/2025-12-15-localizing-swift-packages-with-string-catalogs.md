@@ -15,7 +15,7 @@ location-url: https://meetup.com/CocoaHeads-Stockholm
 
 slides: https://github.com/danielsaidi/website_danielsaidi/releases/download/talks-2025/251208-CocoaHeads.zip
 slides-screenshot: 1
-# video: https://www.youtube.com/watch?v=D7NuxbnY1K0&list=PL-wmxEeX64YTpDbpfszWMV76oZZO3wxZH&index=14
+video: https://www.youtube.com/watch?v=PZeBcjUcnrk
 
 post-1: /blog/2025/12/14/localizing-swift-packages-with-string-catalogs
 post-2: /blog/2025/12/02/a-better-way-to-localize-swift-packages-with-xcode-string-catalogs
