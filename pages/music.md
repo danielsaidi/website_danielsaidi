@@ -10,7 +10,7 @@ permalink: /music/
   <h1>Music</h1>
   
   <p>
-    Here are some bands that I have played with over the years, ranging from 1996 to today. I have only included bands that recorded and released anything.
+    Here are some of the bands that I have played with over the years.
   </p>
 
   {%- assign bands = site.bands | sort: 'last-updated' | reverse | where:'hidden',false -%}

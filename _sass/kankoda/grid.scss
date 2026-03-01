@@ -1,9 +1,11 @@
-.grid-title {
-  margin: 10px;
-}
-
 p + .grid {
   margin: 50px 0px;
+}
+
+section {
+  p + .grid {
+    margin-bottom: 0px !important;
+  }
 }
 
 .grid { 
@@ -12,8 +14,8 @@ p + .grid {
   grid-row-gap: 20px;
   grid-template-columns: repeat(4, minmax(0, 1fr));
 
-  .column > h2 {
-    margin-top: 0px;
+  h2 {
+    margin-top: 0px !important;
   }
 }
 
@@ -40,8 +42,8 @@ p + .grid {
   }
 }
 
-.grid.icons.liquid-glass img, .grid.icons .liquid-glass {
-  border-radius: none !important;
+.grid.icons.liquid-glass, .grid.icons .liquid-glass {
+  border-radius: none;
   box-shadow: none;
 }
 

@@ -1,7 +1,7 @@
 ---
 title:  Detecting text in images with the Vision framework
 date:   2026-01-10 07:00:00 +0100
-tags:   swift swiftui vision machine-learning
+tags:   swift swiftui vision ai ml
 
 image-show: 0
 image: /assets/blog/26/0110/image.jpg
@@ -12,7 +12,7 @@ video: https://developer.apple.com/videos/play/wwdc2025/272
 wally: https://wally.app
 ---
 
-[Apple's Vision framework]({{page.docs}}) is an amazing framework for performing machine learning-based image analysis directly on device. Let's see how we can use it to extract text from images.
+[Apple's Vision framework]({{page.docs}}) is a framework for on-device machine learning-based image analysis. Let's see how we can use it to extract text from images in our apps.
 
 
 ## Vision APIs
