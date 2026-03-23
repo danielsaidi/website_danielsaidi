@@ -34,8 +34,8 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
         </div>
       </section>
       <hr />
-      <section>
-        {% include kankoda/titles/section title="Latest Posts" link="/blog" %}
+      <section class="slide-in">
+        {% include kankoda/titles/section title="Blog" link="/blog" %}
         <div class="blog grid col2">
           {% for post in site.posts limit:2 %}
           <div>
@@ -44,20 +44,19 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
           {% endfor %}
         </div>
       </section>
-      <hr />
-      <section class="opensource">
+      <section  class="slide-in opensource">
         {% include kankoda/titles/section title="Open Source" link="/opensource" %}
         {% include kankoda/grids/grid items=site.data.open-source type="icons" class="liquid-glass" limit=4 %}
       </section>
-      <section class="sdks">
+      <section  class="slide-in sdks">
         {% include kankoda/titles/section title="SDKs" link="/apps" %}
         {% include kankoda/grids/grid items=site.data.sdks type="icons" limit=4 %}
       </section>
-      <section class="apps">
+      <section  class="slide-in apps">
         {% include kankoda/titles/section title="Apps" link="/apps" %}
         {% include kankoda/grids/grid items=site.data.apps type="icons" limit=4 %}
       </section>
-      <section class="work">
+      <section  class="slide-in work">
         {% include kankoda/titles/section title="Work" link="/work" %}
         {% include kankoda/grids/grid items=site.data.work type="icons" limit=4 %}
       </section>

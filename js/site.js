@@ -14,45 +14,16 @@ function scrollToTop() {
   scrollToOffset(0);
 }
 
-
-// Animations
+// Footer mobile accordion
 
 document.addEventListener('DOMContentLoaded', function() {
-  console.log("TEST");
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+  document.querySelectorAll('.footer-toggle').forEach(function(toggle) {
+    toggle.addEventListener('click', function() {
+      const column = this.parentElement;
+      column.classList.toggle('expanded');
     });
-  }, {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-  });
-
-  document.querySelectorAll('.slide-up').forEach(item => {
-    observer.observe(item);
   });
 });
-
-
-// Licenses
-
-function hideAllLicenseTables() {
-  $(".feature-table").hide();
-  $(".button-container.pricing a").removeClass("active");
-}
-
-function hideLicenseTable(sub) {
-  $(".feature-table." + sub).hide();
-}
-
-function showLicenseTable(sub) {
-  hideAllLicenseTables();
-  $(".feature-table." + sub).show(); 
-  $(".button-container.pricing ." + sub).addClass("active");
-}
-
 
 // Tags
 
@@ -92,6 +63,33 @@ function showTag(tag) {
     window.location.href = "/blog#" + tag; 
   }
 }
+
+// Animations
+
+document.addEventListener('DOMContentLoaded', function () {
+  document.querySelectorAll('.slide-in').forEach(element => {
+    element.style.opacity = '0';
+  });
+
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '';
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.slide-in').forEach(element => {
+    observer.observe(element);
+  });
+});
 
 // Search ***
 
