@@ -4,17 +4,11 @@ $background-tertiary: #d8d8e0;
 
 $foreground: black;
 $foreground-contrast: white;
-$foreground-secondary: #333;
-$foreground-tertiary: #666;
+$foreground-secondary: #555;
+$foreground-tertiary: #888;
 
 $border: #ddd;
 $border-tertiary: #ccc;
-
-$button-container-background: $background-tertiary;
-$button-container-border: $border-tertiary;
-$button-container-foreground: $foreground;
-$button-container-selected-background: white;
-$button-container-selected-foreground: black;
 
 $code-background: #f3f3f366;
 $code-foreground: black;
@@ -26,15 +20,11 @@ $code-block-foreground: white;
 $cta-blue: #0171E3;
 $cta-background: $cta-blue;
 $cta-foreground: white;
-$cta-border: transparent;
 
 $feature-table-border-color: $border;
-$feature-table-background: white;
-$feature-table-even-row-color: #f7f7f7;
-$feature-table-shadow-color: transparent;
+$feature-table-even-row-color: #ffffff88;
 
-$footer-background: $background-secondary;
-$footer-background-glass: $background;
+$footer-background: white;
 
 $link: black;
 $link-hover: #888;
@@ -54,6 +44,14 @@ $tag-swiftui: #004080;
 $texture: transparent;
 $texture-size: 350px;
 $texture-overlay: transparent;
+
+$tier-tag-blue-bg: #EAF3FD;
+$tier-tag-blue-border: #D8E7FB;
+$tier-tag-blue-text: #4589EC;
+
+$tier-tag-orange-bg: rgb(255, 70, 0);
+$tier-tag-orange-border: rgb(255, 70, 0);
+$tier-tag-orange-text: white;
 
 $wrapper-width: 900px;
 $wrapper-width-wide: 1200px;

@@ -36,7 +36,7 @@ stockholm: https://www.google.com/maps/place/Stockholm/@59.3258414,17.70188,10z/
       <hr />
       <section>
         {% include kankoda/titles/section title="Latest Posts" link="/blog" %}
-        <div class="home blog grid">
+        <div class="blog grid col2">
           {% for post in site.posts limit:2 %}
           <div>
             {% include kankoda/blog/list-item post=posts.first %}

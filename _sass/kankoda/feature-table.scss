@@ -3,101 +3,51 @@
 
 .feature-table {
 
-  margin-bottom: 30px;
+  font-size: 0.9em;
+  margin: 60px 0;
+
+  .glass {
+    border-radius: 10px;
+  }
 
   .grid {
-    grid-row-gap: 10px;
     grid-column-gap: 5px;
     grid-template-columns: repeat(5, 1fr);
 
-    > div.feature { 
-      justify-content: left;
-      font-size: small;
-      font-weight: bold;
-      margin-left: 10px;
-    }
-
     > div {
       padding: 10px 0;
-      font-size: 0.9em;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-
-    .gumroad-button {
-      span.logo-full {
-        display: none;
-      }
-    }
   }
 
-  .grid.footer {
-    background-color: transparent;
-  }
-
-  .table-header-container {
+  .tiers {
     position: sticky; 
     top: 0;
-  }
 
-  .table-header {
-    padding: 6px;
-    border-radius: 10px;
-    margin-bottom: 15px;
+    .grid {
+      padding: 6px;
+      margin-bottom: 15px;
+    }
 
     .tier {
       border-radius: 7px;
       display: block;
       text-align: center;
-      background-color: rgba(255, 255, 255, 0.6);
       border: solid 1px $feature-table-border-color;
-
-      .cta {
-        display: block;
-        color: white;
-        background-color: black;
-        padding: 10px 15px;
-      }
-    }
-
-    .tier.silver, .tier.starter, .tier.standard {
-      background-color: rgba(100, 100, 100, 0.1);
-    }
-
-    .tier.gold, .tier.pro {
-      border: solid 1px gold;
-      background-color: rgba(255, 215, 0, 0.4);
-
-      .cta {
-        color: black !important;
-        background-color: gold;
-      }
-
-      .cta:hover {
-        text-decoration: none;
-        box-shadow: 1px 2px 2px $shadow;
-      }
-    }
-
-    .tier.custom, .tier.business {
-      border: solid 1px #334;
-      background-color: rgba(0, 0, 25, 0.8);
-      color: white;
-
-      .cta {
-        color: black;
-        background-color: white;
-      }
     }
 
     h3 {
       font-size: 1.1em;
     }
 
+    h3, p {
+      margin: 0; padding: 0;
+    }
+
     h3+div {
-      font-size: 1em;
-      font-weight: 600;
+      font-weight: 500;
 
       .subtitle {
         font-size: smaller;
@@ -106,51 +56,40 @@
       }
     }
 
-    h3, p {
-      margin: 0; padding: 0;
-    }
-
     .cta {
+      display: block;
+      padding: 10px 15px;
       margin: 20px 10px 0px 10px; 
     }
   }
 
-  .table-section-header {
-    background-color: $feature-table-background;
-    display: none;
-    padding: 5px 5px 0px 5px;
-    font-size: smaller;
-    font-weight: bold;
+  .sections > div {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+
+    .table-row:nth-child(even) {
+      background-color: $feature-table-even-row-color;
+    }
+
+    .feature { 
+      justify-content: left;
+      font-size: small;
+      font-weight: bold;
+      margin-left: 10px;
+    }
+
+    .feature.header {
+      display: none;
+      padding: 5px 5px 0px 5px;
+    }
   }
 
-  .table-section-header + .grid {
-    border-top: solid 1px $feature-table-border-color !important;
-  }
-
-  hr {
-    border: none !important;
-    border-bottom: solid 1px $feature-table-border-color !important;
-    height: 50px !important;
-    margin-top: 0 !important;
-    margin-bottom: 0 !important;
-    box-shadow: 0 20px 20px -20px $feature-table-shadow-color !important;
-    margin: -50px auto 10px !important; 
-  }
-
-  .grid + .grid {
-    border: none;
-  }
-
-  .even, .even + .grid {   // !!!
-    background-color: $feature-table-background;
-  }
-
-  .odd, .odd + .grid {   // !!!
-    background-color: $feature-table-even-row-color;
+  .sections > div + div {
+    margin-top: 20px;
   }
 }
 
-@media (max-width: 950px) {
+@media (max-width: 850px) {
 
   .feature-table.two-tier .grid { grid-template-columns: repeat(2, 1fr) !important; }
   .feature-table.three-tier .grid { grid-template-columns: repeat(3, 1fr) !important; }
@@ -158,38 +97,27 @@
   .feature-table {
 
     .grid {
-      grid-template-columns: repeat(4, 1fr) !important;
+      grid-template-columns: repeat(3, 1fr) !important;
 
       .feature {
         display: none;
         background-color: red;
       }
+
+      > div:nth-child(2) {
+        display: none;
+      }
     }
 
-    .table-section-header { 
-      display: inherit;
-      border-top: solid 1px $feature-table-border-color !important;
+    .feature.header {
+      display: inherit !important;
     }
-
-    .table-section-header + .grid {
-      border-top: none !important;
-    } 
   }
 }
   
 @media (max-width: 600px) {
 
   .feature-table {
-
-    font-size: smaller;
-
-    h3.regular { 
-      display: none !important; 
-    }
-    
-    h3.compact { 
-      display: block !important; 
-    }
 
     .cta {
       font-size: small;
