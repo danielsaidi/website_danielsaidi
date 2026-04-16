@@ -1,9 +1,7 @@
 ---
-title:  In case I'm not writing anymore
-date:   2026-05-31 08:00:00 +0000
+title:  Xcode MCP learnings
+date:   2026-04-30 08:00:00 +0000
 tags:   general
-
-icon:   blog
 
 github: https://github.com/danielsaidi
 music:  https://danielsaidi.com/music
