@@ -7,6 +7,7 @@ icon:   swiftui
 tweet:  https://twitter.com/danielsaidi/status/1521909311471034373?s=20&t=wF1kbk5Nxm27t6vxQ1OeLQ
 
 alert-post: https://danielsaidi.com/blog/2020/06/07/swiftui-alerts
+new-post:   /blog/2026/05/15/automatically-alerting-async-operation-errors-in-swiftui
 ---
 
 In this post, let's take a look at how to handle async errors in a flexible and scalable way in SwiftUI. We'll cover both completion block- and async/await-based use cases.
@@ -14,11 +15,9 @@ In this post, let's take a look at how to handle async errors in a flexible and 
 {% include kankoda/data/open-source name="SwiftUIKit" %}
 
 
-## TL;DR
+## Update 2026
 
-This post describes an observable `AlertContext` that can used to present alerts from any place in the app, an `ErrorAlertConvertible` protocol that can be implemented by `Error` types that can map the error to an `Alert`, and an `ErrorAlerter` protocol to present errors.
-
-Although the post contains a lot of text, the total amount of code is actually not that much. You can have a look at the already implemented code in [SwiftUIKit]({{project.url}}).
+This post is a few years old now, and is more complicated than it needs to be. It has been replace by a more modern approach to solve the same problem. You can read about it [here]({{page.new-post}}).
 
 
 
